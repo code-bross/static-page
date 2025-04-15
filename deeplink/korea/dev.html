@@ -7,10 +7,8 @@
      <script>
         let scheme = "com.truefriend.neosmartarenewal"
       
-        function getAcceeToken() {
-          let accessToken = MtsBridge.getAccessTokens();
-          console.log(accessToken);
-          alert(accessToken);
+        function requestAcceeToken() {
+          let accessToken = MtsBridge.requestAccessToken();
         }
 
         function receivedAccessToken(accessToken){
@@ -21,7 +19,7 @@
 </head>
 <body>
 
-<button type="button" onclick="getAcceeToken()">getToken</button> </br></br>
+<button type="button" onclick="requestAccessToken()">requestAccessToken</button> </br></br>
 
 </body>
 </html>
