@@ -6,14 +6,20 @@
     <title>Button Example</title>
      <script>
         let scheme = "com.truefriend.neosmartarenewal"
+        let latestAction = {};
+        let count = 0;
       
         function requestAcceeToken() {
           let accessToken = MtsBridge.requestAccessToken();
+          latestAction = function(){
+              console.log(count++);
+          };
         }
 
         function receivedAccessToken(accessToken){
             console.log(accessToken);
             alert(accessToken);
+            latestAction();
         }
     </script>
 </head>
