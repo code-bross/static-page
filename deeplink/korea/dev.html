@@ -21,11 +21,16 @@
             alert(accessToken);
             latestAction();
         }
+
+        function close(){
+            MtsBridge.closeb();
+        }
     </script>
 </head>
 <body>
 
 <button type="button" onclick="requestAccessToken()">requestAccessToken</button> </br></br>
+<button type="button" onclick="close()">close</button> </br></br>
 
 </body>
 </html>
