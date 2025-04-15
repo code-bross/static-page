@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Example</title>
+     <script>
+        let scheme = "com.truefriend.neosmartarenewal"
+        let latestAction = {};
+        let count = 0;
+      
+        function requestAcceeToken() {
+          let accessToken = MtsBridge.requestAccessToken();
+          latestAction = function(){
+              console.log(count++);
+          };
+        }
+
+        function receivedAccessToken(accessToken){
+            console.log(accessToken);
+            alert(accessToken);
+            latestAction();
+        }
+    </script>
+</head>
+<body>
+
+<button type="button" onclick="requestAccessToken()">requestAccessToken</button> </br></br>
+
+</body>
+</html>
