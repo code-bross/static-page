@@ -9,8 +9,8 @@
         let latestAction = {};
         let count = 0;
       
-        function requestAccessToken() {
-          let accessToken = MtsBridge.requestAccessToken();
+        function requestAccessToken(code) {
+          let accessToken = MtsBridge.requestAccessToken(code);
           latestAction = function(){
               console.log(count++);
           };
@@ -35,7 +35,8 @@
 </head>
 <body>
 
-<button type="button" onclick="requestAccessToken()">requestAccessToken</button> </br></br>
+<button type="button" onclick="requestAccessToken(0)">requestAccessToken code 0</button> </br></br>
+<button type="button" onclick="requestAccessToken(401)">requestAccessToken code 401</button> </br></br>
 <button type="button" onclick="close()">close</button> </br></br>
 <button type="button" onclick="closeClick()">closeClick</button> </br></br>
 
