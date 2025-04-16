@@ -58,7 +58,7 @@
               "imageHeight": 400
             };
             
-            MtsBridge.shareToKakaoTalk(data);
+            MtsBridge.shareToKakaoTalk(JSON.stringify(data));
         }
 
         function openExternalBrowserNaver(){
@@ -74,7 +74,7 @@
               "data": "SOR"
             };
             
-            MtsBridge.movePage(data);
+            MtsBridge.movePage(JSON.stringify(data));
         }
     </script>
 </head>
