@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Button Example</title>
      <script>
-        let scheme = "com.truefriend.neosmartarenewal"
+        let scheme = "mtsrn://"
         let latestAction = {};
         let count = 0;
       
@@ -40,7 +40,7 @@
 
         function launchDeeplink(url){
             console.log(url);
-            MtsBridge.launchDeeplink(url);
+            MtsBridge.launchDeeplink(scheme+url);
         }
     </script>
 </head>
@@ -50,7 +50,8 @@
 <button type="button" onclick="requestAccessToken(401)">requestAccessToken code 401</button> </br></br>
 <button type="button" onclick="close()">close</button> </br></br>
 <button type="button" onclick="closeClick()">closeClick</button> </br></br>
-<button type="button" onclick="launchDeeplink(mtsrn://content?SSO_SCREENNO=0900&openData=US◆NYS◆U◆2)">launchDeeplink AMZN</button> </br></br>
+<button type="button" onclick="launchDeeplink(\"content?SSO_SCREENNO=0900&openData=US◆NYS◆U◆2\")">launchDeeplink AMZN</button>
+
 
 </body>
 </html>
