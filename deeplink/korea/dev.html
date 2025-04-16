@@ -37,6 +37,11 @@
             console.log("close");
             MtsBridge.close();
         }
+
+        function launchDeeplink(url){
+            console.log(url);
+            MtsBridge.launchDeeplink(url);
+        }
     </script>
 </head>
 <body>
@@ -45,6 +50,7 @@
 <button type="button" onclick="requestAccessToken(401)">requestAccessToken code 401</button> </br></br>
 <button type="button" onclick="close()">close</button> </br></br>
 <button type="button" onclick="closeClick()">closeClick</button> </br></br>
+<button type="button" onclick="launchDeeplink(mtsrn://content?SSO_SCREENNO=0900&openData=US◆NYS◆U◆2)">launchDeeplink AMZN</button> </br></br>
 
 </body>
 </html>
