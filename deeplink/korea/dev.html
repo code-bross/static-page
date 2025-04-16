@@ -46,6 +46,36 @@
         function moveToUnity(){
             launchDeeplink("content?SSO_SCREENNO=0900&openData=US◆NYS◆U◆2")
         }
+
+        function kakaotalkShare(){
+            let data = {
+              "title": "줍줍 이벤트 공유 타이틀",
+              "content": "줍줍 이벤트 내용",
+              "buttonText": "하러가기",
+              "buttonLink": "mtsrn://content?SSO_SCREENNO=0504&openData=https://dev.kbox.kis-static.finance/pages/joob/index.html",
+              "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkcHusNLYd0My4Fs4eiuij2eXeWLgAi759AA&s",
+              "imageWidth": 600,
+              "imageHeight": 400
+            };
+            
+            MtsBridge.shareToKakaoTalk(data);
+        }
+
+        function openExternalBrowserNaver(){
+            let url = "https://www.naver.com/";
+            
+            MtsBridge.openExternalBrowser(url);
+        }
+
+        function movePage0802SOR(){
+            let data = {
+              "type": "screen",
+              "url": "0802",
+              "data": "SOR"
+            };
+            
+            MtsBridge.movePage(data);
+        }
     </script>
 </head>
 <body>
@@ -55,6 +85,9 @@
 <button type="button" onclick="close()">close</button> </br></br>
 <button type="button" onclick="closeClick()">closeClick</button> </br></br>
 <button type="button" onclick="moveToUnity()">launchDeeplink NYSE: U</button>
+<button type="button" onclick="kakaotalkShare()">kakaotalkShare</button>
+<button type="button" onclick="openExternalBrowserNaver()">openExternalBrowserNaver</button>
+<button type="button" onclick="movePage0802()">movePage0802SOR</button>
 
 
 </body>
