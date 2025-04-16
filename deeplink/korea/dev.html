@@ -9,8 +9,8 @@
         let latestAction = {};
         let count = 0;
       
-        function requestAccessToken(code) {
-          let accessToken = MtsBridge.requestAccessToken(code);
+        function requestAccessToken(code,level) {
+          let accessToken = MtsBridge.requestAccessToken(code,level);
           latestAction = function(){
               console.log(count++);
           };
@@ -80,8 +80,10 @@
 </head>
 <body>
 
-<button type="button" onclick="requestAccessToken(0)">requestAccessToken code 0</button> </br></br>
-<button type="button" onclick="requestAccessToken(401)">requestAccessToken code 401</button> </br></br>
+<button type="button" onclick="requestAccessToken(0,3)">requestAccessToken code 0, level 3</button> </br></br>
+<button type="button" onclick="requestAccessToken(401,3)">requestAccessToken code 401, level 3</button> </br></br>
+<button type="button" onclick="requestAccessToken(0,5)">requestAccessToken code 0, level 5</button> </br></br>
+<button type="button" onclick="requestAccessToken(401,5)">requestAccessToken code 401, level 5</button> </br></br>
 <button type="button" onclick="close()">close</button> </br></br>
 <button type="button" onclick="closeClick()">closeClick</button> </br></br>
 <button type="button" onclick="moveToUnity()">launchDeeplink NYSE: U</button> </br></br>
