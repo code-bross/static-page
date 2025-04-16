@@ -22,6 +22,12 @@
             latestAction();
         }
 
+         
+        function receiveFailed(message){
+            console.log(message);
+            alert(message);
+        }
+
         function close(){
             console.log("close");
             MtsBridge.close();
