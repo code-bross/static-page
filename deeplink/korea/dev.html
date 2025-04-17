@@ -27,9 +27,15 @@
         }
 
          function executeBridge(functionName) {
-            let bridge = getBridge()
-            
+            const bridge = getBridge();
+        
+            if (!bridge) {
+                console.warn("No bridge object found.");
+                return;
+            }
+        
             if (typeof bridge[functionName] === "function") {
+                // Android 방식
                 bridge[functionName]();
             } else if (typeof bridge.postMessage === "function") {
                 // iOS 방식 (postMessage 구조로 전달)
@@ -37,7 +43,7 @@
                     method: functionName
                 });
             } else {
-                console.warn(`Bridge does not support function: ${functionName}`);
+                console.warn(`Bridge does not support function or postMessage: ${functionName}`);
             }
         }
 
