@@ -1,152 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Button Example</title>
-     <script>
-        let scheme = "mtsrn://"
-        let latestAction = {};
-        let count = 0;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bridge Test</title>
+  <script>
+    let scheme = "mtsrn://";
+    let latestAction = {};
+    let count = 0;
 
+    function getBridge() {
+      const ua = navigator.userAgent || navigator.vendor || window.opera;
+      if (/android/i.test(ua)) {
+        console.log("android");
+        return window.MtsBridge;
+      } else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
+        console.log("iOS");
+        return window.webkit?.messageHandlers?.MtsBridge;
+      } else {
+        console.log("unknown platform");
+        return null;
+      }
+    }
 
-        function executeBridge(functionName, data = null) {
-            let bridge = getBridge()
-            
-            if (typeof bridge[functionName] === "function") {
-                if(data == null){
-                    bridge[functionName]();
-                }
-                else{
-                    bridge[functionName](data);
-                }
-            } else if (typeof bridge.postMessage === "function") {
-                if(data == null){
-                     bridge.postMessage({
-                        method: functionName
-                    });
-                }else{
-                     bridge.postMessage({
-                        method: functionName,
-                        payload: data
-                    });
-                }
-            } else {
-                console.warn(`Bridge does not support function: ${functionName}`);
-            }
-        
+    function executeBridge(functionName, data = null) {
+      const bridge = getBridge();
+      if (!bridge) {
+        console.warn("No bridge available");
+        return;
+      }
 
-        function getBridge(){
-            const ua = navigator.userAgent || navigator.vendor || window.opera;
-            if (/android/i.test(ua)) {
-                console.log('android');
-                return window.MtsBridge;
-            } else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
-                console.log('iOS');
-                return window.webkit?.messageHandlers;
-            } else {
-                console.log('unknown platform');
-                return null;
-            }
-        }
-      
-        function requestAccessToken(code,level) {
-          let data = {"requestCode": code , "level": level}
-          // let accessToken = MtsBridge.requestAccessToken(JSON.stringify(data));
-          executeBridge('requestAccessToken',JSON.stringify(data));
-          latestAction = function(){
-              console.log(count++);
-          };
-        }
+      if (typeof bridge[functionName] === "function") {
+        data != null ? bridge[functionName](data) : bridge[functionName]();
+      } else if (typeof bridge.postMessage === "function") {
+        const message = { method: functionName };
+        if (data != null) message.payload = data;
+        bridge.postMessage(message);
+      } else {
+        console.warn(`Bridge does not support: ${functionName}`);
+      }
+    }
 
-        function receivedAccessToken(accessToken){
-            console.log(accessToken);
-            alert(accessToken);
-            latestAction();
-        }
+    function requestAccessToken(code, level) {
+      const data = { requestCode: code, level: level };
+      executeBridge("requestAccessToken", JSON.stringify(data));
+      latestAction = function () {
+        console.log(count++);
+      };
+    }
 
-         
-        function receiveFailed(message){
-            console.log(message);
-            alert(message);
-        }
+    function receivedAccessToken(accessToken) {
+      console.log(accessToken);
+      alert(accessToken);
+      latestAction();
+    }
 
-        function close(){
-            console.log("close");
-            // MtsBridge.close();
-            executeBridge('close');
-        }
-         
-        function closeClick(){
-            console.log("close");
-            // MtsBridge.close();
-            executeBridge('close');
-        }
+    function receiveFailed(message) {
+      console.log(message);
+      alert(message);
+    }
 
-        function launchDeeplink(url){
-            console.log(url);
-            executeBridge('launchDeeplink', scheme+url);
-            // MtsBridge.launchDeeplink(scheme+url);
-        }
+    function close() {
+      console.log("close");
+      executeBridge("close");
+    }
 
-        function moveToUnity(){
-            executeBridge('launchDeeplink', 'content?SSO_SCREENNO=0900&openData=US◆NYS◆U◆2');
-            // launchDeeplink("content?SSO_SCREENNO=0900&openData=US◆NYS◆U◆2")
-        }
+    function closeClick() {
+      console.log("close click");
+      executeBridge("close");
+    }
 
-        function kakaotalkShare(){
-            let data = {
-              "title": "줍줍 이벤트 공유 타이틀",
-              "content": "줍줍 이벤트 내용",
-              "buttonText": "하러가기",
-              "buttonLink": "mtsrn://content?SSO_SCREENNO=0504&openData=https://dev.kbox.kis-static.finance/pages/joob/index.html",
-              "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkcHusNLYd0My4Fs4eiuij2eXeWLgAi759AA&s",
-              "imageWidth": 600,
-              "imageHeight": 400
-            };
-            executeBridge('shareToKakaoTalk', JSON.stringify(data));
-            // MtsBridge.shareToKakaoTalk(JSON.stringify(data));
-        }
+    function launchDeeplink(url) {
+      console.log(url);
+      executeBridge("launchDeeplink", scheme + url);
+    }
 
-        function openExternalBrowserNaver(){
-            let url = "https://www.naver.com/";
-            executeBridge('openExternalBrowser', url);
-            // MtsBridge.openExternalBrowser(url);
-        }
+    function moveToUnity() {
+      executeBridge("launchDeeplink", "content?SSO_SCREENNO=0900&openData=US◆NYS◆U◆2");
+    }
 
-        function movePage0802SOR(){
-            let data = {
-              "type": "screen",
-              "url": "0802",
-              "data": "SOR"
-            };
-            executeBridge('movePage', JSON.stringify(data));
-            // MtsBridge.movePage(JSON.stringify(data));
-        }
+    function kakaotalkShare() {
+      const data = {
+        title: "줍줍 이벤트 공유 타이틀",
+        content: "줍줍 이벤트 내용",
+        buttonText: "하러가기",
+        buttonLink: "mtsrn://content?SSO_SCREENNO=0504&openData=https://dev.kbox.kis-static.finance/pages/joob/index.html",
+        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkcHusNLYd0My4Fs4eiuij2eXeWLgAi759AA&s",
+        imageWidth: 600,
+        imageHeight: 400
+      };
+      executeBridge("shareToKakaoTalk", JSON.stringify(data));
+    }
 
-        function confirmPhoneNumber(){
-            // MtsBridge.confirmPhoneNumber();
-        }
+    function openExternalBrowserNaver() {
+      const url = "https://www.naver.com/";
+      executeBridge("openExternalBrowser", url);
+    }
 
-        function selectAccount(){
-            // MtsBridge.selectAccount();
-        }
-    </script>
+    function movePage0802SOR() {
+      const data = {
+        type: "screen",
+        url: "0802",
+        data: "SOR"
+      };
+      executeBridge("movePage", JSON.stringify(data));
+    }
+
+    function confirmPhoneNumber() {
+      executeBridge("confirmPhoneNumber");
+    }
+
+    function selectAccount() {
+      executeBridge("selectAccount");
+    }
+  </script>
 </head>
 <body>
 
-<button type="button" onclick="requestAccessToken(0,'AUTH_LEVEL_3')">requestAccessToken code 0, level 3</button> </br></br>
-<button type="button" onclick="requestAccessToken(401,'AUTH_LEVEL_3')">requestAccessToken code 401, level 3</button> </br></br>
-<button type="button" onclick="requestAccessToken(0,'AUTH_LEVEL_5')">requestAccessToken code 0, level 5</button> </br></br>
-<button type="button" onclick="requestAccessToken(401,'AUTH_LEVEL_5')">requestAccessToken code 401, level 5</button> </br></br>
-<button type="button" onclick="close()">close</button> </br></br>
-<button type="button" onclick="closeClick()">closeClick</button> </br></br>
-<button type="button" onclick="moveToUnity()">launchDeeplink NYSE: U</button> </br></br>
-<button type="button" onclick="kakaotalkShare()">kakaotalkShare</button> </br></br>
-<button type="button" onclick="openExternalBrowserNaver()">openExternalBrowserNaver</button> </br></br>
-<button type="button" onclick="selectAccount()">selectAccount</button> </br></br>
-<button type="button" onclick="confirmPhoneNumber()">confirmPhoneNumber</button> </br></br>
+  <button onclick="requestAccessToken(0,'AUTH_LEVEL_3')">requestAccessToken code 0, level 3</button><br/><br/>
+  <button onclick="requestAccessToken(401,'AUTH_LEVEL_3')">requestAccessToken code 401, level 3</button><br/><br/>
+  <button onclick="requestAccessToken(0,'AUTH_LEVEL_5')">requestAccessToken code 0, level 5</button><br/><br/>
+  <button onclick="requestAccessToken(401,'AUTH_LEVEL_5')">requestAccessToken code 401, level 5</button><br/><br/>
 
+  <button onclick="close()">close</button><br/><br/>
+  <button onclick="closeClick()">closeClick</button><br/><br/>
+  <button onclick="moveToUnity()">launchDeeplink NYSE: U</button><br/><br/>
+  <button onclick="kakaotalkShare()">kakaotalkShare</button><br/><br/>
+  <button onclick="openExternalBrowserNaver()">openExternalBrowserNaver</button><br/><br/>
+  <button onclick="selectAccount()">selectAccount</button><br/><br/>
+  <button onclick="confirmPhoneNumber()">confirmPhoneNumber</button><br/><br/>
 
 </body>
 </html>
