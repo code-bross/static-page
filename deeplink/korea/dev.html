@@ -32,7 +32,7 @@
 
       if (typeof bridge[functionName] === "function") {
         data != null ? bridge[functionName](data) : bridge[functionName]();
-      } else if (typeof bridge[functionName] === "function") {
+      } else if (typeof bridge[functionName] === "object") {
         bridge[functionName].postMessage(data != null ? data : "");
       } else {
         console.warn(`Bridge does not support: ${functionName}`);
