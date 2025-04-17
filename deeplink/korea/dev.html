@@ -125,6 +125,16 @@
     function launchDeviceNotificationSetting(){
       executeBridge("launchDeviceNotificationSetting");
     }
+
+    function launchMarketingAgreementPdf(){
+      let openData = {ControlName=\"\",Title=\"개인(신용)정보 수집 이용 동의서\",SummaryURL=\"https://file.truefriend.com/Storage/customer/guide/regards/personal_credit_info_agree3.htm\",DetailURL=\"https://file.truefriend.com/Storage/customer/guide/regards/personal_credit_info_agree3_spec.htm\"}
+      const data = {
+        type: "screen",
+        url: "rn0000P43",
+        data: openData
+      };
+      executeBridge("movePage", JSON.stringify(data));       
+    }
   </script>
 </head>
 <body>
@@ -143,6 +153,7 @@
   <button onclick="specialCardMove()">specialCardMove</button><br/><br/>
   <button onclick="requestCheckDeviceNotificationPermission()">requestCheckDeviceNotificationPermission</button><br/><br/>
   <button onclick="launchDeviceNotificationSetting()">launchDeviceNotificationSetting</button><br/><br/>
+  <button onclick="launchMarketingAgreementPdf()">launchMarketingAgreementPdf</button><br/><br/>
 
 </body>
 </html>
