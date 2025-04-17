@@ -125,6 +125,10 @@
       console.log(enabled);
       alert('device notification permission : ' + enabled);
     }
+
+    function launchDeviceNotificationSetting(){
+      executeBridge("launchDeviceNotificationSetting");
+    }
   </script>
 </head>
 <body>
@@ -143,6 +147,7 @@
   <button onclick="confirmPhoneNumber()">confirmPhoneNumber</button><br/><br/>
   <button onclick="specialCardMove()">specialCardMove</button><br/><br/>
   <button onclick="requestCheckDeviceNotificationPermission()">requestCheckDeviceNotificationPermission</button><br/><br/>
+  <button onclick="launchDeviceNotificationSetting()">launchDeviceNotificationSetting</button><br/><br/>
 
 </body>
 </html>
