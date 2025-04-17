@@ -111,9 +111,19 @@
     function selectAccount() {
       executeBridge("selectAccount");
     }
+    
     function specialCardMove() {
       const url = "https://securities.koreainvestment.com/app/mtsrenewal.jsp?type=06&SSO_SCREENNO=0383&openData=domestic^SEP^51^SEP^242";
       executeBridge("openExternalBrowser", url);
+    }
+
+    function requestCheckDeviceNotificationPermission(){
+      executeBridge("requestCheckDeviceNotificationPermission");
+    }
+
+    function receivedDeviceNotificationPermission(enabled) {
+      console.log(enabled);
+      alert('device notification permission : ' + enabled);
     }
   </script>
 </head>
@@ -132,6 +142,7 @@
   <button onclick="selectAccount()">selectAccount</button><br/><br/>
   <button onclick="confirmPhoneNumber()">confirmPhoneNumber</button><br/><br/>
   <button onclick="specialCardMove()">specialCardMove</button><br/><br/>
+  <button onclick="requestCheckDeviceNotificationPermission()">requestCheckDeviceNotificationPermission</button><br/><br/>
 
 </body>
 </html>
