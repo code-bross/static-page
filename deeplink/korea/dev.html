@@ -16,6 +16,7 @@
             if (typeof bridge[functionName] === "function") {
                 if(data == null){
                     bridge[functionName]();
+                }
                 else{
                     bridge[functionName](data);
                 }
