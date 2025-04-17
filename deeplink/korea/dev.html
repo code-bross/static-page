@@ -8,10 +8,57 @@
         let scheme = "mtsrn://"
         let latestAction = {};
         let count = 0;
+
+
+        function executeBridge(functionName, data) {
+            let bridge = getBridge()
+            
+            if (typeof bridge[functionName] === "function") {
+                bridge[functionName](data);
+            } else if (typeof bridge.postMessage === "function") {
+                // iOS 방식 (postMessage 구조로 전달)
+                bridge.postMessage({
+                    method: functionName,
+                    payload: data
+                });
+            } else {
+                console.warn(`Bridge does not support function: ${functionName}`);
+            }
+        }
+
+         function executeBridge(functionName) {
+            let bridge = getBridge()
+            
+            if (typeof bridge[functionName] === "function") {
+                bridge[functionName]();
+            } else if (typeof bridge.postMessage === "function") {
+                // iOS 방식 (postMessage 구조로 전달)
+                bridge.postMessage({
+                    method: functionName
+                });
+            } else {
+                console.warn(`Bridge does not support function: ${functionName}`);
+            }
+        }
+
+        function getBridge(){
+            const ua = navigator.userAgent || navigator.vendor || window.opera;
+            if (/android/i.test(ua)) {
+                console.log('android');
+                return window.MtsBridge;
+            } else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
+                console.log('iOS');
+                return window.webkit?.messageHandlers?.MtsBridge;
+            } else {
+                console.log('unknown platform');
+                return null;
+            }
+        }
       
         function requestAccessToken(code,level) {
           let data = {"requestCode": code , "level": level}
-          let accessToken = MtsBridge.requestAccessToken(JSON.stringify(data));
+          // let accessToken = MtsBridge.requestAccessToken(JSON.stringify(data));
+          executeBridge('requestAccessToken',JSON.stringify(data));
           latestAction = function(){
               console.log(count++);
           };
@@ -31,21 +78,25 @@
 
         function close(){
             console.log("close");
-            MtsBridge.close();
+            // MtsBridge.close();
+            executeBridge('close');
         }
          
         function closeClick(){
             console.log("close");
-            MtsBridge.close();
+            // MtsBridge.close();
+            executeBridge('close');
         }
 
         function launchDeeplink(url){
             console.log(url);
-            MtsBridge.launchDeeplink(scheme+url);
+            executeBridge('launchDeeplink', scheme+url);
+            // MtsBridge.launchDeeplink(scheme+url);
         }
 
         function moveToUnity(){
-            launchDeeplink("content?SSO_SCREENNO=0900&openData=US◆NYS◆U◆2")
+            executeBridge('launchDeeplink', 'content?SSO_SCREENNO=0900&openData=US◆NYS◆U◆2');
+            // launchDeeplink("content?SSO_SCREENNO=0900&openData=US◆NYS◆U◆2")
         }
 
         function kakaotalkShare(){
@@ -58,14 +109,14 @@
               "imageWidth": 600,
               "imageHeight": 400
             };
-            
-            MtsBridge.shareToKakaoTalk(JSON.stringify(data));
+            executeBridge('shareToKakaoTalk', JSON.stringify(data));
+            // MtsBridge.shareToKakaoTalk(JSON.stringify(data));
         }
 
         function openExternalBrowserNaver(){
             let url = "https://www.naver.com/";
-            
-            MtsBridge.openExternalBrowser(url);
+            executeBridge('openExternalBrowser', url);
+            // MtsBridge.openExternalBrowser(url);
         }
 
         function movePage0802SOR(){
@@ -74,16 +125,16 @@
               "url": "0802",
               "data": "SOR"
             };
-            
-            MtsBridge.movePage(JSON.stringify(data));
+            executeBridge('movePage', JSON.stringify(data));
+            // MtsBridge.movePage(JSON.stringify(data));
         }
 
         function confirmPhoneNumber(){
-            MtsBridge.confirmPhoneNumber();
+            // MtsBridge.confirmPhoneNumber();
         }
 
         function selectAccount(){
-            MtsBridge.selectAccount();
+            // MtsBridge.selectAccount();
         }
     </script>
 </head>
