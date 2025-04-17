@@ -10,42 +10,30 @@
         let count = 0;
 
 
-        function executeBridge(functionName, data) {
+        function executeBridge(functionName, data = null) {
             let bridge = getBridge()
             
             if (typeof bridge[functionName] === "function") {
-                bridge[functionName](data);
+                if(data == null){
+                    bridge[functionName]();
+                else{
+                    bridge[functionName](data);
+                }
             } else if (typeof bridge.postMessage === "function") {
-                // iOS 방식 (postMessage 구조로 전달)
-                bridge.postMessage({
-                    method: functionName,
-                    payload: data
-                });
+                if(data == null){
+                     bridge.postMessage({
+                        method: functionName
+                    });
+                }else{
+                     bridge.postMessage({
+                        method: functionName,
+                        payload: data
+                    });
+                }
             } else {
                 console.warn(`Bridge does not support function: ${functionName}`);
             }
-        }
-
-         function executeBridge(functionName) {
-            const bridge = getBridge();
         
-            if (!bridge) {
-                console.warn("No bridge object found.");
-                return;
-            }
-        
-            if (typeof bridge[functionName] === "function") {
-                // Android 방식
-                bridge[functionName]();
-            } else if (typeof bridge.postMessage === "function") {
-                // iOS 방식 (postMessage 구조로 전달)
-                bridge.postMessage({
-                    method: functionName
-                });
-            } else {
-                console.warn(`Bridge does not support function or postMessage: ${functionName}`);
-            }
-        }
 
         function getBridge(){
             const ua = navigator.userAgent || navigator.vendor || window.opera;
