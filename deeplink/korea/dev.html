@@ -16,7 +16,7 @@
         return window.MtsBridge;
       } else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
         console.log("iOS");
-        return window.webkit?.messageHandlers?.MtsBridge;
+        return window.webkit?.messageHandlers;
       } else {
         console.log("unknown platform");
         return null;
