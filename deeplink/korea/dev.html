@@ -139,6 +139,15 @@
     function receivedMarketingNotificationAgreement(enabled){
       alert('receivedMarketingNotificationAgreement : ' + enabled);
     }
+
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        console.log("클립보드에 복사되었습니다.");
+        alert("복사 완료!");
+      }).catch(err => {
+        console.error("복사 실패:", err);
+      });
+    }
     
   </script>
 </head>
@@ -159,6 +168,8 @@
   <button onclick="requestCheckDeviceNotificationPermission()">requestCheckDeviceNotificationPermission</button><br/><br/>
   <button onclick="launchDeviceNotificationSetting()">launchDeviceNotificationSetting</button><br/><br/>
   <button onclick="launchMarketingAgreementPdf()">launchMarketingAgreementPdf</button><br/><br/>
+  <button onclick="copyToClipboard('복사할 텍스트')">클립보드 복사</button>
+
 
 </body>
 </html>
