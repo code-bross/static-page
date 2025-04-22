@@ -136,6 +136,15 @@
       executeBridge("movePage", JSON.stringify(data));       
     }
 
+   function launchRn5400P15(){
+      const data = {
+        type: "formde_popup",
+        url: "rn5400P15",
+        data: ''
+      };
+      executeBridge("movePage", JSON.stringify(data));       
+    }
+
     function receivedMarketingNotificationAgreement(enabled){
       alert('receivedMarketingNotificationAgreement : ' + enabled);
     }
@@ -172,6 +181,7 @@
   <button onclick="requestCheckDeviceNotificationPermission()">requestCheckDeviceNotificationPermission</button><br/><br/>
   <button onclick="launchDeviceNotificationSetting()">launchDeviceNotificationSetting</button><br/><br/>
   <button onclick="launchMarketingAgreementPdf()">launchMarketingAgreementPdf</button><br/><br/>
+  <button onclick="launchRn5400P15()">launchRn5400P15</button><br/><br/>
   <button onclick="copyToClipboard('copy text')">Clipboard copy</button><br/><br/>
   <button onclick="contentShare('contentShare test message')">contentShare</button><br/><br/>
 
