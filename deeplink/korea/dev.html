@@ -157,6 +157,11 @@
       executeBridge("movePage", JSON.stringify(data));       
     }
 
+    function receivedPdfConfirm(agreement){
+      console.log('receivedPdfConfirm : ' + agreement);
+      alert('receivedPdfConfirm : ' + agreement);
+    }
+
     function receivedPopupConfirmStatus(screenName, key){
       console.log('receivedPopupConfirmStatus - screenName : ' + screenName + 'key : '   + key);
       alert('receivedPopupConfirmStatus - screenName : ' + screenName + 'key : '   + key);
