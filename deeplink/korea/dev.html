@@ -146,6 +146,17 @@
       executeBridge("movePage", JSON.stringify(data));       
     }
 
+    
+    function launchAgreementPdf(){
+     let openData = 'https://file.truefriend.com/Storage/mobile/event/fs_731_promotion_event_2212.pdf^SEP^개인정보 수집 • 이용 동의^SEP^예,동의하기';
+     const data = {
+        type: "native",
+        url: "0601",
+        data: openData
+      };
+      executeBridge("movePage", JSON.stringify(data));       
+    }
+
     function receivedPopupConfirmStatus(screenName, key){
       console.log('receivedPopupConfirmStatus - screenName : ' + screenName + 'key : '   + key);
       alert('receivedPopupConfirmStatus - screenName : ' + screenName + 'key : '   + key);
@@ -184,6 +195,7 @@
   <button onclick="launchDeviceNotificationSetting()">launchDeviceNotificationSetting</button><br/><br/>
   <button onclick="launchMarketingAgreementPdf()">launchMarketingAgreementPdf</button><br/><br/>
   <button onclick="launchRn0000P04()">launchRn0000P04</button><br/><br/>
+  <button onclick="launchAgreementPdf()">launchAgreementPdf</button><br/><br/>
   <button onclick="copyToClipboard('copy text')">Clipboard copy</button><br/><br/>
   <button onclick="contentShare('contentShare test message')">contentShare</button><br/><br/>
 
