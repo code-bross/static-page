@@ -137,10 +137,11 @@
     }
 
    function launchRn0000P04(){
-      const data = {
+     let openData = '{BtnClosePos="0",TitleCap="개인정보 수집 • 이용 동의",WebViewUrl="https://file.truefriend.com/Storage/mobile/event/fs_731_promotion_event_2212.pdf",BtnCloseVisible="1",BtnCount="1",BtnRightCap="동의"}}';
+     const data = {
         type: "formde_popup",
         url: "rn0000P04",
-        data: '{BtnClosePos="0",TitleCap="개인정보 수집 • 이용 동의",WebViewUrl="https://file.truefriend.com/Storage/mobile/event/fs_731_promotion_event_2212.pdf",BtnCloseVisible="1",BtnCount="1",BtnRightCap="동의"}}'
+        data: openData
       };
       executeBridge("movePage", JSON.stringify(data));       
     }
