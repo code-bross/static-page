@@ -197,12 +197,7 @@
 
     function launchNewJoobJoobEvent(zone){
      let openData = 'https://' + zone + '.kbox.kis-static.finance/pages/joob/index.html';
-     const data = {
-        type: "native",
-        url: "0504",
-        data: openData
-      };
-      executeBridge("movePage", JSON.stringify(data));       
+      executeBridge("launchDeeplink", scheme + 'content?SSO_SCREENNO=0504&openData=' + openData);
     }
     
   </script>
