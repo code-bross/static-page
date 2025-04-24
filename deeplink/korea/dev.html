@@ -199,6 +199,10 @@
      let openData = 'https://' + zone + '.kbox.kis-static.finance/pages/joob/index.html';
       executeBridge("launchDeeplink", scheme + 'content?SSO_SCREENNO=0504&openData=' + openData);
     }
+
+    function moveFailedPage(){
+      window.location.href = "move failed page";
+    }
     
   </script>
 </head>
@@ -226,6 +230,7 @@
   <button onclick="refreshActionTest()">refreshActionTest</button><br/><br/>
   <button onclick="launchNewJoobJoobEvent('dev')">move joobjoob dev</button><br/><br/>
   <button onclick="launchNewJoobJoobEvent('test')">move joobjoob test</button><br/><br/>
+  <button onclick="moveFailedPage()">move failedPage</button><br/><br/>
 
 </body>
 </html>
