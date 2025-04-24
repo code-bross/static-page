@@ -194,6 +194,16 @@
       }
       // ex move page 
     }
+
+    function launchNewJoobJoobEvent(zone){
+     let openData = 'https://+'zone'+.kbox.kis-static.finance/pages/joob/index.html';
+     const data = {
+        type: "native",
+        url: "0504",
+        data: openData
+      };
+      executeBridge("movePage", JSON.stringify(data));       
+    }
     
   </script>
 </head>
@@ -219,6 +229,8 @@
   <button onclick="copyToClipboard('copy text')">Clipboard copy</button><br/><br/>
   <button onclick="contentShare('contentShare test message')">contentShare</button><br/><br/>
   <button onclick="refreshActionTest()">refreshActionTest</button><br/><br/>
+  <button onclick="launchNewJoobJoobEvent('dev')">move joobjoob dev</button><br/><br/>
+  <button onclick="launchNewJoobJoobEvent('test')">move joobjoob test</button><br/><br/>
 
 </body>
 </html>
