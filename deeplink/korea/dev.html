@@ -8,6 +8,7 @@
     let scheme = "mtsrn://";
     let latestAction = {};
     let count = 0;
+    let refreshAction = null;
 
     function getBridge() {
       const ua = navigator.userAgent || navigator.vendor || window.opera;
@@ -179,6 +180,19 @@
     function contentShare(message){
       executeBridge("contentShare", message);  
     }
+
+    function refresh(){
+      if(refreshAction !=null){
+        refreshAction();
+      }
+      refreshAction = null;
+    }
+
+    function refreshActionTest(){
+      refreshAction = function () {
+        alert('refreshActionTest');
+      }
+    }
     
   </script>
 </head>
@@ -203,6 +217,7 @@
   <button onclick="launchAgreementPdf()">launchAgreementPdf</button><br/><br/>
   <button onclick="copyToClipboard('copy text')">Clipboard copy</button><br/><br/>
   <button onclick="contentShare('contentShare test message')">contentShare</button><br/><br/>
+  <button onclick="refreshActionTest()">refreshActionTest</button><br/><br/>
 
 </body>
 </html>
