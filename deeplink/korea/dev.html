@@ -10,11 +10,11 @@
     let count = 0;
     let refreshAction = null;
 
-    function getBridge() {
+    function getBridge(name) {
       const ua = navigator.userAgent || navigator.vendor || window.opera;
       if (/android/i.test(ua)) {
         console.log("android");
-        return window.MtsBridge;
+        return window[name];
       } else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
         console.log("iOS");
         return window.webkit?.messageHandlers;
@@ -24,8 +24,8 @@
       }
     }
 
-    function executeBridge(functionName, data = null) {
-      const bridge = getBridge();
+    function executeBridge(bridgeName ='MtsBridge', functionName, data = null) {
+      const bridge = getBridge(bridgeName);
       if (!bridge) {
         console.warn("No bridge available");
         return;
