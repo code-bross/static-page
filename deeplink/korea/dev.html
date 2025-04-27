@@ -24,7 +24,7 @@
       }
     }
 
-    function executeBridge(bridgeName ='MtsBridge', functionName, data = null) {
+    function executeBridge(functionName, data = null, bridgeName ='MtsBridge', ) {
       const bridge = getBridge(bridgeName);
       if (!bridge) {
         console.warn("No bridge available");
@@ -203,6 +203,11 @@
     function moveFailedPage(){
       window.location.href = "https://dev.kbox.kis-static.finance/pages/joob/event/indexasdhjkkashdkjasd";
     }
+
+
+    function testMtsActualInvestBridge(){
+      executeBridge('showTaost', 'testMtsActualInvestBridge', 'MtsActualInvestBridge')
+    }
     
   </script>
 </head>
@@ -231,6 +236,7 @@
   <button onclick="launchNewJoobJoobEvent('dev')">move joobjoob dev</button><br/><br/>
   <button onclick="launchNewJoobJoobEvent('test')">move joobjoob test</button><br/><br/>
   <button onclick="moveFailedPage()">move failedPage</button><br/><br/>
+  <button onclick="testMtsActualInvestBridge()">testMtsActualInvestBridge</button><br/><br/>
 
 </body>
 </html>
