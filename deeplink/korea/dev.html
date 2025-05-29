@@ -208,6 +208,14 @@
     function testMtsActualInvestBridge(){
       executeBridge('showToast', null, 'MtsActualInvestBridge')
     }
+
+    function receivedPassword(password){
+      alert(password);
+    }
+
+    function requestPasswordInput(){
+      requestPasswordInput("requestPasswordInput");  
+    }
     
   </script>
 </head>
@@ -237,6 +245,7 @@
   <button onclick="launchNewJoobJoobEvent('test')">move joobjoob test</button><br/><br/>
   <button onclick="moveFailedPage()">move failedPage</button><br/><br/>
   <button onclick="testMtsActualInvestBridge()">testMtsActualInvestBridge</button><br/><br/>
+  <button onclick="requestPasswordInput()">requestPasswordInput</button><br/><br/>
 
 </body>
 </html>
