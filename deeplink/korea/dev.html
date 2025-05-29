@@ -213,8 +213,12 @@
       alert(password);
     }
 
-    function requestPasswordInput(accountNumber){
-      executeBridge('requestPasswordInput', accountNumber);
+    function requestAccountPasswordVerification(accountNumber, type){
+      const data = {
+          cano: accountNumber,
+          prdt_cd: type
+      };
+      executeBridge('requestAccountPasswordVerification', JSON.stringify(data));
     }
     
   </script>
@@ -245,7 +249,7 @@
   <button onclick="launchNewJoobJoobEvent('test')">move joobjoob test</button><br/><br/>
   <button onclick="moveFailedPage()">move failedPage</button><br/><br/>
   <button onclick="testMtsActualInvestBridge()">testMtsActualInvestBridge</button><br/><br/>
-  <button onclick="requestPasswordInput('81170545-01')">requestPasswordInput</button><br/><br/>
+  <button onclick="requestAccountPasswordVerification('81170545','01')">requestAccountPasswordVerification</button><br/><br/>
 
 </body>
 </html>
