@@ -220,6 +220,16 @@
       };
       executeBridge('requestAccountPasswordVerification', JSON.stringify(data));
     }
+
+    function homeMyAsset(){
+     let openData = 'asset';
+     const data = {
+        type: "native",
+        url: "0001",
+        data: openData
+      };
+      executeBridge("movePage", JSON.stringify(data));       
+    }
     
   </script>
 </head>
@@ -230,6 +240,7 @@
   <button onclick="requestAccessToken(0,'AUTH_LEVEL_5')">requestAccessToken code 0, level 5</button><br/><br/>
   <button onclick="requestAccessToken(401,'AUTH_LEVEL_5')">requestAccessToken code 401, level 5</button><br/><br/>
 
+  <button onclick="homeMyAsset()">launchDeeplink homeMyAsset</button><br/><br/>
   <button onclick="closeClick()">closeClick</button><br/><br/>
   <button onclick="moveToUnity()">launchDeeplink NYSE: U</button><br/><br/>
   <button onclick="kakaotalkShare()">kakaotalkShare</button><br/><br/>
