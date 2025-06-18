@@ -242,6 +242,18 @@
       };
       executeBridge("movePage", JSON.stringify(data));       
     }
+
+    
+
+    function noticeBottomPopupType(){
+     let openData = '타이틀1^SEP^타이틀2^SEP^내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용^SEP^https://www.naver.com/';
+     const data = {
+        type: "native_popup",
+        url: "0391",
+        data: openData
+      };
+      executeBridge("movePage", JSON.stringify(data));       
+    }
     
   </script>
 </head>
@@ -254,6 +266,7 @@
 
   <button onclick="homeMyAsset()">homeMyAsset</button><br/><br/>
   <button onclick="noticeBottomPopup()">noticeBottomPopup</button><br/><br/>
+  <button onclick="noticeBottomPopupType()">noticeBottomPopupType</button><br/><br/>
   <button onclick="closeClick()">closeClick</button><br/><br/>
   <button onclick="moveToUnity()">launchDeeplink NYSE: U</button><br/><br/>
   <button onclick="kakaotalkShare()">kakaotalkShare</button><br/><br/>
