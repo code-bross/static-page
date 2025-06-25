@@ -260,6 +260,15 @@
     function onBackPressed(){
       return false
     }
+
+    
+    function requestDefaultAccountNo(){
+      executeBridge('requestDefaultAccountNo');
+    }
+
+    function receivedAccountNo(accountNuber, accountType){
+      alert('accountNuber : ' + accountNuber + ', accountType : ' + accountType);
+    }
     
   </script>
 </head>
@@ -271,6 +280,7 @@
   <button onclick="requestAccessToken(401,'AUTH_LEVEL_5')">requestAccessToken code 401, level 5</button><br/><br/>
 
   <button onclick="homeMyAsset()">homeMyAsset</button><br/><br/>
+  <button onclick="requestDefaultAccountNo()">requestDefaultAccountNo</button><br/><br/>
   <button onclick="noticeBottomPopup()">noticeBottomPopup</button><br/><br/>
   <button onclick="noticeBottomPopupLinkType()">noticeBottomPopupLinkType</button><br/><br/>
   <button onclick="closeClick()">closeClick</button><br/><br/>
