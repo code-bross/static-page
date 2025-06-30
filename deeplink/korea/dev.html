@@ -269,6 +269,15 @@
     function receivedAccountNo(accountNuber, accountType){
       alert('accountNuber : ' + accountNuber + ', accountType : ' + accountType);
     }
+
+    function requestUserAgent(){
+      executeBridge('requestUserAgent');
+    }
+
+    function receivedUserAgent(data){
+      alert(data);
+    }
+
     
   </script>
 </head>
@@ -281,6 +290,7 @@
 
   <button onclick="homeMyAsset()">homeMyAsset</button><br/><br/>
   <button onclick="requestDefaultAccountNo()">requestDefaultAccountNo</button><br/><br/>
+  <button onclick="requestUserAgent()">requestUserAgent</button><br/><br/>
   <button onclick="noticeBottomPopup()">noticeBottomPopup</button><br/><br/>
   <button onclick="noticeBottomPopupLinkType()">noticeBottomPopupLinkType</button><br/><br/>
   <button onclick="closeClick()">closeClick</button><br/><br/>
