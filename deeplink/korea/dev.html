@@ -278,6 +278,10 @@
       alert(data);
     }
 
+    function kakaoShareNaverUrl(){
+      location.href = 'kakaotalk://send?https://www.naver.com/';
+    }
+
     
   </script>
 </head>
@@ -289,6 +293,7 @@
   <button onclick="requestAccessToken(401,'AUTH_LEVEL_5')">requestAccessToken code 401, level 5</button><br/><br/>
 
   <button onclick="homeMyAsset()">homeMyAsset</button><br/><br/>
+  <button onclick="kakaoShareNaverUrl()">kakaoShareNaverUrl</button><br/><br/>
   <button onclick="requestDefaultAccountNo()">requestDefaultAccountNo</button><br/><br/>
   <button onclick="requestUserAgent()">requestUserAgent</button><br/><br/>
   <button onclick="noticeBottomPopup()">noticeBottomPopup</button><br/><br/>
