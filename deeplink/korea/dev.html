@@ -283,6 +283,23 @@
     }
 
     
+    function sendLog() {
+      const data = {
+        logEvent: "login_tr",
+        logData: {
+          tr_code: 'TPF4002R',
+          tr_time: '1752133954730',
+          option: 'T8',
+          tr_result: 'success',
+          tr_request_timestamp: '1752133954608',
+          tr_login_type: 'manual',
+
+        }
+      };
+      executeBridge("sendLog", JSON.stringify(data));
+    }
+
+    
   </script>
 </head>
 <body>
@@ -293,6 +310,7 @@
   <button onclick="requestAccessToken(401,'AUTH_LEVEL_5')">requestAccessToken code 401, level 5</button><br/><br/>
 
   <button onclick="homeMyAsset()">homeMyAsset</button><br/><br/>
+  <button onclick="sendLog()">sendLog</button><br/><br/>
   <button onclick="kakaoShareNaverUrl()">kakaoShareNaverUrl</button><br/><br/>
   <button onclick="requestDefaultAccountNo()">requestDefaultAccountNo</button><br/><br/>
   <button onclick="requestUserAgent()">requestUserAgent</button><br/><br/>
