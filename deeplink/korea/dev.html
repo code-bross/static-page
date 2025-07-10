@@ -285,15 +285,10 @@
     
     function sendLog() {
       const data = {
-        logEvent: "login_tr",
+        logEvent: "click__confrim_login",
         logData: {
-          tr_code: 'TPF4002R',
-          tr_time: '1752133954730',
-          option: 'T8',
-          tr_result: 'success',
-          tr_request_timestamp: '1752133954608',
-          tr_login_type: 'manual',
-
+          screen_name: 'login__joint_ctfe',
+          log_type: 'event'
         }
       };
       executeBridge("sendLog", JSON.stringify(data));
