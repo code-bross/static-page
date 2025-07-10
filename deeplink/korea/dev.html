@@ -284,12 +284,13 @@
 
     
     function sendLog() {
-      const data = {
-        logEvent: "click__confrim_login",
-        logData: {
+      const logData = {
           screen_name: 'login__joint_ctfe',
           log_type: 'event'
-        }
+      };
+      const data = {
+        logEvent: "click__confrim_login",
+        logData: JSON.stringify(logData)
       };
       executeBridge("sendLog", JSON.stringify(data));
     }
