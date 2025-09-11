@@ -150,13 +150,13 @@
     }
 
   function hyperlinkPdfTest(){
-     let openData = '{BtnClosePos="0",TitleCap="개인정보 수집 • 이용 동의",WebViewUrl="https://code-bross.github.io/static-page/deeplink/korea/kis_sample.pdf",BtnCloseVisible="1",BtnCount="1",BtnRightCap="확인"}';
+     let openData = '타이틀테스트^SEP^확인^SEP^https://code-bross.github.io/static-page/deeplink/korea/kis_sample.pdf';
      const data = {
-        type: "formde_popup",
-        url: "rn0000P04",
+        type: "native_popup",
+        url: "0601",
         data: openData
       };
-      executeBridge("movePage", JSON.stringify(data));       
+      executeBridge("movePage", JSON.stringify(data));      
     }
 
     
