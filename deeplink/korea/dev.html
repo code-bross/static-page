@@ -149,6 +149,16 @@
       executeBridge("movePage", JSON.stringify(data));       
     }
 
+  function hyperlinkPdfTest(){
+     let openData = '{BtnClosePos="0",TitleCap="개인정보 수집 • 이용 동의",WebViewUrl="https://code-bross.github.io/static-page/deeplink/korea/kis_sample.pdf",BtnCloseVisible="1",BtnCount="1",BtnRightCap="확인"}';
+     const data = {
+        type: "formde_popup",
+        url: "rn0000P04",
+        data: openData
+      };
+      executeBridge("movePage", JSON.stringify(data));       
+    }
+
     
     function launchAgreementPdf(){
      let openData = '개인정보 수집 • 이용 동의^SEP^예,동의하기^SEP^https://file.truefriend.com/Storage/mobile/event/fs_731_promotion_event_2212.pdf';
@@ -338,6 +348,7 @@
   <button onclick="launchDeviceNotificationSetting()">launchDeviceNotificationSetting</button><br/><br/>
   <button onclick="launchMarketingAgreementPdf()">launchMarketingAgreementPdf</button><br/><br/>
   <button onclick="launchRn0000P04()">launchRn0000P04</button><br/><br/>
+  <button onclick="hyperlinkPdfTest()">hyperlinkPdfTest</button><br/><br/>
   <button onclick="launchAgreementPdf()">launchAgreementPdf</button><br/><br/>
   <button onclick="copyToClipboard('copy text')">Clipboard copy</button><br/><br/>
   <button onclick="contentShare('contentShare test message')">contentShare</button><br/><br/>
