@@ -70,6 +70,12 @@
       executeBridge("launchDeeplink", scheme + url);
     }
 
+    
+    function moveDeeplink(url) {
+      console.log(url);
+      location.href = scheme + 'content?SSO_SCREENNO=' + url
+    }
+
     function moveToUnity() {
       executeBridge("launchDeeplink", "content?SSO_SCREENNO=0900&openData=US◆NYS◆U◆2");
     }
@@ -358,7 +364,7 @@
   <button onclick="moveFailedPage()">move failedPage</button><br/><br/>
   <button onclick="testMtsActualInvestBridge()">testMtsActualInvestBridge</button><br/><br/>
   <button onclick="requestAccountPasswordVerification('81170545','01')">requestAccountPasswordVerification</button><br/><br/>
-  <button onclick="launchDeeplink('0510')">moveIMA</button><br/><br/>
+  <button onclick="moveDeeplink('0510')">moveIMA</button><br/><br/>
 
 </body>
 </html>
