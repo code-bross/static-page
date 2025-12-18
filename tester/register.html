@@ -2,49 +2,119 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>메일 앱 실행하기</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테스터 등록 요청</title>
     <style>
-        body { font-family: 'Pretendard', sans-serif; padding: 40px; line-height: 1.6; }
-        .container { max-width: 500px; margin: 0 auto; border: 1px solid #eee; padding: 25px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        h2 { margin-top: 0; color: #333; }
-        .field { margin-bottom: 15px; }
-        label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 14px; }
-        input, textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; }
-        button { width: 100%; padding: 12px; background-color: #007bff; color: white; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; transition: 0.2s; }
+        body { font-family: 'Pretendard', -apple-system, sans-serif; padding: 20px; background-color: #f8f9fa; color: #333; }
+        .container { max-width: 500px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        h2 { margin-top: 0; font-size: 22px; color: #007bff; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
+        p { font-size: 13px; color: #666; margin-bottom: 20px; }
+        .field { margin-bottom: 18px; }
+        label { display: block; margin-bottom: 6px; font-weight: 600; font-size: 14px; }
+        input[type="text"], input[type="email"], select {
+            width: 100%; padding: 12px; border: 1px solid #dee2e6; border-radius: 8px; box-sizing: border-box; font-size: 15px;
+        }
+        input:focus { outline: none; border-color: #007bff; box-shadow: 0 0 0 3px rgba(0,123,255,0.1); }
+        .radio-group { display: flex; gap: 15px; margin-top: 5px; }
+        .radio-option { display: flex; align-items: center; gap: 5px; font-size: 15px; cursor: pointer; }
+        button {
+            width: 100%; padding: 15px; background-color: #007bff; color: white; border: none; border-radius: 8px;
+            font-size: 16px; font-weight: bold; cursor: pointer; transition: 0.3s; margin-top: 10px;
+        }
         button:hover { background-color: #0056b3; }
+        .notice { background: #e9ecef; padding: 10px; border-radius: 6px; font-size: 12px; margin-top: 15px; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h2>📩 이메일 작성</h2>
+    <h2>📱 테스터 등록 요청</h2>
+    <p>아래 정보를 입력 후 버튼을 누르면 메일 앱이 실행됩니다.</p>
+
     <div class="field">
-        <label>수신자</label>
-        <input type="email" id="toEmail" value="support@example.com" readonly>
+        <label>부서</label>
+        <input type="text" id="dept" placeholder="예: 디지털혁신실">
     </div>
+
     <div class="field">
-        <label>제목</label>
-        <input type="text" id="subject" placeholder="제목을 입력하세요">
+        <label>이름</label>
+        <input type="text" id="name" placeholder="성함을 입력하세요">
     </div>
+
     <div class="field">
-        <label>내용</label>
-        <textarea id="body" rows="6" placeholder="문의 내용을 상세히 적어주세요"></textarea>
+        <label>사번</label>
+        <input type="text" id="empId" placeholder="사번 7자리를 입력하세요">
     </div>
-    <button onclick="sendMail()">메일 앱 열기</button>
+
+    <div class="field">
+        <label>이메일 (회사 메일과 동일)</label>
+        <input type="email" id="email" placeholder="example@koreainvestment.com">
+        <div class="notice">※ Google/AppStore 가입이 완료된 계정이어야 합니다.</div>
+    </div>
+
+    <div class="field">
+        <label>등록요청 OS</label>
+        <div class="radio-group">
+            <label class="radio-option"><input type="radio" name="osType" value="Android">
+                Android</label>
+            <label class="radio-option"><input type="radio" name="osType" value="iOS"> iOS</label>
+            <label class="radio-option"><input type="radio" name="osType" value="Android,iOS"> 둘
+                다</label>
+        </div>
+    </div>
+
+    <button onclick="sendRequest()">등록 요청 메일 작성</button>
 </div>
 
 <script>
-function sendMail() {
-    const to = document.getElementById('toEmail').value;
-    const subject = encodeURIComponent(document.getElementById('subject').value);
-    const body = encodeURIComponent(document.getElementById('body').value);
+    function sendRequest() {
+        const dept = document.getElementById('dept').value;
+        const name = document.getElementById('name').value;
+        const empId = document.getElementById('empId').value;
+        const email = document.getElementById('email').value;
+        const osType = document.querySelector('input[name="osType"]:checked')?.value || "미선택";
 
-    // mailto 형식: mailto:수신자?subject=제목&body=내용
-    const mailtoUrl = `mailto:${to}?subject=${subject}&body=${body}`;
-    
-    // 새 창이나 현재 창에서 mailto URL 실행
-    window.location.href = mailtoUrl;
-}
+        if(!dept || !name || !empId || !email) {
+            alert("모든 정보를 입력해주세요.");
+            return;
+        }
+
+        const mailList = [
+            "hun@koreainvestment.com",
+            "113177@koreainvestment.com",
+            "hoseok2@koreainvestment.com",
+            "jongwonwoo@koreainvestment.com",
+            "champ@koreainvestment.com",
+            "diane@koreainvestment.com",
+            "110397@koreainvestment.com",
+            "harry.yshoony@koreainvestment.com",
+            "110980@koreainvestment.com",
+            "henry@koreainvestment.com",
+            "henry.jung@koreainvestment.com",
+            "denny@koreainvestment.com",
+            "junsook7@koreainvestment.com",
+            "demian@koreainvestment.com",
+            "ethan@koreainvestment.com"
+        ];
+
+        const adminEmail = mailList.join(",");
+
+        const subject = encodeURIComponent(`[테스터 등록 요청] ${dept}_${name}`);
+
+        // 메일 본문 구성
+        let bodyText = `부서 : ${dept}\n`;
+        bodyText += `이름 : ${name}\n`;
+        bodyText += `사번 : ${empId}\n`;
+        bodyText += `이메일 : ${email}\n`;
+        bodyText += `등록요청 OS : ${osType}\n\n`;
+        bodyText += `위 사용자에 대한 테스터 등록을 요청합니다.`;
+        bodyText += `테스터 등록후 아래 문서에 업데이트 해주세요.\nhttps://koreaivplatformdev.atlassian.net/wiki/spaces/frontdev/pages/2243526657/Untitled+live+doc+2025-12-18`;
+
+        const body = encodeURIComponent(bodyText);
+
+        // mailto 실행
+        window.location.href = `mailto:${adminEmail}?subject=${subject}&body=${body}`;
+    }
 </script>
 
 </body>
