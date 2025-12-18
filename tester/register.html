@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>메일 앱 실행하기</title>
+    <style>
+        body { font-family: 'Pretendard', sans-serif; padding: 40px; line-height: 1.6; }
+        .container { max-width: 500px; margin: 0 auto; border: 1px solid #eee; padding: 25px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        h2 { margin-top: 0; color: #333; }
+        .field { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 14px; }
+        input, textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background-color: #007bff; color: white; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; transition: 0.2s; }
+        button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>📩 이메일 작성</h2>
+    <div class="field">
+        <label>수신자</label>
+        <input type="email" id="toEmail" value="support@example.com" readonly>
+    </div>
+    <div class="field">
+        <label>제목</label>
+        <input type="text" id="subject" placeholder="제목을 입력하세요">
+    </div>
+    <div class="field">
+        <label>내용</label>
+        <textarea id="body" rows="6" placeholder="문의 내용을 상세히 적어주세요"></textarea>
+    </div>
+    <button onclick="sendMail()">메일 앱 열기</button>
+</div>
+
+<script>
+function sendMail() {
+    const to = document.getElementById('toEmail').value;
+    const subject = encodeURIComponent(document.getElementById('subject').value);
+    const body = encodeURIComponent(document.getElementById('body').value);
+
+    // mailto 형식: mailto:수신자?subject=제목&body=내용
+    const mailtoUrl = `mailto:${to}?subject=${subject}&body=${body}`;
+    
+    // 새 창이나 현재 창에서 mailto URL 실행
+    window.location.href = mailtoUrl;
+}
+</script>
+
+</body>
+</html>
