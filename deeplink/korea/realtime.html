@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실시간 테스트 - Vanilla JS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 사내 디자인 시스템 클래스 모사 */
+        .bg-bg-02 { background-color: #f8f9fa; }
+        .bg-spectrum-01 { background-color: #e3f2fd; }
+        .bg-spectrum-02 { background-color: #f3e5f5; }
+        .text-text-01 { color: #111111; }
+        .text-text-03 { color: #888888; }
+    </style>
+</head>
+<body class="min-h-screen bg-bg-02 pb-[80px]">
+
+<div class="space-y-[24px]">
+    <header class="p-[16px] bg-white border-b text-center font-bold text-[18px]">
+        실시간 테스트
+    </header>
+
+    <section class="p-[24px] space-y-[32px] bg-spectrum-01 mx-[16px] rounded-lg">
+        <h2 class="font-bold">카운터 테스트</h2>
+        <div class="flex flex-col items-center gap-[20px]">
+            <div id="counter-value" class="text-[40px] font-bold text-text-01">0</div>
+            <div class="flex gap-[10px]">
+                <button id="decrement" class="w-[50px] h-[50px] bg-white border rounded-lg text-[24px] shadow-sm">-</button>
+                <button id="increment" class="w-[50px] h-[50px] bg-blue-500 text-white rounded-lg text-[24px] shadow-sm">+</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="p-[24px] space-y-[16px] bg-spectrum-02 mx-[16px] rounded-lg">
+        <h2 class="font-bold">종목 리스트</h2>
+
+        <div class="flex gap-[10px] mt-[8px]">
+            <button class="flex-1 bg-blue-500 text-white p-[12px] rounded-lg font-bold" onclick="requestAll()">전체 구독</button>
+            <button class="flex-1 bg-white border p-[12px] rounded-lg font-bold" onclick="console.log('전체 구독 취소')">전체 구독 취소</button>
+        </div>
+
+        <div id="stock-list-container" class="space-y-[12px]"></div>
+    </section>
+</div>
+
+<script>
+    /** 1. 데이터 모델 (StockItem) **/
+    const StockItem = {
+        createExamples: () => [
+        {
+            name: "계양전기",
+            symbol: "012200",
+            price: "6630",
+            sign: "1",
+            diff: "1530",
+            rate: "30.00",
+            tradingVolume: "1,399,244주",
+            tradingAmount: "92.6억원",
+            imageUrl: "https://dev.kbox.kis-static.finance/images/icon/kr/012200.png?v=20240415102010",
+            exchangeCodeForLanding: "KRX",
+            nationForLanding: "KR"
+        },
+        // 추가 예시 데이터
+        {
+            name: "삼성전자",
+            symbol: "005930",
+            price: "83600",
+            sign: "5",
+            diff: "2500",
+            rate: "-2.90",
+            tradingVolume: "10,000,000주",
+            tradingAmount: "8360억원",
+            imageUrl: "https://dev.kbox.kis-static.finance/images/icon/kr/005930.png",
+            exchangeCodeForLanding: "KRX",
+            nationForLanding: "KR"
+        }
+        ]
+    };
+
+    /** 2. 상태 관리 (Counter) **/
+    let count = 0;
+    const counterDisplay = document.getElementById('counter-value');
+    const btnIncr = document.getElementById('increment');
+    const btnDecr = document.getElementById('decrement');
+
+
+    function getBridge(name) {
+      const ua = navigator.userAgent || navigator.vendor || window.opera;
+      if (/android/i.test(ua)) {
+        console.log("android");
+        return window[name];
+      } else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
+        console.log("iOS");
+        return window.webkit?.messageHandlers;
+      } else {
+        console.log("unknown platform");
+        return null;
+      }
+    }
+
+    function executeBridge(functionName, data = null, bridgeName ='MtsBridge', ) {
+      const bridge = getBridge(bridgeName);
+      if (!bridge) {
+        console.warn("No bridge available");
+        return;
+      }
+
+      if (typeof bridge[functionName] === "function") {
+        data != null ? bridge[functionName](data) : bridge[functionName]();
+      } else if (typeof bridge[functionName] === "object") {
+        bridge[functionName].postMessage(data != null ? data : "");
+      } else {
+        console.warn(`Bridge does not support: ${functionName}`);
+      }
+    }
+
+    function updateCounter(value) {
+        count += value;
+        counterDisplay.innerText = count;
+    }
+
+    function requestAll(){
+        const items = StockItem.createExamples();
+        console.log(items);
+        executeBridge('requestRealtimeQuotes', items);
+    }
+
+    function subscribe(item){
+        executeBridge('subscribeRealtimeQuote', item);
+    }
+
+    function unsubscribe(item){
+        executeBridge('unSubscribeRealtimeQuote', item);
+    }
+
+    function cancelAll(){
+
+    }
+
+    btnIncr.addEventListener('click', () => updateCounter(1));
+    btnDecr.addEventListener('click', () => updateCounter(-1));
+
+    /** 3. 유틸리티 함수 (Price Color & Sign) **/
+    const getPriceColor = (sign) => {
+        if (['1', '2'].includes(sign)) return 'text-[#F44336]'; // 상승 (Red)
+        if (['4', '5'].includes(sign)) return 'text-[#2979FF]'; // 하락 (Blue)
+        return 'text-text-01';
+    };
+
+    const getSignChar = (sign) => {
+        if (sign === '2') return '▲';
+        if (sign === '5') return '▼';
+        return '';
+    };
+
+    /** 4. 렌더링 함수 (Stock List) **/
+    function renderStockList() {
+        const container = document.getElementById('stock-list-container');
+        const items = StockItem.createExamples();
+
+        container.innerHTML = items.map(item => `
+            <div class="flex items-center justify-between p-[16px] bg-white rounded-[16px] shadow-sm">
+                <div class="flex items-center gap-[12px]">
+                    <img src="${item.imageUrl}" alt="${item.name}" class="w-[40px] h-[40px] rounded-full" />
+                    <div class="flex flex-col">
+                        <span class="text-[16px] font-bold text-text-01">${item.name}</span>
+                        <span class="text-[12px] text-text-03">${item.symbol}</span>
+                    </div>
+                </div>
+                <div class="flex flex-col items-end">
+                    <span class="text-[16px] font-bold ${getPriceColor(item.sign)}">
+                        ${Number(item.price).toLocaleString()}원
+                    </span>
+                    <div class="flex gap-[4px] text-[12px] ${getPriceColor(item.sign)}">
+                        <span>${getSignChar(item.sign)} ${Number(item.diff).toLocaleString()}</span>
+                        <span>(${item.rate}%)</span>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function observeStockItems() {
+        const items = StockItem.createExamples();
+        const symbolToItem = Object.fromEntries(items.map(i => [i.symbol, i]));
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const symbol = entry.target.getAttribute('data-symbol');
+                const item = symbolToItem[symbol];
+                if (!item) return;
+                if (entry.isIntersecting) {
+                    subscribe(item);
+                } else {
+                    unsubscribe(item);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.stock-item').forEach(el => observer.observe(el));
+    }
+
+    // 초기화
+    renderStockList();
+    observeStockItems();
+</script>
+</body>
+</html>
