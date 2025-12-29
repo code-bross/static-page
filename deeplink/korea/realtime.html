@@ -137,17 +137,19 @@
     }
 
     function requestAll(){
-        const items = StockItem.createExamples();
+        const items = JSON.stringify(StockItem.createExamples());
         console.log(items);
         executeBridge('requestRealtimeQuotes', items);
     }
 
-    function subscribe(item){
+    function subscribe(_item){
+        const item = JSON.stringify(_item);
         console.log(item);
         executeBridge('subscribeRealtimeQuote', item);
     }
 
-    function unsubscribe(item){
+    function unsubscribe(_item){
+        const item = JSON.stringify(_item);
         executeBridge('unSubscribeRealtimeQuote', item);
     }
 
