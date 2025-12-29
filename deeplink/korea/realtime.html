@@ -26,8 +26,13 @@
         <div class="flex flex-col items-center gap-[20px]">
             <div id="counter-value" class="text-[40px] font-bold text-text-01">0</div>
             <div class="flex gap-[10px]">
-                <button id="decrement" class="w-[50px] h-[50px] bg-white border rounded-lg text-[24px] shadow-sm">-</button>
-                <button id="increment" class="w-[50px] h-[50px] bg-blue-500 text-white rounded-lg text-[24px] shadow-sm">+</button>
+                <button id="decrement"
+                        class="w-[50px] h-[50px] bg-white border rounded-lg text-[24px] shadow-sm">-
+                </button>
+                <button id="increment"
+                        class="w-[50px] h-[50px] bg-blue-500 text-white rounded-lg text-[24px] shadow-sm">
+                    +
+                </button>
             </div>
         </div>
     </section>
@@ -36,8 +41,12 @@
         <h2 class="font-bold">종목 리스트</h2>
 
         <div class="flex gap-[10px] mt-[8px]">
-            <button class="flex-1 bg-blue-500 text-white p-[12px] rounded-lg font-bold" onclick="requestAll()">전체 구독</button>
-            <button class="flex-1 bg-white border p-[12px] rounded-lg font-bold" onclick="console.log('전체 구독 취소')">전체 구독 취소</button>
+            <button class="flex-1 bg-blue-500 text-white p-[12px] rounded-lg font-bold"
+                    onclick="requestAll()">전체 구독
+            </button>
+            <button class="flex-1 bg-white border p-[12px] rounded-lg font-bold"
+                    onclick="console.log('전체 구독 취소')">전체 구독 취소
+            </button>
         </div>
 
         <div id="stock-list-container" class="space-y-[12px]"></div>
@@ -72,7 +81,7 @@
             tradingVolume: "10,000,000주",
             tradingAmount: "8360억원",
             imageUrl: "https://dev.kbox.kis-static.finance/images/icon/kr/005930.png",
-            exchangeCodeForLanding: "SOR",
+            exchangeCodeForLanding: "KRX",
             nationForLanding: "KR"
         }
         ],
@@ -134,6 +143,7 @@
     }
 
     function subscribe(item){
+        console.log(item);
         executeBridge('subscribeRealtimeQuote', item);
     }
 
@@ -214,6 +224,13 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.stock-item').forEach(el => observer.observe(el));
+        document.querySelectorAll('.stock-item').forEach(el => {
+        el.addEventListener('click', function() {
+            const symbol = this.getAttribute('data-symbol');
+            const item = stockMap[symbol];
+            if (item) subscribe(item);
+        });
+    });
     }
 
     // 초기화
