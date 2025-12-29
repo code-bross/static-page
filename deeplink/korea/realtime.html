@@ -185,7 +185,7 @@
 
 
         container.innerHTML = items.map(item => `
-            <div class="flex items-center justify-between p-[16px] bg-white rounded-[16px] shadow-sm">
+            <div class="flex items-center justify-between p-[16px] bg-white rounded-[16px] shadow-sm stock-item" data-symbol="${item.symbol}">
                 <div class="flex items-center gap-[12px]">
                     <img src="${item.imageUrl}" alt="${item.name}" class="w-[40px] h-[40px] rounded-full" />
                     <div class="flex flex-col">
@@ -204,6 +204,14 @@
                 </div>
             </div>
         `).join('');
+
+        container.querySelectorAll('.stock-item').forEach(el => {
+            el.addEventListener('click', function() {
+                const symbol = this.getAttribute('data-symbol');
+                const item = stockMap[symbol];
+                if (item) subscribe(item);
+            });
+        });
     }
 
     function observeStockItems() {
@@ -222,15 +230,8 @@
                 }
             });
         }, { threshold: 0.1 });
-
         document.querySelectorAll('.stock-item').forEach(el => observer.observe(el));
-        document.querySelectorAll('.stock-item').forEach(el => {
-        el.addEventListener('click', function() {
-            const symbol = this.getAttribute('data-symbol');
-            const item = stockMap[symbol];
-            if (item) subscribe(item);
-        });
-    });
+
     }
 
     // 초기화
