@@ -1,96 +1,14 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>실시간 테스트 - Vanilla JS</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* 사내 디자인 시스템 클래스 모사 */
-        .bg-bg-02 { background-color: #f8f9fa; }
-        .bg-spectrum-01 { background-color: #e3f2fd; }
-        .bg-spectrum-02 { background-color: #f3e5f5; }
-        .text-text-01 { color: #111111; }
-        .text-text-03 { color: #888888; }
-    </style>
-</head>
-<body class="min-h-screen bg-bg-02 pb-[80px]">
-
-<div class="space-y-[24px]">
-    <header class="p-[16px] bg-white border-b text-center font-bold text-[18px]">
-        실시간 테스트
-    </header>
-
-    <section class="p-[24px] space-y-[32px] bg-spectrum-01 mx-[16px] rounded-lg">
-        <h2 class="font-bold">카운터 테스트</h2>
-        <div class="flex flex-col items-center gap-[20px]">
-            <div id="counter-value" class="text-[40px] font-bold text-text-01">0</div>
-            <div class="flex gap-[10px]">
-                <button id="decrement" class="w-[50px] h-[50px] bg-white border rounded-lg text-[24px] shadow-sm">-</button>
-                <button id="increment" class="w-[50px] h-[50px] bg-blue-500 text-white rounded-lg text-[24px] shadow-sm">+</button>
-            </div>
-        </div>
-    </section>
-
-    <section class="p-[24px] space-y-[16px] bg-spectrum-02 mx-[16px] rounded-lg">
-        <h2 class="font-bold">종목 리스트</h2>
-
-        <div class="flex gap-[10px] mt-[8px]">
-            <button class="flex-1 bg-blue-500 text-white p-[12px] rounded-lg font-bold" onclick="requestAll()">전체 구독</button>
-            <button class="flex-1 bg-white border p-[12px] rounded-lg font-bold" onclick="console.log('전체 구독 취소')">전체 구독 취소</button>
-        </div>
-
-        <div id="stock-list-container" class="space-y-[12px]"></div>
-    </section>
-</div>
-
-<script>
-    /** 1. 데이터 모델 (StockItem) **/
-    const StockItem = {
-        createExamples: () => [
-        {
-            name: "계양전기",
-            symbol: "012200",
-            price: "6630",
-            sign: "1",
-            diff: "1530",
-            rate: "30.00",
-            tradingVolume: "1,399,244주",
-            tradingAmount: "92.6억원",
-            imageUrl: "https://dev.kbox.kis-static.finance/images/icon/kr/012200.png?v=20240415102010",
-            exchangeCodeForLanding: "KRX",
-            nationForLanding: "KR"
-        },
-        // 추가 예시 데이터
-        {
-            name: "삼성전자",
-            symbol: "005930",
-            price: "83600",
-            sign: "5",
-            diff: "2500",
-            rate: "-2.90",
-            tradingVolume: "10,000,000주",
-            tradingAmount: "8360억원",
-            imageUrl: "https://dev.kbox.kis-static.finance/images/icon/kr/005930.png",
-            exchangeCodeForLanding: "KRX",
-            nationForLanding: "KR"
-        }
-        ],
-        createExamplesMap: function() {
-            return this.createExamples().reduce((map, item) => {
-                map[item.symbol] = item;
-                return map;
-            }, {});
-        }
-    };
-
-    /** 2. 상태 관리 (Counter) **/
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bridge Test</title>
+  <script>
+    let scheme = "mtsrn://";
+    let latestAction = {};
     let count = 0;
-    const counterDisplay = document.getElementById('counter-value');
-    const btnIncr = document.getElementById('increment');
-    const btnDecr = document.getElementById('decrement');
-
-    let stockMap = StockItem.createExamplesMap();
+    let refreshAction = null;
 
     function getBridge(name) {
       const ua = navigator.userAgent || navigator.vendor || window.opera;
@@ -122,103 +40,331 @@
       }
     }
 
-    function updateCounter(value) {
-        count += value;
-        counterDisplay.innerText = count;
+    function requestAccessToken(code, level) {
+      const data = { requestCode: code, level: level };
+      executeBridge("requestAccessToken", JSON.stringify(data));
+      latestAction = function () {
+        console.log(count++);
+      };
     }
 
-    function requestAll(){
-        const items = StockItem.createExamples();
-        console.log(items);
-        executeBridge('requestRealtimeQuotes', items);
+    function receivedAccessToken(accessToken) {
+      console.log(accessToken);
+      alert(accessToken);
+      latestAction();
     }
 
-    function subscribe(item){
-        executeBridge('subscribeRealtimeQuote', item);
+    function receiveAccessTokenFailed(message) {
+      console.log(message);
+      alert(message);
     }
 
-    function unsubscribe(item){
-        executeBridge('unSubscribeRealtimeQuote', item);
+
+    function closeClick() {
+      console.log("close click");
+      executeBridge("close");
     }
 
-    function receivedQuote(item) {
-        if (!item.symbol) return;
-        stockMap[item.symbol] = item;
-        renderStockList();
-        observeStockItems();
+    function launchDeeplink(url) {
+      console.log(url);
+      executeBridge("launchDeeplink", scheme + url);
     }
 
-    function cancelAll(){
-
+    
+    function moveDeeplink(url) {
+      console.log(url);
+      location.href = scheme + 'content?SSO_SCREENNO=' + url
     }
 
-    btnIncr.addEventListener('click', () => updateCounter(1));
-    btnDecr.addEventListener('click', () => updateCounter(-1));
-
-    /** 3. 유틸리티 함수 (Price Color & Sign) **/
-    const getPriceColor = (sign) => {
-        if (['1', '2'].includes(sign)) return 'text-[#F44336]'; // 상승 (Red)
-        if (['4', '5'].includes(sign)) return 'text-[#2979FF]'; // 하락 (Blue)
-        return 'text-text-01';
-    };
-
-    const getSignChar = (sign) => {
-        if (sign === '2') return '▲';
-        if (sign === '5') return '▼';
-        return '';
-    };
-
-    /** 4. 렌더링 함수 (Stock List) **/
-    function renderStockList() {
-        const container = document.getElementById('stock-list-container');
-        const items = Object.values(stockMap);
-
-
-        container.innerHTML = items.map(item => `
-            <div class="flex items-center justify-between p-[16px] bg-white rounded-[16px] shadow-sm">
-                <div class="flex items-center gap-[12px]">
-                    <img src="${item.imageUrl}" alt="${item.name}" class="w-[40px] h-[40px] rounded-full" />
-                    <div class="flex flex-col">
-                        <span class="text-[16px] font-bold text-text-01">${item.name}</span>
-                        <span class="text-[12px] text-text-03">${item.symbol}</span>
-                    </div>
-                </div>
-                <div class="flex flex-col items-end">
-                    <span class="text-[16px] font-bold ${getPriceColor(item.sign)}">
-                        ${Number(item.price).toLocaleString()}원
-                    </span>
-                    <div class="flex gap-[4px] text-[12px] ${getPriceColor(item.sign)}">
-                        <span>${getSignChar(item.sign)} ${Number(item.diff).toLocaleString()}</span>
-                        <span>(${item.rate}%)</span>
-                    </div>
-                </div>
-            </div>
-        `).join('');
+    function moveToUnity() {
+      executeBridge("launchDeeplink", "content?SSO_SCREENNO=0900&openData=US◆NYS◆U◆2");
     }
 
-    function observeStockItems() {
-        const items = StockItem.createExamples();
-        const symbolToItem = Object.fromEntries(items.map(i => [i.symbol, i]));
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                const symbol = entry.target.getAttribute('data-symbol');
-                const item = symbolToItem[symbol];
-                if (!item) return;
-                if (entry.isIntersecting) {
-                    subscribe(item);
-                } else {
-                    unsubscribe(item);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.stock-item').forEach(el => observer.observe(el));
+    function kakaotalkShare() {
+      const data = {
+        title: "줍줍 이벤트 공유 타이틀",
+        content: "줍줍 이벤트 내용",
+        buttonText: "하러가기",
+        buttonLink: "mtsrn://content?SSO_SCREENNO=0504&openData=https://dev.kbox.kis-static.finance/pages/joob/index.html",
+        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkcHusNLYd0My4Fs4eiuij2eXeWLgAi759AA&s",
+        imageWidth: 600,
+        imageHeight: 400,
+        eventKey : "10001",
+        dateTime : "2025-06-18"
+      };
+      executeBridge("shareToKakaoTalk", JSON.stringify(data));
     }
 
-    // 초기화
-    renderStockList();
-    observeStockItems();
-</script>
+    function openExternalBrowserNaver() {
+      const url = "https://www.naver.com/";
+      executeBridge("openExternalBrowser", url);
+    }
+
+    function movePage0802SOR() {
+      const data = {
+        type: "screen",
+        url: "0802",
+        data: "SOR"
+      };
+      executeBridge("movePage", JSON.stringify(data));
+    }
+
+    function confirmPhoneNumber() {
+      executeBridge("confirmPhoneNumber");
+    }
+
+    function selectAccount() {
+      executeBridge("selectAccount");
+    }
+    
+    function specialCardMove() {
+      const url = "https://securities.koreainvestment.com/app/mtsrenewal.jsp?type=06&SSO_SCREENNO=0383&openData=domestic^SEP^51^SEP^242";
+      executeBridge("openExternalBrowser", url);
+    }
+
+    function requestCheckDeviceNotificationPermission(){
+      executeBridge("requestCheckDeviceNotificationPermission");
+    }
+
+    function receivedDeviceNotificationPermission(enabled) {
+      console.log(enabled);
+      alert('device notification permission : ' + enabled);
+    }
+
+    function launchDeviceNotificationSetting(){
+      executeBridge("launchDeviceNotificationSetting");
+    }
+
+    function launchMarketingAgreementPdf(){
+      let openData = '{ControlName="",Title="개인(신용)정보 수집 이용 동의서",SummaryURL="https://file.truefriend.com/Storage/customer/guide/regards/personal_credit_info_agree3.htm",DetailURL="https://file.truefriend.com/Storage/customer/guide/regards/personal_credit_info_agree3_spec.htm",BtnAttr="8^523^523^523^^^^^0"}';
+      const data = {
+        type: "formde_popup",
+        url: "rn0000P43",
+        data: openData
+      };
+      executeBridge("movePage", JSON.stringify(data));       
+    }
+
+   function launchRn0000P04(){
+     let openData = '{BtnClosePos="0",TitleCap="개인정보 수집 • 이용 동의",WebViewUrl="https://file.truefriend.com/Storage/mobile/event/fs_731_promotion_event_2212.pdf",BtnCloseVisible="1",BtnCount="1",BtnRightCap="동의"}';
+     const data = {
+        type: "formde_popup",
+        url: "rn0000P04",
+        data: openData
+      };
+      executeBridge("movePage", JSON.stringify(data));       
+    }
+
+  function hyperlinkPdfTest(){
+     let openData = '타이틀테스트^SEP^확인^SEP^https://code-bross.github.io/static-page/deeplink/korea/kis_sample.pdf';
+     const data = {
+        type: "native_popup",
+        url: "0601",
+        data: openData
+      };
+      executeBridge("movePage", JSON.stringify(data));      
+    }
+
+    
+    function launchAgreementPdf(){
+     let openData = '개인정보 수집 • 이용 동의^SEP^예,동의하기^SEP^https://file.truefriend.com/Storage/mobile/event/fs_731_promotion_event_2212.pdf';
+     const data = {
+        type: "native_popup",
+        url: "0601",
+        data: openData
+      };
+      executeBridge("movePage", JSON.stringify(data));       
+    }
+
+    function receivedPdfConfirm(agreement){
+      console.log('receivedPdfConfirm : ' + agreement);
+      alert('receivedPdfConfirm : ' + agreement);
+    }
+
+    function receivedPopupConfirmStatus(screenName, key){
+      console.log('receivedPopupConfirmStatus - screenName : ' + screenName + 'key : '   + key);
+      alert('receivedPopupConfirmStatus - screenName : ' + screenName + 'key : '   + key);
+    }
+
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        console.log("클립보드에 복사되었습니다.");
+        alert("복사 완료!");
+      }).catch(err => {
+        console.error("복사 실패:", err);
+      });
+    }
+
+    function contentShare(message){
+      executeBridge("contentShare", message);  
+    }
+
+    function refresh(){
+      if(refreshAction !=null){
+        refreshAction();
+      }
+      refreshAction = null;
+    }
+
+    function refreshActionTest(){
+      refreshAction = function () {
+        alert('refreshActionTest');
+      }
+      // ex move page 
+    }
+
+    function launchNewJoobJoobEvent(zone){
+     let openData = 'https://' + zone + '.kbox.kis-static.finance/pages/joob/index.html';
+      executeBridge("launchDeeplink", scheme + 'content?SSO_SCREENNO=0504&openData=' + openData);
+    }
+
+    function moveFailedPage(){
+      window.location.href = "https://dev.kbox.kis-static.finance/pages/joob/event/indexasdhjkkashdkjasd";
+    }
+
+
+    function testMtsActualInvestBridge(){
+      executeBridge('showToast', null, 'MtsActualInvestBridge');
+    }
+
+    function receivedAccountPasswordVerification(result){
+      alert(result);
+    }
+
+    function requestAccountPasswordVerification(accountNumber, type){
+      const data = {
+          cano: accountNumber,
+          prdt_cd: type
+      };
+      executeBridge('requestAccountPasswordVerification', JSON.stringify(data));
+    }
+
+    function homeMyAsset(){
+     let openData = 'asset';
+     const data = {
+        type: "native",
+        url: "0001",
+        data: openData
+      };
+      executeBridge("movePage", JSON.stringify(data));       
+    }
+
+    function noticeBottomPopup(){
+     let openData = '타이틀1^SEP^내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용^SEP^https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vectorstock.com%2Froyalty-free-vector%2Fnotice-board-icon-vector-45499139&psig=AOvVaw2G0GltxAUMVO8sjw9DR3Se&ust=1750305319667000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCICw78iJ-o0DFQAAAAAdAAAAABAE';
+     const data = {
+        type: "native",
+        url: "0391",
+        data: openData
+      };
+      executeBridge("movePage", JSON.stringify(data));       
+    }
+
+    
+
+    function noticeBottomPopupLinkType(){
+     let linkOpenData = '^SEP^formde_popup^SEP^rn0000P43^SEP^{ControlName="",Title="개인(신용)정보 수집 이용 동의서",SummaryURL="https://file.truefriend.com/Storage/customer/guide/regards/personal_credit_info_agree3.htm",DetailURL="https://file.truefriend.com/Storage/customer/guide/regards/personal_credit_info_agree3_spec.htm",BtnAttr="8^523^523^523^^^^^0"}';
+           
+     let openData = '타이틀1^SEP^내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용^SEP^https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vectorstock.com%2Froyalty-free-vector%2Fnotice-board-icon-vector-45499139&psig=AOvVaw2G0GltxAUMVO8sjw9DR3Se&ust=1750305319667000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCICw78iJ-o0DFQAAAAAdAAAAABAE^SEP^링크버튼' + linkOpenData;
+     const data = {
+        type: "native_popup",
+        url: "0391",
+        data: openData
+      };
+      executeBridge("movePage", JSON.stringify(data));       
+    }
+
+    function onBackPressed(){
+      return false
+    }
+
+    
+    function requestDefaultAccountNo(){
+      executeBridge('requestDefaultAccountNo');
+    }
+
+    function receivedAccountNo(accountNuber, accountType){
+      alert('accountNuber : ' + accountNuber + ', accountType : ' + accountType);
+    }
+
+    function requestUserAgent(){
+      executeBridge('requestUserAgent');
+    }
+
+    function receivedUserAgent(data){
+      alert(data);
+    }
+
+    function kakaoShareNaverUrl(){
+      location.href = 'kakaotalk://send?https://www.naver.com/';
+    }
+
+    
+    function sendLog() {
+      const logData = {
+          screen_name: 'login__joint_ctfe',
+          log_type: 'event'
+      };
+      const data = {
+        logEvent: "click__confrim_login",
+        logData: JSON.stringify(logData)
+      };
+      executeBridge("sendLog", JSON.stringify(data));
+    }
+
+    function getAuthLevel() {
+      executeBridge("getAuthLevel");
+      latestAction = function () {
+        console.log(count++);
+      };
+    }
+
+    function receivedAuthLevel(level) {
+      console.log(level);
+      alert('receivedAuthLevel : ' + receivedAuthLevel);
+    }
+
+    
+
+    
+  </script>
+</head>
+<body>
+
+  <button onclick="requestAccessToken(0,'AUTH_LEVEL_3')">requestAccessToken code 0, level 3</button><br/><br/>
+  <button onclick="requestAccessToken(401,'AUTH_LEVEL_3')">requestAccessToken code 401, level 3</button><br/><br/>
+  <button onclick="requestAccessToken(0,'AUTH_LEVEL_5')">requestAccessToken code 0, level 5</button><br/><br/>
+  <button onclick="requestAccessToken(401,'AUTH_LEVEL_5')">requestAccessToken code 401, level 5</button><br/><br/>
+  <button onclick="requestAccessTokenLevel()">requestAccessTokenLevel</button><br/><br/>
+
+  <button onclick="homeMyAsset()">homeMyAsset</button><br/><br/>
+  <button onclick="sendLog()">sendLog</button><br/><br/>
+  <button onclick="kakaoShareNaverUrl()">kakaoShareNaverUrl</button><br/><br/>
+  <button onclick="requestDefaultAccountNo()">requestDefaultAccountNo</button><br/><br/>
+  <button onclick="requestUserAgent()">requestUserAgent</button><br/><br/>
+  <button onclick="noticeBottomPopup()">noticeBottomPopup</button><br/><br/>
+  <button onclick="noticeBottomPopupLinkType()">noticeBottomPopupLinkType</button><br/><br/>
+  <button onclick="closeClick()">closeClick</button><br/><br/>
+  <button onclick="moveToUnity()">launchDeeplink NYSE: U</button><br/><br/>
+  <button onclick="kakaotalkShare()">kakaotalkShare</button><br/><br/>
+  <button onclick="openExternalBrowserNaver()">openExternalBrowserNaver</button><br/><br/>
+  <button onclick="selectAccount()">selectAccount</button><br/><br/>
+  <button onclick="confirmPhoneNumber()">confirmPhoneNumber</button><br/><br/>
+  <button onclick="specialCardMove()">specialCardMove</button><br/><br/>
+  <button onclick="requestCheckDeviceNotificationPermission()">requestCheckDeviceNotificationPermission</button><br/><br/>
+  <button onclick="launchDeviceNotificationSetting()">launchDeviceNotificationSetting</button><br/><br/>
+  <button onclick="launchMarketingAgreementPdf()">launchMarketingAgreementPdf</button><br/><br/>
+  <button onclick="launchRn0000P04()">launchRn0000P04</button><br/><br/>
+  <button onclick="hyperlinkPdfTest()">hyperlinkPdfTest</button><br/><br/>
+  <button onclick="launchAgreementPdf()">launchAgreementPdf</button><br/><br/>
+  <button onclick="copyToClipboard('copy text')">Clipboard copy</button><br/><br/>
+  <button onclick="contentShare('contentShare test message')">contentShare</button><br/><br/>
+  <button onclick="refreshActionTest()">refreshActionTest</button><br/><br/>
+  <button onclick="launchNewJoobJoobEvent('dev')">move joobjoob dev</button><br/><br/>
+  <button onclick="launchNewJoobJoobEvent('test')">move joobjoob test</button><br/><br/>
+  <button onclick="moveFailedPage()">move failedPage</button><br/><br/>
+  <button onclick="testMtsActualInvestBridge()">testMtsActualInvestBridge</button><br/><br/>
+  <button onclick="requestAccountPasswordVerification('81170545','01')">requestAccountPasswordVerification</button><br/><br/>
+  <button onclick="moveDeeplink('0510')">moveIMA</button><br/><br/>
+
 </body>
 </html>
