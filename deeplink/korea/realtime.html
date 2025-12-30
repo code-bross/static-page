@@ -153,6 +153,10 @@
         executeBridge('unSubscribeRealtimeQuote', item);
     }
 
+    function toNumber(str) {
+        return Number(String(str).replace(/[^0-9.\-]/g, ''));
+    }
+
     function receivedQuote(_item) {
         const item = JSON.parse(_item);
         console.log(item);
@@ -188,6 +192,9 @@
         const items = Object.values(stockMap);
 
 
+        // 기존 아이템 모두 제거
+        container.innerHTML = '';
+
         container.innerHTML = items.map(item => `
             <div class="flex items-center justify-between p-[16px] bg-white rounded-[16px] shadow-sm stock-item" data-symbol="${item.symbol}">
                 <div class="flex items-center gap-[12px]">
@@ -199,10 +206,10 @@
                 </div>
                 <div class="flex flex-col items-end">
                     <span class="text-[16px] font-bold ${getPriceColor(item.sign)}">
-                        ${Number(item.price).toLocaleString()}원
+                        ${toNumber(item.price).toLocaleString()}원
                     </span>
                     <div class="flex gap-[4px] text-[12px] ${getPriceColor(item.sign)}">
-                        <span>${getSignChar(item.sign)} ${Number(item.diff).toLocaleString()}</span>
+                        <span>${getSignChar(item.sign)} ${toNumber(item.diff).toLocaleString()}</span>
                         <span>(${item.rate}%)</span>
                     </div>
                 </div>
@@ -240,7 +247,7 @@
 
     // 초기화
     renderStockList();
-    observeStockItems();
+<!--    observeStockItems();-->
 </script>
 </body>
 </html>
