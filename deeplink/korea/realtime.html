@@ -763,14 +763,13 @@
         const item = JSON.stringify(_item);
         executeBridge('unSubscribeRealtimeQuote', item);
     }
-
+0
     function toNumber(str) {
         return Number(String(str).replace(/[^0-9.\-]/g, ''));
     }
 
     function receivedQuote(_item) {
         const item = JSON.parse(_item);
-        console.log(item);
         console.log(_item);
         if (!item.symbol) return;
         stockMap[item.symbol] = item;
@@ -830,25 +829,26 @@
         container.innerHTML = '';
 
         container.innerHTML = items.map(item => `
-            <div class="flex items-center justify-between p-[16px] bg-white rounded-[16px] shadow-sm stock-item" data-symbol="${item.symbol}">
-                <div class="flex items-center gap-[12px]">
-                    <img src="${item.imageUrl}" alt="${item.name}" class="w-[40px] h-[40px] rounded-full" />
-                    <div class="flex flex-col">
-                        <span class="text-[16px] font-bold text-text-01">${item.name}</span>
-                        <span class="text-[12px] text-text-03">${item.symbol}</span>
-                    </div>
-                </div>
-                <divse class="flex flex-col items-end">
-                    <span class="text-[16px] font-bold ${getPriceColor(item.sign)}">
-                        ${toNumber(item.price).toLocaleString()}원
-                    </span>
-                    <div class="flex gap-[4px] text-[12px] ${getPriceColor(item.sign)}">
-                        <span>${getSignChar(item.sign)} ${toNumber(item.diff).toLocaleString()}</span>
-                        <span>(${item.rate}%)</span>
-                    </div>
+        <div class="flex items-center justify-between p-[16px] bg-white rounded-[16px] shadow-sm stock-item"
+             data-symbol="${item.symbol}" id="stock-item-${item.symbol}">
+            <div class="flex items-center gap-[12px]">
+                <img src="${item.imageUrl}" alt="${item.name}" class="w-[40px] h-[40px] rounded-full" />
+                <div class="flex flex-col">
+                    <span class="text-[16px] font-bold text-text-01">${item.name}</span>
+                    <span class="text-[12px] text-text-03">${item.symbol}</span>
                 </div>
             </div>
-        `).join('');
+            <div class="flex flex-col items-end">
+                <span class="text-[16px] font-bold ${getPriceColor(item.sign)}" id="price-${item.symbol}">
+                    ${toNumber(item.price).toLocaleString()}원
+                </span>
+                <div class="flex gap-[4px] text-[12px] ${getPriceColor(item.sign)}" id="diff-${item.symbol}">
+                    <span>${getSignChar(item.sign)} ${toNumber(item.diff).toLocaleString()}</span>
+                    <span>(${item.rate ?? ''}%)</span>
+                </div>
+            </div>
+        </div>
+    `).join('');
 
         container.querySelectorAll('.stock-item').forEach(el => {
 
