@@ -774,7 +774,30 @@
         console.log(_item);
         if (!item.symbol) return;
         stockMap[item.symbol] = item;
-        renderStockList();
+        updateItem(item);
+    }
+
+    function updateItem(item){
+
+        const priceEl = document.getElementById(`price-${item.symbol}`);
+        const diffEl = document.getElementById(`diff-${item.symbol}`);
+        const rateEl = document.getElementById(`rate-${item.symbol}`);
+
+         if (priceEl) {
+            priceEl.className = `text-[16px] font-bold ${getPriceColor(item.sign)}`;
+            priceEl.innerText = `${toNumber(item.price).toLocaleString()}원`;
+        }
+        if (diffEl) {
+            diffEl.className = `flex gap-[4px] text-[12px] ${getPriceColor(item.sign)}`;
+            diffEl.innerHTML = `
+                <span>${getSignChar(item.sign)} ${toNumber(item.diff).toLocaleString()}</span>
+                <span>(${item.rate ?? ''}%)</span>
+            `;
+        }
+        if (rateEl) {
+            rateEl.className = `text-[12px] ${getPriceColor(item.sign)}`;
+            rateEl.innerText = `(${item.rate ?? ''}%)`;
+        }
     }
 
     function cancelAll(){
@@ -836,15 +859,15 @@
             });
         });
     }
-    
+
     function subscribeAll(){
         const items = Object.values(stockMap);
         items.forEach(item => {
                     subscribe(item);
             });
     }
-    
-    
+
+
     // 초기화
     renderStockList();
     subscribeAll();
