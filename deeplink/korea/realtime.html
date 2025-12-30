@@ -160,6 +160,7 @@
     function receivedQuote(_item) {
         const item = JSON.parse(_item);
         console.log(item);
+        console.log(_item);
         if (!item.symbol) return;
         stockMap[item.symbol] = item;
         renderStockList();
@@ -204,7 +205,7 @@
                         <span class="text-[12px] text-text-03">${item.symbol}</span>
                     </div>
                 </div>
-                <div class="flex flex-col items-end">
+                <divse class="flex flex-col items-end">
                     <span class="text-[16px] font-bold ${getPriceColor(item.sign)}">
                         ${toNumber(item.price).toLocaleString()}원
                     </span>
