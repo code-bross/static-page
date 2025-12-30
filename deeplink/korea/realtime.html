@@ -154,6 +154,7 @@
     }
 
     function receivedQuote(item) {
+        console.log('receivedQuote : $item');
         if (!item.symbol) return;
         stockMap[item.symbol] = item;
         renderStockList();
