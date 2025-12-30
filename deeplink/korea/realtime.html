@@ -827,7 +827,12 @@
             </div>
         `).join('');
 
+        items.forEach(item => {
+                subscribe(item);
+        });
+
         container.querySelectorAll('.stock-item').forEach(el => {
+
             el.addEventListener('click', function() {
                 const symbol = this.getAttribute('data-symbol');
                 const item = stockMap[symbol];
@@ -835,30 +840,8 @@
             });
         });
     }
-
-<!--    function observeStockItems() {-->
-<!--        const items = StockItem.createExamples();-->
-<!--        const symbolToItem = Object.fromEntries(items.map(i => [i.symbol, i]));-->
-
-<!--        const observer = new IntersectionObserver((entries) => {-->
-<!--            entries.forEach(entry => {-->
-<!--                const symbol = entry.target.getAttribute('data-symbol');-->
-<!--                const item = symbolToItem[symbol];-->
-<!--                if (!item) return;-->
-<!--                if (entry.isIntersecting) {-->
-<!--                    subscribe(item);-->
-<!--                } else {-->
-<!--                    unsubscribe(item);-->
-<!--                }-->
-<!--            });-->
-<!--        }, { threshold: 0.1 });-->
-<!--        document.querySelectorAll('.stock-item').forEach(el => observer.observe(el));-->
-
-<!--    }-->
-
     // 초기화
     renderStockList();
-<!--    observeStockItems();-->
 </script>
 </body>
 </html>
