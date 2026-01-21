@@ -109,6 +109,16 @@
       executeBridge("movePage", JSON.stringify(data));
     }
 
+    function moveDividend(stock, nation) {
+      const openData = stock+"^SEP^"+nation;
+      const data = {
+        type: "screen",
+        url: "0382",
+        data: openData
+      };
+      executeBridge("movePage", JSON.stringify(data));
+    }
+
     function confirmPhoneNumber() {
       executeBridge("confirmPhoneNumber");
     }
@@ -365,6 +375,8 @@
   <button onclick="testMtsActualInvestBridge()">testMtsActualInvestBridge</button><br/><br/>
   <button onclick="requestAccountPasswordVerification('81170545','01')">requestAccountPasswordVerification</button><br/><br/>
   <button onclick="moveDeeplink('0510')">moveIMA</button><br/><br/>
+  <button onclick="moveDividend('J:5930','kr')">move Dividend samsung</button><br/><br/>
+  <button onclick="moveDividend('NAS:AXRX','us')">move Dividend AXRX</button><br/><br/>
 
 </body>
 </html>
