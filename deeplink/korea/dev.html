@@ -80,6 +80,14 @@
       executeBridge("launchDeeplink", "content?SSO_SCREENNO=0900&openData=US◆NYS◆U◆2");
     }
 
+    function moveToDividendIntegrated() {
+      const data = {
+        type: "screen",
+        url: "0507"
+      };
+      executeBridge("movePage", JSON.stringify(data));
+    }
+
     function kakaotalkShare() {
       const data = {
         title: "줍줍 이벤트 공유 타이틀",
@@ -381,6 +389,6 @@
   <button onclick="moveDividend('J:466940','kr')">move Dividend TIGER 고배당플러스TOP100</button><br/><br/>
   <button onclick="moveDividend('NAS:AAPL','us')">move Dividend AAPL</button><br/><br/>
   <button onclick="moveDividend('NYS:KO','us')">move Dividend KO</button><br/><br/>
-  <button onclick="moveDeeplink('0607')">move Dividend integrated</button><br/><br/>
+  <button onclick="moveToDividendIntegrated()">move Dividend integrated</button><br/><br/>
 </body>
 </html>
