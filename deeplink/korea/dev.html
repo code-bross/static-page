@@ -80,10 +80,11 @@
       executeBridge("launchDeeplink", "content?SSO_SCREENNO=0900&openData=US◆NYS◆U◆2");
     }
 
-    function moveToDividendIntegrated() {
+    function moveToDividendIntegrated(openData = '') {
       const data = {
         type: "screen",
-        url: "0607"
+        url: "0607",
+        data : openData
       };
       executeBridge("movePage", JSON.stringify(data));
     }
@@ -390,5 +391,6 @@
   <button onclick="moveDividend('NAS:AAPL','us')">move Dividend AAPL</button><br/><br/>
   <button onclick="moveDividend('NYS:KO','us')">move Dividend KO</button><br/><br/>
   <button onclick="moveToDividendIntegrated()">move Dividend integrated</button><br/><br/>
+  <button onclick="moveToDividendIntegrated('^SEP^us^SEP^expected')">move Dividend us expected</button><br/><br/>
 </body>
 </html>
