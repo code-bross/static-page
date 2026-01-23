@@ -3,48 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding Hub - Integrated Management</title>
+    <title>저희의 소중한 기록 - Wedding Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Pretendard:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Pretendard', sans-serif; overflow: hidden; }
+        body { font-family: 'Pretendard', sans-serif; overflow: hidden; background-color: #faf9f6; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
+
+        /* [톤앤톤 핵심 컬러 설정] */
+        :root {
+            --point-color: #8d7b68; /* 따뜻한 브라운 톤 */
+            --bg-color: #faf9f6;    /* 부드러운 크림색 */
+        }
 
         /* 선택된 탭 스타일 */
         .tab-active {
-            color: #4f46e5 !important;
-            border-bottom: 3px solid #4f46e5 !important;
+            color: var(--point-color) !important;
+            border-bottom: 3px solid var(--point-color) !important;
             font-weight: 700;
         }
 
         /* 선택된 칩 스타일 */
         .chip-active {
-            background-color: #4f46e5 !important;
+            background-color: var(--point-color) !important;
             color: white !important;
-            border-color: #4f46e5 !important;
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            border-color: var(--point-color) !important;
+            box-shadow: 0 4px 12px rgba(141, 123, 104, 0.2);
         }
 
-        iframe { width: 100%; border: none; transition: all 0.3s; }
+        iframe { width: 100%; border: none; transition: all 0.3s ease-in-out; }
+
+        /* 헤더 타이틀 폰트 */
+        .serif-title { font-family: 'Noto Serif KR', serif; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900">
+<body class="text-[#4a4a4a]">
 
-<header class="bg-white border-b border-slate-200 sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4">
-        <nav id="main-tabs" class="flex space-x-8 overflow-x-auto no-scrollbar">
+<header class="bg-white border-b border-[#eeeae5] sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row md:items-center justify-between">
+        <div class="py-4 md:py-0">
+            <h1 class="serif-title text-xl font-bold text-[#8d7b68]">Wedding Story</h1>
+        </div>
+        <nav id="main-tabs" class="flex space-x-6 overflow-x-auto no-scrollbar">
         </nav>
     </div>
 </header>
 
-<div id="chips-wrapper" class="bg-white border-b border-slate-100 shadow-sm transition-all duration-300 hidden">
+<div id="chips-wrapper" class="bg-[#f4f1ee] border-b border-[#eeeae5] transition-all duration-300 hidden">
     <div class="max-w-7xl mx-auto px-4 py-3 flex space-x-2 overflow-x-auto no-scrollbar" id="sub-chips">
     </div>
 </div>
 
 <main class="relative bg-white">
-    <div id="loading-spinner" class="absolute inset-0 flex items-center justify-center bg-white z-10 hidden">
-        <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600"></div>
+    <div id="loading-spinner" class="absolute inset-0 flex items-center justify-center bg-[#faf9f6]/80 z-10 hidden backdrop-blur-sm">
+        <div class="flex flex-col items-center">
+            <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-[#8d7b68] mb-3"></div>
+            <p class="text-xs text-[#8d7b68] font-medium serif-title">이야기를 불러오고 있습니다</p>
+        </div>
     </div>
     <iframe id="content-view" src="" title="Wedding Content"></iframe>
 </main>
@@ -61,10 +76,10 @@
                 "url" : "https://code-bross.github.io/static-page//wedding/radomus-amorium-hall.html"
             },
             {
-                "name" : "예산",
+                "name" : "예산 현황",
                 "chips" : [
-                    { "name" : "8월 예산", "url" : "https://code-bross.github.io/static-page//wedding/26-08-estimated.html" },
-                    { "name" : "10월 예산", "url" : "https://code-bross.github.io/static-page//wedding/26-10-estimated.html" }
+                    { "name" : "8월 예산안", "url" : "https://code-bross.github.io/static-page//wedding/26-08-estimated.html" },
+                    { "name" : "10월 예산안", "url" : "https://code-bross.github.io/static-page//wedding/26-10-estimated.html" }
                 ]
             }
         ]
@@ -78,13 +93,14 @@
 
     function init() {
         renderTabs();
-        selectTab(0); // 초기 진입 시 첫 번째 탭 선택
+        selectTab(0);
     }
 
     function renderTabs() {
         weddingData.tabs.forEach((tab, i) => {
             const btn = document.createElement('button');
-            btn.className = "py-4 px-2 text-sm font-medium whitespace-nowrap border-b-2 border-transparent text-slate-500 hover:text-slate-700 transition-all";
+            // 텍스트를 조금 더 정중하게 변경 가능
+            btn.className = "py-5 px-1 text-sm font-semibold whitespace-nowrap border-b-2 border-transparent text-[#999] hover:text-[#8d7b68] transition-all";
             btn.innerText = tab.name;
             btn.onclick = () => selectTab(i);
             tabContainer.appendChild(btn);
@@ -95,7 +111,6 @@
         const tabs = tabContainer.querySelectorAll('button');
         const target = weddingData.tabs[idx];
 
-        // 탭 활성화 표시
         tabs.forEach((t, i) => {
             if(i === idx) t.classList.add('tab-active');
             else t.classList.remove('tab-active');
@@ -104,7 +119,7 @@
         if (target.chips && target.chips.length > 0) {
             chipWrapper.classList.remove('hidden');
             renderChips(target.chips);
-            selectChip(0, target.chips); // 칩이 있으면 첫 번째 칩 자동 선택
+            selectChip(0, target.chips);
             updateHeight(true);
         } else {
             chipWrapper.classList.add('hidden');
@@ -117,7 +132,7 @@
         chipContainer.innerHTML = '';
         chips.forEach((chip, i) => {
             const btn = document.createElement('button');
-            btn.className = "px-4 py-1.5 text-xs font-semibold rounded-full border border-slate-200 text-slate-600 bg-white hover:bg-slate-50 transition-all whitespace-nowrap";
+            btn.className = "px-5 py-2 text-xs font-bold rounded-full border border-[#d1ccc4] text-[#8d7b68] bg-white hover:bg-[#fdfbf7] transition-all whitespace-nowrap shadow-sm";
             btn.innerText = chip.name;
             btn.onclick = () => selectChip(i, chips);
             chipContainer.appendChild(btn);
@@ -126,26 +141,31 @@
 
     function selectChip(idx, chips) {
         const chipBtns = chipContainer.querySelectorAll('button');
-
-        // 칩 활성화 표시
         chipBtns.forEach((c, i) => {
             if(i === idx) c.classList.add('chip-active');
             else c.classList.remove('chip-active');
         });
-
         loadUrl(chips[idx].url);
     }
 
     function loadUrl(url) {
         spinner.classList.remove('hidden');
         iframe.src = url;
-        iframe.onload = () => spinner.classList.add('hidden');
+        iframe.onload = () => {
+            setTimeout(() => spinner.classList.add('hidden'), 300); // 부드러운 로딩 처리
+        };
     }
 
     function updateHeight(hasChips) {
-        const offset = hasChips ? 116 : 60; // 탭높이 + 칩높이 고려
-        iframe.style.height = `calc(100vh - ${offset}px)`;
+        const headerHeight = document.querySelector('header').offsetHeight;
+        const chipHeight = hasChips ? 57 : 0;
+        iframe.style.height = `calc(100vh - ${headerHeight + chipHeight}px)`;
     }
+
+    window.addEventListener('resize', () => {
+        const hasChips = !chipWrapper.classList.contains('hidden');
+        updateHeight(hasChips);
+    });
 
     init();
 </script>
