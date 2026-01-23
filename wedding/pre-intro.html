@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>부모님께 드리는 저희의 소중한 이야기</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Pretendard:wght@300;400;600&display=swap"
+          rel="stylesheet">
+    <style>
+        body { font-family: 'Pretendard', sans-serif; overflow: hidden; background-color: #fdfbf7; }
+        h1, h2 { font-family: 'Noto Serif KR', serif; }
+        .slide { display: none; height: 100vh; animation: fadeIn 0.8s ease-in-out; }
+        .slide.active { display: flex; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .indicator { width: 8px; height: 8px; border-radius: 50%; background: #ddd; transition: all 0.3s; }
+        .indicator.active { width: 24px; border-radius: 4px; background: #8d7b68; }
+    </style>
+</head>
+<body>
+
+<div id="slide-container">
+</div>
+
+<div class="fixed bottom-10 left-0 right-0 px-6 flex justify-between items-center max-w-lg mx-auto z-50">
+    <button id="prevBtn" onclick="prevSlide()"
+            class="p-3 bg-white/80 rounded-full shadow-sm text-gray-400 hover:text-indigo-600 transition-all backdrop-blur-sm">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m15 18-6-6 6-6"/>
+        </svg>
+    </button>
+    <div class="flex space-x-2" id="indicators"></div>
+    <button id="nextBtn" onclick="nextSlide()"
+            class="p-3 bg-white/80 rounded-full shadow-sm text-[#8d7b68] hover:scale-110 transition-all backdrop-blur-sm">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m9 18 6-6-6-6"/>
+        </svg>
+    </button>
+</div>
+
+<script>
+    /**
+     * [JSON 데이터 관리 영역]
+     * 슬라이드 추가/수정은 이 배열만 건드리면 됩니다.
+     */
+    const slideData = [
+        {
+            type: "intro",
+            subtitle: "Our Story",
+            title: "소중한 부모님께 드리는<br>저희의 이야기",
+            content: "저희가 어떻게 만나 어떤 길을 걸어왔는지<br>수진이와 제가 직접 준비했습니다.",
+            bgColor: "bg-[#fdfbf7]"
+        },
+        {
+            type: "content",
+            title: "2024년 10월, 그날의 시작",
+            content: '"친구의 소개로 우연히 마주한 자리,<br>그날의 공기 속에 묻어있던 설렘을 기억합니다."<br><br>2024년 가을, 저희는 서로를 알게 되었고<br>서로의 따뜻한 진심을 금세 알아보았습니다.',
+            bgColor: "bg-white"
+        },
+        {
+            type: "seasonal",
+            title: "우리가 함께 보낸 사계절",
+            seasons: [
+                { icon: "🌸", name: "봄", desc: "피어나는 꽃처럼 서로의 마음을 확인하던 시간" },
+                { icon: "🌿", name: "여름", desc: "뜨거운 태양 아래서도 늘 즐거웠던 우리의 여행" },
+                { icon: "🍂", name: "가을", desc: "함께 맞이한 1주년, 서로가 확신이 된 계절" },
+                { icon: "❄️", name: "겨울", desc: "추운 날씨에도 서로의 온기가 되어준 시간" }
+            ],
+            footer: "사계절을 지내오며 저희의 믿음은 더 깊어졌습니다.",
+            bgColor: "bg-[#f9f7f2]"
+        },
+        {
+            type: "content",
+            title: "함께 걷기로 한 이유",
+            image: "https://picsum.photos/id/104/320/240", // 두 분이 같이 웃고 있는 사진 추천
+            content: "저희는 서로에게 가장 편안한 안식처가 되어주기로 했습니다.<br>바쁜 하루 끝에 도란도란 나누는 통화는 이제 저희 두 사람에게 없어서는 안 될 가장 큰 행복이 되었습니다.<br><br>함께 있으면 늘 웃음이 끊이지 않는 저희 모습 그대로,<br>앞으로 맞이할 모든 계절을 서로의 곁에서 소중히 지켜나가겠습니다.",
+            bgColor: "bg-[#fdfbf7]"
+        },
+        {
+            type: "closing",
+            date: "2026. Wedding Day",
+            title: "저희의 손을 기쁘게<br>잡아주시겠습니까?",
+            content: "부모님께서 보내주신 사랑 그대로<br>서로 아끼고 배려하며 행복하게 잘 살겠습니다.<br>예쁘게 지켜봐 주세요. 감사합니다.",
+            bgColor: "bg-white"
+        }
+    ];
+
+    const container = document.getElementById('slide-container');
+    const indicatorContainer = document.getElementById('indicators');
+    let currentIdx = 0;
+
+    // 1. 슬라이드 동적 생성 함수
+    function renderSlides() {
+        slideData.forEach((data, i) => {
+            const slideDiv = document.createElement('div');
+            slideDiv.className = `slide flex-col items-center justify-center text-center px-6 ${data.bgColor} ${i === 0 ? 'active' : ''}`;
+
+            let innerHTML = '';
+
+            if (data.type === "intro") {
+                innerHTML = `
+                    <p class="text-[#8d7b68] tracking-[0.3em] mb-4 text-sm uppercase">${data.subtitle}</p>
+                    <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-8 text-[#4a4a4a]">${data.title}</h1>
+                    <div class="w-10 h-[1px] bg-[#8d7b68] mb-8"></div>
+                    <p class="text-gray-500 leading-relaxed text-sm md:text-base">${data.content}</p>
+                `;
+            } else if (data.type === "content") {
+                innerHTML = `
+                    <h2 class="text-2xl md:text-3xl font-bold mb-10 text-[#8d7b68]">${data.title}</h2>
+                    <div class="max-w-md bg-white p-8 rounded-2xl shadow-sm border border-gray-100 leading-relaxed text-gray-600 text-sm md:text-base">
+                        ${data.content}
+                    </div>
+                `;
+            } else if (data.type === "seasonal") {
+                innerHTML = `
+                    <h2 class="text-2xl md:text-3xl font-bold mb-10 text-[#8d7b68]">${data.title}</h2>
+                    <div class="grid grid-cols-2 gap-4 max-w-2xl text-sm md:text-base">
+                        ${data.seasons.map(s => `
+                            <div class="bg-white p-6 rounded-xl text-center shadow-sm">
+                                <span class="block text-2xl mb-2">${s.icon}</span>
+                                <p class="font-bold mb-1">${s.name}</p>
+                                <p class="text-gray-500 text-xs">${s.desc}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <p class="mt-8 text-gray-500 text-sm">${data.footer}</p>
+                `;
+            } else if (data.type === "closing") {
+                innerHTML = `
+                    <p class="text-gray-400 mb-4 italic tracking-widest text-xs">${data.date}</p>
+                    <h2 class="text-3xl font-bold mb-8 text-[#4a4a4a]">${data.title}</h2>
+                    <p class="text-gray-500 leading-relaxed text-sm md:text-base mb-12">${data.content}</p>
+                    <button onclick="changeSlide(0)" class="px-6 py-2 border border-gray-200 rounded-full text-xs text-gray-400 hover:bg-gray-50 transition-all">처음부터 다시보기</button>
+                `;
+            }
+
+            slideDiv.innerHTML = innerHTML;
+            container.appendChild(slideDiv);
+
+            // 인디케이터 생성
+            const dot = document.createElement('div');
+            dot.className = `indicator ${i === 0 ? 'active' : ''}`;
+            indicatorContainer.appendChild(dot);
+        });
+    }
+
+    // 2. 슬라이드 제어 로직
+    function changeSlide(idx) {
+        const slides = document.querySelectorAll('.slide');
+        const indicators = document.querySelectorAll('.indicator');
+
+        slides[currentIdx].classList.remove('active');
+        indicators[currentIdx].classList.remove('active');
+
+        currentIdx = idx;
+
+        slides[currentIdx].classList.add('active');
+        indicators[currentIdx].classList.add('active');
+
+        document.getElementById('prevBtn').style.opacity = currentIdx === 0 ? "0.2" : "1";
+        document.getElementById('nextBtn').style.opacity = currentIdx === slides.length - 1 ? "0.2" : "1";
+    }
+
+    function nextSlide() {
+        if (currentIdx < slideData.length - 1) changeSlide(currentIdx + 1);
+    }
+
+    function prevSlide() {
+        if (currentIdx > 0) changeSlide(currentIdx - 1);
+    }
+
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') nextSlide();
+        if (e.key === 'ArrowLeft') prevSlide();
+    });
+
+    // 초기 실행
+    renderSlides();
+    document.getElementById('prevBtn').style.opacity = "0.2";
+</script>
+</body>
+</html>
