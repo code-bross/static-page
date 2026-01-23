@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Budget Planner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Pretendard', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 min-h-screen pb-12">
+
+<header class="bg-white border-b border-gray-200 sticky top-0 z-10">
+    <div class="max-w-5xl mx-auto px-4 py-6 flex justify-between items-center">
+        <h1 class="text-2xl font-bold text-gray-800">💍 결혼 예산 관리 현황 - 8월 기준</h1>
+        <div id="last-update" class="text-sm text-gray-500"></div>
+    </div>
+</header>
+
+<main class="max-w-5xl mx-auto px-4 mt-8">
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 text-center md:text-left">
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+            <p class="text-sm text-gray-500 mb-1">총 예산 (설정 기준)</p>
+            <p id="stat-total-budget" class="text-2xl font-bold text-gray-900">₩0</p>
+        </div>
+        <div class="bg-blue-50 p-6 rounded-2xl shadow-sm border border-blue-100">
+            <p class="text-sm text-blue-600 mb-1">현재 실제 지출액</p>
+            <p id="stat-total-paid" class="text-2xl font-bold text-blue-700">₩0</p>
+        </div>
+        <div class="bg-red-50 p-6 rounded-2xl shadow-sm border border-red-100">
+            <p class="text-sm text-red-600 mb-1">남은 결제 필요액</p>
+            <p id="stat-total-balance" class="text-2xl font-bold text-red-700">₩0</p>
+        </div>
+    </div>
+
+    <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                <tr class="bg-gray-50 border-b border-gray-200 text-sm">
+                    <th class="px-6 py-4 font-semibold text-gray-600">카테고리</th>
+                    <th class="px-6 py-4 font-semibold text-gray-600">예산</th>
+                    <th class="px-6 py-4 font-semibold text-gray-600">계산(지출)</th>
+                    <th class="px-6 py-4 font-semibold text-gray-600">차액</th>
+                    <th class="px-6 py-4 font-semibold text-gray-600">비고</th>
+                </tr>
+                </thead>
+                <tbody id="budget-table-body" class="divide-y divide-gray-100">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="mt-8 p-4 bg-gray-100 rounded-xl text-sm text-gray-600">
+        * '비고' 내용이 있는 항목이나 수치가 없는 항목은 총계 산정 시 유동적일 수 있습니다.
+    </div>
+</main>
+
+<script>
+    // 1. 여기에 JSON 데이터를 입력하세요
+    const weddingData = [
+  {
+    "카테고리": "8/23 패키지",
+    "예산": "₩4,400,000.00",
+    "계산": "₩1,000,000.00",
+    "차액": "₩3,400,000.00",
+    "비고": null
+  },
+  {
+    "카테고리": "생화 장식",
+    "예산": "₩1,600,000.00",
+    "계산": null,
+    "차액": null,
+    "비고": null
+  },
+  {
+    "카테고리": "스튜디오 (선택)",
+    "예산": "₩800,000.00",
+    "계산": null,
+    "차액": null,
+    "비고": null
+  },
+  {
+    "카테고리": "식사",
+    "예산": "₩8,800,000.00",
+    "계산": null,
+    "차액": null,
+    "비고": null
+  },
+  {
+    "카테고리": "전문사회자",
+    "예산": "₩350,000.00",
+    "계산": null,
+    "차액": null,
+    "비고": null
+  },
+  {
+    "카테고리": "한복",
+    "예산": "₩500,000.00",
+    "계산": null,
+    "차액": null,
+    "비고": null
+  },
+  {
+    "카테고리": "DVD",
+    "예산": null,
+    "계산": null,
+    "차액": null,
+    "비고": "예약실 문의"
+  },
+  {
+    "카테고리": "스냅",
+    "예산": null,
+    "계산": null,
+    "차액": null,
+    "비고": "예약실 문의"
+  },
+  {
+    "카테고리": "플라워 샤워",
+    "예산": "₩300,000.00",
+    "계산": null,
+    "차액": null,
+    "비고": null
+  },
+  {
+    "카테고리": "피부관리",
+    "예산": null,
+    "계산": null,
+    "차액": null,
+    "비고": null
+  },
+  {
+    "카테고리": "신혼여행",
+    "예산": null,
+    "계산": null,
+    "차액": null,
+    "비고": null
+  },
+  {
+    "카테고리": "아이폰 스냅",
+    "예산": null,
+    "계산": null,
+    "차액": null,
+    "비고": "별도 알아봐야함"
+  }
+];
+
+    // 2. 렌더링 함수
+    function renderBudget() {
+        const tbody = document.getElementById('budget-table-body');
+        let totalBudget = 0;
+        let totalPaid = 0;
+        let totalBalance = 0;
+
+        // 문자열 금액을 숫자로 변환하는 헬퍼 (₩1,000.00 -> 1000)
+        const parseMoney = (str) => {
+            if (!str) return 0;
+            return parseFloat(str.replace(/[^0-9.-]+/g, ""));
+        };
+
+        // 천단위 콤마 포맷 헬퍼
+        const formatMoney = (num) => {
+            if (num === 0) return "-";
+            return "₩" + num.toLocaleString('ko-KR');
+        };
+
+        weddingData.forEach(item => {
+            const b = parseMoney(item["예산"]);
+            const p = parseMoney(item["계산"]);
+            const c = parseMoney(item["차액"]) || (b > 0 && p === 0 ? b : 0);
+            const note = item["비고"] || item["null"]; // JSON 키 대응
+
+            totalBudget += b;
+            totalPaid += p;
+            totalBalance += (p > 0 ? (b - p) : b); // 지출이 있으면 차액, 없으면 예산 전체
+
+            const row = document.createElement('tr');
+            row.className = "hover:bg-gray-50 transition-colors";
+            row.innerHTML = `
+                <td class="px-6 py-4 font-medium">${item["카테고리"]}</td>
+                <td class="px-6 py-4 text-gray-600">${formatMoney(b)}</td>
+                <td class="px-6 py-4 text-blue-600 font-medium">${formatMoney(p)}</td>
+                <td class="px-6 py-4 font-semibold">${formatMoney(c)}</td>
+                <td class="px-6 py-4 text-sm">
+                    ${note ? `<span class="bg-indigo-100 text-indigo-700 px-2 py-1 rounded text-xs font-medium">${note}</span>` : '-'}
+                </td>
+            `;
+            tbody.appendChild(row);
+        });
+
+        // 상단 대시보드 업데이트
+        document.getElementById('stat-total-budget').innerText = formatMoney(totalBudget);
+        document.getElementById('stat-total-paid').innerText = formatMoney(totalPaid);
+        document.getElementById('stat-total-balance').innerText = formatMoney(totalBudget - totalPaid);
+
+        // 업데이트 날짜 표시
+        document.getElementById('last-update').innerText = "Last Update: " + new Date().toLocaleDateString();
+    }
+
+    // 실행
+    renderBudget();
+</script>
+</body>
+</html>
