@@ -9,8 +9,7 @@
 
     const urlParams = new URLSearchParams(window.location.search);
     const zone = urlParams.get('zone'); // 'dev', 'staging' 등
-
-    let scheme = "mtsrn://";
+    
     if (zone === "dev") {
       scheme = "mtsrn.dev://";
     } else if (zone === "staging" || zone === "stage") {
