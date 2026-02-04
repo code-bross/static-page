@@ -185,6 +185,16 @@
       executeBridge("movePage", JSON.stringify(data));       
     }
 
+  function currentPriceDividend(openData){
+       const data = {
+          type: "native",
+          url: "0382",
+          data: openData
+        };
+        executeBridge("movePage", JSON.stringify(data));       
+  }
+
+
   function hyperlinkPdfTest(){
      let openData = '타이틀테스트^SEP^확인^SEP^https://code-bross.github.io/static-page/deeplink/korea/kis_sample.pdf';
      const data = {
@@ -403,5 +413,9 @@
   <button onclick="moveDividend('NYS:KO','us')">move Dividend KO</button><br/><br/>
   <button onclick="moveToDividendIntegrated()">move Dividend integrated</button><br/><br/>
   <button onclick="moveToDividendIntegrated('^SEP^us^SEP^expected')">move Dividend us expected</button><br/><br/>
+  <button onclick="currentPriceDividendDomestic()">currentPriceDividendDomestic</button><br/><br/>
+  <button onclick="currentPriceDividend('J:001460^SEP^KR')">move current price Dividend J:001460^SEP^KR</button><br/><br/>
+  <button onclick="currentPriceDividend('NAS:TSLA^SEP^us')">move current price Dividend NAS:TSLA^SEP^us</button><br/><br/>
+  
 </body>
 </html>
