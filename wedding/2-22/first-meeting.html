@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <title>영길 & 수진 상견례 이야기</title>
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&family=Nanum+Gothic:wght@400;700&display=swap");
+
+            :root {
+                --accent: #8d6e63;
+                --bg-soft: #fdfaf7;
+                --text-main: #3e2723;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                background-color: #f0f0f0;
+                font-family: "Nanum Gothic", sans-serif;
+                color: var(--text-main);
+            }
+
+            /* A4 사이즈 설정 */
+            .page {
+                width: 210mm;
+                min-height: 297mm;
+                padding: 20mm;
+                margin: 10mm auto;
+                background: var(--bg-soft);
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                box-sizing: border-box;
+                page-break-after: always;
+                position: relative;
+            }
+
+            h1,
+            h2,
+            h3 {
+                font-family: "Nanum Myeongjo", serif;
+                color: var(--accent);
+            }
+
+            .section-title {
+                border-bottom: 2px solid var(--accent);
+                padding-bottom: 10px;
+                margin-bottom: 30px;
+                font-size: 1.8em;
+                text-align: center;
+            }
+
+            /* 사진 영역 공통 스타일 */
+            .photo-area {
+                width: 100%;
+                background-color: #eee;
+                border: 1px dashed #ccc;
+                margin-bottom: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+                position: relative;
+                border-radius: 8px;
+            }
+
+            .photo-area img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+
+            /* 메인 사진 하단 정렬 (사용자 요청) */
+            .photo-bottom img {
+                object-position: bottom;
+            }
+
+            /* 프로필 사진 중앙 정렬 */
+            .photo-center img {
+                object-position: center;
+            }
+
+            /* 레이아웃 구성 */
+            .content-wrapper {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .info-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+
+            .card {
+                background: white;
+                padding: 25px;
+                border-radius: 10px;
+                border: 1px solid #e7d8c9;
+                height: 100%;
+            }
+
+            .card h3 {
+                margin-top: 0;
+                border-bottom: 1px solid #eee;
+                padding-bottom: 10px;
+                font-size: 1.4em;
+            }
+
+            .strength-list {
+                list-style: none;
+                padding: 0;
+            }
+
+            .strength-list li {
+                margin-bottom: 15px;
+                line-height: 1.6;
+            }
+
+            .strength-list b {
+                color: var(--accent);
+                display: block;
+                margin-bottom: 3px;
+            }
+
+            .timeline {
+                border-left: 2px solid var(--accent);
+                padding-left: 30px;
+                margin-left: 20px;
+            }
+
+            .timeline-item {
+                margin-bottom: 25px;
+                position: relative;
+            }
+
+            .timeline-item::before {
+                content: "";
+                position: absolute;
+                left: -37px;
+                top: 5px;
+                width: 12px;
+                height: 12px;
+                background: var(--accent);
+                border-radius: 50%;
+            }
+
+            .schedule-table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            .schedule-table td {
+                padding: 15px;
+                border-bottom: 1px solid #d7ccc8;
+                font-size: 1.1em;
+            }
+
+            .schedule-table td:first-child {
+                font-weight: bold;
+                color: var(--accent);
+                width: 30%;
+            }
+
+            .letter-wrap {
+                line-height: 2;
+                font-family: "Nanum Myeongjo", serif;
+                font-size: 1.1em;
+                background: white;
+                padding: 40px;
+                border: 1px solid #d7ccc8;
+                white-space: pre-wrap;
+            }
+
+            .no-print {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                padding: 15px 30px;
+                background: var(--accent);
+                color: white;
+                border: none;
+                border-radius: 50px;
+                cursor: pointer;
+                font-weight: bold;
+                z-index: 1000;
+            }
+
+            @media print {
+                body {
+                    background: none;
+                }
+                .page {
+                    margin: 0;
+                    box-shadow: none;
+                }
+                .no-print {
+                    display: none;
+                }
+            }
+            .letter-wrap {
+                line-height: 2.2; /* 가독성을 위해 줄 간격 약간 확대 */
+                font-family: "Nanum Myeongjo", serif;
+                font-size: 1.15em;
+                background: white;
+                padding: 40px 50px;
+                border: 1px solid #d7ccc8;
+                white-space: pre-line; /* 불필요한 코드상 공백 무시하고 줄바꿈만 반영 */
+                text-align: justify; /* 양쪽 정렬로 깔끔하게 배치 */
+                word-break: break-all;
+            }
+        </style>
+        <script>
+            // 1. 편지 내용을 정의합니다. (백틱 사용)
+            const groomContent = `든든한 큰아들이 되어, 수진이의 웃음을 지켜내겠습니다.<br/>
+            밝고 애교 많은 수진이의 에너지처럼, 저 또한 긍정적이고 밝은 모습으로 두 분께 항상 기쁨과 웃음을 선사해 드리는 사위가 되겠습니다.<br/>
+            아버님과 어머님께서 수진이에게 쏟아주신 그 깊고 넓은 사랑을 제가 다 대신할 순 없겠지만, 그 사랑의 깊이를 늘 헤아리고 배우며 수진이를 아끼고 사랑하겠습니다.<br/><br/>
+            앞으로 저희가 예쁘게 살아가는 모습, 따스한 격려와 관심으로 지켜봐 주십시오.<br/><br/>정성으로 키워주신 귀한 딸, 평생 행복하게 해주겠습니다.`;
+
+            const brideContent = `사랑으로 맞아주신 부모님께, 화목한 결실로 보답하겠습니다.<br/><br/>
+            저와 오빠가 아직은 서툴고 부족한 점이 많을 수 있지만, 저희 앞에 놓인 긴 길을 서로의 손을 꼭 잡고 즐겁고 행복하게 걸어가겠습니다.<br/><br/>때때로 어려운 일이 생기더라도 많은 대화를 통해 지혜롭게 해결하고, 슬픈 일이 있을 땐 서로를 다독이며 함께 극복해 나가는 단단한 부부가 되겠습니다.<br/><br/>
+            양가 부모님께 효도하며, 동생들에게는 본보기가 되는 든든한 큰형과 큰누나로서 화목한 가정을 꾸려가겠습니다.<br/><br/>저희 두 사람, 예쁘게 잘 살겠습니다!`;
+
+            // 2. 창이 모두 로드된 후 혹은 태그 아래에서 실행하여 정상적으로 매핑합니다.
+            window.onload = function () {
+                const groomElement = document.getElementById("groom-letter");
+                const brideElement = document.getElementById("bride-letter");
+
+                if (groomElement) groomElement.innerHTML = groomContent;
+                if (brideElement) brideElement.innerHTML = brideContent;
+            };
+        </script>
+    </head>
+    <body>
+        <div class="page">
+            <div style="text-align: center; margin-top: 50mm">
+                <p style="font-size: 1.2em; letter-spacing: 5px">
+                    새로운 시작을 위한 소중한 만남
+                </p>
+                <h1 style="font-size: 3.5em; margin-bottom: 10px">
+                    영길 ♡ 수진 상견례
+                </h1>
+                <p style="font-size: 1.1em; margin-top: 50px">
+                    2026년 2월 22일 일요일
+                </p>
+            </div>
+            <div
+                class="photo-area photo-bottom"
+                style="height: 550px; margin-top: 50px"
+            >
+                <img src="./top-couple.jpeg?type=w800" alt="커플사진" />
+            </div>
+        </div>
+
+        <div class="page">
+            <h2 class="section-title">나의 신부, 수진이를 소개합니다</h2>
+            <div class="content-wrapper">
+                <div class="photo-area photo-center" style="height: 430px">
+                    <img src="./sujin.jpeg?type=w800" alt="신부사진" />
+                </div>
+                <div class="info-grid">
+                    <div class="card">
+                        <h3>[Profile]</h3>
+                        <p><b>이름:</b> 성수진</p>
+                        <p><b>태생:</b> 1994. 04. 19 (개띠)</p>
+                        <p><b>본업:</b> 국가공무원</p>
+                        <p><b>에너지원:</b> 헬스 & 필라테스</p>
+                        <p><b>매력:</b> 비타민 같은 활발함과 애교</p>
+                        <p><b>식성:</b> 해산물과 고기 (복스러운 식성)</p>
+                    </div>
+                    <div class="card">
+                        <h3>[신랑이 바라본 장점]</h3>
+                        <ul class="strength-list">
+                            <li>
+                                <b>무한 긍정 에너지</b>주변 온도까지 올려주는
+                                밝은 미소로 저를 항상 웃게 만듭니다.
+                            </li>
+                            <li>
+                                <b>따뜻하고 배려 깊은 마음</b>나보다 남을 먼저
+                                생각하는 따뜻한 성품을 가졌습니다.
+                            </li>
+                            <li>
+                                <b>심쿵 비주얼</b>객관적으로 봐도 너무 예쁜,
+                                보고만 있어도 행복해지는 사람입니다.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page">
+            <h2 class="section-title">나의 신랑, 영길이를 소개합니다</h2>
+            <div class="content-wrapper">
+                <div class="photo-area photo-center" style="height: 430px">
+                    <img src="./kiri.jpeg?type=w800" alt="신랑사진" />
+                </div>
+                <div class="info-grid">
+                    <div class="card">
+                        <h3>[Profile]</h3>
+                        <p><b>이름:</b> 강영길</p>
+                        <p><b>태생:</b> 1993. 02. 07 (닭띠)</p>
+                        <p><b>본업:</b> IT 개발자</p>
+                        <p><b>취미:</b> 여행 & 맛집 탐방</p>
+                        <p><b>성품:</b> 흔들림 없는 차분함과 진중함</p>
+                        <p><b>궁합:</b> 수진이와 식성이 똑 닮은 찰떡궁합</p>
+                    </div>
+                    <div class="card">
+                        <h3>[신부가 바라본 장점]</h3>
+                        <ul class="strength-list">
+                            <li>
+                                <b>흔들리지 않는 편안함</b>불안할 때 특유의
+                                차분함으로 현명한 해답을 주는 내비게이션입니다.
+                            </li>
+                            <li>
+                                <b>든든한 내 편</b>"오빠 있으니까 걱정 마"라는
+                                한마디로 저를 믿고 나아가게 해줍니다.
+                            </li>
+                            <li>
+                                <b>세상을 보는 넓은 창</b>해박한 상식과 정보를
+                                다정하게 들려주어 저를 성장시켜 줍니다.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page">
+            <h2 class="section-title">3. 화목한 양가 가족 소개</h2>
+            <div class="family-box">
+                <h3>
+                    [수진이네 가족] - 단합이 좋아 여행을 즐기며 웃음소리가
+                    끊이지 않는 가정
+                </h3>
+                <div class="photo-area photo-center" style="max-height: 600px">
+                    <img src="./sujin-family.jpeg" alt="신부가족" />
+                </div>
+                <p><b>아버님:</b> 진중한 성품과 깊은 배려심의 든든한 기둥</p>
+                <p><b>어머님:</b> 소녀 같은 귀여움과 다정함의 따뜻한 햇살</p>
+                <p><b>동생들:</b> 귀여운 예진이와 장난꾸러기 막내 시형이</p>
+            </div>
+        </div>
+
+        <div class="page">
+            <h2 class="section-title">3. 화목한 양가 가족 소개</h2>
+            <div class="family-box">
+                <h3>
+                    [영길이네 가족 - 부모님과 자녀가 허물없이 친구처럼 지내는
+                    가정
+                </h3>
+
+                <div class="photo-area photo-center" style="max-height: 600px">
+                    <img src="./kiri-family.jpeg" alt="신랑가족" />
+                </div>
+
+                <p><b>아버님:</b> 세상 어디에도 없는 다정다감 '스윗 가이'</p>
+                <p><b>어머님:</b> 며느리를 딸처럼 안아주시는 넓은 마음</p>
+                <p><b>동생:</b> 귀염둥이 막내이자 듬직한 동생 건이</p>
+            </div>
+        </div>
+
+        <div class="page">
+            <h2 class="section-title">4. 우리의 사계절 (Our Story)</h2>
+            <p style="text-align: center; font-style: italic; color: #6d4c41">
+                "서울, 대전, 영동을 잇는 설렘의 1년, 4계절을 지나 결실을 맺다"
+            </p>
+            <div
+                style="
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 15px;
+                    margin: 10px 0;
+                "
+            >
+                <div
+                    class="photo-area photo-center"
+                    style="aspect-ratio: 1/1; height: auto; margin-bottom: 0"
+                >
+                    <img src="./spring.jpeg" alt="봄 사진" />
+                </div>
+                <div
+                    class="photo-area photo-center"
+                    style="aspect-ratio: 1/1; height: auto; margin-bottom: 0"
+                >
+                    <img src="./summer.jpeg" alt="여름 사진" />
+                </div>
+                <div
+                    class="photo-area photo-center"
+                    style="aspect-ratio: 1/1; height: auto; margin-bottom: 0"
+                >
+                    <img src="./autumn.jpeg" alt="가을 사진" />
+                </div>
+                <div
+                    class="photo-area photo-center"
+                    style="aspect-ratio: 1/1; height: auto; margin-bottom: 0"
+                >
+                    <img src="./winter.jpeg" alt="겨울 사진" />
+                </div>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <b>[시작] 2024년 10월:</b> 처음 만나 서로의 계절에 스며들기
+                    시작한 우리
+                </div>
+                <div class="timeline-item">
+                    <b>[봄] 대전의 벚꽃:</b> 흩날리는 꽃잎 아래서 함께 맞이한
+                    생애 첫 봄의 기록
+                </div>
+                <div class="timeline-item">
+                    <b>[여름] 인내의 시간:</b> 6월의 시험을 함께 준비하며 더
+                    깊어진 우리
+                </div>
+                <div class="timeline-item">
+                    <b>[가을] 1주년과 새로운 시작:</b> 사랑한 지 1년, 복직과
+                    함께 단단해진 미래
+                </div>
+                <div class="timeline-item">
+                    <b>[겨울] 확신:</b> 장거리 연애를 흔들림 없이 이겨내고 내린
+                    결혼의 결심
+                </div>
+            </div>
+        </div>
+
+        <div class="page">
+            <h2 class="section-title">5. 아름다운 시작을 위한 여정</h2>
+
+            <div
+                class="photo-area photo-bottom"
+                style="max-height: 450px; margin: 8px"
+            >
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTMngSzUhtogcRrpviDvi_wW-zi1HWsGQzlA&s"
+                    alt="라도무스 홀 사진"
+                />
+            </div>
+            <table class="schedule-table">
+                <tr>
+                    <td>1월 3일</td>
+                    <td>설레는 시작, 예식장 계약</td>
+                </tr>
+                <tr>
+                    <td>2월 7일</td>
+                    <td>평생을 약속한 로맨틱한 프로포즈</td>
+                </tr>
+                <tr>
+                    <td><b>2월 22일</b></td>
+                    <td><b>오늘, 양가 가족이 하나 되는 상견례</b></td>
+                </tr>
+                <tr>
+                    <td>4월 5일</td>
+                    <td>가장 아름다운 순간을 담는 스튜디오 촬영</td>
+                </tr>
+                <tr>
+                    <td>6~7월</td>
+                    <td>양가 부모님 정장 및 고운 한복 맞춤</td>
+                </tr>
+                <tr>
+                    <td><b>8월 23일</b></td>
+                    <td><b>세상에서 가장 축복받는 결혼식</b></td>
+                </tr>
+                <tr>
+                    <td><b>8월 24일 ~ (약 2주)</b></td>
+                    <td>
+                        <b>동유럽 신혼 여행 </b> <br />
+                        체코, 오스트리아, 헝가리, 크로아티아
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="page">
+            <h2 class="section-title">6. 미래 아기</h2>
+            <div
+                style="
+                    border: 15px double var(--accent);
+                    width: 150mm;
+                    height: 150mm;
+                    margin: 30mm auto;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                "
+            >
+                <p style="color: #aaa; margin-bottom: 20px">
+                    수진이와 영길이를 닮은 예쁜 아기
+                </p>
+                <div
+                    style="
+                        border: 1px solid #eee;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    "
+                >
+                    <div
+                        class="photo-area photo-bottom"
+                        style="max-height: 450px; margin: 8px"
+                    >
+                        <img src="./boy.png" alt="남자 아기 사진" />
+                    </div>
+                    <div
+                        class="photo-area photo-bottom"
+                        style="max-height: 450px; margin: 8px"
+                    >
+                        <img src="./girl.png" alt="여자 아기 사진" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page">
+            <h2 class="section-title">7. 부모님께 드리는 마음의 편지</h2>
+            <h3>💌 큰 아들 영길이가 영동 부모님께</h3>
+            <div id="groom-letter" class="letter-wrap"></div>
+        </div>
+
+        <div class="page">
+            <h2 class="section-title">7. 부모님께 드리는 마음의 편지 (계속)</h2>
+            <h3>💌 큰 딸 수진이가 대전 부모님께</h3>
+            <div id="bride-letter" class="letter-wrap"></div>
+        </div>
+
+        <button class="no-print" onclick="window.print()">
+            PDF로 인쇄/저장하기
+        </button>
+    </body>
+</html>
