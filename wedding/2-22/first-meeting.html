@@ -209,6 +209,54 @@
                 text-align: justify; /* 양쪽 정렬로 깔끔하게 배치 */
                 word-break: break-all;
             }
+
+            * 퀴즈 스타일 */ .quiz-container {
+                margin-top: 20px;
+            }
+            .quiz-item {
+                background: white;
+                border: 1px solid #e7d8c9;
+                padding: 18px;
+                margin-bottom: 12px;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: background 0.3s;
+            }
+            .quiz-item:hover {
+                background: #fcf9f6;
+            }
+            .quiz-question {
+                font-weight: bold;
+                font-size: 1.1em;
+                display: flex;
+                align-items: center;
+            }
+            .quiz-question::before {
+                content: "Q. ";
+                color: var(--accent);
+                margin-right: 5px;
+            }
+            .quiz-answer {
+                margin-top: 10px;
+                color: var(--accent);
+                font-weight: bold;
+                display: none; /* 초기 상태 숨김 */
+                padding-top: 10px;
+                border-top: 1px dashed #eee;
+            }
+            .quiz-answer.show {
+                display: block;
+                animation: fadeIn 0.5s;
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
         </style>
         <script>
             // 1. 편지 내용을 정의합니다. (백틱 사용)
@@ -229,6 +277,11 @@
                 if (groomElement) groomElement.innerHTML = groomContent;
                 if (brideElement) brideElement.innerHTML = brideContent;
             };
+
+            function toggleQuiz(element) {
+                const answer = element.querySelector(".quiz-answer");
+                answer.classList.toggle("show");
+            }
         </script>
     </head>
     <body>
@@ -253,7 +306,7 @@
         </div>
 
         <div class="page">
-            <h2 class="section-title">나의 신부, 수진이를 소개합니다</h2>
+            <h2 class="section-title">수진이를 소개합니다</h2>
             <div class="content-wrapper">
                 <div class="photo-area photo-center" style="height: 430px">
                     <img src="./sujin.jpeg?type=w800" alt="신부사진" />
@@ -269,7 +322,7 @@
                         <p><b>입맛:</b> 해산물과 고기</p>
                     </div>
                     <div class="card">
-                        <h3>[신랑이 바라본 장점]</h3>
+                        <h3>[영길이가 바라본 장점]</h3>
                         <ul class="strength-list">
                             <li>
                                 <b>무한 긍정 에너지</b>주변 온도까지 올려주는
@@ -290,7 +343,7 @@
         </div>
 
         <div class="page">
-            <h2 class="section-title">나의 신랑, 영길이를 소개합니다</h2>
+            <h2 class="section-title">영길이를 소개합니다</h2>
             <div class="content-wrapper">
                 <div class="photo-area photo-center" style="height: 430px">
                     <img src="./kiri.jpeg?type=w800" alt="신랑사진" />
@@ -306,7 +359,7 @@
                         <p><b>궁합:</b> 수진이와 입맛이 똑 닮은 찰떡궁합</p>
                     </div>
                     <div class="card">
-                        <h3>[신부가 바라본 장점]</h3>
+                        <h3>[수진이가 바라본 장점]</h3>
                         <ul class="strength-list">
                             <li>
                                 <b>흔들리지 않는 편안함</b>불안할 때 특유의
@@ -520,6 +573,86 @@
             <h2 class="section-title">7. 부모님께 드리는 마음의 편지</h2>
             <h3>💌 큰 딸 수진이가 대전 부모님께</h3>
             <div id="bride-letter" class="letter-wrap"></div>
+        </div>
+
+        <div class="page">
+            <h2 class="section-title">8. 함께 맞춰보아요! 두 사람의 기록</h2>
+            <p style="text-align: center; margin-bottom: 20px; color: #888">
+                (문제를 클릭하시면 정답이 나옵니다)
+            </p>
+            <div class="quiz-container">
+                <div class="quiz-item" onclick="toggleQuiz(this)">
+                    <div class="quiz-question">
+                        영길과 수진의 생일은 각각 언제일까요?
+                    </div>
+                    <div class="quiz-answer">
+                        정답: 영길 2월 7일 / 수진 4월 19일
+                    </div>
+                </div>
+                <div class="quiz-item" onclick="toggleQuiz(this)">
+                    <div class="quiz-question">
+                        영길이 말하는 수진이의 장점은?
+                    </div>
+                    <div class="quiz-answer">
+                        정답: 긍정 에너지, 배려 깊은 마음, 심쿵 비주얼
+                    </div>
+                </div>
+                <div class="quiz-item" onclick="toggleQuiz(this)">
+                    <div class="quiz-question">
+                        수진이가 말하는 영길이의 장점은?
+                    </div>
+                    <div class="quiz-answer">
+                        정답: 흔들리지 않는 편안함, 든든한 내 편, 세상을 보는
+                        넓은 창
+                    </div>
+                </div>
+                <div class="quiz-item" onclick="toggleQuiz(this)">
+                    <div class="quiz-question">
+                        수진이 어머니를 표현하는 키워드는?
+                    </div>
+                    <div class="quiz-answer">정답: 소녀 같은 귀여움</div>
+                </div>
+                <div class="quiz-item" onclick="toggleQuiz(this)">
+                    <div class="quiz-question">
+                        수진이 아버지를 표현하는 키워드는?
+                    </div>
+                    <div class="quiz-answer">정답: 소녀 같은 귀여움</div>
+                </div>
+                <div class="quiz-item" onclick="toggleQuiz(this)">
+                    <div class="quiz-question">
+                        영길이 아버지를 표현하는 키워드는?
+                    </div>
+                    <div class="quiz-answer">정답: 스윗 가이</div>
+                </div>
+                <div class="quiz-item" onclick="toggleQuiz(this)">
+                    <div class="quiz-question">
+                        영길이 어머니를 표현하는 키워드는?
+                    </div>
+                    <div class="quiz-answer">
+                        정답: 며느리를 딸처럼 안아주시는 넓은 마음
+                    </div>
+                </div>
+                <div class="quiz-item" onclick="toggleQuiz(this)">
+                    <div class="quiz-question">
+                        수진이가 체력을 위해 즐겨 하는 두 가지 운동은?
+                    </div>
+                    <div class="quiz-answer">정답: 필라테스, 헬스</div>
+                </div>
+                <div class="quiz-item" onclick="toggleQuiz(this)">
+                    <div class="quiz-question">
+                        두 사람이 처음으로 함께 벚꽃 데이트를 즐겼던 지역은?
+                    </div>
+                    <div class="quiz-answer">정답: 대전</div>
+                </div>
+                <div class="quiz-item" onclick="toggleQuiz(this)">
+                    <div class="quiz-question">
+                        두 사람이 신혼여행으로 가려고하는 나라는?
+                    </div>
+                    <div class="quiz-answer">
+                        정답: 체코, 오스트리아, 헝가리, 크로아티아
+                    </div>
+                </div>
+            </div>
         </div>
 
         <button class="no-print" onclick="window.print()">
