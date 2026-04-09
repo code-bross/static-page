@@ -12,7 +12,7 @@
             --line-color: #d9d1c7;
             --point-color: #5b4a3d;
         }
-        body, html { margin: 0; padding: 0; width: 100%; font-family: 'Nanum Myeongjo', serif; background-color: #fff; color: #333; }
+        body, html { margin: 0; padding: 0; width: 100%; font-family: 'Nanum Myeongjo', serif; background-color: #fff; color: #333; overflow-x: hidden; }
         .section { padding: 48px 20px; text-align: center; }
         .section--alt { background-color: #f9f9f9; }
         .section-inner { width: min(92vw, 420px); margin: 0 auto; }
@@ -144,38 +144,21 @@
         .btn.primary { background: #8a7a66; color: #fff; border-color: #8a7a66; }
 
         .map-strong { font-weight: 700; line-height: 2; font-size: 0.98rem; color: #888; word-break: keep-all;}
-
-        .lightbox {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.75);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            padding: 20px;
+        .map-wrap {
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+            border-radius: 6px;
+            box-sizing: border-box;
         }
-        .lightbox.open { display: flex; }
-        .lightbox img {
-            max-width: 92vw;
-            max-height: 90vh;
-            border-radius: 8px;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+        .map-wrap .root_daum_roughmap,
+        .map-wrap .root_daum_roughmap .wrap_map,
+        .map-wrap .root_daum_roughmap .wrap_map iframe {
+            width: 100% !important;
+            max-width: 100% !important;
+            display: block;
+            box-sizing: border-box;
         }
-        .lightbox-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255,255,255,0.9);
-            border: none;
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            font-size: 18px;
-            cursor: pointer;
-        }
-        .lightbox-prev { left: 12px; }
-        .lightbox-next { right: 12px; }
 
 
         /* 음악 컨트롤러 */
@@ -267,7 +250,9 @@
 <section class="section">
     <div class="section-inner">
         <h2 class="title">LOCATION</h2>
-        <div id="daumRoughmapContainer1775705958168" class="root_daum_roughmap root_daum_roughmap_landing map-strong"></div>
+        <div class="map-wrap">
+            <div id="daumRoughmapContainer1775705958168" class="root_daum_roughmap root_daum_roughmap_landing map-strong"></div>
+        </div>
         <p class="content">
             <span style="font-size: 0.9rem; color: #888;">유성온천역 3번 출구 셔틀버스 운행</span>
         </p>
