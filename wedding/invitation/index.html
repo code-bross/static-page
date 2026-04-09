@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영길 & 수진 모바일 청첩장</title>
+    <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&display=swap"
+          rel="stylesheet">
+    <style>
+        :root {
+            --line-color: #d9d1c7;
+            --point-color: #5b4a3d;
+        }
+        body, html { margin: 0; padding: 0; width: 100%; font-family: 'Nanum Myeongjo', serif; background-color: #fff; color: #333; }
+        .section { padding: 48px 20px; text-align: center; }
+        .section--alt { background-color: #f9f9f9; }
+        .section-inner { width: min(92vw, 420px); margin: 0 auto; }
+
+        .video-wrap {
+          position: relative;
+          width: min(92vw, 420px);
+          margin: 0 auto 18px;
+          padding-top: 56.25%;
+          overflow: hidden;
+          background: #000;
+          border-radius: 6px;
+          z-index: 1;
+        }
+
+        /* 1. 메인 영상 섹션 */
+        .main-section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            padding-bottom: 84px;
+            color: #2a2a2a;
+            text-shadow: 0 2px 8px rgba(255,255,255,0.6);
+            background-color: #f9f9f9;
+        }
+        .main-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(249,249,249,0.2) 0%, rgba(249,249,249,0.7) 100%);
+            z-index: 0;
+        }
+        .hero-text {
+            position: relative;
+            z-index: 2;
+            color: #2a2a2a;
+            text-shadow: 0 2px 8px rgba(255,255,255,0.6);
+        }
+        .video-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover; z-index: -1; filter: brightness(0.8);
+        }
+        .video-inline {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+        }
+        .hero-date { letter-spacing: 4px; font-size: 0.9rem; margin: 0; }
+        .hero-names { font-size: 2.4rem; margin: 10px 0; letter-spacing: 1px; }
+        .hero-place { margin: 0; font-size: 0.95rem; }
+        .hero-dday { margin-top: 12px; font-size: 0.9rem; letter-spacing: 2px; opacity: 0.9; }
+
+        .countdown { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin: 50px 0; position: relative; z-index: 2; }
+        .countdown-box { border-bottom: 1px solid var(--line-color); padding-bottom: 10px; text-align: center; }
+        .countdown-num { font-size: 1.2rem; font-weight: 400; color: var(--point-color); }
+        .countdown-unit { font-size: 0.65rem; color: #aaa; margin-top: 5px; letter-spacing: 1px; }
+
+
+        /* 2. 사진 영역 */
+        .photo-card {
+            width: 100%;
+            margin: 0 auto 24px;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .photo-card img { width: 100%; display: block; filter: sepia(10%); }
+
+        /* 3. 텍스트 스타일링 */
+        .title { font-size: 1.25rem; letter-spacing: 3px; margin-bottom: 18px; color: #8a7a66; }
+        .content { line-height: 2; font-size: 0.98rem; color: #555; word-break: keep-all; }
+
+        /* 4. 갤러리: 모바일 슬라이더 + 데스크톱 3열 */
+        .gallery {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 6px;
+            -webkit-overflow-scrolling: touch;
+        }
+        .gallery::-webkit-scrollbar { display: none; }
+        .gallery-item {
+            flex: 0 0 70%;
+            scroll-snap-align: start;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 6px;
+            display: block;
+        }
+        @media (min-width: 640px) {
+            .gallery {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                overflow: visible;
+            }
+            .gallery-item { flex: none; }
+            .gallery-item img { height: 180px; }
+        }
+
+        /* 5. 버튼 */
+        .button-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            text-decoration: none; color: #333; background: #fff; border: 1px solid #ddd;
+            padding: 12px 10px; border-radius: 24px; font-size: 0.95rem;
+        }
+        .btn.primary { background: #8a7a66; color: #fff; border-color: #8a7a66; }
+
+        .map-strong { font-weight: 700; line-height: 2; font-size: 0.98rem; color: #888; word-break: keep-all;}
+        
+
+        /* 음악 컨트롤러 */
+        #music-btn {
+            position: fixed; bottom: 24px; right: 20px; z-index: 99;
+            background: rgba(255,255,255,0.88); border: 1px solid #ddd;
+            width: 44px; height: 44px; border-radius: 50%; cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<audio id="bgm" loop>
+    <source src="bg.mp3" type="audio/mpeg">
+</audio>
+<button id="music-btn">♪</button>
+
+<section class="main-section">
+    <div class="video-wrap">
+        <video class="video-inline" autoplay muted loop playsinline controls
+               poster="poster.png">
+            <source src="invite.mp4" type="video/mp4"/>
+            브라우저가 video 태그를 지원하지 않습니다.
+        </video>
+    </div>
+    <div class="section-inner" style="text-align: center;">
+        <div class="hero-text">
+            <p class="hero-date">2026. 08. 23</p>
+            <h1 class="hero-names">영길 & 수진</h1>
+            <p class="hero-place">라도무스 아트센터 아모리움홀</p>
+         </div>
+     </div>
+     <div class="countdown">
+        <div class="countdown-box">
+            <div class="countdown-num" id="cdDays">0</div>
+            <div class="countdown-unit">DAYS</div>
+        </div>
+        <div class="countdown-box">
+            <div class="countdown-num" id="cdHours">00</div>
+            <div class="countdown-unit">HOURS</div>
+        </div>
+        <div class="countdown-box">
+            <div class="countdown-num" id="cdMinutes">00</div>
+            <div class="countdown-unit">MINS</div>
+        </div>
+        <div class="countdown-box">
+            <div class="countdown-num" id="cdSeconds">00</div>
+            <div class="countdown-unit">SECS</div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="section-inner">
+        <h2 class="title">INVITATION</h2>
+        <div class="photo-card">
+            <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=800"
+                 alt="Wedding Sample 1">
+        </div>
+        <p class="content">
+            싱그러운 여름 햇살이 가득한 8월,<br>
+            저희 두 사람이 소중한 분들 앞에서<br>
+            평생을 함께할 약속을 하려 합니다.<br><br>
+            귀한 걸음 하시어 저희의 시작을 축복해 주세요.
+        </p>
+    </div>
+</section>
+
+<section class="section section--alt">
+    <div class="section-inner">
+        <h2 class="title">GALLERY</h2>
+        <div class="gallery" aria-label="wedding gallery">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800"
+                     alt="Wedding Sample 2">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800"
+                     alt="Wedding Sample 3">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1523430410476-0185cb1f6ff9?auto=format&fit=crop&q=80&w=800"
+                     alt="Wedding Sample 4">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="section-inner">
+        <h2 class="title">LOCATION</h2>
+        <div id="daumRoughmapContainer1775705958168" class="root_daum_roughmap root_daum_roughmap_landing map-strong"></div>
+        <p class="content">
+            <span style="font-size: 0.9rem; color: #888;">유성온천역 3번 출구 셔틀버스 운행</span>
+        </p>
+
+        <div class="button-row">
+            <a class="btn primary" href="https://naver.me/Gxk1CPWi" target="_blank"
+               rel="noreferrer">지도 열기</a>
+            <a class="btn" href="tel:042-823-5220">연락하기</a>
+        </div>
+    </div>
+</section>
+
+<script>
+    const bgm = document.getElementById('bgm');
+    const btn = document.getElementById('music-btn');
+    let playing = false;
+
+    const weddingAt = new Date('2026-08-23T13:00:00+09:00').getTime();
+
+
+    function updateCountdown() {
+        const now = Date.now();
+        const diff = Math.max(0, weddingAt - now);
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        const ddayText = document.getElementById('ddayText');
+        if (ddayText) {
+            ddayText.textContent = days > 0 ? `D-${days}` : "D-DAY";
+        }
+        document.getElementById('cdDays').textContent = String(days);
+        document.getElementById('cdHours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('cdMinutes').textContent = String(minutes).padStart(2, '0');
+        document.getElementById('cdSeconds').textContent = String(seconds).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // 브라우저 정책상 첫 클릭 시 음악 재생 시작
+    document.body.addEventListener('click', () => {
+        if (!playing) {
+            bgm.play();
+            playing = true;
+            btn.innerText = '♬';
+        }
+    }, { once: true });
+
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (playing) { bgm.pause(); btn.innerText = 'x'; }
+        else { bgm.play(); btn.innerText = '♬'; }
+        playing = !playing;
+    });
+
+
+    new daum.roughmap.Lander({
+        "timestamp" : "1775705958168",
+        "key" : "krxvveu8ixe",
+        "mapWidth" : "640",
+        "mapHeight" : "360"
+    }).render();
+</script>
+</body>
+</html>
+
