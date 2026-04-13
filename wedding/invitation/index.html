@@ -311,10 +311,10 @@
 
 <body>
 
-    <audio id="bgm" loop>
+    <audio id="bgm" loop autoplay>
         <source src="bg.mp3" type="audio/mpeg">
     </audio>
-    <button id="music-btn">♪</button>
+    <button id="music-btn">■</button>
 
     <section class="main-section">
         <div class="video-wrap">
@@ -354,8 +354,7 @@
         <div class="section-inner">
             <h2 class="title">INVITATION</h2>
             <div class="photo-card">
-                <img src="invitation_section.JPG"
-                    alt="Wedding Sample 1">
+                <img src="invitation_section.JPG" alt="Wedding Sample 1">
             </div>
             <p class="content">
                 싱그러운 여름 햇살이 가득한 8월,<br>
@@ -371,16 +370,13 @@
             <h2 class="title">GALLERY</h2>
             <div class="gallery" aria-label="wedding gallery">
                 <div class="gallery-item">
-                    <img src="./summary_section_1.JPG"
-                        alt="Wedding Sample 2">
+                    <img src="./summary_section_1.JPG" alt="Wedding Sample 2">
                 </div>
                 <div class="gallery-item">
-                    <img src="./summary_section_2.JPG"
-                        alt="Wedding Sample 3">
+                    <img src="./summary_section_2.JPG" alt="Wedding Sample 3">
                 </div>
                 <div class="gallery-item">
-                    <img src="./summary_section_3.JPG"
-                        alt="Wedding Sample 4">
+                    <img src="./summary_section_3.JPG" alt="Wedding Sample 4">
                 </div>
             </div>
         </div>
@@ -432,119 +428,16 @@
 
         updateCountdown();
         setInterval(updateCountdown, 1000);
-
-        // 브라우저 정책상 첫 클릭 시 음악 재생 시작
-        document.body.addEventListener('click', () => {
-            if (!playing) {
+        btn.addEventListener('click', () => {
+            if (playing) {
+                bgm.pause();
+                btn.textContent = '♪';
+            } else {
                 bgm.play();
-                playing = true;
-                btn.innerText = '♬';
+                btn.textContent = '■';
             }
-        }, { once: true });
-
-        btn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            if (playing) { bgm.pause(); btn.innerText = 'x'; }
-            else { bgm.play(); btn.innerText = '♬'; }
             playing = !playing;
         });
-
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImage = document.getElementById('lightboxImage');
-        const lightboxClose = document.getElementById('lightboxClose');
-        const lightboxPrev = document.getElementById('lightboxPrev');
-        const lightboxNext = document.getElementById('lightboxNext');
-        const galleryImages = Array.from(document.querySelectorAll('.gallery img'));
-        const galleryEl = document.querySelector('.gallery');
-        const galleryPrev = document.getElementById('galleryPrev');
-        const galleryNext = document.getElementById('galleryNext');
-        let currentIndex = 0;
-        let touchStartX = 0;
-        let galleryTouchStartX = 0;
-
-        function showImage(index) {
-            currentIndex = (index + galleryImages.length) % galleryImages.length;
-            lightboxImage.src = galleryImages[currentIndex].src;
-        }
-
-        galleryImages.forEach((img, index) => {
-            img.addEventListener('click', () => {
-                showImage(index);
-                lightbox.classList.add('open');
-                lightbox.setAttribute('aria-hidden', 'false');
-            });
-        });
-
-        function closeLightbox() {
-            lightbox.classList.remove('open');
-            lightbox.setAttribute('aria-hidden', 'true');
-            lightboxImage.src = '';
-        }
-
-        function showNext() {
-            showImage(currentIndex + 1);
-        }
-
-        function showPrev() {
-            showImage(currentIndex - 1);
-        }
-
-        lightboxClose.addEventListener('click', closeLightbox);
-        lightboxNext.addEventListener('click', showNext);
-        lightboxPrev.addEventListener('click', showPrev);
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) closeLightbox();
-        });
-
-        lightbox.addEventListener('wheel', (e) => {
-            if (!lightbox.classList.contains('open')) return;
-            e.preventDefault();
-            if (e.deltaY > 0) showNext();
-            else showPrev();
-        }, { passive: false });
-
-        lightboxImage.addEventListener('touchstart', (e) => {
-            touchStartX = e.touches[0].clientX;
-        }, { passive: true });
-        lightboxImage.addEventListener('touchend', (e) => {
-            const diff = e.changedTouches[0].clientX - touchStartX;
-            if (Math.abs(diff) < 40) return;
-            if (diff < 0) showNext();
-            else showPrev();
-        }, { passive: true });
-
-        function getGalleryStep() {
-            const item = galleryEl?.querySelector('.gallery-item');
-            if (!item) return 0;
-            const styles = window.getComputedStyle(galleryEl);
-            const gap = parseFloat(styles.columnGap || styles.gap || '0') || 0;
-            return item.clientWidth + gap;
-        }
-
-        function scrollGallery(direction) {
-            const step = getGalleryStep();
-            if (!step) return;
-            galleryEl.scrollBy({ left: direction * step, behavior: 'smooth' });
-        }
-
-        galleryPrev?.addEventListener('click', () => scrollGallery(-1));
-        galleryNext?.addEventListener('click', () => scrollGallery(1));
-
-        galleryEl?.addEventListener('wheel', (e) => {
-            e.preventDefault();
-            scrollGallery(e.deltaY > 0 ? 1 : -1);
-        }, { passive: false });
-
-        galleryEl?.addEventListener('touchstart', (e) => {
-            galleryTouchStartX = e.touches[0].clientX;
-        }, { passive: true });
-        galleryEl?.addEventListener('touchend', (e) => {
-            const diff = e.changedTouches[0].clientX - galleryTouchStartX;
-            if (Math.abs(diff) < 40) return;
-            scrollGallery(diff < 0 ? 1 : -1);
-        }, { passive: true });
-
-
         new daum.roughmap.Lander({
             "timestamp": "1775705958168",
             "key": "krxvveu8ixe",
