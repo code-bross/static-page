@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수진 & 영길 결혼식 방명록</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&family=Pretendard:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fcfaf8;
+            --container-bg: #ffffff;
+            --point-color: #8a7a66; /* 청첩장과 어울리는 웜브라운 */
+            --text-color: #444;
+            --line-color: #e8e2dc;
+        }
+
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: var(--bg-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            color: var(--text-color);
+        }
+
+        .container {
+            background: var(--container-bg);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(138, 122, 102, 0.1);
+            width: 100%;
+            max-width: 420px;
+            border: 1px solid var(--line-color);
+        }
+
+        h2 {
+            font-family: 'Nanum Myeongjo', serif;
+            text-align: center;
+            color: var(--point-color);
+            margin-bottom: 30px;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+        }
+
+        h2::after {
+            content: "";
+            display: block;
+            width: 30px;
+            height: 1px;
+            background: var(--point-color);
+            margin: 15px auto 0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #888;
+            letter-spacing: 1px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--line-color);
+            border-radius: 10px;
+            box-sizing: border-box;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background-color: #fafafa;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--point-color);
+            background-color: #fff;
+            box-shadow: 0 0 8px rgba(138, 122, 102, 0.1);
+        }
+
+        textarea {
+            height: 120px;
+            line-height: 1.6;
+            resize: none;
+        }
+
+        /* 사진 업로드 커스텀 */
+        input[type="file"] {
+            font-size: 0.8rem;
+            padding: 8px;
+            border: 1px dashed var(--line-color);
+            background: #fff;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--point-color);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(138, 122, 102, 0.2);
+        }
+
+        button:hover {
+            background-color: #6d5f50;
+            transform: translateY(-1px);
+        }
+
+        #status {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            min-height: 1.2rem;
+        }
+
+        .success { color: #8a7a66; font-weight: bold; }
+        .error { color: #dc3545; }
+
+        .footer-text {
+            font-size: 0.75rem;
+            text-align: center;
+            color: #bbb;
+            margin-top: 30px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>방명록</h2>
+
+        <div class="form-group">
+            <label>이름</label>
+            <input type="text" id="name" placeholder="성함을 입력해 주세요">
+        </div>
+
+        <div class="form-group">
+            <label>연락처</label>
+            <input type="text" id="phone" placeholder="010-0000-0000">
+        </div>
+
+        <div class="form-group">
+            <label>메시지</label>
+            <textarea id="message" placeholder="축하의 한마디를 남겨주세요"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>사진 (선택)</label>
+            <input type="file" id="photo" accept="image/*">
+        </div>
+
+        <button onclick="sendToTelegram()">축하 메시지 남기기</button>
+
+        <div id="status"></div>
+
+        <p class="footer-text">남겨주신 소중한 메시지는<br>신랑 신부에게 실시간으로 전달됩니다.</p>
+    </div>
+
+    <script>
+        // 기존 암복호화 및 전송 로직은 그대로 유지 (보안을 위해 수정하지 않음)
+        function encryptToByteString(text) {
+            const base64 = btoa(encodeURIComponent(text).replace(/%([0-9A-F]{2})/g, (match, p1) => String.fromCharCode('0x' + p1)));
+            return base64.split('').map(char => char.charCodeAt(0)).join(',');
+        }
+
+        function decryptFromByteString(byteString) {
+            if (!byteString) return "";
+            try {
+                const base64 = byteString.split(',').map(byte => String.fromCharCode(parseInt(byte))).join('');
+                return decodeURIComponent(atob(base64).split('').map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join(''));
+            } catch (e) { return ""; }
+        }
+
+        async function sendToTelegram() {
+            var chatId = decryptFromByteString('76,84,69,119,77,68,77,53,77,106,103,121,78,122,77,51,77,122,107,61');
+            var token = decryptFromByteString('79,68,89,121,78,84,103,51,79,68,73,120,78,122,112,66,81,85,100,97,85,71,78,109,78,48,57,73,83,109,78,71,85,87,115,51,78,69,112,110,76,84,104,106,101,85,104,72,85,87,119,121,82,110,85,120,86,85,57,111,79,65,61,61');
+
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+            const photoFile = document.getElementById('photo').files[0];
+            const status = document.getElementById('status');
+
+            if (!name || !phone || !message) {
+                alert('모든 필드를 입력해주세요.');
+                return;
+            }
+
+            status.textContent = "소중한 마음을 전송 중입니다...";
+            status.className = "";
+
+            try {
+                let url = `https://api.telegram.org/bot${token}/`;
+                let formData = new FormData();
+                formData.append('chat_id', chatId);
+
+                // 텔레그램 메시지 가독성을 위해 개행 처리
+                const captionText = `✨ 새로운 축하 메시지\n\n👤 성함: ${name}\n📞 연락처: ${phone}\n\n💌 내용:\n${message}`;
+
+                if (photoFile) {
+                    url += 'sendPhoto';
+                    formData.append('photo', photoFile);
+                    formData.append('caption', captionText);
+                } else {
+                    url += 'sendMessage';
+                    formData.append('text', captionText);
+                }
+
+                const response = await fetch(url, { method: 'POST', body: formData });
+                const result = await response.json();
+
+                if (result.ok) {
+                    status.textContent = "✅ 소중한 메시지가 잘 전달되었습니다.";
+                    status.className = "success";
+                    // 전송 후 입력칸 초기화
+                    document.getElementById('name').value = "";
+                    document.getElementById('phone').value = "";
+                    document.getElementById('message').value = "";
+                    document.getElementById('photo').value = "";
+                } else {
+                    status.textContent = "❌ 전송 실패: 다시 시도해 주세요.";
+                    status.className = "error";
+                }
+            } catch (err) {
+                status.textContent = "❌ 네트워크 오류가 발생했습니다.";
+                status.className = "error";
+            }
+        }
+    </script>
+</body>
+</html>
