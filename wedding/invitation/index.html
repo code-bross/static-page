@@ -561,7 +561,7 @@
                                 한국투자증권 (예금주: 강영길)
                                 <span class="account-num" id="accGroom">63557881-21</span>
                             </div>
-                            <button class="btn btn-copy" onclick="copyAccount('accGroom')">복사</button>
+                            <button class="btn btn-copy" onclick="copyAccount('63557881-21')">복사</button>
                         </div>
                         <div class="remit-buttons">
                             <!-- 카카오페이 송금 링크: https://qr.kakao.com/talk/qr/코드번호 나 본인 송금링크 -->
@@ -573,7 +573,22 @@
                                 <img src="https://framerusercontent.com/images/EhEElRcoy4v5Y9uyUj3XkTWg.jpg?width=1080&height=739" alt="토스" class="icon-toss"> 송금
                             </a>
                         </div>
+                        <div class="account-row">
+                            <div class="account-text">
+                                하나은행 (예금주: 강용훈)
+                                <span class="account-num" id="accGroom">625-075789-00508</span>
+                            </div>
+                            <button class="btn btn-copy" onclick="copyAccount('625-075789-00508')">복사</button>
+                        </div>
+                        <div class="account-row">
+                            <div class="account-text">
+                                국민은행 (예금주: 박미경)
+                                <span class="account-num" id="accGroom">476-21-0278-498</span>
+                            </div>
+                            <button class="btn btn-copy" onclick="copyAccount('476-21-0278-498')">복사</button>
+                        </div>
                     </div>
+                    
                 </div>
 
                 <!-- 신부측 -->
@@ -585,7 +600,7 @@
                                 농협 (예금주: 성수진)
                                 <span class="account-num" id="accBride">302-0661-7112-61</span>
                             </div>
-                            <button class="btn btn-copy" onclick="copyAccount('accBride')">복사</button>
+                            <button class="btn btn-copy" onclick="copyAccount('302-0661-7112-61')">복사</button>
                         </div>
                         <div class="remit-buttons">
                             <a href="#" class="btn btn-remit" target="_blank">
@@ -594,6 +609,20 @@
                             <a href="supertoss://send?bank=NH농협&accountNo=3020661711261" class="btn btn-remit" target="_blank">
                                 <img src="https://framerusercontent.com/images/EhEElRcoy4v5Y9uyUj3XkTWg.jpg?width=1080&height=739" alt="토스" class="icon-toss"> 송금
                             </a>
+                        </div>
+                         <div class="account-row">
+                            <div class="account-text">
+                                농협 (예금주: 성창제)
+                                <span class="account-num" id="accGroom">519-02-1716-21</span>
+                            </div>
+                            <button class="btn btn-copy" onclick="copyAccount('519-02-1716-21')">복사</button>
+                        </div>
+                         <div class="account-row">
+                            <div class="account-text">
+                                농협 (예금주: 정귀화)
+                                <span class="account-num" id="accGroom">351-1321-8587-23</span>
+                            </div>
+                            <button class="btn btn-copy" onclick="copyAccount('351-1321-8587-23')">복사</button>
                         </div>
                     </div>
                 </div>
@@ -734,8 +763,7 @@
             container.classList.toggle('active');
         }
         
-         function copyAccount(elementId) {
-            const accountNum = document.getElementById(elementId).innerText;
+         function copyAccount(accountNum) {
             
             // 임시 textarea 생성
             const textarea = document.createElement('textarea');
