@@ -306,6 +306,60 @@
             border-radius: 50%;
             cursor: pointer;
         }
+
+        /* 갤러리 팝업(라이트박스) 스타일 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            touch-action: none;
+        }
+
+        .modal-content {
+            max-width: 95%;
+            max-height: 80%;
+            object-fit: contain;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 35px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 40px;
+            padding: 20px;
+            cursor: pointer;
+            user-select: none;
+            z-index: 1001;
+            background: none;
+            border: none;
+        }
+
+        .modal-prev { left: 0; }
+        .modal-next { right: 0; }
+
+        @media (max-width: 640px) {
+            .modal-nav { font-size: 30px; padding: 10px; }
+        }
     </style>
 </head>
 
@@ -400,6 +454,14 @@
         </div>
     </section>
 
+
+    <div id="galleryModal" class="modal">
+    <span class="modal-close" onclick="closeModal()">&times;</span>
+    <button class="modal-nav modal-prev" onclick="changeImage(-1)">&#10094;</button>
+    <img id="modalImage" class="modal-content">
+    <button class="modal-nav modal-next" onclick="changeImage(1)">&#10095;</button>
+    </div>
+
     <script>
         const bgm = document.getElementById('bgm');
         const btn = document.getElementById('music-btn');
@@ -444,7 +506,57 @@
             "mapWidth": "640",
             "mapHeight": "360"
         }).render();
+
+        /* 갤러리 팝업 로직 */
+        let currentImgIdx = 0;
+        const galleryImages = Array.from(document.querySelectorAll('.gallery-item img')).map(img => img.src);
+        const modal = document.getElementById('galleryModal');
+        const modalImg = document.getElementById('modalImage');
+
+        // 모든 갤러리 이미지에 클릭 이벤트 추가
+        document.querySelectorAll('.gallery-item img').forEach((img, index) => {
+            img.style.cursor = 'pointer';
+            img.onclick = () => openModal(index);
+        });
+
+        function openModal(index) {
+            currentImgIdx = index;
+            modal.style.display = 'flex';
+            updateModalImage();
+            document.body.style.overflow = 'hidden'; // 스크롤 방지
+        }
+
+        function closeModal() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function updateModalImage() {
+            modalImg.src = galleryImages[currentImgIdx];
+        }
+
+        function changeImage(step) {
+            currentImgIdx += step;
+            if (currentImgIdx >= galleryImages.length) currentImgIdx = 0;
+            if (currentImgIdx < 0) currentImgIdx = galleryImages.length - 1;
+            updateModalImage();
+        }
+
+        // 터치 스와이프 지원 (모바일용)
+        let touchStartX = 0;
+        modal.addEventListener('touchstart', e => touchStartX = e.changedTouches[0].screenX);
+        modal.addEventListener('touchend', e => {
+            let touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 50) changeImage(1);  // 왼쪽으로 밀면 다음
+            if (touchEndX - touchStartX > 50) changeImage(-1); // 오른쪽으로 밀면 이전
+        });
+
+        // 배경 클릭 시 닫기
+        modal.onclick = (e) => {
+            if (e.target === modal) closeModal();
+        };
     </script>
+
 </body>
 
 </html>
