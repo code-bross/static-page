@@ -7,9 +7,8 @@
     <title>영길 & 수진 모바일 청첩장</title>
     <script charset="UTF-8" class="daum_roughmap_loader_script"
         src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
-    
-    <style>
 
+    <style>
         @font-face {
             font-family: 'High-Empathy';
             src: url('./High-Empathy.ttf') format('truetype');
@@ -60,19 +59,23 @@
         /* 메인 사진 위에 겹칠 텍스트 스타일 (흘림체 + 하단 검정 반투명) */
         .overlay-text {
             position: absolute;
-            bottom: 0; /* 하단 배치 */
+            bottom: 0;
+            /* 하단 배치 */
             left: 0;
             width: 100%;
             color: #fff;
-            font-family: 'High-Empathy', cursive; /* 흘림체 폰트 적용 */
-            font-size: 2.2rem; /* 흘림체 특성상 조금 더 크게 설정 */
+            font-family: 'High-Empathy', cursive;
+            /* 흘림체 폰트 적용 */
+            font-size: 2.2rem;
+            /* 흘림체 특성상 조금 더 크게 설정 */
             letter-spacing: 1px;
             text-align: center;
             z-index: 2;
-            
+
             /* 하단 검정색 반투명 그라데이션 처리 (자연스럽게 배경색이 깔리도록) */
             background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
-            padding: 40px 0 15px 0; /* 텍스트 주변 여백 */
+            padding: 40px 0 15px 0;
+            /* 텍스트 주변 여백 */
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             box-sizing: border-box;
         }
@@ -178,7 +181,8 @@
 
         /* 2. 사진 영역 */
         .photo-card {
-            width: 80%; /* 기존 100%에서 80%로 축소 */
+            width: 80%;
+            /* 기존 100%에서 80%로 축소 */
             margin: 0 auto 24px;
             border-radius: 6px;
             overflow: hidden;
@@ -221,14 +225,16 @@
         }
 
         .gallery-item {
-            flex: 0 0 85%; /* 기존 70%에서 85%로 확대 */
+            flex: 0 0 85%;
+            /* 기존 70%에서 85%로 확대 */
             scroll-snap-align: start;
         }
 
         .gallery-item img {
             width: 100%;
             height: auto;
-            aspect-ratio: 3 / 4; /* 사진들의 비율을 3:4로 균일하게 고정 */
+            aspect-ratio: 3 / 4;
+            /* 사진들의 비율을 3:4로 균일하게 고정 */
             object-fit: cover;
             border-radius: 6px;
             display: block;
@@ -254,7 +260,8 @@
         @media (min-width: 640px) {
             .gallery {
                 display: grid;
-                grid-template-columns: repeat(2, 1fr); /* 기존 3열에서 2열로 변경하여 데스크톱에서도 크기 확대 */
+                grid-template-columns: repeat(2, 1fr);
+                /* 기존 3열에서 2열로 변경하여 데스크톱에서도 크기 확대 */
                 overflow: visible;
             }
 
@@ -349,7 +356,7 @@
             max-width: 95%;
             max-height: 80%;
             object-fit: contain;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
             transition: transform 0.3s ease;
         }
 
@@ -377,13 +384,21 @@
             border: none;
         }
 
-        .modal-prev { left: 0; }
-        .modal-next { right: 0; }
+        .modal-prev {
+            left: 0;
+        }
+
+        .modal-next {
+            right: 0;
+        }
 
         @media (max-width: 640px) {
-            .modal-nav { font-size: 30px; padding: 10px; }
+            .modal-nav {
+                font-size: 30px;
+                padding: 10px;
+            }
         }
-        
+
         .tribute-info {
             margin-top: 30px;
             text-align: left;
@@ -395,7 +410,7 @@
             border-radius: 8px;
             margin-bottom: 12px;
             overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
         }
 
         .account-trigger {
@@ -482,12 +497,17 @@
 
         /* 송금 서비스 로고 색상 맞춤 (원색 대신 톤다운) */
         .icon-kakaopay {
-            width: 50px; height: auto;
-            filter: grayscale(100%) opacity(0.8); /* 톤앤매너 맞춤 */
+            width: 50px;
+            height: auto;
+            filter: grayscale(100%) opacity(0.8);
+            /* 톤앤매너 맞춤 */
         }
+
         .icon-toss {
-            width: 40px; height: auto;
-            filter: grayscale(100%) opacity(0.8); /* 톤앤매너 맞춤 */
+            width: 40px;
+            height: auto;
+            filter: grayscale(100%) opacity(0.8);
+            /* 톤앤매너 맞춤 */
         }
     </style>
 </head>
@@ -502,10 +522,11 @@
     <section class="main-section">
         <!-- 수정된 이미지 영역 -->
         <div class="video-wrap">
-            <img src="./top.webp" alt="Wedding Invite" class="video-inline" style="object-fit: cover; width: 100%; height: 100%;">
+            <img src="./top.webp" alt="Wedding Invite" class="video-inline"
+                style="object-fit: cover; width: 100%; height: 100%;">
             <div class="overlay-text">We are getting married.</div>
         </div>
-        
+
         <div class="section-inner" style="text-align: center;">
             <div class="hero-text">
                 <p class="hero-date">2026. 08. 23 1:00 PM</p>
@@ -551,27 +572,8 @@
     <section class="section section--alt">
         <div class="section-inner">
             <h2 class="title">GALLERY</h2>
-            <div class="gallery" aria-label="wedding gallery">
-                <div class="gallery-item">
-                    <img src="./summary_section_1.webp" alt="Wedding Sample 2">
-                </div>
-                <div class="gallery-item">
-                    <img src="./summary_section_2.webp" alt="Wedding Sample 3">
-                </div>
-                <div class="gallery-item">
-                    <img src="./summary_section_3.webp" alt="Wedding Sample 4">
-                </div>
-                <div class="gallery-item">
-                    <img src="./summary_section_4.webp" alt="Wedding Sample 4">
-                </div>
+            <div class="gallery" aria-label="wedding gallery" id="weddingGallery">
 
-                <div class="gallery-item">
-                    <img src="./summary_section_5.webp" alt="Wedding Sample 4">
-                </div>
-
-                <div class="gallery-item">
-                    <img src="./summary_section_6.webp" alt="Wedding Sample 4">
-                </div>
             </div>
         </div>
     </section>
@@ -600,11 +602,14 @@
                         <div class="remit-buttons">
                             <!-- 카카오페이 송금 링크: https://qr.kakao.com/talk/qr/코드번호 나 본인 송금링크 -->
                             <a href="https://qr.kakaopay.com/Ej7kLPSPI" class="btn btn-remit" target="_blank">
-                                <img src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FcEaPmw%2FbtrcIUODymI%2FAAAAAAAAAAAAAAAAAAAAAJ66dlufqQ8CmrywsO5eQdaR-ALF_-6jbvFe4nRJZzfn%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1780239599%26allow_ip%3D%26allow_referer%3D%26signature%3DU0N9xArh60iyq5%252ByCflvd7dZVOY%253D" alt="카카오페이" class="icon-kakaopay"> 송금
+                                <img src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FcEaPmw%2FbtrcIUODymI%2FAAAAAAAAAAAAAAAAAAAAAJ66dlufqQ8CmrywsO5eQdaR-ALF_-6jbvFe4nRJZzfn%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1780239599%26allow_ip%3D%26allow_referer%3D%26signature%3DU0N9xArh60iyq5%252ByCflvd7dZVOY%253D"
+                                    alt="카카오페이" class="icon-kakaopay"> 송금
                             </a>
                             <!-- 토스 송금 링크: https://toss.me/아이디/금액 또는 toss:// -> 앱링크 -->
-                            <a href="supertoss://send?bank=한국투자&accountNo=6355788121" class="btn btn-remit" target="_blank">
-                                <img src="https://framerusercontent.com/images/EhEElRcoy4v5Y9uyUj3XkTWg.jpg?width=1080&height=739" alt="토스" class="icon-toss"> 송금
+                            <a href="supertoss://send?bank=한국투자&accountNo=6355788121" class="btn btn-remit"
+                                target="_blank">
+                                <img src="https://framerusercontent.com/images/EhEElRcoy4v5Y9uyUj3XkTWg.jpg?width=1080&height=739"
+                                    alt="토스" class="icon-toss"> 송금
                             </a>
                         </div>
                         <div class="account-row">
@@ -622,7 +627,7 @@
                             <button class="btn btn-copy" onclick="copyAccount('476-21-0278-498')">복사</button>
                         </div>
                     </div>
-                    
+
                 </div>
 
                 <!-- 신부측 -->
@@ -638,20 +643,23 @@
                         </div>
                         <div class="remit-buttons">
                             <a href="https://qr.kakaopay.com/Ej9AlrDwY" class="btn btn-remit" target="_blank">
-                                <img src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FcEaPmw%2FbtrcIUODymI%2FAAAAAAAAAAAAAAAAAAAAAJ66dlufqQ8CmrywsO5eQdaR-ALF_-6jbvFe4nRJZzfn%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1780239599%26allow_ip%3D%26allow_referer%3D%26signature%3DU0N9xArh60iyq5%252ByCflvd7dZVOY%253D" alt="카카오페이" class="icon-kakaopay"> 송금
+                                <img src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FcEaPmw%2FbtrcIUODymI%2FAAAAAAAAAAAAAAAAAAAAAJ66dlufqQ8CmrywsO5eQdaR-ALF_-6jbvFe4nRJZzfn%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1780239599%26allow_ip%3D%26allow_referer%3D%26signature%3DU0N9xArh60iyq5%252ByCflvd7dZVOY%253D"
+                                    alt="카카오페이" class="icon-kakaopay"> 송금
                             </a>
-                            <a href="supertoss://send?bank=NH농협&accountNo=3020661711261" class="btn btn-remit" target="_blank">
-                                <img src="https://framerusercontent.com/images/EhEElRcoy4v5Y9uyUj3XkTWg.jpg?width=1080&height=739" alt="토스" class="icon-toss"> 송금
+                            <a href="supertoss://send?bank=NH농협&accountNo=3020661711261" class="btn btn-remit"
+                                target="_blank">
+                                <img src="https://framerusercontent.com/images/EhEElRcoy4v5Y9uyUj3XkTWg.jpg?width=1080&height=739"
+                                    alt="토스" class="icon-toss"> 송금
                             </a>
                         </div>
-                         <div class="account-row">
+                        <div class="account-row">
                             <div class="account-text">
                                 농협 (예금주: 성창제)
                                 <span class="account-num" id="accGroom">519-02-1716-21</span>
                             </div>
                             <button class="btn btn-copy" onclick="copyAccount('519-02-1716-21')">복사</button>
                         </div>
-                         <div class="account-row">
+                        <div class="account-row">
                             <div class="account-text">
                                 농협 (예금주: 정귀화)
                                 <span class="account-num" id="accGroom">351-1321-8587-23</span>
@@ -666,7 +674,7 @@
 
 
 
-     <section class="section section--alt">
+    <section class="section section--alt">
         <div class="section-inner">
             <h2 class="title">LOCATION</h2>
             <div class="map-wrap">
@@ -693,6 +701,13 @@
     </div>
 
     <script>
+
+        const imageCount = 16;
+        const images = Array.from({ length: imageCount }, (_, i) => ({
+                src: `./gallery/${i + 1}.webp`,
+                alt: `웨딩 사진 ${i + 1}`
+        }));
+
         const bgm = document.getElementById('bgm');
         const btn = document.getElementById('music-btn');
         let playing = false;
@@ -739,7 +754,7 @@
 
         /* 갤러리 팝업 로직 */
         let currentImgIdx = 0;
-        const galleryImages = Array.from(document.querySelectorAll('.gallery-item img')).map(img => img.src);
+        let galleryImages = [];
         const modal = document.getElementById('galleryModal');
         const modalImg = document.getElementById('modalImage');
 
@@ -785,35 +800,61 @@
         modal.onclick = (e) => {
             if (e.target === modal) closeModal();
         };
-        
+
         function toggleAccount(element) {
             const container = element.parentElement;
-            
+
             // 다른 열려있는 태그 닫기 (선택사항)
             document.querySelectorAll('.tribute-account').forEach(el => {
-                if(el !== container) el.classList.remove('active');
+                if (el !== container) el.classList.remove('active');
             });
 
             container.classList.toggle('active');
         }
-        
-         function copyAccount(accountNum) {
-            
+
+        function copyAccount(accountNum) {
+
             // 임시 textarea 생성
             const textarea = document.createElement('textarea');
             textarea.value = accountNum.replace(/-/g, ''); // 하이픈 제거하고 복사
             document.body.appendChild(textarea);
             textarea.select();
-            
+
             try {
                 document.execCommand('copy');
                 alert('계좌번호가 복사되었습니다.');
             } catch (err) {
                 alert('복사 실패했습니다. 직접 입력해 주세요.');
             }
-            
+
             document.body.removeChild(textarea);
         }
+
+        function galleryInit() {
+            // 2. DOM에 리스트를 순회하며 렌더링
+            const galleryContainer = document.getElementById('weddingGallery');
+
+            images.forEach((imgData, index) => {
+                // 갤러리 아이템 생성
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+
+                // 이미지 태그 생성
+                const imgTag = document.createElement('img');
+                imgTag.src = imgData.src;
+                imgTag.alt = imgData.alt;
+                imgTag.style.cursor = 'pointer';
+
+                // 기존에 구현했던 모달 오픈 이벤트 연결
+                imgTag.onclick = () => openModal(index);
+
+                // 조립 후 삽입
+                galleryItem.appendChild(imgTag);
+                galleryContainer.appendChild(galleryItem);
+            });
+            galleryImages = images.map(img => img.src);
+        }
+        galleryInit();
 
     </script>
 
