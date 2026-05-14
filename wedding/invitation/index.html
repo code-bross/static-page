@@ -88,6 +88,7 @@
             font-weight: bold;
             color: var(--sub-text);
             margin-bottom: 10px;
+            margin-left: 20px;
         }
 
         .day-label:first-child,
@@ -238,18 +239,36 @@
         }
 
         .countdown {
+            margin: 50px 0;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .countdown-label {
+            font-size: 1rem;
+            color: var(--point-color);
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        #dDayCount {
+            font-weight: bold;
+            margin-left: 5px;
+        }
+
+        .countdown-container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 15px;
-            margin: 50px 0;
-            position: relative;
-            z-index: 2;
+            width: min(92vw, 420px);
+            margin: 0 auto;
         }
 
         .countdown-box {
             border-bottom: 1px solid var(--line-color);
             padding-bottom: 10px;
-            text-align: center;
         }
 
         .countdown-num {
@@ -616,7 +635,7 @@
 
         <div class="section-inner" style="text-align: center;">
             <div class="hero-text">
-                <h1 class="hero-names">영길 & 수진</h1>
+                <h1 class="hero-names">영길 ♥ 수진</h1>
                 <p class="hero-place">라도무스 아트센터 아모리움홀</p>
             </div>
         </div>
@@ -680,21 +699,25 @@
             </div>
         </div>
         <div class="countdown">
-            <div class="countdown-box">
-                <div class="countdown-num" id="cdDays">0</div>
-                <div class="countdown-unit">DAYS</div>
-            </div>
-            <div class="countdown-box">
-                <div class="countdown-num" id="cdHours">00</div>
-                <div class="countdown-unit">HOURS</div>
-            </div>
-            <div class="countdown-box">
-                <div class="countdown-num" id="cdMinutes">00</div>
-                <div class="countdown-unit">MINS</div>
-            </div>
-            <div class="countdown-box">
-                <div class="countdown-num" id="cdSeconds">00</div>
-                <div class="countdown-unit">SECS</div>
+
+            <div class="countdown-label">D-Day </div>
+            <div class="countdown-container">
+                <div class="countdown-box">
+                    <div class="countdown-num" id="cdDays">0</div>
+                    <div class="countdown-unit">DAYS</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="countdown-num" id="cdHours">00</div>
+                    <div class="countdown-unit">HOURS</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="countdown-num" id="cdMinutes">00</div>
+                    <div class="countdown-unit">MINS</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="countdown-num" id="cdSeconds">00</div>
+                    <div class="countdown-unit">SECS</div>
+                </div>
             </div>
         </div>
     </section>
@@ -869,10 +892,6 @@
             const minutes = Math.floor((diff / (1000 * 60)) % 60);
             const seconds = Math.floor((diff / 1000) % 60);
 
-            const ddayText = document.getElementById('ddayText');
-            if (ddayText) {
-                ddayText.textContent = days > 0 ? `D-${days}` : "D-DAY";
-            }
             document.getElementById('cdDays').textContent = String(days);
             document.getElementById('cdHours').textContent = String(hours).padStart(2, '0');
             document.getElementById('cdMinutes').textContent = String(minutes).padStart(2, '0');
