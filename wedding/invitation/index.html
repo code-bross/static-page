@@ -7,7 +7,8 @@
     <meta property="og:title" content="영길 ♥ 수진 결혼식에 초대합니다.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://code-bross.github.io/static-page/wedding/invitation/top.webp">
-    <meta property="og:description" content="26년 8월 23일, 오후 1시 라도무스 아트센터 아모리움홀에서 영길과 수진이 결혼합니다. 소중한 분들을 모시고 함께 축하하는 자리를 마련했습니다. 자세한 내용은 모바일 청첩장을 확인해 주세요.">
+    <meta property="og:description"
+        content="26년 8월 23일, 오후 1시 라도무스 아트센터 아모리움홀에서 영길과 수진이 결혼합니다. 소중한 분들을 모시고 함께 축하하는 자리를 마련했습니다. 자세한 내용은 모바일 청첩장을 확인해 주세요.">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>영길 ♥ 수진 모바일 청첩장</title>
@@ -49,6 +50,86 @@
             width: min(92vw, 420px);
             margin: 0 auto;
         }
+
+
+
+        /* 캘린더 스타일 */
+        .calendar-wrap {
+            margin: 40px auto;
+            padding: 20px 10px;
+            border-top: 1px solid var(--line-color);
+            border-bottom: 1px solid var(--line-color);
+        }
+
+        .calendar-title {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+            color: var(--point-color);
+        }
+
+        .calendar-title .time {
+            font-size: 0.8em;
+            /* 부모 크기의 80%로 축소 */
+            font-weight: normal;
+            /* 시간만 얇게 하고 싶을 경우 추가 */
+            margin-left: 8px;
+            /* 날짜와 시간 사이 간격 조정 */
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px 0;
+            font-size: 0.85rem;
+        }
+
+        .day-label {
+            font-weight: bold;
+            color: var(--sub-text);
+            margin-bottom: 10px;
+        }
+
+        .day-label:first-child,
+        .calendar-day:nth-child(7n+1) {
+            color: #d9534f;
+        }
+
+        /* 일요일 */
+
+
+        .calendar-day .wedding {
+            background-color: #d9534f !important;
+            /* 배경색 강제 적용 */
+            color: #fff !important;
+            /* 글자색 흰색 강제 적용 */
+            width: 30px;
+            /* 원의 크기 */
+            height: 30px;
+            /* 원의 크기 */
+            border-radius: 50% !important;
+            /* 완전한 원형 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 1;
+            /* 수직 중앙 정렬 보정 */
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(217, 83, 79, 0.4);
+            position: relative;
+            /* 레이아웃 위치 보정 */
+        }
+
+        /* 부모 영역에서 패딩이 방해하지 않도록 설정 */
+        .calendar-day {
+            padding: 5px 0;
+            /* 상하 여백 살짝 조절 */
+            min-height: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
 
         .video-wrap {
             position: relative;
@@ -535,9 +616,67 @@
 
         <div class="section-inner" style="text-align: center;">
             <div class="hero-text">
-                <p class="hero-date">2026. 08. 23 1:00 PM</p>
                 <h1 class="hero-names">영길 & 수진</h1>
                 <p class="hero-place">라도무스 아트센터 아모리움홀</p>
+            </div>
+        </div>
+        <div class="section-inner">
+            <div class="calendar-wrap">
+                <div class="calendar-title">2026. 08. 23 <span class="time">1:00 PM</span></div>
+
+                <div class="calendar-grid">
+                    <div class="day-label">SUN</div>
+                    <div class="day-label">MON</div>
+                    <div class="day-label">TUE</div>
+                    <div class="day-label">WED</div>
+                    <div class="day-label">THU</div>
+                    <div class="day-label">FRI</div>
+                    <div class="day-label">SAT</div>
+
+                    <!-- 8월 1일은 토요일 시작 -->
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div class="calendar-day">1</div>
+                    <div class="calendar-day">2</div>
+                    <div class="calendar-day">3</div>
+                    <div class="calendar-day">4</div>
+                    <div class="calendar-day">5</div>
+                    <div class="calendar-day">6</div>
+                    <div class="calendar-day">7</div>
+                    <div class="calendar-day">8</div>
+                    <div class="calendar-day">9</div>
+                    <div class="calendar-day">10</div>
+                    <div class="calendar-day">11</div>
+                    <div class="calendar-day">12</div>
+                    <div class="calendar-day">13</div>
+                    <div class="calendar-day">14</div>
+                    <div class="calendar-day">15</div>
+                    <div class="calendar-day">16</div>
+                    <div class="calendar-day">17</div>
+                    <div class="calendar-day">18</div>
+                    <div class="calendar-day">19</div>
+                    <div class="calendar-day">20</div>
+                    <div class="calendar-day">21</div>
+                    <div class="calendar-day">22</div>
+                    <div class="calendar-day"><span class="wedding">23</span></div>
+                    <div class="calendar-day">24</div>
+                    <div class="calendar-day">25</div>
+                    <div class="calendar-day">26</div>
+                    <div class="calendar-day">27</div>
+                    <div class="calendar-day">28</div>
+                    <div class="calendar-day">29</div>
+                    <div class="calendar-day">30</div>
+                    <div class="calendar-day">31</div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
             </div>
         </div>
         <div class="countdown">
@@ -559,6 +698,7 @@
             </div>
         </div>
     </section>
+
 
     <section class="section">
         <div class="section-inner">
@@ -710,8 +850,8 @@
 
         const imageCount = 16;
         const images = Array.from({ length: imageCount }, (_, i) => ({
-                src: `./gallery/${i + 1}.webp`,
-                alt: `웨딩 사진 ${i + 1}`
+            src: `./gallery/${i + 1}.webp`,
+            alt: `웨딩 사진 ${i + 1}`
         }));
 
         const bgm = document.getElementById('bgm');
