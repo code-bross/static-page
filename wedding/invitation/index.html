@@ -7,8 +7,14 @@
     <title>영길 & 수진 모바일 청첩장</title>
     <script charset="UTF-8" class="daum_roughmap_loader_script"
         src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
+
+        @font-face {
+            font-family: 'High-Empathy';
+            src: url('./High-Empathy.ttf') format('truetype');
+        }
+
         :root {
             --line-color: #d9d1c7;
             --point-color: #5b4a3d;
@@ -51,7 +57,27 @@
             z-index: 1;
         }
 
-        /* 1. 메인 영상 섹션 */
+        /* 메인 사진 위에 겹칠 텍스트 스타일 (흘림체 + 하단 검정 반투명) */
+        .overlay-text {
+            position: absolute;
+            bottom: 0; /* 하단 배치 */
+            left: 0;
+            width: 100%;
+            color: #fff;
+            font-family: 'High-Empathy', cursive; /* 흘림체 폰트 적용 */
+            font-size: 2.2rem; /* 흘림체 특성상 조금 더 크게 설정 */
+            letter-spacing: 1px;
+            text-align: center;
+            z-index: 2;
+            
+            /* 하단 검정색 반투명 그라데이션 처리 (자연스럽게 배경색이 깔리도록) */
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+            padding: 40px 0 15px 0; /* 텍스트 주변 여백 */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            box-sizing: border-box;
+        }
+
+        /* 1. 메인 영상/사진 섹션 */
         .main-section {
             position: relative;
             width: 100%;
@@ -152,7 +178,7 @@
 
         /* 2. 사진 영역 */
         .photo-card {
-            width: 100%;
+            width: 80%; /* 기존 100%에서 80%로 축소 */
             margin: 0 auto 24px;
             border-radius: 6px;
             overflow: hidden;
@@ -180,7 +206,7 @@
             word-break: keep-all;
         }
 
-        /* 4. 갤러리: 모바일 슬라이더 + 데스크톱 3열 */
+        /* 4. 갤러리: 모바일 슬라이더 + 데스크톱 2열 */
         .gallery {
             display: flex;
             gap: 12px;
@@ -195,7 +221,7 @@
         }
 
         .gallery-item {
-            flex: 0 0 70%;
+            flex: 0 0 85%; /* 기존 70%에서 85%로 확대 */
             scroll-snap-align: start;
         }
 
@@ -228,15 +254,13 @@
         @media (min-width: 640px) {
             .gallery {
                 display: grid;
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(2, 1fr); /* 기존 3열에서 2열로 변경하여 데스크톱에서도 크기 확대 */
                 overflow: visible;
             }
 
             .gallery-item {
                 flex: none;
             }
-
-            /* 데스크톱에서도 비율 고정이 적용되도록 별도 높이값 제거 */
         }
 
         /* 5. 버튼 */
@@ -476,12 +500,12 @@
     <button id="music-btn">■</button>
 
     <section class="main-section">
+        <!-- 수정된 이미지 영역 -->
         <div class="video-wrap">
-            <div class="video-wrap">
-                <img src="./top.gif" alt="Wedding Invite" class="video-inline"
-                    style="object-fit: cover; width: 100%; height: 100%;">
-            </div>
+            <img src="./top.webp" alt="Wedding Invite" class="video-inline" style="object-fit: cover; width: 100%; height: 100%;">
+            <div class="overlay-text">We are getting married.</div>
         </div>
+        
         <div class="section-inner" style="text-align: center;">
             <div class="hero-text">
                 <p class="hero-date">2026. 08. 23 1:00 PM</p>
