@@ -201,7 +201,8 @@
 
         .gallery-item img {
             width: 100%;
-            height: 220px;
+            height: auto;
+            aspect-ratio: 3 / 4; /* 사진들의 비율을 3:4로 균일하게 고정 */
             object-fit: cover;
             border-radius: 6px;
             display: block;
@@ -235,9 +236,7 @@
                 flex: none;
             }
 
-            .gallery-item img {
-                height: 180px;
-            }
+            /* 데스크톱에서도 비율 고정이 적용되도록 별도 높이값 제거 */
         }
 
         /* 5. 버튼 */
@@ -514,7 +513,7 @@
         <div class="section-inner">
             <h2 class="title">INVITATION</h2>
             <div class="photo-card">
-                <img src="invitation_section.JPG" alt="Wedding Sample 1">
+                <img src="invitation_section.webp" alt="Wedding Sample 1">
             </div>
             <p class="content">
                 싱그러운 여름 햇살이 가득한 8월,<br>
@@ -530,24 +529,24 @@
             <h2 class="title">GALLERY</h2>
             <div class="gallery" aria-label="wedding gallery">
                 <div class="gallery-item">
-                    <img src="./summary_section_1.JPG" alt="Wedding Sample 2">
+                    <img src="./summary_section_1.webp" alt="Wedding Sample 2">
                 </div>
                 <div class="gallery-item">
-                    <img src="./summary_section_2.JPG" alt="Wedding Sample 3">
+                    <img src="./summary_section_2.webp" alt="Wedding Sample 3">
                 </div>
                 <div class="gallery-item">
-                    <img src="./summary_section_3.JPG" alt="Wedding Sample 4">
+                    <img src="./summary_section_3.webp" alt="Wedding Sample 4">
                 </div>
                 <div class="gallery-item">
-                    <img src="./summary_section_4.JPG" alt="Wedding Sample 4">
-                </div>
-
-                <div class="gallery-item">
-                    <img src="./summary_section_5.JPG" alt="Wedding Sample 4">
+                    <img src="./summary_section_4.webp" alt="Wedding Sample 4">
                 </div>
 
                 <div class="gallery-item">
-                    <img src="./summary_section_6.JPG" alt="Wedding Sample 4">
+                    <img src="./summary_section_5.webp" alt="Wedding Sample 4">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="./summary_section_6.webp" alt="Wedding Sample 4">
                 </div>
             </div>
         </div>
