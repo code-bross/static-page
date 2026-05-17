@@ -160,7 +160,7 @@
             color: #fff;
             font-family: 'High-Empathy', cursive;
             /* 흘림체 폰트 적용 */
-            font-size: 2.2rem;
+            font-size: 2.8rem;
             /* 흘림체 특성상 조금 더 크게 설정 */
             letter-spacing: 1px;
             text-align: center;
@@ -172,6 +172,18 @@
             /* 텍스트 주변 여백 */
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             box-sizing: border-box;
+        }
+
+        .overlay-text .first-line {
+            align-self: flex-start;
+            text-align: left;
+            padding: 0 20px;
+        }
+
+        .overlay-text .second-line {
+            align-self: flex-end;
+            text-align: right;
+            padding: 0 20px;
         }
 
         /* 1. 메인 영상/사진 섹션 */
@@ -639,7 +651,10 @@
         <div class="video-wrap">
             <img src="./top.webp" alt="Wedding Invite" class="video-inline"
                 style="object-fit: cover; width: 100%; height: 100%;">
-            <div class="overlay-text">We are getting <br/>married.</div>
+            <div class="overlay-text">
+                <div class="first-line">We are getting</div>
+                <div class="second-line">married.</div>
+            </div>
         </div>
 
         <div class="section-inner" style="text-align: center;">
