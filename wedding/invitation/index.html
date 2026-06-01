@@ -1062,27 +1062,43 @@
             galleryImages = images.map(img => img.src);
         }
         galleryInit();
+        // ... 기존 스크립트 코드들 ...
 
         function initScrollAnimations() {
             const animatedSections = document.querySelectorAll('.section, .main-section');
-            const observer = new IntersectionObserver((entries) => {
+
+            const observer = new IntersectionObserver((entries, observerInstance) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        window.requestAnimationFrame(() => {
-                            entry.target.classList.add('in-view');
-                        });
-                        observer.unobserve(entry.target);
+                        // 브라우저 렌더링 틈을 주기 위한 setTimeout과 requestAnimationFrame의 조합
+                        setTimeout(() => {
+                            window.requestAnimationFrame(() => {
+                                entry.target.classList.add('in-view');
+                            });
+                        }, 50); // 50ms의 지연으로 렌더링 초기화 시간을 확보
+
+                        // 한 번 나타난 요소는 다시 관찰하지 않음
+                        observerInstance.unobserve(entry.target);
                     }
                 });
             }, {
-                rootMargin: '0px 0px -15% 0px',
-                threshold: 0
+                rootMargin: '0px 0px -15% 0px', // 화면 하단에서 15% 위로 올라왔을 때 트리거
+                threshold: 0.1 // 요소가 10% 정도 뷰포트에 들어왔을 때 트리거 (0보다 안정적)
             });
 
-            animatedSections.forEach(section => observer.observe(section));
+            // 약간의 딜레이 후 옵저버 부착 (마운트 직후 꼬임 방지)
+            setTimeout(() => {
+                animatedSections.forEach(section => {
+                    // 이미 'in-view' 클래스가 있다면 무시 (예외 처리)
+                    if (!section.classList.contains('in-view')) {
+                        observer.observe(section);
+                    }
+                });
+            }, 100);
         }
 
-        initScrollAnimations();
+        // 문서 로드가 완료된 시점에 실행하여 렌더링 안정성 확보
+        document.addEventListener('DOMContentLoaded', initScrollAnimations);
     </script>
 
 </body>
