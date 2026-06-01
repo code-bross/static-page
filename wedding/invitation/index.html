@@ -41,9 +41,7 @@
             background-color: #fff;
             color: #333;
             overflow-x: hidden;
-            overflow-y: auto;
             -webkit-overflow-scrolling: touch;
-            touch-action: pan-y;
         }
 
         .section {
@@ -978,7 +976,7 @@
 
         function closeModal() {
             modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
+            document.body.style.overflow = '';
         }
 
         function updateModalImage() {
