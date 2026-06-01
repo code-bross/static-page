@@ -1117,10 +1117,11 @@
         // 문서 로드가 완료된 시점에 실행하여 렌더링 안정성 확보
         document.addEventListener('DOMContentLoaded', initScrollAnimations);
 
-        if (!Kakao.isInitialized()) {
-            Kakao.init('62a36219e6fa4b8a21eeae1206fd78d1');
-        }
+        
         function shareKakao() {
+             if (!Kakao.isInitialized()) {
+                Kakao.init('62a36219e6fa4b8a21eeae1206fd78d1');
+            }
             Kakao.Share.sendDefault({
                 objectType: 'feed',
                 content: {
