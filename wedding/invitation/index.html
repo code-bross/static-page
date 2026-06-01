@@ -14,6 +14,8 @@
     <title>영길 ♥️ 수진 모바일 청첩장</title>
     <script charset="UTF-8" class="daum_roughmap_loader_script"
         src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js"
+        integrity="sha384-0rrHGp9X0YbyAbvWv39eZiyZ6Z9a5gnhFi20kCHFXrA638Ed6C6Z7k4n9m5" crossorigin="anonymous"></script>
 
     <style>
         @font-face {
@@ -902,6 +904,15 @@
                     <a class="btn primary" href="https://naver.me/Gxk1CPWi" target="_blank" rel="noreferrer">지도 열기</a>
                     <a class="btn" href="tel:042-823-5220">연락하기</a>
                 </div>
+
+                <div style="margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--line-color);">
+                    <button class="btn primary" onclick="shareKakao()" style="gap: 8px; background-color: #FEE500; color: #191919; border-color: #FEE500;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                            <path
+                                d="M12 3c-5.523 0-10 3.705-10 8.276 0 2.926 1.83 5.487 4.582 7.027l-1.164 4.264c-.114.417.362.772.715.539l5.068-3.344c.264.025.531.038.8.038 5.523 0 10-3.705 10-8.276S17.523 3 12 3z" />
+                        </svg>
+                        카카오톡 공유하기</button>
+                </div>
             </div>
     </section>
 
@@ -1103,6 +1114,33 @@
 
         // 문서 로드가 완료된 시점에 실행하여 렌더링 안정성 확보
         document.addEventListener('DOMContentLoaded', initScrollAnimations);
+
+        if (!Kakao.isInitialized()) {
+            Kakao.init('62a36219e6fa4b8a21eeae1206fd78d1');
+        }
+        function shareKakao() {
+            Kakao.Share.sendDefault({
+                objectType: 'feed',
+                content: {
+                    title: '영길 ♥️ 수진 결혼식에 초대합니다.',
+                    description: '26년 8월 23일, 오후 1시 라도무스 아트센터 아모리움홀에서 영길과 수진이 결혼합니다. 소중한 분들을 모시고 함께 축하하는 자리를 마련했습니다.',
+                    imageUrl: 'https://code-bross.github.io/static-page/wedding/invitation/top.webp',
+                    link: {
+                        mobileWebUrl: 'https://code-bross.github.io/static-page/wedding/invitation',
+                        webUrl: 'https://code-bross.github.io/static-page/wedding/invitation',
+                    },
+                },
+                buttons: [
+                    {
+                        title: '모바일 청첩장 보기',
+                        link: {
+                            mobileWebUrl: 'https://code-bross.github.io/static-page/wedding/invitation',
+                            webUrl: 'https://code-bross.github.io/static-page/wedding/invitation',
+                        },
+                    },
+                ],
+            });
+        }
     </script>
 
 </body>
