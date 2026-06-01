@@ -11,7 +11,7 @@
         content="26년 8월 23일, 오후 1시 라도무스 아트센터 아모리움홀에서 영길과 수진이 결혼합니다. 소중한 분들을 모시고 함께 축하하는 자리를 마련했습니다. 자세한 내용은 모바일 청첩장을 확인해 주세요.">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>영길 ♥ 수진 모바일 청첩장</title>
+    <title>영길 ♥️ 수진 모바일 청첩장</title>
     <script charset="UTF-8" class="daum_roughmap_loader_script"
         src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
 
@@ -23,7 +23,7 @@
 
         @font-face {
             font-family: 'Griun-Gossi';
-            src: url('./Griun-Gossi-Rg.ttf') format('truetype');
+            src: url('./Griun_Gossi-Rg.ttf') format('truetype');
         }
 
         :root {
@@ -36,11 +36,14 @@
             margin: 0;
             padding: 0;
             width: 100%;
+            min-height: 100%;
             font-family: 'Griun-Gossi', serif;
             background-color: #fff;
             color: #333;
             overflow-x: hidden;
-
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            touch-action: pan-y;
         }
 
         .section {
@@ -354,6 +357,7 @@
             scroll-snap-type: x mandatory;
             padding-bottom: 6px;
             -webkit-overflow-scrolling: touch;
+            touch-action: pan-x;
         }
 
         .gallery::-webkit-scrollbar {
@@ -374,6 +378,10 @@
             object-fit: cover;
             border-radius: 6px;
             display: block;
+        }
+
+        .gallery-item img[src] {
+            will-change: transform, opacity;
         }
 
         .gallery-controls {
@@ -485,7 +493,7 @@
             background-color: rgba(0, 0, 0, 0.9);
             justify-content: center;
             align-items: center;
-            touch-action: none;
+            touch-action: auto;
         }
 
         .modal-content {
@@ -668,7 +676,7 @@
 
         <div class="section-inner" style="text-align: center;">
             <div class="hero-text">
-                <h1 class="hero-names">영길 ♥ 수진</h1>
+                <h1 class="hero-names">영길 ♥️ 수진</h1>
                 <p class="hero-place">라도무스 아트센터(신관) 아모리움홀</p>
             </div>
             <div class="section-inner">
@@ -1040,6 +1048,8 @@
                 const imgTag = document.createElement('img');
                 imgTag.src = imgData.src;
                 imgTag.alt = imgData.alt;
+                imgTag.loading = 'lazy';
+                imgTag.decoding = 'async';
                 imgTag.style.cursor = 'pointer';
 
                 // 기존에 구현했던 모달 오픈 이벤트 연결
@@ -1058,12 +1068,15 @@
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('in-view');
+                        window.requestAnimationFrame(() => {
+                            entry.target.classList.add('in-view');
+                        });
                         observer.unobserve(entry.target);
                     }
                 });
             }, {
-                threshold: 0.2
+                rootMargin: '0px 0px -15% 0px',
+                threshold: 0
             });
 
             animatedSections.forEach(section => observer.observe(section));
