@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>증권 시스템 트래픽 & VOC 통합 분석 대시보드</title>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+        <style>
+            body {
+                font-family:
+                    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                    "Helvetica Neue", Arial, sans-serif;
+            }
+        </style>
+    </head>
+    <body class="bg-gray-900 text-gray-100 min-h-screen p-6">
+        <header
+            class="mb-8 border-b border-gray-800 pb-4 flex justify-between items-center"
+        >
+            <div>
+                <h1
+                    class="text-2xl font-bold text-white flex items-center gap-2"
+                >
+                    📊 증권 시스템 트래픽 & VOC 통합 대시보드
+                </h1>
+                <p class="text-sm text-gray-400 mt-1">
+                    TR 호출 현황과 고객 VOC 간의 시간대별 상관관계를
+                    시각화합니다.
+                </p>
+            </div>
+            <button
+                onclick="loadMockData()"
+                class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-semibold transition cursor-pointer"
+            >
+                샘플 데이터로 즉시 테스트하기
+            </button>
+        </header>
+
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div class="bg-gray-800 p-5 rounded-xl border border-gray-700">
+                <h2 class="text-md font-semibold text-blue-400 mb-3">
+                    1. TR 성능 지표 CSV 업로드
+                </h2>
+                <input
+                    type="file"
+                    id="trFile"
+                    accept=".csv"
+                    class="block w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-900 file:text-blue-200 hover:file:bg-blue-800 cursor-pointer"
+                />
+                <p class="text-xs text-gray-500 mt-2">
+                    필수 컬럼 명칭:
+                    <code class="text-gray-300"
+                        >시간, TR명, 호출횟수, 처리속도, 응답속도</code
+                    >
+                </p>
+            </div>
+
+            <div class="bg-gray-800 p-5 rounded-xl border border-gray-700">
+                <h2 class="text-md font-semibold text-amber-400 mb-3">
+                    2. 고객 VOC 데이터 CSV 업로드
+                </h2>
+                <input
+                    type="file"
+                    id="vocFile"
+                    accept=".csv"
+                    class="block w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-amber-900 file:text-amber-200 hover:file:bg-amber-800 cursor-pointer"
+                />
+                <p class="text-xs text-gray-500 mt-2">
+                    필수 컬럼 명칭:
+                    <code class="text-gray-300"
+                        >시간, VOC제목, 고객명, 고객정보</code
+                    >
+                </p>
+            </div>
+        </section>
+
+        <main class="grid grid-cols-1 gap-8">
+            <div
+                class="bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-lg"
+            >
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-lg font-bold text-white">
+                        📈 시간대별 TR 호출 횟수 및 시스템 속도 추이
+                    </h3>
+                    <span
+                        class="text-xs bg-blue-900 text-blue-300 px-2 py-1 rounded"
+                        >Combo Chart</span
+                    >
+                </div>
+                <div id="trChart" class="w-full h-[380px]">
+                    <p class="text-center text-gray-500 pt-32">
+                        CSV 파일을 업로드하거나 샘플 데이터를 로드해 주세요.
+                    </p>
+                </div>
+            </div>
+
+            <div
+                class="bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-lg"
+            >
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-lg font-bold text-white">
+                        🔥 시간대별 VOC 유형 집중도 분석
+                    </h3>
+                    <span
+                        class="text-xs bg-amber-900 text-amber-300 px-2 py-1 rounded"
+                        >Heatmap Chart</span
+                    >
+                </div>
+                <div id="vocChart" class="w-full h-[350px]"></div>
+            </div>
+        </main>
+
+        <script>
+            // 글로벌 차트 인스턴스 관리
+            let trChartInstance = null;
+            let vocChartInstance = null;
+
+            // 24시간 기준 시간 축 생성 구문 (09시 ~ 16시 장중 집중 예시)
+            const timeBuckets = Array.from(
+                { length: 24 },
+                (_, i) => `${String(i).padStart(2, "0")}:00`,
+            );
+
+            // 파일 업로드 이벤트 리스너 등록
+            document
+                .getElementById("trFile")
+                .addEventListener("change", handleTrUpload);
+            document
+                .getElementById("vocFile")
+                .addEventListener("change", handleVocUpload);
+
+            let globalTrData = null;
+            let globalVocData = null;
+
+            function handleTrUpload(e) {
+                const file = e.target.files[0];
+                if (!file) return;
+                Papa.parse(file, {
+                    header: true,
+                    skipEmptyLines: true,
+                    complete: function (results) {
+                        processTrData(results.data);
+                    },
+                });
+            }
+
+            function handleVocUpload(e) {
+                const file = e.target.files[0];
+                if (!file) return;
+                Papa.parse(file, {
+                    header: true,
+                    skipEmptyLines: true,
+                    complete: function (results) {
+                        processVocData(results.data);
+                    },
+                });
+            }
+
+            // 1. TR 데이터 가공 및 시각화
+            function processTrData(data) {
+                // 시간대별(Hour) 집계 프레임 생성
+                const hourlyCounts = Array(24).fill(0);
+                const hourlyProcessSpeed = Array(24).fill(0);
+                const hourlyResponseSpeed = Array(24).fill(0);
+                const hourlyHits = Array(24).fill(0);
+
+                data.forEach((row) => {
+                    // '09:15' 또는 '2026-08-23 09:15:22' 형태에서 시간(Hour) 추출
+                    const timeStr = row["시간"] || row["Time"];
+                    if (!timeStr) return;
+                    const match = timeStr.match(/(\d{2}):/);
+                    if (!match) return;
+                    const hour = parseInt(match[1]);
+
+                    const count = parseInt(
+                        row["호출횟수"] || row["Count"] || 0,
+                    );
+                    const pSpeed = parseFloat(
+                        row["처리속도"] || row["ProcessingSpeed"] || 0,
+                    );
+                    const rSpeed = parseFloat(
+                        row["응답속도"] || row["ResponseSpeed"] || 0,
+                    );
+
+                    hourlyCounts[hour] += count;
+                    hourlyProcessSpeed[hour] += pSpeed;
+                    hourlyResponseSpeed[hour] += rSpeed;
+                    if (pSpeed > 0 || rSpeed > 0) hourlyHits[hour]++;
+                });
+
+                // 평균 속도 계산
+                const avgProcessSpeed = hourlyProcessSpeed.map((val, idx) =>
+                    hourlyHits[idx] ? Math.round(val / hourlyHits[idx]) : 0,
+                );
+                const avgResponseSpeed = hourlyResponseSpeed.map((val, idx) =>
+                    hourlyHits[idx] ? Math.round(val / hourlyHits[idx]) : 0,
+                );
+
+                renderTrChart(hourlyCounts, avgProcessSpeed, avgResponseSpeed);
+            }
+
+            // 2. VOC 데이터 가공 (텍스트 키워드 기반 카테고리 분류 후 히트맵 포맷팅)
+            function processVocData(data) {
+                const categories = [
+                    "MTS/HTS 접속오류",
+                    "주문/체결 지연",
+                    "뱅킹/이체 불일치",
+                    "시세 조회 지연",
+                    "기타 문의",
+                ];
+
+                // 2D Array 생성 (행: 카테고리, 열: 24시간)
+                const heatmapData = categories.map((cat) => ({
+                    name: cat,
+                    data: Array.from({ length: 24 }, (_, i) => ({
+                        x: `${String(i).padStart(2, "0")}시`,
+                        y: 0,
+                    })),
+                }));
+
+                data.forEach((row) => {
+                    const timeStr = row["시간"] || row["Time"];
+                    const title = row["VOC제목"] || row["Title"] || "";
+                    if (!timeStr) return;
+
+                    const match = timeStr.match(/(\d{2}):/);
+                    if (!match) return;
+                    const hour = parseInt(match[1]);
+
+                    // 간단한 키워드 분류 매칭
+                    let catIdx = 4; // 기본값: 기타
+                    if (
+                        title.includes("접속") ||
+                        title.includes("로그인") ||
+                        title.includes("팅김")
+                    )
+                        catIdx = 0;
+                    else if (
+                        title.includes("주문") ||
+                        title.includes("체결") ||
+                        title.includes("매수") ||
+                        title.includes("매도")
+                    )
+                        catIdx = 1;
+                    else if (
+                        title.includes("이체") ||
+                        title.includes("뱅킹") ||
+                        title.includes("출금") ||
+                        title.includes("입금")
+                    )
+                        catIdx = 2;
+                    else if (
+                        title.includes("시세") ||
+                        title.includes("차트") ||
+                        title.includes("조회")
+                    )
+                        catIdx = 3;
+
+                    heatmapData[catIdx].data[hour].y++;
+                });
+
+                renderVocHeatmap(heatmapData);
+            }
+
+            // TR 차트 렌더링 함수 (Combo: Bar + Line)
+            function renderTrChart(counts, pSpeed, rSpeed) {
+                const options = {
+                    series: [
+                        {
+                            name: "TR 호출 건수",
+                            type: "column",
+                            data: counts,
+                        },
+                        {
+                            name: "평균 처리 속도 (ms)",
+                            type: "line",
+                            data: pSpeed,
+                        },
+                        {
+                            name: "평균 응답 속도 (ms)",
+                            type: "line",
+                            data: rSpeed,
+                        },
+                    ],
+                    chart: {
+                        height: 380,
+                        type: "line",
+                        toolbar: { show: true },
+                        theme: "dark",
+                        fontColor: "#fff",
+                    },
+                    stroke: { width: [0, 3, 3], curve: "smooth" },
+                    theme: { mode: "dark" },
+                    colors: ["#3B82F6", "#10B981", "#EF4444"],
+                    dataLabels: { enabled: false },
+                    labels: timeBuckets,
+                    xaxis: { title: { text: "시간대 (Hour)" } },
+                    yaxis: [
+                        { title: { text: "호출 건수 (회)" } },
+                        { opposite: true, title: { text: "지연 속도 (ms)" } },
+                    ],
+                    tooltip: { shared: true, intersect: false },
+                };
+
+                if (trChartInstance) trChartInstance.destroy();
+                document.getElementById("trChart").innerHTML = "";
+                trChartInstance = new ApexCharts(
+                    document.querySelector("#trChart"),
+                    options,
+                );
+                trChartInstance.render();
+            }
+
+            // VOC 히트맵 차트 렌더링 함수
+            function renderVocHeatmap(heatmapData) {
+                const options = {
+                    series: heatmapData,
+                    chart: {
+                        height: 350,
+                        type: "heatmap",
+                        toolbar: { show: true },
+                    },
+                    theme: { mode: "dark" },
+                    dataLabels: { enabled: false },
+                    colors: ["#F59E0B"], // Amber 계열 베이스 색상
+                    title: { text: "시간대별 카테고리 점검 점수 (건수 기준)" },
+                    xaxis: { type: "category" },
+                    plotOptions: {
+                        heatmap: {
+                            radius: 2,
+                            enableShades: true,
+                            shadeIntensity: 0.5,
+                            colorScale: {
+                                ranges: [
+                                    {
+                                        from: 0,
+                                        to: 0,
+                                        color: "#1F2937",
+                                        name: "없음",
+                                    },
+                                    {
+                                        from: 1,
+                                        to: 3,
+                                        color: "#78350F",
+                                        name: "낮음",
+                                    },
+                                    {
+                                        from: 4,
+                                        to: 10,
+                                        color: "#D97706",
+                                        name: "보통",
+                                    },
+                                    {
+                                        from: 11,
+                                        to: 100,
+                                        color: "#EF4444",
+                                        name: "심각 (장애 의심)",
+                                    },
+                                ],
+                            },
+                        },
+                    },
+                };
+
+                if (vocChartInstance) vocChartInstance.destroy();
+                document.getElementById("vocChart").innerHTML = "";
+                vocChartInstance = new ApexCharts(
+                    document.querySelector("#vocChart"),
+                    options,
+                );
+                vocChartInstance.render();
+            }
+
+            // 대시보드 테스트용 렌더링용 Mock Data 생성기
+            function loadMockData() {
+                // 1. Mock TR Data
+                const mockTr = [];
+                // 2. Mock VOC Data
+                const mockVoc = [];
+
+                // 장 시작 시간대(09시)와 장 마감 전(15시) 트래픽 폭증 및 지연 상황 시뮬레이션
+                for (let h = 0; h < 24; h++) {
+                    let baseCount = 500;
+                    let baseSpeed = 40;
+
+                    if (h === 9) {
+                        baseCount = 8500;
+                        baseSpeed = 480;
+                    } // 장 시작 시점 서버 부하 상황
+                    else if (h === 10) {
+                        baseCount = 4000;
+                        baseSpeed = 120;
+                    } else if (h === 15) {
+                        baseCount = 6000;
+                        baseSpeed = 250;
+                    } // 장 마감 직전
+
+                    mockTr.push({
+                        시간: `${String(h).padStart(2, "0")}:00`,
+                        호출횟수: baseCount,
+                        처리속도: baseSpeed,
+                        응답속도: baseSpeed + 15,
+                    });
+
+                    // 부하에 따른 VOC 인입 유도 생성
+                    if (h === 9) {
+                        for (let k = 0; k < 25; k++)
+                            mockVoc.push({
+                                시간: "09:05",
+                                VOC제목:
+                                    "MTS 로그인 창이 안 열려요 계좌 접속 오류",
+                            });
+                        for (let k = 0; k < 15; k++)
+                            mockVoc.push({
+                                시간: "09:12",
+                                VOC제목:
+                                    "시장가 매수 주문 체결 지연 속터집니다",
+                            });
+                    } else if (h === 15) {
+                        for (let k = 0; k < 12; k++)
+                            mockVoc.push({
+                                시간: "15:20",
+                                VOC제목: "예수금 이체 오류 처리 안 됨",
+                            });
+                        for (let k = 0; k < 8; k++)
+                            mockVoc.push({
+                                시간: "15:40",
+                                VOC제목: "실시간 주가 조회 차트 지연",
+                            });
+                    } else if (h >= 9 && h <= 16) {
+                        mockVoc.push({
+                            시간: `${h}:30`,
+                            VOC제목: "일반 주식 거래 잔고 조회 문의",
+                        });
+                    }
+                }
+
+                processTrData(mockTr);
+                processVocData(mockVoc);
+            }
+
+            // 페이지 로드 시 빈 차트 뼈대 생성
+            window.onload = function () {
+                loadMockData(); // 최초 진입 시 예시 시각화 기본 탑재
+            };
+        </script>
+    </body>
+</html>
