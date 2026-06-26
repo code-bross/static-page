@@ -49,7 +49,7 @@
             min-height: 100%;
             font-family: 'my-wife-handwriting', serif;
             background-color: #fff;
-            color: #333;
+            color: black;
             overflow-x: hidden;
             /* body에만 주어 스크롤 꼬임 방지 */
             -webkit-overflow-scrolling: touch;
@@ -89,14 +89,14 @@
         }
 
         .calendar-title {
-            font-size: 1.1rem;
+            font-size: 1.5rem;
             margin-bottom: 25px;
             letter-spacing: 2px;
             color: var(--point-color);
         }
 
         .calendar-title .time {
-            font-size: 0.8em;
+            font-size: 1.2em;
             /* 부모 크기의 80%로 축소 */
             font-weight: normal;
             /* 시간만 얇게 하고 싶을 경우 추가 */
@@ -108,7 +108,7 @@
             display: grid;
             grid-template-columns: repeat(7, 1fr);
             gap: 10px 0;
-            font-size: 0.85rem;
+            font-size: 1.2rem;
         }
 
         .day-label {
@@ -267,8 +267,8 @@
         }
 
         .hero-place {
+            font-size: 1.5rem;
             margin: 0;
-            font-size: 0.95rem;
         }
 
         .hero-dday {
@@ -287,7 +287,7 @@
 
         .countdown-label {
             /* calendar-title 스타일 복사 */
-            font-size: 1.1rem;
+            font-size: 1.5rem;
             text-align: left;
             margin-bottom: 25px;
             letter-spacing: 2px;
@@ -318,10 +318,11 @@
             font-size: 1.2rem;
             font-weight: 400;
             color: var(--point-color);
+            font-size: 1.3rem;
         }
 
         .countdown-unit {
-            font-size: 0.65rem;
+            font-size: 0.8rem;
             color: #aaa;
             margin-top: 5px;
             letter-spacing: 1px;
@@ -346,7 +347,7 @@
 
         /* 3. 텍스트 스타일링 */
         .title {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             letter-spacing: 3px;
             margin-bottom: 18px;
             color: #8a7a66;
@@ -354,7 +355,7 @@
 
         .content {
             line-height: 2;
-            font-size: 0.98rem;
+            font-size: 1.2rem;
             color: #555;
             word-break: keep-all;
         }
@@ -442,7 +443,7 @@
             border: 1px solid #ddd;
             padding: 12px 10px;
             border-radius: 24px;
-            font-size: 0.95rem;
+            font-size: 1.2rem;
         }
 
         .btn.primary {
@@ -573,7 +574,7 @@
             background: none;
             border: none;
             font-family: inherit;
-            font-size: 1rem;
+            font-size: 1.2rem;
             color: var(--point-color);
             text-align: left;
             cursor: pointer;
@@ -613,7 +614,7 @@
         }
 
         .account-text {
-            font-size: 0.9rem;
+            font-size: 1.2rem;
             color: var(--text-light-color);
             line-height: 1.4;
         }
@@ -642,7 +643,7 @@
         .btn-remit {
             padding: 10px;
             border-radius: 6px;
-            font-size: 0.85rem;
+            font-size: 1.0rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -653,14 +654,14 @@
         .icon-kakaopay {
             width: 50px;
             height: auto;
-            filter: grayscale(100%) opacity(0.8);
+            filter: opacity(0.8);
             /* 톤앤매너 맞춤 */
         }
 
         .icon-toss {
             width: 40px;
             height: auto;
-            filter: grayscale(100%) opacity(0.8);
+            filter: opacity(0.8);
             /* 톤앤매너 맞춤 */
         }
     </style>
@@ -901,7 +902,7 @@
                         class="root_daum_roughmap root_daum_roughmap_landing map-strong"></div>
                 </div>
                 <p class="content">
-                    <span style="font-size: 0.9rem; color: #888;">유성온천역 3번 출구 셔틀버스 운행</span>
+                    <span style="font-size: 1.1rem; color: #888;">유성온천역 3번 출구 셔틀버스 운행</span>
                 </p>
 
                 <div class="button-row">
