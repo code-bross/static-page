@@ -376,6 +376,7 @@
             padding-bottom: 6px;
             -webkit-overflow-scrolling: touch;
             touch-action: pan-y;
+            overscroll-behavior-x: contain;
         }
 
         .gallery::-webkit-scrollbar {
@@ -388,12 +389,6 @@
 
         .gallery.active {
             cursor: grabbing;
-        }
-
-        .gallery-item,
-        .gallery-item img,
-        .gallery {
-            touch-action: pan-y;
         }
 
         .gallery-item {
@@ -1117,6 +1112,8 @@
 
             const onPointerDown = (event) => {
                 if (event.pointerType === 'mouse' && event.button !== 0) return;
+                if (event.pointerType !== 'mouse') return;
+
                 isPointerDown = true;
                 dragging = false;
                 startX = event.clientX;
@@ -1130,7 +1127,7 @@
 
                 const dx = event.clientX - startX;
                 const dy = event.clientY - startY;
-                if (!dragging && Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 5) {
+                if (!dragging && Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 8) {
                     dragging = true;
                     gallery.classList.add('active');
                 }
