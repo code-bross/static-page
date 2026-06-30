@@ -35,10 +35,10 @@
         :root {
             --line-color: #d9d1c7;
             --point-color: #5b4a3d;
-            --text-color: #2c251f;
-            --text-light-color: #635551;
-            --heading-color: #3a2e26;
-            --button-text-color: #1f1a17;
+            --text-color: #1d1510;
+            --text-light-color: #4a4139;
+            --heading-color: #1b130f;
+            --button-text-color: #0f0c09;
         }
 
         html {
@@ -96,7 +96,7 @@
             font-size: 1.5rem;
             margin-bottom: 25px;
             letter-spacing: 2px;
-            color: var(--heading-color);
+            color: #1b130f;
         }
 
         .calendar-title .time {
@@ -117,7 +117,7 @@
 
         .day-label {
             font-weight: bold;
-            color: #4a4139;
+            color: #2a1f17;
             margin-bottom: 10px;
             margin-left: 20px;
         }
@@ -298,7 +298,7 @@
             text-align: left;
             margin-bottom: 25px;
             letter-spacing: 2px;
-            color: var(--point-color);
+            color: #1b130f;
             text-align: left;
             display: block;
         }
@@ -324,13 +324,13 @@
         .countdown-num {
             font-size: 1.2rem;
             font-weight: 400;
-            color: var(--point-color);
+            color: #2a1f17;
             font-size: 1.3rem;
         }
 
         .countdown-unit {
             font-size: 0.8rem;
-            color: #aaa;
+            color: #5e5954;
             margin-top: 5px;
             letter-spacing: 1px;
         }
@@ -372,14 +372,28 @@
             display: flex;
             gap: 12px;
             overflow-x: auto;
-            scroll-snap-type: x mandatory;
+            scroll-snap-type: x proximity;
             padding-bottom: 6px;
             -webkit-overflow-scrolling: touch;
-            touch-action: pan-x;
+            touch-action: pan-y;
         }
 
         .gallery::-webkit-scrollbar {
             display: none;
+        }
+
+        .gallery {
+            cursor: grab;
+        }
+
+        .gallery.active {
+            cursor: grabbing;
+        }
+
+        .gallery-item,
+        .gallery-item img,
+        .gallery {
+            touch-action: pan-y;
         }
 
         .gallery-item {
@@ -396,6 +410,7 @@
             object-fit: cover;
             border-radius: 6px;
             display: block;
+            -webkit-user-drag: none;
         }
 
         .gallery-item img[src] {
@@ -909,8 +924,7 @@
                         class="root_daum_roughmap root_daum_roughmap_landing map-strong"></div>
                 </div>
                 <p class="content">
-                    <span style="font-size: 1.1rem; color: #888;">유성온천역 3번 출구 셔틀버스 운행</span>
-                </p>
+                    <span style="font-size: 1.1rem; color: #4a4139;">유성온천역 3번 출구 셔틀버스 운행</span>
 
                 <div class="button-row">
                     <a class="btn primary" href="https://naver.me/Gxk1CPWi" target="_blank" rel="noreferrer">지도 열기</a>
@@ -1091,7 +1105,60 @@
             galleryImages = images.map(img => img.src);
         }
         galleryInit();
-        // ... 기존 스크립트 코드들 ...
+        enableGalleryDragScroll();
+
+        function enableGalleryDragScroll() {
+            const gallery = document.getElementById('weddingGallery');
+            let isPointerDown = false;
+            let startX = 0;
+            let startY = 0;
+            let initialScrollLeft = 0;
+            let dragging = false;
+
+            const onPointerDown = (event) => {
+                if (event.pointerType === 'mouse' && event.button !== 0) return;
+                isPointerDown = true;
+                dragging = false;
+                startX = event.clientX;
+                startY = event.clientY;
+                initialScrollLeft = gallery.scrollLeft;
+                gallery.setPointerCapture(event.pointerId);
+            };
+
+            const onPointerMove = (event) => {
+                if (!isPointerDown) return;
+
+                const dx = event.clientX - startX;
+                const dy = event.clientY - startY;
+                if (!dragging && Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 5) {
+                    dragging = true;
+                    gallery.classList.add('active');
+                }
+
+                if (dragging) {
+                    event.preventDefault();
+                    gallery.scrollLeft = initialScrollLeft - dx;
+                }
+            };
+
+            const onPointerUp = (event) => {
+                if (!isPointerDown) return;
+                isPointerDown = false;
+                dragging = false;
+                gallery.classList.remove('active');
+                gallery.releasePointerCapture(event.pointerId);
+            };
+
+            gallery.addEventListener('pointerdown', onPointerDown);
+            gallery.addEventListener('pointermove', onPointerMove);
+            gallery.addEventListener('pointerup', onPointerUp);
+            gallery.addEventListener('pointercancel', onPointerUp);
+            gallery.addEventListener('lostpointercapture', () => {
+                isPointerDown = false;
+                dragging = false;
+                gallery.classList.remove('active');
+            });
+        }
 
         function initScrollAnimations() {
             const animatedSections = document.querySelectorAll('.section, .main-section');
