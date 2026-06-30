@@ -35,6 +35,10 @@
         :root {
             --line-color: #d9d1c7;
             --point-color: #5b4a3d;
+            --text-color: #2c251f;
+            --text-light-color: #635551;
+            --heading-color: #3a2e26;
+            --button-text-color: #1f1a17;
         }
 
         html {
@@ -49,7 +53,7 @@
             min-height: 100%;
             font-family: 'my-wife-handwriting', serif;
             background-color: #fff;
-            color: black;
+            color: var(--text-color);
             overflow-x: hidden;
             /* body에만 주어 스크롤 꼬임 방지 */
             -webkit-overflow-scrolling: touch;
@@ -92,7 +96,7 @@
             font-size: 1.5rem;
             margin-bottom: 25px;
             letter-spacing: 2px;
-            color: var(--point-color);
+            color: var(--heading-color);
         }
 
         .calendar-title .time {
@@ -113,7 +117,7 @@
 
         .day-label {
             font-weight: bold;
-            color: var(--sub-text);
+            color: #4a4139;
             margin-bottom: 10px;
             margin-left: 20px;
         }
@@ -258,17 +262,20 @@
             letter-spacing: 4px;
             font-size: 0.9rem;
             margin: 0;
+            color: #42342e;
         }
 
         .hero-names {
             font-size: 2.4rem;
             margin: 10px 0;
             letter-spacing: 1px;
+            color: #24190f;
         }
 
         .hero-place {
             font-size: 1.5rem;
             margin: 0;
+            color: #3f332a;
         }
 
         .hero-dday {
@@ -350,13 +357,13 @@
             font-size: 1.5rem;
             letter-spacing: 3px;
             margin-bottom: 18px;
-            color: #8a7a66;
+            color: var(--heading-color);
         }
 
         .content {
             line-height: 2;
             font-size: 1.2rem;
-            color: #555;
+            color: var(--text-color);
             word-break: keep-all;
         }
 
@@ -438,25 +445,25 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            color: #333;
+            color: var(--button-text-color);
             background: #fff;
-            border: 1px solid #ddd;
+            border: 1px solid #ccc;
             padding: 12px 10px;
             border-radius: 24px;
             font-size: 1.2rem;
         }
 
         .btn.primary {
-            background: #8a7a66;
+            background: #6b533f;
             color: #fff;
-            border-color: #8a7a66;
+            border-color: #6b533f;
         }
 
         .map-strong {
             font-weight: 700;
             line-height: 2;
             font-size: 0.98rem;
-            color: #888;
+            color: #3a2f27;
             word-break: keep-all;
         }
 
@@ -615,13 +622,13 @@
 
         .account-text {
             font-size: 1.2rem;
-            color: var(--text-light-color);
+            color: #2f2822;
             line-height: 1.4;
         }
 
         .account-num {
             font-weight: bold;
-            color: var(--text-color);
+            color: #1f1813;
             display: block;
             margin-top: 2px;
         }
