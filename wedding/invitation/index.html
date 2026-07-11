@@ -56,10 +56,11 @@
             width: 100%;
             min-height: 100%;
             font-family: 'my-wife-handwriting', serif;
-            background-color: #fff;
-            color: var(--text-color);
+            background-color: #fcfaf7;
+            color: #2d241e;
             overflow-x: hidden;
-            /* body에만 주어 스크롤 꼬임 방지 */
+            line-height: 1.6;
+            letter-spacing: 0.01em;
             -webkit-overflow-scrolling: touch;
         }
 
@@ -263,21 +264,21 @@
         }
 
         .hero-date {
-            letter-spacing: 4px;
-            font-size: 0.9rem;
+            letter-spacing: 0.2em;
+            font-size: 0.95rem;
             margin: 0;
             color: #42342e;
         }
 
         .hero-names {
-            font-size: 2.4rem;
+            font-size: 2.2rem;
             margin: 10px 0;
-            letter-spacing: 1px;
+            letter-spacing: 0.04em;
             color: #24190f;
         }
 
         .hero-place {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             margin: 0;
             color: #3f332a;
         }
@@ -297,13 +298,11 @@
         }
 
         .countdown-label {
-            /* calendar-title 스타일 복사 */
-            font-size: 1.5rem;
+            font-size: 1.35rem;
             text-align: left;
-            margin-bottom: 25px;
-            letter-spacing: 2px;
+            margin-bottom: 22px;
+            letter-spacing: 0.18em;
             color: #1b130f;
-            text-align: left;
             display: block;
         }
 
@@ -326,17 +325,16 @@
         }
 
         .countdown-num {
-            font-size: 1.2rem;
-            font-weight: 400;
+            font-size: 1.15rem;
+            font-weight: 600;
             color: #2a1f17;
-            font-size: 1.3rem;
         }
 
         .countdown-unit {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: #5e5954;
             margin-top: 5px;
-            letter-spacing: 1px;
+            letter-spacing: 0.12em;
         }
 
 
@@ -358,17 +356,20 @@
 
         /* 3. 텍스트 스타일링 */
         .title {
-            font-size: 1.5rem;
-            letter-spacing: 3px;
-            margin-bottom: 18px;
-            color: var(--heading-color);
+            font-size: 1.35rem;
+            letter-spacing: 0.16em;
+            margin-bottom: 16px;
+            color: #241a14;
+            font-weight: 700;
         }
 
         .content {
-            line-height: 2;
-            font-size: 1.2rem;
-            color: var(--text-color);
+            line-height: 1.9;
+            font-size: 1.05rem;
+            color: #3c3128;
+            font-weight: 600;
             word-break: keep-all;
+            text-shadow: 0 0.5px 0 rgba(0,0,0,0.03);
         }
 
         /* 4. 갤러리: Swiper 기반 캐러셀 */
@@ -481,16 +482,18 @@
 
         .location-address {
             margin: 8px 0 16px;
-            font-size: 1.2rem;
-            line-height: 1.7;
-            color: #4a4139;
+            font-size: 1.02rem;
+            line-height: 1.8;
+            color: #3f352d;
+            font-weight: 600;
         }
 
         .location-shuttle-note {
             margin: 20px 0 0;
-            font-size: 1.2rem;
-            line-height: 1.6;
-            color: #4a4139;
+            font-size: 1.02rem;
+            line-height: 1.7;
+            color: #3f352d;
+            font-weight: 600;
         }
 
         .location-bus-title {
@@ -657,23 +660,26 @@
         }
 
         .account-text {
-            font-size: 1.2rem;
+            font-size: 1rem;
             color: #2f2822;
-            line-height: 1.4;
+            line-height: 1.5;
+            font-weight: 600;
         }
 
         .account-num {
-            font-weight: bold;
+            font-weight: 700;
             color: #1f1813;
             display: block;
             margin-top: 2px;
+            letter-spacing: 0.02em;
         }
 
         .btn-copy {
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             padding: 6px 12px;
             border-radius: 14px;
             white-space: nowrap;
+            font-weight: 600;
         }
 
         .remit-buttons {
@@ -953,7 +959,7 @@
             <p class="location-shuttle-note">유성온천역 3번 출구 셔틀버스 운행</p>
 
             <h1 class="title location-bus-title">서울 출발 셔틀버스</h1>
-            <h3 class="title location-bus-subtitle">한국투자증권 본사 뒷편 (광장아파트 방면) 오전 10:00</h3>
+            <h3 class="location-shuttle-note">한국투자증권 본사 뒷편 (광장아파트 방면) 오전 10:00</h3>
             <div class="section-inner" style="text-align: center;">
                 <div class="map-wrap">
                     <div id="daumRoughmapContainer1782825047223" class="root_daum_roughmap root_daum_roughmap_landing">
