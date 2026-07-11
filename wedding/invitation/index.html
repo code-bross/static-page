@@ -12,8 +12,10 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>영길 ♥️ 수진 모바일 청첩장</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script charset="UTF-8" class="daum_roughmap_loader_script"
         src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.8.1/kakao.min.js"
         integrity="sha384-OL+ylM/iuPLtW5U3XcvLSGhE8JzReKDank5InqlHGWPhb4140/yrBw0bg0y7+C9J"
         crossorigin="anonymous"></script>
@@ -369,42 +371,25 @@
             word-break: keep-all;
         }
 
-        /* 4. 갤러리: 모바일 슬라이더 + 데스크톱 2열 */
+        /* 4. 갤러리: Swiper 기반 캐러셀 */
         .gallery {
+            width: 100%;
+            padding-bottom: 32px;
+        }
+
+        .gallery .swiper-slide {
+            height: auto;
+        }
+
+        .gallery .swiper-wrapper {
             display: flex;
-            gap: 12px;
-            overflow-x: auto;
-            overflow-y: hidden;
-            scroll-snap-type: x proximity;
-            padding-bottom: 6px;
-            -webkit-overflow-scrolling: touch;
-            touch-action: pan-x;
-            overscroll-behavior-x: contain;
-        }
-
-        .gallery::-webkit-scrollbar {
-            display: none;
-        }
-
-        .gallery {
-            cursor: grab;
-        }
-
-        .gallery.active {
-            cursor: grabbing;
-        }
-
-        .gallery-item {
-            flex: 0 0 85%;
-            /* 기존 70%에서 85%로 확대 */
-            scroll-snap-align: start;
+            flex-wrap: nowrap;
         }
 
         .gallery-item img {
             width: 100%;
             height: auto;
             aspect-ratio: 3 / 4;
-            /* 사진들의 비율을 3:4로 균일하게 고정 */
             object-fit: cover;
             border-radius: 6px;
             display: block;
@@ -415,33 +400,47 @@
             will-change: transform, opacity;
         }
 
-        .gallery-controls {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 14px;
+        .gallery .swiper-pagination-bullet-active {
+            background: var(--point-color);
         }
 
-        .gallery-btn {
-            border: 1px solid #ddd;
-            background: #fff;
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
+        .gallery .swiper-button-next,
+        .gallery .swiper-button-prev {
+            display: none;
+        }
+
+        .modal-nav {
+            display: block;
+            color: white;
+            font-size: 40px;
+            padding: 20px;
             cursor: pointer;
-            font-size: 18px;
+            user-select: none;
+            z-index: 1001;
+            background: none;
+            border: none;
         }
 
         @media (min-width: 640px) {
             .gallery {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                /* 기존 3열에서 2열로 변경하여 데스크톱에서도 크기 확대 */
-                overflow: visible;
+                padding-bottom: 36px;
             }
 
-            .gallery-item {
-                flex: none;
+            .gallery .swiper-wrapper {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 16px;
+                transform: none !important;
+            }
+
+            .gallery .swiper-slide {
+                width: auto !important;
+            }
+
+            .gallery .swiper-pagination,
+            .gallery .swiper-button-next,
+            .gallery .swiper-button-prev {
+                display: none;
             }
         }
 
@@ -478,6 +477,30 @@
             font-size: 0.98rem;
             color: #3a2f27;
             word-break: keep-all;
+        }
+
+        .location-address {
+            margin: 8px 0 16px;
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: #4a4139;
+        }
+
+        .location-shuttle-note {
+            margin: 20px 0 0;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #4a4139;
+        }
+
+        .location-bus-title {
+            margin-top: 32px;
+            margin-bottom: 10px;
+        }
+
+        .location-bus-subtitle {
+            margin-top: 8px;
+            margin-bottom: 0;
         }
 
         .map-wrap {
@@ -684,6 +707,8 @@
             filter: opacity(0.8);
             /* 톤앤매너 맞춤 */
         }
+
+        /* 캐러셀 컨테이너 및 슬라이드 아이템 */
     </style>
 </head>
 
@@ -791,6 +816,7 @@
                     </div>
                 </div>
             </div>
+        </div>
     </section>
 
 
@@ -809,8 +835,11 @@
     <section class="section section--alt">
         <div class="section-inner">
             <h2 class="title">GALLERY</h2>
-            <div class="gallery" aria-label="wedding gallery" id="weddingGallery">
-
+            <div class="gallery swiper" aria-label="wedding gallery" id="weddingGallery">
+                <div class="swiper-wrapper"></div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
             </div>
         </div>
     </section>
@@ -914,20 +943,17 @@
     <section class="section section--alt">
         <div class="section-inner">
             <h2 class="title">LOCATION</h2>
-            <h3><span style="font-size: 1.2rem; color: #4a4139;">대전 유성구 동서대로 639 라도무스 아트센터 신관 8F (아모리움홀)</span><br/></h3>
-
+            <p class="location-address">대전 유성구 동서대로 639 라도무스 아트센터 신관 8F (아모리움홀)</p>
 
             <div class="map-wrap" style="margin-bottom: 10px;">
                 <div id="daumRoughmapContainer1775705958168"
                     class="root_daum_roughmap root_daum_roughmap_landing map-strong"></div>
             </div>
 
-            <h3 class="title" style="margin-top: -90px;">
-                <span style="font-size: 1.2rem; color: #4a4139;">유성온천역 3번 출구 셔틀버스 운행</span>
-            </h3>
+            <p class="location-shuttle-note">유성온천역 3번 출구 셔틀버스 운행</p>
 
-            <h1 class="title" style="margin-top: 40px;">서울 출발 셔틀버스</h1>
-            <h3 class="title">한국투자증권 본사 뒷편 (광장아파트 방면) 오전 10:00</h3>
+            <h1 class="title location-bus-title">서울 출발 셔틀버스</h1>
+            <h3 class="title location-bus-subtitle">한국투자증권 본사 뒷편 (광장아파트 방면) 오전 10:00</h3>
             <div class="section-inner" style="text-align: center;">
                 <div class="map-wrap">
                     <div id="daumRoughmapContainer1782825047223" class="root_daum_roughmap root_daum_roughmap_landing">
@@ -950,6 +976,7 @@
                     </button>
                 </div>
             </div>
+        </div>
     </section>
 
 
@@ -1021,12 +1048,6 @@
         const modal = document.getElementById('galleryModal');
         const modalImg = document.getElementById('modalImage');
 
-        // 모든 갤러리 이미지에 클릭 이벤트 추가
-        document.querySelectorAll('.gallery-item img').forEach((img, index) => {
-            img.style.cursor = 'pointer';
-            img.onclick = () => openModal(index);
-        });
-
         function openModal(index) {
             currentImgIdx = index;
             modal.style.display = 'flex';
@@ -1094,87 +1115,47 @@
         }
 
         function galleryInit() {
-            // 2. DOM에 리스트를 순회하며 렌더링
-            const galleryContainer = document.getElementById('weddingGallery');
+            const galleryContainer = document.querySelector('#weddingGallery .swiper-wrapper');
+            if (!galleryContainer) return;
 
             images.forEach((imgData, index) => {
-                // 갤러리 아이템 생성
                 const galleryItem = document.createElement('div');
-                galleryItem.className = 'gallery-item';
+                galleryItem.className = 'swiper-slide gallery-item';
 
-                // 이미지 태그 생성
                 const imgTag = document.createElement('img');
                 imgTag.src = imgData.src;
                 imgTag.alt = imgData.alt;
                 imgTag.loading = 'lazy';
                 imgTag.decoding = 'async';
                 imgTag.style.cursor = 'pointer';
-
-                // 기존에 구현했던 모달 오픈 이벤트 연결
                 imgTag.onclick = () => openModal(index);
 
-                // 조립 후 삽입
                 galleryItem.appendChild(imgTag);
                 galleryContainer.appendChild(galleryItem);
             });
+
             galleryImages = images.map(img => img.src);
-        }
-        galleryInit();
-        enableGalleryDragScroll();
 
-        function enableGalleryDragScroll() {
-            const gallery = document.getElementById('weddingGallery');
-            let isPointerDown = false;
-            let startX = 0;
-            let startY = 0;
-            let initialScrollLeft = 0;
-            let dragging = false;
-
-            const onPointerDown = (event) => {
-                if (event.pointerType === 'mouse' && event.button !== 0) return;
-
-                isPointerDown = true;
-                dragging = false;
-                startX = event.clientX;
-                startY = event.clientY;
-                initialScrollLeft = gallery.scrollLeft;
-                gallery.setPointerCapture(event.pointerId);
-            };
-
-            const onPointerMove = (event) => {
-                if (!isPointerDown) return;
-
-                const dx = event.clientX - startX;
-                const dy = event.clientY - startY;
-                if (!dragging && Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 8) {
-                    dragging = true;
-                    gallery.classList.add('active');
+            new Swiper('#weddingGallery', {
+                slidesPerView: 1.1,
+                spaceBetween: 12,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev'
+                },
+                breakpoints: {
+                    640: {
+                        enabled: false
+                    }
                 }
-
-                if (dragging) {
-                    event.preventDefault();
-                    gallery.scrollLeft = initialScrollLeft - dx;
-                }
-            };
-
-            const onPointerUp = (event) => {
-                if (!isPointerDown) return;
-                isPointerDown = false;
-                dragging = false;
-                gallery.classList.remove('active');
-                gallery.releasePointerCapture(event.pointerId);
-            };
-
-            gallery.addEventListener('pointerdown', onPointerDown);
-            gallery.addEventListener('pointermove', onPointerMove);
-            gallery.addEventListener('pointerup', onPointerUp);
-            gallery.addEventListener('pointercancel', onPointerUp);
-            gallery.addEventListener('lostpointercapture', () => {
-                isPointerDown = false;
-                dragging = false;
-                gallery.classList.remove('active');
             });
         }
+
+        galleryInit();
 
         function initScrollAnimations() {
             const animatedSections = document.querySelectorAll('.section, .main-section');
