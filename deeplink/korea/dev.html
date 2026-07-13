@@ -363,7 +363,10 @@
       alert('receivedAuthLevel : ' + receivedAuthLevel);
     }
 
-    
+
+    function deeplinkNewDomesticCurrentPriceNews(){
+        location.href = 'https://securities.koreainvestment.com/app/mtsrenewal.jsp?type=06&SSO_SCREENNO=0803&openData=005930^SEP^9^SEP^subTab=news-articl';
+    }
 
     
   </script>
@@ -376,6 +379,7 @@
   <button onclick="requestAccessToken(401,'AUTH_LEVEL_5')">requestAccessToken code 401, level 5</button><br/><br/>
   <button onclick="requestAccessTokenLevel()">requestAccessTokenLevel</button><br/><br/>
 
+  <button onclick="deeplinkNewDomesticCurrentPriceNews()">deeplinkNewDomesticCurrentPriceNews</button><br/><br/>
   <button onclick="homeMyAsset()">homeMyAsset</button><br/><br/>
   <button onclick="sendLog()">sendLog</button><br/><br/>
   <button onclick="kakaoShareNaverUrl()">kakaoShareNaverUrl</button><br/><br/>
