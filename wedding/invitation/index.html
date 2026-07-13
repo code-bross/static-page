@@ -86,30 +86,66 @@
 
         .family-intro {
             display: grid;
-            gap: 14px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
             margin-top: 24px;
         }
 
         .family-card {
-            padding: 18px 16px;
+            overflow: hidden;
             border: 1px solid var(--line-color);
-            border-radius: 16px;
+            border-radius: 20px;
             background-color: #fff;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .family-photo-wrap {
+            aspect-ratio: 4 / 5;
+            overflow: hidden;
+            background-color: #f3eee8;
+        }
+
+        .family-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .family-content {
+            padding: 16px 16px 18px;
         }
 
         .family-label {
-            font-size: 0.9rem;
+            font-size: 0.82rem;
             color: var(--text-light-color);
             margin-bottom: 6px;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.24em;
             text-transform: uppercase;
         }
 
         .family-name {
-            font-size: 1.2rem;
-            margin: 0;
+            font-size: 1.08rem;
+            margin: 0 0 8px;
             color: var(--heading-color);
+            line-height: 1.5;
+        }
+
+        .family-desc {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--text-light-color);
+            line-height: 1.7;
+        }
+
+        @media (min-width: 700px) {
+            .family-intro {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 20px;
+            }
         }
 
         .guestbook-form {
@@ -973,12 +1009,22 @@
             </p>
             <div class="family-intro">
                 <div class="family-card">
-                    <div class="family-label">신랑측</div>
-                    <p class="family-name">강용훈 · 박미경의 아들 영길</p>
+                    <div class="family-photo-wrap">
+                        <img class="family-photo" src="./gallery/6.webp" alt="신랑측 사진">
+                    </div>
+                    <div class="family-content">
+                        <div class="family-label">신랑측</div>
+                        <p class="family-name">강용훈 · 박미경의 아들 영길</p>
+                    </div>
                 </div>
                 <div class="family-card">
-                    <div class="family-label">신부측</div>
-                    <p class="family-name">성창제 · 정귀화의 딸 수진</p>
+                    <div class="family-photo-wrap">
+                        <img class="family-photo" src="./gallery/10.webp" alt="신부측 사진">
+                    </div>
+                    <div class="family-content">
+                        <div class="family-label">신부측</div>
+                        <p class="family-name">성창제 · 정귀화의 딸 수진</p>
+                    </div>
                 </div>
             </div>
         </div>
