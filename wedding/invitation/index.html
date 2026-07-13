@@ -82,6 +82,34 @@
             margin: 0 auto;
         }
 
+        .family-intro {
+            display: grid;
+            gap: 14px;
+            margin-top: 24px;
+        }
+
+        .family-card {
+            padding: 18px 16px;
+            border: 1px solid var(--line-color);
+            border-radius: 16px;
+            background-color: #fff;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+        }
+
+        .family-label {
+            font-size: 0.9rem;
+            color: var(--text-light-color);
+            margin-bottom: 6px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .family-name {
+            font-size: 1.2rem;
+            margin: 0;
+            color: var(--heading-color);
+        }
+
         .section.in-view {
             opacity: 1;
             transform: translateY(0);
@@ -835,6 +863,20 @@
                 평생을 함께할 약속을 하려 합니다.<br><br>
                 귀한 걸음 하시어 저희의 시작을 축복해 주세요.
             </p>
+            <p class="content" style="margin-top: 20px; margin-bottom: 0;">
+                사랑과 믿음으로 길러주신 두 가정 아래,<br>
+                함께하는 오늘을 준비하게 되었습니다.
+            </p>
+            <div class="family-intro">
+                <div class="family-card">
+                    <div class="family-label">신랑측</div>
+                    <p class="family-name">강용훈 · 박미경의 아들 영길</p>
+                </div>
+                <div class="family-card">
+                    <div class="family-label">신부측</div>
+                    <p class="family-name">성창제 · 정귀화의 딸 수진</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -944,9 +986,7 @@
         </div>
     </section>
 
-
-
-    <section class="section section--alt">
+    <section class="section">
         <div class="section-inner">
             <h2 class="title">LOCATION</h2>
             <p class="location-address">대전 유성구 동서대로 639 라도무스 아트센터 신관 8F (아모리움홀)</p>
