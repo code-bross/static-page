@@ -1,468 +1,119 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>신혼여행 일정 지도</title>
-  <style>
-    :root {
-      --bg: #f8f5ef;
-      --panel: #fffdf9;
-      --text: #24313a;
-      --muted: #64707b;
-      --accent: #ff7a59;
-      --accent-2: #2f6f8f;
-      --line: #e6dccf;
-      --shadow: 0 18px 45px rgba(36, 49, 58, 0.08);
-    }
-
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: "Pretendard", "Apple SD Gothic Neo", sans-serif;
-      color: var(--text);
-      background: linear-gradient(180deg, #fffdf9 0%, var(--bg) 100%);
-      line-height: 1.6;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    .page {
-      max-width: 1320px;
-      margin: 0 auto;
-      padding: 24px;
-    }
-
-    .hero {
-      padding: 32px;
-      border-radius: 30px;
-      background: linear-gradient(135deg, rgba(47,111,143,0.95), rgba(255,122,89,0.9));
-      color: white;
-      box-shadow: var(--shadow);
-    }
-
-    .hero h1 {
-      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
-      margin: 8px 0 10px;
-      line-height: 1.2;
-    }
-
-    .hero p {
-      margin: 0;
-      max-width: 760px;
-      font-size: 1rem;
-      opacity: 0.95;
-    }
-
-    .chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 20px;
-    }
-
-    .chip {
-      border: 0;
-      border-radius: 999px;
-      padding: 10px 14px;
-      background: rgba(255,255,255,0.22);
-      color: white;
-      cursor: pointer;
-      font-weight: 600;
-    }
-
-    .chip.active {
-      background: white;
-      color: var(--accent-2);
-    }
-
-    .layout {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 22px;
-      margin-top: 22px;
-    }
-
-    .card {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      box-shadow: var(--shadow);
-      padding: 22px;
-    }
-
-    .card-title {
-      font-size: 1.12rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-      color: var(--accent-2);
-    }
-
-    .date-group { margin-bottom: 18px; }
-    .date-title {
-      font-weight: 700;
-      color: var(--accent-2);
-      margin-bottom: 10px;
-      font-size: 0.98rem;
-    }
-
-    .schedule-item {
-      width: 100%;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: #fff;
-      padding: 14px 14px 14px 16px;
-      margin-bottom: 10px;
-      text-align: left;
-      cursor: pointer;
-      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .schedule-item:hover {
-      transform: translateY(-1px);
-      border-color: rgba(255,122,89,0.55);
-      box-shadow: 0 8px 22px rgba(255,122,89,0.12);
-    }
-
-    .schedule-item.active {
-      border-color: var(--accent);
-      box-shadow: 0 8px 24px rgba(255,122,89,0.16);
-      background: #fff8f4;
-    }
-
-    .schedule-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 12px;
-    }
-
-    .time-badge {
-      min-width: 70px;
-      font-weight: 700;
-      color: var(--accent);
-      font-size: 0.95rem;
-      flex-shrink: 0;
-    }
-
-    .schedule-content { flex: 1; }
-    .place-name {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-    .schedule-desc {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.93rem;
-    }
-
-    .map-link {
-      flex-shrink: 0;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: #f6efe8;
-      color: var(--accent-2);
-      font-size: 1rem;
-    }
-
-    .map-card .map-box {
-      border-radius: 20px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, #fefefe 0%, #f4efe8 100%);
-      min-height: 380px;
-    }
-
-    .map-box svg {
-      width: 100%;
-      height: 320px;
-      display: block;
-    }
-
-    .map-summary {
-      padding: 14px 16px 4px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .map-pin circle {
-      transition: all 0.25s ease;
-      cursor: pointer;
-    }
-
-    .map-pin.active circle {
-      fill: var(--accent);
-      stroke: #fff;
-      stroke-width: 2.2;
-      transform-origin: center;
-      animation: pulse 0.8s ease;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.12); }
-      100% { transform: scale(1); }
-    }
-
-    .empty {
-      padding: 16px;
-      border: 1px dashed var(--line);
-      border-radius: 14px;
-      color: var(--muted);
-      background: #fcfaf7;
-    }
-
-    @media (max-width: 960px) {
-      .layout { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 640px) {
-      .page { padding: 14px; }
-      .hero { padding: 20px; }
-      .card { padding: 16px; }
-    }
-  </style>
-</head>
-<body>
-  <div class="page">
-    <section class="hero">
-      <p style="font-size:0.84rem; letter-spacing:0.32em; text-transform:uppercase; opacity:0.9;">honeymoon itinerary</p>
-      <h1>부다페스트와 빈을 따라가는 10일 신혼여행</h1>
-      <p>날짜를 선택하지 않으면 전체 일정을 한 페이지에서 확인할 수 있고, 일정 카드를 누르면 지도에서 해당 장소가 강조됩니다. 지도 아이콘을 누르면 구글맵으로 바로 이동합니다.</p>
-      <div class="chip-row" id="dateFilters"></div>
-    </section>
-
-    <main class="layout">
-      <section class="card">
-        <div class="card-title">타임테이블</div>
-        <div id="timelineList"></div>
-      </section>
-
-      <aside class="card map-card">
-        <div class="card-title">여행 지도</div>
-        <div class="map-box">
-          <svg id="tripMap" viewBox="0 0 100 100" aria-label="travel map"></svg>
-        </div>
-        <div class="map-summary" id="mapSummary">선택한 일정이 없습니다.</div>
-      </aside>
-    </main>
-  </div>
-
-  <script>
-    const fallbackData = [
-      { "date": "8.24", "time": "12:45", "place": "인천국제공항", "desc": "부다페스트행 비행기 출발 (KE 963)" },
-      { "date": "8.24", "time": "17:55", "place": "부다페스트 공항", "desc": "현지 도착 및 호텔 픽업" },
-      { "date": "8.25", "time": "10:00", "place": "영웅광장", "desc": "시내 투어 시작" },
-      { "date": "8.25", "time": "11:10", "place": "이슈트반 대성당", "desc": "성당 관람 및 광장 투어" },
-      { "date": "8.25", "time": "12:45", "place": "Paprika Vendéglő", "desc": "전통 음식 점심 식사" },
-      { "date": "8.25", "time": "17:00", "place": "세체니 온천", "desc": "야간 온천 입욕" },
-      { "date": "8.26", "time": "10:30", "place": "New York Kávéház", "desc": "브런치 및 카페 투어" },
-      { "date": "8.26", "time": "13:30", "place": "헝가리 국립 미술관", "desc": "왕궁 내부 관람" },
-      { "date": "8.26", "time": "18:00", "place": "어부의 요새", "desc": "야경 감상" },
-      { "date": "8.26", "time": "19:30", "place": "Északi Szomszédok Bisztró", "desc": "파노라마 디너" },
-      { "date": "8.27", "time": "14:20", "place": "비엔나 중앙역", "desc": "기차 도착 및 호텔 체크인" },
-      { "date": "8.27", "time": "15:00", "place": "벨베데레 궁전", "desc": "클림트 작품 감상" },
-      { "date": "8.27", "time": "19:00", "place": "Figlmüller", "desc": "슈니첼 저녁 식사" },
-      { "date": "8.28", "time": "09:00", "place": "슈테판 대성당", "desc": "빈 시내 투어 시작" },
-      { "date": "8.28", "time": "14:00", "place": "쇤부른 궁전", "desc": "궁전 내부 관람" },
-      { "date": "8.29", "time": "10:00", "place": "빈 미술사 박물관", "desc": "박물관 관람" },
-      { "date": "8.30", "time": "09:00", "place": "할슈타트", "desc": "당일치기 근교 여행" },
-      { "date": "8.31", "time": "10:00", "place": "카페 자허", "desc": "자허 토르테 브런치" },
-      { "date": "9.01", "time": "11:00", "place": "나슈마르크트 시장", "desc": "현지 시장 체험" },
-      { "date": "9.02", "time": "18:00", "place": "빈 국립 오페라극장", "desc": "공연 관람" },
-      { "date": "9.03", "time": "11:00", "place": "빈 국제공항", "desc": "귀국 준비" }
-    ];
-
-    const timelineList = document.getElementById('timelineList');
-    const dateFilters = document.getElementById('dateFilters');
-    const tripMap = document.getElementById('tripMap');
-    const mapSummary = document.getElementById('mapSummary');
-    let itineraryData = [];
-    let selectedDate = 'all';
-    let activePlace = null;
-    let dateOptions = [];
-
-    function parseDateLabel(label) {
-      const [month, day] = label.split('.').map(Number);
-      return new Date(2026, month - 1, day);
-    }
-
-    function loadData() {
-      fetch('./data.json', { cache: 'no-store' })
-        .then((response) => {
-          if (!response.ok) throw new Error('data load failed');
-          return response.json();
-        })
-        .then((data) => initApp(data))
-        .catch(() => initApp(fallbackData));
-    }
-
-    function initApp(data) {
-      itineraryData = data;
-      dateOptions = [...new Set(itineraryData.map((item) => item.date))].sort((a, b) => parseDateLabel(a) - parseDateLabel(b));
-      renderDateFilters();
-      renderTimeline(selectedDate);
-      renderMap(selectedDate === 'all' ? itineraryData : itineraryData.filter((item) => item.date === selectedDate));
-    }
-
-    function renderDateFilters() {
-      const buttons = ['all', ...dateOptions].map((date) => {
-        const label = date === 'all' ? '전체 일정' : `${date}`;
-        const active = selectedDate === date ? 'active' : '';
-        return `<button class="chip ${active}" data-date="${date}">${label}</button>`;
-      }).join('');
-      dateFilters.innerHTML = buttons;
-    }
-
-    function renderTimeline(date) {
-      const filtered = date === 'all' ? itineraryData : itineraryData.filter((item) => item.date === date);
-      const grouped = groupByDate(filtered);
-
-      if (!filtered.length) {
-        timelineList.innerHTML = '<div class="empty">선택한 날짜의 일정이 없습니다.</div>';
-        return;
-      }
-
-      timelineList.innerHTML = Object.entries(grouped).map(([dateKey, items]) => `
-        <div class="date-group">
-          <div class="date-title">${dateKey}</div>
-          ${items.map((item) => `
-            <article class="schedule-item ${activePlace === item.place ? 'active' : ''}" data-place="${item.place}">
-              <div class="schedule-row">
-                <div class="time-badge">${item.time}</div>
-                <div class="schedule-content">
-                  <div class="place-name">${item.place}</div>
-                  <p class="schedule-desc">${item.desc}</p>
-                </div>
-                <a class="map-link" href="#" data-place="${item.place}" title="구글맵 열기" aria-label="구글맵 열기">🗺️</a>
-              </div>
-            </article>
-          `).join('')}
-        </div>
-      `).join('');
-    }
-
-    function groupByDate(items) {
-      return items.reduce((memo, item) => {
-        if (!memo[item.date]) memo[item.date] = [];
-        memo[item.date].push(item);
-        return memo;
-      }, {});
-    }
-
-    function renderMap(items) {
-      const visiblePlaces = [...new Set(items.map((item) => item.place))];
-      const positions = buildPositions(visiblePlaces);
-      const baseLine = 'M 10 85 C 24 70, 36 58, 55 55 S 82 40, 90 18';
-
-      tripMap.innerHTML = `
-        <rect x="0" y="0" width="100" height="100" rx="8" fill="#fdfbf8"></rect>
-        <path d="${baseLine}" stroke="#cfc0a6" stroke-width="1.2" fill="none" stroke-dasharray="2.5 2"></path>
-        <circle cx="10" cy="85" r="2.2" fill="#8da8b4"></circle>
-        <circle cx="90" cy="18" r="2.2" fill="#8da8b4"></circle>
-        ${visiblePlaces.map((place) => {
-          const pos = positions[place];
-          const isActive = activePlace === place;
-          return `
-            <g class="map-pin ${isActive ? 'active' : ''}" data-place="${place}" tabindex="0" role="button" aria-label="${place}">
-              <circle cx="${pos.x}" cy="${pos.y}" r="${isActive ? 3.3 : 2.7}" fill="${isActive ? '#ff7a59' : '#2f6f8f'}" stroke="#fff" stroke-width="1.2"></circle>
-              <circle cx="${pos.x}" cy="${pos.y}" r="5.2" fill="transparent" stroke="${isActive ? '#ff7a59' : '#2f6f8f'}" stroke-opacity="0.18"></circle>
-              <text x="${pos.x}" y="${pos.y - 4.5}" font-size="2.6" text-anchor="middle" fill="#24313a">${escapeSvgText(place)}</text>
-            </g>
-          `;
-        }).join('')}
-      `;
-
-      tripMap.querySelectorAll('.map-pin').forEach((pin) => {
-        pin.addEventListener('click', () => {
-          setActivePlace(pin.dataset.place);
-          openGoogleMaps(pin.dataset.place);
-        });
-        pin.addEventListener('keydown', (event) => {
-          if (event.key === 'Enter' || event.key === ' ') {
-            event.preventDefault();
-            setActivePlace(pin.dataset.place);
-            openGoogleMaps(pin.dataset.place);
-          }
-        });
-      });
-    }
-
-    function buildPositions(places) {
-      const positions = {};
-      if (!places.length) return positions;
-      const count = places.length;
-      places.forEach((place, index) => {
-        const t = count === 1 ? 0.5 : index / (count - 1);
-        const x = 16 + t * 68;
-        const y = 22 + Math.sin(t * Math.PI * 1.5) * 24 + (index % 3) * 6;
-        positions[place] = { x, y };
-      });
-      return positions;
-    }
-
-    function setActivePlace(place) {
-      activePlace = place;
-      renderTimeline(selectedDate);
-      renderMap(selectedDate === 'all' ? itineraryData : itineraryData.filter((item) => item.date === selectedDate));
-      const selectedItem = itineraryData.find((item) => item.place === place);
-      mapSummary.innerHTML = selectedItem
-        ? `<strong>${selectedItem.place}</strong><br />${selectedItem.desc}`
-        : '선택한 일정이 없습니다.';
-    }
-
-    function openGoogleMaps(place) {
-      window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place)}`, '_blank', 'noopener,noreferrer');
-    }
-
-    function escapeSvgText(value) {
-      return String(value)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&apos;');
-    }
-
-    document.addEventListener('click', (event) => {
-      const chip = event.target.closest('[data-date]');
-      if (chip) {
-        event.preventDefault();
-        selectedDate = chip.dataset.date;
-        renderDateFilters();
-        renderTimeline(selectedDate);
-        const visibleItems = selectedDate === 'all' ? itineraryData : itineraryData.filter((item) => item.date === selectedDate);
-        renderMap(visibleItems);
-        if (!visibleItems.some((item) => item.place === activePlace)) {
-          activePlace = null;
-          mapSummary.innerHTML = '선택한 일정이 없습니다.';
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>신혼여행 일정 지도</title>
+    <style>
+        :root {
+            --bg: #f8f5ef; --panel: #fffdf9; --text: #24313a; --muted: #64707b;
+            --accent: #ff7a59; --accent-2: #2f6f8f; --line: #e6dccf;
+            --shadow: 0 18px 45px rgba(36, 49, 58, 0.08);
         }
-        return;
-      }
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: "Pretendard", sans-serif; color: var(--text); background: linear-gradient(180deg, #fffdf9 0%, var(--bg) 100%); line-height: 1.6; }
+        a { color: inherit; text-decoration: none; }
+        .page { max-width: 1320px; margin: 0 auto; padding: 24px; }
+        .hero { padding: 32px; border-radius: 30px; background: linear-gradient(135deg, rgba(47, 111, 143, 0.95), rgba(255, 122, 89, 0.9)); color: white; box-shadow: var(--shadow); }
+        .hero h1 { font-size: clamp(1.9rem, 3.5vw, 2.8rem); margin: 8px 0 10px; line-height: 1.2; }
+        .chip-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+        .chip { border: 0; border-radius: 999px; padding: 10px 14px; background: rgba(255, 255, 255, 0.22); color: white; cursor: pointer; font-weight: 600; }
+        .chip.active { background: white; color: var(--accent-2); }
+        .layout { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 22px; margin-top: 22px; }
+        .card { background: var(--panel); border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--shadow); padding: 22px; }
+        .card-title { font-size: 1.12rem; font-weight: 700; margin-bottom: 16px; color: var(--accent-2); }
+        .date-group { margin-bottom: 18px; }
+        .date-title { font-weight: 700; color: var(--accent-2); margin-bottom: 10px; font-size: 0.98rem; }
+        .schedule-item { width: 100%; border: 1px solid var(--line); border-radius: 16px; background: #fff; padding: 14px 14px 14px 16px; margin-bottom: 10px; text-align: left; cursor: pointer; transition: 0.2s; }
+        .schedule-item:hover { border-color: rgba(255, 122, 89, 0.55); box-shadow: 0 8px 22px rgba(255, 122, 89, 0.12); }
+        .schedule-item.active { border-color: var(--accent); background: #fff8f4; }
+        .schedule-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+        .time-badge { min-width: 70px; font-weight: 700; color: var(--accent); }
+        .place-name { font-size: 1rem; font-weight: 700; }
+        .map-link { width: 36px; height: 36px; border-radius: 50%; background: #f6efe8; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+        .map-box { border-radius: 20px; overflow: hidden; border: 1px solid var(--line); background: #f4efe8; min-height: 380px; }
+        .map-box svg { width: 100%; height: 320px; display: block; }
+        .map-pin circle { cursor: pointer; }
+        .map-pin.active circle { fill: var(--accent); stroke: #fff; stroke-width: 2.2; animation: pulse 0.8s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+        @media (max-width: 960px) { .layout { grid-template-columns: 1fr; } }
+    </style>
+</head>
 
-      const mapLink = event.target.closest('[data-place]');
-      if (mapLink && mapLink.classList.contains('map-link')) {
-        event.preventDefault();
-        event.stopPropagation();
-        const place = mapLink.dataset.place;
-        setActivePlace(place);
-        openGoogleMaps(place);
-        return;
-      }
+<body>
+    <div class="page">
+        <section class="hero">
+            <h1>부다페스트와 빈을 따라가는 10일 신혼여행</h1>
+            <div class="chip-row" id="dateFilters"></div>
+        </section>
 
-      const scheduleItem = event.target.closest('.schedule-item');
-      if (scheduleItem) {
-        const place = scheduleItem.dataset.place;
-        setActivePlace(place);
-      }
-    });
+        <main class="layout">
+            <section class="card">
+                <div class="card-title">타임테이블</div>
+                <div id="timelineList"></div>
+            </section>
+            <aside class="card">
+                <div class="card-title">여행 지도</div>
+                <div class="map-box"><svg id="tripMap" viewBox="0 0 100 100"></svg></div>
+                <div id="mapSummary" style="margin-top:15px; color:var(--muted)">선택한 일정이 없습니다.</div>
+            </aside>
+        </main>
+    </div>
 
-    loadData();
-  </script>
+    <script>
+        let itineraryData = [];
+        let selectedDate = 'all';
+        let activePlace = null;
+
+        async function loadData() {
+            try {
+                const response = await fetch('./data.json');
+                itineraryData = await response.json();
+                renderUI();
+            } catch (e) { console.error("데이터 로드 실패"); }
+        }
+
+        function renderUI() {
+            const dates = ['all', ...new Set(itineraryData.map(i => i.date))];
+            dateFilters.innerHTML = dates.map(d => `<button class="chip ${selectedDate === d ? 'active' : ''}" onclick="filter('${d}')">${d === 'all' ? '전체' : d}</button>`).join('');
+            
+            const filtered = selectedDate === 'all' ? itineraryData : itineraryData.filter(i => i.date === selectedDate);
+            const groups = filtered.reduce((acc, cur) => { (acc[cur.date] = acc[cur.date] || []).push(cur); return acc; }, {});
+            
+            timelineList.innerHTML = Object.entries(groups).map(([date, items]) => `
+                <div class="date-group"><div class="date-title">${date}</div>
+                ${items.map(item => `
+                    <article class="schedule-item ${activePlace === item.place ? 'active' : ''}" onclick="setActive('${item.place}')">
+                        <div class="schedule-row">
+                            <div class="time-badge">${item.time}</div>
+                            <div class="schedule-content">
+                                <div class="place-name">${item.place}</div>
+                                <p class="schedule-desc">${item.desc}</p>
+                            </div>
+                            <a class="map-link" href="${item.link}" target="_blank" onclick="event.stopPropagation()">🗺️</a>
+                        </div>
+                    </article>
+                `).join('')}</div>`).join('');
+
+            renderMap(filtered);
+        }
+
+        function filter(date) { selectedDate = date; renderUI(); }
+        function setActive(place) { activePlace = place; renderUI(); }
+
+        function renderMap(items) {
+            const places = [...new Set(items.map(i => i.place))];
+            tripMap.innerHTML = places.map((p, i) => {
+                const x = 15 + (i * (70 / (places.length || 1)));
+                const y = 30 + (Math.sin(i) * 20);
+                return `<g class="map-pin ${activePlace === p ? 'active' : ''}" onclick="setActive('${p}')">
+                    <circle cx="${x}" cy="${y}" r="3" fill="${activePlace === p ? '#ff7a59' : '#2f6f8f'}"></circle>
+                    <text x="${x}" y="${y - 5}" font-size="3" text-anchor="middle">${p}</text>
+                </g>`;
+            }).join('');
+        }
+
+        loadData();
+    </script>
 </body>
 </html>
