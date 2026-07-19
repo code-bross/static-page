@@ -1,6 +1,7 @@
 [
   { "date": "8.24", "time": "12:45", "place": "인천국제공항", "desc": "부다페스트행 비행기 출발 (KE 963)", "link": "https://www.google.com/maps/search/?api=1&query=인천국제공항", "lat": 37.458666, "lng": 126.4419679 },
   { "date": "8.24", "time": "17:55", "place": "부다페스트 공항", "desc": "현지 도착 및 호텔 픽업", "link": "https://www.google.com/maps/search/?api=1&query=Budapest+Airport", "lat": 47.438516, "lng": 19.2540304 },
+  { "date": "8.24", "time": "19:00", "place": "Novotel Budapest Danube (숙소)", "desc": "부다페스트 숙소 체크인 및 짐 보관", "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube", "lat": 47.507421, "lng": 19.038742 },
   { "date": "8.24", "time": "20:00", "place": "Menza Étterem", "desc": "첫날 저녁 식사 (굴라시 & 쇠고기 요리 추천)", "link": "https://www.google.com/maps/search/?api=1&query=Menza+Étterem+Budapest", "lat": 47.502916, "lng": 19.064516 },
   
   { "date": "8.25", "time": "10:00", "place": "영웅광장", "desc": "시내 투어 시작", "link": "https://maps.app.goo.gl/N4S4EdBQsW2Mtp2Z9", "lat": 47.5149429, "lng": 19.0778626 },
@@ -16,7 +17,9 @@
   { "date": "8.26", "time": "19:30", "place": "Északi Szomszédok Bisztró", "desc": "파노라마 디너", "link": "https://www.google.com/maps/search/?api=1&query=Északi+Szomszédok+Bisztró", "lat": 47.4901945, "lng": 19.0668372 },
   { "date": "8.26", "time": "21:30", "place": "다뉴브강 유람선 선착장", "desc": "국회의사당 야경을 가장 가까이서 보는 유람선 탑승", "link": "https://www.google.com/maps/search/?api=1&query=Budapest+River+Cruise", "lat": 47.500412, "lng": 19.045012 },
   
-  { "date": "8.27", "time": "14:20", "place": "비엔나 중앙역", "desc": "기차 도착 및 호텔 체크인", "link": "https://www.google.com/maps/search/?api=1&query=Wien+Hauptbahnhof", "lat": 48.1851873, "lng": 16.3765973 },
+  { "date": "8.27", "time": "10:00", "place": "Novotel Budapest Danube (숙소)", "desc": "체크아웃 후 빈(Wien)행 기차 탑승을 위해 이동", "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube", "lat": 47.507421, "lng": 19.038742 },
+  { "date": "8.27", "time": "14:20", "place": "비엔나 중앙역", "desc": "기차 도착 및 이동", "link": "https://www.google.com/maps/search/?api=1&query=Wien+Hauptbahnhof", "lat": 48.1851873, "lng": 16.3765973 },
+  { "date": "8.27", "time": "14:40", "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)", "desc": "빈 숙소 체크인 및 짐 보관", "link": "https://www.google.com/maps/search/?api=1&query=Leonardo+Hotel+Vienna+Hauptbahnhof", "lat": 48.183758, "lng": 16.378103 },
   { "date": "8.27", "time": "15:00", "place": "벨베데레 궁전", "desc": "클림트 작품 감상", "link": "https://www.google.com/maps/search/?api=1&query=Belvedere+Palace+Vienna", "lat": 48.1914751, "lng": 16.3809322 },
   { "date": "8.27", "time": "17:00", "place": "칼스광장 & 칼스교회", "desc": "벨베데레에서 시내로 나오는 길에 위치한 아름다운 바로크식 교회 산책", "link": "https://www.google.com/maps/search/?api=1&query=Karlskirche+Vienna", "lat": 48.198243, "lng": 16.371422 },
   { "date": "8.27", "time": "19:00", "place": "Figlmüller", "desc": "슈니첼 저녁 식사", "link": "https://www.google.com/maps/search/?api=1&query=Figlmüller+Wien", "lat": 48.2093669, "lng": 16.3746338 },
@@ -53,5 +56,7 @@
   { "date": "9.02", "time": "18:00", "place": "빈 국립 오페라극장", "desc": "공연 관람", "link": "https://www.google.com/maps/search/?api=1&query=Vienna+State+Opera", "lat": 48.2034306, "lng": 16.3692034 },
   { "date": "9.02", "time": "21:30", "place": "Bitzinger Würstelstand", "desc": "오페라 관람 후 즐기는 오스트리아식 고급 소시지 야식", "link": "https://www.google.com/maps/search/?api=1&query=Bitzinger+Albertina+Vienna", "lat": 48.204512, "lng": 16.368812 },
   
-  { "date": "9.03", "time": "11:00", "place": "빈 국제공항", "desc": "귀국 준비", "link": "https://www.google.com/maps/search/?api=1&query=Vienna+International+Airport", "lat": 48.1179477, "lng": 16.5662578 }
+  { "date": "9.03", "time": "09:00", "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)", "desc": "체크아웃 후 프라하(Prague)행 열차 탑승을 위해 빈 중앙역 이동", "link": "https://www.google.com/maps/search/?api=1&query=Leonardo+Hotel+Vienna+Hauptbahnhof", "lat": 48.183758, "lng": 16.378103 },
+  { "date": "9.03", "time": "14:30", "place": "K+K Hotel Central Prague (숙소)", "desc": "프라하 도착 후 숙소 체크인 및 프라하 일정 시작 준비", "link": "https://www.google.com/maps/search/?api=1&query=K%2BK+Hotel+Central+Prague", "lat": 50.087463, "lng": 14.430034 },
+  { "date": "9.03", "time": "16:00", "place": "빈 국제공항", "desc": "귀국 준비 (※ 프라하 아웃인 경우 일정 재조정 필요)", "link": "https://www.google.com/maps/search/?api=1&query=Vienna+International+Airport", "lat": 48.1179477, "lng": 16.5662578 }
 ]
