@@ -1,6 +1,6 @@
 [
   { 
-    "date": "8.24", "time": "12:45", "place": "인천국제공항", 
+    "date": "8.24", "time": "12:45", "place": "인천국제공항", "emoji": "🛫",
     "desc": "부다페스트행 비행기 출발 (KE 963)", 
     "imgs": [
       "https://www.airport.kr/sites/co_ko/images/sub/constr-step1-img3.jpg",
@@ -11,7 +11,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=인천국제공항", "lat": 37.458666, "lng": 126.4419679 
   },
   { 
-    "date": "8.24", "time": "17:55", "place": "부다페스트 공항", 
+    "date": "8.24", "time": "17:55", "place": "부다페스트 공항", "emoji": "🛬",
     "desc": "현지 도착 및 호텔 픽업", 
     "imgs": [
       "https://upload.wikimedia.org/wikipedia/commons/8/83/Termin%C3%A1l_2_-_Ferihegy%2C_2015.07.27.JPG",
@@ -22,7 +22,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Budapest+Airport", "lat": 47.438516, "lng": 19.2540304 
   },
   { 
-    "date": "8.24", "time": "19:00", "place": "Novotel Budapest Danube (숙소)", 
+    "date": "8.24", "time": "19:00", "place": "Novotel Budapest Danube (숙소)", "emoji": "🏨",
     "desc": "부다페스트 숙소 체크인 및 짐 보관", 
     "imgs": [
       "https://media.joinup.travel/storage/hotel/29546/photos/16721_1.jpg",
@@ -33,7 +33,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube", "lat": 47.507421, "lng": 19.038742 
   },
   { 
-    "date": "8.24", "time": "20:00", "place": "The Spot Budapest by J&J", 
+    "date": "8.24", "time": "20:00", "place": "The Spot Budapest by J&J", "emoji": "🍽️",
     "desc": "첫날 저녁 식사 (굴라시 & 만갈리차 돼지고기 요리 추천)", 
     "imgs": [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ8l97ogcfWB9ZG_7eP8hqJq3hNxapKViHy5Uwuk8g1sbYHGj36RDSvPQ&s=10",
@@ -44,7 +44,7 @@
     "link": "https://maps.app.goo.gl/WPrrg59cUiz9DLsQ9", "lat": 47.5055939, "lng": 19.0363408 
   },
   { 
-    "date": "8.24", "time": "22:00", "place": "Novotel Budapest Danube (숙소)", 
+    "date": "8.24", "time": "22:00", "place": "Novotel Budapest Danube (숙소)", "emoji": "🏨",
     "desc": "숙소 복귀 및 휴식", 
     "imgs": [
       "https://media.joinup.travel/storage/hotel/29546/photos/16721_1.jpg",
@@ -55,7 +55,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube", "lat": 47.507421, "lng": 19.038742 
   },
   { 
-    "date": "8.25", "time": "09:00", "place": "Novotel Budapest Danube (숙소)", 
+    "date": "8.25", "time": "09:00", "place": "Novotel Budapest Danube (숙소)", "emoji": "🏨",
     "desc": "숙소 조식 및 시내 투어 준비", 
     "imgs": [
       "https://media.joinup.travel/storage/hotel/29546/photos/16721_1.jpg",
@@ -66,18 +66,18 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube", "lat": 47.507421, "lng": 19.038742 
   },
   { 
-    "date": "8.25", "time": "10:00", "place": "영웅광장", 
+    "date": "8.25", "time": "10:00", "place": "영웅광장", "emoji": "🏛️",
     "desc": "시내 투어 시작", 
     "imgs": [
-      "hthttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZwVxVDxZn0v1puRCRIQzsMHWAG9GJpQrFP7AxAYbrzpkNuMLPZLoEQlY&s=10",
-      "hthttps://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/c6/01/87/20170321-152532-01-largejpg.jpg?w=900&h=-1&s=1"
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZwVxVDxZn0v1puRCRIQzsMHWAG9GJpQrFP7AxAYbrzpkNuMLPZLoEQlY&s=10",
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/c6/01/87/20170321-152532-01-largejpg.jpg?w=900&h=-1&s=1"
     ],
     "details": "헝가리 정착 1000년을 기념하여 세워진 거대한 광장입니다. 중앙의 고딕 양식 기념비와 헝가리 역사 속 위대한 왕과 영웅들의 동상이 웅장하게 펼쳐져 있어 사진 촬영하기 좋습니다.",
     "guide": "지하철 M1선 Hősök tere 역 하차 바로 앞 / 그늘이 없으니 선글라스 지참",
     "link": "https://maps.app.goo.gl/N4S4EdBQsW2Mtp2Z9", "lat": 47.5149429, "lng": 19.0778626 
   },
   { 
-    "date": "8.25", "time": "11:10", "place": "이슈트반 대성당", 
+    "date": "8.25", "time": "11:10", "place": "이슈트반 대성당", "emoji": "⛪",
     "desc": "성당 관람 및 광장 투어", 
     "imgs": [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG7Ahv5lrZf8YDtvefDRiqtsp1FHHMZfGYl7Ff1LPZtuXYUZ1czWpSbipo&s=10",
@@ -88,7 +88,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=St.+Stephen's+Basilica+Budapest", "lat": 47.5008902, "lng": 19.0539887 
   },
   { 
-    "date": "8.25", "time": "12:45", "place": "Paprika Vendéglő", 
+    "date": "8.25", "time": "12:45", "place": "Paprika Vendéglő", "emoji": "🍖",
     "desc": "전통 음식 점심 식사", 
     "imgs": [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZC92az_gllWsbP5PGW_10v5OHbhPn1w45OnM3hbq1wHLUK1-03hf9vf8-&s=10",
@@ -99,18 +99,18 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Paprika+Vendéglő+Budapest", "lat": 47.5088683, "lng": 19.0831081 
   },
   { 
-    "date": "8.25", "time": "14:30", "place": "부다페스트 중앙시장", 
+    "date": "8.25", "time": "14:30", "place": "부다페스트 중앙시장", "emoji": "🛍️",
     "desc": "기념품 쇼핑 및 로컬 분위기 구경", 
     "imgs": [
       "https://www.windsortour.co.kr/images/area_img/HU/BUD/HUBUD3200391_0003.jpg?CMD=resize&width=100%",
       "https://mblogthumb-phinf.pstatic.net/MjAyNDA1MDhfMjk4/MDAxNzE1MTY3Njc1Njgz.bK_GkexdRp8sbHvhmgdRENRkLeCfw2mIRId7uirXBNAg.icvGA-1xA8ytNkFauNBohmUw2pCV-td9acizyeMrgHQg.JPEG/SE-70413b82-64be-4e60-9985-3ee8fbf9ccbd.jpg?type=w800"
     ],
-    "details": "19세기 고풍스러운 외관을 가진 대규모 실내 시장입니다. 1층에서는 헝가리 특산품인 파프리카 가루, 토카이 와인, 살라미 등을 판매하며, 2층에서는 로컬 수공예품과 스트리트 푸드를 즐길 수 있습니다.",
+    "details": "19세기 고풍스러운 외관을 가진 대규모 실내 시장입니다. 1층에서는 헝가리 특산품인 파프리카 가루, 토카이 와인, 살라미 등을 판매하며, 2층에서는 로컬 수공예품และ 스트리트 푸드를 즐길 수 있습니다.",
     "guide": "일요일 휴무 / 2층 기념품 샵들은 현금(포린트) 결제 시 할인이 되는 경우가 있음",
     "link": "https://www.google.com/maps/search/?api=1&query=Great+Market+Hall+Budapest", "lat": 47.487056, "lng": 19.058344 
   },
   { 
-    "date": "8.25", "time": "17:00", "place": "세체니 온천", 
+    "date": "8.25", "time": "17:00", "place": "세체니 온천", "emoji": "♨️",
     "desc": "야간 온천 입욕", 
     "imgs": [
       "https://mblogthumb-phinf.pstatic.net/MjAyNDEwMjBfMTEz/MDAxNzI5MzU1NjYyNjky.1LC_9g5qvfAm4q_U3hzEhsfbaqIxXosNkrWhbDeTG20g.Z3J3W-JVx1kzC8ec-7GfwC9PezbZrEMDM8X0aedgj4Mg.JPEG/8CAA4F29-50FE-4D1D-97FF-CA0686018827_1_105_c.jpeg?type=w800",
@@ -121,7 +121,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Széchenyi+Thermal+Bath", "lat": 47.5186568, "lng": 19.0823791 
   },
   { 
-    "date": "8.25", "time": "20:30", "place": "Novotel Budapest Danube (숙소)", 
+    "date": "8.25", "time": "20:30", "place": "Novotel Budapest Danube (숙소)", "emoji": "🏨",
     "desc": "숙소 복귀 및 휴식", 
     "imgs": [
       "https://media.joinup.travel/storage/hotel/29546/photos/16721_1.jpg",
@@ -132,7 +132,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube", "lat": 47.507421, "lng": 19.038742 
   },
   { 
-    "date": "8.26", "time": "09:30", "place": "Novotel Budapest Danube (숙소)", 
+    "date": "8.26", "time": "09:30", "place": "Novotel Budapest Danube (숙소)", "emoji": "🏨",
     "desc": "숙소 출발 및 이동", 
     "imgs": [
       "https://media.joinup.travel/storage/hotel/29546/photos/16721_1.jpg",
@@ -143,18 +143,18 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube", "lat": 47.507421, "lng": 19.038742 
   },
   { 
-    "date": "8.26", "time": "10:30", "place": "New York Kávéház", 
+    "date": "8.26", "time": "10:30", "place": "New York Kávéház", "emoji": "☕",
     "desc": "브런치 및 카페 투어", 
     "imgs": [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPTSb_S4J4ZtsOsTVpb-g93gh9a6NecPYOqDyudVRbDJXXYNdn096xvk0&s=10",
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK6vsvF8b2Cl6MhhJnyKZXkmUKKueoKpLmf57WC7Qtv120TXlT_FNZiRU&s=10"
     ],
-    "details": "'세계에서 가장 아름다운 카페'라는 명성에 걸맞게 궁전 내부를 방불케 하는 르네상스 스타일의 화려한 천장 벽화와 황금빛 조각들이 눈을 사로잡습니다. 클래식 연주를 들으며 고급스러운 브런치를 즐깁니다.",
+    "details": "'세계에서 가장 아름다운 카페'라는 명성에 걸맞게 궁전 내부를 방불케 하는 르네상스 스타일의 화려한 천장 벽화 and 황금빛 조각들이 눈을 사로잡습니다. 클래식 연주를 들으며 고급스러운 브런치를 즐깁니다.",
     "guide": "사전 예약 없이는 1시간 이상 대기할 수 있으므로 공식 홈페이지 예약 필수 / 드레스코드 스마트 캐주얼",
     "link": "https://www.google.com/maps/search/?api=1&query=New+York+Café+Budapest", "lat": 47.4987259, "lng": 19.0704556 
   },
   { 
-    "date": "8.26", "time": "13:30", "place": "헝가리 국립 미술관", 
+    "date": "8.26", "time": "13:30", "place": "헝가리 국립 미술관", "emoji": "🖼️",
     "desc": "왕궁 내부 관람", 
     "imgs": [
       "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/b97fc95b-6474-4e69-b003-fd7827b65d22.jpeg",
@@ -165,7 +165,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Hungarian+National+Gallery", "lat": 47.4960301, "lng": 19.039432 
   },
   { 
-    "date": "8.26", "time": "15:30", "place": "마티아스 성당", 
+    "date": "8.26", "time": "15:30", "place": "마티아스 성당", "emoji": "⛪",
     "desc": "어부의 요새 바로 옆 화려한 지붕의 성당 내부 관람", 
     "imgs": [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0p8Buwx7Wx4d1OKNhf4xiTn9d2dw9pHWTWMym9LoWhKVt04SNS2cyQpo&s=10",
@@ -176,7 +176,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Matthias+Church+Budapest", "lat": 47.501991, "lng": 19.034239 
   },
   { 
-    "date": "8.26", "time": "18:00", "place": "어부의 요새", 
+    "date": "8.26", "time": "18:00", "place": "어부의 요새", "emoji": "🏰",
     "desc": "야경 감상", 
     "imgs": [
       "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/142f2848-3bb6-419d-b090-b45416ac9a73.jpeg",
@@ -187,7 +187,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Fisherman's+Bastion", "lat": 47.5021827, "lng": 19.0347813 
   },
   { 
-    "date": "8.26", "time": "19:30", "place": "Északi Szomszédok Bisztró", 
+    "date": "8.26", "time": "19:30", "place": "Északi Szomszédok Bisztró", "emoji": "🍷",
     "desc": "파노라마 디너", 
     "imgs": [
       "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80",
@@ -198,7 +198,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=%C3%89szaki+Szomsz%C3%A9dok+Bisztr%C3%B3", "lat": 47.4901945, "lng": 19.0668372 
   },
   { 
-    "date": "8.26", "time": "21:30", "place": "다뉴브강 유람선 선착장", 
+    "date": "8.26", "time": "21:30", "place": "다뉴브강 유람선 선착장", "emoji": "🚢",
     "desc": "국회의사당 야경을 가장 가까이서 보는 유람선 탑승", 
     "imgs": [
       "https://images.unsplash.com/photo-1578496479763-941975e52188?auto=format&fit=crop&w=800&q=80",
@@ -209,7 +209,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Budapest+River+Cruise", "lat": 47.500412, "lng": 19.045012 
   },
   { 
-    "date": "8.26", "time": "23:00", "place": "Novotel Budapest Danube (숙소)", 
+    "date": "8.26", "time": "23:00", "place": "Novotel Budapest Danube (숙소)", "emoji": "🏨",
     "desc": "숙소 복귀 및 휴식", 
     "imgs": [
       "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80",
@@ -220,7 +220,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube", "lat": 47.507421, "lng": 19.038742 
   },
   { 
-    "date": "8.27", "time": "10:00", "place": "Novotel Budapest Danube (숙소)", 
+    "date": "8.27", "time": "10:00", "place": "Novotel Budapest Danube (숙소)", "emoji": "🏨",
     "desc": "체크아웃 후 빈(Wien)행 기차 탑승을 위해 이동", 
     "imgs": [
       "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=800&q=80",
@@ -231,7 +231,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube", "lat": 47.507421, "lng": 19.038742 
   },
   { 
-    "date": "8.27", "time": "14:20", "place": "비엔나 중앙역", 
+    "date": "8.27", "time": "14:20", "place": "비엔나 중앙역", "emoji": "🚉",
     "desc": "기차 도착 및 이동", 
     "imgs": [
       "https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=800&q=80",
@@ -242,7 +242,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Wien+Hauptbahnhof", "lat": 48.1851873, "lng": 16.3765973 
   },
   { 
-    "date": "8.27", "time": "14:40", "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)", 
+    "date": "8.27", "time": "14:40", "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)", "emoji": "🏨",
     "desc": "빈 숙소 체크인 및 짐 보관", 
     "imgs": [
       "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80",
@@ -253,7 +253,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Leonardo+Hotel+Vienna+Hauptbahnhof", "lat": 48.183758, "lng": 16.378103 
   },
   { 
-    "date": "8.27", "time": "15:00", "place": "벨베데레 궁전", 
+    "date": "8.27", "time": "15:00", "place": "벨베데레 궁전", "emoji": "🏰",
     "desc": "클림트 작품 감상", 
     "imgs": [
       "https://images.unsplash.com/photo-1623772274488-8427f8a1a457?auto=format&fit=crop&w=800&q=80",
@@ -264,7 +264,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Belvedere+Palace+Vienna", "lat": 48.1914751, "lng": 16.3809322 
   },
   { 
-    "date": "8.27", "time": "17:00", "place": "칼스광장 & 칼스교회", 
+    "date": "8.27", "time": "17:00", "place": "칼스광장 & 칼스교회", "emoji": "⛪",
     "desc": "벨베데레에서 시내로 나오는 길에 위치한 아름다운 바로크식 교회 산책", 
     "imgs": [
       "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=800&q=80",
@@ -275,7 +275,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Karlskirche+Vienna", "lat": 48.198243, "lng": 16.371422 
   },
   { 
-    "date": "8.27", "time": "19:00", "place": "Figlmüller", 
+    "date": "8.27", "time": "19:00", "place": "Figlmüller", "emoji": "🍽️",
     "desc": "슈니첼 저녁 식사", 
     "imgs": [
       "https://images.unsplash.com/photo-1598514983318-2f64f8f4796c?auto=format&fit=crop&w=800&q=80",
@@ -286,7 +286,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Figlm%C3%BCller+Wien", "lat": 48.2093669, "lng": 16.3746338 
   },
   { 
-    "date": "8.27", "time": "21:00", "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)", 
+    "date": "8.27", "time": "21:00", "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)", "emoji": "🏨",
     "desc": "숙소 복귀 및 휴식", 
     "imgs": [
       "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80",
@@ -297,7 +297,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Leonardo+Hotel+Vienna+Hauptbahnhof", "lat": 48.183758, "lng": 16.378103 
   },
   { 
-    "date": "8.28", "time": "08:00", "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)", 
+    "date": "8.28", "time": "08:00", "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)", "emoji": "🏨",
     "desc": "숙소 출발 및 시내 이동", 
     "imgs": [
       "https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=800&q=80",
@@ -308,7 +308,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Leonardo+Hotel+Vienna+Hauptbahnhof", "lat": 48.183758, "lng": 16.378103 
   },
   { 
-    "date": "8.28", "time": "09:00", "place": "슈테판 대성당", 
+    "date": "8.28", "time": "09:00", "place": "슈테판 대성당", "emoji": "⛪",
     "desc": "빈 시내 투어 시작", 
     "imgs": [
       "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=800&q=80",
@@ -319,7 +319,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=St.+Stephen's+Cathedral+Vienna", "lat": 48.2084114, "lng": 16.3734707 
   },
   { 
-    "date": "8.28", "time": "11:30", "place": "Plachutta Wollzeile", 
+    "date": "8.28", "time": "11:30", "place": "Plachutta Wollzeile", "emoji": "🍲",
     "desc": "오스트리아 전통 소고기 수욕 요리 '타펠슈피츠' 점심 식사", 
     "imgs": [
       "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80",
@@ -330,7 +330,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Plachutta+Wollzeile+Vienna", "lat": 48.208534, "lng": 16.378125 
   },
   { 
-    "date": "8.28", "time": "14:00", "place": "쇤부른 궁전", 
+    "date": "8.28", "time": "14:00", "place": "쇤부른 궁전", "emoji": "🏰",
     "desc": "궁전 내부 관람", 
     "imgs": [
       "https://images.unsplash.com/photo-1590001155093-a3c66ab0c3ff?auto=format&fit=crop&w=800&q=80",
@@ -341,7 +341,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Sch%C3%B6nbrunn+Palace", "lat": 48.1858124, "lng": 16.3127641 
   },
   { 
-    "date": "8.28", "time": "18:00", "place": "호프부르크 왕궁", 
+    "date": "8.28", "time": "18:00", "place": "호프부르크 왕궁", "emoji": "🏛️",
     "desc": "합스부르크 왕가의 겨울 궁전 외관 및 미하엘 광장 야경 투어", 
     "imgs": [
       "https://images.unsplash.com/photo-1605538032432-a9f0c8d9baac?auto=format&fit=crop&w=800&q=80",
@@ -352,7 +352,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Hofburg+Vienna", "lat": 48.206507, "lng": 16.365262 
   },
   { 
-    "date": "8.28", "time": "19:30", "place": "Café Central", 
+    "date": "8.28", "time": "19:30", "place": "Café Central", "emoji": "☕",
     "desc": "역사 깊은 예술가들의 아지트에서 저녁 식사 및 디저트", 
     "imgs": [
       "https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?auto=format&fit=crop&w=800&q=80",
@@ -363,7 +363,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Caf%C3%A9+Central+Vienna", "lat": 48.210404, "lng": 16.365415 
   },
   { 
-    "date": "8.28", "time": "21:30", "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)", 
+    "date": "8.28", "time": "21:30", "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)", "emoji": "🏨",
     "desc": "숙소 복귀 및 휴식", 
     "imgs": [
       "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80",
@@ -374,7 +374,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Leonardo+Hotel+Vienna+Hauptbahnhof", "lat": 48.183758, "lng": 16.378103 
   },
   { 
-    "date": "8.29", "time": "09:00", "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)", 
+    "date": "8.29", "time": "09:00", "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)", "emoji": "🏨",
     "desc": "숙소 출발 및 이동", 
     "imgs": [
       "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
@@ -385,7 +385,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Leonardo+Hotel+Vienna+Hauptbahnhof", "lat": 48.183758, "lng": 16.378103 
   },
   { 
-    "date": "8.29", "time": "10:00", "place": "빈 미술사 박물관", 
+    "date": "8.29", "time": "10:00", "place": "빈 미술사 박물관", "emoji": "🏛️",
     "desc": "박물관 관람", 
     "imgs": [
       "https://images.unsplash.com/photo-1545987796-200677ee1011?auto=format&fit=crop&w=800&q=80",
@@ -396,7 +396,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Kunsthistorisches+Museum+Vienna", "lat": 48.2038016, "lng": 16.3617874 
   },
   { 
-    "date": "8.29", "time": "13:00", "place": "Osteria d'Atri", 
+    "date": "8.29", "time": "13:00", "place": "Osteria d'Atri", "emoji": "🍝",
     "desc": "박기사 근처 숨겨진 이탈리안 파스타 맛집에서 점심 식사", 
     "imgs": [
       "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80",
@@ -407,7 +407,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Osteria+d'Atri+Vienna", "lat": 48.209112, "lng": 16.362354 
   },
   { 
-    "date": "8.29", "time": "15:00", "place": "오스트리아 국립도서관", 
+    "date": "8.29", "time": "15:00", "place": "오스트리아 국립도서관", "emoji": "📚",
     "desc": "세계에서 가장 아름다운 프레스코화가 있는 후기 바로크 양식의 도서관", 
     "imgs": [
       "https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=800&q=80",
@@ -418,7 +418,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Austrian+National+Library", "lat": 48.206013, "lng": 16.366811 
   },
   { 
-    "date": "8.29", "time": "18:30", "place": "Ribs of Vienna", 
+    "date": "8.29", "time": "18:30", "place": "Ribs of Vienna", "emoji": "🍖",
     "desc": "1m 길이의 푸짐한 미트 립 요리로 든든한 저녁 식사", 
     "imgs": [
       "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80",
@@ -429,7 +429,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Ribs+of+Vienna", "lat": 48.206922, "lng": 16.375494 
   },
   { 
-    "date": "8.29", "time": "20:30", "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)", 
+    "date": "8.29", "time": "20:30", "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)", "emoji": "🏨",
     "desc": "숙소 복귀 및 휴식", 
     "imgs": [
       "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80",
@@ -440,7 +440,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Leonardo+Hotel+Vienna+Hauptbahnhof", "lat": 48.183758, "lng": 16.378103 
   },
   { 
-    "date": "8.30", "time": "06:00", "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)", 
+    "date": "8.30", "time": "06:00", "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)", "emoji": "🏨",
     "desc": "할슈타트 이동을 위해 숙소 출발 (기차역 이동)", 
     "imgs": [
       "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=800&q=80",
@@ -451,7 +451,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Leonardo+Hotel+Vienna+Hauptbahnhof", "lat": 48.183758, "lng": 16.378103 
   },
   { 
-    "date": "8.30", "time": "08:30", "place": "할슈타트", 
+    "date": "8.30", "time": "08:30", "place": "할슈타트", "emoji": "🏞️",
     "desc": "당일치기 근교 여행 및 마을 산책", 
     "imgs": [
       "https://images.unsplash.com/photo-1520175480921-4edfa2983e0f?auto=format&fit=crop&w=800&q=80",
@@ -462,7 +462,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Hallstatt", "lat": 47.5622342, "lng": 13.6492617 
   },
   { 
-    "date": "8.30", "time": "11:30", "place": "Gasthof Zauner", 
+    "date": "8.30", "time": "11:30", "place": "Gasthof Zauner", "emoji": "🐟",
     "desc": "할슈타트 호수 뷰를 보며 즐기는 송어 구이 점심 식사", 
     "imgs": [
       "https://images.unsplash.com/photo-1534604973900-c43ab4c2e0ab?auto=format&fit=crop&w=800&q=80",
@@ -473,7 +473,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Gasthof+Zauner+Hallstatt", "lat": 47.562152, "lng": 13.648612 
   },
   { 
-    "date": "8.30", "time": "12:40", "place": "할슈타트 전망대", 
+    "date": "8.30", "time": "12:40", "place": "할슈타트 전망대", "emoji": "🚠",
     "desc": "푸니쿨라를 타고 올라가 한눈에 담는 호수 마을 전경", 
     "imgs": [
       "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
@@ -484,7 +484,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Hallstatt+Skywalk", "lat": 47.564112, "lng": 13.646892 
   },
   { 
-    "date": "8.30", "time": "14:50", "place": "빈 중앙역 (Wien Hbf)", 
+    "date": "8.30", "time": "14:50", "place": "빈 중앙역 (Wien Hbf)", "emoji": "🚉",
     "desc": "할슈타트 출발 후 빈 중앙역 도착, 프라하행 기차 환승 준비", 
     "imgs": [
       "https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=800&q=80",
@@ -495,7 +495,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Wien+Hauptbahnhof", "lat": 48.1851873, "lng": 16.3765973 
   },
   { 
-    "date": "8.30", "time": "15:23", "place": "빈 중앙역 (Wien Hbf)", 
+    "date": "8.30", "time": "15:23", "place": "빈 중앙역 (Wien Hbf)", "emoji": "🚄",
     "desc": "프라하행 기차 탑승 (체코 철도청/ÖBB)", 
     "imgs": [
       "https://images.unsplash.com/photo-1515165504669-4230427445d8?auto=format&fit=crop&w=800&q=80",
@@ -506,7 +506,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Wien+Hauptbahnhof", "lat": 48.1851873, "lng": 16.3765973 
   },
   { 
-    "date": "8.30", "time": "19:30", "place": "프라하 중앙역 (Praha hl.n.)", 
+    "date": "8.30", "time": "19:30", "place": "프라하 중앙역 (Praha hl.n.)", "emoji": "🚉",
     "desc": "프라하 도착 후 숙소로 이동", 
     "imgs": [
       "https://images.unsplash.com/photo-1541343075659-c08903c62537?auto=format&fit=crop&w=800&q=80",
@@ -517,7 +517,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Praha+hlavni+nadrazi", "lat": 50.083162, "lng": 14.434499 
   },
   { 
-    "date": "8.30", "time": "20:00", "place": "K+K Hotel Central Prague (숙소)", 
+    "date": "8.30", "time": "20:00", "place": "K+K Hotel Central Prague (숙소)", "emoji": "🏨",
     "desc": "프라하 숙소 체크인 및 짐 보관", 
     "imgs": [
       "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=800&q=80",
@@ -528,7 +528,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=K%2BK+Hotel+Central+Prague", "lat": 50.087342, "lng": 14.428412 
   },
   { 
-    "date": "8.30", "time": "20:30", "place": "프라하 중앙역 근처 식당", 
+    "date": "8.30", "time": "20:30", "place": "프라하 중앙역 근처 식당", "emoji": "🍺",
     "desc": "숙소 체크인 후 근처 편안한 레스토랑에서 저녁 식사 및 휴식", 
     "imgs": [
       "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80",
@@ -539,18 +539,18 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Prague+Central+Station+Restaurants", "lat": 50.083500, "lng": 14.435000 
   },
   { 
-    "date": "8.30", "time": "22:00", "place": "K+K Hotel Central Prague (숙소)", 
+    "date": "8.30", "time": "22:00", "place": "K+K Hotel Central Prague (숙소)", "emoji": "🏨",
     "desc": "숙소 복귀 및 휴식", 
     "imgs": [
       "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80"
     ],
-    "details": "내일부터 시작될 본격적인 프라하 도보 여행과 인생 스냅 촬영을 위해 아늑한 숙소에서 일찍 휴식을 취합니다.",
+    "details": "내일부터 시작될 본격적인 프라하 도보 여행และ 인생 스냅 촬영을 위해 아늑한 숙소에서 일찍 휴식을 취합니다.",
     "guide": "침구류 상태 확인 및 객실 내 온도 조절",
     "link": "https://www.google.com/maps/search/?api=1&query=K%2BK+Hotel+Central+Prague", "lat": 50.087342, "lng": 14.428412 
   },
   { 
-    "date": "8.31", "time": "09:00", "place": "K+K Hotel Central Prague (숙소)", 
+    "date": "8.31", "time": "09:00", "place": "K+K Hotel Central Prague (숙소)", "emoji": "🏨",
     "desc": "숙소 출발 및 이동", 
     "imgs": [
       "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?auto=format&fit=crop&w=800&q=80",
@@ -561,7 +561,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=K%2BK+Hotel+Central+Prague", "lat": 50.087342, "lng": 14.428412 
   },
   { 
-    "date": "8.31", "time": "10:00", "place": "카페 자허 대신 프라하 감성 카페", 
+    "date": "8.31", "time": "10:00", "place": "카페 자허 대신 프라하 감성 카페", "emoji": "☕",
     "desc": "프라하 현지 유명 베이커리/카페 브런치", 
     "imgs": [
       "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80",
@@ -572,7 +572,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Prague+Cafes", "lat": 50.087500, "lng": 14.421000 
   },
   { 
-    "date": "8.31", "time": "12:00", "place": "프라하 시내 투어", 
+    "date": "8.31", "time": "12:00", "place": "프라하 시내 투어", "emoji": "🧭",
     "desc": "구시가지 광장, 천문시계 탑 주변 도보 투어 및 로컬 분위기 탐방", 
     "imgs": [
       "https://images.unsplash.com/photo-1563841930606-67e2b6c3bd26?auto=format&fit=crop&w=800&q=80",
@@ -583,7 +583,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Old+Town+Square+Prague", "lat": 50.087465, "lng": 14.421248 
   },
   { 
-    "date": "8.31", "time": "15:00", "place": "하벨 시장 & 구시가 쇼핑가", 
+    "date": "8.31", "time": "15:00", "place": "하벨 시장 & 구시가 쇼핑가", "emoji": "🛍️",
     "desc": "기념품 매장과 세련된 건축물이 가득한 프라하 대표 거리 활보", 
     "imgs": [
       "https://images.unsplash.com/photo-1473177104440-ffee2f376098?auto=format&fit=crop&w=800&q=80",
@@ -594,7 +594,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Havelske+trziste", "lat": 50.085421, "lng": 14.420892 
   },
   { 
-    "date": "8.31", "time": "18:00", "place": "카를교 (Charles Bridge)", 
+    "date": "8.31", "time": "18:00", "place": "카를교 (Charles Bridge)", "emoji": "🌉",
     "desc": "일몰 무렵의 아름다운 카를교 산책 및 블타바강 조망", 
     "imgs": [
       "https://images.unsplash.com/photo-1513805959324-96eb66ca8713?auto=format&fit=crop&w=800&q=80",
@@ -605,7 +605,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Charles+Bridge", "lat": 50.086436, "lng": 14.411421 
   },
   { 
-    "date": "8.31", "time": "19:30", "place": "존 레논 벽 (John Lennon Wall)", 
+    "date": "8.31", "time": "19:30", "place": "존 레논 벽 (John Lennon Wall)", "emoji": "🎨",
     "desc": "평화의 메시지가 가득한 벽화 거리 관람 및 사진 촬영", 
     "imgs": [
       "https://images.unsplash.com/photo-1583244532610-2a234e7c3eca?auto=format&fit=crop&w=800&q=80",
@@ -616,7 +616,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=John+Lennon+Wall", "lat": 50.086221, "lng": 14.406852 
   },
   { 
-    "date": "8.31", "time": "20:30", "place": "프라하 구시가지 로컬 식당", 
+    "date": "8.31", "time": "20:30", "place": "프라하 구시가지 로컬 식당", "emoji": "🍖",
     "desc": "체코 전통 요리(꼴레뇨 또는 스비치코바)와 필스너 우르켈 맥주 저녁 식사", 
     "imgs": [
       "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=800&q=80",
@@ -627,7 +627,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Prague+Old+Town+Restaurants", "lat": 50.087500, "lng": 14.422000 
   },
   { 
-    "date": "8.31", "time": "22:30", "place": "K+K Hotel Central Prague (숙소)", 
+    "date": "8.31", "time": "22:30", "place": "K+K Hotel Central Prague (숙소)", "emoji": "🏨",
     "desc": "숙소 복귀 및 휴식", 
     "imgs": [
       "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=800&q=80",
@@ -638,7 +638,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=K%2BK+Hotel+Central+Prague", "lat": 50.087342, "lng": 14.428412 
   },
   { 
-    "date": "9.01", "time": "08:30", "place": "K+K Hotel Central Prague (숙소)", 
+    "date": "9.01", "time": "08:30", "place": "K+K Hotel Central Prague (숙소)", "emoji": "🏨",
     "desc": "스냅 촬영을 위해 숙소 출발", 
     "imgs": [
       "https://images.unsplash.com/photo-1513805959324-96eb66ca8713?auto=format&fit=crop&w=800&q=80",
@@ -649,7 +649,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=K%2BK+Hotel+Central+Prague", "lat": 50.087342, "lng": 14.428412 
   },
   { 
-    "date": "9.01", "time": "09:30", "place": "프라하 시내 일대", 
+    "date": "9.01", "time": "09:30", "place": "프라하 시내 일대", "emoji": "📸",
     "desc": "스냅 사진 촬영 (2시간 소요)", 
     "imgs": [
       "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80",
@@ -660,7 +660,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Prague", "lat": 50.087500, "lng": 14.421000 
   },
   { 
-    "date": "9.01", "time": "12:00", "place": "프라하 성 (Prague Castle)", 
+    "date": "9.01", "time": "12:00", "place": "프라하 성 (Prague Castle)", "emoji": "🏰",
     "desc": "세계 최대 규모의 고성 단지 입장 및 내부 관람 시작", 
     "imgs": [
       "https://images.unsplash.com/photo-1558485901-49931754020a?auto=format&fit=crop&w=800&q=80",
@@ -671,7 +671,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Prague+Castle", "lat": 50.091171, "lng": 14.401633 
   },
   { 
-    "date": "9.01", "time": "12:35", "place": "성 비투스 대성당 (St. Vitus Cathedral)", 
+    "date": "9.01", "time": "12:35", "place": "성 비투스 대성당 (St. Vitus Cathedral)", "emoji": "⛪",
     "desc": "압도적인 고딕 양식의 외관 및 화려한 스테인드글라스 관람", 
     "imgs": [
       "https://images.unsplash.com/photo-1560969143-6987f2b1d31d?auto=format&fit=crop&w=800&q=80",
@@ -682,7 +682,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=St.+Vitus+Cathedral", "lat": 50.090883, "lng": 14.400512 
   },
   { 
-    "date": "9.01", "time": "13:40", "place": "성 이르지 바실리카 & 황금소로", 
+    "date": "9.01", "time": "13:40", "place": "성 이르지 바실리카 & 황금소로", "emoji": "🧱",
     "desc": "로마네스크 양식의 성당 및 아기자기한 기념품 점이 모인 황금소로 산책", 
     "imgs": [
       "https://images.unsplash.com/photo-1590001155093-a3c66ab0c3ff?auto=format&fit=crop&w=800&q=80",
@@ -693,7 +693,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Golden+Lane+Prague", "lat": 50.092011, "lng": 14.404212 
   },
   { 
-    "date": "9.01", "time": "15:30", "place": "말라스트라나 전망 좋은 카페", 
+    "date": "9.01", "time": "15:30", "place": "말라스트라나 전망 좋은 카페", "emoji": "☕",
     "desc": "프라하 성에서 내려다보이는 붉은 지붕 뷰와 함께 커피 타임", 
     "imgs": [
       "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80",
@@ -704,7 +704,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Mala+Strana+Cafes", "lat": 50.088122, "lng": 14.404112 
   },
   { 
-    "date": "9.01", "time": "18:30", "place": "U Parlamentu", 
+    "date": "9.01", "time": "18:30", "place": "U Parlamentu", "emoji": "🍽️",
     "desc": "체코 전통 굴라시와 맥주로 든든한 저녁 식사", 
     "imgs": [
       "https://images.unsplash.com/photo-1608897013039-887f21d8c804?auto=format&fit=crop&w=800&q=80",
@@ -715,7 +715,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=U+Parlamentu+Prague", "lat": 50.088654, "lng": 14.417212 
   },
   { 
-    "date": "9.01", "time": "21:00", "place": "K+K Hotel Central Prague (숙소)", 
+    "date": "9.01", "time": "21:00", "place": "K+K Hotel Central Prague (숙소)", "emoji": "🏨",
     "desc": "숙소 복귀 및 휴식", 
     "imgs": [
       "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=800&q=80",
@@ -726,7 +726,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=K%2BK+Hotel+Central+Prague", "lat": 50.087342, "lng": 14.428412 
   },
   { 
-    "date": "9.02", "time": "10:00", "place": "K+K Hotel Central Prague (숙소)", 
+    "date": "9.02", "time": "10:00", "place": "K+K Hotel Central Prague (숙소)", "emoji": "🏨",
     "desc": "숙소 체크아웃 및 귀국 준비", 
     "imgs": [
       "https://images.unsplash.com/photo-1542296332-2e4473fac563?auto=format&fit=crop&w=800&q=80",
@@ -737,7 +737,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=K%2BK+Hotel+Central+Prague", "lat": 50.087342, "lng": 14.428412 
   },
   { 
-    "date": "9.02", "time": "11:30", "place": "프라하 국립박물관 주변 바츨라프 광장", 
+    "date": "9.02", "time": "11:30", "place": "프라하 국립박물관 주변 바츨라프 광장", "emoji": "🛍️",
     "desc": "체코 근현대사의 중심지 산책 및 마지막 기념품 쇼핑", 
     "imgs": [
       "https://images.unsplash.com/photo-1573155993874-d5d48af862ba?auto=format&fit=crop&w=800&q=80",
@@ -748,7 +748,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Wenceslas+Square", "lat": 50.081234, "lng": 14.427123 
   },
   { 
-    "date": "9.02", "time": "13:00", "place": "프라하 공항 이동 전 마지막 식사", 
+    "date": "9.02", "time": "13:00", "place": "프라하 공항 이동 전 마지막 식사", "emoji": "☕",
     "desc": "가벼운 샌드위치와 커피로 여유로운 점심", 
     "imgs": [
       "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80",
@@ -759,7 +759,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Prague+Old+Town+Cafes", "lat": 50.087500, "lng": 14.421000 
   },
   { 
-    "date": "9.02", "time": "15:00", "place": "프라하 바츨라프 하벨 국제공항", 
+    "date": "9.02", "time": "15:00", "place": "프라하 바츨라프 하벨 국제공항", "emoji": "🛫",
     "desc": "귀국 준비 및 공항 이동 (공항 체크인)", 
     "imgs": [
       "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80",
@@ -770,7 +770,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=V%C3%A1clav+Havel+Airport+Prague", "lat": 50.101784, "lng": 14.263180 
   },
   { 
-    "date": "9.02", "time": "19:05", "place": "프라하 바츨라프 하벨 국제공항", 
+    "date": "9.02", "time": "19:05", "place": "프라하 바츨라프 하벨 국제공항", "emoji": "🛫",
     "desc": "인천행 귀국 비행기 출발 (KE 970)", 
     "imgs": [
       "https://images.unsplash.com/photo-1542296332-2e4473fac563?auto=format&fit=crop&w=800&q=80",
@@ -781,7 +781,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=V%C3%A1clav+Havel+Airport+Prague", "lat": 50.101784, "lng": 14.263180 
   },
   { 
-    "date": "9.03", "time": "13:20", "place": "인천국제공항", 
+    "date": "9.03", "time": "13:20", "place": "인천국제공항", "emoji": "🛬",
     "desc": "인천국제공항 도착 및 귀가", 
     "imgs": [
       "https://images.unsplash.com/photo-1542296332-2e4473fac563?auto=format&fit=crop&w=800&q=80",
