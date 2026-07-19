@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,36 +9,197 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         :root {
-            --bg: #f8f5ef; --panel: #fffdf9; --text: #24313a; --muted: #64707b;
-            --accent: #ff7a59; --accent-2: #2f6f8f; --line: #e6dccf;
+            --bg: #f8f5ef;
+            --panel: #fffdf9;
+            --text: #24313a;
+            --muted: #64707b;
+            --accent: #ff7a59;
+            --accent-2: #2f6f8f;
+            --line: #e6dccf;
             --shadow: 0 18px 45px rgba(36, 49, 58, 0.08);
         }
-        * { box-sizing: border-box; }
-        body { margin: 0; font-family: "Pretendard", sans-serif; color: var(--text); background: linear-gradient(180deg, #fffdf9 0%, var(--bg) 100%); line-height: 1.6; }
-        a { color: inherit; text-decoration: none; }
-        .page { max-width: 1320px; margin: 0 auto; padding: 24px; }
-        .hero { padding: 32px; border-radius: 30px; background: linear-gradient(135deg, rgba(47, 111, 143, 0.95), rgba(255, 122, 89, 0.9)); color: white; box-shadow: var(--shadow); }
-        .hero h1 { font-size: clamp(1.9rem, 3.5vw, 2.8rem); margin: 8px 0 10px; line-height: 1.2; }
-        .chip-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
-        .chip { border: 0; border-radius: 999px; padding: 10px 14px; background: rgba(255, 255, 255, 0.22); color: white; cursor: pointer; font-weight: 600; }
-        .chip.active { background: white; color: var(--accent-2); }
-        .layout { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 22px; margin-top: 22px; }
-        .card { background: var(--panel); border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--shadow); padding: 22px; display: flex; flex-direction: column; }
-        .card-title { font-size: 1.12rem; font-weight: 700; margin-bottom: 16px; color: var(--accent-2); }
-        .timeline-container { overflow-y: auto; max-height: 650px; padding-right: 8px; }
-        .date-group { margin-bottom: 18px; }
-        .date-title { font-weight: 700; color: var(--accent-2); margin-bottom: 10px; font-size: 0.98rem; }
-        .schedule-item { width: 100%; border: 1px solid var(--line); border-radius: 16px; background: #fff; padding: 14px 14px 14px 16px; margin-bottom: 10px; text-align: left; cursor: pointer; transition: 0.2s; }
-        .schedule-item:hover { border-color: rgba(255, 122, 89, 0.55); box-shadow: 0 8px 22px rgba(255, 122, 89, 0.12); }
-        .schedule-item.active { border-color: var(--accent); background: #fff8f4; }
-        .schedule-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
-        .time-badge { min-width: 70px; font-weight: 700; color: var(--accent); }
-        .schedule-content { flex-grow: 1; }
-        .place-name { font-size: 1rem; font-weight: 700; }
-        .schedule-desc { margin: 4px 0 0; color: var(--muted); font-size: 0.9rem; }
-        .map-link { width: 36px; height: 36px; border-radius: 50%; background: #f6efe8; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
-        .map-box { border-radius: 20px; overflow: hidden; border: 1px solid var(--line); background: #f4efe8; height: 500px; width: 100%; z-hidden: 1; }
-        @media (max-width: 960px) { .layout { grid-template-columns: 1fr; } .map-box { height: 400px; } }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Pretendard", sans-serif;
+            color: var(--text);
+            background: linear-gradient(180deg, #fffdf9 0%, var(--bg) 100%);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .page {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        .hero {
+            padding: 32px;
+            border-radius: 30px;
+            background: linear-gradient(135deg, rgba(47, 111, 143, 0.95), rgba(255, 122, 89, 0.9));
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .hero h1 {
+            font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+            margin: 8px 0 10px;
+            line-height: 1.2;
+        }
+
+        .chip-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .chip {
+            border: 0;
+            border-radius: 999px;
+            padding: 10px 14px;
+            background: rgba(255, 255, 255, 0.22);
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .chip.active {
+            background: white;
+            color: var(--accent-2);
+        }
+
+        .layout {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 22px;
+            margin-top: 22px;
+        }
+
+        .card {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.12rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--accent-2);
+        }
+
+        .timeline-container {
+            overflow-y: auto;
+            max-height: 650px;
+            padding-right: 8px;
+        }
+
+        .date-group {
+            margin-bottom: 18px;
+        }
+
+        .date-title {
+            font-weight: 700;
+            color: var(--accent-2);
+            margin-bottom: 10px;
+            font-size: 0.98rem;
+        }
+
+        .schedule-item {
+            width: 100%;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            background: #fff;
+            padding: 14px 14px 14px 16px;
+            margin-bottom: 10px;
+            text-align: left;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .schedule-item:hover {
+            border-color: rgba(255, 122, 89, 0.55);
+            box-shadow: 0 8px 22px rgba(255, 122, 89, 0.12);
+        }
+
+        .schedule-item.active {
+            border-color: var(--accent);
+            background: #fff8f4;
+        }
+
+        .schedule-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .time-badge {
+            min-width: 70px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .schedule-content {
+            flex-grow: 1;
+        }
+
+        .place-name {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .schedule-desc {
+            margin: 4px 0 0;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .map-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #f6efe8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .map-box {
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            background: #f4efe8;
+            height: 500px;
+            width: 100%;
+            z-hidden: 1;
+        }
+
+        @media (max-width: 960px) {
+            .layout {
+                grid-template-columns: 1fr;
+            }
+
+            .map-box {
+                height: 400px;
+            }
+        }
     </style>
 </head>
 
@@ -66,29 +228,6 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
         // 하드코딩된 위경도 포함 데이터 셋
-        const itineraryData = [
-          { "date": "8.24", "time": "12:45", "place": "인천국제공항", "desc": "부다페스트행 비행기 출발 (KE 963)", "link": "https://www.google.com/maps/search/?api=1&query=인천국제공항", "lat": 37.458666, "lng": 126.4419679 },
-          { "date": "8.24", "time": "17:55", "place": "부다페스트 공항", "desc": "현지 도착 및 호텔 픽업", "link": "https://www.google.com/maps/search/?api=1&query=Budapest+Airport", "lat": 47.438516, "lng": 19.2540304 },
-          { "date": "8.25", "time": "10:00", "place": "영웅광장", "desc": "시내 투어 시작", "link": "https://maps.app.goo.gl/N4S4EdBQsW2Mtp2Z9", "lat": 47.5149429, "lng": 19.0778626 },
-          { "date": "8.25", "time": "11:10", "place": "이슈트반 대성당", "desc": "성당 관람 및 광장 투어", "link": "https://www.google.com/maps/search/?api=1&query=St.+Stephen's+Basilica+Budapest", "lat": 47.5008902, "lng": 19.0539887 },
-          { "date": "8.25", "time": "12:45", "place": "Paprika Vendéglő", "desc": "전통 음식 점심 식사", "link": "https://www.google.com/maps/search/?api=1&query=Paprika+Vendéglő+Budapest", "lat": 47.5088683, "lng": 19.0831081 },
-          { "date": "8.25", "time": "17:00", "place": "세체니 온천", "desc": "야간 온천 입욕", "link": "https://www.google.com/maps/search/?api=1&query=Széchenyi+Thermal+Bath", "lat": 47.5186568, "lng": 19.0823791 },
-          { "date": "8.26", "time": "10:30", "place": "New York Kávéház", "desc": "브런치 및 카페 투어", "link": "https://www.google.com/maps/search/?api=1&query=New+York+Café+Budapest", "lat": 47.4987259, "lng": 19.0704556 },
-          { "date": "8.26", "time": "13:30", "place": "헝가리 국립 미술관", "desc": "왕궁 내부 관람", "link": "https://www.google.com/maps/search/?api=1&query=Hungarian+National+Gallery", "lat": 47.4960301, "lng": 19.039432 },
-          { "date": "8.26", "time": "18:00", "place": "어부의 요새", "desc": "야경 감상", "link": "https://www.google.com/maps/search/?api=1&query=Fisherman's+Bastion", "lat": 47.5021827, "lng": 19.0347813 },
-          { "date": "8.26", "time": "19:30", "place": "Északi Szomszédok Bisztró", "desc": "파노라마 디너", "link": "https://www.google.com/maps/search/?api=1&query=Északi+Szomszédok+Bisztró", "lat": 47.4901945, "lng": 19.0668372 },
-          { "date": "8.27", "time": "14:20", "place": "비엔나 중앙역", "desc": "기차 도착 및 호텔 체크인", "link": "https://www.google.com/maps/search/?api=1&query=Wien+Hauptbahnhof", "lat": 48.1851873, "lng": 16.3765973 },
-          { "date": "8.27", "time": "15:00", "place": "벨베데레 궁전", "desc": "클림트 작품 감상", "link": "https://www.google.com/maps/search/?api=1&query=Belvedere+Palace+Vienna", "lat": 48.1914751, "lng": 16.3809322 },
-          { "date": "8.27", "time": "19:00", "place": "Figlmüller", "desc": "슈니첼 저녁 식사", "link": "https://www.google.com/maps/search/?api=1&query=Figlmüller+Wien", "lat": 48.2093669, "lng": 16.3746338 },
-          { "date": "8.28", "time": "09:00", "place": "슈테판 대성당", "desc": "빈 시내 투어 시작", "link": "https://www.google.com/maps/search/?api=1&query=St.+Stephen's+Cathedral+Vienna", "lat": 48.2084114, "lng": 16.3734707 },
-          { "date": "8.28", "time": "14:00", "place": "쇤부른 궁전", "desc": "궁전 내부 관람", "link": "https://www.google.com/maps/search/?api=1&query=Schönbrunn+Palace", "lat": 48.1858124, "lng": 16.3127641 },
-          { "date": "8.29", "time": "10:00", "place": "빈 미술사 박물관", "desc": "박물관 관람", "link": "https://www.google.com/maps/search/?api=1&query=Kunsthistorisches+Museum+Vienna", "lat": 48.2038016, "lng": 16.3617874 },
-          { "date": "8.30", "time": "09:00", "place": "할슈타트", "desc": "당일치기 근교 여행", "link": "https://www.google.com/maps/search/?api=1&query=Hallstatt", "lat": 47.5622342, "lng": 13.6492617 },
-          { "date": "8.31", "time": "10:00", "place": "카페 자허", "desc": "자허 토르테 브런치", "link": "https://www.google.com/maps/search/?api=1&query=Café+Sacher+Wien", "lat": 48.2039459, "lng": 16.3698418 },
-          { "date": "9.01", "time": "11:00", "place": "나슈마르크트 시장", "desc": "현지 시장 체험", "link": "https://www.google.com/maps/search/?api=1&query=Naschmarkt+Vienna", "lat": 48.1983017, "lng": 16.3627204 },
-          { "date": "9.02", "time": "18:00", "place": "빈 국립 오페라극장", "desc": "공연 관람", "link": "https://www.google.com/maps/search/?api=1&query=Vienna+State+Opera", "lat": 48.2034306, "lng": 16.3692034 },
-          { "date": "9.03", "time": "11:00", "place": "빈 국제공항", "desc": "귀국 준비", "link": "https://www.google.com/maps/search/?api=1&query=Vienna+International+Airport", "lat": 48.1179477, "lng": 16.5662578 }
-        ];
 
         let selectedDate = 'all';
         let activePlace = null;
@@ -96,11 +235,12 @@
         let markerLayer = null;
         let polylineLayer = null;
         let markersMap = {}; // 장소별 마커 객체 저장용
+        let itineraryData = [];
 
         function initMap() {
             // 초기 지도를 부다페스트/비엔나 중간 지점으로 설정
             map = L.map('tripMap').setView([47.8, 17.5], 7);
-            
+
             // 깔끔한 톤의 오픈스트리트맵 레이어 추가
             L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
                 attribution: '&copy; OpenStreetMap &copy; CARTO'
@@ -108,7 +248,7 @@
 
             markerLayer = L.layerGroup().addTo(map);
             polylineLayer = L.layerGroup().addTo(map);
-            
+
             renderUI();
         }
 
@@ -117,14 +257,14 @@
             const dateFilters = document.getElementById('dateFilters');
             const dates = ['all', ...new Set(itineraryData.map(i => i.date))];
             dateFilters.innerHTML = dates.map(d => `<button class="chip ${selectedDate === d ? 'active' : ''}" onclick="filter('${d}')">${d === 'all' ? '전체' : d}</button>`).join('');
-            
+
             // 데이터 필터링
             const filtered = selectedDate === 'all' ? itineraryData : itineraryData.filter(i => i.date === selectedDate);
-            
+
             // 타임라인 그리기
             const timelineList = document.getElementById('timelineList');
             const groups = filtered.reduce((acc, cur) => { (acc[cur.date] = acc[cur.date] || []).push(cur); return acc; }, {});
-            
+
             timelineList.innerHTML = Object.entries(groups).map(([date, items]) => `
                 <div class="date-group"><div class="date-title">📅 ${date}</div>
                 ${items.map(item => `
@@ -143,15 +283,23 @@
             updateMap(filtered);
         }
 
-        function filter(date) { 
-            selectedDate = date; 
+        function filter(date) {
+            selectedDate = date;
             activePlace = null; // 필터 변경 시 선택 상태 초기화
-            renderUI(); 
+            renderUI();
         }
 
-        function setActive(place) { 
+        async function loadData() {
+            try {
+                const response = await fetch('./data.json');
+                itineraryData = await response.json();
+                renderUI();
+            } catch (e) { console.error("데이터 로드 실패"); }
+        }
+
+        function setActive(place) {
             activePlace = place;
-            
+
             // 타임라인 내 클래스 갱신
             document.querySelectorAll('.schedule-item').forEach(el => el.classList.remove('active'));
             const activeEl = document.getElementById(`item-${btoa(encodeURIComponent(place))}`);
@@ -163,7 +311,7 @@
                 map.setView(marker.getLatLng(), 14, { animate: true, duration: 0.6 });
                 marker.openPopup();
             }
-            
+
             document.getElementById('mapSummary').innerHTML = `📍 <strong>${place}</strong> 위치를 확인 중입니다.`;
         }
 
@@ -187,7 +335,7 @@
                 // 선택 유무에 따른 마커 색상 차별화 양식
                 const isSelected = activePlace === item.place;
                 const markerColor = isSelected ? '#ff7a59' : '#2f6f8f';
-                
+
                 const customMarker = L.circleMarker([item.lat, item.lng], {
                     radius: isSelected ? 10 : 7,
                     fillColor: markerColor,
@@ -199,7 +347,7 @@
 
                 // 마커 선택 팝업 결합
                 customMarker.bindPopup(`<strong>${item.place}</strong><br><span style="font-size:11px; color:#666;">${item.time} - ${item.desc}</span>`);
-                
+
                 customMarker.on('click', () => {
                     setActive(item.place);
                 });
@@ -221,18 +369,21 @@
             // 3. 지도 뷰 최적화 자동 줌 (화면에 마커들이 모두 들어오게 조정)
             const bounds = L.latLngBounds(validItems.map(i => [i.lat, i.lng]));
             map.fitBounds(bounds, { padding: [40, 40] });
-            
+
             // 요약 가이드 갱신
             const summaryEl = document.getElementById('mapSummary');
-            if(selectedDate === 'all') {
+            if (selectedDate === 'all') {
                 summaryEl.innerHTML = "💡 리스트의 일정을 클릭하면 해당 지도로 바로 이동합니다.";
             } else {
                 summaryEl.innerHTML = `📅 ${selectedDate} 일정 내 총 ${validItems.length}개의 주요 거점이 표기되었습니다.`;
             }
         }
 
+
+        loadData();
         // 윈도우 로드 시 지도 초기화 진행
         window.onload = initMap;
     </script>
 </body>
+
 </html>
