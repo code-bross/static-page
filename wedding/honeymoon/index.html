@@ -289,11 +289,18 @@
 
         // 데이터 원본을 주석 없이 변수에 직접 바인딩합니다[cite: 4].
         let itineraryData = [];
+
         async function loadData() {
             try {
-                const response = await fetch('./data.json');
-                itineraryData = await response.json();
-            } catch (e) { console.error("데이터 로드 실패"); }
+                const response = await fetch('./data.json'); // 경로가 정확한지 확인
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                itineraryData = data;
+            } catch (error) {
+                console.error("데이터 로드 실패:", error);
+            }
         }
 
         function initMap() {
