@@ -2,7 +2,7 @@
   { "date": "8.24", "time": "12:45", "place": "인천국제공항", "desc": "부다페스트행 비행기 출발 (KE 963)", "link": "https://www.google.com/maps/search/?api=1&query=인천국제공항", "lat": 37.458666, "lng": 126.4419679 },
   { "date": "8.24", "time": "17:55", "place": "부다페스트 공항", "desc": "현지 도착 및 호텔 픽업", "link": "https://www.google.com/maps/search/?api=1&query=Budapest+Airport", "lat": 47.438516, "lng": 19.2540304 },
   { "date": "8.24", "time": "19:00", "place": "Novotel Budapest Danube (숙소)", "desc": "부다페스트 숙소 체크인 및 짐 보관", "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube", "lat": 47.507421, "lng": 19.038742 },
-  { "date": "8.24", "time": "20:00", "place": "The Spot Budapest by J&J", "desc": "첫날 저녁 식사 (굴라시 & 쇠고기 요리 추천)", "link": "https://maps.app.goo.gl/WPrrg59cUiz9DLsQ9", "lat": 47.5055939, "lng": 19.0363408 },
+  { "date": "8.24", "time": "20:00", "place": "The Spot Budapest by J&J", "desc": "첫날 저녁 식사 (굴라시 & 만갈리차 돼지고기 요리 추천)", "link": "https://maps.app.goo.gl/WPrrg59cUiz9DLsQ9", "lat": 47.5055939, "lng": 19.0363408 },
   
   { "date": "8.25", "time": "10:00", "place": "영웅광장", "desc": "시내 투어 시작", "link": "https://maps.app.goo.gl/N4S4EdBQsW2Mtp2Z9", "lat": 47.5149429, "lng": 19.0778626 },
   { "date": "8.25", "time": "11:10", "place": "이슈트반 대성당", "desc": "성당 관람 및 광장 투어", "link": "https://www.google.com/maps/search/?api=1&query=St.+Stephen's+Basilica+Budapest", "lat": 47.5008902, "lng": 19.0539887 },
