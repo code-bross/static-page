@@ -3,7 +3,7 @@
     "date": "8.24", "time": "12:45", "place": "인천국제공항", 
     "desc": "부다페스트행 비행기 출발 (KE 963)", 
     "imgs": [
-      "https://images.unsplash.com/photo-1544644181-1484b3fdf362?auto=format&fit=crop&w=800&q=80",
+      "https://www.airport.kr/sites/co_ko/images/sub/constr-step1-img3.jpg",
       "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80"
     ],
     "details": "설레는 유럽 여행의 시작점입니다. 대한항공 KE963편을 이용하여 헝가리 부다페스트로 향하는 직항 노선입니다. 장거리 비행에 대비해 편안한 복장과 기내 필수품을 챙기세요.",
@@ -14,8 +14,8 @@
     "date": "8.24", "time": "17:55", "place": "부다페스트 공항", 
     "desc": "현지 도착 및 호텔 픽업", 
     "imgs": [
-      "https://images.unsplash.com/photo-1570747664277-f27329971842?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1606819717115-9a578701d567?auto=format&fit=crop&w=800&q=80"
+      "https://upload.wikimedia.org/wikipedia/commons/8/83/Termin%C3%A1l_2_-_Ferihegy%2C_2015.07.27.JPG",
+      "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/7ff17eae-6134-485d-af75-7d57355131f5.jpeg"
     ],
     "details": "부다페스트 리스트 페렌츠 국제공항에 입국합니다. 장거리 비행의 피로를 최소화하기 위해 사전에 예약된 전용 픽업 차량을 이용하여 숙소로 안전하고 편안하게 이동합니다.",
     "guide": "수하물 수령 후 입국장 입구에서 픽업 기사 미팅 (피켓 확인)",
@@ -25,8 +25,8 @@
     "date": "8.24", "time": "19:00", "place": "Novotel Budapest Danube (숙소)", 
     "desc": "부다페스트 숙소 체크인 및 짐 보관", 
     "imgs": [
-      "https://images.unsplash.com/photo-1611892440504-42a792e245a4?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80"
+      "https://media.joinup.travel/storage/hotel/29546/photos/16721_1.jpg",
+      "https://images.trvl-media.com/lodging/2000000/1520000/1516000/1515991/10c96f3c.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill"
     ],
     "details": "다뉴브 강변에 위치하여 창밖으로 아름다운 국회의사당이 정면으로 바라보이는 최고의 조망을 자랑하는 숙소입니다. 체크인을 진행하고 가볍게 짐을 정리합니다.",
     "guide": "리셉션에서 여권 제시 후 체크인 / 국회의사당 뷰 룸 확인",
@@ -36,8 +36,8 @@
     "date": "8.24", "time": "20:00", "place": "The Spot Budapest by J&J", 
     "desc": "첫날 저녁 식사 (굴라시 & 만갈리차 돼지고기 요리 추천)", 
     "imgs": [
-      "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80"
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ8l97ogcfWB9ZG_7eP8hqJq3hNxapKViHy5Uwuk8g1sbYHGj36RDSvPQ&s=10",
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2f/af/83/2c/caption.jpg?w=1000&h=1000&s=1"
     ],
     "details": "부다페스트에서의 첫 식사로 헝가리 전통 스튜인 '굴라시'와 헝가리의 토종 흑돼지 품종으로 부드러운 식감이 일품인 '만갈리차' 요리를 맛보며 여행의 흥을 돋웁니다.",
     "guide": "인기 매장이므로 구글맵을 통한 사전 예약 권장 / 유로 및 카드 결제 가능",
@@ -47,8 +47,8 @@
     "date": "8.24", "time": "22:00", "place": "Novotel Budapest Danube (숙소)", 
     "desc": "숙소 복귀 및 휴식", 
     "imgs": [
-      "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1574362848149-11d46d93e247?auto=format&fit=crop&w=800&q=80"
+      "https://media.joinup.travel/storage/hotel/29546/photos/16721_1.jpg",
+      "https://images.trvl-media.com/lodging/2000000/1520000/1516000/1515991/10c96f3c.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill"
     ],
     "details": "첫날의 긴 여정을 마무리하고 내일의 본격적인 일정을 위해 휴식을 취합니다. 방 안에서 불 켜진 국회의사당 야경을 눈에 담으며 잠에 청해보세요.",
     "guide": "시차 적응을 위해 충분한 수분 섭취 및 숙면 취하기",
@@ -58,8 +58,8 @@
     "date": "8.25", "time": "09:00", "place": "Novotel Budapest Danube (숙소)", 
     "desc": "숙소 조식 및 시내 투어 준비", 
     "imgs": [
-      "https://images.unsplash.com/photo-1484723091739-30a097e8f229?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1579621013545-c443c7047fca?auto=format&fit=crop&w=800&q=80"
+      "https://media.joinup.travel/storage/hotel/29546/photos/16721_1.jpg",
+      "https://images.trvl-media.com/lodging/2000000/1520000/1516000/1515991/10c96f3c.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill"
     ],
     "details": "호텔 레스토랑에서 다뉴브강을 바라보며 신선한 베이커리와 커피로 아침을 시작합니다. 온천 방문이 예정되어 있으므로 수영복과 타월 등을 미리 챙겨 나섭니다.",
     "guide": "온천용 개인 수영복, 슬리퍼, 수영모(선택) 가방에 미리 준비",
@@ -69,8 +69,8 @@
     "date": "8.25", "time": "10:00", "place": "영웅광장", 
     "desc": "시내 투어 시작", 
     "imgs": [
-      "https://images.unsplash.com/photo-1599937171929-bbfe4cd28825?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1563720366-0785189f7f45?auto=format&fit=crop&w=800&q=80"
+      "hthttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZwVxVDxZn0v1puRCRIQzsMHWAG9GJpQrFP7AxAYbrzpkNuMLPZLoEQlY&s=10",
+      "hthttps://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/c6/01/87/20170321-152532-01-largejpg.jpg?w=900&h=-1&s=1"
     ],
     "details": "헝가리 정착 1000년을 기념하여 세워진 거대한 광장입니다. 중앙의 고딕 양식 기념비와 헝가리 역사 속 위대한 왕과 영웅들의 동상이 웅장하게 펼쳐져 있어 사진 촬영하기 좋습니다.",
     "guide": "지하철 M1선 Hősök tere 역 하차 바로 앞 / 그늘이 없으니 선글라스 지참",
@@ -80,8 +80,8 @@
     "date": "8.25", "time": "11:10", "place": "이슈트반 대성당", 
     "desc": "성당 관람 및 광장 투어", 
     "imgs": [
-      "https://images.unsplash.com/photo-1565181993005-3117953a3926?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1549421263-500b5220c451?auto=format&fit=crop&w=800&q=80"
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG7Ahv5lrZf8YDtvefDRiqtsp1FHHMZfGYl7Ff1LPZtuXYUZ1czWpSbipo&s=10",
+      "https://thumb.tidesquare.com/tour/public/product/PRV3006455682/PRD3006946427/origin/1-145.jpg?quality=80&w=750&h=500"
     ],
     "details": "부다페스트에서 가장 큰 성당으로, 헝가리 건국 왕인 성 이슈트반 1세의 오른손 미라가 안치되어 있는 곳입니다. 돔 내부의 화려한 프레스코화와 모자이크가 압도적인 아름다움을 선사합니다.",
     "guide": "운영시간 09:00 - 19:00 / 입장료 있음, 전망대 티켓 별도 구매 가능",
@@ -91,8 +91,8 @@
     "date": "8.25", "time": "12:45", "place": "Paprika Vendéglő", 
     "desc": "전통 음식 점심 식사", 
     "imgs": [
-      "https://images.unsplash.com/photo-1414235077478-3e4b77918a38?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80"
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZC92az_gllWsbP5PGW_10v5OHbhPn1w45OnM3hbq1wHLUK1-03hf9vf8-&s=10",
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/31/6d/a9/5a/caption.jpg?w=1100&h=1100&s=1"
     ],
     "details": "시골 오두막 분위기의 인테리어 속에서 헝가리 홈메이드 스타일의 전통 요리를 제공하는 유명 맛집입니다. 육즙 가득한 고기 요리와 파프리카 소스를 곁들인 전통식을 추천합니다.",
     "guide": "영웅광장 도보 5분 거리 / 현장 대기가 길 수 있으므로 오픈 타임 맞춰 방문 권장",
@@ -102,8 +102,8 @@
     "date": "8.25", "time": "14:30", "place": "부다페스트 중앙시장", 
     "desc": "기념품 쇼핑 및 로컬 분위기 구경", 
     "imgs": [
-      "https://images.unsplash.com/photo-1533900298318-6b8da08a523e?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1605333512217-cd7d039f60b4?auto=format&fit=crop&w=800&q=80"
+      "https://www.windsortour.co.kr/images/area_img/HU/BUD/HUBUD3200391_0003.jpg?CMD=resize&width=100%",
+      "https://mblogthumb-phinf.pstatic.net/MjAyNDA1MDhfMjk4/MDAxNzE1MTY3Njc1Njgz.bK_GkexdRp8sbHvhmgdRENRkLeCfw2mIRId7uirXBNAg.icvGA-1xA8ytNkFauNBohmUw2pCV-td9acizyeMrgHQg.JPEG/SE-70413b82-64be-4e60-9985-3ee8fbf9ccbd.jpg?type=w800"
     ],
     "details": "19세기 고풍스러운 외관을 가진 대규모 실내 시장입니다. 1층에서는 헝가리 특산품인 파프리카 가루, 토카이 와인, 살라미 등을 판매하며, 2층에서는 로컬 수공예품과 스트리트 푸드를 즐길 수 있습니다.",
     "guide": "일요일 휴무 / 2층 기념품 샵들은 현금(포린트) 결제 시 할인이 되는 경우가 있음",
@@ -113,8 +113,8 @@
     "date": "8.25", "time": "17:00", "place": "세체니 온천", 
     "desc": "야간 온천 입욕", 
     "imgs": [
-      "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1588665805727-440263f13e9a?auto=format&fit=crop&w=800&q=80"
+      "https://mblogthumb-phinf.pstatic.net/MjAyNDEwMjBfMTEz/MDAxNzI5MzU1NjYyNjky.1LC_9g5qvfAm4q_U3hzEhsfbaqIxXosNkrWhbDeTG20g.Z3J3W-JVx1kzC8ec-7GfwC9PezbZrEMDM8X0aedgj4Mg.JPEG/8CAA4F29-50FE-4D1D-97FF-CA0686018827_1_105_c.jpeg?type=w800",
+      "https://www.windsortour.co.kr/images/area_img/HU/BUD/HUBUD3200392_0002.jpg?CMD=resize&width=100%"
     ],
     "details": "네오바로크 양식의 화려한 궁전 같은 건물에서 즐기는 유럽 최대 규모의 온천입니다. 따뜻한 노천탕에 몸을 담그고 현지인들이 물속에서 체스를 두는 이색적인 풍경을 감상하며 여유를 만끽합니다.",
     "guide": "락커 또는 캐빈(개인실) 포함 티켓 사전 구매 필수 / 슬리퍼 착용 필수",
@@ -124,8 +124,8 @@
     "date": "8.25", "time": "20:30", "place": "Novotel Budapest Danube (숙소)", 
     "desc": "숙소 복귀 및 휴식", 
     "imgs": [
-      "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80"
+      "https://media.joinup.travel/storage/hotel/29546/photos/16721_1.jpg",
+      "https://images.trvl-media.com/lodging/2000000/1520000/1516000/1515991/10c96f3c.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill"
     ],
     "details": "온천욕으로 피로를 시원하게 풀고 숙소로 돌아옵니다. 밤낮으로 아름다운 다뉴브강의 야경을 감상하며 편안한 밤을 보냅니다.",
     "guide": "온천 후 젖은 옷가지는 세탁용 백에 따로 분리 보관",
@@ -135,8 +135,8 @@
     "date": "8.26", "time": "09:30", "place": "Novotel Budapest Danube (숙소)", 
     "desc": "숙소 출발 및 이동", 
     "imgs": [
-      "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1549079944-129679c8d172?auto=format&fit=crop&w=800&q=80"
+      "https://media.joinup.travel/storage/hotel/29546/photos/16721_1.jpg",
+      "https://images.trvl-media.com/lodging/2000000/1520000/1516000/1515991/10c96f3c.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill"
     ],
     "details": "부다페스트에서의 셋째 날 일정을 시작합니다. 화려한 카페 문화와 역사적인 부다 지구의 랜드마크들을 집중적으로 탐방하는 날입니다.",
     "guide": "도보 이동이 많으므로 편안한 운동화 착용 권장",
@@ -146,8 +146,8 @@
     "date": "8.26", "time": "10:30", "place": "New York Kávéház", 
     "desc": "브런치 및 카페 투어", 
     "imgs": [
-      "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1507133750040-4a8f57021571?auto=format&fit=crop&w=800&q=80"
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPTSb_S4J4ZtsOsTVpb-g93gh9a6NecPYOqDyudVRbDJXXYNdn096xvk0&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK6vsvF8b2Cl6MhhJnyKZXkmUKKueoKpLmf57WC7Qtv120TXlT_FNZiRU&s=10"
     ],
     "details": "'세계에서 가장 아름다운 카페'라는 명성에 걸맞게 궁전 내부를 방불케 하는 르네상스 스타일의 화려한 천장 벽화와 황금빛 조각들이 눈을 사로잡습니다. 클래식 연주를 들으며 고급스러운 브런치를 즐깁니다.",
     "guide": "사전 예약 없이는 1시간 이상 대기할 수 있으므로 공식 홈페이지 예약 필수 / 드레스코드 스마트 캐주얼",
@@ -157,8 +157,8 @@
     "date": "8.26", "time": "13:30", "place": "헝가리 국립 미술관", 
     "desc": "왕궁 내부 관람", 
     "imgs": [
-      "https://images.unsplash.com/photo-1580136579312-94651dfd596d?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1518998053901-5387d3625e03?auto=format&fit=crop&w=800&q=80"
+      "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/b97fc95b-6474-4e69-b003-fd7827b65d22.jpeg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKeT8Y2uoBfWFh5yhYkzw9lZTPz7ui0b5okOO0Uu4Dodzk7wMAfeAG8uc&s=10"
     ],
     "details": "부다 왕궁 내부에 위치한 미술관으로 중세부터 현대에 이르는 헝가리 거장들의 다채로운 미술 작품들이 전시되어 있습니다. 미술관 내부에서 바라보는 페스트 지구의 전경 또한 일품입니다.",
     "guide": "월요일 휴관 / 왕궁 언덕은 푸니쿨라 또는 도보, 버스(16번)로 이동 가능",
@@ -168,8 +168,8 @@
     "date": "8.26", "time": "15:30", "place": "마티아스 성당", 
     "desc": "어부의 요새 바로 옆 화려한 지붕의 성당 내부 관람", 
     "imgs": [
-      "https://images.unsplash.com/photo-1549877475-4c07bfa7cddb?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1563841930606-67e2b6c3bd26?auto=format&fit=crop&w=800&q=80"
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0p8Buwx7Wx4d1OKNhf4xiTn9d2dw9pHWTWMym9LoWhKVt04SNS2cyQpo&s=10",
+      "https://cdn.getyourguide.com/img/tour/1949619a1bfcb7484844c9c4eb2fd7bdedb64a20e266761be0a522ec2d9cd721.jpg/99.jpg"
     ],
     "details": "다채로운 색상의 모자이크 기와 지붕이 특징인 고딕 양식의 성당입니다. 과거 헝가리 국왕들의 대관식이 거행되었던 역사적인 장소로, 내부의 화려한 조각과 스테인드글라스가 아름답습니다.",
     "guide": "성당 내부와 탑(전망대) 입장권 별도 판매 / 복장 제한 유의 (무릎 및 어깨 노출 자제)",
@@ -179,8 +179,8 @@
     "date": "8.26", "time": "18:00", "place": "어부의 요새", 
     "desc": "야경 감상", 
     "imgs": [
-      "https://images.unsplash.com/photo-1562097034-db3e47ff3a33?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1565181993005-3117953a3926?auto=format&fit=crop&w=800&q=80"
+      "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/142f2848-3bb6-419d-b090-b45416ac9a73.jpeg",
+      "https://thumbnews.nateimg.co.kr/view610///news.nateimg.co.kr/orgImg/no/2025/07/25/SSC_20250725112122_V.png"
     ],
     "details": "네오 고딕 양식의 아름다운 7개 성채로 이루어진 부다페스트 최고의 뷰포인트입니다. 노을이 지기 시작할 때부터 불이 켜진 국회의사당의 장엄한 전경을 한눈에 담을 수 있는 로맨틱한 장소입니다.",
     "guide": "2층 탑 구간은 유료이나 늦은 저녁이나 이른 아침에는 무료 개방 / 인생샷 명당으로 상시 붐빔",
