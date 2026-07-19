@@ -1,84 +1,794 @@
 [
-  { "date": "8.24", "time": "12:45", "place": "인천국제공항", "desc": "부다페스트행 비행기 출발 (KE 963)", "link": "https://www.google.com/maps/search/?api=1&query=인천국제공항", "lat": 37.458666, "lng": 126.4419679 },
-  { "date": "8.24", "time": "17:55", "place": "부다페스트 공항", "desc": "현지 도착 및 호텔 픽업", "link": "https://www.google.com/maps/search/?api=1&query=Budapest+Airport", "lat": 47.438516, "lng": 19.2540304 },
-  { "date": "8.24", "time": "19:00", "place": "Novotel Budapest Danube (숙소)", "desc": "부다페스트 숙소 체크인 및 짐 보관", "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube", "lat": 47.507421, "lng": 19.038742 },
-  { "date": "8.24", "time": "20:00", "place": "The Spot Budapest by J&J", "desc": "첫날 저녁 식사 (굴라시 & 만갈리차 돼지고기 요리 추천)", "link": "https://maps.app.goo.gl/WPrrg59cUiz9DLsQ9", "lat": 47.5055939, "lng": 19.0363408 },
-  { "date": "8.24", "time": "22:00", "place": "Novotel Budapest Danube (숙소)", "desc": "숙소 복귀 및 휴식", "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube", "lat": 47.507421, "lng": 19.038742 },
-  
-  { "date": "8.25", "time": "09:00", "place": "Novotel Budapest Danube (숙소)", "desc": "숙소 조식 및 시내 투어 준비", "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube", "lat": 47.507421, "lng": 19.038742 },
-  { "date": "8.25", "time": "10:00", "place": "영웅광장", "desc": "시내 투어 시작", "link": "https://maps.app.goo.gl/N4S4EdBQsW2Mtp2Z9", "lat": 47.5149429, "lng": 19.0778626 },
-  { "date": "8.25", "time": "11:10", "place": "이슈트반 대성당", "desc": "성당 관람 및 광장 투어", "link": "https://www.google.com/maps/search/?api=1&query=St.+Stephen's+Basilica+Budapest", "lat": 47.5008902, "lng": 19.0539887 },
-  { "date": "8.25", "time": "12:45", "place": "Paprika Vendéglő", "desc": "전통 음식 점심 식사", "link": "https://www.google.com/maps/search/?api=1&query=Paprika+Vendéglő+Budapest", "lat": 47.5088683, "lng": 19.0831081 },
-  { "date": "8.25", "time": "14:30", "place": "부다페스트 중앙시장", "desc": "기념품 쇼핑 및 로컬 분위기 구경", "link": "https://www.google.com/maps/search/?api=1&query=Great+Market+Hall+Budapest", "lat": 47.487056, "lng": 19.058344 },
-  { "date": "8.25", "time": "17:00", "place": "세체니 온천", "desc": "야간 온천 입욕", "link": "https://www.google.com/maps/search/?api=1&query=Széchenyi+Thermal+Bath", "lat": 47.5186568, "lng": 19.0823791 },
-  { "date": "8.25", "time": "20:30", "place": "Novotel Budapest Danube (숙소)", "desc": "숙소 복귀 및 휴식", "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube", "lat": 47.507421, "lng": 19.038742 },
-  
-  { "date": "8.26", "time": "09:30", "place": "Novotel Budapest Danube (숙소)", "desc": "숙소 출발 및 이동", "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube", "lat": 47.507421, "lng": 19.038742 },
-  { "date": "8.26", "time": "10:30", "place": "New York Kávéház", "desc": "브런치 및 카페 투어", "link": "https://www.google.com/maps/search/?api=1&query=New+York+Café+Budapest", "lat": 47.4987259, "lng": 19.0704556 },
-  { "date": "8.26", "time": "13:30", "place": "헝가리 국립 미술관", "desc": "왕궁 내부 관람", "link": "https://www.google.com/maps/search/?api=1&query=Hungarian+National+Gallery", "lat": 47.4960301, "lng": 19.039432 },
-  { "date": "8.26", "time": "15:30", "place": "마티아스 성당", "desc": "어부의 요새 바로 옆 화려한 지붕의 성당 내부 관람", "link": "https://www.google.com/maps/search/?api=1&query=Matthias+Church+Budapest", "lat": 47.501991, "lng": 19.034239 },
-  { "date": "8.26", "time": "18:00", "place": "어부의 요새", "desc": "야경 감상", "link": "https://www.google.com/maps/search/?api=1&query=Fisherman's+Bastion", "lat": 47.5021827, "lng": 19.0347813 },
-  { "date": "8.26", "time": "19:30", "place": "Északi Szomszédok Bisztró", "desc": "파노라마 디너", "link": "https://www.google.com/maps/search/?api=1&query=Északi+Szomszédok+Bisztró", "lat": 47.4901945, "lng": 19.0668372 },
-  { "date": "8.26", "time": "21:30", "place": "다뉴브강 유람선 선착장", "desc": "국회의사당 야경을 가장 가까이서 보는 유람선 탑승", "link": "https://www.google.com/maps/search/?api=1&query=Budapest+River+Cruise", "lat": 47.500412, "lng": 19.045012 },
-  { "date": "8.26", "time": "23:00", "place": "Novotel Budapest Danube (숙소)", "desc": "숙소 복귀 및 휴식", "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube", "lat": 47.507421, "lng": 19.038742 },
-  
-  { "date": "8.27", "time": "10:00", "place": "Novotel Budapest Danube (숙소)", "desc": "체크아웃 후 빈(Wien)행 기차 탑승을 위해 이동", "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube", "lat": 47.507421, "lng": 19.038742 },
-  { "date": "8.27", "time": "14:20", "place": "비엔나 중앙역", "desc": "기차 도착 및 이동", "link": "https://www.google.com/maps/search/?api=1&query=Wien+Hauptbahnhof", "lat": 48.1851873, "lng": 16.3765973 },
-  { "date": "8.27", "time": "14:40", "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)", "desc": "빈 숙소 체크인 및 짐 보관", "link": "https://www.google.com/maps/search/?api=1&query=Leonardo+Hotel+Vienna+Hauptbahnhof", "lat": 48.183758, "lng": 16.378103 },
-  { "date": "8.27", "time": "15:00", "place": "벨베데레 궁전", "desc": "클림트 작품 감상", "link": "https://www.google.com/maps/search/?api=1&query=Belvedere+Palace+Vienna", "lat": 48.1914751, "lng": 16.3809322 },
-  { "date": "8.27", "time": "17:00", "place": "칼스광장 & 칼스교회", "desc": "벨베데레에서 시내로 나오는 길에 위치한 아름다운 바로크식 교회 산책", "link": "https://www.google.com/maps/search/?api=1&query=Karlskirche+Vienna", "lat": 48.198243, "lng": 16.371422 },
-  { "date": "8.27", "time": "19:00", "place": "Figlmüller", "desc": "슈니첼 저녁 식사", "link": "https://www.google.com/maps/search/?api=1&query=Figlmüller+Wien", "lat": 48.2093669, "lng": 16.3746338 },
-  { "date": "8.27", "time": "21:00", "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)", "desc": "숙소 복귀 및 휴식", "link": "https://www.google.com/maps/search/?api=1&query=Leonardo+Hotel+Vienna+Hauptbahnhof", "lat": 48.183758, "lng": 16.378103 },
-  
-  { "date": "8.28", "time": "08:00", "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)", "desc": "숙소 출발 및 시내 이동", "link": "https://www.google.com/maps/search/?api=1&query=Leonardo+Hotel+Vienna+Hauptbahnhof", "lat": 48.183758, "lng": 16.378103 },
-  { "date": "8.28", "time": "09:00", "place": "슈테판 대성당", "desc": "빈 시내 투어 시작", "link": "https://www.google.com/maps/search/?api=1&query=St.+Stephen's+Cathedral+Vienna", "lat": 48.2084114, "lng": 16.3734707 },
-  { "date": "8.28", "time": "11:30", "place": "Plachutta Wollzeile", "desc": "오스트리아 전통 소고기 수욕 요리 '타펠슈피츠' 점심 식사", "link": "https://www.google.com/maps/search/?api=1&query=Plachutta+Wollzeile+Vienna", "lat": 48.208534, "lng": 16.378125 },
-  { "date": "8.28", "time": "14:00", "place": "쇤부른 궁전", "desc": "궁전 내부 관람", "link": "https://www.google.com/maps/search/?api=1&query=Schönbrunn+Palace", "lat": 48.1858124, "lng": 16.3127641 },
-  { "date": "8.28", "time": "18:00", "place": "호프부르크 왕궁", "desc": "합스부르크 왕가의 겨울 궁전 외관 및 미하엘 광장 야경 투어", "link": "https://www.google.com/maps/search/?api=1&query=Hofburg+Vienna", "lat": 48.206507, "lng": 16.365262 },
-  { "date": "8.28", "time": "19:30", "place": "Café Central", "desc": "역사 깊은 예술가들의 아지트에서 저녁 식사 및 디저트", "link": "https://www.google.com/maps/search/?api=1&query=Café+Central+Vienna", "lat": 48.210404, "lng": 16.365415 },
-  { "date": "8.28", "time": "21:30", "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)", "desc": "숙소 복귀 및 휴식", "link": "https://www.google.com/maps/search/?api=1&query=Leonardo+Hotel+Vienna+Hauptbahnhof", "lat": 48.183758, "lng": 16.378103 },
-  
-  { "date": "8.29", "time": "09:00", "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)", "desc": "숙소 출발 및 이동", "link": "https://www.google.com/maps/search/?api=1&query=Leonardo+Hotel+Vienna+Hauptbahnhof", "lat": 48.183758, "lng": 16.378103 },
-  { "date": "8.29", "time": "10:00", "place": "빈 미술사 박물관", "desc": "박물관 관람", "link": "https://www.google.com/maps/search/?api=1&query=Kunsthistorisches+Museum+Vienna", "lat": 48.2038016, "lng": 16.3617874 },
-  { "date": "8.29", "time": "13:00", "place": "Osteria d'Atri", "desc": "박기사 근처 숨겨진 이탈리안 파스타 맛집에서 점심 식사", "link": "https://www.google.com/maps/search/?api=1&query=Osteria+d'Atri+Vienna", "lat": 48.209112, "lng": 16.362354 },
-  { "date": "8.29", "time": "15:00", "place": "오스트리아 국립도서관", "desc": "세계에서 가장 아름다운 프레스코화가 있는 후기 바로크 양식의 도서관", "link": "https://www.google.com/maps/search/?api=1&query=Austrian+National+Library", "lat": 48.206013, "lng": 16.366811 },
-  { "date": "8.29", "time": "18:30", "place": "Ribs of Vienna", "desc": "1m 길이의 푸짐한 미트 립 요리로 든든한 저녁 식사", "link": "https://www.google.com/maps/search/?api=1&query=Ribs+of+Vienna", "lat": 48.206922, "lng": 16.375494 },
-  { "date": "8.29", "time": "20:30", "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)", "desc": "숙소 복귀 및 휴식", "link": "https://www.google.com/maps/search/?api=1&query=Leonardo+Hotel+Vienna+Hauptbahnhof", "lat": 48.183758, "lng": 16.378103 },
-  
-  { "date": "8.30", "time": "06:00", "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)", "desc": "할슈타트 이동을 위해 숙소 출발 (기차역 이동)", "link": "https://www.google.com/maps/search/?api=1&query=Leonardo+Hotel+Vienna+Hauptbahnhof", "lat": 48.183758, "lng": 16.378103 },
-  { "date": "8.30", "time": "08:30", "place": "할슈타트", "desc": "당일치기 근교 여행 및 마을 산책", "link": "https://www.google.com/maps/search/?api=1&query=Hallstatt", "lat": 47.5622342, "lng": 13.6492617 },
-  { "date": "8.30", "time": "11:30", "place": "Gasthof Zauner", "desc": "할슈타트 호수 뷰를 보며 즐기는 송어 구이 점심 식사", "link": "https://www.google.com/maps/search/?api=1&query=Gasthof+Zauner+Hallstatt", "lat": 47.562152, "lng": 13.648612 },
-  { "date": "8.30", "time": "12:40", "place": "할슈타트 전망대", "desc": "푸니쿨라를 타고 올라가 한눈에 담는 호수 마을 전경", "link": "https://www.google.com/maps/search/?api=1&query=Hallstatt+Skywalk", "lat": 47.564112, "lng": 13.646892 },
-  { "date": "8.30", "time": "14:50", "place": "빈 중앙역 (Wien Hbf)", "desc": "할슈타트 출발 후 빈 중앙역 도착, 프라하행 기차 환승 준비", "link": "https://www.google.com/maps/search/?api=1&query=Wien+Hauptbahnhof", "lat": 48.1851873, "lng": 16.3765973 },
-  { "date": "8.30", "time": "15:23", "place": "빈 중앙역 (Wien Hbf)", "desc": "프라하행 기차 탑승 (체코 철도청/ÖBB)", "link": "https://www.google.com/maps/search/?api=1&query=Wien+Hauptbahnhof", "lat": 48.1851873, "lng": 16.3765973 },
-  { "date": "8.30", "time": "19:30", "place": "프라하 중앙역 (Praha hl.n.)", "desc": "프라하 도착 후 숙소로 이동", "link": "https://www.google.com/maps/search/?api=1&query=Praha+hlavni+nadrazi", "lat": 50.083162, "lng": 14.434499 },
-  { "date": "8.30", "time": "20:00", "place": "K+K Hotel Central Prague (숙소)", "desc": "프라하 숙소 체크인 및 짐 보관", "link": "https://www.google.com/maps/search/?api=1&query=K%2BK+Hotel+Central+Prague", "lat": 50.087342, "lng": 14.428412 },
-  { "date": "8.30", "time": "20:30", "place": "프라하 중앙역 근처 식당", "desc": "숙소 체크인 후 근처 편안한 레스토랑에서 저녁 식사 및 휴식", "link": "https://www.google.com/maps/search/?api=1&query=Prague+Central+Station+Restaurants", "lat": 50.083500, "lng": 14.435000 },
-  { "date": "8.30", "time": "22:00", "place": "K+K Hotel Central Prague (숙소)", "desc": "숙소 복귀 및 휴식", "link": "https://www.google.com/maps/search/?api=1&query=K%2BK+Hotel+Central+Prague", "lat": 50.087342, "lng": 14.428412 },
-  
-  { "date": "8.31", "time": "09:00", "place": "K+K Hotel Central Prague (숙소)", "desc": "숙소 출발 및 이동", "link": "https://www.google.com/maps/search/?api=1&query=K%2BK+Hotel+Central+Prague", "lat": 50.087342, "lng": 14.428412 },
-  { "date": "8.31", "time": "10:00", "place": "카페 자허 대신 프라하 감성 카페", "desc": "프라하 현지 유명 베이커리/카페 브런치", "link": "https://www.google.com/maps/search/?api=1&query=Prague+Cafes", "lat": 50.087500, "lng": 14.421000 },
-  { "date": "8.31", "time": "12:00", "place": "프라하 시내 투어", "desc": "구시가지 광장, 천문시계 탑 주변 도보 투어 및 로컬 분위기 탐방", "link": "https://www.google.com/maps/search/?api=1&query=Old+Town+Square+Prague", "lat": 50.087465, "lng": 14.421248 },
-  { "date": "8.31", "time": "15:00", "place": "하벨 시장 & 구시가 쇼핑가", "desc": "기념품 매장과 세련된 건축물이 가득한 프라하 대표 거리 활보", "link": "https://www.google.com/maps/search/?api=1&query=Havelske+trziste", "lat": 50.085421, "lng": 14.420892 },
-  { "date": "8.31", "time": "18:00", "place": "카를교 (Charles Bridge)", "desc": "일몰 무렵의 아름다운 카를교 산책 및 블타바강 조망", "link": "https://www.google.com/maps/search/?api=1&query=Charles+Bridge", "lat": 50.086436, "lng": 14.411421 },
-  { "date": "8.31", "time": "19:30", "place": "존 레논 벽 (John Lennon Wall)", "desc": "평화의 메시지가 가득한 벽화 거리 관람 및 사진 촬영", "link": "https://www.google.com/maps/search/?api=1&query=John+Lennon+Wall", "lat": 50.086221, "lng": 14.406852 },
-  { "date": "8.31", "time": "20:30", "place": "프라하 구시가지 로컬 식당", "desc": "체코 전통 요리(꼴레뇨 또는 스비치코바)와 필스너 우르켈 맥주 저녁 식사", "link": "https://www.google.com/maps/search/?api=1&query=Prague+Old+Town+Restaurants", "lat": 50.087500, "lng": 14.422000 },
-  { "date": "8.31", "time": "22:30", "place": "K+K Hotel Central Prague (숙소)", "desc": "숙소 복귀 및 휴식", "link": "https://www.google.com/maps/search/?api=1&query=K%2BK+Hotel+Central+Prague", "lat": 50.087342, "lng": 14.428412 },
-  
-  { "date": "9.01", "time": "08:30", "place": "K+K Hotel Central Prague (숙소)", "desc": "스냅 촬영을 위해 숙소 출발", "link": "https://www.google.com/maps/search/?api=1&query=K%2BK+Hotel+Central+Prague", "lat": 50.087342, "lng": 14.428412 },
-  { "date": "9.01", "time": "09:30", "place": "프라하 시내 일대", "desc": "스냅 사진 촬영 (2시간 소요)", "link": "https://www.google.com/maps/search/?api=1&query=Prague", "lat": 50.087500, "lng": 14.421000 },
-  { "date": "9.01", "time": "12:00", "place": "프라하 성 (Prague Castle)", "desc": "세계 최대 규모의 고성 단지 입장 및 내부 관람 시작", "link": "https://www.google.com/maps/search/?api=1&query=Prague+Castle", "lat": 50.091171, "lng": 14.401633 },
-  { "date": "9.01", "time": "12:35", "place": "성 비투스 대성당 (St. Vitus Cathedral)", "desc": "압도적인 고딕 양식의 외관 및 화려한 스테인드글라스 관람", "link": "https://www.google.com/maps/search/?api=1&query=St.+Vitus+Cathedral", "lat": 50.090883, "lng": 14.400512 },
-  { "date": "9.01", "time": "13:40", "place": "성 이르지 바실리카 & 황금소로", "desc": "로마네스크 양식의 성당 및 아기자기한 기념품 점이 모인 황금소로 산책", "link": "https://www.google.com/maps/search/?api=1&query=Golden+Lane+Prague", "lat": 50.092011, "lng": 14.404212 },
-  { "date": "9.01", "time": "15:30", "place": "말라스트라나 전망 좋은 카페", "desc": "프라하 성에서 내려다보이는 붉은 지붕 뷰와 함께 커피 타임", "link": "https://www.google.com/maps/search/?api=1&query=Mala+Strana+Cafes", "lat": 50.088122, "lng": 14.404112 },
-  { "date": "9.01", "time": "18:30", "place": "U Parlamentu", "desc": "체코 전통 굴라시와 맥주로 든든한 저녁 식사", "link": "https://www.google.com/maps/search/?api=1&query=U+Parlamentu+Prague", "lat": 50.088654, "lng": 14.417212 },
-  { "date": "9.01", "time": "21:00", "place": "K+K Hotel Central Prague (숙소)", "desc": "숙소 복귀 및 휴식", "link": "https://www.google.com/maps/search/?api=1&query=K%2BK+Hotel+Central+Prague", "lat": 50.087342, "lng": 14.428412 },
-  
-  { "date": "9.02", "time": "10:00", "place": "K+K Hotel Central Prague (숙소)", "desc": "숙소 체크아웃 및 귀국 준비", "link": "https://www.google.com/maps/search/?api=1&query=K%2BK+Hotel+Central+Prague", "lat": 50.087342, "lng": 14.428412 },
-  { "date": "9.02", "time": "11:30", "place": "프라하 국립박물관 주변 바츨라프 광장", "desc": "체코 근현대사의 중심지 산책 및 마지막 기념품 쇼핑", "link": "https://www.google.com/maps/search/?api=1&query=Wenceslas+Square", "lat": 50.081234, "lng": 14.427123 },
-  { "date": "9.02", "time": "13:00", "place": "프라하 공항 이동 전 마지막 식사", "desc": "가벼운 샌드위치와 커피로 여유로운 점심", "link": "https://www.google.com/maps/search/?api=1&query=Prague+Old+Town+Cafes", "lat": 50.087500, "lng": 14.421000 },
-  { "date": "9.02", "time": "15:00", "place": "프라하 바츨라프 하벨 국제공항", "desc": "귀국 준비 및 공항 이동 (공항 체크인)", "link": "https://www.google.com/maps/search/?api=1&query=V%C3%A1clav+Havel+Airport+Prague", "lat": 50.101784, "lng": 14.263180 },
-  { "date": "9.02", "time": "19:05", "place": "프라하 바츨라프 하벨 국제공항", "desc": "인천행 귀국 비행기 출발 (KE 970)", "link": "https://www.google.com/maps/search/?api=1&query=V%C3%A1clav+Havel+Airport+Prague", "lat": 50.101784, "lng": 14.263180 },
-  
-  { "date": "9.03", "time": "13:20", "place": "인천국제공항", "desc": "인천국제공항 도착 및 귀가", "link": "https://www.google.com/maps/search/?api=1&query=인천국제공항", "lat": 37.458666, "lng": 126.4419679 }
+  { 
+    "date": "8.24", "time": "12:45", "place": "인천국제공항", 
+    "desc": "부다페스트행 비행기 출발 (KE 963)", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1542296332-2e4473fac563?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "설레는 유럽 여행의 시작점입니다. 대한항공 KE963편을 이용하여 헝가리 부다페스트로 향하는 직항 노선입니다. 장거리 비행에 대비해 편안한 복장과 기내 필수품을 챙기세요.",
+    "guide": "출발 최소 3시간 전 공항 도착 권장 / 모바일 체크인 완료 필수",
+    "link": "https://www.google.com/maps/search/?api=1&query=인천국제공항", "lat": 37.458666, "lng": 126.4419679 
+  },
+  { 
+    "date": "8.24", "time": "17:55", "place": "부다페스트 공항", 
+    "desc": "현지 도착 및 호텔 픽업", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1569003339405-ea396a5a8a90?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1483450388369-9ed95738483c?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "부다페스트 리스트 페렌츠 국제공항에 입국합니다. 장거리 비행의 피로를 최소화하기 위해 사전에 예약된 전용 픽업 차량을 이용하여 숙소로 안전하고 편안하게 이동합니다.",
+    "guide": "수하물 수령 후 입국장 입구에서 픽업 기사 미팅 (피켓 확인)",
+    "link": "https://www.google.com/maps/search/?api=1&query=Budapest+Airport", "lat": 47.438516, "lng": 19.2540304 
+  },
+  { 
+    "date": "8.24", "time": "19:00", "place": "Novotel Budapest Danube (숙소)", 
+    "desc": "부다페스트 숙소 체크인 및 짐 보관", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "다뉴브 강변에 위치하여 창밖으로 아름다운 국회의사당이 정면으로 바라보이는 최고의 조망을 자랑하는 숙소입니다. 체크인을 진행하고 가볍게 짐을 정리합니다.",
+    "guide": "리셉션에서 여권 제시 후 체크인 / 국회의사당 뷰 룸 확인",
+    "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube", "lat": 47.507421, "lng": 19.038742 
+  },
+  { 
+    "date": "8.24", "time": "20:00", "place": "The Spot Budapest by J&J", 
+    "desc": "첫날 저녁 식사 (굴라시 & 만갈리차 돼지고기 요리 추천)", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "부다페스트에서의 첫 식사로 헝가리 전통 스튜인 '굴라시'와 헝가리의 토종 흑돼지 품종으로 부드러운 식감이 일품인 '만갈리차' 요리를 맛보며 여행의 흥을 돋웁니다.",
+    "guide": "인기 매장이므로 구글맵을 통한 사전 예약 권장 / 유로 및 카드 결제 가능",
+    "link": "https://maps.app.goo.gl/WPrrg59cUiz9DLsQ9", "lat": 47.5055939, "lng": 19.0363408 
+  },
+  { 
+    "date": "8.24", "time": "22:00", "place": "Novotel Budapest Danube (숙소)", 
+    "desc": "숙소 복귀 및 휴식", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "첫날의 긴 여정을 마무리하고 내일의 본격적인 일정을 위해 휴식을 취합니다. 방 안에서 불 켜진 국회의사당 야경을 눈에 담으며 잠에 청해보세요.",
+    "guide": "시차 적응을 위해 충분한 수분 섭취 및 숙면 취하기",
+    "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube", "lat": 47.507421, "lng": 19.038742 
+  },
+  { 
+    "date": "8.25", "time": "09:00", "place": "Novotel Budapest Danube (숙소)", 
+    "desc": "숙소 조식 및 시내 투어 준비", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "호텔 레스토랑에서 다뉴브강을 바라보며 신선한 베이커리와 커피로 아침을 시작합니다. 온천 방문이 예정되어 있으므로 수영복과 타월 등을 미리 챙겨 나섭니다.",
+    "guide": "온천용 개인 수영복, 슬리퍼, 수영모(선택) 가방에 미리 준비",
+    "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube", "lat": 47.507421, "lng": 19.038742 
+  },
+  { 
+    "date": "8.25", "time": "10:00", "place": "영웅광장", 
+    "desc": "시내 투어 시작", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1599937171929-bbfe4cd28825?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1605538032432-a9f0c8d9baac?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "헝가리 정착 1000년을 기념하여 세워진 거대한 광장입니다. 중앙의 고딕 양식 기념비와 헝가리 역사 속 위대한 왕과 영웅들의 동상이 웅장하게 펼쳐져 있어 사진 촬영하기 좋습니다.",
+    "guide": "지하철 M1선 Hősök tere 역 하차 바로 앞 / 그늘이 없으니 선글라스 지참",
+    "link": "https://maps.app.goo.gl/N4S4EdBQsW2Mtp2Z9", "lat": 47.5149429, "lng": 19.0778626 
+  },
+  { 
+    "date": "8.25", "time": "11:10", "place": "이슈트반 대성당", 
+    "desc": "성당 관람 및 광장 투어", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1565181993005-3117953a3926?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1545987796-200677ee1011?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "부다페스트에서 가장 큰 성당으로, 헝가리 건국 왕인 성 이슈트반 1세의 오른손 미라가 안치되어 있는 곳입니다. 돔 내부의 화려한 프레스코화와 모자이크가 압도적인 아름다움을 선사합니다.",
+    "guide": "운영시간 09:00 - 19:00 / 입장료 있음, 전망대 티켓 별도 구매 가능",
+    "link": "https://www.google.com/maps/search/?api=1&query=St.+Stephen's+Basilica+Budapest", "lat": 47.5008902, "lng": 19.0539887 
+  },
+  { 
+    "date": "8.25", "time": "12:45", "place": "Paprika Vendéglő", 
+    "desc": "전통 음식 점심 식사", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1608897013039-887f21d8c804?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "시골 오두막 분위기의 인테리어 속에서 헝가리 홈메이드 스타일의 전통 요리를 제공하는 유명 맛집입니다. 육즙 가득한 고기 요리와 파프리카 소스를 곁들인 전통식을 추천합니다.",
+    "guide": "영웅광장 도보 5분 거리 / 현장 대기가 길 수 있으므로 오픈 타임 맞춰 방문 권장",
+    "link": "https://www.google.com/maps/search/?api=1&query=Paprika+Vendéglő+Budapest", "lat": 47.5088683, "lng": 19.0831081 
+  },
+  { 
+    "date": "8.25", "time": "14:30", "place": "부다페스트 중앙시장", 
+    "desc": "기념품 쇼핑 및 로컬 분위기 구경", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1533900298318-6b8da08a523e?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1488459718432-040b509f77f3?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "19세기 고풍스러운 외관을 가진 대규모 실내 시장입니다. 1층에서는 헝가리 특산품인 파프리카 가루, 토카이 와인, 살라미 등을 판매하며, 2층에서는 로컬 수공예품과 스트리트 푸드를 즐길 수 있습니다.",
+    "guide": "일요일 휴무 / 2층 기념품 샵들은 현금(포린트) 결제 시 할인이 되는 경우가 있음",
+    "link": "https://www.google.com/maps/search/?api=1&query=Great+Market+Hall+Budapest", "lat": 47.487056, "lng": 19.058344 
+  },
+  { 
+    "date": "8.25", "time": "17:00", "place": "세체니 온천", 
+    "desc": "야간 온천 입욕", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1560969143-6987f2b1d31d?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "네오바로크 양식의 화려한 궁전 같은 건물에서 즐기는 유럽 최대 규모의 온천입니다. 따뜻한 노천탕에 몸을 담그고 현지인들이 물속에서 체스를 두는 이색적인 풍경을 감상하며 여유를 만끽합니다.",
+    "guide": "락커 또는 캐빈(개인실) 포함 티켓 사전 구매 필수 / 슬리퍼 착용 필수",
+    "link": "https://www.google.com/maps/search/?api=1&query=Széchenyi+Thermal+Bath", "lat": 47.5186568, "lng": 19.0823791 
+  },
+  { 
+    "date": "8.25", "time": "20:30", "place": "Novotel Budapest Danube (숙소)", 
+    "desc": "숙소 복귀 및 휴식", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "온천욕으로 피로를 시원하게 풀고 숙소로 돌아옵니다. 밤낮으로 아름다운 다뉴브강의 야경을 감상하며 편안한 밤을 보냅니다.",
+    "guide": "온천 후 젖은 옷가지는 세탁용 백에 따로 분리 보관",
+    "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube", "lat": 47.507421, "lng": 19.038742 
+  },
+  { 
+    "date": "8.26", "time": "09:30", "place": "Novotel Budapest Danube (숙소)", 
+    "desc": "숙소 출발 및 이동", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "부다페스트에서의 셋째 날 일정을 시작합니다. 화려한 카페 문화와 역사적인 부다 지구의 랜드마크들을 집중적으로 탐방하는 날입니다.",
+    "guide": "도보 이동이 많으므로 편안한 운동화 착용 권장",
+    "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube", "lat": 47.507421, "lng": 19.038742 
+  },
+  { 
+    "date": "8.26", "time": "10:30", "place": "New York Kávéház", 
+    "desc": "브런치 및 카페 투어", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "'세계에서 가장 아름다운 카페'라는 명성에 걸맞게 궁전 내부를 방불케 하는 르네상스 스타일의 화려한 천장 벽화와 황금빛 조각들이 눈을 사로잡습니다. 클래식 연주를 들으며 고급스러운 브런치를 즐깁니다.",
+    "guide": "사전 예약 없이는 1시간 이상 대기할 수 있으므로 공식 홈페이지 예약 필수 / 드레스코드 스마트 캐주얼",
+    "link": "https://www.google.com/maps/search/?api=1&query=New+York+Café+Budapest", "lat": 47.4987259, "lng": 19.0704556 
+  },
+  { 
+    "date": "8.26", "time": "13:30", "place": "헝가리 국립 미술관", 
+    "desc": "왕궁 내부 관람", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1580136579312-94651dfd596d?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1601887389937-0b02c26b6c3c?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "부다 왕궁 내부에 위치한 미술관으로 중세부터 현대에 이르는 헝가리 거장들의 다채로운 미술 작품들이 전시되어 있습니다. 미술관 내부에서 바라보는 페스트 지구의 전경 또한 일품입니다.",
+    "guide": "월요일 휴관 / 왕궁 언덕은 푸니쿨라 또는 도보, 버스(16번)로 이동 가능",
+    "link": "https://www.google.com/maps/search/?api=1&query=Hungarian+National+Gallery", "lat": 47.4960301, "lng": 19.039432 
+  },
+  { 
+    "date": "8.26", "time": "15:30", "place": "마티아스 성당", 
+    "desc": "어부의 요새 바로 옆 화려한 지붕의 성당 내부 관람", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1549877475-4c07bfa7cddb?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1563841930606-67e2b6c3bd26?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "다채로운 색상의 모자이크 기와 지붕이 특징인 고딕 양식의 성당입니다. 과거 헝가리 국왕들의 대관식이 거행되었던 역사적인 장소로, 내부의 화려한 조각 and 스테인드글라스가 아름답습니다.",
+    "guide": "성당 내부와 탑(전망대) 입장권 별도 판매 / 복장 제한 유의 (무릎 및 어깨 노출 자제)",
+    "link": "https://www.google.com/maps/search/?api=1&query=Matthias+Church+Budapest", "lat": 47.501991, "lng": 19.034239 
+  },
+  { 
+    "date": "8.26", "time": "18:00", "place": "어부의 요새", 
+    "desc": "야경 감상", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1562097034-db3e47ff3a33?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "네오 고딕 양식의 아름다운 7개 성채로 이루어진 부다페스트 최고의 뷰포인트입니다. 노을이 지기 시작할 때부터 불이 켜진 국회의사당의 장엄한 전경을 한눈에 담을 수 있는 로맨틱한 장소입니다.",
+    "guide": "2층 탑 구간은 유료이나 늦은 저녁이나 이른 아침에는 무료 개방 / 인생샷 명당으로 상시 붐빔",
+    "link": "https://www.google.com/maps/search/?api=1&query=Fisherman's+Bastion", "lat": 47.5021827, "lng": 19.0347813 
+  },
+  { 
+    "date": "8.26", "time": "19:30", "place": "Északi Szomszédok Bisztró", 
+    "desc": "파노라마 디너", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1560624052-449f5ddf0c31?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "다뉴브강과 도시의 스카이라인이 내려다보이는 멋진 전망을 가진 비스트로입니다. 모던하게 재해석된 유러피안 요리와 와인을 곁들이며 프라이빗하고 로맨틱한 저녁 식사를 즐깁니다.",
+    "guide": "야경이 잘 보이는 창가 좌석은 예약이 필수적임 / 서비스 차지 포함 여부 확인",
+    "link": "https://www.google.com/maps/search/?api=1&query=%C3%89szaki+Szomsz%C3%A9dok+Bisztr%C3%B3", "lat": 47.4901945, "lng": 19.0668372 
+  },
+  { 
+    "date": "8.26", "time": "21:30", "place": "다뉴브강 유람선 선착장", 
+    "desc": "국회의사당 야경을 가장 가까이서 보는 유람선 탑승", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1578496479763-941975e52188?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "부다페스트 여행의 하이라이트입니다. 크루즈에 탑승하여 강바람을 맞으며 황금빛으로 빛나는 국회의사당과 부다 왕궁, 세체니 다리 밑을 통과하는 낭만적인 야경 투어를 경험합니다.",
+    "guide": "선착장 위치 미리 확인 / 웰컴 드링크 포함 티켓이 많으며, 야외 데크 자리를 위해 20분 전 대기 권장",
+    "link": "https://www.google.com/maps/search/?api=1&query=Budapest+River+Cruise", "lat": 47.500412, "lng": 19.045012 
+  },
+  { 
+    "date": "8.26", "time": "23:00", "place": "Novotel Budapest Danube (숙소)", 
+    "desc": "숙소 복귀 및 휴식", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "부다페스트에서의 마지막 밤입니다. 짐을 미리 정리하여 내일 오스트리아 빈으로 이동할 준비를 마친 후 휴식을 취합니다.",
+    "guide": "여권 및 기차표 등 중요 문서 이동 가방에 따로 보관하기",
+    "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube", "lat": 47.507421, "lng": 19.038742 
+  },
+  { 
+    "date": "8.27", "time": "10:00", "place": "Novotel Budapest Danube (숙소)", 
+    "desc": "체크아웃 후 빈(Wien)행 기차 탑승을 위해 이동", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1532103054090-334e6e60b57c?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1515165504669-4230427445d8?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "호텔 체크아웃을 마치고 오스트리아 빈(Vienna)으로 향하는 국경 이동 열차를 타기 위해 부다페스트 켈레티(Keleti) 또는 델리(Deli) 역으로 이동합니다.",
+    "guide": "기차역까지 택시(Bolt 앱 사용) 이동이 가장 안전하고 편리함",
+    "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube", "lat": 47.507421, "lng": 19.038742 
+  },
+  { 
+    "date": "8.27", "time": "14:20", "place": "비엔나 중앙역", 
+    "desc": "기차 도착 및 이동", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "예술과 음악의 도시 오스트리아 빈 중앙역(Wien Hbf)에 도착합니다. 현대적이고 쾌적한 기차역 내부를 지나 예약된 숙소로 발걸음을 옮깁니다.",
+    "guide": "역 내부에 인포메이션 센터 및 대형 코인라커 완비",
+    "link": "https://www.google.com/maps/search/?api=1&query=Wien+Hauptbahnhof", "lat": 48.1851873, "lng": 16.3765973 
+  },
+  { 
+    "date": "8.27", "time": "14:40", "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)", 
+    "desc": "빈 숙소 체크인 및 짐 보관", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "중앙역과 인접하여 다른 지역 및 근교 이동성이 매우 뛰어난 비즈니스 호텔입니다. 짐을 가볍게 맡겨두고 첫 빈 시내 탐방을 나섭니다.",
+    "guide": "얼리 체크인이 불가할 경우 프론트에 기내용 캐리어 무료 보관 가능",
+    "link": "https://www.google.com/maps/search/?api=1&query=Leonardo+Hotel+Vienna+Hauptbahnhof", "lat": 48.183758, "lng": 16.378103 
+  },
+  { 
+    "date": "8.27", "time": "15:00", "place": "벨베데레 궁전", 
+    "desc": "클림트 작품 감상", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1623772274488-8427f8a1a457?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1590001155093-a3c66ab0c3ff?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "아름다운 바로크 양식의 궁전으로, 상궁 미술관에는 구스타프 클림트의 세계적인 명작 '키스(The Kiss)'와 '유디트'가 전시되어 있습니다. 화려한 궁전 정원 산책도 놓치지 마세요.",
+    "guide": "운영시간 09:00 - 18:00 / 클림트 작품이 있는 '상궁(Upper)' 티켓 필수 지정 시간 입장",
+    "link": "https://www.google.com/maps/search/?api=1&query=Belvedere+Palace+Vienna", "lat": 48.1914751, "lng": 16.3809322 
+  },
+  { 
+    "date": "8.27", "time": "17:00", "place": "칼스광장 & 칼스교회", 
+    "desc": "벨베데레에서 시내로 나오는 길에 위치한 아름다운 바로크식 교회 산책", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1545987796-200677ee1011?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "거대한 돔과 두 개의 거대한 기둥이 인상적인 비엔나의 대표적인 바로크 건축물입니다. 교회 앞 연못에 비치는 반영이 무척 아름다워 현지 대학생들과 여행객들의 쉼터가 되는 광장입니다.",
+    "guide": "내부 엘리베이터를 타고 돔 천장 바로 앞까지 올라가 프레스코화를 초근접 감상 가능 (유료)",
+    "link": "https://www.google.com/maps/search/?api=1&query=Karlskirche+Vienna", "lat": 48.198243, "lng": 16.371422 
+  },
+  { 
+    "date": "8.27", "time": "19:00", "place": "Figlmüller", 
+    "desc": "슈니첼 저녁 식사", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1598514983318-2f64f8f4796c?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1608897013039-887f21d8c804?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "100년 이상의 역사를 자랑하는 오스트리아 전통 돈가스 요리 '슈니첼'의 원조 맛집입니다. 접시를 삐져나올 정도로 거대하고 얇게 튀겨낸 바삭한 슈니첼과 상큼한 감자 샐러드의 조합이 훌륭합니다.",
+    "guide": "본점과 2호점이 인접해 있음 / 몇 달 전부터 예약이 마감되므로 반드시 사전 예약 혹은 오픈런 필수",
+    "link": "https://www.google.com/maps/search/?api=1&query=Figlm%C3%BCller+Wien", "lat": 48.2093669, "lng": 16.3746338 
+  },
+  { 
+    "date": "8.27", "time": "21:00", "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)", 
+    "desc": "숙소 복귀 및 휴식", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "빈에서의 알찬 첫날 일정을 마무리하고 숙소로 복귀하여 편안하게 휴식을 취합니다.",
+    "guide": "역 주변 편의점이나 마트(SPAR)에서 오스트리아 로컬 맥주나 간식거리 구매 가능",
+    "link": "https://www.google.com/maps/search/?api=1&query=Leonardo+Hotel+Vienna+Hauptbahnhof", "lat": 48.183758, "lng": 16.378103 
+  },
+  { 
+    "date": "8.28", "time": "08:00", "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)", 
+    "desc": "숙소 출발 및 시내 이동", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "빈의 핵심인 링(Ring) 거리 안쪽 구시가지와 합스부르크 왕가의 흔적을 따라 이동하는 역사와 예술의 날입니다.",
+    "guide": "교통권(24시간권 또는 48시간권)을 구매하여 트램과 지하철 적극 활용",
+    "link": "https://www.google.com/maps/search/?api=1&query=Leonardo+Hotel+Vienna+Hauptbahnhof", "lat": 48.183758, "lng": 16.378103 
+  },
+  { 
+    "date": "8.28", "time": "09:00", "place": "슈테판 대성당", 
+    "desc": "빈 시내 투어 시작", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1565181993005-3117953a3926?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "빈의 상징과도 같은 모자이크 지붕이 매력적인 거대한 고딕 양식 성당입니다. 오스트리아 최고의 역사적 랜드마크로 성당 내부의 웅장한 기둥과 높은 천장이 압도적입니다.",
+    "guide": "내부 입장은 무료이나 카타콤베 투어, 북탑/남탑 전망대 입장료는 각각 별도 부과",
+    "link": "https://www.google.com/maps/search/?api=1&query=St.+Stephen's+Cathedral+Vienna", "lat": 48.2084114, "lng": 16.3734707 
+  },
+  { 
+    "date": "8.28", "time": "11:30", "place": "Plachutta Wollzeile", 
+    "desc": "오스트리아 전통 소고기 수욕 요리 '타펠슈피츠' 점심 식사", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "프란츠 요제프 황제가 가장 사랑했던 오스트리아 전통 소고기 탕국 요리 '타펠슈피츠' 전문점입니다. 맑은 육수에 푹 고아낸 부드러운 소고기를 고추냉이 소스와 곁들여 먹으며 깊은 감칠맛을 느낄 수 있습니다.",
+    "guide": "직원이 고기를 접시에 덜어주는 코스 형태로 서비스 됨 / 사전 테이블 예약 권장",
+    "link": "https://www.google.com/maps/search/?api=1&query=Plachutta+Wollzeile+Vienna", "lat": 48.208534, "lng": 16.378125 
+  },
+  { 
+    "date": "8.28", "time": "14:00", "place": "쇤부른 궁전", 
+    "desc": "궁전 내부 관람", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1590001155093-a3c66ab0c3ff?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1623772274488-8427f8a1a457?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "합스부르크 왕가의 여름 궁전으로 프랑스 베르사유 궁전에 버금가는 거대한 스케일과 화려한 로코코 양식의 극치를 보여줍니다. 마리 앙투아네트가 어린 시절을 보냈던 방 등 역사적인 방들을 오디오 가이드와 관람합니다.",
+    "guide": "그랜드 투어(40개 방 관람) 티켓 추천 / 글로리에테 언덕 위까지 올라가면 궁전 전체 뷰 조망 가능",
+    "link": "https://www.google.com/maps/search/?api=1&query=Sch%C3%B6nbrunn+Palace", "lat": 48.1858124, "lng": 16.3127641 
+  },
+  { 
+    "date": "8.28", "time": "18:00", "place": "호프부르크 왕궁", 
+    "desc": "합스부르크 왕가의 겨울 궁전 외관 및 미하엘 광장 야경 투어", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1605538032432-a9f0c8d9baac?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "600년이 넘는 시간 동안 합스부르크 왕가의 중심이었던 겨울 정궁입니다. 미하엘 광장과 연결되는 웅장한 돔 문 and 오스트리아의 정취가 느껴지는 마차가 지나다니는 야경이 환상적인 분위기를 자아냅니다.",
+    "guide": "현재 오스트리아 대통령 관저로도 사용됨 / 미하엘 광장 주변 로마 유적지 터도 함께 구경 가능",
+    "link": "https://www.google.com/maps/search/?api=1&query=Hofburg+Vienna", "lat": 48.206507, "lng": 16.365262 
+  },
+  { 
+    "date": "8.28", "time": "19:30", "place": "Café Central", 
+    "desc": "역사 깊은 예술가들의 아지트에서 저녁 식사 및 디저트", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "트로츠키, 프로이트, 구스타프 클림트 등 오스트리아의 대문호와 예술가들이 매일같이 드나들던 유서 깊은 카페입니다. 화려한 대리석 기둥 아래에서 전통 비엔나 커피(멜랑쉬)와 정갈한 식사를 만끽합니다.",
+    "guide": "저녁 시간에도 피아노 라이브 연주가 흐름 / 입구의 작가 알텐베르크 마네킹과 기념사진 촬영",
+    "link": "https://www.google.com/maps/search/?api=1&query=Caf%C3%A9+Central+Vienna", "lat": 48.210404, "lng": 16.365415 
+  },
+  { 
+    "date": "8.28", "time": "21:30", "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)", 
+    "desc": "숙소 복귀 및 휴식", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "합스부르크의 화려한 문화에 취했던 하루를 정리하고 편안한 호텔 침대에서 휴식을 취합니다.",
+    "guide": "많이 걸었으므로 휴식 시 다리 마사지나 스트레칭 추천",
+    "link": "https://www.google.com/maps/search/?api=1&query=Leonardo+Hotel+Vienna+Hauptbahnhof", "lat": 48.183758, "lng": 16.378103 
+  },
+  { 
+    "date": "8.29", "time": "09:00", "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)", 
+    "desc": "숙소 출발 및 이동", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "빈에서의 마지막 전일 일정입니다. 세계적인 보물들이 가득한 박물관 내부 투어와 역사적인 건축물을 위주로 관람합니다.",
+    "guide": "박물관 패스나 대중교통 티켓 유효 시간 체크",
+    "link": "https://www.google.com/maps/search/?api=1&query=Leonardo+Hotel+Vienna+Hauptbahnhof", "lat": 48.183758, "lng": 16.378103 
+  },
+  { 
+    "date": "8.29", "time": "10:00", "place": "빈 미술사 박물관", 
+    "desc": "박물관 관람", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1545987796-200677ee1011?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1580136579312-94651dfd596d?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "합스부르크 왕가가 수집한 방대한 예술품이 전시된 세계 3대 미술관 중 하나입니다. 브뤼겔의 '바벨탑', 루벤스, 렘브란트 등의 거장들의 회화 작품은 물론, 세상에서 가장 아름다운 박물관 카페 내부 인테리어로도 유명합니다.",
+    "guide": "운영시간 10:00 - 18:00 (목요일은 21:00까지) / 내부 2층 카페에서 커피 한 잔 강력 추천",
+    "link": "https://www.google.com/maps/search/?api=1&query=Kunsthistorisches+Museum+Vienna", "lat": 48.2038016, "lng": 16.3617874 
+  },
+  { 
+    "date": "8.29", "time": "13:00", "place": "Osteria d'Atri", 
+    "desc": "박기사 근처 숨겨진 이탈리안 파스타 맛집에서 점심 식사", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "고기 중심의 오스트리아 요리에 지칠 때쯤 방문하기 좋은 이탈리안 숨은 맛집입니다. 매일 신선하게 만들어지는 생면 파스타와 화이트 와인의 페어링이 훌륭하여 현지인들 사이에서도 인기가 높습니다.",
+    "guide": "매장이 작아 조기 만석 가능성 높음 / 해산물 오일 파스타 및 트러플 파스타 추천",
+    "link": "https://www.google.com/maps/search/?api=1&query=Osteria+d'Atri+Vienna", "lat": 48.209112, "lng": 16.362354 
+  },
+  { 
+    "date": "8.29", "time": "15:00", "place": "오스트리아 국립도서관", 
+    "desc": "세계에서 가장 아름다운 프레스코화가 있는 후기 바로크 양식의 도서관", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1599937171929-bbfe4cd28825?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "영화 '미녀와 야수' 속 도서관의 모티브가 된 역사적인 장소입니다. 거대한 오프닝 룸(Prunksaal)의 천장을 가득 채운 화려한 프레스코화와 수백 년 된 고서들이 벽면을 채우고 있어 마치 타임머신을 타고 과거로 온 듯한 신비로운 분위기를 연출합니다.",
+    "guide": "운영시간 10:00 - 18:00 / 도서관 내부 보존을 위해 플래시 촬영 금지",
+    "link": "https://www.google.com/maps/search/?api=1&query=Austrian+National+Library", "lat": 48.206013, "lng": 16.366811 
+  },
+  { 
+    "date": "8.29", "time": "18:30", "place": "Ribs of Vienna", 
+    "desc": "1m 길이의 푸짐한 미트 립 요리로 든든한 저녁 식사", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1598514983318-2f64f8f4796c?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "지하 동굴 같은 독특한 매장 분위기에서 길쭉한 나무 판에 서빙되는 1미터 길이의 돼지 등갈비 립 요리를 가성비 좋게 맛볼 수 있는 빈의 필수 코스 레스토랑입니다. 겉바속촉의 정석을 보여줍니다.",
+    "guide": "한국인 여행객에게 특히 유명한 곳으로 사전 웹 예약이 무조건 권장됨",
+    "link": "https://www.google.com/maps/search/?api=1&query=Ribs+of+Vienna", "lat": 48.206922, "lng": 16.375494 
+  },
+  { 
+    "date": "8.29", "time": "20:30", "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)", 
+    "desc": "숙소 복귀 및 휴식", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "내일 새벽 기차로 시작되는 할슈타트 근교 여행과 프라하 이동이라는 대장정을 위해 일찍 짐을 완전히 싸두고 숙면을 취합니다.",
+    "guide": "여권, 기차 이티켓(OBB, 렌페 등) 스마트폰 지갑 앱에 다운로드 확인",
+    "link": "https://www.google.com/maps/search/?api=1&query=Leonardo+Hotel+Vienna+Hauptbahnhof", "lat": 48.183758, "lng": 16.378103 
+  },
+  { 
+    "date": "8.30", "time": "06:00", "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)", 
+    "desc": "할슈타트 이동을 위해 숙소 출발 (기차역 이동)", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1532103054090-334e6e60b57c?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "체크아웃 후 짐을 모두 들고 빈 중앙역으로 이동합니다. 새벽 공기를 마시며 동화 속 호수 마을인 할슈타트로 향하는 기차에 몸을 싣습니다.",
+    "guide": "빈 중앙역 내 베이커리(Anker 등)에서 기내에서 먹을 가벼운 샌드위치와 커피 구매 추천",
+    "link": "https://www.google.com/maps/search/?api=1&query=Leonardo+Hotel+Vienna+Hauptbahnhof", "lat": 48.183758, "lng": 16.378103 
+  },
+  { 
+    "date": "8.30", "time": "08:30", "place": "할슈타트", 
+    "desc": "당일치기 근교 여행 및 마을 산책", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1520175480921-4edfa2983e0f?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "유네스코 세계문화유산으로 지정된 전 세계에서 가장 아름다운 호수 마을입니다. 웅장한 알프스 산맥과 투명한 호수, 그리고 그 강변을 따라 아기자기하게 지어진 목조 주택들이 완벽한 풍경화를 이룹니다. 한적한 오전 골목길을 산책합니다.",
+    "guide": "기차역에서 내린 뒤 마을로 들어가는 전용 페리선 탑승 필수 (기차 시간에 맞춰 운행)",
+    "link": "https://www.google.com/maps/search/?api=1&query=Hallstatt", "lat": 47.5622342, "lng": 13.6492617 
+  },
+  { 
+    "date": "8.30", "time": "11:30", "place": "Gasthof Zauner", 
+    "desc": "할슈타트 호수 뷰를 보며 즐기는 송어 구이 점심 식사", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1534604973900-c43ab4c2e0ab?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "할슈타트 호수에서 갓 잡은 신선한 송어(Forelle) 구이를 맛볼 수 있는 유서 깊은 레스토랑입니다. 버터에 담백하게 구워낸 송어 요리는 비린내 없이 고소하며 감자와 훌륭하게 어우러집니다.",
+    "guide": "마을 중심 마르크트 광장 인근 위치 / 테라스 좌석 뷰가 매우 좋음",
+    "link": "https://www.google.com/maps/search/?api=1&query=Gasthof+Zauner+Hallstatt", "lat": 47.562152, "lng": 13.648612 
+  },
+  { 
+    "date": "8.30", "time": "12:40", "place": "할슈타트 전망대", 
+    "desc": "푸니쿨라를 타고 올라가 한눈에 담는 호수 마을 전경", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1520175480921-4edfa2983e0f?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "푸니쿨라(케이블카)를 타고 수직에 가까운 산등성이를 올라가 '스카이워크' 전망대에 섭니다. 발밑으로 펼쳐지는 아찔하고 광활한 할슈타트 호수와 알프스의 파노라마 뷰는 감탄을 자아냅니다.",
+    "guide": "왕복 푸니쿨라 티켓 구매 / 기차 시간 고려하여 14시 전에는 하산 준비 필수",
+    "link": "https://www.google.com/maps/search/?api=1&query=Hallstatt+Skywalk", "lat": 47.564112, "lng": 13.646892 
+  },
+  { 
+    "date": "8.30", "time": "14:50", "place": "빈 중앙역 (Wien Hbf)", 
+    "desc": "할슈타트 출발 후 빈 중앙역 도착, 프라하행 기차 환승 준비", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "할슈타트 왕복 여정을 마치고 다시 빈 중앙역으로 복귀합니다. 이제 캐리어를 챙겨 체코 프라하로 향하는 국제 열차 환승 게이트로 신속하게 이동합니다.",
+    "guide": "환승 시간이 다소 타이트할 수 있으므로 플랫폼 전광판(Praha hl.n. 행) 빠르게 확인",
+    "link": "https://www.google.com/maps/search/?api=1&query=Wien+Hauptbahnhof", "lat": 48.1851873, "lng": 16.3765973 
+  },
+  { 
+    "date": "8.30", "time": "15:23", "place": "빈 중앙역 (Wien Hbf)", 
+    "desc": "프라하행 기차 탑승 (체코 철도청/ÖBB)", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1515165504669-4230427445d8?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1532103054090-334e6e60b57c?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "빈에서 출발하여 체코 프라하로 국경을 넘어가는 쾌적한 레일젯(EuroCity) 열차에 탑승합니다. 약 4시간 동안 차창 밖으로 펼쳐지는 중유럽의 평화로운 시골 풍경을 감상하며 이동합니다.",
+    "guide": "좌석 예약 필수 / 열차 내 무료 와이파이 및 충전 포트 제공, 식당칸 이용 가능",
+    "link": "https://www.google.com/maps/search/?api=1&query=Wien+Hauptbahnhof", "lat": 48.1851873, "lng": 16.3765973 
+  },
+  { 
+    "date": "8.30", "time": "19:30", "place": "프라하 중앙역 (Praha hl.n.)", 
+    "desc": "프라하 도착 후 숙소로 이동", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1541343075659-c08903c62537?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "낭만의 도시, 체코 프라하 중앙역에 마침내 도착합니다. 역을 빠져나와 웅장한 중세풍 건물들이 가득한 프라하의 첫인상을 느끼며 숙소로 이동합니다.",
+    "guide": "역 내부 환전소는 수수료가 비싸므로 카드 사용 혹은 시내 공인 환전소 이용 권장",
+    "link": "https://www.google.com/maps/search/?api=1&query=Praha+hlavni+nadrazi", "lat": 50.083162, "lng": 14.434499 
+  },
+  { 
+    "date": "8.30", "time": "20:00", "place": "K+K Hotel Central Prague (숙소)", 
+    "desc": "프라하 숙소 체크인 및 짐 보관", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "프라하 구시가지 중심부와 화약탑 바로 인근에 위치한 아르누보 양식의 고풍스럽고 세련된 호텔입니다. 주요 관광지까지 도보 이동이 매우 훌륭한 위치입니다. 체크인을 완료합니다.",
+    "guide": "리셉션 24시간 운영 / 웰컴 드링크 제공 여부 확인",
+    "link": "https://www.google.com/maps/search/?api=1&query=K%2BK+Hotel+Central+Prague", "lat": 50.087342, "lng": 14.428412 
+  },
+  { 
+    "date": "8.30", "time": "20:30", "place": "프라하 중앙역 근처 식당", 
+    "desc": "숙소 체크인 후 근처 편안한 레스토랑에서 저녁 식사 및 휴식", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "긴 이동으로 지친 몸을 달래기 위해 숙소 인근의 아늑한 체코 로컬 펍에서 가볍게 저녁 식사를 합니다. 부드럽고 쌉싸름한 오리지널 체코 생맥주 한 잔으로 피로를 날려보세요.",
+    "guide": "체코는 팁 문화가 발당해 있으므로 계산 시 5~10% 내외의 팁을 추가하거나 내림 계산 선호",
+    "link": "https://www.google.com/maps/search/?api=1&query=Prague+Central+Station+Restaurants", "lat": 50.083500, "lng": 14.435000 
+  },
+  { 
+    "date": "8.30", "time": "22:00", "place": "K+K Hotel Central Prague (숙소)", 
+    "desc": "숙소 복귀 및 휴식", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "내일부터 시작될 본격적인 프라하 도보 여행과 인생 스냅 촬영을 위해 아늑한 숙소에서 일찍 휴식을 취합니다.",
+    "guide": "침구류 상태 확인 및 객실 내 온도 조절",
+    "link": "https://www.google.com/maps/search/?api=1&query=K%2BK+Hotel+Central+Prague", "lat": 50.087342, "lng": 14.428412 
+  },
+  { 
+    "date": "8.31", "time": "09:00", "place": "K+K Hotel Central Prague (숙소)", 
+    "desc": "숙소 출발 및 이동", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "체코 프라하에서의 첫 전일 일정입니다. 구시가지 광장을 중심으로 중세의 낭만이 그대로 살아 숨 쉬는 골목 골목을 천천히 걸어서 탐방합니다.",
+    "guide": "프라하의 바닥은 돌길(코블스톤)이 많으므로 굽이 낮고 푹신한 신발 필수",
+    "link": "https://www.google.com/maps/search/?api=1&query=K%2BK+Hotel+Central+Prague", "lat": 50.087342, "lng": 14.428412 
+  },
+  { 
+    "date": "8.31", "time": "10:00", "place": "카페 자허 대신 프라하 감성 카페", 
+    "desc": "프라하 현지 유명 베이커리/카페 브런치", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "빈의 무거운 전통 카페 대신, 프라하 특유의 힙하고 아늑한 감성이 묻어나는 트렌디한 로컬 카페에서 갓 구운 굴뚝빵(뜨르들로)이나 세련된 에그 베네딕트 브런치를 맛봅니다.",
+    "guide": "현지인들에게 핫한 카페(예: Cafe Savoy 또는 EMA Espresso Bar) 리스트 참고",
+    "link": "https://www.google.com/maps/search/?api=1&query=Prague+Cafes", "lat": 50.087500, "lng": 14.421000 
+  },
+  { 
+    "date": "8.31", "time": "12:00", "place": "프라하 시내 투어", 
+    "desc": "구시가지 광장, 천문시계 탑 주변 도보 투어 및 로컬 분위기 탐방", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1563841930606-67e2b6c3bd26?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1599937171929-bbfe4cd28825?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "프라하 여행의 중심인 구시가지 광장입니다. 매 정각마다 인형들이 나와 움직이는 세계에서 가장 오래된 '천문시계탑'의 역동적인 퍼포먼스를 관람하고, 틴 성모 교회의 뾰족한 첨탑을 배경으로 광장의 활기를 온몸으로 느낍니다.",
+    "guide": "천문시계 인형극은 매 정각 시작 (약 45초 진행) / 시계탑 전망대는 엘리베이터로 탑승 가능 (유료)",
+    "link": "https://www.google.com/maps/search/?api=1&query=Old+Town+Square+Prague", "lat": 50.087465, "lng": 14.421248 
+  },
+  { 
+    "date": "8.31", "time": "15:00", "place": "하벨 시장 & 구시가 쇼핑가", 
+    "desc": "기념품 매장과 세련된 건축물이 가득한 프라하 대표 거리 활보", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1473177104440-ffee2f376098?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1533900298318-6b8da08a523e?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "현지인과 관광객들이 섞여 과일, 꽃, 그리고 체코 전통 목각 인형이나 마녀 인형 같은 다양한 기념품을 판매하는 활기 넘치는 노천 시장입니다. 주변의 유명 편집샵들과 마리오네트 상점들을 구경합니다.",
+    "guide": "운영시간 06:00 - 18:30 / 시장 내 과일은 세척되지 않은 상태이므로 구매 후 바로 섭취 자제",
+    "link": "https://www.google.com/maps/search/?api=1&query=Havelske+trziste", "lat": 50.085421, "lng": 14.420892 
+  },
+  { 
+    "date": "8.31", "time": "18:00", "place": "카를교 (Charles Bridge)", 
+    "desc": "일몰 무렵의 아름다운 카를교 산책 및 블타바강 조망", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1513805959324-96eb66ca8713?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "블타바 강을 가로지르는 유럽에서 가장 아름다운 고딕 양식의 석조 다리입니다. 다리 양옆에 세워진 30개의 성인 조각상들을 감상하며, 특히 얀 네포무츠크 신부 성상 밑의 놋쇠 판을 만지며 소원을 빌어봅니다. 노을빛에 물드는 프라하성이 장관입니다.",
+    "guide": "성상 터치 놋쇠판은 만지면 프라하에 다시 오게 된다는 속설이 있음 / 소매치기 주의 지역",
+    "link": "https://www.google.com/maps/search/?api=1&query=Charles+Bridge", "lat": 50.086436, "lng": 14.411421 
+  },
+  { 
+    "date": "8.31", "time": "19:30", "place": "존 레논 벽 (John Lennon Wall)", 
+    "desc": "평화의 메시지가 가득한 벽화 거리 관람 및 사진 촬영", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1583244532610-2a234e7c3eca?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "과거 공산주의 정권 시절 체코의 젊은이들이 반정부 메시지와 평화, 그리고 비틀즈의 노래 가사를 적으며 자유를 갈망하던 역사적인 벽입니다. 지금도 다채로운 그라피티로 채워져 있어 예술적인 감성을 자아냅니다.",
+    "guide": "카를교를 건너 말라스트라나 지구 골목에 위치 / 상시 무료 관람 가능",
+    "link": "https://www.google.com/maps/search/?api=1&query=John+Lennon+Wall", "lat": 50.086221, "lng": 14.406852 
+  },
+  { 
+    "date": "8.31", "time": "20:30", "place": "프라하 구시가지 로컬 식당", 
+    "desc": "체코 전통 요리(꼴레뇨 또는 스비치코바)와 필스너 우르켈 맥주 저녁 식사", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "체코식 족발 요리로 겉은 바삭하고 속은 촉촉한 기름진 맛이 일품인 '꼴레뇨' 또는 부드러운 소고기 등심에 생크림과 크랜베리 소스를 곁들인 '스비치코바'를 맛봅니다. 여기에 신선한 '필스너 우르켈' 생맥주를 곁들이면 최고의 만찬이 됩니다.",
+    "guide": "꼴레뇨는 양이 많으므로 2인당 1메뉴 주문 추천 / 코젤 다크 생맥주도 훌륭한 선택",
+    "link": "https://www.google.com/maps/search/?api=1&query=Prague+Old+Town+Restaurants", "lat": 50.087500, "lng": 14.422000 
+  },
+  { 
+    "date": "8.31", "time": "22:30", "place": "K+K Hotel Central Prague (숙소)", 
+    "desc": "숙소 복귀 및 휴식", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "블타바강의 낭만적인 밤바람과 중세 골목의 야경을 만끽한 후 숙소로 돌아와 편안히 휴식합니다.",
+    "guide": "내일 아침 일찍 진행될 스냅 촬영 의상과 소품을 미리 체크해 두기",
+    "link": "https://www.google.com/maps/search/?api=1&query=K%2BK+Hotel+Central+Prague", "lat": 50.087342, "lng": 14.428412 
+  },
+  { 
+    "date": "9.01", "time": "08:30", "place": "K+K Hotel Central Prague (숙소)", 
+    "desc": "스냅 촬영을 위해 숙소 출발", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1513805959324-96eb66ca8713?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "프라하에서의 가장 특별한 추억을 기록하는 날입니다. 스냅 사진 작가님과의 미팅 장소로 옷을 예쁘게 맞춰 입고 설레는 마음으로 이동합니다.",
+    "guide": "바람이 불 수 있으므로 헤어 스타일 고정에 신경 쓰기 / 가벼운 소품(소형 카메라 등) 지참 추천",
+    "link": "https://www.google.com/maps/search/?api=1&query=K%2BK+Hotel+Central+Prague", "lat": 50.087342, "lng": 14.428412 
+  },
+  { 
+    "date": "9.01", "time": "09:30", "place": "프라하 시내 일대", 
+    "desc": "스냅 사진 촬영 (2시간 소요)", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1563841930606-67e2b6c3bd26?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "사람이 비교적 적은 이른 오전 시간, 카를교와 구시가지 광장의 고풍스러운 골목들을 배경으로 두 분만의 로맨틱하고 자연스러운 모습을 전문 작가님의 카메라에 담아냅니다.",
+    "guide": "작가님의 디렉션에 따라 자연스럽게 웃으며 촬영 즐기기 / 소지품은 최소화",
+    "link": "https://www.google.com/maps/search/?api=1&query=Prague", "lat": 50.087500, "lng": 14.421000 
+  },
+  { 
+    "date": "9.01", "time": "12:00", "place": "프라하 성 (Prague Castle)", 
+    "desc": "세계 최대 규모의 고성 단지 입장 및 내부 관람 시작", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1558485901-49931754020a?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1590001155093-a3c66ab0c3ff?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "9세기부터 체코 통치자들의 궁전이었으며 현재는 대통령 관저로 사용 중인 세계에서 가장 큰 성채 단지입니다. 블타바 강 언덕 위에 웅장하게 서 있어 프라하 전역을 관망하기 최적의 장소입니다.",
+    "guide": "입구에서 엄격한 소지품 및 보안 검색 진행 / 서킷 코스 티켓(A 또는 B) 구매하여 입장",
+    "link": "https://www.google.com/maps/search/?api=1&query=Prague+Castle", "lat": 50.091171, "lng": 14.401633 
+  },
+  { 
+    "date": "9.01", "time": "12:35", "place": "성 비투스 대성당 (St. Vitus Cathedral)", 
+    "desc": "압도적인 고딕 양식의 외관 및 화려한 스테인드글라스 관람", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1560969143-6987f2b1d31d?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1565181993005-3117953a3926?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "프라하 성 내에서 가장 중심이 되는 거대 고딕 양식 성당입니다. 하늘을 찌를 듯한 첨탑 외관도 대단하지만, 내부의 알폰스 무하가 제작한 화려한 스테인드글라스 작품 '성 그리스도와 성 메토디우스'가 뿜어내는 오색 찬란한 빛이 감동을 선사합니다.",
+    "guide": "성당 내부 촬영 시 플래시 사용 금지 / 성당 종탑 전망대는 별도 티켓으로 계단을 걸어 올라가야 함",
+    "link": "https://www.google.com/maps/search/?api=1&query=St.+Vitus+Cathedral", "lat": 50.090883, "lng": 14.400512 
+  },
+  { 
+    "date": "9.01", "time": "13:40", "place": "성 이르지 바실리카 & 황금소로", 
+    "desc": "로마네스크 양식의 성당 및 아기자기한 기념품 점이 모인 황금소로 산책", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1590001155093-a3c66ab0c3ff?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1473177104440-ffee2f376098?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "붉은빛 외관이 인상적인 프라하 성 내에서 가장 오래된 로마네스크 성당을 거쳐, 과거 성을 지키던 포수들과 연금술사들이 모여 살던 작고 귀여운 파스텔톤 집들이 모여 있는 '황금소로'를 걷습니다. 22번지 파란 집은 대문호 카프카가 집필실로 쓰던 곳입니다.",
+    "guide": "카프카의 작업실인 22번지 집 내부에서는 그의 책과 기념품을 판매함",
+    "link": "https://www.google.com/maps/search/?api=1&query=Golden+Lane+Prague", "lat": 50.092011, "lng": 14.404212 
+  },
+  { 
+    "date": "9.01", "time": "15:30", "place": "말라스트라나 전망 좋은 카페", 
+    "desc": "프라하 성에서 내려다보이는 붉은 지붕 뷰와 함께 커피 타임", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "프라하 성 관람을 마시고 내려오는 길, 언덕 위 테라스에서 프라하 특유의 끝없이 펼쳐진 동화 같은 주황색 붉은 지붕 뷰를 한눈에 조망하며 따뜻한 카푸치노와 전통 디저트를 즐깁니다.",
+    "guide": "스타벅스 프라하성점 테라스 포토존이 한국인에게 특히 유명하여 인생샷 명소로 꼽힘",
+    "link": "https://www.google.com/maps/search/?api=1&query=Mala+Strana+Cafes", "lat": 50.088122, "lng": 14.404112 
+  },
+  { 
+    "date": "9.01", "time": "18:30", "place": "U Parlamentu", 
+    "desc": "체코 전통 굴라시와 맥주로 든든한 저녁 식사", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1608897013039-887f21d8c804?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "현지 체코인들이 가득한 찐 로컬 가성비 플레이스입니다. 헝가리식 굴라시와 달리 빵(크네들리키)에 소스를 찍어 먹는 체코식 굴라시와 입안 가득 청량함이 감도는 필스너 우르켈 타 탱크 맥주를 최고 신선한 상태로 서빙합니다.",
+    "guide": "카드 결제가 가능하지만 서버에게 직접 팁을 지정해 주는 방식이 대중적임",
+    "link": "https://www.google.com/maps/search/?api=1&query=U+Parlamentu+Prague", "lat": 50.088654, "lng": 14.417212 
+  },
+  { 
+    "date": "9.01", "time": "21:00", "place": "K+K Hotel Central Prague (숙소)", 
+    "desc": "숙소 복귀 및 휴식", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "스냅 촬영과 프라하 성 대행진으로 알차게 보낸 하루를 끝내고 숙소에서 마지막 밤을 편안히 정리합니다.",
+    "guide": "구매한 텍스리펀 서류나 기념품 영수증 최종 점검",
+    "link": "https://www.google.com/maps/search/?api=1&query=K%2BK+Hotel+Central+Prague", "lat": 50.087342, "lng": 14.428412 
+  },
+  { 
+    "date": "9.02", "time": "10:00", "place": "K+K Hotel Central Prague (숙소)", 
+    "desc": "숙소 체크아웃 및 귀국 준비", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1542296332-2e4473fac563?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "아쉬운 동유럽 신혼여행의 마지막 날입니다. 호텔 체크아웃을 진행하고 캐리어는 호텔 보관소에 임시로 맡긴 후 마지막 시내 쇼핑과 산책을 떠납니다.",
+    "guide": "공항 이동 소요 시간(약 45분) 고려하여 짐 픽업 시간 리셉션과 사전 약속",
+    "link": "https://www.google.com/maps/search/?api=1&query=K%2BK+Hotel+Central+Prague", "lat": 50.087342, "lng": 14.428412 
+  },
+  { 
+    "date": "9.02", "time": "11:30", "place": "프라하 국립박물관 주변 바츨라프 광장", 
+    "desc": "체코 근현대사의 중심지 산책 및 마지막 기념품 쇼핑", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1573155993874-d5d48af862ba?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1533900298318-6b8da08a523e?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "'프라하의 봄' 등 체코 민주화 운동의 역사적 무대이자 현재 프라하 상업의 중심지인 넓고 긴 광장입니다. 광장 양옆으로 유명 브랜드 샵과 체코 국민 자연주의 화장품인 '마누팩투라(맥주 샴푸 등)' 매장이 있어 지인 선물을 사기에 최적입니다.",
+    "guide": "마누팩투라 매장에서 일정 금액 이상 구매 시 매장에서 즉시 텍스리펀 서류 수령 가능",
+    "link": "https://www.google.com/maps/search/?api=1&query=Wenceslas+Square", "lat": 50.081234, "lng": 14.427123 
+  },
+  { 
+    "date": "9.02", "time": "13:00", "place": "프라하 공항 이동 전 마지막 식사", 
+    "desc": "가벼운 샌드위치와 커피로 여유로운 점심", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "공항으로 출발하기 전, 구시가지 골목의 한가로운 노천 테라스 카페에서 유럽에서의 마지막 커피 한 잔과 샌드위치 브런치를 즐기며 지난 여행의 추억을 서로 나눕니다.",
+    "guide": "공항 버스(AE 버스) 탑승 정류장 위치 확인 또는 우버/볼트 호출 대기",
+    "link": "https://www.google.com/maps/search/?api=1&query=Prague+Old+Town+Cafes", "lat": 50.087500, "lng": 14.421000 
+  },
+  { 
+    "date": "9.02", "time": "15:00", "place": "프라하 바츨라프 하벨 국제공항", 
+    "desc": "귀국 준비 및 공항 이동 (공항 체크인)", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1542296332-2e4473fac563?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "프라하 하벨 국제공항 터미널 1(비유럽권 국가 전용)에 도착합니다. 세관 카운터에 들러 여행 중 구매한 물품의 텍스리펀 승인 도장을 받고 항공사 카운터에서 수하물을 위탁합니다.",
+    "guide": "텍스리펀을 진행할 경우 줄이 길 수 있으므로 공항에 여유롭게 도착해야 함",
+    "link": "https://www.google.com/maps/search/?api=1&query=V%C3%A1clav+Havel+Airport+Prague", "lat": 50.101784, "lng": 14.263180 
+  },
+  { 
+    "date": "9.02", "time": "19:05", "place": "프라하 바츨라프 하벨 국제공항", 
+    "desc": "인천행 귀국 비행기 출발 (KE 970)", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1542296332-2e4473fac563?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "대한항공 KE970편 직항 노선을 이용하여 인천국제공항으로 출발합니다. 행복했던 부다페스트-빈-프라하 신혼여행의 기억을 가득 싣고 편안한 귀국길에 오릅니다.",
+    "guide": "기내 야간 비행이므로 귀마개, 안대 소지 시 유용 / 기내식 2회 제공 예정",
+    "link": "https://www.google.com/maps/search/?api=1&query=V%C3%A1clav+Havel+Airport+Prague", "lat": 50.101784, "lng": 14.263180 
+  },
+  { 
+    "date": "9.03", "time": "13:20", "place": "인천국제공항", 
+    "desc": "인천국제공항 도착 및 귀가", 
+    "imgs": [
+      "https://images.unsplash.com/photo-1542296332-2e4473fac563?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "인천국제공항에 무사히 입국합니다. 수하물을 수령하고 자동출입국 심사를 마친 후, 중유럽 3개국 여정을 무사히 함께 해준 서로 격려하며 집으로 향합니다.",
+    "guide": "면세 한도($800) 및 자진 신고 물품 확인 / 귀가 교통편(리무진/콜택시 등) 탑승",
+    "link": "https://www.google.com/maps/search/?api=1&query=인천국제공항", "lat": 37.458666, "lng": 126.4419679 
+  }
 ]

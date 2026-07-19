@@ -104,7 +104,7 @@
 
         .timeline-container {
             overflow-y: auto;
-            max-height: 650px;
+            max-height: 700px;
             padding-right: 8px;
         }
 
@@ -128,7 +128,8 @@
             margin-bottom: 10px;
             text-align: left;
             cursor: pointer;
-            transition: 0.2s;
+            transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+            overflow: hidden;
         }
 
         .schedule-item:hover {
@@ -144,7 +145,7 @@
         .schedule-row {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
             gap: 12px;
         }
 
@@ -164,9 +165,57 @@
         }
 
         .schedule-desc {
-            margin: 4px 0 0;
+            margin: 2px 0 0;
             color: var(--muted);
-            font-size: 0.9rem;
+            font-size: 0.88rem;
+        }
+
+        .schedule-details {
+            max-height: 0;
+            opacity: 0;
+            transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out, margin-top 0.3s ease;
+            overflow: hidden;
+        }
+
+        .schedule-item.active .schedule-details {
+            max-height: 1200px;
+            opacity: 1;
+            margin-top: 14px;
+            border-top: 1px dashed var(--line);
+            padding-top: 14px;
+        }
+
+        .detail-text {
+            color: var(--text);
+            font-size: 0.93rem;
+            margin: 0 0 10px 0;
+            white-space: pre-wrap;
+        }
+
+        .guide-box {
+            background-color: #f1ebd9;
+            border-left: 4px solid var(--accent-2);
+            padding: 8px 12px;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            color: #3b4952;
+            margin-bottom: 14px;
+        }
+
+        .img-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .detail-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 1px solid var(--line);
+            background-color: #eee;
         }
 
         .map-link {
@@ -179,6 +228,11 @@
             justify-content: center;
             font-size: 1rem;
             flex-shrink: 0;
+            transition: background 0.2s;
+        }
+
+        .map-link:hover {
+            background: var(--line);
         }
 
         .map-box {
@@ -186,9 +240,9 @@
             overflow: hidden;
             border: 1px solid var(--line);
             background: #f4efe8;
-            height: 500px;
+            height: 550px;
             width: 100%;
-            z-hidden: 1;
+            z-index: 1;
         }
 
         @media (max-width: 960px) {
@@ -206,7 +260,7 @@
 <body>
     <div class="page">
         <section class="hero">
-            <h1>동유럽 10일 신혼여행</h1>
+            <h1>유럽 신혼여행 일정 지도</h1>
             <div class="chip-row" id="dateFilters"></div>
         </section>
 
@@ -217,7 +271,6 @@
             </section>
             <aside class="card">
                 <div class="card-title">여행 지도</div>
-                <!-- 기존 SVG를 Leaflet 지도 컨테이너 Div로 교체 -->
                 <div id="tripMap" class="map-box"></div>
                 <div id="mapSummary" style="margin-top:15px; color:var(--muted); font-weight: 600;"></div>
             </aside>
@@ -227,21 +280,25 @@
     <!-- Leaflet 지도 라이브러리 스크립트 추가 -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        // 하드코딩된 위경도 포함 데이터 셋
-
         let selectedDate = 'all';
         let activePlace = null;
         let map = null;
         let markerLayer = null;
         let polylineLayer = null;
-        let markersMap = {}; // 장소별 마커 객체 저장용
+        let markersMap = {};
+
+        // 데이터 원본을 주석 없이 변수에 직접 바인딩합니다[cite: 4].
         let itineraryData = [];
+        async function loadData() {
+            try {
+                const response = await fetch('./data.json');
+                itineraryData = await response.json();
+            } catch (e) { console.error("데이터 로드 실패"); }
+        }
 
         function initMap() {
-            // 초기 지도를 부다페스트/비엔나 중간 지점으로 설정
             map = L.map('tripMap').setView([47.8, 17.5], 7);
 
-            // 깔끔한 톤의 오픈스트리트맵 레이어 추가
             L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
                 attribution: '&copy; OpenStreetMap &copy; CARTO'
             }).addTo(map);
@@ -249,90 +306,102 @@
             markerLayer = L.layerGroup().addTo(map);
             polylineLayer = L.layerGroup().addTo(map);
 
+            // 파일 로드 과정 없이 즉시 렌더링을 호출합니다.
             renderUI();
         }
 
         function renderUI() {
-            // 필터 칩 생성
             const dateFilters = document.getElementById('dateFilters');
+            if (itineraryData.length === 0) {
+                document.getElementById('timelineList').innerHTML = '<div style="padding:20px; text-align:center; color:var(--muted);">일정 데이터가 비어있거나 올바르지 않습니다.</div>';
+                return;
+            }
+
             const dates = ['all', ...new Set(itineraryData.map(i => i.date))];
             dateFilters.innerHTML = dates.map(d => `<button class="chip ${selectedDate === d ? 'active' : ''}" onclick="filter('${d}')">${d === 'all' ? '전체' : d}</button>`).join('');
 
-            // 데이터 필터링
             const filtered = selectedDate === 'all' ? itineraryData : itineraryData.filter(i => i.date === selectedDate);
-
-            // 타임라인 그리기
             const timelineList = document.getElementById('timelineList');
             const groups = filtered.reduce((acc, cur) => { (acc[cur.date] = acc[cur.date] || []).push(cur); return acc; }, {});
 
             timelineList.innerHTML = Object.entries(groups).map(([date, items]) => `
                 <div class="date-group"><div class="date-title">📅 ${date}</div>
-                ${items.map(item => `
-                    <article class="schedule-item ${activePlace === item.place ? 'active' : ''}" id="item-${btoa(encodeURIComponent(item.place))}" onclick="setActive('${item.place}')">
+                ${items.map(item => {
+                const uniqueId = btoa(encodeURIComponent(item.place + item.time)).replace(/=/g, '');
+
+                const detailsHtml = item.details ? `<p class="detail-text">${item.details}</p>` : '';
+                const guideHtml = item.guide ? `<div class="guide-box">💡 <strong>안내:</strong> ${item.guide}</div>` : '';
+
+                let imagesHtml = '';
+                if (item.imgs && Array.isArray(item.imgs) && item.imgs.length > 0) {
+                    imagesHtml = `<div class="img-grid">${item.imgs.map(url => `
+                            <img src="${url}" class="detail-img" alt="${item.place} 이미지" onerror="this.style.display='none'">
+                        `).join('')}</div>`;
+                }
+
+                return `
+                    <article class="schedule-item ${activePlace === item.place ? 'active' : ''}" id="item-${uniqueId}" onclick="setActive('${item.place}', '${item.time}')">
                         <div class="schedule-row">
                             <div class="time-badge">${item.time}</div>
                             <div class="schedule-content">
                                 <div class="place-name">${item.place}</div>
-                                <p class="schedule-desc">${item.desc}</p>
+                                <p class="schedule-desc">${item.desc || ''}</p>
                             </div>
                             <a class="map-link" href="${item.link}" target="_blank" onclick="event.stopPropagation()">🗺️</a>
                         </div>
+                        <div class="schedule-details">
+                            ${detailsHtml}
+                            ${guideHtml}
+                            ${imagesHtml}
+                        </div>
                     </article>
-                `).join('')}</div>`).join('');
+                `}).join('')}</div>`).join('');
 
             updateMap(filtered);
         }
 
         function filter(date) {
             selectedDate = date;
-            activePlace = null; // 필터 변경 시 선택 상태 초기화
+            activePlace = null;
             renderUI();
         }
 
-        async function loadData() {
-            try {
-                const response = await fetch('./data.json');
-                itineraryData = await response.json();
-                renderUI();
-            } catch (e) { console.error("데이터 로드 실패"); }
-        }
-
-        function setActive(place) {
+        function setActive(place, time) {
             activePlace = place;
 
-            // 타임라인 내 클래스 갱신
             document.querySelectorAll('.schedule-item').forEach(el => el.classList.remove('active'));
-            const activeEl = document.getElementById(`item-${btoa(encodeURIComponent(place))}`);
-            if (activeEl) activeEl.classList.add('active');
 
-            // 해당하는 마커가 있다면 팝업을 열고 지도를 이동
+            const uniqueId = btoa(encodeURIComponent(place + time)).replace(/=/g, '');
+            const activeEl = document.getElementById(`item(` + 'item-' + uniqueId + ')');
+
+            // ID 매핑 보정
+            const correctEl = document.getElementById(`item-${uniqueId}`);
+            if (correctEl) {
+                correctEl.classList.add('active');
+            }
+
             if (markersMap[place]) {
                 const marker = markersMap[place];
                 map.setView(marker.getLatLng(), 14, { animate: true, duration: 0.6 });
                 marker.openPopup();
             }
 
-            document.getElementById('mapSummary').innerHTML = `📍 <strong>${place}</strong> 위치를 확인 중입니다.`;
+            document.getElementById('mapSummary').innerHTML = `📍 <strong>${place}</strong> 스팟 정보를 확인 중입니다.`;
         }
 
         function updateMap(items) {
-            // 기존 마커 및 선 지우기
             markerLayer.clearLayers();
             polylineLayer.clearLayers();
             markersMap = {};
 
-            // 유효한 위경도가 있는 데이터 필터링 (인천공항 등 예외 처리를 원할 시 여기서 조율 가능)
-            // 유럽 내 동선 선명도를 위해, '전체' 보기 상태에서 인천공항(37.45)은 시각적 동선(선)에서 제외하는 것이 깔끔합니다.
             const validItems = items.filter(i => i.lat && i.lng);
             const lineCoordinates = validItems
-                .filter(i => selectedDate !== 'all' || i.place !== '인천국제공항')
+                .filter(i => !i.place.includes('인천국제공항'))
                 .map(i => [i.lat, i.lng]);
 
             if (validItems.length === 0) return;
 
-            // 1. 마커 생성
             validItems.forEach((item) => {
-                // 선택 유무에 따른 마커 색상 차별화 양식
                 const isSelected = activePlace === item.place;
                 const markerColor = isSelected ? '#ff7a59' : '#2f6f8f';
 
@@ -345,43 +414,43 @@
                     fillOpacity: 0.9
                 });
 
-                // 마커 선택 팝업 결합
-                customMarker.bindPopup(`<strong>${item.place}</strong><br><span style="font-size:11px; color:#666;">${item.time} - ${item.desc}</span>`);
+                customMarker.bindPopup(`<strong>${item.place}</strong><br><span style="font-size:11px; color:#666;">${item.time} - ${item.desc || ''}</span>`);
 
                 customMarker.on('click', () => {
-                    setActive(item.place);
+                    setActive(item.place, item.time);
                 });
 
                 customMarker.addTo(markerLayer);
-                markersMap[item.place] = customMarker; // 캐싱
+                markersMap[item.place] = customMarker;
             });
 
-            // 2. 동선 라인 연결 (경로선 그리기)
             if (lineCoordinates.length > 1) {
                 L.polyline(lineCoordinates, {
                     color: 'var(--accent)',
                     weight: 3,
                     opacity: 0.6,
-                    dashArray: '6, 6' // 점선 처리로 세련된 느낌 부여
+                    dashArray: '6, 6'
                 }).addTo(polylineLayer);
             }
 
-            // 3. 지도 뷰 최적화 자동 줌 (화면에 마커들이 모두 들어오게 조정)
-            const bounds = L.latLngBounds(validItems.map(i => [i.lat, i.lng]));
+            const mapBoundsItems = selectedDate === 'all'
+                ? validItems.filter(i => !i.place.includes('인천국제공항'))
+                : validItems;
+
+            const targetBounds = mapBoundsItems.length > 0 ? mapBoundsItems : validItems;
+            const bounds = L.latLngBounds(targetBounds.map(i => [i.lat, i.lng]));
             map.fitBounds(bounds, { padding: [40, 40] });
 
-            // 요약 가이드 갱신
             const summaryEl = document.getElementById('mapSummary');
             if (selectedDate === 'all') {
-                summaryEl.innerHTML = "💡 리스트의 일정을 클릭하면 해당 지도로 바로 이동합니다.";
+                summaryEl.innerHTML = "💡 리스트의 일정을 클릭하면 상세 내용과 이미지가 펼쳐집니다.";
             } else {
-                summaryEl.innerHTML = `📅 ${selectedDate} 일정 내 총 ${validItems.length}개의 주요 거점이 표기되었습니다.`;
+                summaryEl.innerHTML = `📅 ${selectedDate} 일정 내 총 ${validItems.length}개의 거점이 표기되었습니다.`;
             }
         }
 
-
         loadData();
-        // 윈도우 로드 시 지도 초기화 진행
+
         window.onload = initMap;
     </script>
 </body>
