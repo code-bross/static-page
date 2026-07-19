@@ -43,9 +43,9 @@
   { "date": "8.31", "time": "10:00", "place": "카페 자허", "desc": "자허 토르테 브런치", "link": "https://www.google.com/maps/search/?api=1&query=Café+Sacher+Wien", "lat": 48.2039459, "lng": 16.3698418 },
   { "date": "8.31", "time": "13:00", "place": "그라벤 & 콜마르크트 거리", "desc": "명품 매장과 세련된 건축물이 가득한 비엔나 대표 쇼핑가 활보", "link": "https://www.google.com/maps/search/?api=1&query=Graben+Vienna", "lat": 48.208754, "lng": 16.369412 },
   { "date": "8.31", "time": "17:30", "place": "알베르티나 미술관", "desc": "미술관 테라스에서 내려다보는 오페라 하우스 최고의 포토스팟 야경", "link": "https://www.google.com/maps/search/?api=1&query=Albertina+Vienna", "lat": 48.204692, "lng": 16.368314 },
-  { "date": "8.31", "time": "19:30", "place": "Lugeck", "desc": "모던 오스트리아 요리와 와인을 함께 즐기는 신혼부부 추천 레스토랑", "link": "https://www.google.com/maps/search/?api=1&query=Lugeck+Vienna", "lat": 48.209423, "lng": 16.375212 },
+  { "date": "8.31", "time": "19:30", "place": "Lugeck", "desc": "모던 오스트리아 요리와 와인을 함께 즐기는 레스토랑", "link": "https://www.google.com/maps/search/?api=1&query=Lugeck+Vienna", "lat": 48.209423, "lng": 16.375212 },
   
-  { "date": "9.01", "time": "09:30", "place": "비엔나 시내 일대", "desc": "허니문 스냅 사진 촬영 (2시간 소요)", "link": "https://www.google.com/maps/search/?api=1&query=Vienna", "lat": 48.208174, "lng": 16.373819 },
+  { "date": "9.01", "time": "09:30", "place": "비엔나 시내 일대", "desc": "스냅 사진 촬영 (2시간 소요)", "link": "https://www.google.com/maps/search/?api=1&query=Vienna", "lat": 48.208174, "lng": 16.373819 },
   { "date": "9.01", "time": "11:30", "place": "나슈마르크트 시장", "desc": "현지 시장 체험", "link": "https://www.google.com/maps/search/?api=1&query=Naschmarkt+Vienna", "lat": 48.1983017, "lng": 16.3627204 },
   { "date": "9.01", "time": "13:00", "place": "Neni am Naschmarkt", "desc": "나슈마르크트 시장 내부에서 가장 인기 있는 오리엔탈/중동 요리 점심", "link": "https://www.google.com/maps/search/?api=1&query=Neni+Naschmarkt+Vienna", "lat": 48.197512, "lng": 16.361412 },
   { "date": "9.01", "time": "15:00", "place": "프라터 놀이공원", "desc": "영화 '비포 선라이즈'의 배경이 된 클래식 대관람차 탑승 및 산책", "link": "https://www.google.com/maps/search/?api=1&query=Prater+Vienna", "lat": 48.216612, "lng": 16.395892 },
@@ -53,11 +53,9 @@
   
   { "date": "9.02", "time": "11:00", "place": "앙커시계", "desc": "정오에 12명의 역사적 인물 인형이 모두 나오는 오토마톤 시계 관람", "link": "https://www.google.com/maps/search/?api=1&query=Anker+Clock+Vienna", "lat": 48.210741, "lng": 16.373212 },
   { "date": "9.02", "time": "12:30", "place": "Café de l'Europe", "desc": "가벼운 샌드위치와 비엔나 멜랑쉬 커피로 여유로운 점심", "link": "https://www.google.com/maps/search/?api=1&query=Café+de+l'Europe+Vienna", "lat": 48.208412, "lng": 16.371892 },
-  { "date": "9.02", "time": "14:30", "place": "빈 시청사", "desc": "화려한 고딕 양식의 시청사 건물을 배경으로 스냅 사진 촬영", "link": "https://www.google.com/maps/search/?api=1&query=Vienna+City+Hall", "lat": 48.210811, "lng": 16.357214 },
-  { "date": "9.02", "time": "18:00", "place": "빈 국립 오페라극장", "desc": "공연 관람", "link": "https://www.google.com/maps/search/?api=1&query=Vienna+State+Opera", "lat": 48.2034306, "lng": 16.3692034 },
-  { "date": "9.02", "time": "21:30", "place": "Bitzinger Würstelstand", "desc": "오페라 관람 후 즐기는 오스트리아식 고급 소시지 야식", "link": "https://www.google.com/maps/search/?api=1&query=Bitzinger+Albertina+Vienna", "lat": 48.204512, "lng": 16.368812 },
+  { "date": "9.02", "time": "14:30", "place": "빈 시청사", "desc": "화려한 고딕 양식의 시청사 건물을 배경으로 산책 및 사진 촬영", "link": "https://www.google.com/maps/search/?api=1&query=Vienna+City+Hall", "lat": 48.210811, "lng": 16.357214 },
+  { "date": "9.02", "time": "16:00", "place": "프라하 바츨라프 하벨 국제공항", "desc": "귀국 준비 및 공항 이동 (공항 체크인)", "link": "https://www.google.com/maps/search/?api=1&query=Václav+Havel+Airport+Prague", "lat": 50.101784, "lng": 14.263180 },
+  { "date": "9.02", "time": "19:05", "place": "프라하 바츨라프 하벨 국제공항", "desc": "인천행 귀국 비행기 출발 (KE 970)", "link": "https://www.google.com/maps/search/?api=1&query=Václav+Havel+Airport+Prague", "lat": 50.101784, "lng": 14.263180 },
   
-  { "date": "9.03", "time": "09:00", "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)", "desc": "체크아웃 후 프라하(Prague)행 열차 탑승을 위해 빈 중앙역 이동", "link": "https://www.google.com/maps/search/?api=1&query=Leonardo+Hotel+Vienna+Hauptbahnhof", "lat": 48.183758, "lng": 16.378103 },
-  { "date": "9.03", "time": "14:30", "place": "K+K Hotel Central Prague (숙소)", "desc": "프라하 도착 후 숙소 체크인 및 프라하 일정 시작 준비", "link": "https://www.google.com/maps/search/?api=1&query=K%2BK+Hotel+Central+Prague", "lat": 50.087463, "lng": 14.430034 },
-  { "date": "9.03", "time": "16:00", "place": "빈 국제공항", "desc": "귀국 준비 (※ 프라하 아웃인 경우 일정 재조정 필요)", "link": "https://www.google.com/maps/search/?api=1&query=Vienna+International+Airport", "lat": 48.1179477, "lng": 16.5662578 }
+  { "date": "9.03", "time": "13:20", "place": "인천국제공항", "desc": "인천국제공항 도착 및 귀가", "link": "https://www.google.com/maps/search/?api=1&query=인천국제공항", "lat": 37.458666, "lng": 126.4419679 }
 ]
