@@ -25,7 +25,7 @@
   { "date": "8.27", "time": "19:00", "place": "Figlmüller", "desc": "슈니첼 저녁 식사", "link": "https://www.google.com/maps/search/?api=1&query=Figlmüller+Wien", "lat": 48.2093669, "lng": 16.3746338 },
   
   { "date": "8.28", "time": "09:00", "place": "슈테판 대성당", "desc": "빈 시내 투어 시작", "link": "https://www.google.com/maps/search/?api=1&query=St.+Stephen's+Cathedral+Vienna", "lat": 48.2084114, "lng": 16.3734707 },
-  { "date": "8.28", "time": "11:30", "place": "Plachutta Wollzeile", "desc": "오스트리아 전통 소고기 수육 요리 '타펠슈피츠' 점심 식사", "link": "https://www.google.com/maps/search/?api=1&query=Plachutta+Wollzeile+Vienna", "lat": 48.208534, "lng": 16.378125 },
+  { "date": "8.28", "time": "11:30", "place": "Plachutta Wollzeile", "desc": "오스트리아 전통 소고기 수욕 요리 '타펠슈피츠' 점심 식사", "link": "https://www.google.com/maps/search/?api=1&query=Plachutta+Wollzeile+Vienna", "lat": 48.208534, "lng": 16.378125 },
   { "date": "8.28", "time": "14:00", "place": "쇤부른 궁전", "desc": "궁전 내부 관람", "link": "https://www.google.com/maps/search/?api=1&query=Schönbrunn+Palace", "lat": 48.1858124, "lng": 16.3127641 },
   { "date": "8.28", "time": "18:00", "place": "호프부르크 왕궁", "desc": "합스부르크 왕가의 겨울 궁전 외관 및 미하엘 광장 야경 투어", "link": "https://www.google.com/maps/search/?api=1&query=Hofburg+Vienna", "lat": 48.206507, "lng": 16.365262 },
   { "date": "8.28", "time": "19:30", "place": "Café Central", "desc": "역사 깊은 예술가들의 아지트에서 저녁 식사 및 디저트", "link": "https://www.google.com/maps/search/?api=1&query=Café+Central+Vienna", "lat": 48.210404, "lng": 16.365415 },
@@ -45,8 +45,9 @@
   { "date": "8.31", "time": "17:30", "place": "알베르티나 미술관", "desc": "미술관 테라스에서 내려다보는 오페라 하우스 최고의 포토스팟 야경", "link": "https://www.google.com/maps/search/?api=1&query=Albertina+Vienna", "lat": 48.204692, "lng": 16.368314 },
   { "date": "8.31", "time": "19:30", "place": "Lugeck", "desc": "모던 오스트리아 요리와 와인을 함께 즐기는 신혼부부 추천 레스토랑", "link": "https://www.google.com/maps/search/?api=1&query=Lugeck+Vienna", "lat": 48.209423, "lng": 16.375212 },
   
-  { "date": "9.01", "time": "11:00", "place": "나슈마르크트 시장", "desc": "현지 시장 체험", "link": "https://www.google.com/maps/search/?api=1&query=Naschmarkt+Vienna", "lat": 48.1983017, "lng": 16.3627204 },
-  { "date": "9.01", "time": "12:30", "place": "Neni am Naschmarkt", "desc": "나슈마르크트 시장 내부에서 가장 인기 있는 오리엔탈/중동 요리 점심", "link": "https://www.google.com/maps/search/?api=1&query=Neni+Naschmarkt+Vienna", "lat": 48.197512, "lng": 16.361412 },
+  { "date": "9.01", "time": "09:30", "place": "비엔나 시내 일대", "desc": "허니문 스냅 사진 촬영 (2시간 소요)", "link": "https://www.google.com/maps/search/?api=1&query=Vienna", "lat": 48.208174, "lng": 16.373819 },
+  { "date": "9.01", "time": "11:30", "place": "나슈마르크트 시장", "desc": "현지 시장 체험", "link": "https://www.google.com/maps/search/?api=1&query=Naschmarkt+Vienna", "lat": 48.1983017, "lng": 16.3627204 },
+  { "date": "9.01", "time": "13:00", "place": "Neni am Naschmarkt", "desc": "나슈마르크트 시장 내부에서 가장 인기 있는 오리엔탈/중동 요리 점심", "link": "https://www.google.com/maps/search/?api=1&query=Neni+Naschmarkt+Vienna", "lat": 48.197512, "lng": 16.361412 },
   { "date": "9.01", "time": "15:00", "place": "프라터 놀이공원", "desc": "영화 '비포 선라이즈'의 배경이 된 클래식 대관람차 탑승 및 산책", "link": "https://www.google.com/maps/search/?api=1&query=Prater+Vienna", "lat": 48.216612, "lng": 16.395892 },
   { "date": "9.01", "time": "19:00", "place": "Schweizerhaus", "desc": "프라터 공원 내 위치한 겉바속촉 슈바인학센(치스텔) & 맥주 맛집", "link": "https://www.google.com/maps/search/?api=1&query=Schweizerhaus+Vienna", "lat": 48.219512, "lng": 16.397212 },
   
