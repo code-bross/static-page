@@ -201,8 +201,8 @@
     "date": "8.26", "time": "21:30", "place": "다뉴브강 유람선 선착장", "emoji": "🚢",
     "desc": "국회의사당 야경을 가장 가까이서 보는 유람선 탑승", 
     "imgs": [
-      "https://images.unsplash.com/photo-1578496479763-941975e52188?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&w=800&q=80"
+      "https://thumb.tidesquare.com/tour/public/product/PRV3006455682/PRD3006939704/origin/10-145.jpg?quality=80&w=750&h=500",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkoVURHeeeaYEFmFYEHV9FrhE2wFcLZHVOOaNeqFM_lX6tMtsUl3XY5scW&s=10"
     ],
     "details": "부다페스트 여행의 하이라이트입니다. 크루즈에 탑승하여 강바람을 맞으며 황금빛으로 빛나는 국회의사당과 부다 왕궁, 세체니 다리 밑을 통과하는 낭만적인 야경 투어를 경험합니다.",
     "guide": "선착장 위치 미리 확인 / 웰컴 드링크 포함 티켓이 많으며, 야외 데크 자리를 위해 20분 전 대기 권장",
@@ -212,8 +212,8 @@
     "date": "8.26", "time": "23:00", "place": "Novotel Budapest Danube (숙소)", "emoji": "🏨",
     "desc": "숙소 복귀 및 휴식", 
     "imgs": [
-      "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=800&q=80"
+      "https://media.joinup.travel/storage/hotel/29546/photos/16721_1.jpg",
+      "https://images.trvl-media.com/lodging/2000000/1520000/1516000/1515991/10c96f3c.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill"
     ],
     "details": "부다페스트에서의 마지막 밤입니다. 짐을 미리 정리하여 내일 오스트리아 빈으로 이동할 준비를 마친 후 휴식을 취합니다.",
     "guide": "여권 및 기차표 등 중요 문서 이동 가방에 따로 보관하기",
@@ -223,19 +223,19 @@
     "date": "8.27", "time": "10:00", "place": "Novotel Budapest Danube (숙소)", "emoji": "🏨",
     "desc": "체크아웃 후 빈(Wien)행 기차 탑승을 위해 이동", 
     "imgs": [
-      "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1515165504669-4230427445d8?auto=format&fit=crop&w=800&q=80"
+      "https://media.joinup.travel/storage/hotel/29546/photos/16721_1.jpg",
+      "https://images.trvl-media.com/lodging/2000000/1520000/1516000/1515991/10c96f3c.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill"
     ],
     "details": "호텔 체크아웃을 마치고 오스트리아 빈(Vienna)으로 향하는 국경 이동 열차를 타기 위해 부다페스트 켈레티(Keleti) 또는 델리(Deli) 역으로 이동합니다.",
     "guide": "기차역까지 택시(Bolt 앱 사용) 이동이 가장 안전하고 편리함",
     "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube", "lat": 47.507421, "lng": 19.038742 
   },
   { 
-    "date": "8.27", "time": "14:20", "place": "비엔나 중앙역", "emoji": "🚉",
+    "date": "8.27", "time": "14:20", "place": "Budapest-Keleti", "emoji": "🚉",
     "desc": "기차 도착 및 이동", 
     "imgs": [
-      "https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1532103054090-334e6e60b57c?auto=format&fit=crop&w=800&q=80"
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBHcOx8LaYHUP9ogXmnEsVHWMbhmC95VQh_SExl54qxw&s=10",
+      "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmko1QyhfiNgFQNP0hn8KbGvct4HFB-XVbZ_lgcZumEAEUBAIARHP5TVa1dOQJ8LHjRVtlzErZzQ8LPbbfBArN8Z4eEQrNn1-zTnVYqXG6CWHp9uPn4IGVTnAKylb45col1PfkHng=w408-h306-k-no"
     ],
     "details": "예술과 음악의 도시 오스트리아 빈 중앙역(Wien Hbf)에 도착합니다. 현대적이고 쾌적한 기차역 내부를 지나 예약된 숙소로 발걸음을 옮깁니다.",
     "guide": "역 내부에 인포메이션 센터 및 대형 코인라커 완비",
@@ -245,8 +245,8 @@
     "date": "8.27", "time": "14:40", "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)", "emoji": "🏨",
     "desc": "빈 숙소 체크인 및 짐 보관", 
     "imgs": [
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=800&q=80"
+      "https://avatars.mds.yandex.net/get-altay/16138055/2a0000019a97f70dc3006bbe5a95779a2881/L_height",
+      "https://media.leonardo-hotels.com/static.leonardo-hotels.com/image/leonardohotelviennahauptbahnhof_room_comfortdouble1_2023_db5732fd5c0f2d345b854ad8db1076ac.jpg"
     ],
     "details": "중앙역과 인접하여 다른 지역 및 근교 이동성이 매우 뛰어난 비즈니스 호텔입니다. 짐을 가볍게 맡겨두고 첫 빈 시내 탐방을 나섭니다.",
     "guide": "얼리 체크인이 불가할 경우 프론트에 기내용 캐리어 무료 보관 가능",
@@ -256,8 +256,8 @@
     "date": "8.27", "time": "15:00", "place": "벨베데레 궁전", "emoji": "🏰",
     "desc": "클림트 작품 감상", 
     "imgs": [
-      "https://images.unsplash.com/photo-1623772274488-8427f8a1a457?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1590001155093-a3c66ab0c3ff?auto=format&fit=crop&w=800&q=80"
+      "https://i.namu.wiki/i/i6A_4Sf8U_ys-UQISR_JugRlO7XYk-Q6nsO5XOUC7VbS39yurB2Gy8VTL_TT1HdvjrONkltzkyxpeykxV6aMmg.webp",
+      "https://thumb.tidesquare.com/tour/public/product/PRV3000078320/PRD3007149426/editor/20241022025101739_oQvA3.jpg"
     ],
     "details": "아름다운 바로크 양식의 궁전으로, 상궁 미술관에는 구스타프 클림트의 세계적인 명작 '키스(The Kiss)'와 '유디트'가 전시되어 있습니다. 화려한 궁전 정원 산책도 놓치지 마세요.",
     "guide": "운영시간 09:00 - 18:00 / 클림트 작품이 있는 '상궁(Upper)' 티켓 필수 지정 시간 입장",
