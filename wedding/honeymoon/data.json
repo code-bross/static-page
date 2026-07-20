@@ -189,7 +189,7 @@
                 "link": "https://www.google.com/maps/search/?api=1&query=Fisherman's+Bastion", "lat": 47.5021827, "lng": 19.0347813
             },
             {
-                "date": "8.26", "time": "19:30", "place": "부다 지구 로컬 레스토랑", "emoji": "🍽️",
+                "date": "8.26", "time": "19:30", "place": "Halászbástya Étterem", "emoji": "🍽️",
                 "desc": "유람선 탑승 전 저녁 식사",
                 "imgs": [
                     "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80",
@@ -197,7 +197,7 @@
                 ],
                 "details": "어부의 요새 주변 혹은 유람선 선착장과 가까운 다뉴브 강변 레스토랑에서 즐기는 정갈한 저녁 식사입니다. 아름답게 물드는 야경을 감상한 뒤 기분 좋은 만찬을 즐깁니다.",
                 "guide": "21시 30분 유람선 탑승 동선을 고려해 선착장 주변 식당으로 사전 예약 추천",
-                "link": "https://www.google.com/maps/search/?api=1&query=Budapest+Danube+River+Restaurants", "lat": 47.500412, "lng": 19.045012
+                "link": "https://maps.app.goo.gl/xigtmrHbjNiLN82HA", "lat": 47.5027757, "lng": 19.0320084
             },
             {
                 "date": "8.26", "time": "21:30", "place": "다뉴브강 유람선 선착장", "emoji": "🚢",
@@ -531,15 +531,15 @@
                 "link": "https://www.google.com/maps/search/?api=1&query=K%2BK+Hotel+Central+Prague", "lat": 50.087342, "lng": 14.428412
             },
             {
-                "date": "8.30", "time": "20:30", "place": "프라하 중앙역 근처 식당", "emoji": "🍺",
+                "date": "8.30", "time": "20:30", "place": "Potrefená Husa Hybernská", "emoji": "🍺",
                 "desc": "숙소 체크인 후 근처 편안한 레스토랑에서 저녁 식사 및 휴식",
                 "imgs": [
                     "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80",
                     "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=800&q=80"
                 ],
-                "details": "긴 이동으로 지친 몸을 달래기 위해 숙소 인근의 아늑한 체코 로컬 펍에서 가볍게 저녁 식사를 합니다. 부드럽고 쌉싸름한 오리지널 체코 생맥주 한 잔으로 피로를 날려보세요.",
-                "guide": "체코는 팁 문화가 발달해 있으므로 계산 시 5~10% 내외의 팁을 추가하거나 내림 계산 선호",
-                "link": "https://www.google.com/maps/search/?api=1&query=Prague+Central+Station+Restaurants", "lat": 50.083500, "lng": 14.435000
+                "details": "긴 이동으로 지친 몸을 달래기 위해 숙소(K+K 센트럴) 바로 인근에 위치한 모던하고 깔끔한 체코 로컬 체인 펍입니다. 부드럽고 신선한 필스너 우르켈, 벨벳 생맥주와 함께 가벼운 버거나 전통 안주 요리를 맛봅니다.",
+                "guide": "매장이 넓고 쾌적하여 늦은 시간 첫날 저녁을 안정적으로 즐기기에 좋습니다. 서비스 만족도에 따라 5~10% 내외의 팁을 추가해 결제합니다.",
+                "link": "https://maps.app.goo.gl/ArnZ1UMNwC1kNTXKA", "lat": 50.0871545, "lng": 14.4272011
             },
             {
                 "date": "8.30", "time": "22:00", "place": "K+K Hotel Central Prague (숙소)", "emoji": "🏨",
@@ -619,15 +619,15 @@
                 "link": "https://www.google.com/maps/search/?api=1&query=John+Lennon+Wall", "lat": 50.086221, "lng": 14.406852
             },
             {
-                "date": "8.31", "time": "20:30", "place": "프라하 구시가지 로컬 식당", "emoji": "🍖",
-                "desc": "체코 전통 요리(꼴레뇨 또는 스비치코바)와 필스너 우르켈 맥주 저녁 식사",
+                "date": "8.31", "time": "20:30", "place": "Restaurace Mlejnice", "emoji": "🍖",
+                "desc": "구시가지 아늑한 동굴 분위기에서 즐기는 전통 꼴레뇨와 필스너 맥주 저녁 식사",
                 "imgs": [
                     "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=800&q=80",
                     "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"
                 ],
-                "details": "체코식 족발 요리로 겉은 바삭하고 속은 촉촉한 기름진 맛이 일품인 '꼴레뇨' 또는 부드러운 소고기 등심에 생크림과 크랜베리 소스를 곁들인 '스비치코바'를 맛봅니다. 여기에 신선한 '필스너 우르켈' 생맥주를 곁들이면 최고의 만찬이 됩니다.",
-                "guide": "꼴레뇨는 양이 많으므로 2인당 1메뉴 주문 추천 / 코젤 다크 생맥주도 훌륭한 선택",
-                "link": "https://www.google.com/maps/search/?api=1&query=Prague+Old+Town+Restaurants", "lat": 50.087500, "lng": 14.422000
+                "details": "구시가지 좁은 골목 안쪽에 위치한 아늑하고 투박한 중세 농가 풍 인테리어의 전통 맛집입니다. 겉은 과자처럼 바삭하고 속은 부드러운 체코식 족발 요리 '꼴레뇨'와 소고기 등심 요리인 '스비치코바'를 시원하고 진한 필스너 우르켈 생맥주와 완벽하게 즐깁니다.",
+                "guide": "한국인 입맛에 가장 잘 맞는 꼴레뇨 맛집으로 손꼽히는 곳입니다. 골목 안쪽에 숨어있어 지도를 잘 확인해야 하며, 저녁 피크타임에는 예약 혹은 이른 방문이 안전합니다.",
+                "link": "https://maps.app.goo.gl/JRDLkDZbpjgQ8RTd7", "lat": 50.0864257, "lng": 14.4189713
             },
             {
                 "date": "8.31", "time": "22:30", "place": "K+K Hotel Central Prague (숙소)", "emoji": "🏨",
