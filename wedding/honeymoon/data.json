@@ -88,15 +88,17 @@
     "link": "https://www.google.com/maps/search/?api=1&query=St.+Stephen's+Basilica+Budapest", "lat": 47.5008902, "lng": 19.0539887 
   },
   { 
-    "date": "8.25", "time": "12:45", "place": "Paprika Vendéglő", "emoji": "🍖",
-    "desc": "전통 음식 점심 식사", 
+    "date": "8.25", "time": "12:45", "place": "Menza Étterem és Kávézó", "emoji": "🍽️",
+    "desc": "세련된 분위기에서 즐기는 헝가리 전통 및 퓨전 점심 식사", 
     "imgs": [
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZC92az_gllWsbP5PGW_10v5OHbhPn1w45OnM3hbq1wHLUK1-03hf9vf8-&s=10",
-      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/31/6d/a9/5a/caption.jpg?w=1100&h=1100&s=1"
+      "https://etterem.hu/img/max960/p571n/1354184858-7579.jpg",
+      "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2Fb18q08%2FbtshBmZN9Tg%2FAAAAAAAAAAAAAAAAAAAAAJ9_tM0bOc-iU3gpra-6YOi_v88kXSIiqa_kte3qIOmg%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1785509999%26allow_ip%3D%26allow_referer%3D%26signature%3DFO1TjsYtBjDj0VA3rSn4Hsr%252F%252Fz0%253D"
     ],
-    "details": "시골 오두막 분위기의 인테리어 속에서 헝가리 홈메이드 스타일의 전통 요리를 제공하는 유명 맛집입니다. 육즙 가득한 고기 요리와 파프리카 소스를 곁들인 전통식을 추천합니다.",
-    "guide": "영웅광장 도보 5분 거리 / 현장 대기가 길 수 있으므로 오픈 타임 맞춰 방문 권장",
-    "link": "https://www.google.com/maps/search/?api=1&query=Paprika+Vendéglő+Budapest", "lat": 47.5088683, "lng": 19.0831081 
+    "details": "현지인은 물론 여행객들에게도 선풍적인 인기를 끄는 부다페스트 대표 레스토랑입니다. 마늘 크림 스프, 오리 가슴살 스테이크, 그리고 헝가리식 굴라시를 현대적이고 세련된 인테리어 속에서 즐길 수 있습니다.",
+    "guide": "이슈트반 대성당에서 도보로 이동 가능 / 대기가 많으므로 사전 웹 예약 혹은 피크타임을 살짝 피해서 방문 권장",
+    "link": "https://www.google.com/maps/search/?api=1&query=Menza+Étterem+és+Kávézó+Budapest", "lat": 47.502812, "lng": 19.064523,
+    "reservation" : "https://www.menzaetterem.hu/en/reservation/",
+    "reserved" : ""
   },
   { 
     "date": "8.25", "time": "14:30", "place": "부다페스트 중앙시장", "emoji": "🛍️",
@@ -105,7 +107,7 @@
       "https://www.windsortour.co.kr/images/area_img/HU/BUD/HUBUD3200391_0003.jpg?CMD=resize&width=100%",
       "https://mblogthumb-phinf.pstatic.net/MjAyNDA1MDhfMjk4/MDAxNzE1MTY3Njc1Njgz.bK_GkexdRp8sbHvhmgdRENRkLeCfw2mIRId7uirXBNAg.icvGA-1xA8ytNkFauNBohmUw2pCV-td9acizyeMrgHQg.JPEG/SE-70413b82-64be-4e60-9985-3ee8fbf9ccbd.jpg?type=w800"
     ],
-    "details": "19세기 고풍스러운 외관을 가진 대규모 실내 시장입니다. 1층에서는 헝가리 특산품인 파프리카 가루, 토카이 와인, 살라미 등을 판매하며, 2층에서는 로컬 수공예품และ 스트리트 푸드를 즐길 수 있습니다.",
+    "details": "19세기 고풍스러운 외관을 가진 대규모 실내 시장입니다. 1층에서는 헝가리 특산품인 파프리카 가루, 토카이 와인, 살라미 등을 판매하며, 2층에서는 로컬 수공예품과 스트리트 푸드를 즐길 수 있습니다.",
     "guide": "일요일 휴무 / 2층 기념품 샵들은 현금(포린트) 결제 시 할인이 되는 경우가 있음",
     "link": "https://www.google.com/maps/search/?api=1&query=Great+Market+Hall+Budapest", "lat": 47.487056, "lng": 19.058344 
   },
@@ -187,15 +189,15 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Fisherman's+Bastion", "lat": 47.5021827, "lng": 19.0347813 
   },
   { 
-    "date": "8.26", "time": "19:30", "place": "Északi Szomszédok Bisztró", "emoji": "🍷",
-    "desc": "파노라마 디너", 
+    "date": "8.26", "time": "19:30", "place": "부다 지구 로컬 레스토랑", "emoji": "🍽️",
+    "desc": "유람선 탑승 전 저녁 식사", 
     "imgs": [
       "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=800&q=80"
     ],
-    "details": "다뉴브강과 도시의 스카이라인이 내려다보이는 멋진 전망을 가진 비스트로입니다. 모던하게 재해석된 유러피안 요리와 와인을 곁들이며 프라이빗하고 로맨틱한 저녁 식사를 즐깁니다.",
-    "guide": "야경이 잘 보이는 창가 좌석은 예약이 필수적임 / 서비스 차지 포함 여부 확인",
-    "link": "https://www.google.com/maps/search/?api=1&query=%C3%89szaki+Szomsz%C3%A9dok+Bisztr%C3%B3", "lat": 47.4901945, "lng": 19.0668372 
+    "details": "어부의 요새 주변 혹은 유람선 선착장과 가까운 다뉴브 강변 레스토랑에서 즐기는 정갈한 저녁 식사입니다. 아름답게 물드는 야경을 감상한 뒤 기분 좋은 만찬을 즐깁니다.",
+    "guide": "21시 30분 유람선 탑승 동선을 고려해 선착장 주변 식당으로 사전 예약 추천",
+    "link": "https://www.google.com/maps/search/?api=1&query=Budapest+Danube+River+Restaurants", "lat": 47.500412, "lng": 19.045012 
   },
   { 
     "date": "8.26", "time": "21:30", "place": "다뉴브강 유람선 선착장", "emoji": "🚢",
@@ -259,7 +261,7 @@
       "https://i.namu.wiki/i/i6A_4Sf8U_ys-UQISR_JugRlO7XYk-Q6nsO5XOUC7VbS39yurB2Gy8VTL_TT1HdvjrONkltzkyxpeykxV6aMmg.webp",
       "https://thumb.tidesquare.com/tour/public/product/PRV3000078320/PRD3007149426/editor/20241022025101739_oQvA3.jpg"
     ],
-    "details": "아름다운 바로크 양식의 궁전으로, 상궁 미술관에는 구스타프 클림트의 세계적인 명작 '키스(The Kiss)'와 '유디트'가 전시되어 있습니다. 화려한 궁전 정원 산책도 놓치지 마세요.",
+    "details": "아름다운 바로크 양식의 궁전으로, 상궁 미술관에는 구스타프 클림트의 세계적인 명작 '키스(The Kiss)'와 '유디트'가 전시되어 있습니다. 화려한 궁전 정원 산책도놓치지 마세요.",
     "guide": "운영시간 09:00 - 18:00 / 클림트 작품이 있는 '상궁(Upper)' 티켓 필수 지정 시간 입장",
     "link": "https://www.google.com/maps/search/?api=1&query=Belvedere+Palace+Vienna", "lat": 48.1914751, "lng": 16.3809322 
   },
@@ -337,8 +339,8 @@
       "https://images.unsplash.com/photo-1623772274488-8427f8a1a457?auto=format&fit=crop&w=800&q=80"
     ],
     "details": "합스부르크 왕가의 여름 궁전으로 프랑스 베르사유 궁전에 버금가는 거대한 스케일과 화려한 로코코 양식의 극치를 보여줍니다. 마리 앙투아네트가 어린 시절을 보냈던 방 등 역사적인 방들을 오디오 가이드와 관람합니다.",
-    "guide": "그랜드 투어(40개 방 관람) 티켓 추천 / 글로리에테 언덕 위까지 올라가면 궁전 전체 뷰 조망 가능",
-    "link": "https://www.google.com/maps/search/?api=1&query=Sch%C3%B6nbrunn+Palace", "lat": 48.1858124, "lng": 16.3127641 
+    "guide": "그랜드 투어(40개 방 관람) 티켓 추천 / 글로리에테 언덕 위까지 올라면 궁전 전체 뷰 조망 가능",
+    "link": "https://www.google.com/maps/search/?api=1&query=Sch%C3%B6nbrunn+Palace", "lat": 48.185124, "lng": 16.3127641 
   },
   { 
     "date": "8.28", "time": "18:00", "place": "호프부르크 왕궁", "emoji": "🏛️",
@@ -545,7 +547,7 @@
       "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80"
     ],
-    "details": "내일부터 시작될 본격적인 프라하 도보 여행และ 인생 스냅 촬영을 위해 아늑한 숙소에서 일찍 휴식을 취합니다.",
+    "details": "내일부터 시작될 본격적인 프라하 도보 여행과 인생 스냅 촬영을 위해 아늑한 숙소에서 일찍 휴식을 취합니다.",
     "guide": "침구류 상태 확인 및 객실 내 온도 조절",
     "link": "https://www.google.com/maps/search/?api=1&query=K%2BK+Hotel+Central+Prague", "lat": 50.087342, "lng": 14.428412 
   },
