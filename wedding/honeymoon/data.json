@@ -146,14 +146,13 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Menza+Étterem+és+Kávézó+Budapest",
     "lat": 47.502812,
     "lng": 19.064523,
-    "reservation": "https://www.menzaetterem.hu/en/reservation/",
-    "reserved": ""
+    "reservation": "https://www.menzaetterem.hu/en/reservation/"
   },
   {
     "date": "8.25",
     "time": "14:30",
     "place": "부다페스트 중앙시장",
-    "emoji": "🛍️",
+    "emoji": "🛒",
     "desc": "기념품 쇼핑 및 로컬 분위기 구경",
     "imgs": [
       "https://www.windsortour.co.kr/images/area_img/HU/BUD/HUBUD3200391_0003.jpg?CMD=resize&width=100%",
@@ -167,6 +166,21 @@
     "guide_links": [
       "https://www.greatmarkethall.hu/en/visitor-guide"
     ]
+  },
+  {
+    "date": "8.25",
+    "time": "15:30",
+    "place": "안드라시 거리 (Andrássy út)",
+    "emoji": "🛍️",
+    "desc": "명품 및 컨템포러리 브랜드 쇼핑과 카페 거리 산책",
+    "imgs": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Andr%C3%A1ssy_%C3%BAt_-_Budapest.jpg/1280px-Andr%C3%A1ssy_%C3%BAt_-_Budapest.jpg"
+    ],
+    "details": "부다페스트의 샹젤리제라 불리는 유네스코 세계문화유산 가로수길입니다. 구찌 등 글로벌 럭셔리 브랜드 매장과 COS 같은 트렌디한 브랜드들이 늘어서 있어 쾌적하게 아이템을 둘러보고 여유로운 쇼핑을 즐기기 좋습니다.",
+    "guide": "중앙시장에서 트램 47/49번 탑승 후 지하철 M1 환승으로 이동 용이",
+    "link": "https://www.google.com/maps/search/?api=1&query=Andrássy+út",
+    "lat": 47.5026,
+    "lng": 19.0583
   },
   {
     "date": "8.25",
@@ -227,7 +241,7 @@
     "desc": "브런치 및 카페 투어",
     "imgs": [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPTSb_S4J4ZtsOsTVpb-g93gh9a6NecPYOqDyudVRbDJXXYNdn096xvk0&s=10",
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK6vsvF8b2Cl6MhhJnyKZXkmUKKueoKpLmf57WC7Qtv120TXlT_FNZiRU&s=10"
+      "https://encryptedtbn0.gstatic.com/images?q=tbn:ANd9GcTK6vsvF8b2Cl6MhhJnyKZXkmUKKueoKpLmf57WC7Qtv120TXlT_FNZiRU&s=10"
     ],
     "details": "'세계에서 가장 아름다운 카페'라는 명성에 걸맞게 궁전 내부를 방불케 하는 르네상스 스타일의 화려한 천장 벽화와 황금빛 조각들이 눈을 사로잡습니다. 클래식 연주를 들으며 고급스러운 브런치를 즐깁니다.",
     "guide": "사전 예약 없이는 1시간 이상 대기할 수 있으므로 공식 홈페이지 예약 필수 / 드레스코드 스마트 캐주얼",
@@ -361,6 +375,36 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Leonardo+Hotel+Vienna+Hauptbahnhof",
     "lat": 48.183758,
     "lng": 16.378103
+  },
+  {
+    "date": "8.27",
+    "time": "11:30",
+    "place": "콜마르크트 & 그라벤 거리",
+    "emoji": "🛍️",
+    "desc": "빈 핵심 명품 거리 쇼핑 및 부티크 투어",
+    "imgs": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Wien_-_Kohlmarkt_%281%29.JPG/1280px-Wien_-_Kohlmarkt_%281%29.JPG"
+    ],
+    "details": "샤넬, 프라다, 톰브라운 등 하이엔드 럭셔리 브랜드들이 밀집해 있는 빈의 가장 우아한 쇼핑 거리입니다. 유럽 특유의 웅장한 바로크 건축물들을 배경으로 아름다운 쇼핑 윈도우를 감상하며 특별한 아이템을 찾아볼 수 있습니다.",
+    "guide": "슈테판 대성당과 호프부르크 왕궁 사이를 잇는 중심 보행자 거리이므로 도보 이동에 최적화되어 있습니다.",
+    "link": "https://www.google.com/maps/search/?api=1&query=Kohlmarkt+Vienna",
+    "lat": 48.2087,
+    "lng": 16.3675
+  },
+  {
+    "date": "8.27",
+    "time": "13:30",
+    "place": "Salm Bräu (살름 브로이)",
+    "emoji": "🍽️",
+    "desc": "벨베데레 궁전 입장 전 즐기는 오스트리아식 바베큐 립과 맥주 식사",
+    "imgs": [
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/05/15/00/salm-brau.jpg?w=600&h=400&s=1"
+    ],
+    "details": "직접 양조하는 신선한 크래프트 맥주와 부드러운 폭립(Spareribs)으로 현지인과 여행객 모두에게 사랑받는 곳입니다. 쇼핑 후 체력을 보충하고 벨베데레 궁전을 관람하기에 완벽한 위치와 맛을 자랑합니다.",
+    "guide": "벨베데레 하궁 출입구 바로 옆에 위치하여 식사 후 바로 궁전 관람으로 이어지는 최적의 동선입니다.",
+    "link": "https://www.google.com/maps/search/?api=1&query=Salm+Brau+Vienna",
+    "lat": 48.1947,
+    "lng": 16.3813
   },
   {
     "date": "8.27",
@@ -943,8 +987,8 @@
     "emoji": "🏰",
     "desc": "세계 최대 규모의 고성 단지 입장 및 내부 관람 시작",
     "imgs": [
-      "https://media-cdn.tripadvisor.com/media/photo-s/1a/05/15/00/prague-castle.jpg",
-      "https://cdn.getyourguide.com/img/location/5c8e3e4e3c9e8.jpeg/99.jpg"
+      "https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1254,h_836/w_77,x_14,y_14,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/i20crghkioqdfip8q9be/%ED%94%84%EB%9D%BC%ED%95%98%EC%84%B1%EC%9D%98%EC%9B%85%EC%9E%A5%ED%95%A8%EA%B3%BC%EB%A7%A4%EB%A0%A5%EC%9D%84%ED%83%90%ED%97%98%ED%95%B4%EB%B3%B4%EC%84%B8%EC%9A%94.jpg",
+      "https://thumb.tidesquare.com/tour/public/product/PRV3006455682/PRD3012479669/origin/1-145.jpg?quality=80&w=750&h=500"
     ],
     "details": "9세기부터 체코 통치자들의 궁전이었으며 현재는 대통령 관저로 사용 중인 세계에서 가장 큰 성채 단지입니다. 블타바 강 언덕 위에 웅장하게 서 있어 프라하 전역을 관망하기 최적의 장소입니다.",
     "guide": "입구에서 엄격한 소지품 및 보안 검색 진행 / 서킷 코스 티켓(A 또는 B) 구매하여 입장",
@@ -1010,19 +1054,33 @@
   },
   {
     "date": "9.01",
-    "time": "18:30",
-    "place": "U Parlamentu",
-    "emoji": "🍽️",
-    "desc": "체코 전통 굴라시와 맥주로 든든한 저녁 식사",
+    "time": "16:30",
+    "place": "파르지주스카 거리 (Pařížská)",
+    "emoji": "🛍️",
+    "desc": "프라하 최고의 명품 브랜드 부티크 쇼핑 거리",
     "imgs": [
-      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0b/86/a0/ca/u-parlamentu.jpg?w=600&h=400&s=1",
-      "https://media-cdn.tripadvisor.com/media/photo-s/0d/e0/e6/f1/u-parlamentu.jpg"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Parizska_ulice_v_Praze.jpg/1280px-Parizska_ulice_v_Praze.jpg"
     ],
-    "details": "현지 체코인들이 가득한 찐 로컬 가성비 플레이스입니다. 헝가리식 굴라시와 달리 빵(크네들리키)에 소스를 찍어 먹는 체코식 굴라시와 입안 가득 청량함이 감도는 필스너 우르켈 타 탱크 맥주를 최고 신선한 상태로 서빙합니다.",
-    "guide": "카드 결제가 가능하지만 서버에게 직접 팁을 지정해 주는 방식이 대중적임",
-    "link": "https://www.google.com/maps/search/?api=1&query=U+Parlamentu+Prague",
-    "lat": 50.088654,
-    "lng": 14.417212
+    "details": "구시가지 광장에서 블타바 강 쪽으로 이어지는 프라하 최고의 명품 쇼핑 거리입니다. 아름다운 아르누보 양식의 건물들 사이로 프라다, 구찌, 디올 등 다양한 하이엔드 럭셔리 브랜드 매장들이 들어서 있어 신혼여행 선물을 여유롭게 쇼핑하기 좋은 곳입니다.",
+    "guide": "스타벅스에서 구시가지 광장으로 내려가는 동선상에 위치하여 접근성이 매우 뛰어납니다.",
+    "link": "https://www.google.com/maps/search/?api=1&query=Pařížská+Street",
+    "lat": 50.0906,
+    "lng": 14.4194
+  },
+  {
+    "date": "9.01",
+    "time": "18:30",
+    "place": "Kantýna (칸티나)",
+    "emoji": "🥩",
+    "desc": "프리미엄 정육 식당에서 즐기는 체코식 고기 파티",
+    "imgs": [
+      "https://media-cdn.tripadvisor.com/media/photo-s/0f/c6/77/8e/kantyna.jpg"
+    ],
+    "details": "현지인들 사이에서 가장 핫한 대규모 정육 식당으로, 원하는 부위의 신선한 스테이크 고기나 체코식 타르타르(육회)를 직접 골라 주문할 수 있습니다. 완벽하게 구워진 고기와 최고 수준의 신선한 필스너 맥주의 조합을 맛볼 수 있는 곳입니다.",
+    "guide": "입장 시 뼈 모양의 종이를 받아 메뉴를 주문할 때마다 도장을 받는 독특하고 재밌는 결제 시스템입니다.",
+    "link": "https://www.google.com/maps/search/?api=1&query=Kantýna+Prague",
+    "lat": 50.0839,
+    "lng": 14.4283
   },
   {
     "date": "9.01",
