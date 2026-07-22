@@ -76,7 +76,8 @@
     "details": "첫날의 긴 여정을 마무리하고 내일의 본격적인 일정을 위해 휴식을 취합니다. 방 안에서 불 켜진 국회의사당 야경을 눈에 담으며 잠에 청해보세요.",
     "guide": "시차 적응을 위해 충분한 수분 섭취 및 숙면 취하기",
     "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube",
-    "lat": 47.507421,"lng": 19.038742
+    "lat": 47.507421,
+    "lng": 19.038742
   },
   {
     "date": "8.25",
@@ -166,7 +167,8 @@
     "place": "세체니 온천",
     "emoji": "♨️",
     "desc": "야간 온천 입욕",
-    "imgs": ["https://mblogthumb-phinf.pstatic.net/MjAyNDEwMjBfMTEz/MDAxNzI5MzU1NjYyNjky.1LC_9g5qvfAm4q_U3hzEhsfbaqIxXosNkrWhbDeTG20g.Z3J3W-JVx1kzC8ec-7GfwC9PezbZrEMDM8X0aedgj4Mg.JPEG/8CAA4F29-50FE-4D1D-97FF-CA0686018827_1_105_c.jpeg?type=w800",
+    "imgs": [
+      "https://mblogthumb-phinf.pstatic.net/MjAyNDEwMjBfMTEz/MDAxNzI5MzU1NjYyNjky.1LC_9g5qvfAm4q_U3hzEhsfbaqIxXosNkrWhbDeTG20g.Z3J3W-JVx1kzC8ec-7GfwC9PezbZrEMDM8X0aedgj4Mg.JPEG/8CAA4F29-50FE-4D1D-97FF-CA0686018827_1_105_c.jpeg?type=w800",
       "https://www.windsortour.co.kr/images/area_img/HU/BUD/HUBUD3200392_0002.jpg?CMD=resize&width=100%"
     ],
     "details": "네오바로크 양식의 화려한 궁전 같은 건물에서 즐기는 유럽 최대 규모의 온천입니다. 따뜻한 노천탕에 몸을 담그고 현지인들이 물속에서 체스를 두는 이색적인 풍경을 감상하며 여유를 만끽합니다.",
@@ -254,7 +256,8 @@
       "https://cdn.getyourguide.com/img/tour/1949619a1bfcb7484844c9c4eb2fd7bdedb64a20e266761be0a522ec2d9cd721.jpg/99.jpg"
     ],
     "details": "다채로운 색상의 모자이크 기와 지붕이 특징인 고딕 양식의 성당입니다. 과거 헝가리 국왕들의 대관식이 거행되었던 역사적인 장소로, 내부의 화려한 조각과 스테인드글라스가 아름답습니다.",
-    "guide": "성당 내부와 탑(전망대) 입장권 별도 판매 / 복장 제한 유의 (무릎 및 어깨 노출 자제)","link": "https://www.google.com/maps/search/?api=1&query=Matthias+Church+Budapest",
+    "guide": "성당 내부와 탑(전망대) 입장권 별도 판매 / 복장 제한 유의 (무릎 및 어깨 노출 자제)",
+    "link": "https://www.google.com/maps/search/?api=1&query=Matthias+Church+Budapest",
     "lat": 47.501991,
     "lng": 19.034239
   },
@@ -347,7 +350,8 @@
     "imgs": [
       "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Upper_Belvedere_palace_Vienna.jpg/1280px-Upper_Belvedere_palace_Vienna.jpg",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Lower_Belvedere_Palace%2C_Vienna_%2854895504647%29.jpg/1280px-Lower_Belvedere_Palace%2C_Vienna_%2854895504647%29.jpg"
-    ],"details": "아름다운 바로크 양식의 궁전으로, 상궁 미술관에는 구스타프 클림트의 세계적인 명작 '키스(The Kiss)'와 '유디트'가 전시되어 있습니다. 화려한 궁전 정원 산책도 놓치지 마세요.",
+    ],
+    "details": "아름다운 바로크 양식의 궁전으로, 상궁 미술관에는 구스타프 클림트의 세계적인 명작 '키스(The Kiss)'와 '유디트'가 전시되어 있습니다. 화려한 궁전 정원 산책도 놓치지 마세요.",
     "guide": "운영시간 09:00 - 18:00 / 클림트 작품이 있는 '상궁(Upper)' 티켓 필수 지정 시간 입장",
     "link": "https://www.google.com/maps/search/?api=1&query=Belvedere+Palace+Vienna",
     "lat": 48.1914751,
@@ -433,7 +437,8 @@
       "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Vienna_Stephansdom_Dom_01.jpg/1280px-Vienna_Stephansdom_Dom_01.jpg"
     ],
     "details": "빈의 상징과도 같은 모자이크 지붕이 매력적인 거대한 고딕 양식 성당입니다. 오스트리아 최고의 역사적 랜드마크로 성당 내부의 웅장한 기둥과 높은 천장이 압도적입니다.",
-    "guide": "내부 입장은 무료이나 카타콤베 투어, 북탑/남탑 전망대 입장료는 각각 별도 부과","link": "https://www.google.com/maps/search/?api=1&query=St.+Stephen%27s+Cathedral+Vienna",
+    "guide": "내부 입장은 무료이나 카타콤베 투어, 북탑/남탑 전망대 입장료는 각각 별도 부과",
+    "link": "https://www.google.com/maps/search/?api=1&query=St.+Stephen%27s+Cathedral+Vienna",
     "lat": 48.2084114,
     "lng": 16.3734707
   },
@@ -524,7 +529,8 @@
     "emoji": "🏨",
     "desc": "숙소 출발 및 박물관 집중 투어",
     "imgs": [
-      "https://avatars.mds.yandex.net/get-altay/16138055/2a0000019a97f70dc3006bbe5a95779a2881/L_height","https://media.leonardo-hotels.com/static.leonardo-hotels.com/image/leonardohotelviennahauptbahnhof_room_comfortdouble1_2023_db5732fd5c0f2d345b854ad8db1076ac.jpg"
+      "https://avatars.mds.yandex.net/get-altay/16138055/2a0000019a97f70dc3006bbe5a95779a2881/L_height",
+      "https://media.leonardo-hotels.com/static.leonardo-hotels.com/image/leonardohotelviennahauptbahnhof_room_comfortdouble1_2023_db5732fd5c0f2d345b854ad8db1076ac.jpg"
     ],
     "details": "세계적인 보물들이 가득한 박물관 내부 투어와 역사적인 건축물을 위주로 관람합니다. 오스트리아에서 꼭 봐야 할 명소들을 하루에 집중 탐방합니다.",
     "guide": "박물관 패스나 대중교통 티켓 유효 시간 체크",
@@ -565,8 +571,8 @@
     "details": "빈 미술사 박물관 관람 후 방문하기 좋은 정통 이탈리안 레스토랑입니다. 화덕 피자와 생면 파스타의 퀄리티가 매우 높아 현지인들에게도 인기가 많으며, 이탈리아 본토의 맛을 오스트리아 빈에서 경험할 수 있습니다.",
     "guide": "인기 맛집이므로 점심 피크타임 방문 시 사전 예약을 강력히 권장합니다.",
     "link": "https://www.google.com/maps/search/?api=1&query=L%27Autentico+Vienna",
-    "lat": 48.2038016,
-    "lng": 16.3617874
+    "lat": 48.2182044,
+    "lng": 16.3648934
   },
   {
     "date": "8.29",
@@ -611,7 +617,8 @@
     "emoji": "🏨",
     "desc": "숙소 복귀 및 휴식",
     "imgs": [
-      "https://avatars.mds.yandex.net/get-altay/16138055/2a0000019a97f70dc3006bbe5a95779a2881/L_height","https://media.leonardo-hotels.com/static.leonardo-hotels.com/image/leonardohotelviennahauptbahnhof_room_comfortdouble1_2023_db5732fd5c0f2d345b854ad8db1076ac.jpg"
+      "https://avatars.mds.yandex.net/get-altay/16138055/2a0000019a97f70dc3006bbe5a95779a2881/L_height",
+      "https://media.leonardo-hotels.com/static.leonardo-hotels.com/image/leonardohotelviennahauptbahnhof_room_comfortdouble1_2023_db5732fd5c0f2d345b854ad8db1076ac.jpg"
     ],
     "details": "내일 새벽 기차로 시작되는 할슈타트 근교 여행과 프라하 이동이라는 대장정을 위해 일찍 짐을 완전히 싸두고 숙면을 취합니다.",
     "guide": "여권, 기차 이티켓(OBB, 렌페 등) 스마트폰 지갑 앱에 다운로드 확인",
@@ -637,54 +644,6 @@
   },
   {
     "date": "8.30",
-    "time": "08:30",
-    "place": "할슈타트",
-    "emoji": "🏞️",
-    "desc": "당일치기 근교 여행 및 마을 산책",
-    "imgs": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Hallstatt%2C_Austria_-_panoramio_%284%29.jpg/1280px-Hallstatt%2C_Austria_-_panoramio_%284%29.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Hallstatt%2C_Austria_-_panoramio_%288%29.jpg/1280px-Hallstatt%2C_Austria_-_panoramio_%288%29.jpg"
-    ],
-    "details": "유네스코 세계문화유산으로 지정된 전 세계에서 가장 아름다운 호수 마을입니다. 웅장한 알프스 산맥과 투명한 호수, 그리고 그 강변을 따라 아기자기하게 지어진 목조 주택들이 완벽한 풍경화를 이룹니다. 한적한 오전 골목길을 산책합니다.",
-    "guide": "기차역에서 내린 뒤 마을로 들어가는 전용 페리선 탑승 필수 (기차 시간에 맞춰 운행)",
-    "link": "https://www.google.com/maps/search/?api=1&query=Hallstatt",
-    "lat": 47.5622342,
-    "lng": 13.6492617
-  },
-  {
-    "date": "8.30",
-    "time": "11:30",
-    "place": "Gasthof Zauner",
-    "emoji": "🐟",
-    "desc": "할슈타트 호수 뷰를 보며 즐기는 송어 구이 점심 식사",
-    "imgs": [
-      "https://images.unsplash.com/photo-1534604973900-c43ab4c2e0ab?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80"
-    ],
-    "details": "할슈타트 호수에서 갓 잡은 신선한 송어(Forelle) 구이를 맛볼 수 있는 유서 깊은 레스토랑입니다. 버터에 담백하게 구워낸 송어 요리는 비린내 없이 고소하며 감자와 훌륭하게 어우러집니다.",
-    "guide": "마을 중심 마르크트 광장 인근 위치 / 테라스 좌석 뷰가 매우 좋음",
-    "link": "https://www.google.com/maps/search/?api=1&query=Gasthof+Zauner+Hallstatt",
-    "lat": 47.562152,
-    "lng": 13.648612
-  },
-  {
-    "date": "8.30",
-    "time": "12:40",
-    "place": "할슈타트 전망대",
-    "emoji": "🚠",
-    "desc": "푸니쿨라를 타고 올라가 한눈에 담는 호수 마을 전경",
-    "imgs": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1520175480921-4edfa2983e0f?auto=format&fit=crop&w=800&q=80"
-    ],
-    "details": "푸니쿨라(케이블카)를 타고 수직에 가까운 산등성이를 올라가 '스카이워크' 전망대에 섭니다. 발밑으로 펼쳐지는 아찔하고 광활한 할슈타트 호수와 알프스의 파노라마 뷰는 감탄을 자아냅니다.",
-    "guide": "왕복 푸니쿨라 티켓 구매 / 기차 시간 고려하여 14시 전에는 하산 준비 필수",
-    "link": "https://www.google.com/maps/search/?api=1&query=Hallstatt+Skywalk",
-    "lat": 47.564112,
-    "lng": 13.646892
-  },
-  {
-    "date": "8.30",
     "time": "14:50",
     "place": "빈 중앙역 (Wien Hbf)",
     "emoji": "🚉",
@@ -699,7 +658,8 @@
     "lat": 48.1851873,
     "lng": 16.3765973
   },
-  {"date": "8.30",
+  {
+    "date": "8.30",
     "time": "17:10",
     "place": "프라하 중앙역 (Praha Hlavní Nádraží)",
     "emoji": "🚉",
@@ -743,8 +703,8 @@
     "details": "체코식 족발 요리로 겉은 바삭하고 속은 촉촉한 기름진 맛이 일품인 '꼴레뇨' 또는 부드러운 소고기 등심에 생크림과 크랜베리 소스를 곁들인 '스비치코바'를 맛봅니다. 여기에 신선한 '필스너 우르켈' 생맥주를 곁들이면 최고의 만찬이 됩니다.",
     "guide": "꼴레뇨는 양이 많으므로 2인당 1메뉴 주문 추천 / 코젤 다크 생맥주도 훌륭한 선택",
     "link": "https://www.google.com/maps/search/?api=1&query=Prague+Old+Town+Restaurants",
-    "lat": 50.087500,
-    "lng": 14.422000
+    "lat": 50.0875,
+    "lng": 14.422
   },
   {
     "date": "8.30",
@@ -787,11 +747,12 @@
     "imgs": [
       "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Strahov_Monastery_Library.jpg/1280px-Strahov_Monastery_Library.jpg",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Strahov_Monastery_Prague.jpg/1280px-Strahov_Monastra_Prague.jpg"
-    ],"details": "프라하 성 언덕 위에 자리한 12세기 벤엔딕토 수도원으로, '세계에서 가장 아름다운 수도원 도서관' 중 하나인 신학도서관과 철학도서관을 보유하고 있습니다. 도서관 관람 후 수도원에서 직접 양조하는 '스트라호프 맥주'를 시음하며 특별한 체코 수도원 맥주 문화를 경험합니다.",
+    ],
+    "details": "프라하 성 언덕 위에 자리한 12세기 벤엔딕토 수도원으로, '세계에서 가장 아름다운 수도원 도서관' 중 하나인 신학도서관과 철학도서관을 보유하고 있습니다. 도서관 관람 후 수도원에서 직접 양조하는 '스트라호프 맥주'를 시음하며 특별한 체코 수도원 맥주 문화를 경험합니다.",
     "guide": "도서관 입장료 별도 / 맥주 시음은 성인만 가능 / 프라하 성과 도보 연결 가능하므로 함께 관람 권장",
     "link": "https://www.google.com/maps/search/?api=1&query=Strahov+Monastery+Prague",
-    "lat": 50.087000,
-    "lng": 14.394500,
+    "lat": 50.087,
+    "lng": 14.3945,
     "guide_links": [
       "https://www.strahov.cz/en/library/",
       "https://www.strahov.cz/en/brewery/"
@@ -826,8 +787,8 @@
     "details": "빈의 무거운 전통 카페 대신, 프라하 특유의 힙하고 아늑한 감성이 묻어나는 트렌디한 로컬 카페에서 갓 구운 굴뚝빵(뜨르들로)이나 세련된 에그 베네딕트 브런치를 맛봅니다.",
     "guide": "현지인들에게 핫한 카페(예: Cafe Savoy 또는 EMA Espresso Bar) 리스트 참고",
     "link": "https://www.google.com/maps/search/?api=1&query=Prague+Cafes",
-    "lat": 50.087500,
-    "lng": 14.421000
+    "lat": 50.0875,
+    "lng": 14.421
   },
   {
     "date": "8.31",
@@ -872,7 +833,8 @@
       "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80"
     ],
     "details": "과거 공산주의 정권 시절 체코의 젊은이들이 반정부 메시지와 평화, 그리고 비틀즈의 노래 가사를 적으며 자유를 갈망하던 역사적인 벽입니다. 지금도 다채로운 그라피티로 채워져 있어 예술적인 감성을 자아냅니다.",
-    "guide": "카를교를 건너 말라스트라나 지구 골목에 위치 / 상시 무료 관람 가능","link": "https://www.google.com/maps/search/?api=1&query=John+Lennon+Wall",
+    "guide": "카를교를 건너 말라스트라나 지구 골목에 위치 / 상시 무료 관람 가능",
+    "link": "https://www.google.com/maps/search/?api=1&query=John+Lennon+Wall",
     "lat": 50.086221,
     "lng": 14.406852
   },
@@ -889,8 +851,8 @@
     "details": "체코식 족발 요리로 겉은 바삭하고 속은 촉촉한 기름진 맛이 일품인 '꼴레뇨' 또는 부드러운 소고기 등심에 생크림과 크랜베리 소스를 곁들인 '스비치코바'를 맛봅니다. 여기에 신선한 '필스너 우르켈' 생맥주를 곁들이면 최고의 만찬이 됩니다.",
     "guide": "꼴레뇨는 양이 많으므로 2인당 1메뉴 주문 추천 / 코젤 다크 생맥주도 훌륭한 선택",
     "link": "https://www.google.com/maps/search/?api=1&query=Prague+Old+Town+Restaurants",
-    "lat": 50.087500,
-    "lng": 14.422000
+    "lat": 50.0875,
+    "lng": 14.422
   },
   {
     "date": "8.31",
@@ -937,8 +899,8 @@
     "details": "사람이 비교적 적은 이른 오전 시간, 카를교와 구시가지 광장의 고풍스러운 골목들을 배경으로 두 분만의 로맨틱하고 자연스러운 모습을 전문 작가님의 카메라에 담아냅니다.",
     "guide": "작가님의 디렉션에 따라 자연스럽게 웃으며 촬영 즐기기 / 소지품은 최소화",
     "link": "https://www.google.com/maps/search/?api=1&query=Prague",
-    "lat": 50.087500,
-    "lng": 14.421000
+    "lat": 50.0875,
+    "lng": 14.421
   },
   {
     "date": "9.01",
@@ -968,7 +930,8 @@
     "desc": "압도적인 고딕 양식의 외관 및 화려한 스테인드글라스 관람",
     "imgs": [
       "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/St._Vitus_Cathedral_-_Prague_Castle_-_Prague_-_Czech_Republic_-_06.jpg/1280px-St._Vitus_Cathedral_-_Prague_Castle_-_Prague_-_Czech+Republic+-_06.jpg",
-      "https://images.unsplash.com/photo-1565181993005-3117953a3926?auto=format&fit=crop&w=800&q=80"],
+      "https://images.unsplash.com/photo-1565181993005-3117953a3926?auto=format&fit=crop&w=800&q=80"
+    ],
     "details": "프라하 성 내에서 가장 중심이 되는 거대 고딕 양식 성당입니다. 하늘을 찌를 듯한 첨탑 외관도 대단하지만, 내부의 알폰스 무하가 제작한 화려한 스테인드글라스 작품 '성 그리스도와 성 메토디우스'가 뿜어내는 오색 찬란한 빛이 감동을 선사합니다.",
     "guide": "성당 내부 촬영 시 플래시 사용 금지 / 성당 종탑 전망대는 별도 티켓으로 계단을 걸어 올라가야 함",
     "link": "https://www.google.com/maps/search/?api=1&query=St.+Vitus+Cathedral",
@@ -1062,7 +1025,8 @@
     "emoji": "🛍️",
     "desc": "체코 근현대사의 중심지 산책 및 마지막 기념품 쇼핑",
     "imgs": [
-      "https://images.unsplash.com/photo-1573155993874-d5d48af862ba?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1533900298318-6b8da08a523e?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1573155993874-d5d48af862ba?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1533900298318-6b8da08a523e?auto=format&fit=crop&w=800&q=80"
     ],
     "details": "'프라하의 봄' 등 체코 민주화 운동의 역사적 무대이자 현재 프라하 상업의 중심지인 넓고 긴 광장입니다. 광장 양옆으로 유명 브랜드 샵과 체코 국민 자연주의 화장품인 '마누팩투라(맥주 샴푸 등)' 매장이 있어 지인 선물을 사기에 최적입니다.",
     "guide": "마누팩투라 매장에서 일정 금액 이상 구매 시 매장에서 즉시 텍스리펀 서류 수령 가능",
@@ -1083,8 +1047,8 @@
     "details": "공항으로 출발하기 전, 구시가지 골목의 한가로운 노천 테라스 카페에서 유럽에서의 마지막 커피 한 잔과 샌드위치 브런치를 즐기며 지난 여행의 추억을 서로 나눕니다.",
     "guide": "공항 버스(AE 버스) 탑승 정류장 위치 확인 또는 우버/볼트 호출 대기",
     "link": "https://www.google.com/maps/search/?api=1&query=Prague+Old+Town+Cafes",
-    "lat": 50.087500,
-    "lng": 14.421000
+    "lat": 50.0875,
+    "lng": 14.421
   },
   {
     "date": "9.02",
@@ -1100,7 +1064,7 @@
     "guide": "텍스리펀을 진행할 경우 줄이 길 수 있으므로 공항에 여유롭게 도착해야 함",
     "link": "https://www.google.com/maps/search/?api=1&query=V%C3%A1clav+Havel+Airport+Prague",
     "lat": 50.101784,
-    "lng": 14.263180
+    "lng": 14.26318
   },
   {
     "date": "9.02",
@@ -1116,7 +1080,7 @@
     "guide": "기내 야간 비행이므로 귀마개, 안대 소지 시 유용 / 기내식 2회 제공 예정",
     "link": "https://www.google.com/maps/search/?api=1&query=V%C3%A1clav+Havel+Airport+Prague",
     "lat": 50.101784,
-    "lng": 14.263180
+    "lng": 14.26318
   },
   {
     "date": "9.03",
