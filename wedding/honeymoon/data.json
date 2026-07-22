@@ -6,8 +6,7 @@
     "emoji": "🛫",
     "desc": "부다페스트행 비행기 출발 (KE 963)",
     "imgs": [
-      "https://www.airport.kr/sites/co_ko/images/sub/constr-step1-img3.jpg",
-      "https://images.unsplash.com/photo-1436491865332-7e61a109cc05?auto=format&fit=crop&w=800&q=80"
+      "https://www.airport.kr/sites/co_ko/images/sub/constr-step1-img3.jpg"
     ],
     "details": "설레는 유럽 여행의 시작점입니다. 대한항공 KE963편을 이용하여 헝가리 부다페스트로 향하는 직항 노선입니다. 장거리 비행에 대비해 편안한 복장과 기내 필수품을 챙기세요.",
     "guide": "출발 최소 3시간 전 공항 도착 권장 / 모바일 체크인 완료 필수",
@@ -22,8 +21,7 @@
     "emoji": "🛬",
     "desc": "현지 도착 및 호텔 픽업",
     "imgs": [
-      "https://upload.wikimedia.org/wikipedia/commons/8/83/Termin%C3%A1l_2_-_Ferihegy%2C_2015.07.27.JPG",
-      "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/7ff17eae-6134-485d-af75-7d57355131f5.jpeg"
+      "https://upload.wikimedia.org/wikipedia/commons/8/83/Termin%C3%A1l_2_-_Ferihegy%2C_2015.07.27.JPG"
     ],
     "details": "부다페스트 리스트 페렌츠 국제공항에 입국합니다. 장거리 비행의 피로를 최소화하기 위해 사전에 예약된 전용 픽업 차량을 이용하여 숙소로 안전하고 편안하게 이동합니다.",
     "guide": "수하물 수령 후 입국장 입구에서 픽업 기사 미팅 (피켓 확인)",
@@ -109,7 +107,10 @@
     "guide": "지하철 M1선 Hősök tere 역 하차 바로 앞 / 그늘이 없으니 선글라스 지참",
     "link": "https://maps.app.goo.gl/N4S4EdBQsW2Mtp2Z9",
     "lat": 47.5149429,
-    "lng": 19.0778626
+    "lng": 19.0778626,
+    "guide_links": [
+      "https://heroes-square.hu/en/audio-guide"
+    ]
   },
   {
     "date": "8.25",
@@ -125,7 +126,10 @@
     "guide": "운영시간 09:00 - 19:00 / 입장료 있음, 전망대 티켓 별도 구매 가능",
     "link": "https://www.google.com/maps/search/?api=1&query=St.+Stephen's+Basilica+Budapest",
     "lat": 47.5008902,
-    "lng": 19.0539887
+    "lng": 19.0539887,
+    "guide_links": [
+      "https://www.bazilika.hu/en/audio-guide"
+    ]
   },
   {
     "date": "8.25",
@@ -159,7 +163,10 @@
     "guide": "일요일 휴무 / 2층 기념품 샵들은 현금(포린트) 결제 시 할인이 되는 경우가 있음",
     "link": "https://www.google.com/maps/search/?api=1&query=Great+Market+Hall+Budapest",
     "lat": 47.487056,
-    "lng": 19.058344
+    "lng": 19.058344,
+    "guide_links": [
+      "https://www.greatmarkethall.hu/en/visitor-guide"
+    ]
   },
   {
     "date": "8.25",
@@ -175,7 +182,10 @@
     "guide": "락커 또는 캐빈(개인실) 포함 티켓 사전 구매 필수 / 슬리퍼 착용 필수",
     "link": "https://www.google.com/maps/search/?api=1&query=Sz%C3%A9chenyi+Thermal+Bath",
     "lat": 47.5186568,
-    "lng": 19.0823791
+    "lng": 19.0823791,
+    "guide_links": [
+      "https://www.szechenyibath.hu/en/tickets-prices/audio-guide"
+    ]
   },
   {
     "date": "8.25",
@@ -223,7 +233,10 @@
     "guide": "사전 예약 없이는 1시간 이상 대기할 수 있으므로 공식 홈페이지 예약 필수 / 드레스코드 스마트 캐주얼",
     "link": "https://www.google.com/maps/search/?api=1&query=New+York+Café+Budapest",
     "lat": 47.4987259,
-    "lng": 19.0704556
+    "lng": 19.0704556,
+    "guide_links": [
+      "https://www.newyorkcafe.hu/en/gallery"
+    ]
   },
   {
     "date": "8.26",
@@ -241,8 +254,7 @@
     "lat": 47.4960301,
     "lng": 19.039432,
     "guide_links": [
-      "https://www.mng.hu/en/audio-guide",
-      "https://www.mng.hu/en/exhibitions"
+      "https://www.mng.hu/en/audio-guide"
     ]
   },
   {
@@ -259,7 +271,10 @@
     "guide": "성당 내부와 탑(전망대) 입장권 별도 판매 / 복장 제한 유의 (무릎 및 어깨 노출 자제)",
     "link": "https://www.google.com/maps/search/?api=1&query=Matthias+Church+Budapest",
     "lat": 47.501991,
-    "lng": 19.034239
+    "lng": 19.034239,
+    "guide_links": [
+      "https://www.matthiaschurch.hu/en/audio-guide"
+    ]
   },
   {
     "date": "8.26",
@@ -275,7 +290,10 @@
     "guide": "2층 탑 구간은 유료이나 늦은 저녁이나 이른 아침에는 무료 개방 / 인생샷 명당으로 상시 붐빔",
     "link": "https://www.google.com/maps/search/?api=1&query=Fisherman%27s+Bastion",
     "lat": 47.5021827,
-    "lng": 19.0347813
+    "lng": 19.0347813,
+    "guide_links": [
+      "https://www.fishermansbastion.hu/en/visitor-info"
+    ]
   },
   {
     "date": "8.26",
@@ -307,7 +325,10 @@
     "guide": "선착장 위치 미리 확인 / 웰컴 드링크 포함 티켓이 많으며, 야외 데크 자리를 위해 20분 전 대기 권장",
     "link": "https://www.google.com/maps/search/?api=1&query=Budapest+River+Cruise",
     "lat": 47.500412,
-    "lng": 19.045012
+    "lng": 19.045012,
+    "guide_links": [
+      "https://www.budapestrivercruise.com/en/tickets"
+    ]
   },
   {
     "date": "8.26",
@@ -348,8 +369,8 @@
     "emoji": "🏰",
     "desc": "클림트 작품 감상",
     "imgs": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Upper_Belvedere_palace_Vienna.jpg/1280px-Upper_Belvedere_palace_Vienna.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Lower_Belvedere_Palace%2C_Vienna_%2854895504647%29.jpg/1280px-Lower_Belvedere_Palace%2C_Vienna_%2854895504647%29.jpg"
+      "https://media.triple.guide/triple-cms/c_limit,f_auto,h_2048,w_2048/d64a3485-62e5-49f7-891f-e525e2475928.jpeg",
+      "https://img.hankyung.com/photo/202507/AA.41104540.1.jpg"
     ],
     "details": "아름다운 바로크 양식의 궁전으로, 상궁 미술관에는 구스타프 클림트의 세계적인 명작 '키스(The Kiss)'와 '유디트'가 전시되어 있습니다. 화려한 궁전 정원 산책도 놓치지 마세요.",
     "guide": "운영시간 09:00 - 18:00 / 클림트 작품이 있는 '상궁(Upper)' 티켓 필수 지정 시간 입장",
@@ -357,7 +378,6 @@
     "lat": 48.1914751,
     "lng": 16.3809322,
     "guide_links": [
-      "https://www.belvedere.at/en/collection/highlights",
       "https://www.belvedere.at/en/audio-guide"
     ]
   },
@@ -368,14 +388,16 @@
     "emoji": "⛪",
     "desc": "벨베데레에서 시내로 나오는 길에 위치한 아름다운 바로크식 교회 산책",
     "imgs": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Karlskirche_Wien_2012.jpg/1280px-Karlskirche_Wien_2012.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Karlsplatz_Wien_2009.jpg/1280px-Karlsplatz_Wien_2009.jpg"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Karlskirche_Abendsonne_1.jpg/1280px-Karlskirche_Abendsonne_1.jpg"
     ],
     "details": "거대한 돔과 두 개의 거대한 기둥이 인상적인 비엔나의 대표적인 바로크 건축물입니다. 교회 앞 연못에 비치는 반영이 무척 아름다워 현지 대학생들과 여행객들의 쉼터가 되는 광장입니다.",
     "guide": "내부 엘리베이터를 타고 돔 천장 바로 앞까지 올라가 프레스코화를 초근접 감상 가능 (유료)",
     "link": "https://www.google.com/maps/search/?api=1&query=Karlskirche+Vienna",
     "lat": 48.198243,
-    "lng": 16.371422
+    "lng": 16.371422,
+    "guide_links": [
+      "https://www.karlskirche.at/en/visitor-info"
+    ]
   },
   {
     "date": "8.27",
@@ -384,8 +406,7 @@
     "emoji": "🍽️",
     "desc": "슈니첼 저녁 식사",
     "imgs": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Figlm%C3%BCller-Schnitzel_in_Wien.jpg/1280px-Figlm%C3%BCller-Schnitzel_in_Wien.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/The_famous_Wiener_Schnitzel_at_Figlm%C3%BCller_%288320172465%29.jpg/1280px-The_famous_Wiener_Schnitzel_at_Figlm%C3%BCller_%288320172465%29.jpg"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Wiener-Schnitzel02.jpg/1280px-Wiener-Schnitzel02.jpg"
     ],
     "details": "100년 이상의 역사를 자랑하는 오스트리아 전통 돈가스 요리 '슈니첼'의 원조 맛집입니다. 접시를 삐져나올 정도로 거대하고 얇게 튀겨낸 바삭한 슈니첼과 상큼한 감자 샐러드의 조합이 훌륭합니다.",
     "guide": "본점과 2호점이 인접해 있음 / 몇 달 전부터 예약이 마감되므로 반드시 사전 예약 혹은 오픈런 필수",
@@ -433,14 +454,17 @@
     "emoji": "⛪",
     "desc": "빈 시내 투어 시작",
     "imgs": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Stephansdom_Wien_2020.jpg/1280px-Stephansdom_Wien_2020.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Vienna_Stephansdom_Dom_01.jpg/1280px-Vienna_Stephansdom_Dom_01.jpg"
+      "https://d3b39vpyptsv01.cloudfront.net/photo/1/2/cd7713c3a5a8488329dd7f69b5873572.jpg",
+      "https://d3b39vpyptsv01.cloudfront.net/photo/1/2/120ca0c9c3eaa6f49ffebd5f2300dc79_l.jpg"
     ],
     "details": "빈의 상징과도 같은 모자이크 지붕이 매력적인 거대한 고딕 양식 성당입니다. 오스트리아 최고의 역사적 랜드마크로 성당 내부의 웅장한 기둥과 높은 천장이 압도적입니다.",
     "guide": "내부 입장은 무료이나 카타콤베 투어, 북탑/남탑 전망대 입장료는 각각 별도 부과",
     "link": "https://www.google.com/maps/search/?api=1&query=St.+Stephen%27s+Cathedral+Vienna",
     "lat": 48.2084114,
-    "lng": 16.3734707
+    "lng": 16.3734707,
+    "guide_links": [
+      "https://www.stephansdom.at/en/visiting-the-cathedral/audio-guide"
+    ]
   },
   {
     "date": "8.28",
@@ -449,8 +473,7 @@
     "emoji": "🍲",
     "desc": "오스트리아 전통 소고기 수욕 요리 '타펠슈피츠' 점심 식사",
     "imgs": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Tafelspitz.jpg/1280px-Tafelspitz.jpg",
-      "https://images.unsplash.com/photo-1588168333986-5078d3ae0276?auto=format&fit=crop&w=800&q=80"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Tafelspitz.jpg/1280px-Tafelspitz.jpg"
     ],
     "details": "프란츠 요제프 황제가 가장 사랑했던 오스트리아 전통 소고기 탕국 요리 '타펠슈피츠' 전문점입니다. 맑은 육수에 푹 고아낸 부드러운 소고기를 고추냉이 소스와 곁들여 먹으며 깊은 감칠맛을 느낄 수 있습니다.",
     "guide": "직원이 고기를 접시에 덜어주는 코스 형태로 서비스 됨 / 사전 테이블 예약 권장",
@@ -465,14 +488,17 @@
     "emoji": "🏰",
     "desc": "궁전 내부 관람",
     "imgs": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Sch%C3%B6nbrunn_Palace%2C_Vienna.JPG/1280px-Sch%C3%B6nbrunn_Palace%2C_Vienna.JPG",
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Schonbrunn_Palace_-_Vienna.jpg/1280px-Schonbrunn_Palace_-_Vienna.jpg"
+      "https://thumb.tidesquare.com/tour/public/product/PRV3006455682/PRD3006925468/origin/2-145.jpg?quality=80&w=750&h=500",
+      "https://media.triple.guide/triple-cms/37749364-04a5-477c-9716-90b043ae0caf"
     ],
     "details": "합스부르크 왕가의 여름 궁전으로 프랑스 베르사유 궁전에 버금가는 거대한 스케일과 화려한 로코코 양식의 극치를 보여줍니다. 마리 앙투아네트가 어린 시절을 보냈던 방 등 역사적인 방들을 오디오 가이드와 관람합니다.",
     "guide": "그랜드 투어(40개 방 관람) 티켓 추천 / 글로리에테 언덕 위까지 올라가면 궁전 전체 뷰 조망 가능",
     "link": "https://www.google.com/maps/search/?api=1&query=Sch%C3%B6nbrunn+Palace",
     "lat": 48.185124,
-    "lng": 16.3127641
+    "lng": 16.3127641,
+    "guide_links": [
+      "https://www.schoenbrunn.at/en/our-visitor-guide/audio-guide"
+    ]
   },
   {
     "date": "8.28",
@@ -481,14 +507,17 @@
     "emoji": "🏛️",
     "desc": "합스부르크 왕가의 겨울 궁전 외관 및 미하엘 광장 야경 투어",
     "imgs": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Hofburg_Wien_August_2006.jpg/1280px-Hofburg_Wien_August_2006.jpg",
-      "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=800&q=80"
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcNC1PnEy4AfJF0pWeYyFzF6t3ur3wLeQRhnktAqpHeg&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYOmC24zJpAQv0Q4PeTUFxh9gpNaSl2Kjvrtc4Dllcd3U-ekQHwDhZHSBt&s=10"
     ],
     "details": "600년이 넘는 시간 동안 합스부르크 왕가의 중심이었던 겨울 정궁입니다. 미하엘 광장과 연결되는 웅장한 돔 문과 오스트리아의 정취가 느껴지는 마차가 지나다니는 야경이 환상적인 분위기를 자아냅니다.",
     "guide": "현재 오스트리아 대통령 관저로도 사용됨 / 미하엘 광장 주변 로마 유적지 터도 함께 구경 가능",
     "link": "https://www.google.com/maps/search/?api=1&query=Hofburg+Vienna",
     "lat": 48.206507,
-    "lng": 16.365262
+    "lng": 16.365262,
+    "guide_links": [
+      "https://www.hofburg-wien.at/en/visitor-info"
+    ]
   },
   {
     "date": "8.28",
@@ -497,14 +526,16 @@
     "emoji": "☕",
     "desc": "역사 깊은 예술가들의 아지트에서 저녁 식사 및 디저트",
     "imgs": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Wien_Cafe_Central_2004.jpg/1280px-Wien_Cafe_Central_2004.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Vault_Caf%C3%A9_Central_Vienna_Wien.jpg/1280px-Vault_Caf%C3%A9_Central_Vienna_Wien.jpg"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Palais_Ferstel.jpg/1280px-Palais_Ferstel.jpg"
     ],
     "details": "트로츠키, 프로이트, 구스타프 클림트 등 오스트리아의 대문호와 예술가들이 매일같이 드나들던 유서 깊은 카페입니다. 화려한 대리석 기둥 아래에서 전통 비엔나 커피(멜랑쉬)와 정갈한 식사를 만끽합니다.",
     "guide": "저녁 시간에도 피아노 라이브 연주가 흐름 / 입구의 작가 알텐베르크 마네킨과 기념사진 촬영",
     "link": "https://www.google.com/maps/search/?api=1&query=Caf%C3%A9+Central+Vienna",
     "lat": 48.210404,
-    "lng": 16.365415
+    "lng": 16.365415,
+    "guide_links": [
+      "https://www.cafecentral.wien/en/"
+    ]
   },
   {
     "date": "8.28",
@@ -545,8 +576,8 @@
     "emoji": "🏛️",
     "desc": "박물관 관람",
     "imgs": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Kunsthistorisches_Museum_Wien_August_2006.jpg/1280px-Kunsthistorisches_Museum_Wien_August_2006.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/KHM_Wien_innen_2012.jpg/1280px-KHM_Wien_innen_2012.jpg"
+      "https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1200,h_630/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/omv5mwku26zv5fcztvh3/%EB%B9%88%EB%AF%B8%EC%88%A0%EC%82%AC%EB%B0%95%EB%AC%BC%EA%B4%80%EC%9E%85%EC%9E%A5%EA%B6%8C-Klook.jpg",
+      "https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=https://t1.daumcdn.net/brunch/service/user/14Qg/image/YVTDc0xCvNTUtM1SlPZoM3Y4D1U.jpg"
     ],
     "details": "합스부르크 왕가가 수집한 방대한 예술품이 전시된 세계 3대 미술관 중 하나입니다. 브뤼겔의 '바벨탑', 루벤스, 렘브란트 등의 거장들의 회화 작품은 물론, 세상에서 가장 아름다운 박물관 카페 내부 인테리어로도 유명합니다.",
     "guide": "운영시간 10:00 - 18:00 (목요일은 21:00까지) / 내부 2층 카페에서 커피 한 잔 강력 추천",
@@ -554,8 +585,7 @@
     "lat": 48.2038016,
     "lng": 16.3617874,
     "guide_links": [
-      "https://www.khm.at/en/visit/audio-guide",
-      "https://www.khm.at/en/collection/highlights"
+      "https://www.khm.at/en/visit/audio-guide"
     ]
   },
   {
@@ -590,7 +620,6 @@
     "lat": 48.206013,
     "lng": 16.366811,
     "guide_links": [
-      "https://www.onb.ac.at/en/visitor-information",
       "https://www.onb.ac.at/en/audio-guide"
     ]
   },
@@ -649,8 +678,7 @@
     "emoji": "🚉",
     "desc": "할슈타트 출발 후 빈 중앙역 도착, 프라하행 기차 환승 준비",
     "imgs": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Wien_Hauptbahnhof_2015.jpg/1280px-Wien_Hauptbahnhof_2015.jpg",
-      "https://images.unsplash.com/photo-1532103054090-334e6e60b57c?auto=format&fit=crop&w=800&q=80"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Wien_Hauptbahnhof%2C_2019_%2801%29.jpg/1280px-Wien_Hauptbahnhof%2C_2019_%2801%29.jpg"
     ],
     "details": "할슈타트 왕복 여정을 마치고 다시 빈 중앙역으로 복귀합니다. 이제 캐리어를 챙겨 체코 프라하로 향하는 국제 열차 환승 게이트로 신속하게 이동합니다.",
     "guide": "환승 시간이 다소 타이트할 수 있으므로 플랫폼 전광판(Praha hl.n. 행) 빠르게 확인",
@@ -665,8 +693,7 @@
     "emoji": "🚉",
     "desc": "프라하 도착 및 K+K 호텔로 이동",
     "imgs": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Praha_hlavn%C3%AD_n%C3%A1dra%C5%BE%C3%AD.jpg/1280px-Praha_hlavn%C3%AD_n%C3%A1dra%C5%BE%C3%AD.jpg",
-      "https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=800&q=80"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Praha-Hlavni-nadrazi-2022.jpg/1280px-Praha-Hlavni-nadrazi-2022.jpg"
     ],
     "details": "체코 프라하 중앙역에 도착합니다. 숙소 K+K Hotel Central Prague까지 택시/트램으로 이동 후 체크인합니다.",
     "guide": "트램(트램 17번 등) 또는 택시로 숙소까지 약 10분 / 카드 결제 가능",
@@ -693,18 +720,19 @@
   {
     "date": "8.30",
     "time": "19:30",
-    "place": "프라하 구시가지 로컬 식당",
+    "place": "Lokál Dlouhááá",
     "emoji": "🍽️",
-    "desc": "체코 전통 요리(꼴레뇨 또는 스비치코바)와 필스너 우르켈 맥주 저녁 식사",
+    "desc": "체코 전통 요리(꼬륵뇨 또는 스비치코바)와 필스너 우르켈 탱크 맥주 저녁 식사",
     "imgs": [
-      "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"
+      "https://pct-wp-prod.storage.googleapis.com/2024/03/12092034/lokil9-scaled.jpg",
+      "https://d48-a.sdn.cz/d_48/c_img_qB_A/kcHp2YdDtCDcb5EOxGiqe7K/0f4f.jpeg"
     ],
     "details": "체코식 족발 요리로 겉은 바삭하고 속은 촉촉한 기름진 맛이 일품인 '꼴레뇨' 또는 부드러운 소고기 등심에 생크림과 크랜베리 소스를 곁들인 '스비치코바'를 맛봅니다. 여기에 신선한 '필스너 우르켈' 생맥주를 곁들이면 최고의 만찬이 됩니다.",
     "guide": "꼴레뇨는 양이 많으므로 2인당 1메뉴 주문 추천 / 코젤 다크 생맥주도 훌륭한 선택",
-    "link": "https://www.google.com/maps/search/?api=1&query=Prague+Old+Town+Restaurants",
-    "lat": 50.0875,
-    "lng": 14.422
+    "link": "https://www.google.com/maps/search/?api=1&query=Lok%C3%A1l+Dlouh%C3%A1%C3%A1%C3%A1+Prague",
+    "lat": 50.0906,
+    "lng": 14.425,
+    "reservation": "https://lokal-dlouha.ambi.cz/en/reservation/"
   },
   {
     "date": "8.30",
@@ -745,8 +773,8 @@
     "emoji": "⛪",
     "desc": "수도원 도서관 감상 및 수도원 맥주 시음",
     "imgs": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Strahov_Monastery_Library.jpg/1280px-Strahov_Monastery_Library.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Strahov_Monastery_Prague.jpg/1280px-Strahov_Monastra_Prague.jpg"
+      "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/0e2063a5-50fd-44cb-aa27-17b3158817f6.jpeg",
+      "https://imgnn.seoul.co.kr/img/upload/2023/11/13/SSI_20231113133806.jpg"
     ],
     "details": "프라하 성 언덕 위에 자리한 12세기 벤엔딕토 수도원으로, '세계에서 가장 아름다운 수도원 도서관' 중 하나인 신학도서관과 철학도서관을 보유하고 있습니다. 도서관 관람 후 수도원에서 직접 양조하는 '스트라호프 맥주'를 시음하며 특별한 체코 수도원 맥주 문화를 경험합니다.",
     "guide": "도서관 입장료 별도 / 맥주 시음은 성인만 가능 / 프라하 성과 도보 연결 가능하므로 함께 관람 권장",
@@ -754,8 +782,7 @@
     "lat": 50.087,
     "lng": 14.3945,
     "guide_links": [
-      "https://www.strahov.cz/en/library/",
-      "https://www.strahov.cz/en/brewery/"
+      "https://www.strahov.cz/en/library/"
     ]
   },
   {
@@ -765,30 +792,33 @@
     "emoji": "🌉",
     "desc": "일몰 무렵의 아름다운 카를교 산책 및 블타바강 조망",
     "imgs": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Charles_Bridge_Prague_%28114081551%29.jpeg/1280px-Charles_Bridge_Prague_%28114081551%29.jpeg",
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/The_Charles_Bridge%2C_Prague..jpg/1280px-The_Charles_Bridge%2C_Prague..jpg"
+      "https://thumb.tidesquare.com/tour/public/product/PRV3006455682/PRD3010932871/origin/1-145.jpg?quality=80&w=750&h=500",
+      "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/417666df-b460-4858-b169-a8a0300c7946.jpeg"
     ],
     "details": "블타바 강을 가로지르는 유럽에서 가장 아름다운 고딕 양식의 석조 다리입니다. 다리 양옆에 세워진 30개의 성인 조각상들을 감상하며, 특히 얀 네포무츠크 신부 성상 밑의 놋쇠 판을 만지며 소원을 빌어봅니다. 노을빛에 물드는 프라하성이 장관입니다.",
     "guide": "성상 터치 놋쇠판은 만지면 프라하에 다시 오게 된다는 속설이 있음 / 소매치기 주의 지역",
     "link": "https://www.google.com/maps/search/?api=1&query=Charles+Bridge",
     "lat": 50.086436,
-    "lng": 14.411421
+    "lng": 14.411421,
+    "guide_links": [
+      "https://www.prague.eu/en/objevujte/charles-bridge-karluv-most/"
+    ]
   },
   {
     "date": "8.31",
     "time": "13:30",
-    "place": "카페 자허 대신 프라하 감성 카페",
+    "place": "Café Savoy",
     "emoji": "☕",
-    "desc": "프라하 현지 유명 베이커리/카페 브런치",
+    "desc": "말라스트라나의 우아한 카페에서 브런치 및 커피 (트러플 에그 크루아상 추천)",
     "imgs": [
-      "https://images.unsplash.com/photo-1554129152-0e2c3b6e7ad3?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80"
+      "https://www.cafesavoy.ambi.cz/wp-content/uploads/2019/05/Cafe-Savoy-1.jpg"
     ],
     "details": "빈의 무거운 전통 카페 대신, 프라하 특유의 힙하고 아늑한 감성이 묻어나는 트렌디한 로컬 카페에서 갓 구운 굴뚝빵(뜨르들로)이나 세련된 에그 베네딕트 브런치를 맛봅니다.",
     "guide": "현지인들에게 핫한 카페(예: Cafe Savoy 또는 EMA Espresso Bar) 리스트 참고",
-    "link": "https://www.google.com/maps/search/?api=1&query=Prague+Cafes",
-    "lat": 50.0875,
-    "lng": 14.421
+    "link": "https://www.google.com/maps/search/?api=1&query=Caf%C3%A9+Savoy+Prague",
+    "lat": 50.0836,
+    "lng": 14.406,
+    "reservation": "https://www.cafesavoy.ambi.cz/en/reservation/"
   },
   {
     "date": "8.31",
@@ -797,14 +827,17 @@
     "emoji": "🛍️",
     "desc": "기념품 매장과 세련된 건축물이 가득한 프라하 대표 거리 활보",
     "imgs": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Havelske_trziste_Prague.jpg/1280px-Havelske_trziste_Prague.jpg",
-      "https://images.unsplash.com/photo-1533900298318-6b8da08a523e?auto=format&fit=crop&w=800&q=80"
+      "https://mblogthumb-phinf.pstatic.net/MjAyNDAxMTdfMjcg/MDAxNzA1NDE4NjYyMTgw.wjdmx62YtyqsMKOBbc3fWbWstsLhYbG01NhdaOwxdH8g.jJ3bFI4m1MQK-HzaClwgpdvy_0m3cLvxBogqSKPngkIg.PNG.2ski2/image.png?type=w800",
+      "https://www.windsortour.co.kr/images/area_img/CZ/PRG/CZPRG3200292_0002.jpg?CMD=resize&width=100%"
     ],
     "details": "현지인과 관광객들이 섞여 과일, 꽃, 그리고 체코 전통 목각 인형이나 마녀 인형 같은 다양한 기념품을 판매하는 활기 넘치는 노천 시장입니다. 주변의 유명 편집샵들과 마리오네트 상점들을 구경합니다.",
     "guide": "운영시간 06:00 - 18:30 / 시장 내 과일은 세척되지 않은 상태이므로 구매 후 바로 섭취 자제",
     "link": "https://www.google.com/maps/search/?api=1&query=Havelske+trziste",
     "lat": 50.085421,
-    "lng": 14.420892
+    "lng": 14.420892,
+    "guide_links": [
+      "https://www.prague.eu/en/objevujte/havelske-trziste/"
+    ]
   },
   {
     "date": "8.31",
@@ -829,30 +862,31 @@
     "emoji": "🎨",
     "desc": "평화의 메시지가 가득한 벽화 거리 관람 및 사진 촬영",
     "imgs": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/John_Lennon_Wall_Prague.jpg/1280px-John_Lennon_Wall_Prague.jpg",
-      "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80"
+      "https://upload.wikimedia.org/wikipedia/commons/a/a5/Lennon_Wall%2C_August_2014.jpg"
     ],
     "details": "과거 공산주의 정권 시절 체코의 젊은이들이 반정부 메시지와 평화, 그리고 비틀즈의 노래 가사를 적으며 자유를 갈망하던 역사적인 벽입니다. 지금도 다채로운 그라피티로 채워져 있어 예술적인 감성을 자아냅니다.",
     "guide": "카를교를 건너 말라스트라나 지구 골목에 위치 / 상시 무료 관람 가능",
     "link": "https://www.google.com/maps/search/?api=1&query=John+Lennon+Wall",
     "lat": 50.086221,
-    "lng": 14.406852
+    "lng": 14.406852,
+    "guide_links": [
+      "https://www.prague.eu/en/objevujte/john-lennon-wall/"
+    ]
   },
   {
     "date": "8.31",
     "time": "20:30",
-    "place": "프라하 구시가지 로컬 식당",
+    "place": "U Parlamentu",
     "emoji": "🍽️",
-    "desc": "체코 전통 요리(꼴레뇨 또는 스비치코바)와 필스너 우르켈 맥주 저녁 식사",
+    "desc": "체코 전통 굴리시와 맥주로 든든한 저녁 식사 (현지인 맛집)",
     "imgs": [
-      "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0b/86/a0/ca/u-parlamentu.jpg?w=600&h=400&s=1"
     ],
     "details": "체코식 족발 요리로 겉은 바삭하고 속은 촉촉한 기름진 맛이 일품인 '꼴레뇨' 또는 부드러운 소고기 등심에 생크림과 크랜베리 소스를 곁들인 '스비치코바'를 맛봅니다. 여기에 신선한 '필스너 우르켈' 생맥주를 곁들이면 최고의 만찬이 됩니다.",
     "guide": "꼴레뇨는 양이 많으므로 2인당 1메뉴 주문 추천 / 코젤 다크 생맥주도 훌륭한 선택",
-    "link": "https://www.google.com/maps/search/?api=1&query=Prague+Old+Town+Restaurants",
-    "lat": 50.0875,
-    "lng": 14.422
+    "link": "https://www.google.com/maps/search/?api=1&query=U+Parlamentu+Prague",
+    "lat": 50.0887,
+    "lng": 14.4172
   },
   {
     "date": "8.31",
@@ -893,8 +927,8 @@
     "emoji": "📸",
     "desc": "스냅 사진 촬영 (2시간 소요)",
     "imgs": [
-      "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1563841930606-67e2b6c3bd26?auto=format&fit=crop&w=800&q=80"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Prague_%286365119737%29.jpg/1280px-Prague_%286365119737%29.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Prague_07-2016_View_from_Old_Town_Hall_Tower_img3.jpg/1280px-Prague_07-2016_View_from_Old_Town_Hall_Tower_img3.jpg"
     ],
     "details": "사람이 비교적 적은 이른 오전 시간, 카를교와 구시가지 광장의 고풍스러운 골목들을 배경으로 두 분만의 로맨틱하고 자연스러운 모습을 전문 작가님의 카메라에 담아냅니다.",
     "guide": "작가님의 디렉션에 따라 자연스럽게 웃으며 촬영 즐기기 / 소지품은 최소화",
@@ -909,8 +943,8 @@
     "emoji": "🏰",
     "desc": "세계 최대 규모의 고성 단지 입장 및 내부 관람 시작",
     "imgs": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Prague_Castle.jpg/1280px-Prague_Castle.jpg",
-      "https://images.unsplash.com/photo-1558485901-49931754020a?auto=format&fit=crop&w=800&q=80"
+      "https://media-cdn.tripadvisor.com/media/photo-s/1a/05/15/00/prague-castle.jpg",
+      "https://cdn.getyourguide.com/img/location/5c8e3e4e3c9e8.jpeg/99.jpg"
     ],
     "details": "9세기부터 체코 통치자들의 궁전이었으며 현재는 대통령 관저로 사용 중인 세계에서 가장 큰 성채 단지입니다. 블타바 강 언덕 위에 웅장하게 서 있어 프라하 전역을 관망하기 최적의 장소입니다.",
     "guide": "입구에서 엄격한 소지품 및 보안 검색 진행 / 서킷 코스 티켓(A 또는 B) 구매하여 입장",
@@ -918,8 +952,7 @@
     "lat": 50.091171,
     "lng": 14.401633,
     "guide_links": [
-      "https://www.hrad.cz/en/audio-guide",
-      "https://www.hrad.cz/en/exhibition-guide"
+      "https://www.hrad.cz/en/audio-guide"
     ]
   },
   {
@@ -929,14 +962,16 @@
     "emoji": "⛪",
     "desc": "압도적인 고딕 양식의 외관 및 화려한 스테인드글라스 관람",
     "imgs": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/St._Vitus_Cathedral_-_Prague_Castle_-_Prague_-_Czech_Republic_-_06.jpg/1280px-St._Vitus_Cathedral_-_Prague_Castle_-_Prague_-_Czech+Republic+-_06.jpg",
-      "https://images.unsplash.com/photo-1565181993005-3117953a3926?auto=format&fit=crop&w=800&q=80"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/PragueCathedral03.jpg/1280px-PragueCathedral03.jpg"
     ],
     "details": "프라하 성 내에서 가장 중심이 되는 거대 고딕 양식 성당입니다. 하늘을 찌를 듯한 첨탑 외관도 대단하지만, 내부의 알폰스 무하가 제작한 화려한 스테인드글라스 작품 '성 그리스도와 성 메토디우스'가 뿜어내는 오색 찬란한 빛이 감동을 선사합니다.",
     "guide": "성당 내부 촬영 시 플래시 사용 금지 / 성당 종탑 전망대는 별도 티켓으로 계단을 걸어 올라가야 함",
     "link": "https://www.google.com/maps/search/?api=1&query=St.+Vitus+Cathedral",
     "lat": 50.090883,
-    "lng": 14.400512
+    "lng": 14.400512,
+    "guide_links": [
+      "https://www.hrad.cz/en/exhibition-guide"
+    ]
   },
   {
     "date": "9.01",
@@ -945,14 +980,17 @@
     "emoji": "🧱",
     "desc": "로마네스크 양식의 성당 및 아기자기한 기념품 점이 모인 황금소로 산책",
     "imgs": [
-      "https://images.unsplash.com/photo-1590001155093-a3c66ab0c3ff?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1473177104440-ffee2f376098?auto=format&fit=crop&w=800&q=80"
+      "https://cdn.getyourguide.com/img/location/54e34f0cef2e3.jpeg/99.jpg",
+      "https://www.prague.fm/wp-content/uploads/golden_lane11.jpg"
     ],
     "details": "붉은빛 외관이 인상적인 프라하 성 내에서 가장 오래된 로마네스크 성당을 거쳐, 과거 성을 지키던 포수들과 연금술사들이 모여 살던 작고 귀여운 파스텔톤 집들이 모여 있는 '황금소로'를 걷습니다. 22번지 파란 집은 대문호 카프카가 집필실로 쓰던 곳입니다.",
     "guide": "카프카의 작업실인 22번지 집 내부에서는 그의 책과 기념품을 판매함",
     "link": "https://www.google.com/maps/search/?api=1&query=Golden+Lane+Prague",
     "lat": 50.092011,
-    "lng": 14.404212
+    "lng": 14.404212,
+    "guide_links": [
+      "https://www.hrad.cz/en/exhibition-guide"
+    ]
   },
   {
     "date": "9.01",
@@ -1025,30 +1063,33 @@
     "emoji": "🛍️",
     "desc": "체코 근현대사의 중심지 산책 및 마지막 기념품 쇼핑",
     "imgs": [
-      "https://images.unsplash.com/photo-1573155993874-d5d48af862ba?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1533900298318-6b8da08a523e?auto=format&fit=crop&w=800&q=80"
+      "https://media-cdn.tripadvisor.com/media/photo-s/1a/05/15/00/wenceslas-square.jpg",
+      "https://cdn.getyourguide.com/img/location/54e34e0bbd5e8.jpeg/99.jpg"
     ],
     "details": "'프라하의 봄' 등 체코 민주화 운동의 역사적 무대이자 현재 프라하 상업의 중심지인 넓고 긴 광장입니다. 광장 양옆으로 유명 브랜드 샵과 체코 국민 자연주의 화장품인 '마누팩투라(맥주 샴푸 등)' 매장이 있어 지인 선물을 사기에 최적입니다.",
     "guide": "마누팩투라 매장에서 일정 금액 이상 구매 시 매장에서 즉시 텍스리펀 서류 수령 가능",
     "link": "https://www.google.com/maps/search/?api=1&query=Wenceslas+Square",
     "lat": 50.081234,
-    "lng": 14.427123
+    "lng": 14.427123,
+    "guide_links": [
+      "https://www.prague.eu/en/objevujte/wenceslas-square-vaclavske-namesti/"
+    ]
   },
   {
     "date": "9.02",
     "time": "13:00",
-    "place": "프라하 공항 이동 전 마지막 식사",
+    "place": "Café Louvre",
     "emoji": "☕",
-    "desc": "가벼운 샌드위치와 커피로 여유로운 점심",
+    "desc": "바츨라프 광장 근처 역사적 카페에서 가벼운 점심 및 커피 (카프카, 아인슈타인 단골)",
     "imgs": [
-      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80"
+      "https://www.cafelouvre.cz/wp-content/uploads/2019/05/cafe-louvre-interior.jpg"
     ],
     "details": "공항으로 출발하기 전, 구시가지 골목의 한가로운 노천 테라스 카페에서 유럽에서의 마지막 커피 한 잔과 샌드위치 브런치를 즐기며 지난 여행의 추억을 서로 나눕니다.",
     "guide": "공항 버스(AE 버스) 탑승 정류장 위치 확인 또는 우버/볼트 호출 대기",
-    "link": "https://www.google.com/maps/search/?api=1&query=Prague+Old+Town+Cafes",
-    "lat": 50.0875,
-    "lng": 14.421
+    "link": "https://www.google.com/maps/search/?api=1&query=Caf%C3%A9+Louvre+Prague",
+    "lat": 50.0818,
+    "lng": 14.418,
+    "reservation": "https://www.cafelouvre.cz/en/reservation/"
   },
   {
     "date": "9.02",
@@ -1089,8 +1130,7 @@
     "emoji": "🛬",
     "desc": "인천국제공항 도착 및 귀가",
     "imgs": [
-      "https://www.airport.kr/sites/co_ko/images/sub/constr-step1-img3.jpg",
-      "https://images.unsplash.com/photo-1436491865332-7e61a109cc05?auto=format&fit=crop&w=800&q=80"
+      "https://www.airport.kr/sites/co_ko/images/sub/constr-step1-img3.jpg"
     ],
     "details": "인천국제공항에 무사히 입국합니다. 수하물을 수령하고 자동출입국 심사를 마친 후, 중유럽 3개국 여정을 무사히 함께 해준 서로 격려하며 집으로 향합니다.",
     "guide": "면세 한도($800) 및 자진 신고 물품 확인 / 귀가 교통편(리무진/콜택시 등) 탑승",
