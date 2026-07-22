@@ -181,7 +181,7 @@
         }
 
         .schedule-item.active .schedule-details {
-            max-height: 1200px;
+            max-height: 2000px; /* 확장 */
             opacity: 1;
             margin-top: 14px;
             border-top: 1px dashed var(--line);
@@ -221,6 +221,51 @@
             background-color: #eee;
         }
 
+        /* 쇼핑 추천 아이템 CSS */
+        .reco-section {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px dashed var(--line);
+        }
+        .reco-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--accent-2);
+            margin-bottom: 12px;
+        }
+        .reco-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .reco-card {
+            background: #fdfaf6;
+            border-radius: 12px;
+            padding: 10px;
+            text-align: center;
+            border: 1px solid var(--line);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .reco-img {
+            width: 100%;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            border: 1px solid #efefef;
+        }
+        .reco-name {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+        .reco-desc {
+            font-size: 0.8rem;
+            color: var(--muted);
+            line-height: 1.3;
+        }
+
         .map-link {
             width: 36px;
             height: 36px;
@@ -248,7 +293,6 @@
             z-index: 1;
         }
 
-        /* 이모지 마커 스타일 설정 */
         .emoji-marker {
             display: flex;
             align-items: center;
@@ -309,13 +353,8 @@
         let polylineLayer = null;
         let markersMap = {};
 
-        // 제공해주신 데이터를 다이렉트로 바인딩합니다[cite: 4].
         var itineraryData = [];
 
-        /**
-         * JSON 데이터를 로드하는 함수
-         * @param {string} filePath - data.json 파일 경로
-         */
         async function loadItineraryData(filePath = 'data.json') {
             try {
                 const response = await fetch(filePath);
@@ -354,10 +393,23 @@
                 return;
             }
 
-            const dates = ['all', ...new Set(itineraryData.map(i => i.date))];
-            dateFilters.innerHTML = dates.map(d => `<button class="chip ${selectedDate === d ? 'active' : ''}" onclick="filter('${d}')">${d === 'all' ? '전체' : d}</button>`).join('');
+            // 쇼핑 탭 추가 및 렌더링
+            const dates = ['all', 'shopping', ...new Set(itineraryData.map(i => i.date))];
+            dateFilters.innerHTML = dates.map(d => {
+                let label = d;
+                if (d === 'all') label = '전체 일정';
+                if (d === 'shopping') label = '🛍️ 쇼핑 스팟';
+                return `<button class="chip ${selectedDate === d ? 'active' : ''}" onclick="filter('${d}')">${label}</button>`;
+            }).join('');
 
-            const filtered = selectedDate === 'all' ? itineraryData : itineraryData.filter(i => i.date === selectedDate);
+            // 필터링 적용
+            let filtered = itineraryData;
+            if (selectedDate === 'shopping') {
+                filtered = itineraryData.filter(i => i.isShopping === true);
+            } else if (selectedDate !== 'all') {
+                filtered = itineraryData.filter(i => i.date === selectedDate);
+            }
+
             const timelineList = document.getElementById('timelineList');
             const groups = filtered.reduce((acc, cur) => { (acc[cur.date] = acc[cur.date] || []).push(cur); return acc; }, {});
 
@@ -369,14 +421,12 @@
                 const detailsHtml = item.details ? `<p class="detail-text">${item.details}</p>` : '';
                 const guideHtml = item.guide ? `<div class="guide-box">💡 <strong>안내:</strong> ${item.guide}</div>` : '';
 
-                // reservation 데이터 유무에 따른 예약 버튼 바인딩
                 const reservationHtml = item.reservation ? `
                     <a class="reservation-btn" href="${item.reservation}" target="_blank" onclick="event.stopPropagation()">
                         🗓️ 예약하러 가기
                     </a>
                 ` : '';
 
-                // reserved 데이터 유무에 따른 시간 표시 바인딩
                 const reservedHtml = item.reserved ? `
                     <span class="time-reserved">✨ 예약 완료 (${item.reserved})</span>
                 ` : '';
@@ -386,6 +436,25 @@
                     imagesHtml = `<div class="img-grid">${item.imgs.map(url => `
                             <img src="${url}" class="detail-img" alt="${item.place} 이미지" onerror="this.style.display='none'">
                         `).join('')}</div>`;
+                }
+
+                // 쇼핑 추천 렌더링 추가
+                let recoHtml = '';
+                if (item.recommendations && item.recommendations.length > 0) {
+                    recoHtml = `
+                    <div class="reco-section">
+                        <div class="reco-title">💡 에디터 추천 쇼핑 리스트</div>
+                        <div class="reco-grid">
+                            ${item.recommendations.map(reco => `
+                                <div class="reco-card">
+                                    <img src="${reco.img}" class="reco-img" alt="${reco.name}" onerror="this.style.display='none'">
+                                    <div class="reco-name">${reco.name}</div>
+                                    <div class="reco-desc">${reco.desc}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    `;
                 }
 
                 return `
@@ -407,6 +476,7 @@
                             ${detailsHtml}
                             ${guideHtml}
                             ${imagesHtml}
+                            ${recoHtml}
                         </div>
                     </article>
                 `}).join('')}</div>`).join('');
@@ -431,7 +501,6 @@
                 correctEl.classList.add('active');
             }
 
-            // 지도 상의 모든 마커 스타일 초기화 후 활성화된 마커 스케일 업
             Object.keys(markersMap).forEach(key => {
                 const element = markersMap[key].getElement();
                 if (element) element.classList.remove('active');
@@ -456,7 +525,6 @@
             markersMap = {};
 
             const validItems = items.filter(i => i.lat && i.lng);
-            // 한국 루트(인천공항)를 제외한 유럽 내부 라인 연결 선별
             const lineCoordinates = validItems
                 .filter(i => !i.place.includes('인천국제공항'))
                 .map(i => [i.lat, i.lng]);
@@ -466,7 +534,6 @@
             validItems.forEach((item) => {
                 const isSelected = activePlace === item.place;
 
-                // 기존 CircleMarker에서 L.divIcon을 사용하는 기본 Marker로 변경
                 const emojiIcon = L.divIcon({
                     html: item.emoji || '📍',
                     className: `emoji-marker ${isSelected ? 'active' : ''}`,
@@ -496,7 +563,7 @@
                 }).addTo(polylineLayer);
             }
 
-            const mapBoundsItems = selectedDate === 'all'
+            const mapBoundsItems = selectedDate === 'all' || selectedDate === 'shopping'
                 ? validItems.filter(i => !i.place.includes('인천국제공항'))
                 : validItems;
 

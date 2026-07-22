@@ -154,6 +154,7 @@
     "place": "부다페스트 중앙시장",
     "emoji": "🛒",
     "desc": "기념품 쇼핑 및 로컬 분위기 구경",
+    "isShopping": true,
     "imgs": [
       "https://www.windsortour.co.kr/images/area_img/HU/BUD/HUBUD3200391_0003.jpg?CMD=resize&width=100%",
       "https://mblogthumb-phinf.pstatic.net/MjAyNDA1MDhfMjk4/MDAxNzE1MTY3Njc1Njgz.bK_GkexdRp8sbHvhmgdRENRkLeCfw2mIRId7uirXBNAg.icvGA-1xA8ytNkFauNBohmUw2pCV-td9acizyeMrgHQg.JPEG/SE-70413b82-64be-4e60-9985-3ee8fbf9ccbd.jpg?type=w800"
@@ -165,6 +166,18 @@
     "lng": 19.058344,
     "guide_links": [
       "https://www.greatmarkethall.hu/en/visitor-guide"
+    ],
+    "recommendations": [
+      {
+        "name": "토카이 와인 (Tokaji Aszú)",
+        "desc": "헝가리 특산품인 달콤한 최고급 귀부 와인",
+        "img": "https://wine21.speedgabia.com/NEWS_MST/froala/202012/20201224173728796344.jpg"
+      },
+      {
+        "name": "파프리카 가루",
+        "desc": "굴라시에 쓰이는 헝가리 전통 향신료",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiuj8XFaswSsVuKXRY4q_z1QcuKmpPkaK13EdRXUZ3GGchxxOvkuP2GU71&s=10"
+      }
     ]
   },
   {
@@ -173,6 +186,7 @@
     "place": "안드라시 거리 (Andrássy út)",
     "emoji": "🛍️",
     "desc": "명품 및 컨템포러리 브랜드 쇼핑과 카페 거리 산책",
+    "isShopping": true,
     "imgs": [
       "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Andr%C3%A1ssy_%C3%BAt_-_Budapest.jpg/1280px-Andr%C3%A1ssy_%C3%BAt_-_Budapest.jpg"
     ],
@@ -180,7 +194,19 @@
     "guide": "중앙시장에서 트램 47/49번 탑승 후 지하철 M1 환승으로 이동 용이",
     "link": "https://www.google.com/maps/search/?api=1&query=Andrássy+út",
     "lat": 47.5026,
-    "lng": 19.0583
+    "lng": 19.0583,
+    "recommendations": [
+      {
+        "name": "COS (코스)",
+        "desc": "미니멀하고 세련된 핏의 의류, 현지 한정 디자인 아이템 추천",
+        "img": "https://i0.wp.com/echeveau.net/wp-content/uploads/2025/07/%EC%BD%94%EC%8A%A4-%EC%9D%B4%EB%AF%B8%EC%A7%80.jpg?fit=1200%2C675&quality=20&ssl=1"
+      },
+      {
+        "name": "GUCCI (구찌)",
+        "desc": "한국 대비 유리한 환율과 텍스리펀 혜택을 함께 노릴 수 있는 부티크",
+        "img": "https://www.artinsight.co.kr/data/tmp/2007/20200728212635_yeyeyecg.png"
+      }
+    ]
   },
   {
     "date": "8.25",
@@ -382,6 +408,7 @@
     "place": "콜마르크트 & 그라벤 거리",
     "emoji": "🛍️",
     "desc": "빈 핵심 명품 거리 쇼핑 및 부티크 투어",
+    "isShopping": true,
     "imgs": [
       "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Wien_-_Kohlmarkt_%281%29.JPG/1280px-Wien_-_Kohlmarkt_%281%29.JPG"
     ],
@@ -389,7 +416,19 @@
     "guide": "슈테판 대성당과 호프부르크 왕궁 사이를 잇는 중심 보행자 거리이므로 도보 이동에 최적화되어 있습니다.",
     "link": "https://www.google.com/maps/search/?api=1&query=Kohlmarkt+Vienna",
     "lat": 48.2087,
-    "lng": 16.3675
+    "lng": 16.3675,
+    "recommendations": [
+      {
+        "name": "CHANEL & PRADA",
+        "desc": "클래식한 가방과 구두를 살펴보기 좋은 오스트리아 핵심 럭셔리 부티크",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR70ye0m3n9vU--oTfiHyA-ZwAauaghEue803ojxQdR2bOJUCCqRUd5h-pb&s=10"
+      },
+      {
+        "name": "Thom Browne (톰브라운)",
+        "desc": "유럽에서만 만날 수 있는 톰브라운의 클래식한 남성 의류 및 타이류",
+        "img": "https://i.namu.wiki/i/EC5szQ5smEuVpaqab_HP6iNiXoLFTu8xHOjGXM2GKS4H6k5GyIqCTnolkLvkMGLQt2InOoHQsk5BPqcJYDPHpw.webp"
+      }
+    ]
   },
   {
     "date": "8.27",
@@ -870,6 +909,7 @@
     "place": "하벨 시장 & 구시가 쇼핑가",
     "emoji": "🛍️",
     "desc": "기념품 매장과 세련된 건축물이 가득한 프라하 대표 거리 활보",
+    "isShopping": true,
     "imgs": [
       "https://mblogthumb-phinf.pstatic.net/MjAyNDAxMTdfMjcg/MDAxNzA1NDE4NjYyMTgw.wjdmx62YtyqsMKOBbc3fWbWstsLhYbG01NhdaOwxdH8g.jJ3bFI4m1MQK-HzaClwgpdvy_0m3cLvxBogqSKPngkIg.PNG.2ski2/image.png?type=w800",
       "https://www.windsortour.co.kr/images/area_img/CZ/PRG/CZPRG3200292_0002.jpg?CMD=resize&width=100%"
@@ -881,6 +921,18 @@
     "lng": 14.420892,
     "guide_links": [
       "https://www.prague.eu/en/objevujte/havelske-trziste/"
+    ],
+    "recommendations": [
+      {
+        "name": "전통 수제 마리오네트",
+        "desc": "체코 장인의 손길이 닿은 정교한 수공예 나무 인형",
+        "img": "https://www.jaenung.net/storage/ai/article/compressed/9af744d0-eb65-4a4b-9474-720465113b0b.jpg"
+      },
+      {
+        "name": "콜로나다 스파 웨하스",
+        "desc": "온천수와 함께 즐기던 체코의 둥글고 달콤한 전통 과자",
+        "img": "https://mblogthumb-phinf.pstatic.net/MjAxODEwMTNfNzMg/MDAxNTM5NDAwMjQxNDI1.By9xx9tgxnymX06M14iYGem5QvEv5p48kO_RZ0MBTrog.EiHsiMFcwq3xOAeq5jH9pToTklh5K8pFtd1UW3vQx5Mg.JPEG.gayoun3/image_9268100421539399864963.jpg?type=w800"
+      }
     ]
   },
   {
@@ -1058,14 +1110,27 @@
     "place": "파르지주스카 거리 (Pařížská)",
     "emoji": "🛍️",
     "desc": "프라하 최고의 명품 브랜드 부티크 쇼핑 거리",
+    "isShopping": true,
     "imgs": [
       "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Parizska_ulice_v_Praze.jpg/1280px-Parizska_ulice_v_Praze.jpg"
     ],
-    "details": "구시가지 광장에서 블타바 강 쪽으로 이어지는 프라하 최고의 명품 쇼핑 거리입니다. 아름다운 아르누보 양식의 건물들 사이로 프라다, 구찌, 디올 등 다양한 하이엔드 럭셔리 브랜드 매장들이 들어서 있어 신혼여행 선물을 여유롭게 쇼핑하기 좋은 곳입니다.",
+    "details": "구시가지 광장에서 블타바 강 쪽으로 이어지는 프라하 최고의 럭셔리 쇼핑 거리입니다. 아름다운 아르누보 양식의 건물들 사이로 다양한 하이엔드 브랜드 매장들이 들어서 있어 신혼여행의 여유로운 쇼핑을 즐기기 좋은 곳입니다.",
     "guide": "스타벅스에서 구시가지 광장으로 내려가는 동선상에 위치하여 접근성이 매우 뛰어납니다.",
     "link": "https://www.google.com/maps/search/?api=1&query=Pařížská+Street",
     "lat": 50.0906,
-    "lng": 14.4194
+    "lng": 14.4194,
+    "recommendations": [
+      {
+        "name": "명품 시계 및 부티크",
+        "desc": "프라하 최고의 하이엔드 패션 브랜드와 명품 시계 샵 밀집 구역",
+        "img": "https://img1.daumcdn.net/thumb/R1280x0.fwebp/?fname=http://t1.daumcdn.net/brunch/service/guest/image/EcFvbxxE69IJtwmH_Cf9lHRz234.JPG"
+      },
+      {
+        "name": "Moser (모제르)",
+        "desc": "세계적으로 유명한 체코의 하이엔드 수공예 크리스탈 글라스",
+        "img": "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/74851b94-a24d-41a7-aaf9-8ce63c6eafb5.jpeg"
+      }
+    ]
   },
   {
     "date": "9.01",
@@ -1120,6 +1185,7 @@
     "place": "프라하 국립박물관 주변 바츨라프 광장",
     "emoji": "🛍️",
     "desc": "체코 근현대사의 중심지 산책 및 마지막 기념품 쇼핑",
+    "isShopping": true,
     "imgs": [
       "https://media-cdn.tripadvisor.com/media/photo-s/1a/05/15/00/wenceslas-square.jpg",
       "https://cdn.getyourguide.com/img/location/54e34e0bbd5e8.jpeg/99.jpg"
@@ -1131,6 +1197,18 @@
     "lng": 14.427123,
     "guide_links": [
       "https://www.prague.eu/en/objevujte/wenceslas-square-vaclavske-namesti/"
+    ],
+    "recommendations": [
+      {
+        "name": "마누팩투라 (Manufaktura)",
+        "desc": "맥주 효모로 만든 체코 국민 화장품, 샴푸 및 바디용품 추천",
+        "img": "https://mblogthumb-phinf.pstatic.net/MjAxODEyMDFfMTUz/MDAxNTQzNjYxOTU4ODA4.q2_YqDdlY5Y2A7SHc61GAcJOGcbZ_V9ns5VYIcIl_cMg.IW8qoGjhPjQp-REgNoer-_ITGd1-Zk7qSGDOUkQGOZcg.JPEG.pdw03161/IMG_5395.jpg?type=w800"
+      },
+      {
+        "name": "Baťa (바탸)",
+        "desc": "가성비와 품질이 매우 뛰어난 체코의 국민 가죽 신발 브랜드",
+        "img": "https://cms.visitczechia.com/cms/getmedia/72aac742-4027-4669-9fa4-02e61c1e7b85/czechia-zlin-love-design-fashion-shoe-craft-vasky-czech-manufakture-credit-for-vasky.JPG?width=800&height=811"
+      }
     ]
   },
   {
