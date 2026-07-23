@@ -181,7 +181,8 @@
         }
 
         .schedule-item.active .schedule-details {
-            max-height: 2000px; /* 확장 */
+            max-height: 2000px;
+            /* 확장 */
             opacity: 1;
             margin-top: 14px;
             border-top: 1px dashed var(--line);
@@ -227,25 +228,29 @@
             padding-top: 16px;
             border-top: 1px dashed var(--line);
         }
+
         .reco-title {
             font-size: 0.95rem;
             font-weight: 700;
             color: var(--accent-2);
             margin-bottom: 12px;
         }
+
         .reco-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 12px;
         }
+
         .reco-card {
             background: #fdfaf6;
             border-radius: 12px;
             padding: 10px;
             text-align: center;
             border: 1px solid var(--line);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
         }
+
         .reco-img {
             width: 100%;
             height: 110px;
@@ -254,12 +259,14 @@
             margin-bottom: 8px;
             border: 1px solid #efefef;
         }
+
         .reco-name {
             font-size: 0.9rem;
             font-weight: 700;
             color: var(--text);
             margin-bottom: 4px;
         }
+
         .reco-desc {
             font-size: 0.8rem;
             color: var(--muted);
@@ -461,7 +468,11 @@
                     <article class="schedule-item ${activePlace === item.place ? 'active' : ''}" id="item-${uniqueId}" onclick="setActive('${item.place}', '${item.time}')">
                         <div class="schedule-row">
                             <div class="schedule-content">
-                                <div class="place-name">${item.emoji || '📍'} ${item.place}</div>
+                                <div class="place-name">
+    ${item.emoji || '📍'} ${item.place} 
+    <!-- 추가된 로직: 데이터에 country_flag가 있으면 span 태그로 추가 -->
+    ${item.country_flag ? `<span class="country-flag">${item.country_flag}</span>` : ''}
+</div>
                                 <p class="schedule-desc">${item.desc || ''}</p>
                             </div>
 
@@ -544,7 +555,7 @@
 
                 const customMarker = L.marker([item.lat, item.lng], { icon: emojiIcon });
 
-                customMarker.bindPopup(`<strong>${item.emoji || '📍'} ${item.place}</strong><br><span style="font-size:11px; color:#666;">${item.time} - ${item.desc || ''}</span>`);
+                customMarker.bindPopup(`<strong>${item.emoji || '📍'} ${item.place}</strong><br><span style="font-size:11px; color:#666;">${item.time} - ${item.desc || ''}</span>`);customMarker.bindPopup(`<strong>${item.emoji || '📍'} ${item.place}</strong><br><span style="font-size:11px; color:#666;">${item.time} - ${item.desc || ''}</span>`);
 
                 customMarker.on('click', () => {
                     setActive(item.place, item.time);

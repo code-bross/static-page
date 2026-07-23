@@ -3,6 +3,7 @@
     "date": "8.24",
     "time": "12:45",
     "place": "인천국제공항",
+    "country_flag": "🇰🇷",
     "emoji": "🛫",
     "desc": "부다페스트행 비행기 출발 (KE 963)",
     "imgs": [
@@ -18,6 +19,7 @@
     "date": "8.24",
     "time": "17:55",
     "place": "부다페스트 공항",
+    "country_flag": "🇭🇺",
     "emoji": "🛬",
     "desc": "현지 도착 및 호텔 픽업",
     "imgs": [
@@ -33,6 +35,7 @@
     "date": "8.24",
     "time": "19:00",
     "place": "Novotel Budapest Danube (숙소)",
+    "country_flag": "🇭🇺",
     "emoji": "🏨",
     "desc": "부다페스트 숙소 체크인 및 짐 보관",
     "imgs": [
@@ -49,6 +52,7 @@
     "date": "8.24",
     "time": "20:00",
     "place": "The Spot Budapest by J&J",
+    "country_flag": "🇭🇺",
     "emoji": "🍽️",
     "desc": "첫날 저녁 식사 (굴라시 & 만갈리차 돼지고기 요리 추천)",
     "imgs": [
@@ -65,6 +69,7 @@
     "date": "8.24",
     "time": "22:00",
     "place": "Novotel Budapest Danube (숙소)",
+    "country_flag": "🇭🇺",
     "emoji": "🏨",
     "desc": "숙소 복귀 및 휴식",
     "imgs": [
@@ -81,6 +86,7 @@
     "date": "8.25",
     "time": "09:00",
     "place": "Novotel Budapest Danube (숙소)",
+    "country_flag": "🇭🇺",
     "emoji": "🏨",
     "desc": "숙소 조식 및 시내 투어 준비",
     "imgs": [
@@ -97,6 +103,7 @@
     "date": "8.25",
     "time": "10:00",
     "place": "영웅광장",
+    "country_flag": "🇭🇺",
     "emoji": "🏛️",
     "desc": "시내 투어 시작",
     "imgs": [
@@ -116,6 +123,7 @@
     "date": "8.25",
     "time": "11:10",
     "place": "이슈트반 대성당",
+    "country_flag": "🇭🇺",
     "emoji": "⛪",
     "desc": "성당 관람 및 광장 투어",
     "imgs": [
@@ -135,6 +143,7 @@
     "date": "8.25",
     "time": "12:45",
     "place": "Menza Étterem és Kávézó",
+    "country_flag": "🇭🇺",
     "emoji": "🍽️",
     "desc": "세련된 분위기에서 즐기는 헝가리 전통 점심 식사",
     "imgs": [
@@ -152,6 +161,7 @@
     "date": "8.25",
     "time": "14:30",
     "place": "부다페스트 중앙시장",
+    "country_flag": "🇭🇺",
     "emoji": "🛒",
     "desc": "기념품 쇼핑 및 로컬 분위기 구경",
     "isShopping": true,
@@ -184,6 +194,7 @@
     "date": "8.25",
     "time": "15:30",
     "place": "안드라시 거리 (Andrássy út)",
+    "country_flag": "🇭🇺",
     "emoji": "🛍️",
     "desc": "명품 및 컨템포러리 브랜드 쇼핑과 카페 거리 산책",
     "isShopping": true,
@@ -212,6 +223,7 @@
     "date": "8.25",
     "time": "17:00",
     "place": "세체니 온천",
+    "country_flag": "🇭🇺",
     "emoji": "♨️",
     "desc": "야간 온천 입욕",
     "imgs": [
@@ -231,6 +243,7 @@
     "date": "8.25",
     "time": "20:30",
     "place": "Novotel Budapest Danube (숙소)",
+    "country_flag": "🇭🇺",
     "emoji": "🏨",
     "desc": "숙소 복귀 및 휴식",
     "imgs": [
@@ -247,6 +260,7 @@
     "date": "8.26",
     "time": "09:30",
     "place": "Novotel Budapest Danube (숙소)",
+    "country_flag": "🇭🇺",
     "emoji": "🏨",
     "desc": "숙소 출발 및 부다 지구 탐방 시작",
     "imgs": [
@@ -263,6 +277,7 @@
     "date": "8.26",
     "time": "10:30",
     "place": "New York Kávéház",
+    "country_flag": "🇭🇺",
     "emoji": "☕",
     "desc": "브런치 및 카페 투어",
     "imgs": [
@@ -282,6 +297,7 @@
     "date": "8.26",
     "time": "13:30",
     "place": "헝가리 국립 미술관",
+    "country_flag": "🇭🇺",
     "emoji": "🖼️",
     "desc": "왕궁 내부 관람",
     "imgs": [
@@ -301,6 +317,7 @@
     "date": "8.26",
     "time": "15:30",
     "place": "마티아스 성당",
+    "country_flag": "🇭🇺",
     "emoji": "⛪",
     "desc": "어부의 요새 바로 옆 화려한 지붕의 성당 내부 관람",
     "imgs": [
@@ -320,6 +337,7 @@
     "date": "8.26",
     "time": "18:00",
     "place": "어부의 요새",
+    "country_flag": "🇭🇺",
     "emoji": "🏰",
     "desc": "야경 감상",
     "imgs": [
@@ -339,6 +357,7 @@
     "date": "8.26",
     "time": "19:30",
     "place": "Halászbástya Étterem",
+    "country_flag": "🇭🇺",
     "emoji": "🍽️",
     "desc": "유람선 탑승 전 저녁 식사",
     "imgs": [
@@ -355,6 +374,7 @@
     "date": "8.26",
     "time": "21:30",
     "place": "다뉴브강 유람선 선착장",
+    "country_flag": "🇭🇺",
     "emoji": "🚢",
     "desc": "국회의사당 야경을 가장 가까이서 보는 유람선 탑승",
     "imgs": [
@@ -374,6 +394,7 @@
     "date": "8.26",
     "time": "23:00",
     "place": "Novotel Budapest Danube (숙소)",
+    "country_flag": "🇭🇺",
     "emoji": "🏨",
     "desc": "숙소 복귀 및 휴식",
     "imgs": [
@@ -390,6 +411,7 @@
     "date": "8.27",
     "time": "10:00",
     "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)",
+    "country_flag": "🇦🇹",
     "emoji": "🏨",
     "desc": "체크인 후 짐 보관, 첫 빈 시내 탐방 준비",
     "imgs": [
@@ -406,6 +428,7 @@
     "date": "8.27",
     "time": "11:30",
     "place": "콜마르크트 & 그라벤 거리",
+    "country_flag": "🇦🇹",
     "emoji": "🛍️",
     "desc": "빈 핵심 명품 거리 쇼핑 및 부티크 투어",
     "isShopping": true,
@@ -434,6 +457,7 @@
     "date": "8.27",
     "time": "13:30",
     "place": "Salm Bräu (살름 브로이)",
+    "country_flag": "🇦🇹",
     "emoji": "🍽️",
     "desc": "벨베데레 궁전 입장 전 즐기는 오스트리아식 바베큐 립과 맥주 식사",
     "imgs": [
@@ -449,6 +473,7 @@
     "date": "8.27",
     "time": "15:00",
     "place": "벨베데레 궁전",
+    "country_flag": "🇦🇹",
     "emoji": "🏰",
     "desc": "클림트 작품 감상",
     "imgs": [
@@ -468,6 +493,7 @@
     "date": "8.27",
     "time": "17:00",
     "place": "칼스광장 & 칼스교회",
+    "country_flag": "🇦🇹",
     "emoji": "⛪",
     "desc": "벨베데레에서 시내로 나오는 길에 위치한 아름다운 바로크식 교회 산책",
     "imgs": [
@@ -486,6 +512,7 @@
     "date": "8.27",
     "time": "19:00",
     "place": "Figlmüller",
+    "country_flag": "🇦🇹",
     "emoji": "🍽️",
     "desc": "슈니첼 저녁 식사",
     "imgs": [
@@ -502,6 +529,7 @@
     "date": "8.27",
     "time": "21:00",
     "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)",
+    "country_flag": "🇦🇹",
     "emoji": "🏨",
     "desc": "숙소 복귀 및 휴식",
     "imgs": [
@@ -518,6 +546,7 @@
     "date": "8.28",
     "time": "08:00",
     "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)",
+    "country_flag": "🇦🇹",
     "emoji": "🏨",
     "desc": "숙소 출발 및 시내 이동",
     "imgs": [
@@ -534,6 +563,7 @@
     "date": "8.28",
     "time": "09:00",
     "place": "슈테판 대성당",
+    "country_flag": "🇦🇹",
     "emoji": "⛪",
     "desc": "빈 시내 투어 시작",
     "imgs": [
@@ -553,6 +583,7 @@
     "date": "8.28",
     "time": "11:30",
     "place": "Plachutta Wollzeile",
+    "country_flag": "🇦🇹",
     "emoji": "🍲",
     "desc": "오스트리아 전통 소고기 수욕 요리 '타펠슈피츠' 점심 식사",
     "imgs": [
@@ -568,6 +599,7 @@
     "date": "8.28",
     "time": "14:00",
     "place": "쇤부른 궁전",
+    "country_flag": "🇦🇹",
     "emoji": "🏰",
     "desc": "궁전 내부 관람",
     "imgs": [
@@ -587,6 +619,7 @@
     "date": "8.28",
     "time": "18:00",
     "place": "호프부르크 왕궁",
+    "country_flag": "🇦🇹",
     "emoji": "🏛️",
     "desc": "합스부르크 왕가의 겨울 궁전 외관 및 미하엘 광장 야경 투어",
     "imgs": [
@@ -606,6 +639,7 @@
     "date": "8.28",
     "time": "19:30",
     "place": "Café Central",
+    "country_flag": "🇦🇹",
     "emoji": "☕",
     "desc": "역사 깊은 예술가들의 아지트에서 저녁 식사 및 디저트",
     "imgs": [
@@ -624,6 +658,7 @@
     "date": "8.28",
     "time": "21:30",
     "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)",
+    "country_flag": "🇦🇹",
     "emoji": "🏨",
     "desc": "숙소 복귀 및 휴식",
     "imgs": [
@@ -640,6 +675,7 @@
     "date": "8.29",
     "time": "09:00",
     "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)",
+    "country_flag": "🇦🇹",
     "emoji": "🏨",
     "desc": "숙소 출발 및 박물관 집중 투어",
     "imgs": [
@@ -656,6 +692,7 @@
     "date": "8.29",
     "time": "10:00",
     "place": "빈 미술사 박물관",
+    "country_flag": "🇦🇹",
     "emoji": "🏛️",
     "desc": "박물관 관람",
     "imgs": [
@@ -675,6 +712,7 @@
     "date": "8.29",
     "time": "13:00",
     "place": "L'Autentico",
+    "country_flag": "🇦🇹",
     "emoji": "🍝",
     "desc": "빈 미술사 박물관 근처 정통 이탈리안 레스토랑에서 즐기는 점심 식사",
     "imgs": [
@@ -691,6 +729,7 @@
     "date": "8.29",
     "time": "15:00",
     "place": "오스트리아 국립도서관",
+    "country_flag": "🇦🇹",
     "emoji": "📚",
     "desc": "세계에서 가장 아름다운 프레스코화가 있는 후기 바로크 양식의 도서관",
     "imgs": [
@@ -710,6 +749,7 @@
     "date": "8.29",
     "time": "18:30",
     "place": "Ribs of Vienna",
+    "country_flag": "🇦🇹",
     "emoji": "🍖",
     "desc": "1m 길이의 푸짐한 미트 립 요리로 든든한 저녁 식사",
     "imgs": [
@@ -726,6 +766,7 @@
     "date": "8.29",
     "time": "20:30",
     "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)",
+    "country_flag": "🇦🇹",
     "emoji": "🏨",
     "desc": "숙소 복귀 및 휴식",
     "imgs": [
@@ -742,6 +783,7 @@
     "date": "8.30",
     "time": "06:00",
     "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)",
+    "country_flag": "🇦🇹",
     "emoji": "🏨",
     "desc": "할슈타트 이동을 위해 숙소 출발 (기차역 이동)",
     "imgs": [
@@ -758,6 +800,7 @@
     "date": "8.30",
     "time": "14:50",
     "place": "빈 중앙역 (Wien Hbf)",
+    "country_flag": "🇦🇹",
     "emoji": "🚉",
     "desc": "할슈타트 출발 후 빈 중앙역 도착, 프라하행 기차 환승 준비",
     "imgs": [
@@ -773,6 +816,7 @@
     "date": "8.30",
     "time": "17:10",
     "place": "프라하 중앙역 (Praha Hlavní Nádraží)",
+    "country_flag": "🇨🇿",
     "emoji": "🚉",
     "desc": "프라하 도착 및 K+K 호텔로 이동",
     "imgs": [
@@ -788,6 +832,7 @@
     "date": "8.30",
     "time": "18:30",
     "place": "K+K Hotel Central Prague (숙소)",
+    "country_flag": "🇨🇿",
     "emoji": "🏨",
     "desc": "프라하 숙소 체크인 및 짐 보관",
     "imgs": [
@@ -804,6 +849,7 @@
     "date": "8.30",
     "time": "19:30",
     "place": "Lokál Dlouhááá",
+    "country_flag": "🇨🇿",
     "emoji": "🍽️",
     "desc": "체코 전통 요리(꼬륵뇨 또는 스비치코바)와 필스너 우르켈 탱크 맥주 저녁 식사",
     "imgs": [
@@ -821,6 +867,7 @@
     "date": "8.30",
     "time": "21:00",
     "place": "K+K Hotel Central Prague (숙소)",
+    "country_flag": "🇨🇿",
     "emoji": "🏨",
     "desc": "숙소 복귀 및 휴식",
     "imgs": [
@@ -837,6 +884,7 @@
     "date": "8.31",
     "time": "08:30",
     "place": "K+K Hotel Central Prague (숙소)",
+    "country_flag": "🇨🇿",
     "emoji": "🏨",
     "desc": "프라하 자유 탐방 시작",
     "imgs": [
@@ -853,6 +901,7 @@
     "date": "8.31",
     "time": "09:30",
     "place": "스트라호프 수도원 (Strahov Monastery)",
+    "country_flag": "🇨🇿",
     "emoji": "⛪",
     "desc": "수도원 도서관 감상 및 수도원 맥주 시음",
     "imgs": [
@@ -872,13 +921,14 @@
     "date": "8.31",
     "time": "12:00",
     "place": "카를교 (Charles Bridge)",
+    "country_flag": "🇨🇿",
     "emoji": "🌉",
     "desc": "일몰 무렵의 아름다운 카를교 산책 및 블타바강 조망",
     "imgs": [
       "https://thumb.tidesquare.com/tour/public/product/PRV3006455682/PRD3010932871/origin/1-145.jpg?quality=80&w=750&h=500",
       "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/417666df-b460-4858-b169-a8a0300c7946.jpeg"
     ],
-    "details": "블타바 강을 가로지르는 유럽에서 가장 아름다운 고딕 양식의 석조 다리입니다. 다리 양옆에 세워진 30개의 성인 조각상들을 감상하며, 특히 얀 네포무츠크 신부 성상 밑의 놋쇠 판을 만지며 소원을 빌어봅니다. 노을빛에 물드는 프라하성이 장관입니다.",
+    "details": "블타바 강을 가로지르는 유럽에서 가장 아름다운 고딕 양식의 석조 다리입니다. 다리 양옆에 세워진 30개의 성인 조각상들을 감상하며, 특히 얀 네포무츠크 신부 성상 밑의 놋쇠 판을 만지며 소원을 빌어봅니다. 노을빛에 물드는 프라하성과 블타바강의 풍경이 장관입니다.",
     "guide": "성상 터치 놋쇠판은 만지면 프라하에 다시 오게 된다는 속설이 있음 / 소매치기 주의 지역",
     "link": "https://www.google.com/maps/search/?api=1&query=Charles+Bridge",
     "lat": 50.086436,
@@ -891,6 +941,7 @@
     "date": "8.31",
     "time": "13:30",
     "place": "Café Savoy",
+    "country_flag": "🇨🇿",
     "emoji": "☕",
     "desc": "말라스트라나의 우아한 카페에서 브런치 및 커피 (트러플 에그 크루아상 추천)",
     "imgs": [
@@ -907,6 +958,7 @@
     "date": "8.31",
     "time": "15:30",
     "place": "하벨 시장 & 구시가 쇼핑가",
+    "country_flag": "🇨🇿",
     "emoji": "🛍️",
     "desc": "기념품 매장과 세련된 건축물이 가득한 프라하 대표 거리 활보",
     "isShopping": true,
@@ -939,6 +991,7 @@
     "date": "8.31",
     "time": "17:00",
     "place": "Naše maso (나세마소)",
+    "country_flag": "🇨🇿",
     "emoji": "🍔",
     "desc": "수제버거 및 육회 스팟",
     "imgs": [
@@ -955,6 +1008,7 @@
     "date": "8.31",
     "time": "18:00",
     "place": "카를교 (Charles Bridge)",
+    "country_flag": "🇨🇿",
     "emoji": "🌉",
     "desc": "일몰 무렵의 아름다운 카를교 산책",
     "imgs": [
@@ -971,6 +1025,7 @@
     "date": "8.31",
     "time": "19:30",
     "place": "존 레논 벽 (John Lennon Wall)",
+    "country_flag": "🇨🇿",
     "emoji": "🎨",
     "desc": "평화의 메시지가 가득한 벽화 거리 관람 및 사진 촬영",
     "imgs": [
@@ -989,6 +1044,7 @@
     "date": "8.31",
     "time": "20:30",
     "place": "U Parlamentu",
+    "country_flag": "🇨🇿",
     "emoji": "🍽️",
     "desc": "체코 전통 굴리시와 맥주로 든든한 저녁 식사 (현지인 맛집)",
     "imgs": [
@@ -1004,6 +1060,7 @@
     "date": "8.31",
     "time": "22:30",
     "place": "K+K Hotel Central Prague (숙소)",
+    "country_flag": "🇨🇿",
     "emoji": "🏨",
     "desc": "숙소 복귀 및 휴식",
     "imgs": [
@@ -1020,6 +1077,7 @@
     "date": "9.01",
     "time": "08:30",
     "place": "K+K Hotel Central Prague (숙소)",
+    "country_flag": "🇨🇿",
     "emoji": "🏨",
     "desc": "스냅 촬영을 위해 숙소 출발",
     "imgs": [
@@ -1036,6 +1094,7 @@
     "date": "9.01",
     "time": "09:30",
     "place": "프라하 시내 일대",
+    "country_flag": "🇨🇿",
     "emoji": "📸",
     "desc": "스냅 사진 촬영 (2시간 소요)",
     "imgs": [
@@ -1052,6 +1111,7 @@
     "date": "9.01",
     "time": "12:00",
     "place": "프라하 성 (Prague Castle)",
+    "country_flag": "🇨🇿",
     "emoji": "🏰",
     "desc": "세계 최대 규모의 고성 단지 입장 및 내부 관람 시작",
     "imgs": [
@@ -1071,6 +1131,7 @@
     "date": "9.01",
     "time": "12:35",
     "place": "성 비투스 대성당 (St. Vitus Cathedral)",
+    "country_flag": "🇨🇿",
     "emoji": "⛪",
     "desc": "압도적인 고딕 양식의 외관 및 화려한 스테인드글라스 관람",
     "imgs": [
@@ -1089,6 +1150,7 @@
     "date": "9.01",
     "time": "13:40",
     "place": "성 이르지 바실리카 & 황금소로",
+    "country_flag": "🇨🇿",
     "emoji": "🧱",
     "desc": "로마네스크 양식의 성당 및 아기자기한 기념품 점이 모인 황금소로 산책",
     "imgs": [
@@ -1108,6 +1170,7 @@
     "date": "9.01",
     "time": "15:30",
     "place": "스타벅스 프라하성점",
+    "country_flag": "🇨🇿",
     "emoji": "☕",
     "desc": "프라하 성에서 내려다보이는 붉은 지붕 뷰와 함께 커피 타임",
     "imgs": [
@@ -1124,6 +1187,7 @@
     "date": "9.01",
     "time": "16:30",
     "place": "파르지주스카 거리 (Pařížská)",
+    "country_flag": "🇨🇿",
     "emoji": "🛍️",
     "desc": "프라하 최고의 명품 브랜드 부티크 쇼핑 거리",
     "isShopping": true,
@@ -1131,7 +1195,7 @@
       "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Parizska_ulice_v_Praze.jpg/1280px-Parizska_ulice_v_Praze.jpg"
     ],
     "details": "구시가지 광장에서 블타바 강 쪽으로 이어지는 프라하 최고의 럭셔리 쇼핑 거리입니다. 아름다운 아르누보 양식의 건물들 사이로 다양한 하이엔드 브랜드 매장들이 들어서 있어 신혼여행의 여유로운 쇼핑을 즐기기 좋은 곳입니다.",
-    "guide": "스타벅스에서 구시가지 광장으로 내려가는 동선상에 위치하여 접근성이 매우 뛰어납니다.",
+    "guide": "스타벅스에서 구시가지 광장으로 내려오는 동선상에 위치하여 접근성이 매우 뛰어납니다.",
     "link": "https://www.google.com/maps/search/?api=1&query=Pařížská+Street",
     "lat": 50.0906,
     "lng": 14.4194,
@@ -1152,6 +1216,7 @@
     "date": "9.01",
     "time": "18:30",
     "place": "Kantýna (칸티나)",
+    "country_flag": "🇨🇿",
     "emoji": "🥩",
     "desc": "프리미엄 정육 식당에서 즐기는 체코식 고기 파티",
     "imgs": [
@@ -1167,6 +1232,7 @@
     "date": "9.01",
     "time": "21:00",
     "place": "K+K Hotel Central Prague (숙소)",
+    "country_flag": "🇨🇿",
     "emoji": "🏨",
     "desc": "숙소 복귀 및 휴식",
     "imgs": [
@@ -1183,6 +1249,7 @@
     "date": "9.02",
     "time": "10:00",
     "place": "K+K Hotel Central Prague (숙소)",
+    "country_flag": "🇨🇿",
     "emoji": "🏨",
     "desc": "숙소 체크아웃 및 귀국 준비",
     "imgs": [
@@ -1199,6 +1266,7 @@
     "date": "9.02",
     "time": "11:30",
     "place": "프라하 국립박물관 주변 바츨라프 광장",
+    "country_flag": "🇨🇿",
     "emoji": "🛍️",
     "desc": "체코 근현대사의 중심지 산책 및 마지막 기념품 쇼핑",
     "isShopping": true,
@@ -1231,6 +1299,7 @@
     "date": "9.02",
     "time": "13:00",
     "place": "Café Louvre",
+    "country_flag": "🇨🇿",
     "emoji": "☕",
     "desc": "바츨라프 광장 근처 역사적 카페에서 가벼운 점심 및 커피 (카프카, 아인슈타인 단골)",
     "imgs": [
@@ -1247,6 +1316,7 @@
     "date": "9.02",
     "time": "15:00",
     "place": "프라하 바츨라프 하벨 국제공항",
+    "country_flag": "🇨🇿",
     "emoji": "🛫",
     "desc": "귀국 준비 및 공항 이동 (공항 체크인)",
     "imgs": [
@@ -1263,6 +1333,7 @@
     "date": "9.02",
     "time": "19:05",
     "place": "프라하 바츨라프 하벨 국제공항",
+    "country_flag": "🇨🇿",
     "emoji": "🛫",
     "desc": "인천행 귀국 비행기 출발 (KE 970)",
     "imgs": [
@@ -1279,6 +1350,7 @@
     "date": "9.03",
     "time": "13:20",
     "place": "인천국제공항",
+    "country_flag": "🇰🇷",
     "emoji": "🛬",
     "desc": "인천국제공항 도착 및 귀가",
     "imgs": [
