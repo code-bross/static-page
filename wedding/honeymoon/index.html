@@ -318,6 +318,12 @@
             z-index: 999 !important;
         }
 
+        .country-flag { 
+            font-size: 0.9em; 
+            margin-left: 6px; 
+            vertical-align: middle; 
+        }
+
         @media (max-width: 960px) {
             .layout {
                 grid-template-columns: 1fr;
@@ -469,10 +475,10 @@
                         <div class="schedule-row">
                             <div class="schedule-content">
                                 <div class="place-name">
-    ${item.emoji || '📍'} ${item.place} 
-    <!-- 추가된 로직: 데이터에 country_flag가 있으면 span 태그로 추가 -->
-    ${item.country_flag ? `<span class="country-flag">${item.country_flag}</span>` : ''}
-</div>
+                                    ${item.emoji || '📍'} ${item.place} 
+                                    <!-- 추가된 로직: 데이터에 country_flag가 있으면 span 태그로 추가 -->
+                                    ${item.country_flag ? `<span class="country-flag">${item.country_flag}</span>` : ''}
+                                </div>
                                 <p class="schedule-desc">${item.desc || ''}</p>
                             </div>
 
