@@ -937,6 +937,22 @@
   },
   {
     "date": "8.31",
+    "time": "17:00",
+    "place": "Naše maso (나세마소)",
+    "emoji": "🍔",
+    "desc": "수제버거 및 육회 스팟",
+    "imgs": [
+      "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/ef424144-9a9d-4f6e-bbe8-8ea4e73e1aeb.jpeg",
+      "https://mblogthumb-phinf.pstatic.net/MjAyMzA5MjZfMTcz/MDAxNjk1NzM0MDUwMzQz.X1IJxGNPQZMWA6Fgz-nR5SbEaOdir9YHm_t52rPaboYg.GVOpdVGDJ2C1E8nya4N8OUaB0GRXVXOZcub01rkExLIg.JPEG.metalroz/20230722_190258.jpg?type=w800"
+    ],
+    "details": "현지인과 관광객 모두에게 폭발적인 인기를 얻고 있는 프라하 최고의 정육점 겸 비스트로입니다. 품질 좋은 체코산 소고기를 사용해 육즙이 흘러넘치는 웻에이징 수제 버거와 신선한 소고기 타르타르(체코식 육회)는 잊을 수 없는 미식 경험을 선사합니다.",
+    "guide": "매장이 협소해 스탠딩 테이블에서 서서 먹어야 할 수도 있습니다. 한쪽 벽면에 마련된 탭에서 직접 따라 마시는 로컬 생맥주(Pivo)를 꼭 곁들여보세요.",
+    "link": "https://www.google.com/maps/search/?api=1&query=Nase+maso+Prague",
+    "lat": 50.0908655,
+    "lng": 14.4268789
+  },
+  {
+    "date": "8.31",
     "time": "18:00",
     "place": "카를교 (Charles Bridge)",
     "emoji": "🌉",
