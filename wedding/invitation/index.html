@@ -842,11 +842,35 @@
             transform: scale(1.06);
         }
 
-        .swiper-pagination-bullet-active {
+        .gallery-slider .swiper-pagination {
+            position: relative;
+            bottom: 0;
+            margin-top: 20px;
+            width: 94px;
+            margin-left: auto;
+            margin-right: auto;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 4px 0;
+        }
+
+        .gallery-slider .swiper-pagination-bullet {
+            flex-shrink: 0;
+            width: 8px;
+            height: 8px;
+            margin: 0 4px !important;
+            background: #d8cebe !important;
+            opacity: 1 !important;
+            border-radius: 50%;
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), width 0.3s ease, border-radius 0.3s ease, background-color 0.3s ease, opacity 0.3s ease !important;
+        }
+
+        .gallery-slider .swiper-pagination-bullet-active {
             background: var(--accent-gold) !important;
             width: 22px !important;
             border-radius: 6px !important;
-            transition: all 0.3s ease !important;
+            opacity: 1 !important;
         }
 
         /* Unified Button System */
@@ -2113,7 +2137,43 @@
                 el: '.swiper-pagination',
                 clickable: true,
             },
+            on: {
+                init: function () {
+                    setTimeout(() => updateGalleryPagination(this), 50);
+                },
+                slideChange: function () {
+                    updateGalleryPagination(this);
+                }
+            }
         });
+
+        function updateGalleryPagination(swiperInstance) {
+            const paginationEl = document.querySelector('#weddingGallery .swiper-pagination');
+            if (!paginationEl) return;
+            const bullets = Array.from(paginationEl.querySelectorAll('.swiper-pagination-bullet'));
+            if (!bullets.length) return;
+
+            const realIndex = swiperInstance.realIndex;
+            let offsets = [];
+            let currentX = 0;
+
+            bullets.forEach((bullet, idx) => {
+                const isCurrent = idx === realIndex;
+                const w = isCurrent ? 30 : 16;
+                offsets.push(currentX + w / 2);
+                currentX += w;
+            });
+
+            const totalWidth = currentX;
+            const viewportWidth = 94;
+            let targetX = offsets[realIndex] - (viewportWidth / 2);
+            const maxShift = Math.max(0, totalWidth - viewportWidth);
+            targetX = Math.max(0, Math.min(targetX, maxShift));
+
+            bullets.forEach(bullet => {
+                bullet.style.transform = `translateX(-${targetX}px)`;
+            });
+        }
 
         // 9. Lightbox Gallery Modal
         let currentImgIdx = 0;
