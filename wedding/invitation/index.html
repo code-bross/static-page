@@ -339,23 +339,12 @@
         }
 
         .section-header {
-            margin-bottom: 36px;
-        }
-
-        .section-subtitle {
-            font-family: var(--font-body);
-            font-size: 0.95rem;
-            font-weight: 600;
-            letter-spacing: 0.25em;
-            color: var(--accent-gold-dark);
-            text-transform: uppercase;
-            margin-bottom: 6px;
-            display: block;
+            margin-bottom: 30px;
         }
 
         .section-title {
             font-family: var(--font-body);
-            font-size: 1.35rem;
+            font-size: 1.45rem;
             font-weight: 700;
             color: var(--primary-text);
             letter-spacing: 0.16em;
@@ -374,7 +363,7 @@
         }
 
         .section.in-view .section-title::after {
-            width: 32px;
+            width: 36px;
         }
 
         /* Staggered Children Entrance */
@@ -408,12 +397,14 @@
             border: 1px solid var(--line-color);
             box-shadow: var(--shadow-soft);
             text-align: center;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+            cursor: pointer;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.3s ease;
         }
 
         .family-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent-gold);
+            box-shadow: 0 20px 40px rgba(91, 74, 61, 0.15);
         }
 
         .family-thumb {
@@ -601,17 +592,18 @@
             transition: all 0.3s ease !important;
         }
 
-        /* Modal Lightbox */
+        /* Modal Lightbox & Account Dialog Modal */
         .modal {
             display: none;
             position: fixed;
             inset: 0;
             z-index: 2000;
-            background-color: rgba(15, 12, 10, 0.94);
+            background-color: rgba(15, 12, 10, 0.88);
             backdrop-filter: blur(16px);
             justify-content: center;
             align-items: center;
             opacity: 0;
+            padding: 20px;
             transition: opacity 0.35s ease;
         }
 
@@ -635,17 +627,25 @@
 
         .modal-close {
             position: absolute;
-            top: 24px;
-            right: 24px;
-            color: #FFF;
-            font-size: 34px;
+            top: 20px;
+            right: 20px;
+            color: var(--secondary-text);
+            font-size: 28px;
             cursor: pointer;
             z-index: 2001;
-            transition: transform 0.2s ease;
+            transition: transform 0.2s ease, color 0.2s ease;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--bg-alt);
         }
 
         .modal-close:hover {
             transform: rotate(90deg);
+            color: var(--primary-text);
         }
 
         .modal-nav {
@@ -674,7 +674,37 @@
         .modal-prev { left: 16px; }
         .modal-next { right: 16px; }
 
-        /* Account Accordion */
+        /* Dedicated Account Dialog Modal Card */
+        .account-dialog-card {
+            position: relative;
+            width: 100%;
+            max-width: 420px;
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 28px 24px;
+            border: 1px solid var(--line-color);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.25);
+            transform: scale(0.88);
+            transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-align: center;
+        }
+
+        .modal.open .account-dialog-card {
+            transform: scale(1);
+        }
+
+        .account-dialog-title {
+            font-family: var(--font-body);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--primary-text);
+            margin-bottom: 20px;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid var(--bg-alt);
+            padding-bottom: 14px;
+        }
+
+        /* Account Accordion Cards */
         .account-card {
             background: var(--card-bg);
             border: 1px solid var(--line-color);
@@ -781,37 +811,105 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 10px;
-            margin-top: 12px;
+            margin: 14px 0;
         }
 
         .btn-remit {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 6px;
-            padding: 10px;
-            border-radius: 10px;
+            padding: 11px 12px;
+            border-radius: 12px;
             text-decoration: none;
             font-family: var(--font-body);
             font-size: 1rem;
-            font-weight: 600;
-            background: #FDFBF7;
-            border: 1px solid var(--line-color);
-            color: var(--primary-text);
+            font-weight: 700;
             transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
 
-        .btn-remit:hover {
+        .btn-remit-kakaopay {
+            background-color: #FEE500;
+            color: #191919;
+            box-shadow: 0 4px 14px rgba(254, 229, 0, 0.45);
+        }
+
+        .btn-remit-kakaopay:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+            box-shadow: 0 6px 18px rgba(254, 229, 0, 0.65);
         }
 
-        .btn-remit img {
-            height: 18px;
-            width: auto;
+        .btn-remit-toss {
+            background-color: #0064FF;
+            color: #FFFFFF;
+            box-shadow: 0 4px 14px rgba(0, 100, 255, 0.35);
         }
 
-        /* Location Section */
+        .btn-remit-toss:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0, 100, 255, 0.55);
+        }
+
+        /* Transport / Location Section Style */
+        .transport-card {
+            background: var(--card-bg);
+            border: 1px solid var(--line-color);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow-soft);
+            text-align: left;
+        }
+
+        .transport-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary-text);
+            margin-bottom: 12px;
+            border-bottom: 1px solid var(--bg-alt);
+            padding-bottom: 8px;
+        }
+
+        .transport-badge {
+            background: var(--accent-gold);
+            color: #FFFFFF;
+            font-size: 0.8rem;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+        .transport-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .transport-item {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--secondary-text);
+            line-height: 1.8;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 18px;
+        }
+
+        .transport-item::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
+
+        .transport-item strong {
+            color: var(--primary-text);
+        }
+
         .address-box {
             background: var(--card-bg);
             border-radius: 16px;
@@ -1054,7 +1152,7 @@
     <header class="hero-section">
         <canvas id="petal-canvas"></canvas>
         <span class="hero-badge">The Wedding Invitation</span>
-        <h1 class="hero-names-eng">영길 <span>&</span> 수진</h1>
+        <h1 class="hero-names-eng">Youngkil <span>&</span> Sujin</h1>
 
         <!-- Architectural Arch Shape Frame -->
         <div class="hero-image-frame">
@@ -1085,14 +1183,14 @@
         </p>
 
         <div class="family-grid stagger-2">
-            <div class="family-card">
+            <div class="family-card" onclick="openAccountModal('groom')" title="신랑측 계좌 안내 팝업">
                 <img class="family-thumb" src="./gallery/6.webp" alt="신랑 강영길">
                 <div class="family-info">
                     <div class="family-role">신랑측</div>
                     <div class="family-names">강용훈 · 박미경의 아들 영길</div>
                 </div>
             </div>
-            <div class="family-card">
+            <div class="family-card" onclick="openAccountModal('bride')" title="신부측 계좌 안내 팝업">
                 <img class="family-thumb" src="./gallery/10.webp" alt="신부 성수진">
                 <div class="family-info">
                     <div class="family-role">신부측</div>
@@ -1105,7 +1203,6 @@
     <!-- Refined Calendar & D-Day Section -->
     <section class="section section-alt">
         <div class="section-header">
-            <span class="section-subtitle">Save The Date</span>
             <h2 class="section-title">2026. 08. 23</h2>
         </div>
 
@@ -1206,7 +1303,7 @@
             감사히 오래도록 간직하겠습니다.
         </p>
 
-        <!-- Groom Account -->
+        <!-- Groom Account Accordion -->
         <div class="account-card stagger-2">
             <button class="account-header" onclick="toggleAccount(this)">
                 <span>신랑측 계좌번호</span>
@@ -1221,12 +1318,16 @@
                     <button class="btn-copy" onclick="copyAccount('63557881-21')">복사</button>
                 </div>
                 <div class="remit-links">
-                    <a href="https://qr.kakaopay.com/Ej7kLPSPI" class="btn-remit" target="_blank" rel="noreferrer">
-                        <img src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FcEaPmw%2FbtrcIUODymI%2FAAAAAAAAAAAAAAAAAAAAAJ66dlufqQ8CmrywsO5eQdaR-ALF_-6jbvFe4nRJZzfn%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1780239599%26allow_ip%3D%26allow_referer%3D%26signature%3DU0N9xArh60iyq5%252ByCflvd7dZVOY%253D" alt="카카오페이">
+                    <a href="https://qr.kakaopay.com/Ej7kLPSPI" class="btn-remit btn-remit-kakaopay" target="_blank" rel="noreferrer">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="#191919">
+                            <path d="M12 3c-5.523 0-10 3.705-10 8.276 0 2.926 1.83 5.487 4.582 7.027l-1.164 4.264c-.114.417.362.772.715.539l5.068-3.344c.264.025.531.038.8.038 5.523 0 10-3.705 10-8.276S17.523 3 12 3z"/>
+                        </svg>
                         카카오페이
                     </a>
-                    <a href="supertoss://send?bank=한국투자&accountNo=6355788121" class="btn-remit" target="_blank" rel="noreferrer">
-                        <img src="https://framerusercontent.com/images/EhEElRcoy4v5Y9uyUj3XkTWg.jpg?width=1080&height=739" alt="토스">
+                    <a href="supertoss://send?bank=한국투자&accountNo=6355788121" class="btn-remit btn-remit-toss" target="_blank" rel="noreferrer">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                        </svg>
                         토스 송금
                     </a>
                 </div>
@@ -1247,7 +1348,7 @@
             </div>
         </div>
 
-        <!-- Bride Account -->
+        <!-- Bride Account Accordion -->
         <div class="account-card stagger-3">
             <button class="account-header" onclick="toggleAccount(this)">
                 <span>신부측 계좌번호</span>
@@ -1262,12 +1363,16 @@
                     <button class="btn-copy" onclick="copyAccount('302-0661-7112-61')">복사</button>
                 </div>
                 <div class="remit-links">
-                    <a href="https://qr.kakaopay.com/Ej9AlrDwY" class="btn-remit" target="_blank" rel="noreferrer">
-                        <img src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FcEaPmw%2FbtrcIUODymI%2FAAAAAAAAAAAAAAAAAAAAAJ66dlufqQ8CmrywsO5eQdaR-ALF_-6jbvFe4nRJZzfn%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1780239599%26allow_ip%3D%26allow_referer%3D%26signature%3DU0N9xArh60iyq5%252ByCflvd7dZVOY%253D" alt="카카오페이">
+                    <a href="https://qr.kakaopay.com/Ej9AlrDwY" class="btn-remit btn-remit-kakaopay" target="_blank" rel="noreferrer">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="#191919">
+                            <path d="M12 3c-5.523 0-10 3.705-10 8.276 0 2.926 1.83 5.487 4.582 7.027l-1.164 4.264c-.114.417.362.772.715.539l5.068-3.344c.264.025.531.038.8.038 5.523 0 10-3.705 10-8.276S17.523 3 12 3z"/>
+                        </svg>
                         카카오페이
                     </a>
-                    <a href="supertoss://send?bank=NH농협&accountNo=3020661711261" class="btn-remit" target="_blank" rel="noreferrer">
-                        <img src="https://framerusercontent.com/images/EhEElRcoy4v5Y9uyUj3XkTWg.jpg?width=1080&height=739" alt="토스">
+                    <a href="supertoss://send?bank=NH농협&accountNo=3020661711261" class="btn-remit btn-remit-toss" target="_blank" rel="noreferrer">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                        </svg>
                         토스 송금
                     </a>
                 </div>
@@ -1296,21 +1401,71 @@
         </div>
 
         <div class="address-box stagger-1">
-            <div class="address-sub">대전 유성구 동서대로 639 라도무스 아트센터 신관 8F (아모리움홀)</div>
+            <div class="address-title">라도무스 아트센터 신관 8F 아모리움홀</div>
+            <div class="address-sub">대전광역시 유성구 동서대로 639</div>
         </div>
 
         <div class="map-frame stagger-1">
             <div id="daumRoughmapContainer1775705958168" class="root_daum_roughmap root_daum_roughmap_landing"></div>
         </div>
 
-        <div class="address-box stagger-1" style="margin-top: 12px; margin-bottom: 20px;">
-            <div class="address-sub" style="color: var(--primary-text); font-weight: 700;">유성온천역 3번 출구 셔틀버스 운행</div>
+        <!-- Comprehensive Transport Options -->
+        <div class="transport-card stagger-2">
+            <div class="transport-header">
+                <span>🚆 대전역 (KTX / SRT / 일반열차) 출발</span>
+                <span class="transport-badge">추천</span>
+            </div>
+            <ul class="transport-list">
+                <li class="transport-item">
+                    <strong>지하철 + 무료 셔틀버스 (가장 추천):</strong><br>
+                    대전역 지하철 1호선(반석행) 탑승 → <strong>유성온천역 하차 (3번 출구)</strong> → <strong>예식 당일 무료 셔틀버스</strong> 탑승 (15분 간격 운행)
+                </li>
+                <li class="transport-item">
+                    <strong>지하철 + 시내버스:</strong><br>
+                    유성온천역 6번 출구 → <strong>106번</strong>(흥도초 하차) 또는 <strong>706번</strong>(등기소/아이파크시티 하차) 버스 환승 후 도보 5분
+                </li>
+                <li class="transport-item">
+                    <strong>지하철 + 택시:</strong><br>
+                    유성온천역 하차 후 택시 탑승 (약 5~10분 소요, 요금 약 5,000원~6,000원)
+                </li>
+                <li class="transport-item">
+                    <strong>대전역에서 직접 택시 탑승:</strong> 약 25~30분 소요
+                </li>
+            </ul>
+        </div>
+
+        <div class="transport-card stagger-2">
+            <div class="transport-header">
+                <span>🚄 서대전역 (KTX / ITX) 출발</span>
+            </div>
+            <ul class="transport-list">
+                <li class="transport-item">
+                    <strong>시내버스 직접 이용:</strong> 서대전역 인근 정류장에서 <strong>312번 버스</strong> 탑승
+                </li>
+                <li class="transport-item">
+                    <strong>지하철 환승:</strong> 서대전네거리역에서 지하철 1호선(반석행) 탑승 → 유성온천역 3번 출구 셔틀버스/택시 환승
+                </li>
+            </ul>
+        </div>
+
+        <div class="transport-card stagger-2">
+            <div class="transport-header">
+                <span>🚗 자가용 / 고속도로 이용</span>
+            </div>
+            <ul class="transport-list">
+                <li class="transport-item">
+                    <strong>유성 IC 진출 후:</strong> '도안신도시' 방면 우회전 → 약 2km 직진 후 목원대학교 방면 우회전 → 500m 앞 우측 위치
+                </li>
+                <li class="transport-item">
+                    <strong>주차 안내:</strong> 단독 주차 빌딩 및 야외 주차장 (약 1,300대 수용 가능)
+                </li>
+            </ul>
         </div>
 
         <!-- Shuttle Info -->
         <div class="address-box stagger-2" style="margin-top: 24px;">
             <div class="address-title" style="font-size: 1.35rem; margin-bottom: 10px;">서울 출발 셔틀버스</div>
-            <div class="address-sub" style="margin-bottom: 12px;">한국투자증권 본사 뒷편 (광장아파트 방면) 오전 10:00</div>
+            <div class="address-sub" style="margin-bottom: 12px;">한국투자증권 본사 뒷편 (광장아파트 방면) 오전 10:00 출발</div>
             <div class="map-frame" style="margin-bottom: 0;">
                 <div id="daumRoughmapContainer1782825047223" class="root_daum_roughmap root_daum_roughmap_landing"></div>
             </div>
@@ -1360,7 +1515,7 @@
         <div id="guestbookList" class="guestbook-list stagger-2"></div>
     </section>
 
-    <!-- Lightbox Modal -->
+    <!-- Lightbox Gallery Modal -->
     <div id="galleryModal" class="modal">
         <span class="modal-close" onclick="closeModal()">&times;</span>
         <button class="modal-nav modal-prev" onclick="changeImage(-1)">&#10094;</button>
@@ -1368,11 +1523,20 @@
         <button class="modal-nav modal-next" onclick="changeImage(1)">&#10095;</button>
     </div>
 
+    <!-- Account Details Dialog Modal -->
+    <div id="accountDialogModal" class="modal">
+        <div class="account-dialog-card">
+            <span class="modal-close" onclick="closeAccountModal()">&times;</span>
+            <h3 id="accountDialogTitle" class="account-dialog-title">마음 전하실 곳</h3>
+            <div id="accountDialogBody"></div>
+        </div>
+    </div>
+
     <!-- Toast Component -->
     <div id="toast">계좌번호가 복사되었습니다 ✨</div>
 
     <footer>
-        <p>영길 & 수진 Wedding Invitation</p>
+        <p>Youngkil & Sujin Wedding Invitation</p>
         <p style="margin-top: 4px; font-size: 0.85rem; opacity: 0.7;">Thank you for celebrating with us.</p>
     </footer>
 
@@ -1519,7 +1683,7 @@
             },
         });
 
-        // 7. Modal Lightbox
+        // 7. Lightbox Gallery Modal
         let currentImgIdx = 0;
         const modal = document.getElementById('galleryModal');
         const modalImg = document.getElementById('modalImage');
@@ -1556,11 +1720,84 @@
             if (diff < -40) changeImage(-1);
         });
 
-        // 8. Account Toggle & Copy Toast
+        // 8. Bottom Accordion Toggle & Account Dialog Modal
         function toggleAccount(btn) {
             const card = btn.parentElement;
             card.classList.toggle('active');
         }
+
+        const accountData = {
+            groom: {
+                title: '신랑측 마음 전하실 곳 💙',
+                accounts: [
+                    { bank: '한국투자증권 (예금주: 강영길)', number: '63557881-21' },
+                    { bank: '하나은행 (예금주: 강용훈)', number: '625-075789-00508' },
+                    { bank: '국민은행 (예금주: 박미경)', number: '476-21-0278-498' }
+                ],
+                kakaopay: 'https://qr.kakaopay.com/Ej7kLPSPI',
+                toss: 'supertoss://send?bank=한국투자&accountNo=6355788121'
+            },
+            bride: {
+                title: '신부측 마음 전하실 곳 🩷',
+                accounts: [
+                    { bank: '농협 (예금주: 성수진)', number: '302-0661-7112-61' },
+                    { bank: '농협 (예금주: 성창제)', number: '519-02-1716-21' },
+                    { bank: '농협 (예금주: 정귀화)', number: '351-1321-8587-23' }
+                ],
+                kakaopay: 'https://qr.kakaopay.com/Ej9AlrDwY',
+                toss: 'supertoss://send?bank=NH농협&accountNo=3020661711261'
+            }
+        };
+
+        const accountModal = document.getElementById('accountDialogModal');
+        const accountTitle = document.getElementById('accountDialogTitle');
+        const accountBody = document.getElementById('accountDialogBody');
+
+        function openAccountModal(side) {
+            const data = accountData[side];
+            if (!data) return;
+
+            accountTitle.textContent = data.title;
+            accountBody.innerHTML = `
+                <div class="remit-links" style="margin-bottom: 20px;">
+                    <a href="${data.kakaopay}" class="btn-remit btn-remit-kakaopay" target="_blank" rel="noreferrer">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="#191919">
+                            <path d="M12 3c-5.523 0-10 3.705-10 8.276 0 2.926 1.83 5.487 4.582 7.027l-1.164 4.264c-.114.417.362.772.715.539l5.068-3.344c.264.025.531.038.8.038 5.523 0 10-3.705 10-8.276S17.523 3 12 3z"/>
+                        </svg>
+                        카카오페이
+                    </a>
+                    <a href="${data.toss}" class="btn-remit btn-remit-toss" target="_blank" rel="noreferrer">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                        </svg>
+                        토스 송금
+                    </a>
+                </div>
+                ${data.accounts.map(acc => `
+                    <div class="account-row">
+                        <div>
+                            <div class="bank-name">${acc.bank}</div>
+                            <div class="account-number">${acc.number}</div>
+                        </div>
+                        <button class="btn-copy" onclick="copyAccount('${acc.number}')">복사</button>
+                    </div>
+                `).join('')}
+            `;
+
+            accountModal.style.display = 'flex';
+            requestAnimationFrame(() => accountModal.classList.add('open'));
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeAccountModal() {
+            accountModal.classList.remove('open');
+            setTimeout(() => {
+                accountModal.style.display = 'none';
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        accountModal.onclick = (e) => { if (e.target === accountModal) closeAccountModal(); };
 
         function copyAccount(accNum) {
             const cleanAcc = accNum.replace(/-/g, '');
