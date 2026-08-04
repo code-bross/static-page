@@ -8,19 +8,21 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://code-bross.github.io/static-page/wedding/invitation/top.webp">
     <meta property="og:description"
-        content="26년 8월 23일, 오후 1시 라도무스 아트센터 아모리움홀에서 영길과 수진이 결혼합니다. 소중한 분들을 모시고 함께 축하하는 자리를 마련했습니다. 자세한 내용은 모바일 청첩장을 확인해 주세요.">
+        content="2026년 8월 23일 일요일 오후 1시, 라도무스 아트센터 아모리움홀에서 영길과 수진이 결혼합니다. 소중한 분들을 모시고 축복의 자리를 마련했습니다.">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>영길 ♥️ 수진 모바일 청첩장</title>
+
+    <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- External Libraries -->
     <script charset="UTF-8" class="daum_roughmap_loader_script"
         src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.8.1/kakao.min.js"
         integrity="sha384-OL+ylM/iuPLtW5U3XcvLSGhE8JzReKDank5InqlHGWPhb4140/yrBw0bg0y7+C9J"
         crossorigin="anonymous"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-database-compat.js"></script>
 
     <style>
         @font-face {
@@ -39,1169 +41,1326 @@
         }
 
         :root {
+            --bg-color: #FAF7F2;
+            --bg-alt: #F4EFEA;
+            --card-bg: #FFFFFF;
+            --primary-text: #1d1510;
+            --secondary-text: #4a4139;
+            --accent-gold: #5b4a3d;
+            --accent-gold-dark: #3a2f27;
+            --accent-gold-light: #EFE4D4;
             --line-color: #d9d1c7;
-            --point-color: #5b4a3d;
-            --text-color: #1d1510;
-            --text-light-color: #4a4139;
-            --heading-color: #1b130f;
-            --button-text-color: #0f0c09;
+            --shadow-soft: 0 10px 30px rgba(44, 38, 33, 0.05);
+            --shadow-card: 0 18px 40px rgba(0, 0, 0, 0.08);
+            --font-serif: 'my-wife-handwriting', 'Griun-Gossi', serif;
+            --font-body: 'my-wife-handwriting', 'Griun-Gossi', serif;
+            --font-script: 'High-Empathy', 'my-wife-handwriting', cursive;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
         }
 
         html {
             width: 100%;
-            height: 100%;
+            scroll-behavior: smooth;
+            background-color: var(--bg-color);
         }
 
         body {
-            margin: 0;
-            padding: 0;
             width: 100%;
-            min-height: 100%;
-            font-family: 'my-wife-handwriting', serif;
-            background-color: #fcfaf7;
-            color: #2d241e;
-            overflow-x: hidden;
-            line-height: 1.6;
-            letter-spacing: 0.01em;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .section {
-            padding: 48px 20px;
-            text-align: center;
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-            will-change: opacity, transform;
-        }
-
-        .section--alt {
-            background-color: #f9f9f9;
-        }
-
-        .section-inner {
-            width: min(92vw, 420px);
+            max-width: 480px;
             margin: 0 auto;
+            min-height: 100vh;
+            font-family: var(--font-body);
+            background-color: var(--bg-color);
+            color: var(--primary-text);
+            overflow-x: hidden;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.06);
+            position: relative;
         }
 
-        .family-intro {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 16px;
-            margin-top: 24px;
+        /* Scroll Progress Bar */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 480px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-gold), #8C6F4D, #B89973);
+            z-index: 1000;
+            width: 0%;
+            transition: width 0.1s ease-out;
         }
 
-        .family-card {
-            overflow: hidden;
-            border: 1px solid var(--line-color);
-            border-radius: 20px;
-            background-color: #fff;
-            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.05);
+        /* Falling Petal Canvas */
+        #petal-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        /* Music Floating Vinyl Player */
+        .vinyl-player {
+            position: fixed;
+            top: 20px;
+            right: max(20px, calc(50vw - 220px));
+            z-index: 999;
             display: flex;
-            flex-direction: column;
-            text-align: left;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(14px);
+            border: 1px solid var(--line-color);
+            padding: 6px 14px 6px 8px;
+            border-radius: 30px;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: floatWidget 4s ease-in-out infinite;
         }
 
-        .family-photo-wrap {
-            aspect-ratio: 4 / 5;
+        @keyframes floatWidget {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .vinyl-disc {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #333 30%, #111 70%);
+            border: 2px solid #5b4a3d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.5s ease;
+        }
+
+        .vinyl-disc::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #FAF7F2;
+            border-radius: 50%;
+        }
+
+        .vinyl-player.playing .vinyl-disc {
+            animation: spinVinyl 3s linear infinite;
+        }
+
+        @keyframes spinVinyl {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .vinyl-text {
+            font-size: 0.85rem;
+            font-family: var(--font-body);
+            font-weight: 600;
+            color: var(--secondary-text);
+            letter-spacing: 0.05em;
+        }
+
+        /* Hero Section Animation */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            padding: 65px 24px 45px;
+            text-align: center;
+            background: linear-gradient(180deg, #F8F3EC 0%, var(--bg-color) 100%);
             overflow: hidden;
-            background-color: #f3eee8;
         }
 
-        .family-photo {
+        .hero-badge {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            color: var(--accent-gold-dark);
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            padding: 4px 16px;
+            border-top: 1px solid var(--accent-gold);
+            border-bottom: 1px solid var(--accent-gold);
+            animation: fadeInDown 1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-names-eng {
+            font-family: var(--font-script);
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: var(--primary-text);
+            line-height: 1.15;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            animation: zoomInSoft 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s both;
+        }
+
+        @keyframes zoomInSoft {
+            from { opacity: 0; transform: scale(0.94); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .hero-names-eng span {
+            display: inline-block;
+            font-style: italic;
+            color: var(--accent-gold);
+            font-size: 2.4rem;
+            margin: 0 6px;
+            animation: pulseSoft 2.5s ease-in-out infinite;
+        }
+
+        @keyframes pulseSoft {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); color: #8C6F4D; }
+        }
+
+        /* Architectural Arch Top Image Frame */
+        .hero-image-frame {
+            position: relative;
+            width: 86%;
+            max-width: 360px;
+            aspect-ratio: 3 / 4;
+            border-radius: 200px 200px 24px 24px; /* Distinct Arch Shape */
+            overflow: hidden;
+            margin: 0 auto 30px;
+            border: 3px solid var(--line-color);
+            box-shadow: 0 20px 50px rgba(91, 74, 61, 0.2), 0 10px 25px rgba(0, 0, 0, 0.08);
+            animation: fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.4s both;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .hero-image-frame::before {
+            content: '';
+            position: absolute;
+            inset: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 194px 194px 18px 18px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .hero-image-frame:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 25px 60px rgba(91, 74, 61, 0.3), 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .hero-image-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
+            animation: kenBurns 18s ease-in-out infinite alternate;
         }
 
-        .family-content {
-            padding: 16px 16px 18px;
+        @keyframes kenBurns {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.08); }
         }
 
-        .family-label {
-            font-size: 1.35rem;
-            color: var(--text-light-color);
-            margin-bottom: 6px;
-            letter-spacing: 0.24em;
-            text-transform: uppercase;
+        .hero-overlay-quote {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 40px 20px 20px;
+            background: linear-gradient(to top, rgba(30, 24, 20, 0.78), transparent);
+            color: #FFFFFF;
+            font-family: var(--font-script);
+            font-size: 2.8rem;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            z-index: 3;
+            animation: slideUpFade 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s both;
         }
 
-        .family-name {
-            font-size: 1.1rem;
-            margin: 0 0 8px;
-            color: var(--heading-color);
-            line-height: 1.5;
+        @keyframes slideUpFade {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-
-        @media (min-width: 700px) {
-            .family-intro {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                gap: 20px;
-            }
+        .hero-info {
+            margin-top: 20px;
+            animation: fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.7s both;
         }
 
-        .guestbook-form {
-            margin-top: 22px;
-            padding: 20px;
-            border: 1px solid var(--line-color);
-            border-radius: 16px;
-            background-color: #fff;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
-            text-align: left;
+        .hero-names-kor {
+            font-family: var(--font-body);
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            color: var(--primary-text);
+            margin: 10px 0;
         }
 
-        .guestbook-field {
-            margin-bottom: 14px;
+        .hero-date-venue {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--secondary-text);
+            letter-spacing: 0.03em;
+            line-height: 1.6;
         }
 
-        .guestbook-label {
-            display: block;
-            margin-bottom: 6px;
-            font-size: 0.95rem;
-            color: var(--text-light-color);
-        }
-
-        .guestbook-input,
-        .guestbook-textarea {
-            width: 100%;
-            box-sizing: border-box;
-            border: 1px solid var(--line-color);
-            border-radius: 12px;
-            padding: 12px 14px;
-            font: inherit;
-            color: var(--text-color);
-            background-color: #fcfaf7;
-            resize: vertical;
-        }
-
-        .guestbook-input:focus,
-        .guestbook-textarea:focus {
-            outline: none;
-            border-color: var(--point-color);
-        }
-
-        .guestbook-inline {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.95rem;
-            color: var(--text-light-color);
-            margin-bottom: 14px;
-        }
-
-        .guestbook-actions {
-            display: flex;
-            justify-content: center;
-        }
-
-        .guestbook-submit {
-            width: 100%;
-        }
-
-        .guestbook-status {
-            min-height: 1.2em;
-            margin: 12px 0 0;
-            font-size: 0.95rem;
-            color: var(--point-color);
-        }
-
-        .guestbook-list {
-            display: grid;
-            gap: 12px;
-            margin-top: 18px;
-        }
-
-        .guestbook-item {
-            padding: 14px 16px;
-            border-radius: 12px;
-            background-color: #fff;
-            border: 1px solid var(--line-color);
-            text-align: left;
-        }
-
-        .guestbook-meta {
-            display: flex;
-            justify-content: space-between;
-            gap: 8px;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-            color: var(--text-light-color);
-        }
-
-        .guestbook-item p {
-            margin: 0;
-            white-space: pre-wrap;
-            color: var(--text-color);
-        }
-
-        .guestbook-empty {
-            padding: 16px;
-            border-radius: 12px;
-            border: 1px dashed var(--line-color);
-            color: var(--text-light-color);
-            background-color: rgba(255, 255, 255, 0.6);
+        /* Section Reveal Animation */
+        .section {
+            padding: 60px 24px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(40px) scale(0.98);
+            transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
         }
 
         .section.in-view {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
         }
 
-
-
-        /* 캘린더 스타일 */
-        .calendar-wrap {
-            margin: 40px auto;
-            padding: 20px 10px;
-            border-top: 1px solid var(--line-color);
-            border-bottom: 1px solid var(--line-color);
+        .section-alt {
+            background-color: var(--bg-alt);
         }
 
-        .calendar-title {
+        .section-header {
+            margin-bottom: 36px;
+        }
+
+        .section-subtitle {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            color: var(--accent-gold-dark);
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .section-title {
+            font-family: var(--font-body);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--primary-text);
+            letter-spacing: 0.16em;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 1px;
+            background-color: var(--accent-gold);
+            margin: 12px auto 0;
+            transition: width 0.8s ease 0.3s;
+        }
+
+        .section.in-view .section-title::after {
+            width: 32px;
+        }
+
+        /* Staggered Children Entrance */
+        .section.in-view .stagger-1 { transition-delay: 0.15s; }
+        .section.in-view .stagger-2 { transition-delay: 0.3s; }
+        .section.in-view .stagger-3 { transition-delay: 0.45s; }
+
+        /* Invitation Message */
+        .invitation-text {
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            font-weight: 600;
+            line-height: 1.9;
+            color: var(--primary-text);
+            word-break: keep-all;
+            margin-bottom: 36px;
+        }
+
+        /* Family Cards */
+        .family-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 30px;
+        }
+
+        .family-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--line-color);
+            box-shadow: var(--shadow-soft);
+            text-align: center;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+        }
+
+        .family-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .family-thumb {
+            aspect-ratio: 4 / 5;
+            width: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .family-card:hover .family-thumb {
+            transform: scale(1.05);
+        }
+
+        .family-info {
+            padding: 16px 12px;
+        }
+
+        .family-role {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--accent-gold-dark);
+            letter-spacing: 0.2em;
+            margin-bottom: 4px;
+        }
+
+        .family-names {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-text);
+            line-height: 1.5;
+        }
+
+        /* Refined Calendar & Countdown */
+        .calendar-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 32px 20px;
+            border: 1px solid var(--line-color);
+            box-shadow: var(--shadow-soft);
+            margin-bottom: 30px;
+        }
+
+        .calendar-title-wrap {
+            margin-bottom: 24px;
+        }
+
+        .calendar-header-date {
+            font-family: var(--font-body);
             font-size: 1.5rem;
-            margin-bottom: 25px;
+            font-weight: 700;
             letter-spacing: 2px;
-            color: #1b130f;
+            color: var(--primary-text);
         }
 
-        .calendar-title .time {
+        .calendar-header-time {
             font-size: 1.2em;
-            /* 부모 크기의 80%로 축소 */
-            font-weight: normal;
-            /* 시간만 얇게 하고 싶을 경우 추가 */
-            margin-left: 8px;
-            /* 날짜와 시간 사이 간격 조정 */
+            color: var(--accent-gold-dark);
+            font-weight: 600;
+            margin-top: 4px;
         }
 
         .calendar-grid {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            gap: 10px 0;
+            gap: 10px 4px;
             font-size: 1.2rem;
+            font-weight: 600;
         }
 
-        .day-label {
-            font-weight: bold;
-            color: #2a1f17;
-            margin-bottom: 10px;
-            margin-left: 20px;
+        .day-head {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--secondary-text);
+            margin-bottom: 8px;
         }
 
-        .day-label:first-child,
-        .calendar-day:nth-child(7n+1) {
-            color: #d9534f;
-        }
+        .day-head.sun, .day-cell.sun { color: #d9534f; }
+        .day-head.sat, .day-cell.sat { color: #4B79A1; }
 
-        /* 일요일 */
-
-
-        .calendar-day .wedding {
-            background-color: #d9534f !important;
-            /* 배경색 강제 적용 */
-            color: #fff !important;
-            /* 글자색 흰색 강제 적용 */
-            width: 30px;
-            /* 원의 크기 */
-            height: 30px;
-            /* 원의 크기 */
-            border-radius: 50% !important;
-            /* 완전한 원형 */
+        .day-cell {
+            height: 38px;
             display: flex;
-            justify-content: center;
             align-items: center;
-            line-height: 1;
-            /* 수직 중앙 정렬 보정 */
-            font-weight: bold;
-            box-shadow: 0 2px 4px rgba(217, 83, 79, 0.4);
-            position: relative;
-            /* 레이아웃 위치 보정 */
-        }
-
-        /* 부모 영역에서 패딩이 방해하지 않도록 설정 */
-        .calendar-day {
-            padding: 5px 0;
-            /* 상하 여백 살짝 조절 */
-            min-height: 35px;
-            display: flex;
             justify-content: center;
-            align-items: center;
-        }
-
-
-        .video-wrap {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--primary-text);
             position: relative;
-            width: min(85vw, 360px);
-            /* 최대 너비를 360px로 제한 */
-            margin: 0 auto 0px;
-            overflow: hidden;
-            border-radius: 12px;
-            /* 부드러운 라운드 처리 */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            z-index: 1;
+            transition: transform 0.2s ease;
         }
 
-        /* 메인 사진 위에 겹칠 텍스트 스타일 (흘림체 + 하단 검정 반투명) */
-        .overlay-text {
-            position: absolute;
-            top: 0;
-            /* 하단 배치 */
-            left: 0;
-            width: 100%;
-            color: #fff;
-            font-family: 'High-Empathy', cursive;
-            /* 흘림체 폰트 적용 */
-            font-size: 2.8rem;
-            /* 흘림체 특성상 조금 더 크게 설정 */
-            letter-spacing: 1px;
-            text-align: center;
-            z-index: 2;
-
-            /* 하단 검정색 반투명 그라데이션 처리 (자연스럽게 배경색이 깔리도록) */
-            background: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
-            padding: 40px 0 15px 0;
-            /* 텍스트 주변 여백 */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            box-sizing: border-box;
+        .day-cell.wedding-day {
+            background-color: #d9534f;
+            color: #FFFFFF !important;
+            border-radius: 50%;
+            font-weight: 700;
+            box-shadow: 0 4px 14px rgba(217, 83, 79, 0.45);
+            animation: pulseGlow 2s infinite ease-in-out;
         }
 
-        .overlay-text .first-line {
-            align-self: flex-start;
-            text-align: left;
-            padding: 0 20px;
+        @keyframes pulseGlow {
+            0%, 100% { transform: scale(1); box-shadow: 0 4px 14px rgba(217, 83, 79, 0.45); }
+            50% { transform: scale(1.12); box-shadow: 0 8px 24px rgba(217, 83, 79, 0.7); }
         }
 
-        .overlay-text .second-line {
-            align-self: flex-end;
-            text-align: right;
-            padding: 0 20px;
-        }
-
-        /* 1. 메인 영상/사진 섹션 */
-        .main-section {
-            position: relative;
-            width: 100%;
-            min-height: 100vh;
-            min-height: 100svh;
-            /* 100dvh에서 100svh로 변경하여 스크롤 중 높이 변화 차단 */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: #f9f9f9;
-            padding: 40px 0;
-        }
-
-        .main-section::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(249, 249, 249, 0.2) 0%, rgba(249, 249, 249, 0.7) 100%);
-            z-index: 0;
-        }
-
-        .hero-text {
-            margin-top: 20px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .video-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-            filter: brightness(0.8);
-        }
-
-        .video-inline {
-            width: 100%;
-            height: auto;
-            /* 비율에 맞춰 자동 조절 */
-            display: block;
-        }
-
-        .hero-date {
-            letter-spacing: 0.2em;
-            font-size: 0.95rem;
-            margin: 0;
-            color: #42342e;
-        }
-
-        .hero-names {
-            font-size: 2.2rem;
-            margin: 10px 0;
-            letter-spacing: 0.04em;
-            color: #24190f;
-        }
-
-        .hero-place {
-            font-size: 1.3rem;
-            margin: 0;
-            color: #3f332a;
-        }
-
-        .hero-dday {
-            margin-top: 12px;
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            opacity: 0.9;
-        }
-
-        .countdown {
-            margin: 50px 0;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .countdown-label {
-            font-size: 1.35rem;
-            text-align: left;
-            margin-bottom: 22px;
-            letter-spacing: 0.18em;
-            color: #1b130f;
-            display: block;
-        }
-
-        #dDayCount {
-            font-weight: bold;
-            margin-left: 5px;
-        }
-
-        .countdown-container {
+        .countdown-wrap {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            width: min(92vw, 420px);
-            margin: 0 auto;
+            gap: 10px;
         }
 
         .countdown-box {
-            border-bottom: 1px solid var(--line-color);
-            padding-bottom: 10px;
+            background: var(--card-bg);
+            border: 1px solid var(--line-color);
+            border-radius: 14px;
+            padding: 14px 6px;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s ease;
+        }
+
+        .countdown-box:hover {
+            transform: translateY(-3px);
         }
 
         .countdown-num {
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: #2a1f17;
+            font-family: var(--font-body);
+            font-size: 1.65rem;
+            font-weight: 700;
+            color: var(--accent-gold-dark);
+            line-height: 1;
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .countdown-unit {
+        .countdown-num.pop {
+            transform: scale(1.25);
+            color: var(--accent-gold);
+        }
+
+        .countdown-label {
             font-size: 0.75rem;
-            color: #5e5954;
-            margin-top: 5px;
+            font-weight: 600;
             letter-spacing: 0.12em;
+            color: var(--secondary-text);
+            margin-top: 6px;
         }
 
-
-        /* 2. 사진 영역 */
-        .photo-card {
-            width: 80%;
-            /* 기존 100%에서 80%로 축소 */
-            margin: 0 auto 24px;
-            border-radius: 6px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .photo-card img {
+        /* Gallery 3D Carousel */
+        .gallery-container {
             width: 100%;
-            display: block;
-            filter: sepia(10%);
+            padding: 10px 0 40px;
         }
 
-        /* 3. 텍스트 스타일링 */
-        .title {
-            font-size: 1.35rem;
-            letter-spacing: 0.16em;
-            margin-bottom: 16px;
-            color: #241a14;
-            font-weight: 700;
-        }
-
-        .content {
-            line-height: 1.9;
-            font-size: 1.05rem;
-            color: #3c3128;
-            font-weight: 600;
-            word-break: keep-all;
-            text-shadow: 0 0.5px 0 rgba(0,0,0,0.03);
-        }
-
-        /* 4. 갤러리: Swiper 기반 캐러셀 */
-        .gallery {
+        .gallery-slider {
             width: 100%;
-            padding-bottom: 32px;
+            padding-bottom: 40px;
         }
 
-        .gallery .swiper-slide {
-            height: auto;
-        }
-
-        .gallery .swiper-wrapper {
-            display: flex;
-            flex-wrap: nowrap;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: auto;
+        .gallery-slider .swiper-slide {
+            width: 78%;
             aspect-ratio: 3 / 4;
-            object-fit: cover;
-            border-radius: 6px;
-            display: block;
-            -webkit-user-drag: none;
-        }
-
-        .gallery-item img[src] {
-            will-change: transform, opacity;
-        }
-
-        .gallery .swiper-pagination-bullet-active {
-            background: var(--point-color);
-        }
-
-        .gallery .swiper-button-next,
-        .gallery .swiper-button-prev {
-            display: none;
-        }
-
-        .modal-nav {
-            display: block;
-            color: white;
-            font-size: 40px;
-            padding: 20px;
-            cursor: pointer;
-            user-select: none;
-            z-index: 1001;
-            background: none;
-            border: none;
-        }
-
-        @media (min-width: 640px) {
-            .gallery {
-                padding-bottom: 36px;
-            }
-
-            .gallery .swiper-wrapper {
-                display: grid;
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                gap: 16px;
-                transform: none !important;
-            }
-
-            .gallery .swiper-slide {
-                width: auto !important;
-            }
-
-            .gallery .swiper-pagination,
-            .gallery .swiper-button-next,
-            .gallery .swiper-button-prev {
-                display: none;
-            }
-        }
-
-        /* 5. 버튼 */
-        .button-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-top: 16px;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: var(--button-text-color);
-            background: #fff;
-            border: 1px solid #ccc;
-            padding: 12px 10px;
-            border-radius: 24px;
-            font-size: 1.2rem;
-        }
-
-        .btn.primary {
-            background: #6b533f;
-            color: #fff;
-            border-color: #6b533f;
-        }
-
-        .map-strong {
-            font-weight: 700;
-            line-height: 2;
-            font-size: 0.98rem;
-            color: #3a2f27;
-            word-break: keep-all;
-        }
-
-        .location-address {
-            margin: 8px 0 16px;
-            font-size: 1.02rem;
-            line-height: 1.8;
-            color: #3f352d;
-            font-weight: 600;
-        }
-
-        .location-shuttle-note {
-            margin: 20px 0 0;
-            font-size: 1.02rem;
-            line-height: 1.7;
-            color: #3f352d;
-            font-weight: 600;
-        }
-
-        .location-bus-title {
-            margin-top: 32px;
-            margin-bottom: 10px;
-        }
-
-        .location-bus-subtitle {
-            margin-top: 8px;
-            margin-bottom: 0;
-        }
-
-        .map-wrap {
-            width: 100%;
-            max-width: 100%;
+            border-radius: 16px;
             overflow: hidden;
-            border-radius: 6px;
-            box-sizing: border-box;
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--line-color);
+            transition: transform 0.4s ease, filter 0.4s ease;
         }
 
-        .map-wrap .root_daum_roughmap,
-        .map-wrap .root_daum_roughmap .wrap_map,
-        .map-wrap .root_daum_roughmap .wrap_map iframe {
-            width: 100% !important;
-            max-width: 100% !important;
+        .gallery-slider .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             display: block;
-            box-sizing: border-box;
+            transition: transform 0.6s ease;
         }
 
-
-        /* 음악 컨트롤러 */
-        #music-btn {
-            position: fixed;
-            bottom: 24px;
-            right: 20px;
-            z-index: 99;
-            background: rgba(255, 255, 255, 0.88);
-            border: 1px solid #ddd;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            cursor: pointer;
+        .gallery-slider .swiper-slide-active:hover img {
+            transform: scale(1.06);
         }
 
-        /* 갤러리 팝업(라이트박스) 스타일 */
+        .swiper-pagination-bullet-active {
+            background: var(--accent-gold) !important;
+            width: 22px !important;
+            border-radius: 6px !important;
+            transition: all 0.3s ease !important;
+        }
+
+        /* Modal Lightbox */
         .modal {
             display: none;
             position: fixed;
-            z-index: 1000;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
+            inset: 0;
+            z-index: 2000;
+            background-color: rgba(15, 12, 10, 0.94);
+            backdrop-filter: blur(16px);
             justify-content: center;
             align-items: center;
-            touch-action: auto;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        }
+
+        .modal.open {
+            opacity: 1;
         }
 
         .modal-content {
-            max-width: 95%;
-            max-height: 80%;
+            max-width: 90%;
+            max-height: 82vh;
+            border-radius: 12px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.6);
             object-fit: contain;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease;
+            transform: scale(0.9);
+            transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .modal.open .modal-content {
+            transform: scale(1);
         }
 
         .modal-close {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            color: white;
-            font-size: 35px;
+            top: 24px;
+            right: 24px;
+            color: #FFF;
+            font-size: 34px;
             cursor: pointer;
-            z-index: 1001;
+            z-index: 2001;
+            transition: transform 0.2s ease;
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg);
         }
 
         .modal-nav {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            color: white;
-            font-size: 40px;
-            padding: 20px;
-            cursor: pointer;
-            user-select: none;
-            z-index: 1001;
-            background: none;
+            color: #FFF;
+            font-size: 32px;
+            background: rgba(255, 255, 255, 0.12);
             border: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease, transform 0.3s ease;
         }
 
-        .modal-prev {
-            left: 0;
+        .modal-nav:hover {
+            background: var(--accent-gold);
+            transform: translateY(-50%) scale(1.1);
         }
 
-        .modal-next {
-            right: 0;
-        }
+        .modal-prev { left: 16px; }
+        .modal-next { right: 16px; }
 
-        @media (max-width: 640px) {
-            .modal-nav {
-                font-size: 30px;
-                padding: 10px;
-            }
-        }
-
-        .tribute-info {
-            margin-top: 30px;
-            text-align: left;
-        }
-
-        .tribute-account {
-            background: #fff;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
+        /* Account Accordion */
+        .account-card {
+            background: var(--card-bg);
+            border: 1px solid var(--line-color);
+            border-radius: 16px;
             margin-bottom: 12px;
             overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+            box-shadow: var(--shadow-soft);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .account-trigger {
+        .account-card.active {
+            border-color: var(--accent-gold);
+            box-shadow: 0 8px 25px rgba(91, 74, 61, 0.15);
+        }
+
+        .account-header {
             width: 100%;
-            padding: 16px 20px;
+            padding: 18px 20px;
             background: none;
             border: none;
-            font-family: inherit;
+            font-family: var(--font-body);
             font-size: 1.2rem;
-            color: var(--point-color);
-            text-align: left;
-            cursor: pointer;
+            font-weight: 700;
+            color: var(--primary-text);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-sizing: border-box;
+            cursor: pointer;
         }
 
-        .account-trigger:after {
-            content: '▼';
+        .account-arrow {
             font-size: 0.8rem;
-            color: #aaa;
-            transition: transform 0.3s;
+            color: var(--accent-gold);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .tribute-account.active .account-trigger:after {
+        .account-card.active .account-arrow {
             transform: rotate(180deg);
         }
 
-        .account-details {
+        .account-body {
             display: none;
-            padding: 0 20px 20px 20px;
-            border-top: 1px solid #f0f0f0;
+            padding: 0 20px 20px;
+            border-top: 1px solid var(--bg-alt);
+            animation: fadeIn 0.4s ease;
         }
 
-        .tribute-account.active .account-details {
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .account-card.active .account-body {
             display: block;
         }
 
         .account-row {
-            margin-top: 15px;
+            padding: 14px 0;
+            border-bottom: 1px dashed var(--line-color);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 10px;
+            text-align: left;
         }
 
-        .account-text {
+        .account-row:last-child {
+            border-bottom: none;
+        }
+
+        .bank-name {
             font-size: 1rem;
-            color: #2f2822;
-            line-height: 1.5;
             font-weight: 600;
+            color: var(--secondary-text);
         }
 
-        .account-num {
+        .account-number {
+            font-size: 1.05rem;
             font-weight: 700;
-            color: #1f1813;
-            display: block;
+            color: var(--primary-text);
             margin-top: 2px;
-            letter-spacing: 0.02em;
         }
 
         .btn-copy {
-            font-size: 0.78rem;
-            padding: 6px 12px;
-            border-radius: 14px;
-            white-space: nowrap;
+            background: var(--bg-alt);
+            border: 1px solid var(--line-color);
+            color: var(--primary-text);
+            font-family: var(--font-body);
+            font-size: 0.85rem;
             font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.25s ease;
         }
 
-        .remit-buttons {
+        .btn-copy:hover {
+            background: var(--accent-gold);
+            color: #FFF;
+            border-color: var(--accent-gold);
+            transform: scale(1.05);
+        }
+
+        .remit-links {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 8px;
-            margin-top: 15px;
+            gap: 10px;
+            margin-top: 12px;
         }
 
         .btn-remit {
-            padding: 10px;
-            border-radius: 6px;
-            font-size: 1.0rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 5px;
+            gap: 6px;
+            padding: 10px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            background: #FDFBF7;
+            border: 1px solid var(--line-color);
+            color: var(--primary-text);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
 
-        /* 송금 서비스 로고 색상 맞춤 (원색 대신 톤다운) */
-        .icon-kakaopay {
-            width: 50px;
-            height: auto;
-            filter: opacity(0.8);
-            /* 톤앤매너 맞춤 */
+        .btn-remit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.06);
         }
 
-        .icon-toss {
-            width: 40px;
-            height: auto;
-            filter: opacity(0.8);
-            /* 톤앤매너 맞춤 */
+        .btn-remit img {
+            height: 18px;
+            width: auto;
         }
 
-        /* 캐러셀 컨테이너 및 슬라이드 아이템 */
+        /* Location Section */
+        .address-box {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid var(--line-color);
+            box-shadow: var(--shadow-soft);
+            margin-bottom: 20px;
+        }
+
+        .address-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary-text);
+            margin-bottom: 6px;
+        }
+
+        .address-sub {
+            font-size: 1.02rem;
+            font-weight: 600;
+            color: var(--secondary-text);
+            line-height: 1.8;
+        }
+
+        .map-frame {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--line-color);
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-family: var(--font-body);
+            font-size: 1.15rem;
+            font-weight: 600;
+            background: var(--card-bg);
+            border: 1px solid var(--line-color);
+            color: var(--primary-text);
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.25s ease, background 0.25s ease;
+        }
+
+        .btn-action:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-action.primary {
+            background: var(--accent-gold);
+            color: #FFFFFF;
+            border-color: var(--accent-gold);
+        }
+
+        .btn-action.primary:hover {
+            background: var(--accent-gold-dark);
+        }
+
+        .btn-kakao-share {
+            width: 100%;
+            padding: 16px;
+            border-radius: 14px;
+            background: #FEE500;
+            color: #191919;
+            border: none;
+            font-family: var(--font-body);
+            font-size: 1.15rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(254, 229, 0, 0.4);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .btn-kakao-share:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(254, 229, 0, 0.6);
+        }
+
+        /* Guestbook Form */
+        .guestbook-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 24px 20px;
+            border: 1px solid var(--line-color);
+            box-shadow: var(--shadow-soft);
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--secondary-text);
+            margin-bottom: 6px;
+        }
+
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 10px;
+            border: 1px solid var(--line-color);
+            background: var(--bg-color);
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--primary-text);
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 12px rgba(91, 74, 61, 0.2);
+        }
+
+        .guestbook-list {
+            margin-top: 24px;
+            display: grid;
+            gap: 12px;
+        }
+
+        .guestbook-item {
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 16px;
+            border: 1px solid var(--line-color);
+            text-align: left;
+            animation: slideInUp 0.5s ease both;
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .guestbook-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--secondary-text);
+            margin-bottom: 8px;
+        }
+
+        .guestbook-msg {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--primary-text);
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
+        /* Click Touch Heart Particle */
+        .click-heart {
+            position: fixed;
+            pointer-events: none;
+            font-size: 1.4rem;
+            z-index: 9999;
+            animation: heartFloat 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        @keyframes heartFloat {
+            0% { opacity: 1; transform: translate(-50%, -50%) scale(0.6) translateY(0); }
+            50% { opacity: 0.9; transform: translate(-50%, -50%) scale(1.2) translateY(-35px); }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(1) translateY(-70px); }
+        }
+
+        /* Toast Popup */
+        #toast {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: rgba(35, 30, 26, 0.92);
+            color: #FFFFFF;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            z-index: 3000;
+            opacity: 0;
+            transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: none;
+        }
+
+        #toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--secondary-text);
+            border-top: 1px solid var(--line-color);
+            background: var(--bg-alt);
+        }
     </style>
 </head>
 
 <body>
 
-    <audio id="bgm" loop autoplay>
+    <div id="scroll-progress"></div>
+
+    <!-- Floating Audio Control -->
+    <audio id="bgm" loop>
         <source src="bg.mp3" type="audio/mpeg">
     </audio>
-    <button id="music-btn">■</button>
+    <button class="vinyl-player" id="music-btn" title="배경음악 재생/일시정지">
+        <div class="vinyl-disc"></div>
+        <span class="vinyl-text" id="music-text">BGM ON</span>
+    </button>
 
-    <section class="main-section">
-        <!-- 수정된 이미지 영역 -->
-        <div class="video-wrap">
-            <img src="./top.webp" alt="Wedding Invite" class="video-inline"
-                style="object-fit: cover; width: 100%; height: 100%;">
-            <div class="overlay-text">
-                <div class="first-line">We are getting</div>
-                <div class="second-line">married.</div>
-            </div>
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <canvas id="petal-canvas"></canvas>
+        <span class="hero-badge">The Wedding Invitation</span>
+        <h1 class="hero-names-eng">영길 <span>&</span> 수진</h1>
+
+        <!-- Architectural Arch Shape Frame -->
+        <div class="hero-image-frame">
+            <img src="./top.webp" alt="영길 수진 웨딩 메인">
+            <div class="hero-overlay-quote">We are getting married</div>
         </div>
 
-        <div class="section-inner" style="text-align: center;">
-            <div class="hero-text">
-                <h1 class="hero-names">영길 ♥️ 수진</h1>
-                <p class="hero-place">라도무스 아트센터(신관) 아모리움홀</p>
-            </div>
-            <div class="section-inner">
-                <div class="calendar-wrap">
-                    <div class="calendar-title">2026. 08. 23 <span class="time">1:00 PM</span></div>
-
-                    <div class="calendar-grid">
-                        <div class="day-label">SUN</div>
-                        <div class="day-label">MON</div>
-                        <div class="day-label">TUE</div>
-                        <div class="day-label">WED</div>
-                        <div class="day-label">THU</div>
-                        <div class="day-label">FRI</div>
-                        <div class="day-label">SAT</div>
-
-                        <!-- 8월 1일은 토요일 시작 -->
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div class="calendar-day">1</div>
-                        <div class="calendar-day">2</div>
-                        <div class="calendar-day">3</div>
-                        <div class="calendar-day">4</div>
-                        <div class="calendar-day">5</div>
-                        <div class="calendar-day">6</div>
-                        <div class="calendar-day">7</div>
-                        <div class="calendar-day">8</div>
-                        <div class="calendar-day">9</div>
-                        <div class="calendar-day">10</div>
-                        <div class="calendar-day">11</div>
-                        <div class="calendar-day">12</div>
-                        <div class="calendar-day">13</div>
-                        <div class="calendar-day">14</div>
-                        <div class="calendar-day">15</div>
-                        <div class="calendar-day">16</div>
-                        <div class="calendar-day">17</div>
-                        <div class="calendar-day">18</div>
-                        <div class="calendar-day">19</div>
-                        <div class="calendar-day">20</div>
-                        <div class="calendar-day">21</div>
-                        <div class="calendar-day">22</div>
-                        <div class="calendar-day"><span class="wedding">23</span></div>
-                        <div class="calendar-day">24</div>
-                        <div class="calendar-day">25</div>
-                        <div class="calendar-day">26</div>
-                        <div class="calendar-day">27</div>
-                        <div class="calendar-day">28</div>
-                        <div class="calendar-day">29</div>
-                        <div class="calendar-day">30</div>
-                        <div class="calendar-day">31</div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                </div>
-            </div>
-            <div class="countdown">
-
-                <div class="countdown-label">D-Day </div>
-                <div class="countdown-container">
-                    <div class="countdown-box">
-                        <div class="countdown-num" id="cdDays">0</div>
-                        <div class="countdown-unit">DAYS</div>
-                    </div>
-                    <div class="countdown-box">
-                        <div class="countdown-num" id="cdHours">00</div>
-                        <div class="countdown-unit">HOURS</div>
-                    </div>
-                    <div class="countdown-box">
-                        <div class="countdown-num" id="cdMinutes">00</div>
-                        <div class="countdown-unit">MINS</div>
-                    </div>
-                    <div class="countdown-box">
-                        <div class="countdown-num" id="cdSeconds">00</div>
-                        <div class="countdown-unit">SECS</div>
-                    </div>
-                </div>
-            </div>
+        <div class="hero-info">
+            <div class="hero-names-kor">영길 ♥️ 수진</div>
+            <p class="hero-date-venue">
+                2026. 08. 23 SUN PM 1:00<br>
+                라도무스 아트센터 8F 아모리움홀
+            </p>
         </div>
-    </section>
+    </header>
 
-
+    <!-- Invitation Section -->
     <section class="section">
-        <div class="section-inner">
-            <h2 class="title">INVITATION</h2>
-            <p class="content">
-                싱그러운 여름 햇살이 가득한 8월,<br>
-                저희 두 사람이 소중한 분들 앞에서<br>
-                평생을 함께할 약속을 하려 합니다.<br><br>
-                귀한 걸음 하시어 저희의 시작을 축복해 주세요.
-            </p>
-            <p class="content" style="margin-top: 20px; margin-bottom: 0;">
-                사랑과 믿음으로 길러주신 두 가정 아래,<br>
-                함께하는 오늘을 준비하게 되었습니다.
-            </p>
-            <div class="family-intro">
-                <div class="family-card">
-                    <div class="family-photo-wrap">
-                        <img class="family-photo" src="./gallery/6.webp" alt="신랑측 사진">
-                    </div>
-                    <div class="family-content">
-                        <div class="family-label">신랑측</div>
-                        <p class="family-name">강용훈 · 박미경의 아들 영길</p>
-                    </div>
+        <div class="section-header">
+            <h2 class="section-title">INVITATION</h2>
+        </div>
+
+        <p class="invitation-text stagger-1">
+            싱그러운 여름 햇살이 가득한 8월,<br>
+            저희 두 사람이 소중한 분들 앞에서<br>
+            평생을 함께할 약속을 하려 합니다.<br><br>
+            귀한 걸음 하시어 저희의 시작을 축복해 주세요.
+        </p>
+
+        <div class="family-grid stagger-2">
+            <div class="family-card">
+                <img class="family-thumb" src="./gallery/6.webp" alt="신랑 강영길">
+                <div class="family-info">
+                    <div class="family-role">신랑측</div>
+                    <div class="family-names">강용훈 · 박미경의 아들 영길</div>
                 </div>
-                <div class="family-card">
-                    <div class="family-photo-wrap">
-                        <img class="family-photo" src="./gallery/10.webp" alt="신부측 사진">
-                    </div>
-                    <div class="family-content">
-                        <div class="family-label">신부측</div>
-                        <p class="family-name">성창제 · 정귀화의 딸 수진</p>
-                    </div>
+            </div>
+            <div class="family-card">
+                <img class="family-thumb" src="./gallery/10.webp" alt="신부 성수진">
+                <div class="family-info">
+                    <div class="family-role">신부측</div>
+                    <div class="family-names">성창제 · 정귀화의 딸 수진</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section section--alt">
-        <div class="section-inner">
-            <h2 class="title">GALLERY</h2>
-            <div class="gallery swiper" aria-label="wedding gallery" id="weddingGallery">
+    <!-- Refined Calendar & D-Day Section -->
+    <section class="section section-alt">
+        <div class="section-header">
+            <span class="section-subtitle">Save The Date</span>
+            <h2 class="section-title">2026. 08. 23</h2>
+        </div>
+
+        <div class="calendar-card stagger-1">
+            <div class="calendar-title-wrap">
+                <div class="calendar-header-date">2026. 08. 23 <span class="calendar-header-time">1:00 PM</span></div>
+            </div>
+
+            <div class="calendar-grid">
+                <div class="day-head sun">SUN</div>
+                <div class="day-head">MON</div>
+                <div class="day-head">TUE</div>
+                <div class="day-head">WED</div>
+                <div class="day-head">THU</div>
+                <div class="day-head">FRI</div>
+                <div class="day-head sat">SAT</div>
+
+                <!-- 2026년 8월 1일 토요일 시작 -->
+                <div></div><div></div><div></div><div></div><div></div><div></div>
+                <div class="day-cell sat">1</div>
+                <div class="day-cell sun">2</div>
+                <div class="day-cell">3</div>
+                <div class="day-cell">4</div>
+                <div class="day-cell">5</div>
+                <div class="day-cell">6</div>
+                <div class="day-cell">7</div>
+                <div class="day-cell sat">8</div>
+                <div class="day-cell sun">9</div>
+                <div class="day-cell">10</div>
+                <div class="day-cell">11</div>
+                <div class="day-cell">12</div>
+                <div class="day-cell">13</div>
+                <div class="day-cell">14</div>
+                <div class="day-cell sat">15</div>
+                <div class="day-cell sun">16</div>
+                <div class="day-cell">17</div>
+                <div class="day-cell">18</div>
+                <div class="day-cell">19</div>
+                <div class="day-cell">20</div>
+                <div class="day-cell">21</div>
+                <div class="day-cell sat">22</div>
+                <div class="day-cell wedding-day">23</div>
+                <div class="day-cell">24</div>
+                <div class="day-cell">25</div>
+                <div class="day-cell">26</div>
+                <div class="day-cell">27</div>
+                <div class="day-cell">28</div>
+                <div class="day-cell sat">29</div>
+                <div class="day-cell sun">30</div>
+                <div class="day-cell">31</div>
+                <div></div><div></div><div></div><div></div><div></div>
+            </div>
+        </div>
+
+        <div class="countdown-wrap stagger-2">
+            <div class="countdown-box">
+                <div class="countdown-num" id="cdDays">0</div>
+                <div class="countdown-label">DAYS</div>
+            </div>
+            <div class="countdown-box">
+                <div class="countdown-num" id="cdHours">00</div>
+                <div class="countdown-label">HOURS</div>
+            </div>
+            <div class="countdown-box">
+                <div class="countdown-num" id="cdMinutes">00</div>
+                <div class="countdown-label">MINS</div>
+            </div>
+            <div class="countdown-box">
+                <div class="countdown-num" id="cdSeconds">00</div>
+                <div class="countdown-label">SECS</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section">
+        <div class="section-header">
+            <h2 class="section-title">GALLERY</h2>
+        </div>
+
+        <div class="gallery-container stagger-1">
+            <div class="swiper gallery-slider" id="weddingGallery">
                 <div class="swiper-wrapper"></div>
                 <div class="swiper-pagination"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
             </div>
         </div>
     </section>
 
+    <!-- Accounts Section -->
+    <section class="section section-alt">
+        <div class="section-header">
+            <h2 class="section-title">마음 전하실 곳</h2>
+        </div>
+
+        <p class="invitation-text stagger-1" style="margin-bottom: 24px; font-size: 1.05rem;">
+            저희 두 사람의 새로운 출발을<br>
+            축하해 주시는 따뜻한 마음,<br>
+            감사히 오래도록 간직하겠습니다.
+        </p>
+
+        <!-- Groom Account -->
+        <div class="account-card stagger-2">
+            <button class="account-header" onclick="toggleAccount(this)">
+                <span>신랑측 계좌번호</span>
+                <span class="account-arrow">▼</span>
+            </button>
+            <div class="account-body">
+                <div class="account-row">
+                    <div>
+                        <div class="bank-name">한국투자증권 (예금주: 강영길)</div>
+                        <div class="account-number">63557881-21</div>
+                    </div>
+                    <button class="btn-copy" onclick="copyAccount('63557881-21')">복사</button>
+                </div>
+                <div class="remit-links">
+                    <a href="https://qr.kakaopay.com/Ej7kLPSPI" class="btn-remit" target="_blank" rel="noreferrer">
+                        <img src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FcEaPmw%2FbtrcIUODymI%2FAAAAAAAAAAAAAAAAAAAAAJ66dlufqQ8CmrywsO5eQdaR-ALF_-6jbvFe4nRJZzfn%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1780239599%26allow_ip%3D%26allow_referer%3D%26signature%3DU0N9xArh60iyq5%252ByCflvd7dZVOY%253D" alt="카카오페이">
+                        카카오페이
+                    </a>
+                    <a href="supertoss://send?bank=한국투자&accountNo=6355788121" class="btn-remit" target="_blank" rel="noreferrer">
+                        <img src="https://framerusercontent.com/images/EhEElRcoy4v5Y9uyUj3XkTWg.jpg?width=1080&height=739" alt="토스">
+                        토스 송금
+                    </a>
+                </div>
+                <div class="account-row">
+                    <div>
+                        <div class="bank-name">하나은행 (예금주: 강용훈)</div>
+                        <div class="account-number">625-075789-00508</div>
+                    </div>
+                    <button class="btn-copy" onclick="copyAccount('625-075789-00508')">복사</button>
+                </div>
+                <div class="account-row">
+                    <div>
+                        <div class="bank-name">국민은행 (예금주: 박미경)</div>
+                        <div class="account-number">476-21-0278-498</div>
+                    </div>
+                    <button class="btn-copy" onclick="copyAccount('476-21-0278-498')">복사</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bride Account -->
+        <div class="account-card stagger-3">
+            <button class="account-header" onclick="toggleAccount(this)">
+                <span>신부측 계좌번호</span>
+                <span class="account-arrow">▼</span>
+            </button>
+            <div class="account-body">
+                <div class="account-row">
+                    <div>
+                        <div class="bank-name">농협 (예금주: 성수진)</div>
+                        <div class="account-number">302-0661-7112-61</div>
+                    </div>
+                    <button class="btn-copy" onclick="copyAccount('302-0661-7112-61')">복사</button>
+                </div>
+                <div class="remit-links">
+                    <a href="https://qr.kakaopay.com/Ej9AlrDwY" class="btn-remit" target="_blank" rel="noreferrer">
+                        <img src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FcEaPmw%2FbtrcIUODymI%2FAAAAAAAAAAAAAAAAAAAAAJ66dlufqQ8CmrywsO5eQdaR-ALF_-6jbvFe4nRJZzfn%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1780239599%26allow_ip%3D%26allow_referer%3D%26signature%3DU0N9xArh60iyq5%252ByCflvd7dZVOY%253D" alt="카카오페이">
+                        카카오페이
+                    </a>
+                    <a href="supertoss://send?bank=NH농협&accountNo=3020661711261" class="btn-remit" target="_blank" rel="noreferrer">
+                        <img src="https://framerusercontent.com/images/EhEElRcoy4v5Y9uyUj3XkTWg.jpg?width=1080&height=739" alt="토스">
+                        토스 송금
+                    </a>
+                </div>
+                <div class="account-row">
+                    <div>
+                        <div class="bank-name">농협 (예금주: 성창제)</div>
+                        <div class="account-number">519-02-1716-21</div>
+                    </div>
+                    <button class="btn-copy" onclick="copyAccount('519-02-1716-21')">복사</button>
+                </div>
+                <div class="account-row">
+                    <div>
+                        <div class="bank-name">농협 (예금주: 정귀화)</div>
+                        <div class="account-number">351-1321-8587-23</div>
+                    </div>
+                    <button class="btn-copy" onclick="copyAccount('351-1321-8587-23')">복사</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
     <section class="section">
-        <div class="section-inner">
-            <h2 class="title">마음 전하실 곳</h2>
-            <p class="content">
-                저희 두 사람의 새로운 출발을<br>
-                축하해 주시는 따뜻한 마음,<br>
-                감사히 오래도록 간직하겠습니다.
-            </p>
+        <div class="section-header">
+            <h2 class="section-title">LOCATION</h2>
+        </div>
 
-            <div class="tribute-info">
-                <!-- 신랑측 -->
-                <div class="tribute-account">
-                    <button class="account-trigger" onclick="toggleAccount(this)">신랑측 계좌번호</button>
-                    <div class="account-details">
-                        <div class="account-row">
-                            <div class="account-text">
-                                한국투자증권 (예금주: 강영길)
-                                <span class="account-num" id="accGroom">63557881-21</span>
-                            </div>
-                            <button class="btn btn-copy" onclick="copyAccount('63557881-21')">복사</button>
-                        </div>
-                        <div class="remit-buttons">
-                            <!-- 카카오페이 송금 링크: https://qr.kakao.com/talk/qr/코드번호 나 본인 송금링크 -->
-                            <a href="https://qr.kakaopay.com/Ej7kLPSPI" class="btn btn-remit" target="_blank">
-                                <img src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FcEaPmw%2FbtrcIUODymI%2FAAAAAAAAAAAAAAAAAAAAAJ66dlufqQ8CmrywsO5eQdaR-ALF_-6jbvFe4nRJZzfn%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1780239599%26allow_ip%3D%26allow_referer%3D%26signature%3DU0N9xArh60iyq5%252ByCflvd7dZVOY%253D"
-                                    alt="카카오페이" class="icon-kakaopay"> 송금
-                            </a>
-                            <!-- 토스 송금 링크: https://toss.me/아이디/금액 또는 toss:// -> 앱링크 -->
-                            <a href="supertoss://send?bank=한국투자&accountNo=6355788121" class="btn btn-remit"
-                                target="_blank">
-                                <img src="https://framerusercontent.com/images/EhEElRcoy4v5Y9uyUj3XkTWg.jpg?width=1080&height=739"
-                                    alt="토스" class="icon-toss"> 송금
-                            </a>
-                        </div>
-                        <div class="account-row">
-                            <div class="account-text">
-                                하나은행 (예금주: 강용훈)
-                                <span class="account-num" id="accGroom">625-075789-00508</span>
-                            </div>
-                            <button class="btn btn-copy" onclick="copyAccount('625-075789-00508')">복사</button>
-                        </div>
-                        <div class="account-row">
-                            <div class="account-text">
-                                국민은행 (예금주: 박미경)
-                                <span class="account-num" id="accGroom">476-21-0278-498</span>
-                            </div>
-                            <button class="btn btn-copy" onclick="copyAccount('476-21-0278-498')">복사</button>
-                        </div>
-                    </div>
+        <div class="address-box stagger-1">
+            <div class="address-sub">대전 유성구 동서대로 639 라도무스 아트센터 신관 8F (아모리움홀)</div>
+        </div>
 
-                </div>
+        <div class="map-frame stagger-1">
+            <div id="daumRoughmapContainer1775705958168" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+        </div>
 
-                <!-- 신부측 -->
-                <div class="tribute-account">
-                    <button class="account-trigger" onclick="toggleAccount(this)">신부측 계좌번호</button>
-                    <div class="account-details">
-                        <div class="account-row">
-                            <div class="account-text">
-                                농협 (예금주: 성수진)
-                                <span class="account-num" id="accBride">302-0661-7112-61</span>
-                            </div>
-                            <button class="btn btn-copy" onclick="copyAccount('302-0661-7112-61')">복사</button>
-                        </div>
-                        <div class="remit-buttons">
-                            <a href="https://qr.kakaopay.com/Ej9AlrDwY" class="btn btn-remit" target="_blank">
-                                <img src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FcEaPmw%2FbtrcIUODymI%2FAAAAAAAAAAAAAAAAAAAAAJ66dlufqQ8CmrywsO5eQdaR-ALF_-6jbvFe4nRJZzfn%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1780239599%26allow_ip%3D%26allow_referer%3D%26signature%3DU0N9xArh60iyq5%252ByCflvd7dZVOY%253D"
-                                    alt="카카오페이" class="icon-kakaopay"> 송금
-                            </a>
-                            <a href="supertoss://send?bank=NH농협&accountNo=3020661711261" class="btn btn-remit"
-                                target="_blank">
-                                <img src="https://framerusercontent.com/images/EhEElRcoy4v5Y9uyUj3XkTWg.jpg?width=1080&height=739"
-                                    alt="토스" class="icon-toss"> 송금
-                            </a>
-                        </div>
-                        <div class="account-row">
-                            <div class="account-text">
-                                농협 (예금주: 성창제)
-                                <span class="account-num" id="accGroom">519-02-1716-21</span>
-                            </div>
-                            <button class="btn btn-copy" onclick="copyAccount('519-02-1716-21')">복사</button>
-                        </div>
-                        <div class="account-row">
-                            <div class="account-text">
-                                농협 (예금주: 정귀화)
-                                <span class="account-num" id="accGroom">351-1321-8587-23</span>
-                            </div>
-                            <button class="btn btn-copy" onclick="copyAccount('351-1321-8587-23')">복사</button>
-                        </div>
-                    </div>
-                </div>
+        <div class="address-box stagger-1" style="margin-top: 12px; margin-bottom: 20px;">
+            <div class="address-sub" style="color: var(--primary-text); font-weight: 700;">유성온천역 3번 출구 셔틀버스 운행</div>
+        </div>
+
+        <!-- Shuttle Info -->
+        <div class="address-box stagger-2" style="margin-top: 24px;">
+            <div class="address-title" style="font-size: 1.35rem; margin-bottom: 10px;">서울 출발 셔틀버스</div>
+            <div class="address-sub" style="margin-bottom: 12px;">한국투자증권 본사 뒷편 (광장아파트 방면) 오전 10:00</div>
+            <div class="map-frame" style="margin-bottom: 0;">
+                <div id="daumRoughmapContainer1782825047223" class="root_daum_roughmap root_daum_roughmap_landing"></div>
             </div>
         </div>
-    </section>
 
-    <section class="section">
-        <div class="section-inner">
-            <h2 class="title">LOCATION</h2>
-            <p class="location-address">대전 유성구 동서대로 639 라도무스 아트센터 신관 8F (아모리움홀)</p>
-
-            <div class="map-wrap" style="margin-bottom: 10px;">
-                <div id="daumRoughmapContainer1775705958168"
-                    class="root_daum_roughmap root_daum_roughmap_landing map-strong"></div>
-            </div>
-
-            <p class="location-shuttle-note">유성온천역 3번 출구 셔틀버스 운행</p>
-
-            <h1 class="title location-bus-title">서울 출발 셔틀버스</h1>
-            <h3 class="location-shuttle-note">한국투자증권 본사 뒷편 (광장아파트 방면) 오전 10:00</h3>
-            <div class="section-inner" style="text-align: center;">
-                <div class="map-wrap">
-                    <div id="daumRoughmapContainer1782825047223" class="root_daum_roughmap root_daum_roughmap_landing">
-                    </div>
-                </div>
-
-                <div class="button-row">
-                    <a class="btn primary" href="https://naver.me/Gxk1CPWi" target="_blank" rel="noreferrer">지도 열기</a>
-                    <a class="btn" href="tel:042-823-5220">연락하기</a>
-                </div>
-                <div style="margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--line-color);">
-                    <button class="btn primary" onclick="shareKakao()"
-                        style="gap: 8px; background-color: #FEE500; color: #191919; border-color: #FEE500; cursor: pointer;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                            style="fill: #191919;">
-                            <path
-                                d="M12 3c-5.523 0-10 3.705-10 8.276 0 2.926 1.83 5.487 4.582 7.027l-1.164 4.264c-.114.417.362.772.715.539l5.068-3.344c.264.025.531.038.8.038 5.523 0 10-3.705 10-8.276S17.523 3 12 3z" />
-                        </svg>
-                        카카오톡 공유하기
-                    </button>
-                </div>
-            </div>
+        <div class="action-buttons stagger-2" style="margin-top: 20px;">
+            <a class="btn-action primary" href="https://naver.me/Gxk1CPWi" target="_blank" rel="noreferrer">지도 열기</a>
+            <a class="btn-action" href="tel:042-823-5220">연락하기</a>
         </div>
+
+        <button class="btn-kakao-share stagger-3" onclick="shareKakao()" style="margin-top: 24px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#191919">
+                <path d="M12 3c-5.523 0-10 3.705-10 8.276 0 2.926 1.83 5.487 4.582 7.027l-1.164 4.264c-.114.417.362.772.715.539l5.068-3.344c.264.025.531.038.8.038 5.523 0 10-3.705 10-8.276S17.523 3 12 3z"/>
+            </svg>
+            카카오톡 공유하기
+        </button>
     </section>
 
-    <section class="section section--alt">
-        <div class="section-inner">
-            <h2 class="title">방명록</h2>
-            <p class="content">
-                축하의 마음을 남겨주세요.<br>
-                따뜻한 한마디가 저희에게 큰 힘이 됩니다.
-            </p>
-
-            <div class="guestbook-form">
-                <div class="guestbook-field">
-                    <label class="guestbook-label" for="guestbookName">이름</label>
-                    <input id="guestbookName" name="name" class="guestbook-input" maxlength="20"
-                        placeholder="성함을 입력해 주세요">
-                </div>
-                <div class="guestbook-field">
-                    <label class="guestbook-label" for="guestbookMessage">메시지</label>
-                    <textarea id="guestbookMessage" name="message" class="guestbook-textarea" rows="4"
-                        maxlength="200" placeholder="축하의 마음을 전해주세요." required></textarea>
-                </div>
-                <div class="guestbook-field">
-                    <label class="guestbook-label" for="guestbookPhoto">사진 (선택)</label>
-                    <input id="guestbookPhoto" name="photo" class="guestbook-input" type="file" accept="image/*">
-                </div>
-                <div class="guestbook-actions">
-                    <button type="button" class="btn primary guestbook-submit" onclick="sendGuestbookToTelegram()">축하 메시지 남기기</button>
-                </div>
-                <p id="guestbookStatus" class="guestbook-status" aria-live="polite"></p>
-            </div>
-
-            <div id="guestbookList" class="guestbook-list"></div>
+    <!-- Guestbook Section -->
+    <section class="section section-alt">
+        <div class="section-header">
+            <h2 class="section-title">방명록</h2>
         </div>
+
+        <p class="invitation-text stagger-1" style="margin-bottom: 24px; font-size: 1.05rem;">
+            축하의 마음을 남겨주세요.<br>
+            따뜻한 한마디가 저희에게 큰 힘이 됩니다.
+        </p>
+
+        <div class="guestbook-card stagger-1">
+            <div class="form-group">
+                <label class="form-label" for="guestbookName">이름</label>
+                <input id="guestbookName" class="form-input" placeholder="성함을 입력해 주세요" maxlength="20">
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="guestbookMessage">메시지</label>
+                <textarea id="guestbookMessage" class="form-textarea" rows="4" placeholder="축하의 마음을 전해주세요." maxlength="200"></textarea>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="guestbookPhoto">사진 (선택)</label>
+                <input id="guestbookPhoto" class="form-input" type="file" accept="image/*">
+            </div>
+            <button class="btn-action primary" style="width: 100%; border: none; cursor: pointer;" onclick="sendGuestbookToTelegram()">축하 메시지 남기기</button>
+            <p id="guestbookStatus" style="font-size: 0.95rem; margin-top: 10px; color: var(--accent-gold-dark); text-align: center;"></p>
+        </div>
+
+        <div id="guestbookList" class="guestbook-list stagger-2"></div>
     </section>
 
+    <!-- Lightbox Modal -->
     <div id="galleryModal" class="modal">
         <span class="modal-close" onclick="closeModal()">&times;</span>
         <button class="modal-nav modal-prev" onclick="changeImage(-1)">&#10094;</button>
@@ -1209,353 +1368,315 @@
         <button class="modal-nav modal-next" onclick="changeImage(1)">&#10095;</button>
     </div>
 
+    <!-- Toast Component -->
+    <div id="toast">계좌번호가 복사되었습니다 ✨</div>
+
+    <footer>
+        <p>영길 & 수진 Wedding Invitation</p>
+        <p style="margin-top: 4px; font-size: 0.85rem; opacity: 0.7;">Thank you for celebrating with us.</p>
+    </footer>
+
     <script>
-
-        const imageCount = 20;
-        const images = Array.from({ length: imageCount }, (_, i) => ({
-            src: `./gallery/${i + 1}.webp`,
-            alt: `웨딩 사진 ${i + 1}`
-        }));
-
+        // 1. Audio Control
         const bgm = document.getElementById('bgm');
-        const btn = document.getElementById('music-btn');
-        let playing = false;
+        const musicBtn = document.getElementById('music-btn');
+        const musicText = document.getElementById('music-text');
+        let isPlaying = false;
 
-        const weddingAt = new Date('2026-08-23T13:13:00+09:00').getTime();
+        musicBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                bgm.pause();
+                musicBtn.classList.remove('playing');
+                musicText.textContent = 'BGM OFF';
+            } else {
+                bgm.play().then(() => {
+                    musicBtn.classList.add('playing');
+                    musicText.textContent = 'BGM ON';
+                }).catch(() => {});
+            }
+            isPlaying = !isPlaying;
+        });
 
+        // Auto play audio on first user gesture
+        document.addEventListener('click', function autoPlayAudio() {
+            if (!isPlaying) {
+                bgm.play().then(() => {
+                    isPlaying = true;
+                    musicBtn.classList.add('playing');
+                    musicText.textContent = 'BGM ON';
+                }).catch(() => {});
+            }
+            document.removeEventListener('click', autoPlayAudio);
+        }, { once: true });
+
+        // 2. Click Heart Touch Particle Effect
+        document.addEventListener('click', (e) => {
+            if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A' || e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+            const heart = document.createElement('div');
+            heart.className = 'click-heart';
+            const icons = ['💕', '✨', '🌸', '💖'];
+            heart.textContent = icons[Math.floor(Math.random() * icons.length)];
+            heart.style.left = e.clientX + 'px';
+            heart.style.top = e.clientY + 'px';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 1000);
+        });
+
+        // 3. Scroll Progress & Observer Animation
+        const scrollProgress = document.getElementById('scroll-progress');
+        window.addEventListener('scroll', () => {
+            const winScroll = document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            scrollProgress.style.width = scrolled + '%';
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.section').forEach(sec => observer.observe(sec));
+
+        // 4. Countdown Timer with Number Pop Animation
+        const weddingDate = new Date('2026-08-23T13:00:00+09:00').getTime();
+        let prevSecs = -1;
 
         function updateCountdown() {
             const now = Date.now();
-            const diff = Math.max(0, weddingAt - now);
+            const diff = Math.max(0, weddingDate - now);
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
             const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-            const minutes = Math.floor((diff / (1000 * 60)) % 60);
-            const seconds = Math.floor((diff / 1000) % 60);
+            const mins = Math.floor((diff / (1000 * 60)) % 60);
+            const secs = Math.floor((diff / 1000) % 60);
 
-            document.getElementById('cdDays').textContent = String(days);
+            document.getElementById('cdDays').textContent = days;
             document.getElementById('cdHours').textContent = String(hours).padStart(2, '0');
-            document.getElementById('cdMinutes').textContent = String(minutes).padStart(2, '0');
-            document.getElementById('cdSeconds').textContent = String(seconds).padStart(2, '0');
+            document.getElementById('cdMinutes').textContent = String(mins).padStart(2, '0');
+            
+            const secsElem = document.getElementById('cdSeconds');
+            const formattedSecs = String(secs).padStart(2, '0');
+            if (formattedSecs !== prevSecs) {
+                secsElem.textContent = formattedSecs;
+                secsElem.classList.add('pop');
+                setTimeout(() => secsElem.classList.remove('pop'), 200);
+                prevSecs = formattedSecs;
+            }
         }
 
         updateCountdown();
         setInterval(updateCountdown, 1000);
-        btn.addEventListener('click', () => {
-            if (playing) {
-                bgm.pause();
-                btn.textContent = '♪';
-            } else {
-                bgm.play();
-                btn.textContent = '■';
-            }
-            playing = !playing;
-        });
+
+        // 5. Daum Maps Initialization
         new daum.roughmap.Lander({
             "timestamp": "1775705958168",
             "key": "krxvveu8ixe",
             "mapWidth": "640",
-            "mapHeight": "360"
+            "mapHeight": "300"
         }).render();
 
         new daum.roughmap.Lander({
             "timestamp": "1782825047223",
             "key": "q2nbktftxda",
             "mapWidth": "640",
-            "mapHeight": "360"
+            "mapHeight": "260"
         }).render();
 
-        /* 갤러리 팝업 로직 */
+        // 6. 3D Swiper Gallery
+        const galleryImages = Array.from({ length: 20 }, (_, i) => `./gallery/${i + 1}.webp`);
+        const galleryWrapper = document.querySelector('#weddingGallery .swiper-wrapper');
+
+        galleryImages.forEach((src, idx) => {
+            const slide = document.createElement('div');
+            slide.className = 'swiper-slide';
+            slide.innerHTML = `<img src="${src}" alt="웨딩 사진 ${idx + 1}" loading="lazy" onclick="openModal(${idx})">`;
+            galleryWrapper.appendChild(slide);
+        });
+
+        const swiper = new Swiper('#weddingGallery', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            coverflowEffect: {
+                rotate: 24,
+                stretch: 0,
+                depth: 200,
+                modifier: 1,
+                slideShadows: false,
+            },
+            loop: true,
+            autoplay: {
+                delay: 3500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+
+        // 7. Modal Lightbox
         let currentImgIdx = 0;
-        let galleryImages = [];
         const modal = document.getElementById('galleryModal');
         const modalImg = document.getElementById('modalImage');
 
         function openModal(index) {
             currentImgIdx = index;
             modal.style.display = 'flex';
-            updateModalImage();
-            document.body.style.overflow = 'hidden'; // 스크롤 방지
+            requestAnimationFrame(() => modal.classList.add('open'));
+            modalImg.src = galleryImages[currentImgIdx];
+            document.body.style.overflow = 'hidden';
         }
 
         function closeModal() {
-            modal.style.display = 'none';
-            document.body.style.overflow = '';
-        }
-
-        function updateModalImage() {
-            modalImg.src = galleryImages[currentImgIdx];
+            modal.classList.remove('open');
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.body.style.overflow = '';
+            }, 300);
         }
 
         function changeImage(step) {
-            currentImgIdx += step;
-            if (currentImgIdx >= galleryImages.length) currentImgIdx = 0;
-            if (currentImgIdx < 0) currentImgIdx = galleryImages.length - 1;
-            updateModalImage();
+            currentImgIdx = (currentImgIdx + step + galleryImages.length) % galleryImages.length;
+            modalImg.src = galleryImages[currentImgIdx];
         }
 
-        // 터치 스와이프 지원 (모바일용)
-        let touchStartX = 0;
-        modal.addEventListener('touchstart', e => touchStartX = e.changedTouches[0].screenX);
+        modal.onclick = (e) => { if (e.target === modal) closeModal(); };
+
+        // Touch Swipe Modal Support
+        let startX = 0;
+        modal.addEventListener('touchstart', e => startX = e.changedTouches[0].screenX);
         modal.addEventListener('touchend', e => {
-            let touchEndX = e.changedTouches[0].screenX;
-            if (touchStartX - touchEndX > 50) changeImage(1);  // 왼쪽으로 밀면 다음
-            if (touchEndX - touchStartX > 50) changeImage(-1); // 오른쪽으로 밀면 이전
+            const diff = startX - e.changedTouches[0].screenX;
+            if (diff > 40) changeImage(1);
+            if (diff < -40) changeImage(-1);
         });
 
-        // 배경 클릭 시 닫기
-        modal.onclick = (e) => {
-            if (e.target === modal) closeModal();
-        };
-
-        function toggleAccount(element) {
-            const container = element.parentElement;
-
-            // 다른 열려있는 태그 닫기 (선택사항)
-            document.querySelectorAll('.tribute-account').forEach(el => {
-                if (el !== container) el.classList.remove('active');
-            });
-
-            container.classList.toggle('active');
+        // 8. Account Toggle & Copy Toast
+        function toggleAccount(btn) {
+            const card = btn.parentElement;
+            card.classList.toggle('active');
         }
 
-        function copyAccount(accountNum) {
-
-            // 임시 textarea 생성
-            const textarea = document.createElement('textarea');
-            textarea.value = accountNum.replace(/-/g, ''); // 하이픈 제거하고 복사
-            document.body.appendChild(textarea);
-            textarea.select();
-
-            try {
+        function copyAccount(accNum) {
+            const cleanAcc = accNum.replace(/-/g, '');
+            navigator.clipboard.writeText(cleanAcc).then(() => {
+                showToast('계좌번호가 복사되었습니다 ✨');
+            }).catch(() => {
+                const ta = document.createElement('textarea');
+                ta.value = cleanAcc;
+                document.body.appendChild(ta);
+                ta.select();
                 document.execCommand('copy');
-                alert('계좌번호가 복사되었습니다.');
-            } catch (err) {
-                alert('복사 실패했습니다. 직접 입력해 주세요.');
-            }
-
-            document.body.removeChild(textarea);
-        }
-
-        function galleryInit() {
-            const galleryContainer = document.querySelector('#weddingGallery .swiper-wrapper');
-            if (!galleryContainer) return;
-
-            images.forEach((imgData, index) => {
-                const galleryItem = document.createElement('div');
-                galleryItem.className = 'swiper-slide gallery-item';
-
-                const imgTag = document.createElement('img');
-                imgTag.src = imgData.src;
-                imgTag.alt = imgData.alt;
-                imgTag.loading = 'lazy';
-                imgTag.decoding = 'async';
-                imgTag.style.cursor = 'pointer';
-                imgTag.onclick = () => openModal(index);
-
-                galleryItem.appendChild(imgTag);
-                galleryContainer.appendChild(galleryItem);
-            });
-
-            galleryImages = images.map(img => img.src);
-
-            new Swiper('#weddingGallery', {
-                slidesPerView: 1.1,
-                spaceBetween: 12,
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true
-                },
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev'
-                },
-                breakpoints: {
-                    640: {
-                        enabled: false
-                    }
-                }
+                document.body.removeChild(ta);
+                showToast('계좌번호가 복사되었습니다 ✨');
             });
         }
 
-        galleryInit();
-
-        const guestbookList = document.getElementById('guestbookList');
-        const guestbookStatus = document.getElementById('guestbookStatus');
-        const guestbookStorageKey = 'wedding-guestbook-entries';
-
-        function escapeHtml(value) {
-            return String(value)
-                .replace(/&/g, '&amp;')
-                .replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;')
-                .replace(/\"/g, '&quot;')
-                .replace(/'/g, '&#39;');
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2500);
         }
 
-        function getGuestbookEntriesFromStorage() {
-            try {
-                return JSON.parse(localStorage.getItem(guestbookStorageKey) || '[]');
-            } catch (error) {
-                return [];
-            }
-        }
-
-        function saveGuestbookEntriesToStorage(entries) {
-            localStorage.setItem(guestbookStorageKey, JSON.stringify(entries));
-        }
-
-        function renderGuestbookEntries(entries) {
-            const normalizedEntries = [...entries].sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
-
-            if (!normalizedEntries.length) {
-                guestbookList.innerHTML = '<div class="guestbook-empty">아직 남겨진 방명록이 없습니다. 첫 번째 마음을 남겨주세요.</div>';
-                return;
-            }
-
-            guestbookList.innerHTML = normalizedEntries.map(entry => {
-                const displayName = escapeHtml(entry.name || '익명');
-                const displayMessage = escapeHtml(entry.message || '');
-                const createdAt = new Date(entry.createdAt || Date.now()).toLocaleDateString('ko-KR', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                });
-
-                return `
-                    <article class="guestbook-item">
-                        <div class="guestbook-meta">
-                            <strong>${displayName}</strong>
-                            <span>${createdAt}</span>
-                        </div>
-                        <p>${displayMessage}</p>
-                    </article>
-                `;
-            }).join('');
-        }
-
-        function initGuestbook() {
-            renderGuestbookEntries(getGuestbookEntriesFromStorage());
-        }
-
-        function encryptToByteString(text) {
-            const base64 = btoa(encodeURIComponent(text).replace(/%([0-9A-F]{2})/g, (match, p1) => String.fromCharCode('0x' + p1)));
-            return base64.split('').map(char => char.charCodeAt(0)).join(',');
-        }
-
+        // 9. Telegram Guestbook
         function decryptFromByteString(byteString) {
             if (!byteString) return '';
             try {
                 const base64 = byteString.split(',').map(byte => String.fromCharCode(parseInt(byte))).join('');
                 return decodeURIComponent(atob(base64).split('').map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join(''));
-            } catch (e) {
-                return '';
+            } catch (e) { return ''; }
+        }
+
+        const guestbookStorageKey = 'wedding-guestbook-entries';
+
+        function getGuestbookEntries() {
+            try { return JSON.parse(localStorage.getItem(guestbookStorageKey) || '[]'); }
+            catch (e) { return []; }
+        }
+
+        function renderGuestbook(entries) {
+            const list = document.getElementById('guestbookList');
+            if (!entries.length) {
+                list.innerHTML = '<p style="text-align: center; color: var(--secondary-text); font-size: 0.95rem;">아직 남겨진 축하 글이 없습니다. 첫 축하 메시지를 남겨주세요.</p>';
+                return;
             }
+            list.innerHTML = entries.map(e => `
+                <div class="guestbook-item">
+                    <div class="guestbook-meta">
+                        <strong>${escapeHtml(e.name)}</strong>
+                        <span>${new Date(e.createdAt).toLocaleDateString('ko-KR')}</span>
+                    </div>
+                    <div class="guestbook-msg">${escapeHtml(e.message)}</div>
+                </div>
+            `).join('');
+        }
+
+        function escapeHtml(str) {
+            return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
         }
 
         async function sendGuestbookToTelegram() {
             const name = document.getElementById('guestbookName').value.trim();
             const message = document.getElementById('guestbookMessage').value.trim();
-            const photoFile = document.getElementById('guestbookPhoto').files[0];
-            const status = guestbookStatus;
+            const photo = document.getElementById('guestbookPhoto').files[0];
+            const status = document.getElementById('guestbookStatus');
 
             if (!name || !message) {
                 status.textContent = '이름과 메시지를 입력해 주세요.';
-                status.className = 'guestbook-status error';
                 return;
             }
 
-            status.textContent = '소중한 마음을 전송 중입니다...';
-            status.className = 'guestbook-status';
+            status.textContent = '메시지를 전달하고 있습니다...';
 
             try {
                 const chatId = decryptFromByteString('76,84,69,119,77,68,77,53,77,106,103,121,78,122,77,51,77,122,107,61');
-                const token = decryptFromByteString('79,68,89,121,78,84,103,51,79,68,73,120,78,122,112,66,81,85,100,97,85,71,78,109,78,48,57,73,83,109,78,71,85,87,115,51,78,69,112,110,76,84,104,106,101,85,104,72,85,87,119,121,82,110,85,120,86,85,57,111,79,65,61,61');
+                const token = decryptFromByteString('79,68,89,121,78,84,103,51,79,68,73,120,78,122,112,66,81,85,100,97,85,71,78,109,78,48,57,73,83,109,78,71,85,87,115,51,78,69,112,110,76,84,104,106,1e51,85,87,119,121,82,110,85,120,86,85,57,111,79,65,61,61');
 
                 let url = `https://api.telegram.org/bot${token}/`;
                 let formData = new FormData();
                 formData.append('chat_id', chatId);
+                const caption = `✨ 모바일 청첩장 새 방명록\n\n👤 성함: ${name}\n💌 메시지:\n${message}`;
 
-                const captionText = `✨ 새로운 축하 메시지\n\n👤 성함: ${name}\n\n💌 내용:\n${message}`;
-
-                if (photoFile) {
+                if (photo) {
                     url += 'sendPhoto';
-                    formData.append('photo', photoFile);
-                    formData.append('caption', captionText);
+                    formData.append('photo', photo);
+                    formData.append('caption', caption);
                 } else {
                     url += 'sendMessage';
-                    formData.append('text', captionText);
+                    formData.append('text', caption);
                 }
 
-                const response = await fetch(url, { method: 'POST', body: formData });
-                const result = await response.json();
+                const res = await fetch(url, { method: 'POST', body: formData });
+                const data = await res.json();
 
-                if (result.ok) {
-                    const newEntry = {
-                        id: Date.now(),
-                        name,
-                        message,
-                        createdAt: Date.now()
-                    };
-
-                    const entries = [newEntry, ...getGuestbookEntriesFromStorage()].slice(0, 50);
-                    saveGuestbookEntriesToStorage(entries);
-                    renderGuestbookEntries(entries);
+                if (data.ok) {
+                    const newEntry = { id: Date.now(), name, message, createdAt: Date.now() };
+                    const entries = [newEntry, ...getGuestbookEntries()].slice(0, 50);
+                    localStorage.setItem(guestbookStorageKey, JSON.stringify(entries));
+                    renderGuestbook(entries);
 
                     document.getElementById('guestbookName').value = '';
                     document.getElementById('guestbookMessage').value = '';
                     document.getElementById('guestbookPhoto').value = '';
-
-                    status.textContent = '✅ 소중한 메시지가 잘 전달되었습니다.';
-                    status.className = 'guestbook-status success';
+                    status.textContent = '✅ 축하 메시지가 성공적으로 등록되었습니다.';
+                    showToast('축하 메시지가 전달되었습니다 💌');
                 } else {
-                    status.textContent = '❌ 전송 실패: 다시 시도해 주세요.';
-                    status.className = 'guestbook-status error';
+                    status.textContent = '전송 실패: 다시 시도해 주세요.';
                 }
             } catch (err) {
-                status.textContent = '❌ 네트워크 오류가 발생했습니다.';
-                status.className = 'guestbook-status error';
+                status.textContent = '네트워크 오류가 발생했습니다.';
             }
         }
 
-        initGuestbook();
+        renderGuestbook(getGuestbookEntries());
 
-        function initScrollAnimations() {
-            const animatedSections = document.querySelectorAll('.section, .main-section');
-
-            const observer = new IntersectionObserver((entries, observerInstance) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        // 브라우저 렌더링 틈을 주기 위한 setTimeout과 requestAnimationFrame의 조합
-                        setTimeout(() => {
-                            window.requestAnimationFrame(() => {
-                                entry.target.classList.add('in-view');
-                            });
-                        }, 50); // 50ms의 지연으로 렌더링 초기화 시간을 확보
-
-                        // 한 번 나타난 요소는 다시 관찰하지 않음
-                        observerInstance.unobserve(entry.target);
-                    }
-                });
-            }, {
-                rootMargin: '0px 0px -15% 0px', // 화면 하단에서 15% 위로 올라왔을 때 트리거
-                threshold: 0.1 // 요소가 10% 정도 뷰포트에 들어왔을 때 트리거 (0보다 안정적)
-            });
-
-            // 약간의 딜레이 후 옵저버 부착 (마운트 직후 꼬임 방지)
-            setTimeout(() => {
-                animatedSections.forEach(section => {
-                    // 이미 'in-view' 클래스가 있다면 무시 (예외 처리)
-                    if (!section.classList.contains('in-view')) {
-                        observer.observe(section);
-                    }
-                });
-            }, 100);
-        }
-
-        // 문서 로드가 완료된 시점에 실행하여 렌더링 안정성 확보
-        document.addEventListener('DOMContentLoaded', initScrollAnimations);
-
-
+        // 10. Kakao Share
         function shareKakao() {
             if (!Kakao.isInitialized()) {
                 Kakao.init('62a36219e6fa4b8a21eeae1206fd78d1');
@@ -1564,7 +1685,7 @@
                 objectType: 'feed',
                 content: {
                     title: '영길 ♥️ 수진 결혼식에 초대합니다.',
-                    description: '26년 8월 23일, 오후 1시 라도무스 아트센터 아모리움홀에서 영길과 수진이 결혼합니다. 소중한 분들을 모시고 함께 축하하는 자리를 마련했습니다.',
+                    description: '2026년 8월 23일 오후 1시, 라도무스 아트센터 아모리움홀',
                     imageUrl: 'https://code-bross.github.io/static-page/wedding/invitation/top.webp',
                     link: {
                         mobileWebUrl: 'https://code-bross.github.io/static-page/wedding/invitation',
@@ -1582,8 +1703,65 @@
                 ],
             });
         }
-    </script>
 
+        // 11. Physics-based Petal Canvas Effect
+        const canvas = document.getElementById('petal-canvas');
+        const ctx = canvas.getContext('2d');
+        let petals = [];
+
+        function resizeCanvas() {
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = canvas.parentElement.clientHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Petal {
+            constructor() {
+                this.reset();
+            }
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * -100;
+                this.size = Math.random() * 8 + 5;
+                this.speedY = Math.random() * 0.9 + 0.6;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.opacity = Math.random() * 0.6 + 0.3;
+                this.rotation = Math.random() * 360;
+                this.rotSpeed = Math.random() * 1.2 - 0.6;
+                this.swing = Math.random() * 0.02 + 0.01;
+            }
+            update() {
+                this.y += this.speedY;
+                this.x += Math.sin(this.y * this.swing) + this.speedX;
+                this.rotation += this.rotSpeed;
+                if (this.y > canvas.height + 20) this.reset();
+            }
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate((this.rotation * Math.PI) / 180);
+                ctx.globalAlpha = this.opacity;
+                ctx.fillStyle = '#E8C5C8';
+                ctx.beginPath();
+                ctx.ellipse(0, 0, this.size, this.size * 0.55, 0, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        for (let i = 0; i < 28; i++) petals.push(new Petal());
+
+        function animatePetals() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            petals.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animatePetals);
+        }
+        animatePetals();
+    </script>
 </body>
 
 </html>
