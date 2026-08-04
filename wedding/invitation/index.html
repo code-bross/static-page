@@ -112,6 +112,201 @@
             z-index: 5;
         }
 
+        /* Fullscreen Flower Intro Loader Overlay */
+        .flower-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            background: linear-gradient(135deg, #FAF7F2 0%, #F5EDE4 40%, #EFE4D4 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.9s ease;
+        }
+
+        .flower-loader.loaded {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        #loader-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .loader-inner {
+            position: relative;
+            z-index: 2;
+            width: 90%;
+            max-width: 380px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .flower-ring-wrap {
+            position: relative;
+            width: 90px;
+            height: 90px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .flower-pulse-ring {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 1px solid var(--accent-gold);
+            opacity: 0.4;
+            animation: ringPulse 2.4s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+        }
+
+        .flower-pulse-ring.ring-2 {
+            animation-delay: 1.2s;
+        }
+
+        @keyframes ringPulse {
+            0% { transform: scale(0.7); opacity: 0.8; }
+            100% { transform: scale(1.6); opacity: 0; }
+        }
+
+        .flower-icon-wrap {
+            width: 64px;
+            height: 64px;
+            position: relative;
+            animation: spinSlow 12s linear infinite;
+        }
+
+        .flower-svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 4px 10px rgba(91, 74, 61, 0.2));
+        }
+
+        @keyframes spinSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .loader-brand {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .loader-badge {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            color: var(--accent-gold);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .loader-names {
+            font-family: var(--font-body);
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--primary-text);
+            margin-bottom: 18px;
+            letter-spacing: 0.05em;
+        }
+
+        .loader-names span {
+            color: #C59B73;
+            margin: 0 4px;
+        }
+
+        /* Zooming Photo Container */
+        .loader-photo-box {
+            position: relative;
+            width: 140px;
+            height: 180px;
+            border-radius: 90px 90px 14px 14px;
+            overflow: hidden;
+            margin-bottom: 18px;
+            border: 2px solid var(--line-color);
+            box-shadow: 0 14px 35px rgba(91, 74, 61, 0.2);
+            transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease, filter 0.8s ease;
+            transform: scale(0.92);
+        }
+
+        .loader-photo-box.zooming {
+            transform: scale(2.8);
+            opacity: 0.15;
+            filter: blur(8px);
+        }
+
+        .loader-photo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .loader-photo-box.zooming .loader-photo-img {
+            transform: scale(1.4);
+        }
+
+        .loader-photo-arch-border {
+            position: absolute;
+            inset: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            border-radius: 86px 86px 10px 10px;
+            pointer-events: none;
+        }
+
+        .loader-subtext {
+            font-size: 0.88rem;
+            color: var(--secondary-text);
+            margin-bottom: 22px;
+            font-weight: 600;
+        }
+
+        .loader-bar-wrap {
+            width: 160px;
+            height: 3px;
+            background: rgba(91, 74, 61, 0.12);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 6px;
+        }
+
+        .loader-bar-fill {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #D9B897, var(--accent-gold), #8C6F4D);
+            transition: width 0.1s linear;
+        }
+
+        .loader-percent {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            letter-spacing: 0.05em;
+        }
+
+        /* Hero Frame Zoom-In Effect when entering page */
+        .hero-image-frame.intro-zoom-in {
+            animation: heroFrameZoomIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        @keyframes heroFrameZoomIn {
+            0% { transform: scale(1.35); opacity: 0.4; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
         /* Music Floating Vinyl Player */
         .vinyl-player {
             position: fixed;
@@ -1230,6 +1425,62 @@
 
 <body>
 
+    <!-- Fullscreen Flower Intro Loader -->
+    <div id="flower-loader" class="flower-loader">
+        <canvas id="loader-canvas"></canvas>
+        <div class="loader-inner">
+            <div class="flower-ring-wrap">
+                <div class="flower-pulse-ring ring-1"></div>
+                <div class="flower-pulse-ring ring-2"></div>
+                
+                <div class="flower-icon-wrap">
+                    <svg class="flower-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g class="petals-layer">
+                            <path d="M50 50 C50 15, 36 5, 50 2 C64 5, 50 15, 50 50Z" fill="url(#petalGold)" />
+                            <path d="M50 50 C50 15, 36 5, 50 2 C64 5, 50 15, 50 50Z" fill="url(#petalGold)" transform="rotate(45 50 50)" />
+                            <path d="M50 50 C50 15, 36 5, 50 2 C64 5, 50 15, 50 50Z" fill="url(#petalGold)" transform="rotate(90 50 50)" />
+                            <path d="M50 50 C50 15, 36 5, 50 2 C64 5, 50 15, 50 50Z" fill="url(#petalGold)" transform="rotate(135 50 50)" />
+                            <path d="M50 50 C50 15, 36 5, 50 2 C64 5, 50 15, 50 50Z" fill="url(#petalGold)" transform="rotate(180 50 50)" />
+                            <path d="M50 50 C50 15, 36 5, 50 2 C64 5, 50 15, 50 50Z" fill="url(#petalGold)" transform="rotate(225 50 50)" />
+                            <path d="M50 50 C50 15, 36 5, 50 2 C64 5, 50 15, 50 50Z" fill="url(#petalGold)" transform="rotate(270 50 50)" />
+                            <path d="M50 50 C50 15, 36 5, 50 2 C64 5, 50 15, 50 50Z" fill="url(#petalGold)" transform="rotate(315 50 50)" />
+                        </g>
+                        <circle cx="50" cy="50" r="12" fill="#5b4a3d" opacity="0.12" />
+                        <circle cx="50" cy="50" r="7" fill="url(#coreGold)" />
+                        <defs>
+                            <linearGradient id="petalGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#E8D5C4"/>
+                                <stop offset="50%" stop-color="#C59B73"/>
+                                <stop offset="100%" stop-color="#5b4a3d"/>
+                            </linearGradient>
+                            <radialGradient id="coreGold" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="#FFFDF9"/>
+                                <stop offset="100%" stop-color="#8C6F4D"/>
+                            </radialGradient>
+                        </defs>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="loader-brand">
+                <span class="loader-badge">WEDDING INVITATION</span>
+                <div class="loader-names">강영길 <span>♥</span> 성수진</div>
+                
+                <div class="loader-photo-box" id="loaderPhotoBox">
+                    <img src="./top.webp" class="loader-photo-img" id="loaderPhotoImg" alt="웨딩 대표 사진">
+                    <div class="loader-photo-arch-border"></div>
+                </div>
+
+                <div class="loader-subtext">꽃피는 8월, 저희 두 사람의 시작을 함께해 주세요</div>
+            </div>
+
+            <div class="loader-bar-wrap">
+                <div class="loader-bar-fill" id="loaderBarFill"></div>
+            </div>
+            <div class="loader-percent" id="loaderPercent">0%</div>
+        </div>
+    </div>
+
     <div id="scroll-progress"></div>
 
     <!-- Floating Audio Control -->
@@ -2206,6 +2457,108 @@
             requestAnimationFrame(animateCanvas);
         }
         animateCanvas();
+
+        // 14. Fullscreen Flower Intro Loader & Photo Zoom-In Effect
+        (function initFlowerLoader() {
+            const loader = document.getElementById('flower-loader');
+            const loaderCanvas = document.getElementById('loader-canvas');
+            const loaderBarFill = document.getElementById('loaderBarFill');
+            const loaderPercent = document.getElementById('loaderPercent');
+            const loaderPhotoBox = document.getElementById('loaderPhotoBox');
+            const heroFrame = document.getElementById('heroFrame');
+
+            if (!loader || !loaderCanvas) return;
+
+            const lCtx = loaderCanvas.getContext('2d');
+            let lParticles = [];
+
+            function resizeLoaderCanvas() {
+                loaderCanvas.width = window.innerWidth;
+                loaderCanvas.height = window.innerHeight;
+            }
+            resizeLoaderCanvas();
+            window.addEventListener('resize', resizeLoaderCanvas);
+
+            class LoaderPetal {
+                constructor() {
+                    this.reset();
+                }
+                reset() {
+                    this.x = Math.random() * loaderCanvas.width;
+                    this.y = Math.random() * loaderCanvas.height - loaderCanvas.height;
+                    this.size = Math.random() * 8 + 4;
+                    this.speedY = Math.random() * 1.2 + 0.6;
+                    this.speedX = Math.random() * 0.8 - 0.4;
+                    this.opacity = Math.random() * 0.6 + 0.3;
+                    this.rotation = Math.random() * 360;
+                    this.rotSpeed = Math.random() * 2 - 1;
+                    this.color = Math.random() > 0.5 ? '#E8C5C8' : '#F2D7D9';
+                }
+                update() {
+                    this.y += this.speedY;
+                    this.x += Math.sin(this.y * 0.02) + this.speedX;
+                    this.rotation += this.rotSpeed;
+                    if (this.y > loaderCanvas.height + 20) this.reset();
+                }
+                draw() {
+                    lCtx.save();
+                    lCtx.translate(this.x, this.y);
+                    lCtx.rotate((this.rotation * Math.PI) / 180);
+                    lCtx.globalAlpha = this.opacity;
+                    lCtx.fillStyle = this.color;
+                    lCtx.beginPath();
+                    lCtx.ellipse(0, 0, this.size, this.size * 0.55, 0, 0, Math.PI * 2);
+                    lCtx.fill();
+                    lCtx.restore();
+                }
+            }
+
+            for (let i = 0; i < 25; i++) lParticles.push(new LoaderPetal());
+
+            let animId;
+            function animateLoaderCanvas() {
+                lCtx.clearRect(0, 0, loaderCanvas.width, loaderCanvas.height);
+                lParticles.forEach(p => {
+                    p.update();
+                    p.draw();
+                });
+                animId = requestAnimationFrame(animateLoaderCanvas);
+            }
+            animateLoaderCanvas();
+
+            // Progress bar and Zoom-In Transition Trigger
+            let progress = 0;
+            const duration = 1600;
+            const startTime = performance.now();
+
+            function updateProgress(now) {
+                const elapsed = now - startTime;
+                progress = Math.min(100, Math.floor((elapsed / duration) * 100));
+                
+                if (loaderBarFill) loaderBarFill.style.width = progress + '%';
+                if (loaderPercent) loaderPercent.textContent = progress + '%';
+
+                if (progress < 100) {
+                    requestAnimationFrame(updateProgress);
+                } else {
+                    // Trigger Photo Zoom-In Transition Effect
+                    setTimeout(() => {
+                        if (loaderPhotoBox) loaderPhotoBox.classList.add('zooming');
+                        if (heroFrame) heroFrame.classList.add('intro-zoom-in');
+
+                        // Fade out loader
+                        setTimeout(() => {
+                            loader.classList.add('loaded');
+                            setTimeout(() => {
+                                loader.style.display = 'none';
+                                cancelAnimationFrame(animId);
+                            }, 900);
+                        }, 350);
+                    }, 150);
+                }
+            }
+            requestAnimationFrame(updateProgress);
+        })();
     </script>
 </body>
 
