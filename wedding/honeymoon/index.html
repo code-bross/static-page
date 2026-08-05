@@ -447,7 +447,7 @@
                 let imagesHtml = '';
                 if (item.imgs && Array.isArray(item.imgs) && item.imgs.length > 0) {
                     imagesHtml = `<div class="img-grid">${item.imgs.map(url => `
-                            <img src="${url}" class="detail-img" alt="${item.place} 이미지" onerror="this.style.display='none'">
+                            <img src="${url}" class="detail-img" alt="${item.place} 이미지" referrerpolicy="no-referrer" loading="lazy" onerror="this.onerror=null; this.src='./images/prague_castle_bridge.jpg'">
                         `).join('')}</div>`;
                 }
 
@@ -460,7 +460,7 @@
                         <div class="reco-grid">
                             ${item.recommendations.map(reco => `
                                 <div class="reco-card">
-                                    <img src="${reco.img}" class="reco-img" alt="${reco.name}" onerror="this.style.display='none'">
+                                    <img src="${reco.img}" class="reco-img" alt="${reco.name}" referrerpolicy="no-referrer" loading="lazy" onerror="this.onerror=null; this.src='./images/havel_market.jpg'">
                                     <div class="reco-name">${reco.name}</div>
                                     <div class="reco-desc">${reco.desc}</div>
                                 </div>
