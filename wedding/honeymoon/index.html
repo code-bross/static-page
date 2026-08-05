@@ -527,6 +527,36 @@
             line-height: 1.45;
         }
 
+        /* TTS 음성 재생 버튼 스타일 */
+        .tts-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            color: #ffffff;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 20px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 8px 0 14px 0;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.25);
+        }
+
+        .tts-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(5, 150, 105, 0.35);
+            background: linear-gradient(135deg, #047857 0%, #065f46 100%);
+        }
+
+        .tts-btn.playing {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.25);
+        }
+
         @media (max-width: 960px) {
             .layout {
                 grid-template-columns: 1fr;
@@ -813,9 +843,78 @@
                 .replace(/\n/g, '<br>');
         }
 
+        let currentUtterance = null;
+
+        function toggleDocentTTS() {
+            const btn = document.getElementById('tts-play-btn');
+            const icon = document.getElementById('tts-icon');
+            const label = document.getElementById('tts-label');
+
+            if (!('speechSynthesis' in window)) {
+                alert('이 브라우저는 음성 읽기(TTS) 기능을 지원하지 않습니다.');
+                return;
+            }
+
+            if (window.speechSynthesis.speaking) {
+                window.speechSynthesis.cancel();
+                if (btn) btn.classList.remove('playing');
+                if (icon) icon.textContent = '🔊';
+                if (label) label.textContent = '전문 도슨트 음성으로 듣기';
+                return;
+            }
+
+            const modalBody = document.getElementById('guide-modal-body');
+            const docentEl = modalBody ? modalBody.querySelector('.modal-docent-text') : null;
+            const titleEl = modalBody ? modalBody.querySelector('.modal-header-title') : null;
+            const topicEl = modalBody ? modalBody.querySelector('.modal-docent-topic') : null;
+
+            let textToRead = '';
+            if (titleEl) textToRead += titleEl.textContent + '. ';
+            if (topicEl) textToRead += topicEl.textContent + '. ';
+            if (docentEl) textToRead += docentEl.textContent;
+
+            if (!textToRead) return;
+
+            window.speechSynthesis.cancel();
+
+            const utterance = new SpeechSynthesisUtterance(textToRead);
+            utterance.lang = 'ko-KR';
+            utterance.rate = 0.92;
+            utterance.pitch = 1.0;
+
+            utterance.onstart = function() {
+                if (btn) btn.classList.add('playing');
+                if (icon) icon.textContent = '⏸️';
+                if (label) label.textContent = '음성 재생 중 (클릭 시 정지)';
+            };
+
+            utterance.onend = function() {
+                if (btn) btn.classList.remove('playing');
+                if (icon) icon.textContent = '🔊';
+                if (label) label.textContent = '전문 도슨트 음성으로 듣기';
+            };
+
+            utterance.onerror = function() {
+                if (btn) btn.classList.remove('playing');
+                if (icon) icon.textContent = '🔊';
+                if (label) label.textContent = '전문 도슨트 음성으로 듣기';
+            };
+
+            currentUtterance = utterance;
+            window.speechSynthesis.speak(utterance);
+        }
+
+        function stopDocentTTS() {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+            }
+        }
+
         function openGuideModal(uniqueId) {
             const item = itemLookup[uniqueId];
             if (!item) return;
+
+            stopDocentTTS();
 
             const modalBody = document.getElementById('guide-modal-body');
             
@@ -844,10 +943,22 @@
                 <div class="modal-badge-fee">🎟️ 입장료: ${item.entrance_fee}</div>
             ` : '';
 
+            let topicHtml = item.docent_topic ? `
+                <div class="modal-docent-topic" style="font-weight:700; color:#1e3a5f; margin-bottom:8px; font-size:0.95rem;">• 주제: ${item.docent_topic}</div>
+            ` : '';
+
+            let ttsBtnHtml = item.docent_guide ? `
+                <button id="tts-play-btn" class="tts-btn" onclick="toggleDocentTTS()">
+                    <span id="tts-icon">🔊</span> <span id="tts-label">전문 도슨트 음성으로 듣기</span>
+                </button>
+            ` : '';
+
             let docentSection = item.docent_guide ? `
                 <div class="modal-docent-section">
                     <div class="modal-section-title">🏛️ 전문 도슨트 상세 해설</div>
-                    <div class="modal-docent-text">${formatDocentText(item.docent_guide)}</div>
+                    ${topicHtml}
+                    ${ttsBtnHtml}
+                    <div class="modal-docent-text" style="font-size:0.95rem; line-height:1.65; color:#334155;">${item.docent_guide}</div>
                 </div>
             ` : '';
 
@@ -867,6 +978,7 @@
             if (e && e.target && e.target.id !== 'guide-modal' && !e.target.classList.contains('modal-close-btn')) {
                 return;
             }
+            stopDocentTTS();
             const modal = document.getElementById('guide-modal');
             if (modal) {
                 modal.classList.remove('active');
