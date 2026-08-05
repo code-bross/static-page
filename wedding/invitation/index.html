@@ -2323,7 +2323,7 @@
         function renderGuestbook(entries) {
             const list = document.getElementById('guestbookList');
             if (!entries.length) {
-                list.innerHTML = '<p style="text-align: center; color: var(--secondary-text); font-size: 0.95rem;">아직 남겨진 축하 글이 없습니다. 첫 축하 메시지를 남겨주세요.</p>';
+                list.innerHTML = '';
                 return;
             }
             list.innerHTML = entries.map(e => `
