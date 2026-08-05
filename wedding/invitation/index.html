@@ -123,7 +123,7 @@
             justify-content: center;
             text-align: center;
             overflow: hidden;
-            transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.9s ease;
+            transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.2s ease;
         }
 
         .flower-loader.loaded {
@@ -232,6 +232,58 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+        }
+
+        /* Typewriter Intro Effect */
+        .loader-typewriter-wrap {
+            min-height: 85px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0 16px;
+            text-align: center;
+        }
+
+        .typewriter-line-1 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--secondary-text);
+            letter-spacing: 0.08em;
+            min-height: 1.4em;
+        }
+
+        .typewriter-line-2 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--sub-text);
+            margin-top: 3px;
+            min-height: 1.4em;
+        }
+
+        .typewriter-line-3 {
+            font-family: var(--font-body);
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--primary-text);
+            margin-top: 6px;
+            letter-spacing: 0.06em;
+            min-height: 1.5em;
+        }
+
+        .typewriter-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.1em;
+            background-color: var(--accent-gold);
+            margin-left: 2px;
+            vertical-align: middle;
+            animation: blinkCursor 0.65s infinite alternate;
+        }
+
+        @keyframes blinkCursor {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
         }
 
         .loader-badge {
@@ -1454,14 +1506,18 @@
         <div class="loader-inner">
             <div class="loader-brand">
                 <span class="loader-badge">SUMMER WEDDING INVITATION</span>
-                <div class="loader-names">강영길 <span>♥</span> 성수진</div>
                 
+                <div class="loader-typewriter-wrap">
+                    <div class="typewriter-line-1" id="typewriterLine1"></div>
+                    <div class="typewriter-line-2" id="typewriterLine2"></div>
+                    <div class="typewriter-line-3" id="typewriterLine3"></div>
+                    <span class="typewriter-cursor" id="typewriterCursor"></span>
+                </div>
+
                 <div class="loader-photo-box" id="loaderPhotoBox">
                     <img src="./top.webp" class="loader-photo-img" id="loaderPhotoImg" alt="웨딩 대표 사진">
                     <div class="loader-photo-arch-border"></div>
                 </div>
-
-                <div class="loader-subtext">청량한 8월의 여름날, 저희 두 사람의 시작을 함께해 주세요</div>
             </div>
 
             <div class="loader-bar-wrap">
@@ -2406,7 +2462,7 @@
                     this.rotSpeed = Math.random() * 0.02 + 0.008;
                     this.flip = Math.random() * Math.PI * 2;
                     this.flipSpeed = Math.random() * 0.035 + 0.015;
-                    const petalColors = ['#FFD8DF', '#FFE2E8', '#FCD0D7', '#FAD4C0', '#F9E2D8'];
+                    const petalColors = ['#FFE5EC', '#FDE2E4', '#FFF1F5', '#FAD2E1', '#F3E8EE'];
                     this.color = petalColors[Math.floor(Math.random() * petalColors.length)];
                 } else if (this.type === 'leaf') {
                     this.size = Math.random() * 6.5 + 4.5;
@@ -2417,7 +2473,7 @@
                     this.rotSpeed = Math.random() * 0.025 + 0.01;
                     this.flip = Math.random() * Math.PI * 2;
                     this.flipSpeed = Math.random() * 0.04 + 0.02;
-                    const leafColors = ['#C8E6C9', '#D4EDDA', '#B7E4C7', '#D8F3DC', '#B8E994'];
+                    const leafColors = ['#5B8A68', '#78A385', '#A3C9AE', '#C2E2CC', '#8EB89B'];
                     this.color = leafColors[Math.floor(Math.random() * leafColors.length)];
                 } else {
                     this.size = Math.random() * 2.5 + 1.2;
@@ -2426,7 +2482,7 @@
                     this.opacity = Math.random() * 0.5 + 0.3;
                     this.pulse = Math.random() * Math.PI * 2;
                     this.pulseSpeed = Math.random() * 0.04 + 0.02;
-                    const sunColors = ['#FFEAA7', '#FFF3CD', '#FDE49E'];
+                    const sunColors = ['#E6C280', '#F5DDA7', '#FCEFD2'];
                     this.color = sunColors[Math.floor(Math.random() * sunColors.length)];
                 }
             }
@@ -2475,7 +2531,7 @@
                     ctx.quadraticCurveTo(-this.size * 0.6, -this.size * 0.2, 0, -this.size * 1.1);
                     ctx.fill();
 
-                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
                     ctx.lineWidth = 0.8;
                     ctx.beginPath();
                     ctx.moveTo(0, -this.size * 0.8);
@@ -2485,7 +2541,7 @@
                     ctx.fillStyle = this.color;
                     ctx.beginPath();
                     ctx.arc(0, 0, this.size, 0, Math.PI * 2);
-                    ctx.shadowColor = '#FFEAA7';
+                    ctx.shadowColor = '#C49A6C';
                     ctx.shadowBlur = 6;
                     ctx.fill();
                 }
@@ -2544,10 +2600,10 @@
                     this.flipSpeed = Math.random() * 0.04 + 0.02;
 
                     if (this.isLeaf) {
-                        const leafColors = ['#C8E6C9', '#D4EDDA', '#B7E4C7', '#B8E994'];
+                        const leafColors = ['#5B8A68', '#78A385', '#A3C9AE', '#C2E2CC'];
                         this.color = leafColors[Math.floor(Math.random() * leafColors.length)];
                     } else {
-                        const petalColors = ['#FFD8DF', '#FFE2E8', '#FCD0D7', '#FAD4C0'];
+                        const petalColors = ['#FFE5EC', '#FDE2E4', '#FFF1F5', '#FAD2E1'];
                         this.color = petalColors[Math.floor(Math.random() * petalColors.length)];
                     }
                 }
@@ -2597,8 +2653,55 @@
 
             // Progress bar and Zoom-In Transition Trigger
             let progress = 0;
-            const duration = 1600;
+            const duration = 4400;
             const startTime = performance.now();
+
+            // Typewriter typing sequence
+            const text1 = "2026년 8월 23일 일요일 오후 1시";
+            const text2 = "라도무스 아트센터 아모리움홀";
+            const text3 = "강영길  ♥  성수진, 결혼식에 초대합니다";
+
+            const line1El = document.getElementById('typewriterLine1');
+            const line2El = document.getElementById('typewriterLine2');
+            const line3El = document.getElementById('typewriterLine3');
+            const cursorEl = document.getElementById('typewriterCursor');
+
+            async function startTypewriter() {
+                if (!line1El || !line2El || !line3El || !cursorEl) return;
+                
+                // Line 1: Date
+                line1El.appendChild(cursorEl);
+                for (let i = 0; i < text1.length; i++) {
+                    line1El.insertBefore(document.createTextNode(text1[i]), cursorEl);
+                    await new Promise(r => setTimeout(r, 45));
+                }
+                await new Promise(r => setTimeout(r, 180));
+                
+                // Line 2: Venue
+                line2El.appendChild(cursorEl);
+                for (let i = 0; i < text2.length; i++) {
+                    line2El.insertBefore(document.createTextNode(text2[i]), cursorEl);
+                    await new Promise(r => setTimeout(r, 45));
+                }
+                await new Promise(r => setTimeout(r, 180));
+
+                // Line 3: Couple Names & Invitation Text
+                line3El.appendChild(cursorEl);
+                for (let i = 0; i < text3.length; i++) {
+                    const char = text3[i];
+                    if (char === '♥') {
+                        const heartSpan = document.createElement('span');
+                        heartSpan.style.color = '#4A7C59';
+                        heartSpan.textContent = ' ♥ ';
+                        line3El.insertBefore(heartSpan, cursorEl);
+                    } else {
+                        line3El.insertBefore(document.createTextNode(char), cursorEl);
+                    }
+                    await new Promise(r => setTimeout(r, 55));
+                }
+            }
+
+            startTypewriter();
 
             function updateProgress(now) {
                 const elapsed = now - startTime;
@@ -2610,20 +2713,20 @@
                 if (progress < 100) {
                     requestAnimationFrame(updateProgress);
                 } else {
-                    // Trigger Photo Zoom-In Transition Effect
+                    // Trigger Photo Zoom-In Transition Effect naturally
                     setTimeout(() => {
                         if (loaderPhotoBox) loaderPhotoBox.classList.add('zooming');
                         if (heroFrame) heroFrame.classList.add('intro-zoom-in');
 
-                        // Fade out loader
+                        // Fade out loader smoothly
                         setTimeout(() => {
                             loader.classList.add('loaded');
                             setTimeout(() => {
                                 loader.style.display = 'none';
                                 cancelAnimationFrame(animId);
-                            }, 900);
-                        }, 350);
-                    }, 150);
+                            }, 1200);
+                        }, 500);
+                    }, 300);
                 }
             }
             requestAnimationFrame(updateProgress);
