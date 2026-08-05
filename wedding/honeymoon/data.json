@@ -11,25 +11,28 @@
     ],
     "details": "설레는 유럽 여행의 시작점입니다. 대한항공 KE963편을 이용하여 헝가리 부다페스트로 향하는 직항 노선입니다. 장거리 비행에 대비해 편안한 복장과 기내 필수품을 챙기세요.",
     "guide": "출발 최소 3시간 전 공항 도착 권장 / 모바일 체크인 완료 필수",
-    "link": "https://www.google.com/maps/search/?api=1&query=인천국제공항",
+    "link": null,
     "lat": 37.458666,
-    "lng": 126.4419679
+    "lng": 126.4419679,
+    "reserved": null
   },
   {
     "date": "8.24",
     "time": "17:55",
-    "place": "부다페스트 공항",
+    "place": "부다페스트 공항 (Elife Limo 픽업)",
     "country_flag": "🇭🇺",
     "emoji": "🛬",
-    "desc": "현지 도착 및 호텔 픽업",
+    "desc": "Elife Limo 전용 차량 숙소 이동",
     "imgs": [
       "https://upload.wikimedia.org/wikipedia/commons/8/83/Termin%C3%A1l_2_-_Ferihegy%2C_2015.07.27.JPG"
     ],
-    "details": "부다페스트 리스트 페렌츠 국제공항에 입국합니다. 장거리 비행의 피로를 최소화하기 위해 사전에 예약된 전용 픽업 차량을 이용하여 숙소로 안전하고 편안하게 이동합니다.",
-    "guide": "수하물 수령 후 입국장 입구에서 픽업 기사 미팅 (피켓 확인)",
-    "link": "https://www.google.com/maps/search/?api=1&query=Budapest+Airport",
+    "details": "부다페스트 리스트 페렌츠 국제공항(BUD) 입국 후, 예약된 Elife Limo 전용 차량을 타고 Novotel Budapest Danube 숙소로 이동합니다. (차량: Sedan - Corolla or similar / 탑승 인원: 최대 3명, 수하물: 최대 3개)",
+    "guide": "픽업 기사: Gárdián Péter | 연락처(WhatsApp): +36 30 146 6317 | 수하물 수령 후 입국장 입구에서 픽업 기사 미팅 (피켓 확인)",
+    "link": "https://elifelimo.com/rides/?t_order=vQnb5kay",
     "lat": 47.438516,
-    "lng": 19.2540304
+    "lng": 19.2540304,
+    "reserved": "Elife Limo",
+    "reservation": "https://elifelimo.com/rides/?t_order=vQnb5kay"
   },
   {
     "date": "8.24",
