@@ -527,6 +527,115 @@
             line-height: 1.45;
         }
 
+        /* 메뉴 상세보기 버튼 및 카드 스타일 */
+        .menu-modal-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+            color: #ffffff;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 0.86rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 8px;
+            margin-bottom: 8px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 10px rgba(217, 119, 6, 0.25);
+        }
+
+        .menu-modal-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 14px rgba(217, 119, 6, 0.35);
+            background: linear-gradient(135deg, #b45309 0%, #92400e 100%);
+        }
+
+        .menu-grid-section {
+            margin-top: 14px;
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            border-radius: 12px;
+            padding: 12px 14px;
+        }
+
+        .menu-grid-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #92400e;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .menu-cards-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .menu-item-card {
+            display: flex;
+            gap: 12px;
+            background: #ffffff;
+            border: 1px solid #fde68a;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        @media (max-width: 580px) {
+            .menu-item-card {
+                flex-direction: column;
+            }
+            .menu-item-img {
+                width: 100% !important;
+                height: 150px !important;
+            }
+        }
+
+        .menu-item-img {
+            width: 110px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+
+        .menu-item-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .menu-item-name {
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 3px;
+        }
+
+        .menu-item-price {
+            display: inline-block;
+            align-self: flex-start;
+            background: #ecfdf5;
+            color: #047857;
+            border: 1px solid #a7f3d0;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .menu-item-desc {
+            font-size: 0.84rem;
+            color: #475569;
+            line-height: 1.4;
+        }
+
         /* TTS 음성 재생 버튼 스타일 */
         .tts-btn {
             display: inline-flex;
@@ -674,6 +783,10 @@
                     <button class="guide-modal-btn" onclick="event.stopPropagation(); openGuideModal('${uniqueId}')">
                         🔍 가이드 상세보기 (전문 도슨트 & 대표 명작)
                     </button>
+                ` : (item.menus && item.menus.length > 0) ? `
+                    <button class="menu-modal-btn" onclick="event.stopPropagation(); openGuideModal('${uniqueId}')">
+                        🍽️ 식당 상세 및 대표 메뉴/사진 크게 보기
+                    </button>
                 ` : '';
 
                 const reservationHtml = item.reservation ? `
@@ -691,6 +804,28 @@
                     imagesHtml = `<div class="img-grid">${item.imgs.map(url => `
                             <img src="${url}" class="detail-img" alt="${item.place} 이미지" referrerpolicy="no-referrer" loading="lazy" onerror="this.onerror=null; this.src='./images/prague_castle_bridge.jpg'">
                         `).join('')}</div>`;
+                }
+
+                // 식당 대표 메뉴 렌더링 추가
+                let menusHtml = '';
+                if (item.menus && Array.isArray(item.menus) && item.menus.length > 0) {
+                    menusHtml = `
+                    <div class="menu-grid-section">
+                        <div class="menu-grid-title">🍽️ 추천 대표 메뉴 & 가격 (메뉴 사진)</div>
+                        <div class="menu-cards-list">
+                            ${item.menus.map(m => `
+                                <div class="menu-item-card">
+                                    <img src="${m.img}" class="menu-item-img" alt="${m.name}" referrerpolicy="no-referrer" loading="lazy" onerror="this.onerror=null; this.src='./images/dining.jpg'">
+                                    <div class="menu-item-info">
+                                        <div class="menu-item-name">${m.name}</div>
+                                        <div class="menu-item-price">💰 ${m.price}</div>
+                                        <div class="menu-item-desc">${m.desc}</div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    `;
                 }
 
                 // 쇼핑 추천 렌더링 추가
@@ -736,6 +871,7 @@
                             ${guideModalBtnHtml}
                             ${detailsHtml}
                             ${guideHtml}
+                            ${menusHtml}
                             ${imagesHtml}
                             ${recoHtml}
                         </div>
@@ -962,10 +1098,32 @@
                 </div>
             ` : '';
 
+            let menusModalHtml = '';
+            if (item.menus && item.menus.length > 0) {
+                menusModalHtml = `
+                    <div style="margin-top: 16px;">
+                        <div class="modal-section-title" style="color:#b45309;">🍽️ 추천 대표 메뉴 & 가격 (메뉴 사진)</div>
+                        <div class="menu-cards-list">
+                            ${item.menus.map(m => `
+                                <div class="menu-item-card" style="border: 1px solid #fcd34d;">
+                                    <img src="${m.img}" class="menu-item-img" alt="${m.name}" referrerpolicy="no-referrer" loading="lazy" onerror="this.onerror=null; this.src='./images/dining.jpg'">
+                                    <div class="menu-item-info">
+                                        <div class="menu-item-name" style="font-size:0.96rem;">${m.name}</div>
+                                        <div class="menu-item-price" style="margin:4px 0;">💰 ${m.price}</div>
+                                        <div class="menu-item-desc" style="font-size:0.86rem;">${m.desc}</div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+
             modalBody.innerHTML = `
                 <div class="modal-header-title">${item.emoji || '📍'} ${item.place} ${item.country_flag || ''}</div>
                 ${feeBadge}
                 ${docentSection}
+                ${menusModalHtml}
                 ${masterpiecesHtml}
             `;
 
