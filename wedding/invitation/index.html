@@ -2688,13 +2688,13 @@
 
             // Progress bar and Zoom-In Transition Trigger
             let progress = 0;
-            const duration = 4400;
+            const duration = 2500;
             const startTime = performance.now();
 
             // Typewriter typing sequence
             const text1 = "2026년 8월 23일 일요일 오후 1시";
             const text2 = "라도무스 아트센터 아모리움홀";
-            const text3 = "강영길  ♥  성수진, 결혼식에 초대합니다";
+            const text3 = "영길  ♥  수진 결혼식에 초대합니다.";
 
             const line1El = document.getElementById('typewriterLine1');
             const line2El = document.getElementById('typewriterLine2');
@@ -2708,17 +2708,17 @@
                 line1El.appendChild(cursorEl);
                 for (let i = 0; i < text1.length; i++) {
                     line1El.insertBefore(document.createTextNode(text1[i]), cursorEl);
-                    await new Promise(r => setTimeout(r, 45));
+                    await new Promise(r => setTimeout(r, 20));
                 }
-                await new Promise(r => setTimeout(r, 180));
+                await new Promise(r => setTimeout(r, 80));
                 
                 // Line 2: Venue
                 line2El.appendChild(cursorEl);
                 for (let i = 0; i < text2.length; i++) {
                     line2El.insertBefore(document.createTextNode(text2[i]), cursorEl);
-                    await new Promise(r => setTimeout(r, 45));
+                    await new Promise(r => setTimeout(r, 20));
                 }
-                await new Promise(r => setTimeout(r, 180));
+                await new Promise(r => setTimeout(r, 80));
 
                 // Line 3: Couple Names & Invitation Text
                 line3El.appendChild(cursorEl);
@@ -2732,7 +2732,7 @@
                     } else {
                         line3El.insertBefore(document.createTextNode(char), cursorEl);
                     }
-                    await new Promise(r => setTimeout(r, 55));
+                    await new Promise(r => setTimeout(r, 25));
                 }
             }
 
@@ -2759,9 +2759,9 @@
                             setTimeout(() => {
                                 loader.style.display = 'none';
                                 cancelAnimationFrame(animId);
-                            }, 1200);
-                        }, 500);
-                    }, 300);
+                            }, 600);
+                        }, 250);
+                    }, 150);
                 }
             }
             requestAnimationFrame(updateProgress);
