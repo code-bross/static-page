@@ -331,11 +331,45 @@
   },
   {
     "date": "8.25",
-    "time": "20:30",
+    "time": "20:00",
+    "place": "Paprika Vendéglő (파프리카 벤데글뢰)",
+    "country_flag": "🇭🇺",
+    "emoji": "🍽️",
+    "desc": "세체니 온천 입욕 후 즐기는 전통 헝가리식 저녁 식사 (구글 저장 스팟)",
+    "details": "세체니 온천과 시민공원에서 도보 5분 거리에 위치한 헝가리 로컬 전통 오두막 스타일 레스토랑입니다. 구글 저장목록 스팟 중 세체니 온천 동선과 100% 일치하며 파프리카 소고기 스튜, 치킨 파프리카시, 그릴 모듬 요리가 훌륭합니다.",
+    "guide": "세체니 온천 이용 후 (20:00) 바로 저녁 식사하기 가장 편리한 위치. 현지 인기 맛집으로 온천 출발 전 사전 예약 권장.",
+    "link": "https://www.google.com/maps/search/?api=1&query=Paprika+Vend%C3%A9gl%C5%91+Budapest",
+    "lat": 47.508868,
+    "lng": 19.083108,
+    "isRestaurant": true,
+    "menus": [
+      {
+        "name": "전통 헝가리 파프리카 치킨 (Chicken Paprikash)",
+        "price": "4,200 HUF (약 16,000원)",
+        "desc": "부드러운 닭고기를 파프리카 크림 소스에 자작하게 조려낸 헝가리 대표 전통 요리",
+        "img": "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "name": "파프리카 벤데글뢰 굴라시 (Paprika Goulash Soup)",
+        "price": "3,800 HUF (약 14,400원)",
+        "desc": "뚝배기 항아리에 가득 나오는 깊고 풍부한 육수의 시그니처 굴라시 스프",
+        "img": "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "name": "만갈리차 돼지고기 모듬 구이 (Mangalica Grill Plate)",
+        "price": "7,800 HUF (약 29,600원)",
+        "desc": "토종 만갈리차 돼지고기와 각종 야채를 함께 구워낸 풍성한 메인 구이 요리",
+        "img": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80"
+      }
+    ]
+  },
+  {
+    "date": "8.25",
+    "time": "22:00",
     "place": "Novotel Budapest Danube (숙소)",
     "country_flag": "🇭🇺",
     "emoji": "🏨",
-    "desc": "숙소 복귀 및 휴식",
+    "desc": "저녁 식사 후 숙소 복귀 및 휴식",
     "imgs": [
       "https://media.joinup.travel/storage/hotel/29546/photos/16721_1.jpg",
       "https://images.trvl-media.com/lodging/2000000/1520000/1516000/1515991/10c96f3c.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill"
@@ -1122,69 +1156,122 @@
   },
   {
     "date": "8.30",
-    "time": "06:00",
+    "time": "09:30",
     "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)",
     "country_flag": "🇦🇹",
     "emoji": "🏨",
-    "desc": "할슈타트 이동을 위해 숙소 출발 (기차역 이동)",
-    "imgs": [
-      "https://avatars.mds.yandex.net/get-altay/16138055/2a0000019a97f70dc3006bbe5a95779a2881/L_height",
-      "https://media.leonardo-hotels.com/static.leonardo-hotels.com/image/leonardohotelviennahauptbahnhof_room_comfortdouble1_2023_db5732fd5c0f2d345b854ad8db1076ac.jpg"
-    ],
-    "details": "체크아웃 후 짐을 모두 들고 빈 중앙역으로 이동합니다. 새벽 공기를 마시며 동화 속 호수 마을인 할슈타트로 향하는 기차에 몸을 싣습니다.",
-    "guide": "빈 중앙역 내 베이커리(Anker 등)에서 기내에서 먹을 가벼운 샌드위치와 커피 구매 추천",
+    "desc": "여유로운 숙소 체크아웃 및 짐 보관",
+    "details": "할슈타트 왕복 이동 대신 빈 시내에서의 여유로운 아침을 맞이합니다. 체크아웃 후 짐을 호텔에 보관하고 시내로 이동합니다.",
+    "guide": "호텔 프런트에 짐 보관 후 10시 경 시내 중심가(알베르티나/자허)로 이동",
     "link": "https://www.google.com/maps/search/?api=1&query=Leonardo+Hotel+Vienna+Hauptbahnhof",
-    "lat": 48.183758,
-    "lng": 16.378103
+    "lat": 48.185187,
+    "lng": 16.376597
   },
   {
     "date": "8.30",
-    "time": "14:50",
+    "time": "10:30",
+    "place": "Café Sacher (카페 자허)",
+    "country_flag": "🇦🇹",
+    "emoji": "☕",
+    "desc": "1832년 오리지널 자허토르테의 원조 카페에서 디저트 타임 (구글 저장 스팟)",
+    "details": "구글 저장목록에 등록된 빈 최고의 명품 카페로, 1832년 프란츠 자허가 최초로 발명한 오리지널 자허토르테(Original Sacher-Torte) 케이크와 부드러운 생크림, 시그니처 아인슈페너 커피를 맛보는 품격 있는 아침 디저트 타임입니다.",
+    "guide": "왕궁정원 및 알베르티나 바로 옆 위치. 오리지널 자허토르테와 샹티이 크림 조합 강력 추천.",
+    "link": "https://www.google.com/maps/search/?api=1&query=Caf%C3%A9+Sacher+Vienna",
+    "lat": 48.2039459,
+    "lng": 16.3698418,
+    "isRestaurant": true,
+    "menus": [
+      {
+        "name": "오리지널 자허토르테 (Original Sacher-Torte with Whipped Cream)",
+        "price": "8.90 EUR (약 13,300원)",
+        "desc": "진한 초콜릿과 살구 잼, 달콤한 샹티이 크림이 곁들여지는 1832년 원조 자허 케이크",
+        "img": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "name": "자허 아인슈페너 / 멜랑주 커피 (Sacher Viennese Coffee)",
+        "price": "6.90 EUR (약 10,350원)",
+        "desc": "자허 전용 은잔에 담겨 나오는 앤틱하고 부드러운 빈 대표 스타일 커피",
+        "img": "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=600&q=80"
+      }
+    ]
+  },
+  {
+    "date": "8.30",
+    "time": "11:30",
+    "place": "왕궁정원 & 알베르티나 (Burggarten & Albertina)",
+    "country_flag": "🇦🇹",
+    "emoji": "🌳",
+    "desc": "모차르트 동상 산책 및 알베르티나 테라스에서 바라보는 빈 시내 뷰",
+    "details": "합스부르크 황실의 왕궁 정원으로 유명한 모차르트 음표 부대 동상을 산책하고, 영화 <비포 선라이즈>의 촬영지인 알베르티나 미술관 상부 테라스에서 빈 시내 전경을 감상합니다.",
+    "guide": "<비포 선라이즈> 명장면 포토존인 알베르티나 테라스 계단에서 낭만적인 커플 사진 찍기 필수!",
+    "link": "https://www.google.com/maps/search/?api=1&query=Burggarten+Vienna",
+    "lat": 48.204338,
+    "lng": 16.365833
+  },
+  {
+    "date": "8.30",
+    "time": "12:30",
+    "place": "나슈마르크트 & 로컬 다이닝 (Naschmarkt)",
+    "country_flag": "🇦🇹",
+    "emoji": "🍽️",
+    "desc": "빈 최대의 100년 전통 재래시장 & 미식 거리에서 즐기는 여유로운 주말 점심",
+    "details": "16세기부터 시작된 빈 최대의 활기찬 야외 재래 시장인 나슈마르크트에서 오스트리아 로컬 치즈, 수제 맥주와 스트리트 푸드를 즐기는 여유로운 점심 식사시간입니다.",
+    "guide": "시장 길 따라 위치한 야외 테라스 레스토랑에서 햇살을 받으며 시원한 생맥주와 점심 즐기기.",
+    "link": "https://www.google.com/maps/search/?api=1&query=Naschmarkt+Vienna",
+    "lat": 48.1983,
+    "lng": 16.3631,
+    "isRestaurant": true,
+    "menus": [
+      {
+        "name": "나슈마르크트 로컬 소고기 / 해산물 요리",
+        "price": "16.50 EUR (약 24,700원)",
+        "desc": "갓 구운 야채와 신선한 식재료로 요리하는 테라스 시장 식당 대표 메인 요리",
+        "img": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "name": "오스트리아 수제 파니니 & 아펠슈트루델",
+        "price": "7.50 EUR (약 11,250원)",
+        "desc": "갓 구운 빵과 사과 디저트 롤",
+        "img": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80"
+      }
+    ]
+  },
+  {
+    "date": "8.30",
+    "time": "14:10",
     "place": "빈 중앙역 (Wien Hbf)",
     "country_flag": "🇦🇹",
     "emoji": "🚉",
-    "desc": "할슈타트 출발 후 빈 중앙역 도착, 프라하행 기차 환승 준비",
-    "imgs": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Wien_Hauptbahnhof%2C_2019_%2801%29.jpg/1280px-Wien_Hauptbahnhof%2C_2019_%2801%29.jpg"
-    ],
-    "details": "할슈타트 왕복 여정을 마치고 다시 빈 중앙역으로 복귀합니다. 이제 캐리어를 챙겨 체코 프라하로 향하는 국제 열차 환승 게이트로 신속하게 이동합니다.",
-    "guide": "환승 시간이 다소 타이트할 수 있으므로 플랫폼 전광판(Praha hl.n. 행) 빠르게 확인",
+    "desc": "체코 프라하행 직행 유로시티 열차 탑승 (14:10 출발 ➔ 18:13 프라하 도착)",
+    "details": "숙소에서 짐을 수령하여 빈 중앙역으로 이동 후, 체코 프라하행 직행 열차(약 4시간 소요)에 탑승합니다. 할슈타트 왕복 이동의 피로 없이 빈에서의 아침을 여유롭게 보내고 편안하게 프라하로 이동합니다.",
+    "guide": "출발 20분 전 승강장(Track) 확인 후 탑승. 기차 안에서 창밖 풍경을 보며 휴식.",
     "link": "https://www.google.com/maps/search/?api=1&query=Wien+Hauptbahnhof",
-    "lat": 48.1851873,
-    "lng": 16.3765973
+    "lat": 48.185187,
+    "lng": 16.376597
   },
   {
     "date": "8.30",
-    "time": "17:10",
+    "time": "18:13",
     "place": "프라하 중앙역 (Praha Hlavní Nádraží)",
     "country_flag": "🇨🇿",
     "emoji": "🚉",
-    "desc": "프라하 도착 및 K+K 호텔로 이동",
-    "imgs": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Praha-Hlavni-nadrazi-2022.jpg/1280px-Praha-Hlavni-nadrazi-2022.jpg"
-    ],
-    "details": "체코 프라하 중앙역에 도착합니다. 숙소 K+K Hotel Central Prague까지 택시/트램으로 이동 후 체크인합니다.",
-    "guide": "트램(트램 17번 등) 또는 택시로 숙소까지 약 10분 / 카드 결제 가능",
+    "desc": "프라하 도착 및 K+K Hotel Central Prague 이동",
+    "details": "프라하 중앙역에 안전하게 도착하여 숙소인 K+K Hotel Central Prague까지 우버/택시 또는 도보 이동(약 10분)합니다.",
     "link": "https://www.google.com/maps/search/?api=1&query=Praha+Hlavn%C3%AD+N%C3%A1dra%C5%BE%C3%AD",
-    "lat": 50.081234,
-    "lng": 14.427123
+    "lat": 50.083208,
+    "lng": 14.435305
   },
   {
     "date": "8.30",
-    "time": "18:30",
+    "time": "18:45",
     "place": "K+K Hotel Central Prague (숙소)",
     "country_flag": "🇨🇿",
     "emoji": "🏨",
     "desc": "프라하 숙소 체크인 및 짐 보관",
-    "imgs": [
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/481298696.jpg?k=718489b77ee1b84e58a9f2a3de8852f3600fd5a065d2d5f8cea3aa64426a71fa&o=",
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/130901597.jpg?k=79129b397684c3bb648d150202c12c2fee93dbdcdf531f6df34de45a59d06697&o="
-    ],
-    "details": "프라하 구시가지와 매우 가까운 비즈니스 호텔입니다. 짐을 가볍게 맡겨두고 프라하 첫 저녁을 즐깁니다.",
-    "guide": "얼리 체크인이 불가할 경우 프론트에 기내용 캐리어 무료 보관 가능",
+    "details": "프라하 중심가에 위치한 4성급 K+K 호텔 체크인 후 짐을 정돈하고 첫 프라하 나들이 준비를 합니다.",
     "link": "https://www.google.com/maps/search/?api=1&query=K%2BK+Hotel+Central+Prague",
-    "lat": 50.087342,
-    "lng": 14.428412
+    "lat": 50.0871169,
+    "lng": 14.4309035
   },
   {
     "date": "8.30",
@@ -1192,17 +1279,13 @@
     "place": "Lokál Dlouhááá",
     "country_flag": "🇨🇿",
     "emoji": "🍽️",
-    "desc": "체코 전통 요리(스비치코바/꼴레뇨)와 필스너 우르켈 탱크 생맥주",
-    "imgs": [
-      "https://pct-wp-prod.storage.googleapis.com/2024/03/12092034/lokil9-scaled.jpg",
-      "https://d48-a.sdn.cz/d_48/c_img_qB_A/kcHp2YdDtCDcb5EOxGiqe7K/0f4f.jpeg"
-    ],
+    "desc": "체코 전통 요리(스비치코바/꼴레뇨)와 필스너 우르켈 탱크 생맥주 저녁 식사",
     "details": "공장에서 갓 운송된 필스너 우르켈 탱크 생맥주를 프라하에서 가장 신선하게 맛볼 수 있는 체코 최고 인기 비스트로입니다.\n\n• 🍽️ [대표 메뉴 & 가격]\n  - 스비치코바 (안심 & 안심 크림소스 & 덤플링): 265 CZK (약 15,900원)\n  - 체코식 꼴레뇨 / 오리 구이: 320 ~ 390 CZK (약 19,200 ~ 23,400원)\n  - 필스너 우르켈 탱크 생맥주 0.5L (Hladinka): 69 CZK (약 4,100원)",
     "guide": "맥주 거품 부드러움이 일품! 꼴레뇨 또는 스비치코바와 함께 즐기기",
     "link": "https://www.google.com/maps/search/?api=1&query=Lok%C3%A1l+Dlouh%C3%A1%C3%A1%C3%A1+Prague",
-    "lat": 50.0906,
-    "lng": 14.425,
-    "reservation": "https://lokal-dlouha.ambi.cz/en/reservation/",
+    "lat": 50.0908655,
+    "lng": 14.4268789,
+    "isRestaurant": true,
     "menus": [
       {
         "name": "스비치코바 (Svíčková na smetaně)",
@@ -1222,25 +1305,19 @@
         "desc": "공장에서 직접 배송되는 마이크로 거품과 깊은 풍미의 갓 뽑은 진짜 탱크 생맥주",
         "img": "https://images.unsplash.com/photo-1535958636474-b021ee887b13?auto=format&fit=crop&w=600&q=80"
       }
-    ],
-    "isRestaurant": true
+    ]
   },
   {
     "date": "8.30",
-    "time": "21:00",
+    "time": "21:30",
     "place": "K+K Hotel Central Prague (숙소)",
     "country_flag": "🇨🇿",
     "emoji": "🏨",
     "desc": "숙소 복귀 및 휴식",
-    "imgs": [
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/481298696.jpg?k=718489b77ee1b84e58a9f2a3de8852f3600fd5a065d2d5f8cea3aa64426a71fa&o=",
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/130901597.jpg?k=79129b397684c3bb648d150202c12c2fee93dbdcdf531f6df34de45a59d06697&o="
-    ],
-    "details": "프라하에서의 첫날 저녁을 마무리하고 편안히 휴식합니다.",
-    "guide": "내일 아침 스냅 촬영 의상과 소품을 미리 체크해 두기",
+    "details": "프라하에서의 알찬 첫날 일정을 마치고 숙소에서 편안하게 휴식을 취합니다.",
     "link": "https://www.google.com/maps/search/?api=1&query=K%2BK+Hotel+Central+Prague",
-    "lat": 50.087342,
-    "lng": 14.428412
+    "lat": 50.0871169,
+    "lng": 14.4309035
   },
   {
     "date": "8.31",
@@ -1626,7 +1703,41 @@
   },
   {
     "date": "9.01",
-    "time": "15:30",
+    "time": "14:30",
+    "place": "Pork's Mostecka (포크스)",
+    "country_flag": "🇨🇿",
+    "emoji": "🍽️",
+    "desc": "프라하 성 관람 후 즐기는 바삭한 꼴레뇨 & 맥주 점심 (구글 저장 스팟)",
+    "details": "구글 저장목록에 표기된 스팟으로, 프라하 성 관람 후 말라스트라나 언덕 내려오는 길에 위치해 동선상 100% 일치합니다. 프라하에서 가장 겉은 바삭하고 속은 부드러운 현대식 꼴레뇨(돼지 무릎 구이)와 갓 따른 필스너 우르켈 생맥주로 유명합니다.",
+    "guide": "프라하 성 황금소로 관람 후 내려오는 길목에 위치. 꼴레뇨 1개는 2인 공유 추천.",
+    "link": "https://www.google.com/maps/search/?api=1&query=Pork%27s+Mostecka+Prague",
+    "lat": 50.0874459,
+    "lng": 14.4060437,
+    "isRestaurant": true,
+    "menus": [
+      {
+        "name": "포크스 시그니처 꼴레뇨 (Pork's Knuckle)",
+        "price": "395 CZK (약 23,700원)",
+        "desc": "겉은 바삭한 튀김에 가깝고 속살은 사르르 녹아내리는 현대적 감각의 프라하 1등 꼴레뇨",
+        "img": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "name": "체코식 돼지 등갈비 립 (Crispy Pork Ribs)",
+        "price": "345 CZK (약 20,700원)",
+        "desc": "특제 바베큐 양념을 발라 오븐에 구워낸 육즙 가득한 등갈비 립",
+        "img": "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "name": "필스너 우르켈 탱크 생맥주 0.5L (Pilsner Urquell)",
+        "price": "69 CZK (약 4,140원)",
+        "desc": "포크스 특제 황동 탭에서 갓 뽑아내는 가장 차갑고 신선한 필스너 우르켈",
+        "img": "https://images.unsplash.com/photo-1535958636474-b021ee887b13?auto=format&fit=crop&w=600&q=80"
+      }
+    ]
+  },
+  {
+    "date": "9.01",
+    "time": "16:00",
     "place": "스타벅스 프라하성점",
     "country_flag": "🇨🇿",
     "emoji": "☕",
@@ -1643,7 +1754,7 @@
   },
   {
     "date": "9.01",
-    "time": "16:30",
+    "time": "17:00",
     "place": "파르지주스카 거리 (Pařížská)",
     "country_flag": "🇨🇿",
     "emoji": "🛍️",
