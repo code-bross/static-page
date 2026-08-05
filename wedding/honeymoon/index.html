@@ -324,6 +324,209 @@
             vertical-align: middle; 
         }
 
+        /* 입장료 및 상세보기 버튼 스타일 */
+        .fee-box {
+            background-color: #fff8e7;
+            border-left: 4px solid #f59e0b;
+            padding: 8px 12px;
+            font-size: 0.88rem;
+            border-radius: 6px;
+            color: #92400e;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .guide-modal-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            width: 100%;
+            padding: 10px 16px;
+            margin: 6px 0 12px 0;
+            background: linear-gradient(135deg, var(--accent) 0%, #1e3a5f 100%);
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 3px 10px rgba(44, 62, 80, 0.15);
+        }
+
+        .guide-modal-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 5px 15px rgba(44, 62, 80, 0.25);
+            background: linear-gradient(135deg, #1e3a5f 0%, var(--accent) 100%);
+        }
+
+        /* 모달 스타일 */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(6px);
+            z-index: 99999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 16px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            width: 100%;
+            max-width: 680px;
+            max-height: 85vh;
+            overflow-y: auto;
+            border-radius: 16px;
+            padding: 24px;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+            animation: modalUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes modalUp {
+            from { transform: translateY(20px) scale(0.95); opacity: 0; }
+            to { transform: translateY(0) scale(1); opacity: 1; }
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 16px;
+            right: 18px;
+            background: #f1f5f9;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 1.4rem;
+            line-height: 1;
+            color: #64748b;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .modal-close-btn:hover {
+            background: #e2e8f0;
+            color: #0f172a;
+        }
+
+        .modal-header-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 8px;
+            padding-right: 36px;
+        }
+
+        .modal-badge-fee {
+            display: inline-block;
+            background: #fff3dc;
+            color: #d97706;
+            border: 1px solid #fef3c7;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .modal-docent-section {
+            background: #f8fafc;
+            border-left: 4px solid var(--accent);
+            padding: 14px 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .modal-section-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .modal-docent-text {
+            font-size: 0.92rem;
+            line-height: 1.6;
+            color: #334155;
+        }
+
+        .masterpiece-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .masterpiece-card {
+            display: flex;
+            gap: 14px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+        }
+
+        @media (max-width: 580px) {
+            .masterpiece-card {
+                flex-direction: column;
+            }
+            .masterpiece-img {
+                width: 100% !important;
+                height: 180px !important;
+            }
+        }
+
+        .masterpiece-img {
+            width: 130px;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+
+        .masterpiece-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .masterpiece-title {
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 2px;
+        }
+
+        .masterpiece-artist {
+            font-size: 0.82rem;
+            color: #64748b;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        .masterpiece-desc {
+            font-size: 0.86rem;
+            color: #475569;
+            line-height: 1.45;
+        }
+
         @media (max-width: 960px) {
             .layout {
                 grid-template-columns: 1fr;
@@ -365,6 +568,7 @@
         let markerLayer = null;
         let polylineLayer = null;
         let markersMap = {};
+        let itemLookup = {};
 
         var itineraryData = [];
 
@@ -430,9 +634,17 @@
                 <div class="date-group"><div class="date-title">📅 ${date}</div>
                 ${items.map(item => {
                 const uniqueId = btoa(encodeURIComponent(item.place + item.time)).replace(/=/g, '');
+                itemLookup[uniqueId] = item;
 
                 const detailsHtml = item.details ? `<p class="detail-text">${item.details}</p>` : '';
                 const guideHtml = item.guide ? `<div class="guide-box">💡 <strong>안내:</strong> ${item.guide}</div>` : '';
+                const feeHtml = item.entrance_fee ? `<div class="fee-box">🎟️ <strong>입장료:</strong> ${item.entrance_fee}</div>` : '';
+
+                const guideModalBtnHtml = (item.docent_guide || (item.masterpieces && item.masterpieces.length > 0)) ? `
+                    <button class="guide-modal-btn" onclick="event.stopPropagation(); openGuideModal('${uniqueId}')">
+                        🔍 가이드 상세보기 (전문 도슨트 & 대표 명작)
+                    </button>
+                ` : '';
 
                 const reservationHtml = item.reservation ? `
                     <a class="reservation-btn" href="${item.reservation}" target="_blank" onclick="event.stopPropagation()">
@@ -490,6 +702,8 @@
                         </div>
                         <div class="schedule-details">
                             ${reservationHtml}
+                            ${feeHtml}
+                            ${guideModalBtnHtml}
                             ${detailsHtml}
                             ${guideHtml}
                             ${imagesHtml}
@@ -588,7 +802,90 @@
             const bounds = L.latLngBounds(targetBounds.map(i => [i.lat, i.lng]));
             map.fitBounds(bounds, { padding: [40, 40] });
         }
+
+        function formatDocentText(text) {
+            if (!text) return '';
+            return text
+                .replace(/### (.*)/g, '<h3 class="docent-h3" style="font-size:1.1rem; color:var(--accent); margin:14px 0 6px 0; font-weight:700;">$1</h3>')
+                .replace(/#### (.*)/g, '<h4 class="docent-h4" style="font-size:0.98rem; color:#1e3a5f; margin:10px 0 4px 0; font-weight:700;">$1</h4>')
+                .replace(/\*\*(.*?)\*\*/g, '<strong style="color:#0f172a;">$1</strong>')
+                .replace(/-\s(.*)/g, '<div style="font-size:0.88rem; color:#475569; margin-bottom:4px;">• $1</div>')
+                .replace(/\n/g, '<br>');
+        }
+
+        function openGuideModal(uniqueId) {
+            const item = itemLookup[uniqueId];
+            if (!item) return;
+
+            const modalBody = document.getElementById('guide-modal-body');
+            
+            let masterpiecesHtml = '';
+            if (item.masterpieces && item.masterpieces.length > 0) {
+                masterpiecesHtml = `
+                    <div style="margin-top: 20px;">
+                        <div class="modal-section-title">🖼️ 주요 관람 명작 & 도슨트 가이드</div>
+                        <div class="masterpiece-grid">
+                            ${item.masterpieces.map(m => `
+                                <div class="masterpiece-card">
+                                    <img src="${m.img}" class="masterpiece-img" alt="${m.title}" referrerpolicy="no-referrer" loading="lazy" onerror="this.onerror=null; this.src='./images/prague_castle_bridge.jpg'">
+                                    <div class="masterpiece-info">
+                                        <div class="masterpiece-title">${m.title}</div>
+                                        <div class="masterpiece-artist">${m.artist}</div>
+                                        <div class="masterpiece-desc">${m.desc}</div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+
+            let feeBadge = item.entrance_fee ? `
+                <div class="modal-badge-fee">🎟️ 입장료: ${item.entrance_fee}</div>
+            ` : '';
+
+            let docentSection = item.docent_guide ? `
+                <div class="modal-docent-section">
+                    <div class="modal-section-title">🏛️ 전문 도슨트 상세 해설</div>
+                    <div class="modal-docent-text">${formatDocentText(item.docent_guide)}</div>
+                </div>
+            ` : '';
+
+            modalBody.innerHTML = `
+                <div class="modal-header-title">${item.emoji || '📍'} ${item.place} ${item.country_flag || ''}</div>
+                ${feeBadge}
+                ${docentSection}
+                ${masterpiecesHtml}
+            `;
+
+            const modal = document.getElementById('guide-modal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGuideModal(e) {
+            if (e && e.target && e.target.id !== 'guide-modal' && !e.target.classList.contains('modal-close-btn')) {
+                return;
+            }
+            const modal = document.getElementById('guide-modal');
+            if (modal) {
+                modal.classList.remove('active');
+            }
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeGuideModal();
+        });
     </script>
+
+    <!-- 모달 오버레이 모듈 -->
+    <div id="guide-modal" class="modal-overlay" onclick="closeGuideModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close-btn" onclick="closeGuideModal()">&times;</button>
+            <div id="guide-modal-body"></div>
+        </div>
+    </div>
 </body>
 
 </html>
