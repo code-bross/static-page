@@ -787,6 +787,10 @@
                     <button class="menu-modal-btn" onclick="event.stopPropagation(); openGuideModal('${uniqueId}')">
                         🍽️ 식당 상세 및 대표 메뉴/사진 크게 보기
                     </button>
+                ` : (item.recommendations && item.recommendations.length > 0) ? `
+                    <button class="menu-modal-btn" style="background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); box-shadow: 0 4px 10px rgba(2, 132, 199, 0.25);" onclick="event.stopPropagation(); openGuideModal('${uniqueId}')">
+                        🛍️ 쇼핑 추천 상품 & 명품 리스트 상세보기
+                    </button>
                 ` : '';
 
                 const reservationHtml = item.reservation ? `
@@ -833,13 +837,16 @@
                 if (item.recommendations && item.recommendations.length > 0) {
                     recoHtml = `
                     <div class="reco-section">
-                        <div class="reco-title">💡 에디터 추천 쇼핑 리스트</div>
-                        <div class="reco-grid">
+                        <div class="reco-title">🛍️ 에디터 추천 쇼핑 & 필수 특산품 리스트</div>
+                        <div class="menu-cards-list">
                             ${item.recommendations.map(reco => `
-                                <div class="reco-card">
-                                    <img src="${reco.img}" class="reco-img" alt="${reco.name}" referrerpolicy="no-referrer" loading="lazy" onerror="this.onerror=null; this.src='./images/havel_market.jpg'">
-                                    <div class="reco-name">${reco.name}</div>
-                                    <div class="reco-desc">${reco.desc}</div>
+                                <div class="menu-item-card" style="border: 1px solid #bae6fd;">
+                                    <img src="${reco.img}" class="menu-item-img" alt="${reco.name}" referrerpolicy="no-referrer" loading="lazy" onerror="this.onerror=null; this.src='./images/havel_market.jpg'">
+                                    <div class="menu-item-info">
+                                        <div class="menu-item-name" style="color:#0f172a;">${reco.name}</div>
+                                        ${reco.price ? `<div class="menu-item-price" style="background:#f0fdf4; color:#166534; border:1px solid #bbf7d0;">🏷️ ${reco.price}</div>` : ''}
+                                        <div class="menu-item-desc">${reco.desc}</div>
+                                    </div>
                                 </div>
                             `).join('')}
                         </div>
@@ -1119,11 +1126,33 @@
                 `;
             }
 
+            let recoModalHtml = '';
+            if (item.recommendations && item.recommendations.length > 0) {
+                recoModalHtml = `
+                    <div style="margin-top: 16px;">
+                        <div class="modal-section-title" style="color:#0369a1;">🛍️ 대표 추천 쇼핑 아이템 & 특산품 (제품 사진)</div>
+                        <div class="menu-cards-list">
+                            ${item.recommendations.map(reco => `
+                                <div class="menu-item-card" style="border: 1px solid #bae6fd;">
+                                    <img src="${reco.img}" class="menu-item-img" alt="${reco.name}" referrerpolicy="no-referrer" loading="lazy" onerror="this.onerror=null; this.src='./images/havel_market.jpg'">
+                                    <div class="menu-item-info">
+                                        <div class="menu-item-name" style="font-size:0.96rem; color:#0f172a;">${reco.name}</div>
+                                        ${reco.price ? `<div class="menu-item-price" style="background:#f0fdf4; color:#166534; border:1px solid #bbf7d0; margin:4px 0;">🏷️ ${reco.price}</div>` : ''}
+                                        <div class="menu-item-desc" style="font-size:0.86rem;">${reco.desc}</div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+
             modalBody.innerHTML = `
                 <div class="modal-header-title">${item.emoji || '📍'} ${item.place} ${item.country_flag || ''}</div>
                 ${feeBadge}
                 ${docentSection}
                 ${menusModalHtml}
+                ${recoModalHtml}
                 ${masterpiecesHtml}
             `;
 

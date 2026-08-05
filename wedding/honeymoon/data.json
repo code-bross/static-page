@@ -252,14 +252,28 @@
     ],
     "recommendations": [
       {
-        "name": "토카이 와인 (Tokaji Aszú)",
-        "desc": "헝가리 특산품인 달콤한 최고급 귀부 와인",
-        "img": "https://wine21.speedgabia.com/NEWS_MST/froala/202012/20201224173728796344.jpg"
+        "name": "헝가리 최고급 파프리카 가루 틴케이스 세트",
+        "price": "약 1,500 ~ 3,500 HUF (약 5,700 ~ 13,300원)",
+        "desc": "헝가리 요리의 핵심! 단맛(Édes)과 매운맛(Csípős) 파프리카 가루가 이쁜 레트로 틴케이스에 담긴 필수 기념품 1위",
+        "img": "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=600&q=80"
       },
       {
-        "name": "파프리카 가루",
-        "desc": "굴라시에 쓰이는 헝가리 전통 향신료",
-        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiuj8XFaswSsVuKXRY4q_z1QcuKmpPkaK13EdRXUZ3GGchxxOvkuP2GU71&s=10"
+        "name": "토카이 와인 5 푸토뇨시 (Tokaji Aszú 5 Puttonyos)",
+        "price": "약 8,000 ~ 15,000 HUF (약 30,000 ~ 57,000원)",
+        "desc": "세계 3대 디저트 귀부 와인으로 꼽히는 헝가리의 황금빛 명품 토카이 디저트 와인",
+        "img": "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "name": "픽 픽스 샐러미 소시지 (Pick Szalámi)",
+        "price": "약 3,500 ~ 5,500 HUF (약 13,300 ~ 21,000원)",
+        "desc": "150년 전통 헝가리 명물 훈제 건조 소시지로 와인 안주로 최고의 인기를 얻는 특산품",
+        "img": "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "name": "헝가리 전통 수공예 레이스 자수 식탁보 & 가방",
+        "price": "약 2,500 ~ 6,000 HUF (약 9,500 ~ 22,800원)",
+        "desc": "알록달록 꽃문양이 섬세하게 새겨진 헝가리 칼로차(Kalocsa) 스타일 핸드메이드 자수 제품",
+        "img": "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=600&q=80"
       }
     ]
   },
@@ -281,14 +295,28 @@
     "lng": 19.0583,
     "recommendations": [
       {
-        "name": "COS (코스)",
-        "desc": "미니멀하고 세련된 핏의 의류, 현지 한정 디자인 아이템 추천",
-        "img": "https://i0.wp.com/echeveau.net/wp-content/uploads/2025/07/%EC%BD%94%EC%8A%A4-%EC%9D%B4%EB%AF%B8%EC%A7%80.jpg?fit=1200%2C675&quality=20&ssl=1"
+        "name": "롤렉스 타임피스 (Rolex Official AD Boutique 성골)",
+        "price": "EU 택스리펀 11 ~ 15% 환급 (현지 정가 구매)",
+        "desc": "동유럽 최고 롤렉스 공식 부티크(Bucherer Wien / Carollinum Prague)에서 허니문 기념 시계 성골 도전! (데이트저스트/OP/스틸)",
+        "img": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80"
       },
       {
-        "name": "GUCCI (구찌)",
-        "desc": "한국 대비 유리한 환율과 텍스리펀 혜택을 함께 노릴 수 있는 부티크",
-        "img": "https://www.artinsight.co.kr/data/tmp/2007/20200728212635_yeyeyecg.png"
+        "name": "오모로비짜 모어 크림 클렌저 (Omorovicza Moor Cleanser)",
+        "price": "약 25,000 ~ 35,000 HUF (약 95,000 ~ 133,000원)",
+        "desc": "부다페스트 온천수와 온천 흑토 미네랄이 들어간 헝가리 럭셔리 온천 코스메틱 대표 화장품",
+        "img": "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "name": "헤렌드 핸드페인팅 도자기 찻잔 (Herend Porcelain)",
+        "price": "약 45,000 ~ 95,000 HUF (약 17만 ~ 36만원)",
+        "desc": "영국 빅토리아 여왕이 사랑한 200년 역사의 명품 핸드페인팅 도자기 수제 찻잔 세트",
+        "img": "https://images.unsplash.com/photo-1577968897966-3d4325b36b61?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "name": "명품 부티크 (루이비통/구찌/프라다 택스리펀)",
+        "price": "국내 대비 15~25% 저렴 (택스리펀 13~16%)",
+        "desc": "부다페스트 최고 명품 거리에서 혜택을 받으며 구매 가능한 명품 가방 & 액세서리",
+        "img": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=80"
       }
     ]
   },
@@ -637,14 +665,34 @@
     "lng": 16.3675,
     "recommendations": [
       {
-        "name": "CHANEL & PRADA",
-        "desc": "클래식한 가방과 구두를 살펴보기 좋은 오스트리아 핵심 럭셔리 부티크",
-        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR70ye0m3n9vU--oTfiHyA-ZwAauaghEue803ojxQdR2bOJUCCqRUd5h-pb&s=10"
+        "name": "롤렉스 타임피스 (Rolex Official AD Boutique 성골)",
+        "price": "EU 택스리펀 11 ~ 15% 환급 (현지 정가 구매)",
+        "desc": "동유럽 최고 롤렉스 공식 부티크(Bucherer Wien / Carollinum Prague)에서 허니문 기념 시계 성골 도전! (데이트저스트/OP/스틸)",
+        "img": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80"
       },
       {
-        "name": "Thom Browne (톰브라운)",
-        "desc": "유럽에서만 만날 수 있는 톰브라운의 클래식한 남성 의류 및 타이류",
-        "img": "https://i.namu.wiki/i/EC5szQ5smEuVpaqab_HP6iNiXoLFTu8xHOjGXM2GKS4H6k5GyIqCTnolkLvkMGLQt2InOoHQsk5BPqcJYDPHpw.webp"
+        "name": "마너 헤이즐넛 웨하스 4개입 팩 (Manner Wafers)",
+        "price": "약 4.50 ~ 8.90 EUR (약 6,700 ~ 13,300원)",
+        "desc": "오스트리아의 분홍색 국민 과자! 바삭한 겹겹의 웨하스 속 고소한 헤이즐넛 크림 가득",
+        "img": "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "name": "모차르트 쿠겔른 구슬 초콜릿 (Mozartkugeln)",
+        "price": "약 8.90 ~ 15.00 EUR (약 13,300 ~ 22,500원)",
+        "desc": "피스타치오, 아몬드 마지팬, 다크 초콜릿이 3겹으로 싸여있는 초콜릿 선물용 세트",
+        "img": "https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "name": "스왈로브스키 본점 크리스탈 주얼리 (Swarovski Vienna)",
+        "price": "약 75 ~ 250 EUR (약 11만 ~ 37만원)",
+        "desc": "3층 규모 빈 본점 플래그십 스토어의 반짝이는 최신 스왈로브스키 목걸이 & 귀걸이",
+        "img": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "name": "샤넬 & 에르메스 빈 명품 플래그십 (Kohlmarkt)",
+        "price": "오스트리아 택스리펀 11~15%",
+        "desc": "고풍스러운 앤틱 건물의 빈 콜마르크트 명품거리 부티크에서 쇼핑하는 럭셔리 라인업",
+        "img": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=80"
       }
     ]
   },
@@ -1234,7 +1282,22 @@
         "desc": "갓 구운 빵과 사과 디저트 롤",
         "img": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80"
       }
-    ]
+    ],
+    "recommendations": [
+      {
+        "name": "오스트리아 프리미엄 호박씨 오일 (Kürbiskernöl)",
+        "price": "약 9.50 ~ 16.00 EUR (약 14,200 ~ 24,000원)",
+        "desc": "오스트리아 남부 슈타이어마르크 특산품으로 고소하고 진한 최고급 유기농 호박씨 오일",
+        "img": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "name": "알프스 숙성 산악 치즈 (Austrian Bergkäse)",
+        "price": "약 8.50 ~ 14.00 EUR (약 12,700 ~ 21,000원)",
+        "desc": "알프스 청정 우유로 깊고 진하게 장기 숙성시킨 로컬 치즈 및 스모크 치즈",
+        "img": "https://images.unsplash.com/photo-1452195100486-9cc805987862?auto=format&fit=crop&w=600&q=80"
+      }
+    ],
+    "isShopping": true
   },
   {
     "date": "8.30",
@@ -1447,14 +1510,28 @@
     ],
     "recommendations": [
       {
-        "name": "전통 수제 마리오네트",
-        "desc": "체코 장인의 손길이 닿은 정교한 수공예 나무 인형",
-        "img": "https://www.jaenung.net/storage/ai/article/compressed/9af744d0-eb65-4a4b-9474-720465113b0b.jpg"
+        "name": "마누팍투라 맥주 샴푸 & 샤워젤 (Manufaktura Beer)",
+        "price": "약 249 ~ 299 CZK (약 15,000 ~ 18,000원)",
+        "desc": "체코 필수 쇼핑 1위! 체코 맥주 효모와 홉 추출물이 들어가 머릿결과 피부를 윤기 있게 해주는 제품",
+        "img": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80"
       },
       {
-        "name": "콜로나다 스파 웨하스",
-        "desc": "온천수와 함께 즐기던 체코의 둥글고 달콤한 전통 과자",
-        "img": "https://mblogthumb-phinf.pstatic.net/MjAxODEwMTNfNzMg/MDAxNTM5NDAwMjQxNDI1.By9xx9tgxnymX06M14iYGem5QvEv5p48kO_RZ0MBTrog.EiHsiMFcwq3xOAeq5jH9pToTklh5K8pFtd1UW3vQx5Mg.JPEG.gayoun3/image_9268100421539399864963.jpg?type=w800"
+        "name": "마누팍투라 와인 & 장미 핸드크림 / 립밤",
+        "price": "약 199 ~ 249 CZK (약 12,000 ~ 15,000원)",
+        "desc": "은은한 장미 향과 부드러운 보습력을 자랑하는 선물용 인기 핸드케어 세트",
+        "img": "https://images.unsplash.com/photo-1608248597261-e4d091458570?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "name": "체코 핸드메이드 목재 마리오네트 인형 & 오르골",
+        "price": "약 350 ~ 850 CZK (약 21,000 ~ 51,000원)",
+        "desc": "하벨 시장의 명물! 정교한 손기술로 제작된 귀여운 아기천사 목재 오르골과 마리오네트 관절 인형",
+        "img": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "name": "체코 베체롭카 명물 리큐어 술 (Becherovka 38%)",
+        "price": "약 250 ~ 320 CZK (약 15,000 ~ 19,200원)",
+        "desc": "카를로비바리 온천수와 20여 가지 약재로 만든 체코 국민 식전 약용 소화주 리큐어",
+        "img": "https://images.unsplash.com/photo-1527281400683-1aae777175f8?auto=format&fit=crop&w=600&q=80"
       }
     ]
   },
@@ -1770,14 +1847,28 @@
     "lng": 14.4194,
     "recommendations": [
       {
-        "name": "명품 시계 및 부티크",
-        "desc": "프라하 최고의 하이엔드 패션 브랜드와 명품 시계 샵 밀집 구역",
-        "img": "https://img1.daumcdn.net/thumb/R1280x0.fwebp/?fname=http://t1.daumcdn.net/brunch/service/guest/image/EcFvbxxE69IJtwmH_Cf9lHRz234.JPG"
+        "name": "롤렉스 타임피스 (Rolex Official AD Boutique 성골)",
+        "price": "EU 택스리펀 11 ~ 15% 환급 (현지 정가 구매)",
+        "desc": "동유럽 최고 롤렉스 공식 부티크(Bucherer Wien / Carollinum Prague)에서 허니문 기념 시계 성골 도전! (데이트저스트/OP/스틸)",
+        "img": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80"
       },
       {
-        "name": "Moser (모제르)",
-        "desc": "세계적으로 유명한 체코의 하이엔드 수공예 크리스탈 글라스",
-        "img": "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/74851b94-a24d-41a7-aaf9-8ce63c6eafb5.jpeg"
+        "name": "보헤미안 가넷 원석 주얼리 (Granát Turnov Garnet)",
+        "price": "약 2,500 ~ 6,500 CZK (약 15만 ~ 39만원)",
+        "desc": "체코 특산 피빛 전설의 진홍색 보헤미안 가넷 원석이 박힌 925 은/금 반지 & 목걸이",
+        "img": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "name": "모제르 보헤미안 크리스탈 와인잔 (Moser Glassware)",
+        "price": "약 3,500 ~ 9,500 CZK (약 21만 ~ 57만원)",
+        "desc": "1857년부터 왕실에 납품되어온 수공예 명품 보헤미안 컷팅 크리스탈 와인잔",
+        "img": "https://images.unsplash.com/photo-1578912994260-899479b19dfb?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "name": "파르지주스카 명품 브랜드 (샤넬/에르메스/디올 부티크)",
+        "price": "체코 택스리펀 12~15%",
+        "desc": "프라하 최고 명품거리 파르지주스카의 차분하고 고급스러운 부티크 매장 쇼핑",
+        "img": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=80"
       }
     ]
   },
@@ -1874,14 +1965,16 @@
     ],
     "recommendations": [
       {
-        "name": "마누팩투라 (Manufaktura)",
-        "desc": "맥주 효모로 만든 체코 국민 화장품, 샴푸 및 바디용품 추천",
-        "img": "https://mblogthumb-phinf.pstatic.net/MjAxODEyMDFfMTUz/MDAxNTQzNjYxOTU4ODA4.q2_YqDdlY5Y2A7SHc61GAcJOGcbZ_V9ns5VYIcIl_cMg.IW8qoGjhPjQp-REgNoer-_ITGd1-Zk7qSGDOUkQGOZcg.JPEG.pdw03161/IMG_5395.jpg?type=w800"
+        "name": "하블리크 아포테카 3분 모닝 마스크 (Havlík Apotéka)",
+        "price": "약 390 ~ 550 CZK (약 23,400 ~ 33,000원)",
+        "desc": "체코 궁중 유기농 처방으로 유명한 하블리크 아포테카의 아침 3분 수분 마스크팩",
+        "img": "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=600&q=80"
       },
       {
-        "name": "Baťa (바탸)",
-        "desc": "가성비와 품질이 매우 뛰어난 체코의 국민 가죽 신발 브랜드",
-        "img": "https://cms.visitczechia.com/cms/getmedia/72aac742-4027-4669-9fa4-02e61c1e7b85/czechia-zlin-love-design-fashion-shoe-craft-vasky-czech-manufakture-credit-for-vasky.JPG?width=800&height=811"
+        "name": "알폰스 무하(Mucha) 아르누보 아트 굿즈",
+        "price": "약 180 ~ 350 CZK (약 10,800 ~ 21,000원)",
+        "desc": "체코 대표 거장 알폰스 무하 화풍의 화려한 일러스트 양말, 우산, 앤틱 양장 노트 굿즈",
+        "img": "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=600&q=80"
       }
     ]
   },
@@ -1938,7 +2031,22 @@
     "guide": "텍스리펀을 진행할 경우 줄이 길 수 있으므로 공항에 여유롭게 도착해야 함",
     "link": "https://www.google.com/maps/search/?api=1&query=V%C3%A1clav+Havel+Airport+Prague",
     "lat": 50.101784,
-    "lng": 14.26318
+    "lng": 14.26318,
+    "recommendations": [
+      {
+        "name": "하블리크 아포테카 3분 모닝 마스크 (Havlík Apotéka)",
+        "price": "약 390 ~ 550 CZK (약 23,400 ~ 33,000원)",
+        "desc": "체코 궁중 유기농 처방으로 유명한 하블리크 아포테카의 아침 3분 수분 마스크팩",
+        "img": "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "name": "알폰스 무하(Mucha) 아르누보 아트 굿즈",
+        "price": "약 180 ~ 350 CZK (약 10,800 ~ 21,000원)",
+        "desc": "체코 대표 거장 알폰스 무하 화풍의 화려한 일러스트 양말, 우산, 앤틱 양장 노트 굿즈",
+        "img": "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=600&q=80"
+      }
+    ],
+    "isShopping": true
   },
   {
     "date": "9.02",
@@ -1955,7 +2063,22 @@
     "guide": "기내 야간 비행이므로 귀마개, 안대 소지 시 유용 / 기내식 2회 제공 예정",
     "link": "https://www.google.com/maps/search/?api=1&query=V%C3%A1clav+Havel+Airport+Prague",
     "lat": 50.101784,
-    "lng": 14.26318
+    "lng": 14.26318,
+    "recommendations": [
+      {
+        "name": "하블리크 아포테카 3분 모닝 마스크 (Havlík Apotéka)",
+        "price": "약 390 ~ 550 CZK (약 23,400 ~ 33,000원)",
+        "desc": "체코 궁중 유기농 처방으로 유명한 하블리크 아포테카의 아침 3분 수분 마스크팩",
+        "img": "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "name": "알폰스 무하(Mucha) 아르누보 아트 굿즈",
+        "price": "약 180 ~ 350 CZK (약 10,800 ~ 21,000원)",
+        "desc": "체코 대표 거장 알폰스 무하 화풍의 화려한 일러스트 양말, 우산, 앤틱 양장 노트 굿즈",
+        "img": "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=600&q=80"
+      }
+    ],
+    "isShopping": true
   },
   {
     "date": "9.03",
