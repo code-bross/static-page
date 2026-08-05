@@ -317,6 +317,12 @@
         "price": "국내 대비 15~25% 저렴 (택스리펀 13~16%)",
         "desc": "부다페스트 최고 명품 거리에서 혜택을 받으며 구매 가능한 명품 가방 & 액세서리",
         "img": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "name": "스투시 & 스트릿웨어 공식 편집숍 (Footshop - Stüssy Stockist)",
+        "price": "현지 정가 구매 (택스리펀 11 ~ 15% 가능)",
+        "desc": "공식 챕터 스토어는 없으나 동유럽 1위 스트릿 편집숍 Footshop에서 스투시(Stüssy), 카하트WIP, 조던 신상 및 슈프림 리셀 라인을 구매 가능합니다.",
+        "img": "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=600&q=80"
       }
     ]
   },
@@ -693,6 +699,12 @@
         "price": "오스트리아 택스리펀 11~15%",
         "desc": "고풍스러운 앤틱 건물의 빈 콜마르크트 명품거리 부티크에서 쇼핑하는 럭셔리 라인업",
         "img": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "name": "스투시 & 스트릿웨어 공식 편집숍 (Footshop - Stüssy Stockist)",
+        "price": "현지 정가 구매 (택스리펀 11 ~ 15% 가능)",
+        "desc": "공식 챕터 스토어는 없으나 동유럽 1위 스트릿 편집숍 Footshop에서 스투시(Stüssy), 카하트WIP, 조던 신상 및 슈프림 리셀 라인을 구매 가능합니다.",
+        "img": "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=600&q=80"
       }
     ]
   },
@@ -1532,6 +1544,12 @@
         "price": "약 250 ~ 320 CZK (약 15,000 ~ 19,200원)",
         "desc": "카를로비바리 온천수와 20여 가지 약재로 만든 체코 국민 식전 약용 소화주 리큐어",
         "img": "https://images.unsplash.com/photo-1527281400683-1aae777175f8?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "name": "스투시 & 스트릿웨어 공식 편집숍 (Footshop - Stüssy Stockist)",
+        "price": "현지 정가 구매 (택스리펀 11 ~ 15% 가능)",
+        "desc": "공식 챕터 스토어는 없으나 동유럽 1위 스트릿 편집숍 Footshop에서 스투시(Stüssy), 카하트WIP, 조던 신상 및 슈프림 리셀 라인을 구매 가능합니다.",
+        "img": "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=600&q=80"
       }
     ]
   },
@@ -1869,6 +1887,12 @@
         "price": "체코 택스리펀 12~15%",
         "desc": "프라하 최고 명품거리 파르지주스카의 차분하고 고급스러운 부티크 매장 쇼핑",
         "img": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "name": "스투시 & 스트릿웨어 공식 편집숍 (Footshop - Stüssy Stockist)",
+        "price": "현지 정가 구매 (택스리펀 11 ~ 15% 가능)",
+        "desc": "공식 챕터 스토어는 없으나 동유럽 1위 스트릿 편집숍 Footshop에서 스투시(Stüssy), 카하트WIP, 조던 신상 및 슈프림 리셀 라인을 구매 가능합니다.",
+        "img": "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=600&q=80"
       }
     ]
   },
@@ -1975,6 +1999,12 @@
         "price": "약 180 ~ 350 CZK (약 10,800 ~ 21,000원)",
         "desc": "체코 대표 거장 알폰스 무하 화풍의 화려한 일러스트 양말, 우산, 앤틱 양장 노트 굿즈",
         "img": "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "name": "스투시 & 스트릿웨어 공식 편집숍 (Footshop - Stüssy Stockist)",
+        "price": "현지 정가 구매 (택스리펀 11 ~ 15% 가능)",
+        "desc": "공식 챕터 스토어는 없으나 동유럽 1위 스트릿 편집숍 Footshop에서 스투시(Stüssy), 카하트WIP, 조던 신상 및 슈프림 리셀 라인을 구매 가능합니다.",
+        "img": "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=600&q=80"
       }
     ]
   },
@@ -2032,20 +2062,6 @@
     "link": "https://www.google.com/maps/search/?api=1&query=V%C3%A1clav+Havel+Airport+Prague",
     "lat": 50.101784,
     "lng": 14.26318,
-    "recommendations": [
-      {
-        "name": "하블리크 아포테카 3분 모닝 마스크 (Havlík Apotéka)",
-        "price": "약 390 ~ 550 CZK (약 23,400 ~ 33,000원)",
-        "desc": "체코 궁중 유기농 처방으로 유명한 하블리크 아포테카의 아침 3분 수분 마스크팩",
-        "img": "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        "name": "알폰스 무하(Mucha) 아르누보 아트 굿즈",
-        "price": "약 180 ~ 350 CZK (약 10,800 ~ 21,000원)",
-        "desc": "체코 대표 거장 알폰스 무하 화풍의 화려한 일러스트 양말, 우산, 앤틱 양장 노트 굿즈",
-        "img": "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=600&q=80"
-      }
-    ],
     "isShopping": true
   },
   {
@@ -2064,20 +2080,6 @@
     "link": "https://www.google.com/maps/search/?api=1&query=V%C3%A1clav+Havel+Airport+Prague",
     "lat": 50.101784,
     "lng": 14.26318,
-    "recommendations": [
-      {
-        "name": "하블리크 아포테카 3분 모닝 마스크 (Havlík Apotéka)",
-        "price": "약 390 ~ 550 CZK (약 23,400 ~ 33,000원)",
-        "desc": "체코 궁중 유기농 처방으로 유명한 하블리크 아포테카의 아침 3분 수분 마스크팩",
-        "img": "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        "name": "알폰스 무하(Mucha) 아르누보 아트 굿즈",
-        "price": "약 180 ~ 350 CZK (약 10,800 ~ 21,000원)",
-        "desc": "체코 대표 거장 알폰스 무하 화풍의 화려한 일러스트 양말, 우산, 앤틱 양장 노트 굿즈",
-        "img": "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=600&q=80"
-      }
-    ],
     "isShopping": true
   },
   {
