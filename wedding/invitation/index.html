@@ -13,6 +13,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>영길 ♥️ 수진 모바일 청첩장</title>
 
+
+
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
@@ -51,6 +53,7 @@
             --accent-gold-dark: #2A4E37;
             --accent-gold-light: #E1EFE5;
             --line-color: #D3E2D6;
+            --line-gold: rgba(74, 124, 89, 0.3);
             --shadow-soft: 0 10px 30px rgba(42, 78, 55, 0.06);
             --shadow-card: 0 18px 40px rgba(28, 45, 36, 0.08);
             --font-serif: 'my-wife-handwriting', 'Griun-Gossi', serif;
@@ -476,9 +479,9 @@
             color: var(--accent-gold-dark);
             text-transform: uppercase;
             margin-bottom: 16px;
-            padding: 4px 16px;
-            border-top: 1px solid var(--accent-gold);
-            border-bottom: 1px solid var(--accent-gold);
+            padding: 5px 20px;
+            border-top: 1px solid var(--line-gold);
+            border-bottom: 1px solid var(--line-gold);
             animation: fadeInDown 1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
         }
 
@@ -489,7 +492,7 @@
 
         .hero-names-eng {
             font-family: var(--font-script);
-            font-size: 2.6rem;
+            font-size: 2.8rem;
             font-weight: 600;
             color: var(--primary-text);
             line-height: 1.15;
@@ -614,20 +617,21 @@
             font-weight: 700;
             letter-spacing: 0.04em;
             color: var(--primary-text);
-            margin: 10px 0;
+            margin: 12px 0;
         }
 
         .hero-date-venue {
-            font-size: 1.2rem;
+            font-family: var(--font-body);
+            font-size: 1.15rem;
             font-weight: 600;
             color: var(--secondary-text);
             letter-spacing: 0.03em;
-            line-height: 1.7;
+            line-height: 1.8;
         }
 
         /* Section Reveal Animation */
         .section {
-            padding: 55px 24px;
+            padding: 65px 24px;
             text-align: center;
             opacity: 0;
             transform: translateY(45px) scale(0.97);
@@ -645,12 +649,12 @@
         }
 
         .section-header {
-            margin-bottom: 28px;
+            margin-bottom: 32px;
         }
 
         .section-title {
             font-family: var(--font-body);
-            font-size: 1.4rem;
+            font-size: 1.55rem;
             font-weight: 700;
             color: var(--primary-text);
             letter-spacing: 0.18em;
@@ -688,7 +692,7 @@
             font-family: var(--font-body);
             font-size: 1.05rem;
             font-weight: 600;
-            line-height: 1.85;
+            line-height: 1.95;
             color: var(--primary-text);
             word-break: keep-all;
             margin-bottom: 32px;
@@ -756,14 +760,17 @@
         }
 
         .family-role {
-            font-size: 1.1rem;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
             font-weight: 700;
             color: var(--accent-gold-dark);
-            letter-spacing: 0.18em;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
             margin-bottom: 4px;
         }
 
         .family-names {
+            font-family: var(--font-body);
             font-size: 1.05rem;
             font-weight: 600;
             color: var(--primary-text);
@@ -772,12 +779,12 @@
 
         /* Refined Calendar & Countdown */
         .calendar-card {
-            padding: 30px 20px;
+            padding: 32px 22px;
             margin-bottom: 28px;
         }
 
         .calendar-title-wrap {
-            margin-bottom: 22px;
+            margin-bottom: 24px;
         }
 
         .calendar-header-date {
@@ -789,9 +796,11 @@
         }
 
         .calendar-header-time {
-            font-size: 1.15em;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
             color: var(--accent-gold-dark);
             font-weight: 600;
+            letter-spacing: 1px;
             margin-top: 4px;
         }
 
@@ -799,14 +808,16 @@
             display: grid;
             grid-template-columns: repeat(7, 1fr);
             gap: 10px 4px;
-            font-size: 1.15rem;
-            font-weight: 600;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 500;
         }
 
         .day-head {
-            font-size: 0.95rem;
+            font-size: 0.8rem;
             font-weight: 700;
-            color: var(--secondary-text);
+            color: var(--sub-text);
+            letter-spacing: 0.1em;
             margin-bottom: 8px;
         }
 
@@ -818,8 +829,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.1rem;
-            font-weight: 600;
+            font-size: 0.98rem;
+            font-weight: 500;
             color: var(--primary-text);
             position: relative;
             transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.25s ease;
@@ -850,7 +861,7 @@
         }
 
         .countdown-box {
-            padding: 14px 6px;
+            padding: 16px 8px;
             transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
