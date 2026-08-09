@@ -639,27 +639,152 @@
   {
     "date": "8.27",
     "time": "10:00",
+    "place": "부다페스트 켈레티역 (Budapest-Keleti)",
+    "country_flag": "🇭🇺",
+    "emoji": "🚉",
+    "desc": "숙소 체크아웃 및 부다페스트 켈레티역 이동",
+    "imgs": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/14-05-06-budapest-RalfR-11.jpg/500px-14-05-06-budapest-RalfR-11.jpg"
+    ],
+    "details": "Novotel Budapest Danube 숙소 체크아웃 후 오스트리아 빈(Vienna)행 기차 탑승을 위해 부다페스트 켈레티역(Budapest-Keleti)으로 이동합니다.",
+    "guide": "기차 출발 30분 전까지 역 도착 권장 (11:30 출발 OBB Railjet Xpress 64)",
+    "link": "https://www.google.com/maps/search/?api=1&query=Budapest-Keleti+railway+station",
+    "lat": 47.500247,
+    "lng": 19.083984
+  },
+  {
+    "date": "8.27",
+    "time": "11:30",
+    "place": "부다페스트 > 빈 초고속열차 (ÖBB Railjet Xpress 64)",
+    "country_flag": "🇦🇹",
+    "emoji": "🚆",
+    "desc": "부다페스트 켈레티역 출발 > 빈 중앙역 이동 (2시간 50분 소요)",
+    "imgs": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm-YgHM8OtR7Fsfwf_8Peq90oaHhheh9GSoPaLD0CXpQ&s=10"
+    ],
+    "details": "부다페스트 켈레티(Budapest-Keleti)역에서 출발하여 오스트리아 빈 중앙역(Wien Hbf)으로 이동하는 ÖBB 초고속 열차 Railjet Xpress 64편에 탑승합니다.\n\n• 🚆 [열차 정보 & 운행 일정]\n  - 열차명: Railjet Xpress 64 (RJX 64 / 행선지: München Hbf)\n  - 출발: 11:30 (Budapest-Keleti)\n  - 도착: 14:20 (Wien Hbf Platform 8)\n  - 소요시간: 2시간 50분 (환승 없음, 직행)\n  - 서비스타입: 식당차(Bordrestaurant), 콰이어트존, 무료 Wi-Fi, 자전거/휠체어석 보유",
+    "guide": "Wien Hbf 도착 승강장은 8번 플랫폼입니다. 수하물 선반 위치 및 e-티켓(QR코드) 사전 준비!",
+    "link": "https://www.google.com/maps/search/?api=1&query=Budapest-Keleti+to+Wien+Hbf",
+    "lat": 47.500247,
+    "lng": 19.083984
+  },
+  {
+    "date": "8.27",
+    "time": "14:30",
     "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)",
     "country_flag": "🇦🇹",
     "emoji": "🏨",
-    "desc": "체크인 후 짐 보관, 첫 빈 시내 탐방 준비",
+    "desc": "빈 중앙역 도착 후 숙소 체크인 및 짐 보관",
     "imgs": [
       "https://avatars.mds.yandex.net/get-altay/16138055/2a0000019a97f70dc3006bbe5a95779a2881/L_height",
       "https://media.leonardo-hotels.com/static.leonardo-hotels.com/image/leonardohotelviennahauptbahnhof_room_comfortdouble1_2023_db5732fd5c0f2d345b854ad8db1076ac.jpg"
     ],
-    "details": "오스트리아 빈 중앙역 인접 숙소에 체크인했습니다. 중앙역과 인접하여 다른 지역 및 근교 이동성이 매우 뛰어난 비즈니스 호텔입니다. 짐을 가볍게 맡겨두고 첫 빈 시내 탐방을 나섭니다.",
-    "guide": "얼리 체크인이 불가할 경우 프론트에 기내용 캐리어 무료 보관 가능",
+    "details": "빈 중앙역(Wien Hbf Platform 8) 도착 후 인접 숙소인 Leonardo Hotel Vienna Hauptbahnhof에 체크인하고 짐을 맡깁니다. 중앙역 인근으로 다른 지역 이동성이 뛰어납니다.",
+    "guide": "14:20 열차 도착 후 도보 5분 거리. 짐 보관 후 첫 빈 시내 탐방 출발!",
     "link": "https://www.google.com/maps/search/?api=1&query=Leonardo+Hotel+Vienna+Hauptbahnhof",
     "lat": 48.183758,
     "lng": 16.378103
   },
   {
     "date": "8.27",
-    "time": "11:30",
+    "time": "15:30",
+    "place": "Salm Bräu (살름 브로이)",
+    "country_flag": "🇦🇹",
+    "emoji": "🍽️",
+    "desc": "벨베데레 궁전 옆 직영 양조장 폭립 & 생맥주 늦은 점심 식사",
+    "imgs": [
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/05/15/00/salm-brau.jpg?w=600&h=400&s=1"
+    ],
+    "details": "벨베데레 하궁 출입구 바로 옆에 위치한 직영 양조장 겸 전통 레스토랑입니다.\n\n• 🍽️ [대표 메뉴 & 가격]\n  - 립스 오브 살름 브로이 (2인 폭립 바베큐): 29.50 EUR (약 44,000원)\n  - 슈바인스학세 / 슈텔체 (돼지족발 구이): 22.50 EUR (약 33,800원)\n  - 하우스 크래프트 생맥주 0.5L (Märzen/Helles): 4.90 EUR (약 7,300원)",
+    "guide": "벨베데레 관람 직전 동선으로 최적! 폭립과 신선한 하우스 생맥주 조합 강력 추천",
+    "link": "https://www.google.com/maps/search/?api=1&query=Salm+Brau+Vienna",
+    "lat": 48.1947,
+    "lng": 16.3813,
+    "menus": [
+      {
+        "name": "살름 브로이 2인 폭립 바베큐 (Spareribs for 2)",
+        "price": "29.50 EUR (약 44,000원)",
+        "desc": "노릇하게 구워진 푸짐한 2인분 스페어립과 특제 바베큐 소스, 구운 감자",
+        "img": "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "name": "슈바인스학세 / 슈텔체 (Crispy Pork Knuckle)",
+        "price": "22.50 EUR (약 33,800원)",
+        "desc": "껍질은 튀기듯 바삭하고 속살은 쫄깃한 오스트리아식 돼지족발 구이 요리",
+        "img": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "name": "양조장 직영 생맥주 0.5L (Salm Bräu Helles/Märzen)",
+        "price": "4.90 EUR (약 7,300원)",
+        "desc": "벨베데레 바로 옆 직영 구리 양조 솥에서 신선하게 갓 뽑아낸 수제 라거 생맥주",
+        "img": "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=600&q=80"
+      }
+    ],
+    "isRestaurant": true
+  },
+  {
+    "date": "8.27",
+    "time": "17:00",
+    "place": "벨베데레 궁전",
+    "country_flag": "🇦🇹",
+    "emoji": "🏰",
+    "desc": "클림트 작품 감상 ('키스', '유디트')",
+    "imgs": [
+      "https://media.triple.guide/triple-cms/c_limit,f_auto,h_2048,w_2048/d64a3485-62e5-49f7-891f-e525e2475928.jpeg",
+      "https://img.hankyung.com/photo/202507/AA.41104540.1.jpg"
+    ],
+    "details": "아름다운 바로크 양식의 궁전으로, 상궁 미술관에는 구스타프 클림트의 세계적인 명작 '키스(The Kiss)'와 '유디트'가 전시되어 있습니다. 화려한 궁전 정원 산책도 놓치지 마세요.",
+    "guide": "운영시간 09:00 - 18:00 / 클림트 작품이 있는 '상궁(Upper)' 티켓 필수 지정 시간 입장",
+    "link": "https://www.google.com/maps/search/?api=1&query=Belvedere+Palace+Vienna",
+    "lat": 48.1914751,
+    "lng": 16.3809322,
+    "guide_links": [
+      "https://www.belvedere.at/en/audio-guide"
+    ],
+    "entrance_fee": "상궁(Upper Belvedere) 성인 €19.00 / 하궁 통합권 €24.00",
+    "docent_guide": "사보이 오이겐 공작의 여름 별궁으로 건립된 바로크 양식의 벨베데레 상궁에 오신 것을 환영합니다! 이곳은 구스타프 클림트의 황금기 대표작들이 원본 그대로 보존되어 있는 유겐트스틸 미술의 신전이랍니다. 클림트의 진짜 순금박이 수놓아진 캔버스 앞에 서면 연인들의 숨결과 오스트리아 황금기 예술의 깊은 풍요로움이 묵직하게 가슴을 울립니다.",
+    "masterpieces": [
+      {
+        "title": "키스 (The Kiss, 1907-1908)",
+        "artist": "구스타프 클림트 (Gustav Klimt)",
+        "img": "./images/klimt_the_kiss.jpg",
+        "desc": "진짜 금박을 올려 꽃밭 위에서 두 연인이 나누는 영원하고 황홀한 사랑을 묘사한 20세기 미술사 최대의 황금빛 불후 명작."
+      },
+      {
+        "title": "유디트 (Judith I, 1901)",
+        "artist": "구스타프 클림트 (Gustav Klimt)",
+        "img": "./images/klimt_judith.jpg",
+        "desc": "황금 넥크리스와 장식적 배경, 당당하고 관능적인 팜므 파탈의 미소를 표현한 클림트 아르누보 초상화 명작."
+      }
+    ],
+    "docent_topic": "황금빛 아르누보의 대명사 구스타프 클림트와 황홀한 사랑"
+  },
+  {
+    "date": "8.27",
+    "time": "18:30",
+    "place": "칼스광장 & 칼스교회",
+    "country_flag": "🇦🇹",
+    "emoji": "⛪",
+    "desc": "벨베데레에서 시내로 나오는 길에 위치한 아름다운 바로크식 교회 산책",
+    "imgs": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Karlskirche_Abendsonne_1.jpg/1280px-Karlskirche_Abendsonne_1.jpg"
+    ],
+    "details": "거대한 돔과 두 개의 거대한 기둥이 인상적인 비엔나의 대표적인 바로크 건축물입니다. 교회 앞 연못에 비치는 반영이 무척 아름다워 현지 대학생들과 여행객들의 쉼터가 되는 광장입니다.",
+    "guide": "내부 엘리베이터를 타고 돔 천장 바로 앞까지 올라가 프레스코화를 초근접 감상 가능 (유료)",
+    "link": "https://www.google.com/maps/search/?api=1&query=Karlskirche+Vienna",
+    "lat": 48.198243,
+    "lng": 16.371422,
+    "guide_links": [
+      "https://www.karlskirche.at/en/visitor-info"
+    ]
+  },
+  {
+    "date": "8.27",
+    "time": "19:15",
     "place": "콜마르크트 & 그라벤 거리",
     "country_flag": "🇦🇹",
     "emoji": "🛍️",
-    "desc": "빈 핵심 명품 거리 쇼핑 및 부티크 투어",
+    "desc": "빈 핵심 명품 거리 쇼핑 및 부티크 야경 투어",
     "isShopping": true,
     "imgs": [
       "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Wien_-_Kohlmarkt_%281%29.JPG/1280px-Wien_-_Kohlmarkt_%281%29.JPG"
@@ -710,100 +835,7 @@
   },
   {
     "date": "8.27",
-    "time": "13:30",
-    "place": "Salm Bräu (살름 브로이)",
-    "country_flag": "🇦🇹",
-    "emoji": "🍽️",
-    "desc": "벨베데레 궁전 입장 전 즐기는 오스트리아식 바베큐 립과 맥주 식사",
-    "imgs": [
-      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/05/15/00/salm-brau.jpg?w=600&h=400&s=1"
-    ],
-    "details": "벨베데레 하궁 출입구 바로 옆에 위치한 직영 양조장 겸 전통 레스토랑입니다.\n\n• 🍽️ [대표 메뉴 & 가격]\n  - 립스 오브 살름 브로이 (2인 폭립 바베큐): 29.50 EUR (약 44,000원)\n  - 슈바인스학세 / 슈텔체 (돼지족발 구이): 22.50 EUR (약 33,800원)\n  - 하우스 크래프트 생맥주 0.5L (Märzen/Helles): 4.90 EUR (약 7,300원)",
-    "guide": "벨베데레 관람 직전 또는 직후 동선으로 최적! 폭립과 하우스 생맥주 조합 강력 추천",
-    "link": "https://www.google.com/maps/search/?api=1&query=Salm+Brau+Vienna",
-    "lat": 48.1947,
-    "lng": 16.3813,
-    "menus": [
-      {
-        "name": "살름 브로이 2인 폭립 바베큐 (Spareribs for 2)",
-        "price": "29.50 EUR (약 44,000원)",
-        "desc": "노릇하게 구워진 푸짐한 2인분 스페어립과 특제 바베큐 소스, 구운 감자",
-        "img": "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        "name": "슈바인스학세 / 슈텔체 (Crispy Pork Knuckle)",
-        "price": "22.50 EUR (약 33,800원)",
-        "desc": "껍질은 튀기듯 바삭하고 속살은 쫄깃한 오스트리아식 돼지족발 구이 요리",
-        "img": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        "name": "양조장 직영 생맥주 0.5L (Salm Bräu Helles/Märzen)",
-        "price": "4.90 EUR (약 7,300원)",
-        "desc": "벨베데레 바로 옆 직영 구리 양조 솥에서 신선하게 갓 뽑아낸 수제 라거 생맥주",
-        "img": "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=600&q=80"
-      }
-    ],
-    "isRestaurant": true
-  },
-  {
-    "date": "8.27",
-    "time": "15:00",
-    "place": "벨베데레 궁전",
-    "country_flag": "🇦🇹",
-    "emoji": "🏰",
-    "desc": "클림트 작품 감상",
-    "imgs": [
-      "https://media.triple.guide/triple-cms/c_limit,f_auto,h_2048,w_2048/d64a3485-62e5-49f7-891f-e525e2475928.jpeg",
-      "https://img.hankyung.com/photo/202507/AA.41104540.1.jpg"
-    ],
-    "details": "아름다운 바로크 양식의 궁전으로, 상궁 미술관에는 구스타프 클림트의 세계적인 명작 '키스(The Kiss)'와 '유디트'가 전시되어 있습니다. 화려한 궁전 정원 산책도 놓치지 마세요.",
-    "guide": "운영시간 09:00 - 18:00 / 클림트 작품이 있는 '상궁(Upper)' 티켓 필수 지정 시간 입장",
-    "link": "https://www.google.com/maps/search/?api=1&query=Belvedere+Palace+Vienna",
-    "lat": 48.1914751,
-    "lng": 16.3809322,
-    "guide_links": [
-      "https://www.belvedere.at/en/audio-guide"
-    ],
-    "entrance_fee": "상궁(Upper Belvedere) 성인 €19.00 / 하궁 통합권 €24.00",
-    "docent_guide": "사보이 오이겐 공작의 여름 별궁으로 건립된 바로크 양식의 벨베데레 상궁에 오신 것을 환영합니다! 이곳은 구스타프 클림트의 황금기 대표작들이 원본 그대로 보존되어 있는 유겐트스틸 미술의 신전이랍니다. 클림트의 진짜 순금박이 수놓아진 캔버스 앞에 서면 연인들의 숨결과 오스트리아 황금기 예술의 깊은 풍요로움이 묵직하게 가슴을 울립니다.",
-    "masterpieces": [
-      {
-        "title": "키스 (The Kiss, 1907-1908)",
-        "artist": "구스타프 클림트 (Gustav Klimt)",
-        "img": "./images/klimt_the_kiss.jpg",
-        "desc": "진짜 금박을 올려 꽃밭 위에서 두 연인이 나누는 영원하고 황홀한 사랑을 묘사한 20세기 미술사 최대의 황금빛 불후 명작."
-      },
-      {
-        "title": "유디트 (Judith I, 1901)",
-        "artist": "구스타프 클림트 (Gustav Klimt)",
-        "img": "./images/klimt_judith.jpg",
-        "desc": "황금 넥크리스와 장식적 배경, 당당하고 관능적인 팜므 파탈의 미소를 표현한 클림트 아르누보 초상화 명작."
-      }
-    ],
-    "docent_topic": "황금빛 아르누보의 대명사 구스타프 클림트와 황홀한 사랑"
-  },
-  {
-    "date": "8.27",
-    "time": "17:00",
-    "place": "칼스광장 & 칼스교회",
-    "country_flag": "🇦🇹",
-    "emoji": "⛪",
-    "desc": "벨베데레에서 시내로 나오는 길에 위치한 아름다운 바로크식 교회 산책",
-    "imgs": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Karlskirche_Abendsonne_1.jpg/1280px-Karlskirche_Abendsonne_1.jpg"
-    ],
-    "details": "거대한 돔과 두 개의 거대한 기둥이 인상적인 비엔나의 대표적인 바로크 건축물입니다. 교회 앞 연못에 비치는 반영이 무척 아름다워 현지 대학생들과 여행객들의 쉼터가 되는 광장입니다.",
-    "guide": "내부 엘리베이터를 타고 돔 천장 바로 앞까지 올라가 프레스코화를 초근접 감상 가능 (유료)",
-    "link": "https://www.google.com/maps/search/?api=1&query=Karlskirche+Vienna",
-    "lat": 48.198243,
-    "lng": 16.371422,
-    "guide_links": [
-      "https://www.karlskirche.at/en/visitor-info"
-    ]
-  },
-  {
-    "date": "8.27",
-    "time": "19:00",
+    "time": "20:15",
     "place": "Figlmüller",
     "country_flag": "🇦🇹",
     "emoji": "🍽️",
@@ -816,7 +848,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Figlm%C3%BCller+Wien",
     "lat": 48.2093669,
     "lng": 16.3746338,
-    "reserved": "17:00",
+    "reserved": "20:15",
     "menus": [
       {
         "name": "피그뮐러 돼지고기 슈니첼 (Figlmüller-Schnitzel 30cm)",
@@ -841,7 +873,7 @@
   },
   {
     "date": "8.27",
-    "time": "21:00",
+    "time": "21:45",
     "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)",
     "country_flag": "🇦🇹",
     "emoji": "🏨",
