@@ -698,7 +698,8 @@
         </main>
     </div>
 
-    <!-- Leaflet 지도 라이브러리 스크립트 추가 -->
+    <!-- 오프라인/로컬 파일 실행 대비 데이터 스크립트 및 Leaflet 지도 라이브러리 -->
+    <script src="data.json"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
         let selectedDate = 'all';
@@ -714,17 +715,20 @@
         async function loadItineraryData(filePath = 'data.json') {
             try {
                 const response = await fetch(filePath);
-                if (!response.ok) throw new Error('Network response was not ok');
+                if (!response.ok) throw new Error('Network response failed');
                 return await response.json();
             } catch (error) {
-                console.error('Fetch 실패:', error);
+                console.warn('fetch() 실패, fallback ITINERARY_DATA 사용:', error);
+                if (typeof window.ITINERARY_DATA !== 'undefined' && Array.isArray(window.ITINERARY_DATA)) {
+                    return window.ITINERARY_DATA;
+                }
                 return null;
             }
         }
 
         window.onload = function () {
             loadItineraryData().then(data => {
-                itineraryData = data;
+                itineraryData = data || (typeof window.ITINERARY_DATA !== 'undefined' ? window.ITINERARY_DATA : []);
                 initMap();
             });
         };
@@ -742,20 +746,45 @@
             renderUI();
         }
 
+        const countryNameMap = {
+            '🇰🇷': '한국',
+            '🇭🇺': '헝가리',
+            '🇦🇹': '오스트리아',
+            '🇨🇿': '체코'
+        };
+
+        function getDateFlagInfo(d) {
+            if (d === 'all') return { chip: '전체 일정', title: '📅 전체 일정 (🇰🇷 🇭🇺 🇦🇹 🇨🇿)' };
+            if (d === 'shopping') return { chip: '🛍️ 쇼핑 스팟', title: '🛍️ 쇼핑 스팟 모아보기' };
+
+            const dayItems = itineraryData.filter(i => i.date === d);
+            const flags = [];
+            dayItems.forEach(item => {
+                if (item.country_flag && !flags.includes(item.country_flag)) {
+                    flags.push(item.country_flag);
+                }
+            });
+
+            const flagStr = flags.join('➔');
+            const chipLabel = `${d} ${flagStr}`;
+            const countryNames = flags.map(f => countryNameMap[f] || '').filter(Boolean).join(' ➔ ');
+            const titleLabel = `📅 ${d} &nbsp;<span style="font-weight:700; color:var(--accent); font-size:1.05rem;">${flagStr}</span> <span style="font-size:0.88rem; color:var(--muted); font-weight:600;">(${countryNames})</span>`;
+
+            return { chip: chipLabel, title: titleLabel, flags: flagStr };
+        }
+
         function renderUI() {
             const dateFilters = document.getElementById('dateFilters');
-            if (itineraryData.length === 0) {
+            if (!itineraryData || itineraryData.length === 0) {
                 document.getElementById('timelineList').innerHTML = '<div style="padding:20px; text-align:center; color:var(--muted);">일정 데이터가 비어있거나 올바르지 않습니다.</div>';
                 return;
             }
 
-            // 쇼핑 탭 추가 및 렌더링
+            // 쇼핑 탭 추가 및 렌더링 (날짜 옆 국기 플래그 표시)
             const dates = ['all', 'shopping', ...new Set(itineraryData.map(i => i.date))];
             dateFilters.innerHTML = dates.map(d => {
-                let label = d;
-                if (d === 'all') label = '전체 일정';
-                if (d === 'shopping') label = '🛍️ 쇼핑 스팟';
-                return `<button class="chip ${selectedDate === d ? 'active' : ''}" onclick="filter('${d}')">${label}</button>`;
+                const info = getDateFlagInfo(d);
+                return `<button class="chip ${selectedDate === d ? 'active' : ''}" onclick="filter('${d}')">${info.chip}</button>`;
             }).join('');
 
             // 필터링 적용
@@ -769,121 +798,127 @@
             const timelineList = document.getElementById('timelineList');
             const groups = filtered.reduce((acc, cur) => { (acc[cur.date] = acc[cur.date] || []).push(cur); return acc; }, {});
 
-            timelineList.innerHTML = Object.entries(groups).map(([date, items]) => `
-                <div class="date-group"><div class="date-title">📅 ${date}</div>
-                ${items.map(item => {
-                const uniqueId = btoa(encodeURIComponent(item.place + item.time)).replace(/=/g, '');
-                itemLookup[uniqueId] = item;
+            timelineList.innerHTML = Object.entries(groups).map(([date, items]) => {
+                const info = getDateFlagInfo(date);
+                const itemsHtml = items.map(item => {
+                    const uniqueId = btoa(encodeURIComponent(item.place + item.time)).replace(/=/g, '');
+                    itemLookup[uniqueId] = item;
 
-                const detailsHtml = item.details ? `<p class="detail-text">${item.details}</p>` : '';
-                const guideHtml = item.guide ? `<div class="guide-box">💡 <strong>안내:</strong> ${item.guide}</div>` : '';
-                const feeHtml = item.entrance_fee ? `<div class="fee-box">🎟️ <strong>입장료:</strong> ${item.entrance_fee}</div>` : '';
+                    const detailsHtml = item.details ? `<p class="detail-text">${item.details}</p>` : '';
+                    const guideHtml = item.guide ? `<div class="guide-box">💡 <strong>안내:</strong> ${item.guide}</div>` : '';
+                    const feeHtml = item.entrance_fee ? `<div class="fee-box">🎟️ <strong>입장료:</strong> ${item.entrance_fee}</div>` : '';
 
-                const guideModalBtnHtml = (item.docent_guide || (item.masterpieces && item.masterpieces.length > 0)) ? `
-                    <button class="guide-modal-btn" onclick="event.stopPropagation(); openGuideModal('${uniqueId}')">
-                        🔍 가이드 상세보기 (전문 도슨트 & 대표 명작)
-                    </button>
-                ` : (item.menus && item.menus.length > 0) ? `
-                    <button class="menu-modal-btn" onclick="event.stopPropagation(); openGuideModal('${uniqueId}')">
-                        🍽️ 식당 상세 및 대표 메뉴/사진 크게 보기
-                    </button>
-                ` : (item.recommendations && item.recommendations.length > 0) ? `
-                    <button class="menu-modal-btn" style="background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); box-shadow: 0 4px 10px rgba(2, 132, 199, 0.25);" onclick="event.stopPropagation(); openGuideModal('${uniqueId}')">
-                        🛍️ 쇼핑 추천 상품 & 명품 리스트 상세보기
-                    </button>
-                ` : '';
+                    const guideModalBtnHtml = (item.docent_guide || (item.masterpieces && item.masterpieces.length > 0)) ? `
+                        <button class="guide-modal-btn" onclick="event.stopPropagation(); openGuideModal('${uniqueId}')">
+                            🔍 가이드 상세보기 (전문 도슨트 & 대표 명작)
+                        </button>
+                    ` : (item.menus && item.menus.length > 0) ? `
+                        <button class="menu-modal-btn" onclick="event.stopPropagation(); openGuideModal('${uniqueId}')">
+                            🍽️ 식당 상세 및 대표 메뉴/사진 크게 보기
+                        </button>
+                    ` : (item.recommendations && item.recommendations.length > 0) ? `
+                        <button class="menu-modal-btn" style="background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); box-shadow: 0 4px 10px rgba(2, 132, 199, 0.25);" onclick="event.stopPropagation(); openGuideModal('${uniqueId}')">
+                            🛍️ 쇼핑 추천 상품 & 명품 리스트 상세보기
+                        </button>
+                    ` : '';
 
-                const reservationHtml = item.reservation ? `
-                    <a class="reservation-btn" href="${item.reservation}" target="_blank" onclick="event.stopPropagation()">
-                        🗓️ 예약하러 가기
-                    </a>
-                ` : '';
+                    const reservationHtml = item.reservation ? `
+                        <a class="reservation-btn" href="${item.reservation}" target="_blank" onclick="event.stopPropagation()">
+                            🗓️ 예약하러 가기
+                        </a>
+                    ` : '';
 
-                const reservedHtml = item.reserved ? `
-                    <span class="time-reserved">✨ 예약 완료 (${item.reserved})</span>
-                ` : '';
+                    const reservedHtml = item.reserved ? `
+                        <span class="time-reserved">✨ 예약 완료 (${item.reserved})</span>
+                    ` : '';
 
-                let imagesHtml = '';
-                if (item.imgs && Array.isArray(item.imgs) && item.imgs.length > 0) {
-                    imagesHtml = `<div class="img-grid">${item.imgs.map(url => `
-                            <img src="${url}" class="detail-img" alt="${item.place} 이미지" referrerpolicy="no-referrer" loading="lazy" onerror="this.onerror=null; this.src='./images/prague_castle_bridge.jpg'">
-                        `).join('')}</div>`;
-                }
+                    let imagesHtml = '';
+                    if (item.imgs && Array.isArray(item.imgs) && item.imgs.length > 0) {
+                        imagesHtml = `<div class="img-grid">${item.imgs.map(url => `
+                                <img src="${url}" class="detail-img" alt="${item.place} 이미지" referrerpolicy="no-referrer" loading="lazy" onerror="this.onerror=null; this.src='./images/prague_castle_bridge.jpg'">
+                            `).join('')}</div>`;
+                    }
 
-                // 식당 대표 메뉴 렌더링 추가
-                let menusHtml = '';
-                if (item.menus && Array.isArray(item.menus) && item.menus.length > 0) {
-                    menusHtml = `
-                    <div class="menu-grid-section">
-                        <div class="menu-grid-title">🍽️ 추천 대표 메뉴 & 가격 (메뉴 사진)</div>
-                        <div class="menu-cards-list">
-                            ${item.menus.map(m => `
-                                <div class="menu-item-card">
-                                    <img src="${m.img}" class="menu-item-img" alt="${m.name}" referrerpolicy="no-referrer" loading="lazy" onerror="this.onerror=null; this.src='./images/dining.jpg'">
-                                    <div class="menu-item-info">
-                                        <div class="menu-item-name">${m.name}</div>
-                                        <div class="menu-item-price">💰 ${m.price}</div>
-                                        <div class="menu-item-desc">${m.desc}</div>
+                    let menusHtml = '';
+                    if (item.menus && Array.isArray(item.menus) && item.menus.length > 0) {
+                        menusHtml = `
+                        <div class="menu-grid-section">
+                            <div class="menu-grid-title">🍽️ 추천 대표 메뉴 & 가격 (메뉴 사진)</div>
+                            <div class="menu-cards-list">
+                                ${item.menus.map(m => `
+                                    <div class="menu-item-card">
+                                        <img src="${m.img}" class="menu-item-img" alt="${m.name}" referrerpolicy="no-referrer" loading="lazy" onerror="this.onerror=null; this.src='./images/dining.jpg'">
+                                        <div class="menu-item-info">
+                                            <div class="menu-item-name">${m.name}</div>
+                                            <div class="menu-item-price">💰 ${m.price}</div>
+                                            <div class="menu-item-desc">${m.desc}</div>
+                                        </div>
                                     </div>
-                                </div>
-                            `).join('')}
+                                `).join('')}
+                            </div>
                         </div>
-                    </div>
-                    `;
-                }
+                        `;
+                    }
 
-                // 쇼핑 추천 렌더링 추가
-                let recoHtml = '';
-                if (item.recommendations && item.recommendations.length > 0) {
-                    recoHtml = `
-                    <div class="reco-section">
-                        <div class="reco-title">🛍️ 에디터 추천 쇼핑 & 필수 특산품 리스트</div>
-                        <div class="menu-cards-list">
-                            ${item.recommendations.map(reco => `
-                                <div class="menu-item-card" style="border: 1px solid #bae6fd;">
-                                    <img src="${reco.img}" class="menu-item-img" alt="${reco.name}" referrerpolicy="no-referrer" loading="lazy" onerror="this.onerror=null; this.src='./images/havel_market.jpg'">
-                                    <div class="menu-item-info">
-                                        <div class="menu-item-name" style="color:#0f172a;">${reco.name}</div>
-                                        ${reco.price ? `<div class="menu-item-price" style="background:#f0fdf4; color:#166534; border:1px solid #bbf7d0;">🏷️ ${reco.price}</div>` : ''}
-                                        <div class="menu-item-desc">${reco.desc}</div>
+                    let recoHtml = '';
+                    if (item.recommendations && item.recommendations.length > 0) {
+                        recoHtml = `
+                        <div class="reco-section">
+                            <div class="reco-title">🛍️ 에디터 추천 쇼핑 & 필수 특산품 리스트</div>
+                            <div class="menu-cards-list">
+                                ${item.recommendations.map(reco => `
+                                    <div class="menu-item-card" style="border: 1px solid #bae6fd;">
+                                        <img src="${reco.img}" class="menu-item-img" alt="${reco.name}" referrerpolicy="no-referrer" loading="lazy" onerror="this.onerror=null; this.src='./images/havel_market.jpg'">
+                                        <div class="menu-item-info">
+                                            <div class="menu-item-name" style="color:#0f172a;">${reco.name}</div>
+                                            ${reco.price ? `<div class="menu-item-price" style="background:#f0fdf4; color:#166534; border:1px solid #bbf7d0;">🏷️ ${reco.price}</div>` : ''}
+                                            <div class="menu-item-desc">${reco.desc}</div>
+                                        </div>
                                     </div>
-                                </div>
-                            `).join('')}
+                                `).join('')}
+                            </div>
                         </div>
-                    </div>
+                        `;
+                    }
+
+                    return `
+                        <article class="schedule-item ${activePlace === item.place ? 'active' : ''}" id="item-${uniqueId}" onclick="setActive('${item.place}', '${item.time}')">
+                            <div class="schedule-row">
+                                <div class="schedule-content">
+                                    <div class="place-name">
+                                        ${item.emoji || '📍'} ${item.place} 
+                                        ${item.country_flag ? `<span class="country-flag">${item.country_flag}</span>` : ''}
+                                    </div>
+                                    <p class="schedule-desc">${item.desc || ''}</p>
+                                </div>
+
+                                <div class="time-badge">
+                                    ${item.time}
+                                    ${reservedHtml}
+                                </div>
+                                <a class="map-link" href="${item.link}" target="_blank" onclick="event.stopPropagation()">🗺️</a>
+                            </div>
+                            <div class="schedule-details">
+                                ${reservationHtml}
+                                ${feeHtml}
+                                ${guideModalBtnHtml}
+                                ${detailsHtml}
+                                ${guideHtml}
+                                ${menusHtml}
+                                ${imagesHtml}
+                                ${recoHtml}
+                            </div>
+                        </article>
                     `;
-                }
+                }).join('');
 
                 return `
-                    <article class="schedule-item ${activePlace === item.place ? 'active' : ''}" id="item-${uniqueId}" onclick="setActive('${item.place}', '${item.time}')">
-                        <div class="schedule-row">
-                            <div class="schedule-content">
-                                <div class="place-name">
-                                    ${item.emoji || '📍'} ${item.place} 
-                                    <!-- 추가된 로직: 데이터에 country_flag가 있으면 span 태그로 추가 -->
-                                    ${item.country_flag ? `<span class="country-flag">${item.country_flag}</span>` : ''}
-                                </div>
-                                <p class="schedule-desc">${item.desc || ''}</p>
-                            </div>
-
-                            <div class="time-badge">
-                                ${item.time}
-                                ${reservedHtml}
-                            </div>
-                            <a class="map-link" href="${item.link}" target="_blank" onclick="event.stopPropagation()">🗺️</a>
-                        </div>
-                        <div class="schedule-details">
-                            ${reservationHtml}
-                            ${feeHtml}
-                            ${guideModalBtnHtml}
-                            ${detailsHtml}
-                            ${guideHtml}
-                            ${menusHtml}
-                            ${imagesHtml}
-                            ${recoHtml}
-                        </div>
-                    </article>
-                `}).join('')}</div>`).join('');
+                    <div class="date-group">
+                        <div class="date-title">${info.title}</div>
+                        ${itemsHtml}
+                    </div>
+                `;
+            }).join('');
 
             updateMap(filtered);
         }
