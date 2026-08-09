@@ -830,6 +830,12 @@
         "price": "현지 정가 구매 (택스리펀 11 ~ 15% 가능)",
         "desc": "공식 챕터 스토어는 없으나 동유럽 1위 스트릿 편집숍 Footshop에서 스투시(Stüssy), 카하트WIP, 조던 신상 및 슈프림 리셀 라인을 구매 가능합니다.",
         "img": "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "name": "폴로 랄프로렌 빈 플래그십 부티크 (Polo Ralph Lauren Vienna)",
+        "price": "오스트리아 택스리펀 11 ~ 15%",
+        "desc": "그라벤 거리 중심가 앤틱 건물에 위치한 랄프로렌 공식 부티크에서 만나는 클래식 니트 & 셔츠 신상 라인업",
+        "img": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=600&q=80"
       }
     ]
   },
@@ -1078,122 +1084,131 @@
   {
     "date": "8.29",
     "time": "09:00",
-    "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)",
+    "place": "오페른링 3/5 (Opernring 3/5 - 셔틀버스 탑승장)",
     "country_flag": "🇦🇹",
-    "emoji": "🏨",
-    "desc": "숙소 출발 및 박물관 집중 투어",
+    "emoji": "🚌",
+    "desc": "오스트리아 디자이너 아울렛 판도르프 왕복 셔틀버스 탑승",
     "imgs": [
-      "https://avatars.mds.yandex.net/get-altay/16138055/2a0000019a97f70dc3006bbe5a95779a2881/L_height",
-      "https://media.leonardo-hotels.com/static.leonardo-hotels.com/image/leonardohotelviennahauptbahnhof_room_comfortdouble1_2023_db5732fd5c0f2d345b854ad8db1076ac.jpg"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Designer_Outlet_Parndorf.jpg/1280px-Designer_Outlet_Parndorf.jpg"
     ],
-    "details": "세계적인 보물들이 가득한 박물관 내부 투어와 역사적인 건축물을 위주로 관람합니다. 오스트리아에서 꼭 봐야 할 명소들을 하루에 집중 탐방합니다.",
-    "guide": "박물관 패스나 대중교통 티켓 유효 시간 체크",
-    "link": "https://www.google.com/maps/search/?api=1&query=Leonardo+Hotel+Vienna+Hauptbahnhof",
-    "lat": 48.183758,
-    "lng": 16.378103
+    "details": "Leonardo Hotel 숙소에서 지하철 U1호선(빨간색)을 타고 Karlsplatz역 하차 후 도보 2분 거리의 Opernring 3/5 탑승장으로 이동합니다. 빈 시티투어 노란색 유니폼을 입은 직원에게 모바일/출력 바우처를 제시하고 판도르프 셔틀버스를 탑승합니다.\n\n• 🎫 [셔틀버스 이티켓 & 예약 정보]\n  - 상품명: 비엔나 - 디자이너 아웃렛 판도르프 셔틀버스 (빈 출발 왕복 티켓)\n  - 대표 예약자: KANG YOUNGKIL (성인 2명)\n  - 날짜/시간: 2026년 8월 29일(토) 09:30 출발 (복귀 16:00)\n  - 예약 번호: UXT496223\n  - 바우처 번호: TOURCMS|10169|825031\n  - 미팅 위치: Opernring 3, 1010 Wien (빈 시티투어 노란 유니폼 직원 미팅)",
+    "guide": "출발 15분 전(09:15까지) 탑승장 도착 필수! 모바일 바우처(QR코드) 및 여권 실물 준비하세요.",
+    "link": "https://www.google.com/maps/search/?api=1&query=Opernring+3%2C+1010+Wien%2C+Austria",
+    "lat": 48.2032,
+    "lng": 16.3689,
+    "reservation_info": {
+      "booking_ref": "UXT496223",
+      "voucher_no": "TOURCMS|10169|825031",
+      "supplier": "KLK Technology / Klook (Vienna Sightseeing)",
+      "passengers": "KANG YOUNGKIL (2 x 성인)",
+      "pickup_location": "Opernring 3/5, 1010 Wien (Karlsplatz역 도보 2분)",
+      "dropoff_location": "Designer Outlet Parndorf (Center-Straße 79)",
+      "schedule": "09:30 빈 출발 ➔ 16:00 판도르프 출발 복귀"
+    }
   },
   {
     "date": "8.29",
-    "time": "10:00",
-    "place": "빈 미술사 박물관",
+    "time": "10:30",
+    "place": "판도르프 디자이너 아울렛 (McArthurGlen Outlet Parndorf)",
     "country_flag": "🇦🇹",
-    "emoji": "🏛️",
-    "desc": "박물관 관람",
+    "emoji": "🛍️",
+    "desc": "오스트리아 최대 럭셔리 아울렛 명품 쇼핑 & 패션 패스포트 10% 쿠폰",
+    "isShopping": true,
     "imgs": [
-      "https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1200,h_630/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/omv5mwku26zv5fcztvh3/%EB%B9%88%EB%AF%B8%EC%88%A0%EC%82%AC%EB%B0%95%EB%AC%BC%EA%B4%80%EC%9E%85%EC%9E%A5%EA%B6%8C-Klook.jpg",
-      "https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=https://t1.daumcdn.net/brunch/service/user/14Qg/image/YVTDc0xCvNTUtM1SlPZoM3Y4D1U.jpg"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Designer_Outlet_Parndorf.jpg/1280px-Designer_Outlet_Parndorf.jpg",
+      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=80"
     ],
-    "details": "합스부르크 왕가가 수집한 방대한 예술품이 전시된 세계 3대 미술관 중 하나입니다. 브뤼겔의 '바벨탑', 루벤스, 렘브란트 등의 거장들의 회화 작품은 물론, 세상에서 가장 아름다운 박물관 카페 내부 인테리어로도 유명합니다.",
-    "guide": "운영시간 10:00 - 18:00 (목요일은 21:00까지) / 내부 2층 카페에서 커피 한 잔 강력 추천",
-    "link": "https://www.google.com/maps/search/?api=1&query=Kunsthistorisches+Museum+Vienna",
-    "lat": 48.2038016,
-    "lng": 16.3617874,
-    "guide_links": [
-      "https://www.khm.at/en/visit/audio-guide"
-    ],
-    "entrance_fee": "성인 €21.00 (19세 미만 무료)",
-    "docent_guide": "합스부르크 가문이 수세기에 걸쳐 수집한 유럽 회화의 거장들이 총집결된 예술의 전당입니다. 특히 북유럽 르네상스의 거장 피터르 브뢰겔의 세계 최고 컬렉션을 원본 그대로 만나보실 수 있습니다.",
-    "masterpieces": [
+    "details": "구찌, 프라다, 폴로 랄프로렌, 버버리, 몽클레르, 토즈, 아르마니 등 160개 이상의 하이엔드 럭셔리 및 프리미엄 브랜드를 30~70% 할인가에 만날 수 있는 동유럽 최대 규모의 쇼핑 빌리지입니다.\n\n• 🎫 [특별 바우처 혜택 - 10% 추가 할인 패션 패스포트]\n  - 수령 방법: 아울렛 내 게스트 서비스(포르쉐 디자인 매장 맞은편)에 방문하여 셔틀버스 티켓/바우처를 제시하세요!\n  - 혜택: 아울렛 모든 참여 매장에서 정가 대비 10% 추가 할인을 받을 수 있는 특별 패션 패스포트(Fashion Passport) 수령 가능.\n\n• 🛍️ [주요 쇼핑 혜택 & 서비스]\n  - 럭셔리 부티크: Polo Ralph Lauren, Gucci, Prada, Burberry, Moncler, Tod's, Coach, Michael Kors\n  - 오스트리아 택스리펀: 11~15% 환급 (아울렛 내 글로벌 블루/플래닛 현장 택스리펀 라운지 보유)",
+    "guide": "게스트 서비스(포르쉐 디자인 맞은편) 방문하여 셔틀 티켓 제시 ➔ 추가 10% Fashion Passport 패스 수령! 175.01 EUR 이상 구매 시 현장 택스리펀 서류 받기 필수.",
+    "link": "https://www.google.com/maps/search/?api=1&query=Designer+Outlet+Parndorf",
+    "lat": 47.9782,
+    "lng": 16.8492,
+    "recommendations": [
       {
-        "title": "바벨탑 (The Tower of Babel, 1563)",
-        "artist": "피터르 브뢰겔 (Pieter Bruegel the Elder)",
-        "img": "./images/bruegel_tower_of_babel.jpg",
-        "desc": "인간의 오만함과 신의 경고를 정교한 고딕 단면 구조와 세밀한 플랑드르 기법으로 담아낸 명작."
+        "name": "폴로 랄프로렌 판도르프 아울렛 부티크 (Polo Ralph Lauren)",
+        "price": "아울렛 정가 대비 30 ~ 50% 할인 + Fashion Passport 10% 추가 할인 + 현장 택스리펀 11~15%",
+        "desc": "판도르프 쇼핑객 선호도 1위 필수 스팟! 옥스포드 셔츠, 케이블 닛 니트, 꽈배기 가디건, 린넨 셔츠 & 피케 셔츠 특가 라인업",
+        "img": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=600&q=80"
       },
       {
-        "title": "눈 속의 사냥꾼 (Hunters in the Snow, 1565)",
-        "artist": "피터르 브뢰겔 (Pieter Bruegel the Elder)",
-        "img": "./images/bruegel_hunters_in_snow.jpg",
-        "desc": "차가운 겨울 공기와 꽁꽁 언 호수 위에서 스케이트를 타는 일상을 차분하고 감각적인 색채로 그린 계절 시리즈 거작."
+        "name": "구찌 & 프라다 판도르프 아울렛 부티크 (Gucci & Prada)",
+        "price": "이월 시즌 30 ~ 60% 할인 + 현장 택스리펀 11~15%",
+        "desc": "동유럽 최고 인기 매장! 명품 가방, 핸드백, 지갑, 드라이빙 슈즈 특가 라인업",
+        "img": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "name": "몽클레르 패딩 & 아우터 부티크 (Moncler Outlet)",
+        "price": "현지 아울렛 특가 (면세 환급 적용)",
+        "desc": "럭셔리 경량 패딩 및 아우터 라인을 매력적인 아울렛 가격으로 쇼핑",
+        "img": "https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "name": "버버리 & 토즈 명품 부티크 (Burberry & Tod's)",
+        "price": "아울렛 정가 대비 30 ~ 50% 할인",
+        "desc": "버버리 클래식 트렌치코트, 머플러 및 토즈 로퍼/드라이빙 슈즈 특가 스팟",
+        "img": "https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "name": "마너(Manner) 아울렛 직영 매장 (Manner Outlet)",
+        "price": "대용량 패키지 3.50 ~ 9.90 EUR",
+        "desc": "오스트리아 대표 웨하스 과자 마너의 대용량 번들 및 아울렛 한정 선물용 세트 최저가 구매",
+        "img": "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=600&q=80"
       }
-    ],
-    "docent_topic": "합스부르크 600년 컬렉션과 브뢰겔의 위대한 유산"
+    ]
   },
   {
     "date": "8.29",
-    "time": "13:00",
-    "place": "L'Autentico",
+    "time": "13:30",
+    "place": "판도르프 아울렛 다이닝 (Wagamama & Manner Cafe)",
     "country_flag": "🇦🇹",
-    "emoji": "🍝",
-    "desc": "빈 미술사 박물관 근처 정통 이탈리안 레스토랑 점심",
+    "emoji": "🍽️",
+    "desc": "아울렛 내 퓨전 아시안 누들 & 마너 카페 디저트 점심 식사",
     "imgs": [
-      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/30/64/67/8e/caption.jpg?w=1100&h=1100&s=1",
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjS4GNC0nHzB_cVoWDqEsxJv0_1_r2g1anVoqalBSAS9v69UwNwbEOgfk&s=10"
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/89/3e/26/wagamama-parndorf.jpg?w=600&h=400&s=1"
     ],
-    "details": "빈 미술사 박물관 관람 후 찾기 좋은 오스트리아 최고 수준의 정통 나폴리 화덕 피자 & 생면 파스타 비스트로입니다.\n\n• 🍽️ [대표 메뉴 & 가격]\n  - 마르게리타 DOP 화덕 피자: 14.50 EUR (약 21,700원)\n  - 트러플 화덕 피자 (Pizza Tartufo): 21.00 EUR (약 31,500원)\n  - 트러플 생면 파스타 (Pasta al Tartufo): 19.50 EUR (약 29,200원)\n  - 정통 티라미수: 6.90 EUR (약 10,300원)",
-    "guide": "이탈리아 본토 현지 셰프가 참나무 화덕에서 직접 구워내는 쫄깃한 피자도우가 일품",
-    "link": "https://www.google.com/maps/search/?api=1&query=L%27Autentico+Vienna",
-    "lat": 48.2182044,
-    "lng": 16.3648934,
-    "menus": [
-      {
-        "name": "마르게리타 DOP 화덕 피자 (Pizza Margherita DOP)",
-        "price": "14.50 EUR (약 21,700원)",
-        "desc": "산마르자노 토마토, 부파라 모짜렐라 치즈, 바질이 들어간 쫄깃한 이탈리아 참나무 화덕 피자",
-        "img": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        "name": "트러플 화덕 피자 (Pizza Tartufo)",
-        "price": "21.00 EUR (약 31,500원)",
-        "desc": "풍부한 트러플 페이스트와 생 트러플 슬라이스가 올라간 최고급 화덕 피자",
-        "img": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        "name": "트러플 생면 파스타 (Pasta al Tartufo)",
-        "price": "19.50 EUR (약 29,200원)",
-        "desc": "셰프가 매일 아침 직접 뽑은 생면에 블랙 트러플 풍미가 그득한 프리미엄 파스타",
-        "img": "https://images.unsplash.com/photo-1621996346565-e3d5d6281276?auto=format&fit=crop&w=600&q=80"
-      }
-    ],
+    "details": "쇼핑 중간 아울렛 중앙 광장에 위치한 레스토랑에서 맛있는 아시안 누들, 돈까스 또는 수제 버거와 시원한 음료로 에너지를 충전합니다.\n\n• 🍽️ [대표 메뉴 & 가격]\n  - 와가마마 라멘 / 치킨 카츠 카레: 14.90 EUR (약 22,300원)\n  - 수제 버거 패키지 (Burgerista): 12.50 EUR (약 18,700원)\n  - 마너 시그니처 젤라또 & 커피: 4.50 EUR (약 6,700원)",
+    "guide": "16:00 복귀 셔틀 승차 전 택스리펀 라운지에서 면세 서류 정리 마무리!",
+    "link": "https://www.google.com/maps/search/?api=1&query=Wagamama+Parndorf",
+    "lat": 47.9782,
+    "lng": 16.8492,
     "isRestaurant": true
   },
   {
     "date": "8.29",
-    "time": "15:00",
-    "place": "오스트리아 국립도서관",
+    "time": "16:00",
+    "place": "판도르프 셔틀 탑승장 (Designer Outlet Center-Straße 79)",
     "country_flag": "🇦🇹",
-    "emoji": "📚",
-    "desc": "세계에서 가장 아름다운 프레스코화가 있는 후기 바로크 양식의 도서관",
+    "emoji": "🚌",
+    "desc": "판도르프 출발 ➔ 빈 시내(Opernring) 복귀 셔틀버스 탑승",
     "imgs": [
-      "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/1880682a-eebf-49f8-9340-9667680038f1.jpeg",
-      "https://fuutazbsb.filerobot.com/1fizXg64tdXLXbmv4gbLboy2g_sN2NkNGZhYjU4YmFmMzg2/Die-groesste-Klosterbibliothek-der-Welt-im-Stift-Admont_Oesterreich-Werbung_Sebastian-Burziwal.jpeg?gravity=auto&w=1728&h=740&func=crop&q=75"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Designer_Outlet_Parndorf.jpg/1280px-Designer_Outlet_Parndorf.jpg"
     ],
-    "details": "영화 '미녀와 야수' 속 도서관의 모티브가 된 역사적인 장소입니다. 거대한 오프닝 룸(Prunksaal)의 천장을 가득 채운 화려한 프레스코화와 수백 년 된 고서들이 벽면을 채우고 있어 마치 타임머신을 타고 과거로 온 듯한 신비로운 분위기를 연출합니다.",
-    "guide": "운영시간 10:00 - 18:00 / 도서관 내부 보존을 위해 플래시 촬영 금지",
-    "link": "https://www.google.com/maps/search/?api=1&query=Austrian+National+Library",
-    "lat": 48.206013,
-    "lng": 16.366811,
-    "guide_links": [
-      "https://www.onb.ac.at/en/audio-guide"
-    ],
-    "entrance_fee": "호화 홀(Prunksaal) 성인 €10.00",
-    "docent_guide": "18세기 카를 6세 황제가 건립한 오스트리아 국립도서관 호화 홀(Prunksaal)입니다. 80m 길이의 홀에 호두나무 책장과 20만 권의 고서, 화려한 바네르 천장 프레스코화와 카를 6세 황제 동상이 눈을 사로잡습니다.",
-    "masterpieces": [],
-    "docent_topic": "세계에서 가장 아름다운 호화 홀(Prunksaal)의 서적 신전"
+    "details": "아울렛 샌딩/픽업 장소(Designer Outlet Center-Straße 79)에서 16:00 복귀 셔틀버스에 탑승하여 빈 시내(오페른링 3/5)로 돌아옵니다. (약 45~50분 소요, 16:50경 빈 시내 도착)",
+    "guide": "셔틀 출발 10분 전(15:50)까지 하차했던 탑승 장소로 집결하세요.",
+    "link": "https://www.google.com/maps/search/?api=1&query=Designer+Outlet+Center-Stra%C3%9Fe+79%2C+7111+Parndorf",
+    "lat": 47.9782,
+    "lng": 16.8492
   },
   {
     "date": "8.29",
-    "time": "18:30",
+    "time": "17:00",
+    "place": "오스트리아 국립도서관",
+    "country_flag": "🇦🇹",
+    "emoji": "📚",
+    "desc": "빈 시내 복귀 후 세계에서 가장 아름다운 후기 바로크 양식 도서관 관람",
+    "imgs": [
+      "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/1880682a-eebf-49f8-9340-9667680038f1.jpeg"
+    ],
+    "details": "판도르프 쇼핑을 마치고 빈 시내로 복귀하여, 영화 '미녀와 야수' 속 도서관의 모티브가 된 역사적인 오스트리아 국립도서관 호화 홀(Prunksaal)을 관람합니다.",
+    "guide": "운영시간 10:00 - 18:00 / 천장 프레스코화와 카를 6세 황제 동상 포토존",
+    "link": "https://www.google.com/maps/search/?api=1&query=Austrian+National+Library",
+    "lat": 48.206013,
+    "lng": 16.366811,
+    "entrance_fee": "호화 홀(Prunksaal) 성인 €10.00"
+  },
+  {
+    "date": "8.29",
+    "time": "18:00",
     "place": "Ribs of Vienna",
     "country_flag": "🇦🇹",
     "emoji": "🍖",
@@ -1235,13 +1250,13 @@
     "place": "Leonardo Hotel Vienna Hauptbahnhof (숙소)",
     "country_flag": "🇦🇹",
     "emoji": "🏨",
-    "desc": "숙소 복귀 및 휴식",
+    "desc": "숙소 복귀, 쇼핑 물품 정돈 및 프라하 이동 짐 정리",
     "imgs": [
       "https://avatars.mds.yandex.net/get-altay/16138055/2a0000019a97f70dc3006bbe5a95779a2881/L_height",
       "https://media.leonardo-hotels.com/static.leonardo-hotels.com/image/leonardohotelviennahauptbahnhof_room_comfortdouble1_2023_db5732fd5c0f2d345b854ad8db1076ac.jpg"
     ],
-    "details": "내일 새벽 기차로 시작되는 할슈타트 근교 여행과 프라하 이동이라는 대장정을 위해 일찍 짐을 완전히 싸두고 숙면을 취합니다.",
-    "guide": "여권, 기차 이티켓(OBB, 렌페 등) 스마트폰 지갑 앱에 다운로드 확인",
+    "details": "판도르프 아울렛에서 획득한 쇼핑 물품을 정리하고 영수증 및 택스리펀 서류를 챙긴 후 내일 프라하 이동을 위한 짐을 쌉니다.",
+    "guide": "여권, 기차 이티켓(OBB) 스마트폰 지갑 앱 다운로드 확인",
     "link": "https://www.google.com/maps/search/?api=1&query=Leonardo+Hotel+Vienna+Hauptbahnhof",
     "lat": 48.183758,
     "lng": 16.378103

@@ -698,8 +698,7 @@
         </main>
     </div>
 
-    <!-- 오프라인/로컬 파일 실행 대비 데이터 스크립트 및 Leaflet 지도 라이브러리 -->
-    <script src="data.json"></script>
+    <!-- Leaflet 지도 라이브러리 스크립트 추가 -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
         let selectedDate = 'all';
@@ -715,20 +714,17 @@
         async function loadItineraryData(filePath = 'data.json') {
             try {
                 const response = await fetch(filePath);
-                if (!response.ok) throw new Error('Network response failed');
+                if (!response.ok) throw new Error('Network response was not ok');
                 return await response.json();
             } catch (error) {
-                console.warn('fetch() 실패, fallback ITINERARY_DATA 사용:', error);
-                if (typeof window.ITINERARY_DATA !== 'undefined' && Array.isArray(window.ITINERARY_DATA)) {
-                    return window.ITINERARY_DATA;
-                }
-                return null;
+                console.error('Fetch 실패:', error);
+                return [];
             }
         }
 
         window.onload = function () {
             loadItineraryData().then(data => {
-                itineraryData = data || (typeof window.ITINERARY_DATA !== 'undefined' ? window.ITINERARY_DATA : []);
+                itineraryData = data || [];
                 initMap();
             });
         };
