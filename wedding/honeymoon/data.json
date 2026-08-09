@@ -22,12 +22,12 @@
     "place": "부다페스트 공항 (Elife Limo 픽업)",
     "country_flag": "🇭🇺",
     "emoji": "🛬",
-    "desc": "Elife Limo 전용 차량 숙소 이동",
+    "desc": "Elife Limo 전용 차량 숙소 이동 ",
     "imgs": [
       "https://upload.wikimedia.org/wikipedia/commons/8/83/Termin%C3%A1l_2_-_Ferihegy%2C_2015.07.27.JPG"
     ],
-    "details": "부다페스트 리스트 페렌츠 국제공항(BUD) 입국 후, 예약된 Elife Limo 전용 차량을 타고 Novotel Budapest Danube 숙소로 이동합니다. (차량: Sedan - Corolla or similar / 탑승 인원: 최대 3명, 수하물: 최대 3개)",
-    "guide": "픽업 기사: Gárdián Péter | 연락처(WhatsApp): +36 30 146 6317 | 수하물 수령 후 입국장 입구에서 픽업 기사 미팅 (피켓 확인)",
+    "details": "대한항공 KE963편으로 부다페스트 리스트 페렌츠 국제공항(BUD) 입국(17:55 도착 예정) 후, 예약된 Elife Limo 전용 차량을 타고 Novotel Budapest Danube 숙소로 이동합니다.\n\n• 📄 [예약 & 바우처 정보]\n  - 예약 번호: YK3413127989 (공급업체 참조: 18320307)\n  - 대표 탑승객: Mr. YOUNGKIL KANG (강영길)\n  - 차종 & 인원: Sedan Car (최대 3인승 / 탑승인원 2명)\n  - 목적지 주소: Novotel Budapest Danube (Bem rkp. 33-34, 1027 Hungary)\n  - 결제 상태: Pay In Advance (Stripe 사전 결제 완료)",
+    "guide": "• 📍 [미팅 포인트]: 공항 입국장(Arrivals Area)에서 대표 탑승객 이름(Mr. YOUNGKIL KANG) 피켓 확인\n• ⏱️ [기사 도착 & 대기 시간]: 기사는 비행기 실제 착륙 30분 후 미팅 포인트 도착. 착륙 시점 기준 60분 무료 대기 포함\n• ⚠️ [입국/짐 지연 시]: 입국심사나 수하물 대기로 60분 초과 예상 시 반드시 비상 연락처로 사전 연장 전화 필수!\n• 📞 [비상 연락처]: +1 8008144204 / +33 5 37 10 00 45 (WhatsApp 지원)\n• 🆘 [기사 미팅 실패 시]: 절대 장소를 이탈하지 마시고 헬프라인(+44 20 3062 9503)으로 전화하세요.",
     "link": "https://elifelimo.com/rides/?t_order=vQnb5kay",
     "lat": 47.438516,
     "lng": 19.2540304,
@@ -1345,36 +1345,56 @@
   },
   {
     "date": "8.30",
-    "time": "14:10",
+    "time": "10:30",
     "place": "빈 중앙역 (Wien Hbf)",
     "country_flag": "🇦🇹",
     "emoji": "🚉",
-    "desc": "체코 프라하행 직행 유로시티 열차 탑승 (14:10 출발 ➔ 18:13 프라하 도착)",
-    "details": "숙소에서 짐을 수령하여 빈 중앙역으로 이동 후, 체코 프라하행 직행 열차(약 4시간 소요)에 탑승합니다. 할슈타트 왕복 이동의 피로 없이 빈에서의 아침을 여유롭게 보내고 편안하게 프라하로 이동합니다.",
-    "guide": "출발 20분 전 승강장(Track) 확인 후 탑승. 기차 안에서 창밖 풍경을 보며 휴식.",
+    "desc": "숙소 체크아웃 후 빈 중앙역 이동 (출발 40분 전 도착)",
+    "details": "Leonardo Hotel Vienna Hauptbahnhof 숙소 체크아웃 후 체코 프라하(Praha hl.n.)행 ÖBB Railjet RJ 252 열차 탑승을 위해 빈 중앙역(Wien Hbf Bahnsteige 3-12) 승강장으로 이동합니다.",
+    "guide": "승강장은 Wien Hbf Bahnsteige 3-12 구역입니다. 여권(신분증)과 출력된 PDF 승차권 사전 준비 필수!",
     "link": "https://www.google.com/maps/search/?api=1&query=Wien+Hauptbahnhof",
     "lat": 48.185187,
-    "lng": 16.376597
+    "lng": 16.376597,
+    "imgs": [
+      "https://upload.wikimedia.org/wikipedia/commons/9/91/Wien_Hauptbahnhof%2C_2019_%2801%29.jpg?utm_source=ko.wikipedia.org&utm_campaign=index&utm_content=original"
+    ]
   },
   {
     "date": "8.30",
-    "time": "18:13",
+    "time": "11:10",
+    "place": "빈 > 프라하 초고속열차 (ÖBB Railjet RJ 252)",
+    "country_flag": "🇨🇿",
+    "emoji": "🚆",
+    "desc": "빈 중앙역 출발 > 프라하 중앙역 이동 (4시간 13분 소요)",
+    "imgs": [
+      "https://previews.123rf.com/images/zz3701/zz37011910/zz3701191000472/131039476-facade-of-the-prague-main-railway-station-czech-republic-prague-main-railway-station-abbreviated.jpg"
+    ],
+    "details": "빈 중앙역(Wien Hbf)에서 출발하여 체코 프라하 중앙역(Praha hl.n.)으로 이동하는 ÖBB Railjet RJ 252열차에 탑승합니다.\n\n• 🚆 [열차 정보 & 운행 일정]\n  - 열차명: Railjet 252 (RJ 252 / 2등석 Sparschiene)\n  - 출발: 11:10 (Wien Hbf Bahnsteige 3-12)\n  - 도착: 15:23 (Praha hl.n.)\n  - 소요시간: 4시간 13분 (경유: Gaenserndorf - Breclav - Brno - Havlickuv Brod/C.Trebova)\n  - 좌석 지정: 24번 객차(Wagen 24, Grossraumwagen) / 복도 63번 (강영길), 창가 61번 (성수진)\n  - 티켓 가격: 승차권 €14.30 × 2인 + 좌석 지정 €3.00 × 2인 (총 €34.60, PayPal 결제 완료)",
+    "guide": "• 🎟️ [티켓 지침]: 국경 이동(Cross-border) 티켓이므로 반드시 백색 A4 용지에 실물 출력(A4 Portrait)된 PDF 승차권과 여권(신분증)을 함께 소지해야 합니다!\n• 📍 [좌석 확인]: 24번 객차 63번(통로석), 61번(창가석) 확인 후 탑승하세요.",
+    "link": "https://www.google.com/maps/search/?api=1&query=Wien+Hbf+to+Praha+hln",
+    "lat": 48.185187,
+    "lng": 16.376597,
+    "reserved": "ÖBB Railjet 252 (Wagen 24, Seat 61/63)"
+  },
+  {
+    "date": "8.30",
+    "time": "15:23",
     "place": "프라하 중앙역 (Praha Hlavní Nádraží)",
     "country_flag": "🇨🇿",
     "emoji": "🚉",
-    "desc": "프라하 도착 및 K+K Hotel Central Prague 이동",
-    "details": "프라하 중앙역에 안전하게 도착하여 숙소인 K+K Hotel Central Prague까지 우버/택시 또는 도보 이동(약 10분)합니다.",
+    "desc": "프라하 중앙역 도착 및 K+K Hotel Central Prague 이동",
+    "details": "프라하 중앙역(Praha hl.n.)에 15:23 도착하여 숙소인 K+K Hotel Central Prague까지 도보(약 10분) 또는 우버/택시로 이동합니다.",
     "link": "https://www.google.com/maps/search/?api=1&query=Praha+Hlavn%C3%AD+N%C3%A1dra%C5%BE%C3%AD",
     "lat": 50.083208,
     "lng": 14.435305
   },
   {
     "date": "8.30",
-    "time": "18:45",
+    "time": "16:00",
     "place": "K+K Hotel Central Prague (숙소)",
     "country_flag": "🇨🇿",
     "emoji": "🏨",
-    "desc": "프라하 숙소 체크인 및 짐 보관",
+    "desc": "프라하 숙소 체크인 및 휴식",
     "details": "프라하 중심가에 위치한 4성급 K+K 호텔 체크인 후 짐을 정돈하고 첫 프라하 나들이 준비를 합니다.",
     "link": "https://www.google.com/maps/search/?api=1&query=K%2BK+Hotel+Central+Prague",
     "lat": 50.0871169,
