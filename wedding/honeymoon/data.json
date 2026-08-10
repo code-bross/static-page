@@ -117,8 +117,8 @@
       "https://media.joinup.travel/storage/hotel/29546/photos/16721_1.jpg",
       "https://images.trvl-media.com/lodging/2000000/1520000/1516000/1515991/10c96f3c.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill"
     ],
-    "details": "호텔 레스토랑에서 다뉴브강을 바라보며 신선한 베이커리와 커피로 아침을 시작합니다. 온천 방문이 예정되어 있으므로 수영복과 타월 등을 미리 챙겨 나섭니다.",
-    "guide": "온천용 개인 수영복, 슬리퍼, 수영모(선택) 가방에 미리 준비",
+    "details": "호텔 레스토랑에서 다뉴브강을 바라보며 신선한 베이커리와 커피로 아침을 시작합니다. 부다페스트 페스트 지구의 주요 명소와 시장, 안드라시 거리 쇼핑 투어를 위해 나섭니다.",
+    "guide": "편안한 운동화와 카메라 준비 / 유로 및 포린트 현금 일부 지참 권장",
     "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube",
     "lat": 47.507421,
     "lng": 19.038742
@@ -328,17 +328,51 @@
   },
   {
     "date": "8.25",
-    "time": "17:00",
+    "time": "18:30",
+    "place": "다뉴브 강변 가로수길 (Dunakorzó)",
+    "country_flag": "🇭🇺",
+    "emoji": "🌅",
+    "desc": "페스트 강변 산책 & 국회의사당 석양 감상",
+    "imgs": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Andr%C3%A1ssy_%C3%BAt_-_Budapest.jpg/1280px-Andr%C3%A1ssy_%C3%BAt_-_Budapest.jpg",
+      "https://media.joinup.travel/storage/hotel/29546/photos/16721_1.jpg"
+    ],
+    "details": "안드라시 거리 쇼핑과 구경을 마친 후 다뉴브 강변 가로수길(Dunakorzó)을 따라 거닐며, 노을빛으로 물드는 다뉴브강과 맞은편 부다 왕궁, 국회의사당의 매혹적인 운치를 즐깁니다.",
+    "guide": "강바람이 쌀쌀할 수 있으니 가벼운 겉옷 지참 / 인생샷 포인트",
+    "link": "https://www.google.com/maps/search/?api=1&query=Dunakorzó+Budapest",
+    "lat": 47.4958,
+    "lng": 19.0498
+  },
+  {
+    "date": "8.25",
+    "time": "20:30",
+    "place": "Novotel Budapest Danube (숙소)",
+    "country_flag": "🇭🇺",
+    "emoji": "🏨",
+    "desc": "숙소 복귀 및 내일 온천 일정 준비",
+    "imgs": [
+      "https://media.joinup.travel/storage/hotel/29546/photos/16721_1.jpg",
+      "https://images.trvl-media.com/lodging/2000000/1520000/1516000/1515991/10c96f3c.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill"
+    ],
+    "details": "페스트 지구 일정을 마치고 숙소로 복귀하여 휴식을 취합니다. 내일(8.26) 아침 세체니 온천 방문을 위해 수영복과 슬리퍼, 타월 등 온천 용품을 미리 챙겨둡니다.",
+    "guide": "내일(8.26) 오전 세체니 온천 준비물(개인 수영복, 슬리퍼) 미리 가방에 준비 / 숙면 취하기",
+    "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube",
+    "lat": 47.507421,
+    "lng": 19.038742
+  },
+  {
+    "date": "8.26",
+    "time": "09:00",
     "place": "세체니 온천",
     "country_flag": "🇭🇺",
     "emoji": "♨️",
-    "desc": "야간 온천 입욕",
+    "desc": "상쾌한 아침 모닝 온천 입욕 & 힐링",
     "imgs": [
       "https://mblogthumb-phinf.pstatic.net/MjAyNDEwMjBfMTEz/MDAxNzI5MzU1NjYyNjky.1LC_9g5qvfAm4q_U3hzEhsfbaqIxXosNkrWhbDeTG20g.Z3J3W-JVx1kzC8ec-7GfwC9PezbZrEMDM8X0aedgj4Mg.JPEG/8CAA4F29-50FE-4D1D-97FF-CA0686018827_1_105_c.jpeg?type=w800",
       "https://www.windsortour.co.kr/images/area_img/HU/BUD/HUBUD3200392_0002.jpg?CMD=resize&width=100%"
     ],
-    "details": "네오바로크 양식의 화려한 궁전 같은 건물에서 즐기는 유럽 최대 규모의 온천입니다. 따뜻한 노천탕에 몸을 담그고 현지인들이 물속에서 체스를 두는 이색적인 풍경을 감상하며 여유를 만끽합니다.",
-    "guide": "락커 또는 캐빈(개인실) 포함 티켓 사전 구매 필수 / 슬리퍼 착용 필수",
+    "details": "네오바로크 양식의 화려한 궁전 같은 건물에서 즐기는 유럽 최대 규모의 온천입니다. 상쾌한 아침 햇살 아래 따뜻한 노천탕에 몸을 담그고 현지인들이 물속에서 체스를 두는 이색적인 풍경을 감상하며 여유를 만끽합니다.",
+    "guide": "오전 9시 방문으로 붐비지 않고 한적하게 온천 이용 가능! 락커 또는 캐빈(개인실) 포함 티켓 사전 구매 필수 / 슬리퍼 착용 필수",
     "link": "https://www.google.com/maps/search/?api=1&query=Sz%C3%A9chenyi+Thermal+Bath",
     "lat": 47.5186568,
     "lng": 19.0823791,
@@ -364,14 +398,14 @@
     "docent_topic": "네오바르크 궁전 속 휴식, 부다페스트 100년 온천 문화"
   },
   {
-    "date": "8.25",
-    "time": "20:00",
+    "date": "8.26",
+    "time": "11:45",
     "place": "Paprika Vendéglő (파프리카 벤데글뢰)",
     "country_flag": "🇭🇺",
     "emoji": "🍽️",
-    "desc": "세체니 온천 입욕 후 즐기는 전통 헝가리식 저녁 식사 (구글 저장 스팟)",
-    "details": "세체니 온천과 시민공원에서 도보 5분 거리에 위치한 헝가리 로컬 전통 오두막 스타일 레스토랑입니다. 구글 저장목록 스팟 중 세체니 온천 동선과 100% 일치하며 파프리카 소고기 스튜, 치킨 파프리카시, 그릴 모듬 요리가 훌륭합니다.",
-    "guide": "세체니 온천 이용 후 (20:00) 바로 저녁 식사하기 가장 편리한 위치. 현지 인기 맛집으로 온천 출발 전 사전 예약 권장.",
+    "desc": "세체니 온천 입욕 후 즐기는 전통 헝가리식 점심 식사 (구글 저장 스팟)",
+    "details": "세체니 온천과 시민공원에서 도보 5분 거리에 위치한 헝가리 로컬 전통 오두막 스타일 레스토랑입니다. 상쾌하게 온천욕을 마친 후 파프리카 소고기 스튜, 치킨 파프리카시, 그릴 모듬 요리로 든든한 점심 식사를 즐깁니다.",
+    "guide": "세체니 온천 이용 후 (11:45) 바로 점심 식사하기 가장 편리한 위치. 현지 인기 맛집으로 사전 예약 권장.",
     "link": "https://www.google.com/maps/search/?api=1&query=Paprika+Vend%C3%A9gl%C5%91+Budapest",
     "lat": 47.508868,
     "lng": 19.083108,
@@ -398,46 +432,12 @@
     ]
   },
   {
-    "date": "8.25",
-    "time": "22:00",
-    "place": "Novotel Budapest Danube (숙소)",
-    "country_flag": "🇭🇺",
-    "emoji": "🏨",
-    "desc": "저녁 식사 후 숙소 복귀 및 휴식",
-    "imgs": [
-      "https://media.joinup.travel/storage/hotel/29546/photos/16721_1.jpg",
-      "https://images.trvl-media.com/lodging/2000000/1520000/1516000/1515991/10c96f3c.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill"
-    ],
-    "details": "온천욕으로 피로를 시원하게 풀고 숙소로 돌아옵니다. 밤낮으로 아름다운 다뉴브강의 야경을 감상하며 편안한 밤을 보냅니다.",
-    "guide": "온천 후 젖은 옷가지는 세탁용 백에 따로 분리 보관",
-    "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube",
-    "lat": 47.507421,
-    "lng": 19.038742
-  },
-  {
     "date": "8.26",
-    "time": "09:30",
-    "place": "Novotel Budapest Danube (숙소)",
-    "country_flag": "🇭🇺",
-    "emoji": "🏨",
-    "desc": "숙소 출발 및 부다 지구 탐방 시작",
-    "imgs": [
-      "https://media.joinup.travel/storage/hotel/29546/photos/16721_1.jpg",
-      "https://images.trvl-media.com/lodging/2000000/1520000/1516000/1515991/10c96f3c.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill"
-    ],
-    "details": "부다페스트에서의 셋째 날 일정을 시작합니다. 화려한 카페 문화와 역사적인 부다 지구의 랜드마크들을 집중적으로 탐방하는 날입니다.",
-    "guide": "도보 이동이 많으므로 편안한 운동화 착용 권장",
-    "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube",
-    "lat": 47.507421,
-    "lng": 19.038742
-  },
-  {
-    "date": "8.26",
-    "time": "10:30",
+    "time": "13:30",
     "place": "New York Kávéház",
     "country_flag": "🇭🇺",
     "emoji": "☕",
-    "desc": "브런치 및 카페 투어 (세계에서 가장 아름다운 카페)",
+    "desc": "오후 티타임 및 카페 투어 (세계에서 가장 아름다운 카페)",
     "imgs": [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPTSb_S4J4ZtsOsTVpb-g93gh9a6NecPYOqDyudVRbDJXXYNdn096xvk0&s=10",
       "https://encryptedtbn0.gstatic.com/images?q=tbn:ANd9GcTK6vsvF8b2Cl6MhhJnyKZXkmUKKueoKpLmf57WC7Qtv120TXlT_FNZiRU&s=10"
