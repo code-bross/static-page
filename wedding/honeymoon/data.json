@@ -196,8 +196,8 @@
       "https://etterem.hu/img/max960/p571n/1354184858-7579.jpg",
       "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2Fb18q08%2FbtshBmZN9Tg%2FAAAAAAAAAAAAAAAAAAAAAJ9_tM0bOc-iU3gpra-6YOi_v88kXSIiqa_kte3qIOmg%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1785509999&allow_ip=&allow_referer=&signature=FO1TjsYtBjDj0VA3rSn4Hsr%252F%252Fz0%253D"
     ],
-    "details": "70년대 레트로 인테리어와 한국인 입맛에 가장 부합하는 부다페스트 대표 대중 맛집입니다.\n\n• 🍽️ [대표 메뉴 & 가격]\n  - 마늘 크림 스프 (식빵 그릇): 3,290 HUF (약 12,500원)\n  - 헝가리안 전통 굴라시 스프: 3,990 HUF (약 15,200원)\n  - 오리 가슴살 스테이크 & 리소토: 6,990 HUF (약 26,600원)\n  - 바삭하게 튀긴 만갈리차 돼지고기: 6,490 HUF (약 24,700원)",
-    "guide": "마늘 크림 스프와 굴라시 조합은 필수! 구글 또는 홈페이지 사전 예약 추천",
+    "details": "70년대 레트로 인테리어와 한국인 입맛에 부합하는 부다페스트 대표 레트로 비스트로입니다. 굴라시/파프리카 중심 식사와 중복되지 않도록, 시그니처 식빵 마늘 크림 스프와 부드러운 오리 가슴살 스테이크 리소토로 세련되고 깔끔하게 점심을 즐깁니다.\n\n• 🍽️ [대표 추천 메뉴 & 가격]\n  - 마늘 크림 스프 (식빵 그릇): 3,290 HUF (약 12,500원)\n  - 오리 가슴살 스테이크 & 리소토: 6,990 HUF (약 26,600원)\n  - 멘자 로제 수제 파스타: 4,990 HUF (약 19,000원)",
+    "guide": "마늘 크림 스프와 오리 가슴살 리소토 조합 추천! 구글 또는 홈페이지 사전 예약 추천",
     "link": "https://www.google.com/maps/search/?api=1&query=Menza+Étterem+és+Kávézó+Budapest",
     "lat": 47.502812,
     "lng": 19.064523,
@@ -206,14 +206,8 @@
       {
         "name": "마늘 크림 스프 (Garlic Cream Soup in Bread)",
         "price": "3,290 HUF (약 12,500원)",
-        "desc": "바삭하게 구운 식빵 볼 용기에 부드럽고 고소한 마늘 크림 스프가 듬뿍 담겨 나오는 멘자 대표 메뉴",
+        "desc": "바삭하게 구운 식빵 볼 용기에 부드럽고 고소한 마늘 크림 스프가 듬뿍 담겨 나오는 멘자 대표 시그니처 메뉴",
         "img": "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        "name": "전통 헝가리안 굴라시 스프 (Traditional Goulash)",
-        "price": "3,990 HUF (약 15,200원)",
-        "desc": "한국인 입맛에 가장 잘 맞기로 소문난 매콤 달콤하고 깊은 맛의 파프리카 소고기 스튜",
-        "img": "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=600&q=80"
       },
       {
         "name": "오리 가슴살 스테이크 & 리소토 (Duck Breast Risotto)",
@@ -222,10 +216,10 @@
         "img": "https://images.unsplash.com/photo-1514944288352-fffac99f0bdf?auto=format&fit=crop&w=600&q=80"
       },
       {
-        "name": "튀긴 만갈리차 돼지고기 (Crispy Mangalica Pork)",
-        "price": "6,490 HUF (약 24,700원)",
-        "desc": "헝가리 명물 만갈리차 돼지고기를 바삭하게 튀겨 으깬 감자와 함께 제공하는 메인 디시",
-        "img": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80"
+        "name": "멘자 로제 수제 파스타 (Rosé Pasta)",
+        "price": "4,990 HUF (약 19,000원)",
+        "desc": "고소하고 부드러운 로제 크림 소스와 수제 파스타 면의 담백한 조화",
+        "img": "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=600&q=80"
       }
     ],
     "isRestaurant": true
@@ -328,7 +322,7 @@
   },
   {
     "date": "8.25",
-    "time": "18:30",
+    "time": "18:00",
     "place": "다뉴브 강변 가로수길 (Dunakorzó)",
     "country_flag": "🇭🇺",
     "emoji": "🌅",
@@ -338,23 +332,61 @@
       "https://media.joinup.travel/storage/hotel/29546/photos/16721_1.jpg"
     ],
     "details": "안드라시 거리 쇼핑과 구경을 마친 후 다뉴브 강변 가로수길(Dunakorzó)을 따라 거닐며, 노을빛으로 물드는 다뉴브강과 맞은편 부다 왕궁, 국회의사당의 매혹적인 운치를 즐깁니다.",
-    "guide": "강바람이 쌀쌀할 수 있으니 가벼운 겉옷 지참 / 인생샷 포인트",
+    "guide": "컴체소 식당 도보 3분 거리 위치! 가벼운 겉옷 지참 / 인생샷 포인트",
     "link": "https://www.google.com/maps/search/?api=1&query=Dunakorzó+Budapest",
     "lat": 47.4958,
     "lng": 19.0498
   },
   {
     "date": "8.25",
-    "time": "20:30",
+    "time": "19:30",
+    "place": "Comme Chez Soi (컴체소)",
+    "country_flag": "🇭🇺",
+    "emoji": "🍷",
+    "desc": "부다페스트 1위 미식 비스트로 (트러플 파스타 & 푸아그라 안심 스테이크)",
+    "imgs": [
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"
+    ],
+    "details": "구글 평점 4.9/5 (후기 5,000개 이상)를 자랑하는 부다페스트 최고 인기 로맨틱 비스트로입니다. 굴라시나 파프리카 요리와 차별화된 최고급 생트러플 크림 파스타와 입에서 녹는 푸아그라 안심 스테이크를 즐깁니다.\n\n• 🍷 [특별 혜택 & 시그니처 추천 메뉴]\n  - 무료 웰컴 샹그리아 와인 & 갓 구운 토스카나 식전 빵 제공\n  - 수제 생트러플 크림 파스타 / 뇨끼: 5,900 HUF (약 22,400원)\n  - 푸아그라 소고기 안심 스테이크: 11,900 HUF (약 45,000원)\n  - 해산물 토마토 링귀니 파스타: 6,500 HUF (약 24,700원)\n  - 식후 수제 초콜릿 서비스",
+    "guide": "테이블 수가 적어 최소 1~2주 전 예약 필수 (이메일 예약: commechezsoi@gmail.com)",
+    "link": "https://www.google.com/maps/search/?api=1&query=Comme+Chez+Soi+Budapest",
+    "lat": 47.493902,
+    "lng": 19.052671,
+    "isRestaurant": true,
+    "menus": [
+      {
+        "name": "수제 생트러플 크림 파스타 (Truffle Cream Pasta)",
+        "price": "5,900 HUF (약 22,400원)",
+        "desc": "생트러플의 깊은 향과 부드러운 크림 소스가 입안 가득 퍼지는 컴체소 시그니처 파스타",
+        "img": "https://images.unsplash.com/photo-1621996346565-e3d5d6288337?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "name": "푸아그라 소고기 안심 스테이크 (Beef Tenderloin & Foie Gras)",
+        "price": "11,900 HUF (약 45,000원)",
+        "desc": "최상급 소고기 안심에 부드러운 푸아그라를 올린 로맨틱 디너 시그니처 스테이크",
+        "img": "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "name": "해산물 토마토 링귀니 (Seafood Linguine)",
+        "price": "6,500 HUF (약 24,700원)",
+        "desc": "신선한 새우와 관자, 조개가 풍성하게 들어간 깔끔한 풍미의 해산물 파스타",
+        "img": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=600&q=80"
+      }
+    ]
+  },
+  {
+    "date": "8.25",
+    "time": "21:30",
     "place": "Novotel Budapest Danube (숙소)",
     "country_flag": "🇭🇺",
     "emoji": "🏨",
-    "desc": "숙소 복귀 및 내일 온천 일정 준비",
+    "desc": "저녁 식사 후 숙소 복귀 및 휴식",
     "imgs": [
       "https://media.joinup.travel/storage/hotel/29546/photos/16721_1.jpg",
       "https://images.trvl-media.com/lodging/2000000/1520000/1516000/1515991/10c96f3c.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill"
     ],
-    "details": "페스트 지구 일정을 마치고 숙소로 복귀하여 휴식을 취합니다. 내일(8.26) 아침 세체니 온천 방문을 위해 수영복과 슬리퍼, 타월 등 온천 용품을 미리 챙겨둡니다.",
+    "details": "페스트 지구 미식 투어를 마치고 숙소로 복귀하여 휴식을 취합니다. 내일(8.26) 아침 세체니 온천 방문을 위해 수영복과 슬리퍼, 타월 등 온천 용품을 미리 챙겨둡니다.",
     "guide": "내일(8.26) 오전 세체니 온천 준비물(개인 수영복, 슬리퍼) 미리 가방에 준비 / 숙면 취하기",
     "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube",
     "lat": 47.507421,
