@@ -813,6 +813,23 @@
   {
     "date": "8.27",
     "time": "19:15",
+    "place": "오스트리아 국립도서관",
+    "country_flag": "🇦🇹",
+    "emoji": "📚",
+    "desc": "목요일 야간 개장을 활용한 세계에서 가장 아름다운 후기 바로크 양식 도서관 관람",
+    "imgs": [
+      "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/1880682a-eebf-49f8-9340-9667680038f1.jpeg"
+    ],
+    "details": "영화 '미녀와 야수' 속 도서관의 모티브가 된 역사적인 오스트리아 국립도서관 호화 홀(Prunksaal)을 관람합니다. 목요일은 특별히 21:00까지 야간 연장 개장하므로 붐비지 않고 여유롭게 장엄한 바로크 서가와 프레스코화를 감상할 수 있습니다.",
+    "guide": "목요일 야간 개장 21:00 마감 / 호프부르크 왕궁 광장 및 콜마르크트 명품거리와 도보 2분거리 연계",
+    "link": "https://www.google.com/maps/search/?api=1&query=Austrian+National+Library",
+    "lat": 48.206013,
+    "lng": 16.366811,
+    "entrance_fee": "호화 홀(Prunksaal) 성인 €10.00"
+  },
+  {
+    "date": "8.27",
+    "time": "19:55",
     "place": "콜마르크트 & 그라벤 거리",
     "country_flag": "🇦🇹",
     "emoji": "🛍️",
@@ -1224,19 +1241,18 @@
   {
     "date": "8.29",
     "time": "17:00",
-    "place": "오스트리아 국립도서관",
+    "place": "슈테판 대성당 광장 & 빈 중심가 산책",
     "country_flag": "🇦🇹",
-    "emoji": "📚",
-    "desc": "빈 시내 복귀 후 세계에서 가장 아름다운 후기 바로크 양식 도서관 관람",
+    "emoji": "⛪",
+    "desc": "판도르프 쇼핑 복귀 후 슈테판 대성당 주변 자유 산책 & 여유로운 휴식",
     "imgs": [
-      "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/1880682a-eebf-49f8-9340-9667680038f1.jpeg"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Wien_-_Kohlmarkt_%281%29.JPG/1280px-Wien_-_Kohlmarkt_%281%29.JPG"
     ],
-    "details": "판도르프 쇼핑을 마치고 빈 시내로 복귀하여, 영화 '미녀와 야수' 속 도서관의 모티브가 된 역사적인 오스트리아 국립도서관 호화 홀(Prunksaal)을 관람합니다.",
-    "guide": "운영시간 10:00 - 18:00 / 천장 프레스코화와 카를 6세 황제 동상 포토존",
-    "link": "https://www.google.com/maps/search/?api=1&query=Austrian+National+Library",
-    "lat": 48.206013,
-    "lng": 16.366811,
-    "entrance_fee": "호화 홀(Prunksaal) 성인 €10.00"
+    "details": "판도르프 아울렛 쇼핑 후 빈 시내(Opernring)로 복귀하여 슈테판 대성당 광장과 케른트너 거리를 여유롭게 산책하며 카페 세샤트나 마너 숍 구경을 즐깁니다.",
+    "guide": "아울렛 쇼핑 짐이 많은 경우 오페른링 셔틀 하차 후 도보 산책 후 저녁 식당으로 이동 용이",
+    "link": "https://www.google.com/maps/search/?api=1&query=St.+Stephen's+Cathedral+Vienna",
+    "lat": 48.208492,
+    "lng": 16.373118
   },
   {
     "date": "8.29",
