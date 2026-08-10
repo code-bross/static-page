@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웨딩 음원 보관함 | 고음질 MP3 미리듣기 및 다운로드</title>
+    <meta name="description" content="결혼식 본식 음원(어머니들 입장곡, 신랑 입장곡, 신부 입장곡, 퇴장곡) 미리듣기 및 고음질 MP3 다운로드 보관함">
+    <!-- Google Fonts & Pretendard -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Outfit:wght@400;500;600;700&family=Pretendard:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f141c;
+            --card-bg: rgba(26, 34, 48, 0.75);
+            --card-border: rgba(226, 186, 132, 0.22);
+            --card-hover: rgba(35, 46, 64, 0.9);
+            --accent-gold: #e2ba84;
+            --accent-gold-glow: rgba(226, 186, 132, 0.35);
+            --accent-rose: #f43f5e;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --text-sub: #cbd5e1;
+            --shadow-glow: 0 12px 40px rgba(0, 0, 0, 0.45);
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 10px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Pretendard', 'Outfit', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(circle at 15% 15%, rgba(226, 186, 132, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(244, 63, 94, 0.06) 0%, transparent 45%);
+            padding-bottom: 120px;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Hero Header */
+        .hero {
+            text-align: center;
+            padding: 48px 24px 36px;
+            background: linear-gradient(135deg, rgba(226, 186, 132, 0.12) 0%, rgba(15, 20, 28, 0.8) 100%);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow-glow);
+            backdrop-filter: blur(16px);
+            margin-bottom: 36px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(226, 186, 132, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .badge-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 16px;
+            background: rgba(226, 186, 132, 0.15);
+            border: 1px solid rgba(226, 186, 132, 0.4);
+            border-radius: 999px;
+            color: var(--accent-gold);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', 'Pretendard', serif;
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff 30%, var(--accent-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            color: var(--text-sub);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto 28px;
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .btn-hero {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 0.98rem;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #e2ba84 0%, #c49a62 100%);
+            color: #0f141c;
+            box-shadow: 0 8px 24px var(--accent-gold-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(226, 186, 132, 0.5);
+            background: linear-gradient(135deg, #ebd0a3 0%, #d4aa70 100%);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-main);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 16px 24px;
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--card-border);
+            margin-bottom: 32px;
+            backdrop-filter: blur(12px);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+
+        }
+
+        .stat-val {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-top: 2px;
+        }
+
+        /* Section Title */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 0 4px;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 20px;
+            background: var(--accent-gold);
+            border-radius: 2px;
+        }
+
+        /* Track Grid */
+        .tracks-list {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .track-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-md);
+            padding: 22px 24px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(12px);
+        }
+
+        .track-card:hover {
+            background: var(--card-hover);
+            border-color: rgba(226, 186, 132, 0.45);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .track-card.active-playing {
+            border-color: var(--accent-gold);
+            background: rgba(35, 48, 68, 0.95);
+            box-shadow: 0 0 30px rgba(226, 186, 132, 0.25);
+        }
+
+        /* Track Cover Icon */
+        .track-icon-wrapper {
+            width: 64px;
+            height: 64px;
+            border-radius: var(--radius-sm);
+            background: linear-gradient(135deg, rgba(226, 186, 132, 0.2) 0%, rgba(244, 63, 94, 0.15) 100%);
+            border: 1px solid rgba(226, 186, 132, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        /* Playing Visualizer Equalizer */
+        .equalizer {
+            display: none;
+            align-items: flex-end;
+            gap: 3px;
+            height: 20px;
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+        }
+
+        .track-card.active-playing .equalizer {
+            display: flex;
+        }
+
+        .eq-bar {
+            width: 3px;
+            background: var(--accent-gold);
+            border-radius: 2px;
+            animation: eq-bounce 1s infinite ease-in-out alternate;
+        }
+
+        .eq-bar:nth-child(1) { height: 60%; animation-delay: 0.1s; }
+        .eq-bar:nth-child(2) { height: 100%; animation-delay: 0.3s; }
+        .eq-bar:nth-child(3) { height: 40%; animation-delay: 0.2s; }
+        .eq-bar:nth-child(4) { height: 80%; animation-delay: 0.4s; }
+
+        @keyframes eq-bounce {
+            0% { height: 20%; }
+            100% { height: 100%; }
+        }
+
+        /* Track Info */
+        .track-info {
+            flex-grow: 1;
+            min-width: 0;
+        }
+
+        .track-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+        }
+
+        .track-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-main);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .track-tag {
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-muted);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tag-entrance { background: rgba(226, 186, 132, 0.15); color: var(--accent-gold); border-color: rgba(226, 186, 132, 0.3); }
+        .tag-exit { background: rgba(244, 63, 94, 0.15); color: var(--accent-rose); border-color: rgba(244, 63, 94, 0.3); }
+
+        .track-meta {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 0.86rem;
+            color: var(--text-muted);
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Mini Scrubber / Player Controls in Card */
+        .card-player-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .btn-play-mini {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--accent-gold);
+            color: #0f141c;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .btn-play-mini:hover {
+            transform: scale(1.08);
+            background: #ebd0a3;
+            box-shadow: 0 0 16px var(--accent-gold-glow);
+        }
+
+        .progress-container {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .progress-bar-wrapper {
+            flex-grow: 1;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 3px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #e2ba84 0%, #f43f5e 100%);
+            width: 0%;
+            border-radius: 3px;
+            transition: width 0.1s linear;
+        }
+
+        .time-display {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            font-variant-numeric: tabular-nums;
+            min-width: 70px;
+            text-align: right;
+        }
+
+        /* Card Action Buttons */
+        .card-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .btn-icon-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 10px 18px;
+            border-radius: var(--radius-sm);
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+        }
+
+        .btn-icon-action:hover {
+            background: rgba(226, 186, 132, 0.15);
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+            transform: translateY(-1px);
+        }
+
+        .btn-download-direct {
+            background: linear-gradient(135deg, rgba(226, 186, 132, 0.2) 0%, rgba(226, 186, 132, 0.1) 100%);
+            border-color: rgba(226, 186, 132, 0.4);
+            color: var(--accent-gold);
+        }
+
+        .btn-download-direct:hover {
+            background: var(--accent-gold);
+            color: #0f141c;
+        }
+
+        /* Persistent Bottom Player Bar */
+        .bottom-player-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 90px;
+            background: rgba(15, 20, 28, 0.94);
+            border-top: 1px solid var(--card-border);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 32px;
+            transform: translateY(100%);
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .bottom-player-bar.active {
+            transform: translateY(0);
+        }
+
+        .player-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            width: 250px;
+        }
+
+        .player-cover {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-sm);
+            background: rgba(226, 186, 132, 0.15);
+            border: 1px solid rgba(226, 186, 132, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+        }
+
+        .player-track-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .player-track-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .player-track-sub {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .player-center {
+            flex-grow: 1;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .player-controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .btn-player-main {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--accent-gold);
+            color: #0f141c;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-player-main:hover {
+            transform: scale(1.06);
+            background: #ebd0a3;
+        }
+
+        .player-progress-row {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .player-time {
+            font-size: 0.76rem;
+            color: var(--text-muted);
+            font-variant-numeric: tabular-nums;
+            width: 40px;
+        }
+
+        .player-slider {
+            flex-grow: 1;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 3px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .player-slider-fill {
+            height: 100%;
+            background: var(--accent-gold);
+            border-radius: 3px;
+            width: 0%;
+        }
+
+        .player-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            width: 250px;
+            justify-content: flex-end;
+        }
+
+        .speed-btn {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--text-sub);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .speed-btn:hover {
+            color: var(--accent-gold);
+            border-color: var(--accent-gold);
+        }
+
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            padding: 14px 22px;
+            background: rgba(26, 34, 48, 0.95);
+            border: 1px solid var(--accent-gold);
+            border-radius: var(--radius-sm);
+            color: var(--text-main);
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 14px;
+            }
+
+            .track-card {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 18px;
+                gap: 14px;
+            }
+
+            .card-actions {
+                width: 100%;
+                justify-content: flex-end;
+            }
+
+            .bottom-player-bar {
+                padding: 0 16px;
+                height: 80px;
+            }
+
+            .player-left {
+                width: auto;
+            }
+
+            .player-right {
+                display: none;
+            }
+
+            .stats-bar {
+                gap: 12px;
+                padding: 12px;
+            }
+
+            .stat-val {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Hero Header -->
+        <header class="hero">
+            <div class="badge-tag">
+                <span>✨</span> Wedding Audio Vault
+            </div>
+            <h1>결혼식 본식 음원 보관함</h1>
+            <p>결혼식의 예식 순서별 음원을 최고 음질로 미리 들어보고 손쉽게 다운로드받으세요.</p>
+            <div class="hero-actions">
+                <button class="btn-hero btn-primary" onclick="downloadAllTracks()">
+                    <span>📦</span> 전체 음원 일괄 다운로드
+                </button>
+                <button class="btn-hero btn-secondary" onclick="playTrack(0)">
+                    <span>▶</span> 전체 순서 연속 재생
+                </button>
+            </div>
+        </header>
+
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-label">총 음원 트랙</div>
+                <div class="stat-val">4개 곡</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">오디오 포맷</div>
+                <div class="stat-val">MP3 (320kbps)</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">전체 용량</div>
+                <div class="stat-val">17.77 MB</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">다운로드 상태</div>
+                <div class="stat-val">무제한 가능</div>
+            </div>
+        </div>
+
+        <!-- Section Title -->
+        <div class="section-header">
+            <h2 class="section-title">본식 예식 순서별 음원 목록</h2>
+        </div>
+
+        <!-- Track List -->
+        <div class="tracks-list" id="track-list">
+            <!-- Dynamic JavaScript Render Cards -->
+        </div>
+    </div>
+
+    <!-- Persistent Bottom Audio Player Bar -->
+    <div class="bottom-player-bar" id="bottom-player">
+        <div class="player-left">
+            <div class="player-cover" id="player-icon">🎵</div>
+            <div class="player-track-info">
+                <div class="player-track-title" id="player-title">선택된 음원 없음</div>
+                <div class="player-track-sub" id="player-subtitle">재생 버튼을 눌러 미리듣기</div>
+            </div>
+        </div>
+
+        <div class="player-center">
+            <div class="player-controls">
+                <button class="btn-player-main" id="global-play-btn" onclick="toggleGlobalPlay()">▶</button>
+            </div>
+            <div class="player-progress-row">
+                <span class="player-time" id="player-curr-time">0:00</span>
+                <div class="player-slider" id="player-slider-bg" onclick="seekGlobalPlayer(event)">
+                    <div class="player-slider-fill" id="player-slider-fill"></div>
+                </div>
+                <span class="player-time" id="player-total-time">0:00</span>
+            </div>
+        </div>
+
+        <div class="player-right">
+            <button class="speed-btn" id="speed-toggle-btn" onclick="toggleSpeed()">1.0x</button>
+            <a href="#" class="btn-icon-action btn-download-direct" id="player-download-btn" download>
+                <span>📥</span> 다운로드
+            </a>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span id="toast-icon">✅</span> <span id="toast-msg">알림 메시지</span>
+    </div>
+
+    <script>
+        // Track Data Configuration
+        const tracksData = [
+            {
+                id: 1,
+                title: "어머니들 입장곡",
+                filename: "어머니들-입장곡.mp3",
+                url: "./어머니들-입장곡.mp3",
+                icon: "💐",
+                tag: "입장곡",
+                tagClass: "tag-entrance",
+                size: "5.22 MB",
+                desc: "양가 어머님 화촉점화 및 입장 순서 음악"
+            },
+            {
+                id: 2,
+                title: "신랑 입장곡",
+                filename: "신랑-입장곡.mp3",
+                url: "./신랑-입장곡.mp3",
+                icon: "🤵",
+                tag: "입장곡",
+                tagClass: "tag-entrance",
+                size: "6.76 MB",
+                desc: "신랑 입장 순서 음악 (당당하고 당찬 분위기)"
+            },
+            {
+                id: 3,
+                title: "신부 입장곡",
+                filename: "신부-입장곡.mp3",
+                url: "./신부-입장곡.mp3",
+                icon: "👰",
+                tag: "입장곡",
+                tagClass: "tag-entrance",
+                size: "3.25 MB",
+                desc: "신부 입장 순서 음악 (우아하고 아름다운 멜로디)"
+            },
+            {
+                id: 4,
+                title: "신랑 신부 행진 & 퇴장곡",
+                filename: "퇴장곡.mp3",
+                url: "./퇴장곡.mp3",
+                icon: "🥂",
+                tag: "퇴장곡",
+                tagClass: "tag-exit",
+                size: "2.54 MB",
+                desc: "예식 마침 신랑 신부 첫 행진 및 퇴장 음악"
+            }
+        ];
+
+        let currentTrackIndex = -1;
+        let globalAudio = new Audio();
+        let isPlaying = false;
+        let playbackSpeed = 1.0;
+
+        // Render Track Cards
+        function renderTracks() {
+            const container = document.getElementById('track-list');
+            container.innerHTML = tracksData.map((track, idx) => `
+                <div class="track-card" id="card-${idx}">
+                    <div class="track-icon-wrapper">
+                        <span>${track.icon}</span>
+                        <div class="equalizer">
+                            <div class="eq-bar"></div>
+                            <div class="eq-bar"></div>
+                            <div class="eq-bar"></div>
+                            <div class="eq-bar"></div>
+                        </div>
+                    </div>
+
+                    <div class="track-info">
+                        <div class="track-header">
+                            <span class="track-title">${track.title}</span>
+                            <span class="track-tag ${track.tagClass}">${track.tag}</span>
+                        </div>
+                        <div class="track-meta">
+                            <span class="meta-item">💾 ${track.size}</span>
+                            <span class="meta-item">🎵 MP3 (320kbps)</span>
+                            <span class="meta-item">${track.desc}</span>
+                        </div>
+                        <div class="card-player-controls">
+                            <button class="btn-play-mini" id="play-btn-${idx}" onclick="playTrack(${idx})">▶</button>
+                            <div class="progress-container">
+                                <div class="progress-bar-wrapper" onclick="seekCardTrack(${idx}, event)">
+                                    <div class="progress-bar-fill" id="progress-${idx}"></div>
+                                </div>
+                                <span class="time-display" id="time-${idx}">0:00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-actions">
+                        <a href="${track.url}" download="${track.filename}" class="btn-icon-action btn-download-direct" onclick="showToast('📥 ${track.title} 다운로드가 시작되었습니다.')">
+                            <span>📥</span> 다운로드
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+
+            // Preload metadata to display durations
+            tracksData.forEach((track, idx) => {
+                const tempAudio = new Audio(track.url);
+                tempAudio.addEventListener('loadedmetadata', () => {
+                    document.getElementById(`time-${idx}`).textContent = formatTime(tempAudio.duration);
+                });
+            });
+        }
+
+        // Format Seconds to MM:SS
+        function formatTime(seconds) {
+            if (isNaN(seconds) || seconds <= 0) return "0:00";
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+
+        // Play Track by Index
+        function playTrack(idx) {
+            if (currentTrackIndex === idx && isPlaying) {
+                globalAudio.pause();
+                isPlaying = false;
+                updateUIState();
+                return;
+            }
+
+            if (currentTrackIndex !== idx) {
+                currentTrackIndex = idx;
+                const track = tracksData[idx];
+                globalAudio.src = track.url;
+                globalAudio.playbackRate = playbackSpeed;
+
+                // Update bottom player info
+                document.getElementById('player-icon').textContent = track.icon;
+                document.getElementById('player-title').textContent = track.title;
+                document.getElementById('player-subtitle').textContent = track.desc;
+                document.getElementById('player-download-btn').href = track.url;
+                document.getElementById('player-download-btn').download = track.filename;
+                document.getElementById('bottom-player').classList.add('active');
+            }
+
+            globalAudio.play().then(() => {
+                isPlaying = true;
+                updateUIState();
+            }).catch(err => {
+                console.error("Audio playback error:", err);
+                showToast("⚠️ 오디오 재생 중 오류가 발생했습니다.");
+            });
+        }
+
+        // Toggle Global Play/Pause
+        function toggleGlobalPlay() {
+            if (currentTrackIndex === -1 && tracksData.length > 0) {
+                playTrack(0);
+                return;
+            }
+            if (isPlaying) {
+                globalAudio.pause();
+                isPlaying = false;
+            } else {
+                globalAudio.play();
+                isPlaying = true;
+            }
+            updateUIState();
+        }
+
+        // Update Play/Pause Buttons & Progress Bars
+        function updateUIState() {
+            tracksData.forEach((_, idx) => {
+                const card = document.getElementById(`card-${idx}`);
+                const btn = document.getElementById(`play-btn-${idx}`);
+                if (idx === currentTrackIndex && isPlaying) {
+                    card.classList.add('active-playing');
+                    btn.textContent = '⏸';
+                } else {
+                    card.classList.remove('active-playing');
+                    btn.textContent = '▶';
+                }
+            });
+
+            const globalBtn = document.getElementById('global-play-btn');
+            globalBtn.textContent = isPlaying ? '⏸' : '▶';
+        }
+
+        // Update Progress Bar
+        globalAudio.addEventListener('timeupdate', () => {
+            if (currentTrackIndex === -1) return;
+            const currentTime = globalAudio.currentTime;
+            const duration = globalAudio.duration || 1;
+            const percent = (currentTime / duration) * 100;
+
+            // Card progress
+            const cardFill = document.getElementById(`progress-${currentTrackIndex}`);
+            const cardTime = document.getElementById(`time-${currentTrackIndex}`);
+            if (cardFill) cardFill.style.width = `${percent}%`;
+            if (cardTime) cardTime.textContent = `${formatTime(currentTime)} / ${formatTime(duration)}`;
+
+            // Bottom player progress
+            document.getElementById('player-slider-fill').style.width = `${percent}%`;
+            document.getElementById('player-curr-time').textContent = formatTime(currentTime);
+            document.getElementById('player-total-time').textContent = formatTime(duration);
+        });
+
+        // Audio Ended Handler -> Play Next Automatically
+        globalAudio.addEventListener('ended', () => {
+            if (currentTrackIndex < tracksData.length - 1) {
+                playTrack(currentTrackIndex + 1);
+            } else {
+                isPlaying = false;
+                updateUIState();
+            }
+        });
+
+        // Seek Audio Location
+        function seekCardTrack(idx, event) {
+            if (currentTrackIndex !== idx) {
+                playTrack(idx);
+                return;
+            }
+            const bar = event.currentTarget;
+            const rect = bar.getBoundingClientRect();
+            const offsetX = event.clientX - rect.left;
+            const ratio = offsetX / rect.width;
+            if (globalAudio.duration) {
+                globalAudio.currentTime = ratio * globalAudio.duration;
+            }
+        }
+
+        function seekGlobalPlayer(event) {
+            if (currentTrackIndex === -1) return;
+            const bar = document.getElementById('player-slider-bg');
+            const rect = bar.getBoundingClientRect();
+            const offsetX = event.clientX - rect.left;
+            const ratio = offsetX / rect.width;
+            if (globalAudio.duration) {
+                globalAudio.currentTime = ratio * globalAudio.duration;
+            }
+        }
+
+        // Speed Toggle (1.0x -> 1.25x -> 1.5x)
+        function toggleSpeed() {
+            if (playbackSpeed === 1.0) playbackSpeed = 1.25;
+            else if (playbackSpeed === 1.25) playbackSpeed = 1.5;
+            else playbackSpeed = 1.0;
+
+            globalAudio.playbackRate = playbackSpeed;
+            document.getElementById('speed-toggle-btn').textContent = `${playbackSpeed.toFixed(2).replace('.00', '.0')}x`;
+            showToast(`⚡ 재생 속도가 ${playbackSpeed}x 로 설정되었습니다.`);
+        }
+
+        // Download All Tracks Sequentially
+        function downloadAllTracks() {
+            showToast("📦 4개 음원 전체 다운로드를 시작합니다.");
+            tracksData.forEach((track, i) => {
+                setTimeout(() => {
+                    const link = document.createElement('a');
+                    link.href = track.url;
+                    link.download = track.filename;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                }, i * 400);
+            });
+        }
+
+        // Toast Notification Helper
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-msg').textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Initialize Page
+        window.addEventListener('DOMContentLoaded', () => {
+            renderTracks();
+        });
+    </script>
+</body>
+
+</html>
