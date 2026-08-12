@@ -741,6 +741,20 @@
             background: #000000;
         }
 
+        .video-iframe {
+            width: 100%;
+            height: 480px;
+            border: none;
+            display: block;
+            background: #000000;
+        }
+
+        @media (max-width: 768px) {
+            .video-iframe {
+                height: 250px;
+            }
+        }
+
         .video-footer-actions {
             display: flex;
             justify-content: space-between;
@@ -1078,20 +1092,17 @@
                     </div>
                 </div>
                 <span class="track-tag tag-entrance" style="background: rgba(244, 63, 94, 0.2); color: #fda4af; border-color: rgba(244, 63, 94, 0.4);">
-                    🎥 고화질 비디오 MP4
+                    ☁️ 구글 드라이브 (고화질)
                 </span>
             </div>
 
             <div class="video-player-wrapper">
-                <video id="storage-video-player" class="video-element" controls preload="metadata">
-                    <source src="./식전영상.mp4" type="video/mp4">
-                    브라우저가 비디오 재생을 지원하지 않습니다.
-                </video>
+                <iframe src="https://drive.google.com/file/d/1k0ERAvES79f7W4xlULQqolBkbhFMTjW7/preview" class="video-iframe" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
 
             <div class="video-footer-actions">
                 <div class="video-meta-info">
-                    <span>💾 파일 용량: <strong>186.38 MB</strong></span>
+                    <span>☁️ <strong>구글 드라이브 대용량 영상</strong></span>
                     <span>🎬 포맷: <strong>MP4 (H.264 / AAC)</strong></span>
                     <span>✨ 예식장 영상 기사 전달용 원본</span>
                 </div>
@@ -1100,8 +1111,8 @@
                     <button class="btn-icon-action" onclick="openVideoTheaterModal()">
                         <span>🔍</span> 극장 모드로 크게 보기
                     </button>
-                    <a href="./식전영상.mp4" download="식전영상.mp4" class="btn-icon-action btn-download-direct" onclick="showToast('📥 식전영상 MP4 다운로드가 시작되었습니다.')">
-                        <span>📥</span> 식전영상 다운로드 (186.38MB)
+                    <a href="https://drive.google.com/file/d/1k0ERAvES79f7W4xlULQqolBkbhFMTjW7/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-icon-action btn-download-direct" onclick="showToast('☁️ 구글 드라이브 식전영상 페이지로 이동합니다.')">
+                        <span>☁️</span> 구글 드라이브에서 보기 / 다운로드
                     </a>
                 </div>
             </div>
@@ -1184,18 +1195,15 @@
         <div class="video-modal-container" onclick="event.stopPropagation()">
             <button class="video-modal-close" onclick="closeVideoTheaterModal()">&times;</button>
             <div style="font-size: 1.2rem; font-weight:700; color:var(--accent-gold); margin-bottom: 14px; display:flex; align-items:center; gap:8px;">
-                <span>🎬</span> 식전 영상 극장 모드 (고화질)
+                <span>🎬</span> 식전 영상 극장 모드 (고화질 구글 드라이브)
             </div>
             <div class="video-player-wrapper">
-                <video id="theater-video-player" class="video-element" controls style="max-height: 72vh;">
-                    <source src="./식전영상.mp4" type="video/mp4">
-                    브라우저가 비디오 재생을 지원하지 않습니다.
-                </video>
+                <iframe src="https://drive.google.com/file/d/1k0ERAvES79f7W4xlULQqolBkbhFMTjW7/preview" class="video-iframe" style="height: 65vh; max-height: 600px;" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
             <div style="display:flex; justify-content:space-between; align-items:center; margin-top:16px; flex-wrap:wrap; gap:10px;">
                 <span style="font-size:0.86rem; color:var(--text-muted);">💡 ESC 키를 누르거나 X 버튼을 클릭하면 닫힙니다.</span>
-                <a href="./식전영상.mp4" download="식전영상.mp4" class="btn-icon-action btn-download-direct" onclick="showToast('📥 식전영상 MP4 다운로드가 시작되었습니다.')">
-                    <span>📥</span> 식전영상 다운로드 (186.38MB)
+                <a href="https://drive.google.com/file/d/1k0ERAvES79f7W4xlULQqolBkbhFMTjW7/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-icon-action btn-download-direct" onclick="showToast('☁️ 구글 드라이브 식전영상 페이지로 이동합니다.')">
+                    <span>☁️</span> 구글 드라이브에서 보기 / 다운로드
                 </a>
             </div>
         </div>
@@ -1620,25 +1628,14 @@
                 }, tracksData.length * 350 + i * 350);
             });
 
-            // 3. MP4 Video file
+            // 3. Google Drive Video file link
             setTimeout(() => {
-                const vLink = document.createElement('a');
-                vLink.href = "./식전영상.mp4";
-                vLink.download = "식전영상.mp4";
-                document.body.appendChild(vLink);
-                vLink.click();
-                document.body.removeChild(vLink);
+                window.open("https://drive.google.com/file/d/1k0ERAvES79f7W4xlULQqolBkbhFMTjW7/view?usp=sharing", "_blank");
             }, (tracksData.length + docsData.length) * 350 + 200);
         }
 
         // Video Theater Modal Functions
         function openVideoTheaterModal() {
-            const storageVideo = document.getElementById('storage-video-player');
-            const theaterVideo = document.getElementById('theater-video-player');
-            
-            if (storageVideo && !storageVideo.paused) {
-                storageVideo.pause();
-            }
             if (isPlaying && globalAudio) {
                 globalAudio.pause();
                 isPlaying = false;
@@ -1649,7 +1646,6 @@
             if (modal) {
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden';
-                if (theaterVideo) theaterVideo.play().catch(() => {});
             }
         }
 
@@ -1658,10 +1654,8 @@
                 return;
             }
             const modal = document.getElementById('video-theater-modal');
-            const theaterVideo = document.getElementById('theater-video-player');
             if (modal) {
                 modal.classList.remove('active');
-                if (theaterVideo) theaterVideo.pause();
             }
             document.body.style.overflow = '';
         }
