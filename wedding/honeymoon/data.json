@@ -14,7 +14,11 @@
     "link": null,
     "lat": 37.458666,
     "lng": 126.4419679,
-    "reserved": null
+    "reserved": null,
+    "vouchers": [
+      "항공권-영길.png",
+      "항공권-수진.png"
+    ]
   },
   {
     "date": "8.24",
@@ -32,7 +36,10 @@
     "lat": 47.438516,
     "lng": 19.2540304,
     "reserved": "Elife Limo",
-    "reservation": "https://elifelimo.com/rides/?t_order=vQnb5kay"
+    "reservation": "https://elifelimo.com/rides/?t_order=vQnb5kay",
+    "vouchers": [
+      "부다페스트-공항-픽업.png"
+    ]
   },
   {
     "date": "8.24",
@@ -49,7 +56,10 @@
     "guide": "리셉션에서 여권 제시 후 체크인 / 국회의사당 뷰 룸 확인",
     "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube",
     "lat": 47.507421,
-    "lng": 19.038742
+    "lng": 19.038742,
+    "vouchers": [
+      "부다페스트-숙소.png"
+    ]
   },
   {
     "date": "8.24",
@@ -104,7 +114,10 @@
     "guide": "시차 적응을 위해 충분한 수분 섭취 및 숙면 취하기",
     "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube",
     "lat": 47.507421,
-    "lng": 19.038742
+    "lng": 19.038742,
+    "vouchers": [
+      "부다페스트-숙소.png"
+    ]
   },
   {
     "date": "8.25",
@@ -121,7 +134,10 @@
     "guide": "편안한 운동화와 카메라 준비 / 유로 및 포린트 현금 일부 지참 권장",
     "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube",
     "lat": 47.507421,
-    "lng": 19.038742
+    "lng": 19.038742,
+    "vouchers": [
+      "부다페스트-숙소.png"
+    ]
   },
   {
     "date": "8.25",
@@ -390,7 +406,10 @@
     "guide": "내일(8.26) 오전 세체니 온천 준비물(개인 수영복, 슬리퍼) 미리 가방에 준비 / 숙면 취하기",
     "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube",
     "lat": 47.507421,
-    "lng": 19.038742
+    "lng": 19.038742,
+    "vouchers": [
+      "부다페스트-숙소.png"
+    ]
   },
   {
     "date": "8.26",
@@ -666,7 +685,10 @@
     "guide": "여권 및 기차표 등 중요 문서 이동 가방에 따로 보관하기",
     "link": "https://www.google.com/maps/search/?api=1&query=Novotel+Budapest+Danube",
     "lat": 47.507421,
-    "lng": 19.038742
+    "lng": 19.038742,
+    "vouchers": [
+      "부다페스트-숙소.png"
+    ]
   },
   {
     "date": "8.27",
@@ -698,7 +720,10 @@
     "guide": "Wien Hbf 도착 승강장은 8번 플랫폼입니다. 수하물 선반 위치 및 e-티켓(QR코드) 사전 준비!",
     "link": "https://www.google.com/maps/search/?api=1&query=Budapest-Keleti+to+Wien+Hbf",
     "lat": 47.500247,
-    "lng": 19.083984
+    "lng": 19.083984,
+    "vouchers": [
+      "부다페스트-빈-기차.png"
+    ]
   },
   {
     "date": "8.27",
@@ -1153,7 +1178,10 @@
       "pickup_location": "Opernring 3/5, 1010 Wien (Karlsplatz역 도보 2분)",
       "dropoff_location": "Designer Outlet Parndorf (Center-Straße 79)",
       "schedule": "09:30 빈 출발 ➔ 16:00 판도르프 출발 복귀"
-    }
+    },
+    "vouchers": [
+      "오스트리아-아울렛-버스.png"
+    ]
   },
   {
     "date": "8.29",
@@ -1203,6 +1231,9 @@
         "desc": "오스트리아 대표 웨하스 과자 마너의 대용량 번들 및 아울렛 한정 선물용 세트 최저가 구매",
         "img": "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=600&q=80"
       }
+    ],
+    "vouchers": [
+      "오스트리아-아울렛-버스.png"
     ]
   },
   {
@@ -1220,7 +1251,10 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Wagamama+Parndorf",
     "lat": 47.9782,
     "lng": 16.8492,
-    "isRestaurant": true
+    "isRestaurant": true,
+    "vouchers": [
+      "오스트리아-아울렛-버스.png"
+    ]
   },
   {
     "date": "8.29",
@@ -1236,7 +1270,10 @@
     "guide": "셔틀 출발 10분 전(15:50)까지 하차했던 탑승 장소로 집결하세요.",
     "link": "https://www.google.com/maps/search/?api=1&query=Designer+Outlet+Center-Stra%C3%9Fe+79%2C+7111+Parndorf",
     "lat": 47.9782,
-    "lng": 16.8492
+    "lng": 16.8492,
+    "vouchers": [
+      "오스트리아-아울렛-버스.png"
+    ]
   },
   {
     "date": "8.29",
@@ -1437,7 +1474,10 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Wien+Hbf+to+Praha+hln",
     "lat": 48.185187,
     "lng": 16.376597,
-    "reserved": "ÖBB Railjet 252 (Wagen 24, Seat 61/63)"
+    "reserved": "ÖBB Railjet 252 (Wagen 24, Seat 61/63)",
+    "vouchers": [
+      "빈-프라하-기차.png"
+    ]
   },
   {
     "date": "8.30",
@@ -1461,7 +1501,10 @@
     "details": "프라하 중심가에 위치한 4성급 K+K 호텔 체크인 후 짐을 정돈하고 첫 프라하 나들이 준비를 합니다.",
     "link": "https://www.google.com/maps/search/?api=1&query=K%2BK+Hotel+Central+Prague",
     "lat": 50.0871169,
-    "lng": 14.4309035
+    "lng": 14.4309035,
+    "vouchers": [
+      "프라하-숙소.png"
+    ]
   },
   {
     "date": "8.30",
@@ -1507,7 +1550,10 @@
     "details": "프라하에서의 알찬 첫날 일정을 마치고 숙소에서 편안하게 휴식을 취합니다.",
     "link": "https://www.google.com/maps/search/?api=1&query=K%2BK+Hotel+Central+Prague",
     "lat": 50.0871169,
-    "lng": 14.4309035
+    "lng": 14.4309035,
+    "vouchers": [
+      "프라하-숙소.png"
+    ]
   },
   {
     "date": "8.31",
@@ -1524,7 +1570,10 @@
     "guide": "도보 이동이 많으므로 편안한 운동화 착용 권장",
     "link": "https://www.google.com/maps/search/?api=1&query=K%2BK+Hotel+Central+Prague",
     "lat": 50.087342,
-    "lng": 14.428412
+    "lng": 14.428412,
+    "vouchers": [
+      "프라하-숙소.png"
+    ]
   },
   {
     "date": "8.31",
@@ -1805,7 +1854,10 @@
     "guide": "내일 아침 일찍 진행될 스냅 촬영 의상과 소품을 미리 체크해 두기",
     "link": "https://www.google.com/maps/search/?api=1&query=K%2BK+Hotel+Central+Prague",
     "lat": 50.087342,
-    "lng": 14.428412
+    "lng": 14.428412,
+    "vouchers": [
+      "프라하-숙소.png"
+    ]
   },
   {
     "date": "9.01",
@@ -1822,7 +1874,10 @@
     "guide": "바람이 불 수 있으므로 헤어 스타일 고정에 신경 쓰기 / 가벼운 소품(소형 카메라 등) 지참 추천",
     "link": "https://www.google.com/maps/search/?api=1&query=K%2BK+Hotel+Central+Prague",
     "lat": 50.087342,
-    "lng": 14.428412
+    "lng": 14.428412,
+    "vouchers": [
+      "프라하-숙소.png"
+    ]
   },
   {
     "date": "9.01",
@@ -2063,7 +2118,10 @@
     "guide": "구매한 텍스리펀 서류나 기념품 영수증 최종 점검",
     "link": "https://www.google.com/maps/search/?api=1&query=K%2BK+Hotel+Central+Prague",
     "lat": 50.087342,
-    "lng": 14.428412
+    "lng": 14.428412,
+    "vouchers": [
+      "프라하-숙소.png"
+    ]
   },
   {
     "date": "9.02",
@@ -2080,7 +2138,10 @@
     "guide": "공항 이동 소요 시간(약 45분) 고려하여 짐 픽업 시간 리셉션과 사전 약속",
     "link": "https://www.google.com/maps/search/?api=1&query=K%2BK+Hotel+Central+Prague",
     "lat": 50.087342,
-    "lng": 14.428412
+    "lng": 14.428412,
+    "vouchers": [
+      "프라하-숙소.png"
+    ]
   },
   {
     "date": "9.02",
@@ -2177,7 +2238,10 @@
     "link": "https://www.google.com/maps/search/?api=1&query=V%C3%A1clav+Havel+Airport+Prague",
     "lat": 50.101784,
     "lng": 14.26318,
-    "isShopping": true
+    "isShopping": true,
+    "vouchers": [
+      "프라하-공항-샌딩.png"
+    ]
   },
   {
     "date": "9.02",
@@ -2195,7 +2259,12 @@
     "link": "https://www.google.com/maps/search/?api=1&query=V%C3%A1clav+Havel+Airport+Prague",
     "lat": 50.101784,
     "lng": 14.26318,
-    "isShopping": true
+    "isShopping": true,
+    "vouchers": [
+      "항공권-영길.png",
+      "항공권-수진.png",
+      "프라하-공항-샌딩.png"
+    ]
   },
   {
     "date": "9.03",
@@ -2211,6 +2280,10 @@
     "guide": "면세 한도($800) 및 자진 신고 물품 확인 / 귀가 교통편(리무진/콜택시 등) 탑승",
     "link": "https://www.google.com/maps/search/?api=1&query=인천국제공항",
     "lat": 37.458666,
-    "lng": 126.4419679
+    "lng": 126.4419679,
+    "vouchers": [
+      "항공권-영길.png",
+      "항공권-수진.png"
+    ]
   }
 ]
