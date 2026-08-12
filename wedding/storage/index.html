@@ -670,6 +670,357 @@
                 font-size: 0.95rem;
             }
         }
+
+        /* Video Section Styles */
+        .video-card {
+            background: linear-gradient(145deg, rgba(26, 34, 48, 0.9) 0%, rgba(18, 25, 36, 0.95) 100%);
+            border: 1px solid rgba(226, 186, 132, 0.4);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            margin-bottom: 36px;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(16px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .video-title-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .video-icon-badge {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-sm);
+            background: linear-gradient(135deg, rgba(244, 63, 94, 0.25) 0%, rgba(226, 186, 132, 0.25) 100%);
+            border: 1px solid rgba(244, 63, 94, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #ffffff;
+        }
+
+        .video-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .video-subtitle {
+            font-size: 0.86rem;
+            color: var(--text-muted);
+        }
+
+        .video-player-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: #000000;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .video-element {
+            width: 100%;
+            max-height: 480px;
+            display: block;
+            outline: none;
+            background: #000000;
+        }
+
+        .video-footer-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 18px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .video-meta-info {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 0.86rem;
+            color: var(--text-sub);
+            flex-wrap: wrap;
+        }
+
+        .video-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(12px);
+            z-index: 99999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .video-modal-overlay.active {
+            display: flex;
+        }
+
+        .video-modal-container {
+            width: 100%;
+            max-width: 1000px;
+            background: #0f141c;
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            position: relative;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+        }
+
+        .video-modal-close {
+            position: absolute;
+            top: 16px;
+            right: 18px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-main);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            font-size: 1.4rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .video-modal-close:hover {
+            background: rgba(244, 63, 94, 0.3);
+            border-color: var(--accent-rose);
+            color: #ffffff;
+        }
+
+        /* Document Cards Section */
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 36px;
+        }
+
+        .doc-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(12px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .doc-card:hover {
+            background: var(--card-hover);
+            border-color: rgba(226, 186, 132, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 14px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .doc-thumb-wrapper {
+            width: 100%;
+            height: 220px;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            background: #0b0f17;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 14px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .doc-thumb-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            transition: transform 0.3s ease;
+        }
+
+        .doc-card:hover .doc-thumb-img {
+            transform: scale(1.05);
+        }
+
+        .doc-thumb-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 20, 28, 0.65);
+            backdrop-filter: blur(2px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.25s ease;
+            color: var(--accent-gold);
+            font-weight: 700;
+            font-size: 0.92rem;
+            gap: 6px;
+        }
+
+        .doc-thumb-wrapper:hover .doc-thumb-overlay {
+            opacity: 1;
+        }
+
+        .doc-info {
+            margin-bottom: 12px;
+        }
+
+        .doc-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .doc-meta {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        .doc-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .doc-actions .btn-icon-action {
+            flex: 1;
+            padding: 8px 10px;
+            font-size: 0.82rem;
+            justify-content: center;
+        }
+
+        /* Document Modal Lightbox */
+        .doc-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(12px);
+            z-index: 99999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .doc-modal-overlay.active {
+            display: flex;
+        }
+
+        .doc-modal-container {
+            width: 100%;
+            max-width: 900px;
+            max-height: 92vh;
+            background: #0f141c;
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+            overflow: hidden;
+        }
+
+        .doc-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            padding-right: 40px;
+        }
+
+        .doc-modal-tabs {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .doc-tab-btn {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--text-sub);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.84rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .doc-tab-btn.active {
+            background: var(--accent-gold);
+            color: #0f141c;
+            border-color: var(--accent-gold);
+            box-shadow: 0 2px 10px var(--accent-gold-glow);
+        }
+
+        .doc-modal-body {
+            flex: 1;
+            overflow-y: auto;
+            text-align: center;
+            background: #070a0f;
+            border-radius: var(--radius-md);
+            padding: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .doc-modal-img {
+            max-width: 100%;
+            max-height: 65vh;
+            object-fit: contain;
+            border-radius: 6px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+        }
+
+        .doc-modal-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 14px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
     </style>
 </head>
 
@@ -679,16 +1030,19 @@
         <!-- Hero Header -->
         <header class="hero">
             <div class="badge-tag">
-                <span>✨</span> Wedding Audio Vault
+                <span>✨</span> Wedding Audio & Video Vault
             </div>
-            <h1>결혼식 본식 음원 보관함</h1>
-            <p>결혼식의 예식 순서별 음원을 최고 음질로 미리 들어보고 손쉽게 다운로드받으세요.</p>
+            <h1>결혼식 본식 음원 및 식전 영상 보관함</h1>
+            <p>결혼식 예식 순서별 고음질 음원과 식전 영상을 편리하게 미리 감상하고 자유롭게 다운로드받으세요.</p>
             <div class="hero-actions">
-                <button class="btn-hero btn-primary" onclick="downloadAllTracks()">
-                    <span>📦</span> 전체 음원 일괄 다운로드
+                <button class="btn-hero btn-primary" onclick="downloadAllResources()">
+                    <span>📦</span> 전체 자료 일괄 다운로드
                 </button>
+                <a href="#video-section" class="btn-hero btn-secondary">
+                    <span>🎬</span> 식전 영상 미리보기
+                </a>
                 <button class="btn-hero btn-secondary" onclick="playTrack(0)">
-                    <span>▶</span> 전체 순서 연속 재생
+                    <span>▶</span> 음원 연속 재생
                 </button>
             </div>
         </header>
@@ -696,16 +1050,16 @@
         <!-- Stats Bar -->
         <div class="stats-bar">
             <div class="stat-item">
-                <div class="stat-label">총 음원 트랙</div>
-                <div class="stat-val">4개 곡</div>
+                <div class="stat-label">총 보관 자료</div>
+                <div class="stat-val">9개 항목 (음원4 + 영상1 + 문서4)</div>
             </div>
             <div class="stat-item">
-                <div class="stat-label">오디오 포맷</div>
-                <div class="stat-val">MP3 (320kbps)</div>
+                <div class="stat-label">포맷 / 화질</div>
+                <div class="stat-val">MP3, MP4, PNG (고화질)</div>
             </div>
             <div class="stat-item">
                 <div class="stat-label">전체 용량</div>
-                <div class="stat-val">17.77 MB</div>
+                <div class="stat-val">205.19 MB</div>
             </div>
             <div class="stat-item">
                 <div class="stat-label">다운로드 상태</div>
@@ -713,7 +1067,57 @@
             </div>
         </div>
 
-        <!-- Section Title -->
+        <!-- Pre-Wedding Video Section -->
+        <div id="video-section" class="video-card">
+            <div class="video-header">
+                <div class="video-title-box">
+                    <div class="video-icon-badge">🎬</div>
+                    <div>
+                        <div class="video-title">결혼식 식전 영상 (Pre-Wedding Video)</div>
+                        <div class="video-subtitle">하객 맞이 및 예식 전 상영용 식전 영상</div>
+                    </div>
+                </div>
+                <span class="track-tag tag-entrance" style="background: rgba(244, 63, 94, 0.2); color: #fda4af; border-color: rgba(244, 63, 94, 0.4);">
+                    🎥 고화질 비디오 MP4
+                </span>
+            </div>
+
+            <div class="video-player-wrapper">
+                <video id="storage-video-player" class="video-element" controls preload="metadata">
+                    <source src="./식전영상.mp4" type="video/mp4">
+                    브라우저가 비디오 재생을 지원하지 않습니다.
+                </video>
+            </div>
+
+            <div class="video-footer-actions">
+                <div class="video-meta-info">
+                    <span>💾 파일 용량: <strong>186.38 MB</strong></span>
+                    <span>🎬 포맷: <strong>MP4 (H.264 / AAC)</strong></span>
+                    <span>✨ 예식장 영상 기사 전달용 원본</span>
+                </div>
+
+                <div class="card-actions">
+                    <button class="btn-icon-action" onclick="openVideoTheaterModal()">
+                        <span>🔍</span> 극장 모드로 크게 보기
+                    </button>
+                    <a href="./식전영상.mp4" download="식전영상.mp4" class="btn-icon-action btn-download-direct" onclick="showToast('📥 식전영상 MP4 다운로드가 시작되었습니다.')">
+                        <span>📥</span> 식전영상 다운로드 (186.38MB)
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Title: Documents -->
+        <div class="section-header">
+            <h2 class="section-title">예식 서식 및 진행 문서 (이미지 고화질)</h2>
+        </div>
+
+        <!-- Document Grid -->
+        <div class="doc-grid" id="doc-list">
+            <!-- Dynamic JavaScript Render Document Cards -->
+        </div>
+
+        <!-- Section Title: Audio Tracks -->
         <div class="section-header">
             <h2 class="section-title">본식 예식 순서별 음원 목록</h2>
         </div>
@@ -752,6 +1156,48 @@
             <a href="#" class="btn-icon-action btn-download-direct" id="player-download-btn" download>
                 <span>📥</span> 다운로드
             </a>
+        </div>
+    </div>
+
+    <!-- Document Lightbox Modal -->
+    <div id="doc-modal" class="doc-modal-overlay" onclick="closeDocModal(event)">
+        <div class="doc-modal-container" onclick="event.stopPropagation()">
+            <button class="video-modal-close" onclick="closeDocModal()">&times;</button>
+            <div class="doc-modal-header">
+                <div id="doc-modal-title" style="font-size: 1.2rem; font-weight:700; color:var(--accent-gold);">📜 예식 진행 문서</div>
+            </div>
+            <div class="doc-modal-tabs" id="doc-modal-tabs"></div>
+            <div class="doc-modal-body">
+                <img id="doc-modal-img" class="doc-modal-img" src="" alt="예식 문서 크게보기">
+            </div>
+            <div class="doc-modal-footer">
+                <span style="font-size:0.86rem; color:var(--text-muted);">💡 탭을 눌러 문서 항목을 빠르게 전환해 감상하실 수 있습니다.</span>
+                <a href="#" id="doc-modal-download-btn" download class="btn-icon-action btn-download-direct" onclick="showToast('📥 문서 이미지 다운로드가 시작되었습니다.')">
+                    <span>📥</span> 문서 이미지 다운로드
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Theater Lightbox Modal -->
+    <div id="video-theater-modal" class="video-modal-overlay" onclick="closeVideoTheaterModal(event)">
+        <div class="video-modal-container" onclick="event.stopPropagation()">
+            <button class="video-modal-close" onclick="closeVideoTheaterModal()">&times;</button>
+            <div style="font-size: 1.2rem; font-weight:700; color:var(--accent-gold); margin-bottom: 14px; display:flex; align-items:center; gap:8px;">
+                <span>🎬</span> 식전 영상 극장 모드 (고화질)
+            </div>
+            <div class="video-player-wrapper">
+                <video id="theater-video-player" class="video-element" controls style="max-height: 72vh;">
+                    <source src="./식전영상.mp4" type="video/mp4">
+                    브라우저가 비디오 재생을 지원하지 않습니다.
+                </video>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:16px; flex-wrap:wrap; gap:10px;">
+                <span style="font-size:0.86rem; color:var(--text-muted);">💡 ESC 키를 누르거나 X 버튼을 클릭하면 닫힙니다.</span>
+                <a href="./식전영상.mp4" download="식전영상.mp4" class="btn-icon-action btn-download-direct" onclick="showToast('📥 식전영상 MP4 다운로드가 시작되었습니다.')">
+                    <span>📥</span> 식전영상 다운로드 (186.38MB)
+                </a>
+            </div>
         </div>
     </div>
 
@@ -877,6 +1323,12 @@
 
         // Play Track by Index
         function playTrack(idx) {
+            // Pause any running videos
+            const storageVideo = document.getElementById('storage-video-player');
+            const theaterVideo = document.getElementById('theater-video-player');
+            if (storageVideo && !storageVideo.paused) storageVideo.pause();
+            if (theaterVideo && !theaterVideo.paused) theaterVideo.pause();
+
             if (currentTrackIndex === idx && isPlaying) {
                 globalAudio.pause();
                 isPlaying = false;
@@ -910,6 +1362,11 @@
 
         // Toggle Global Play/Pause
         function toggleGlobalPlay() {
+            const storageVideo = document.getElementById('storage-video-player');
+            const theaterVideo = document.getElementById('theater-video-player');
+            if (storageVideo && !storageVideo.paused) storageVideo.pause();
+            if (theaterVideo && !theaterVideo.paused) theaterVideo.pause();
+
             if (currentTrackIndex === -1 && tracksData.length > 0) {
                 playTrack(0);
                 return;
@@ -997,6 +1454,133 @@
             }
         }
 
+        // Document Data Configuration
+        const docsData = [
+            {
+                id: 'doc-1',
+                title: "예식 진행 순서지",
+                filename: "예식순.png",
+                url: "./예식순.png",
+                icon: "📜",
+                tag: "예식순서",
+                size: "34.8 KB",
+                desc: "식순별 대본 및 순서 안내표"
+            },
+            {
+                id: 'doc-2',
+                title: "신랑 신부 혼인서약서",
+                filename: "혼인 서약서.png",
+                url: "./혼인 서약서.png",
+                icon: "✍️",
+                tag: "혼인서약",
+                size: "244.8 KB",
+                desc: "신랑 신부 낭독용 서약서 서식"
+            },
+            {
+                id: 'doc-3',
+                title: "성혼 선언문",
+                filename: "성혼 선언문.png",
+                url: "./성혼 선언문.png",
+                icon: "📜",
+                tag: "성혼선언",
+                size: "247.5 KB",
+                desc: "사회자 낭독용 성혼선언문"
+            },
+            {
+                id: 'doc-4',
+                title: "양가 부모님 덕담 / 축사",
+                filename: "덕담.png",
+                url: "./덕담.png",
+                icon: "💌",
+                tag: "부모님덕담",
+                size: "493.4 KB",
+                desc: "양가 아버님/어머님 덕담 축사 원본"
+            }
+        ];
+
+        let currentDocIndex = 0;
+
+        // Render Document Cards
+        function renderDocs() {
+            const container = document.getElementById('doc-list');
+            if (!container) return;
+            container.innerHTML = docsData.map((doc, idx) => `
+                <div class="doc-card">
+                    <div class="doc-thumb-wrapper" onclick="openDocModal(${idx})">
+                        <img src="${doc.url}" class="doc-thumb-img" alt="${doc.title}">
+                        <div class="doc-thumb-overlay">
+                            <span>🔍 크게 보기</span>
+                        </div>
+                    </div>
+                    <div class="doc-info">
+                        <div class="doc-title">${doc.icon} ${doc.title}</div>
+                        <div class="doc-meta">💾 ${doc.size} &nbsp;|&nbsp; PNG 고화질 서식</div>
+                    </div>
+                    <div class="doc-actions">
+                        <button class="btn-icon-action" onclick="openDocModal(${idx})">
+                            <span>🔍</span> 미리보기
+                        </button>
+                        <a href="${doc.url}" download="${doc.filename}" class="btn-icon-action btn-download-direct" onclick="showToast('📥 ${doc.title} 다운로드가 시작되었습니다.')">
+                            <span>📥</span> 다운로드
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Document Modal Lightbox Functions
+        function openDocModal(idx = 0) {
+            currentDocIndex = idx;
+            renderDocModalContent();
+
+            const modal = document.getElementById('doc-modal');
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function renderDocModalContent() {
+            const doc = docsData[currentDocIndex];
+            if (!doc) return;
+
+            const tabsContainer = document.getElementById('doc-modal-tabs');
+            if (tabsContainer) {
+                tabsContainer.innerHTML = docsData.map((d, i) => `
+                    <button class="doc-tab-btn ${i === currentDocIndex ? 'active' : ''}" onclick="switchDocTab(${i})">
+                        ${d.icon} ${d.title}
+                    </button>
+                `).join('');
+            }
+
+            const imgEl = document.getElementById('doc-modal-img');
+            const titleEl = document.getElementById('doc-modal-title');
+            const downloadBtn = document.getElementById('doc-modal-download-btn');
+
+            if (imgEl) imgEl.src = doc.url;
+            if (titleEl) titleEl.textContent = `${doc.icon} ${doc.title} (${doc.size})`;
+            if (downloadBtn) {
+                downloadBtn.href = doc.url;
+                downloadBtn.download = doc.filename;
+            }
+        }
+
+        function switchDocTab(idx) {
+            currentDocIndex = idx;
+            renderDocModalContent();
+        }
+
+        function closeDocModal(e) {
+            if (e && e.target && e.target.id !== 'doc-modal' && !e.target.classList.contains('video-modal-close')) {
+                return;
+            }
+            const modal = document.getElementById('doc-modal');
+            if (modal) {
+                modal.classList.remove('active');
+            }
+            document.body.style.overflow = '';
+        }
+
         // Speed Toggle (1.0x -> 1.25x -> 1.5x)
         function toggleSpeed() {
             if (playbackSpeed === 1.0) playbackSpeed = 1.25;
@@ -1008,9 +1592,11 @@
             showToast(`⚡ 재생 속도가 ${playbackSpeed}x 로 설정되었습니다.`);
         }
 
-        // Download All Tracks Sequentially
-        function downloadAllTracks() {
-            showToast("📦 4개 음원 전체 다운로드를 시작합니다.");
+        // Download All Resources Sequentially (Audio + Video + Documents)
+        function downloadAllResources() {
+            showToast("📦 전체 자료(음원 4곡 + 영상 1편 + 문서 4장) 다운로드를 시작합니다.");
+            
+            // 1. Audio tracks
             tracksData.forEach((track, i) => {
                 setTimeout(() => {
                     const link = document.createElement('a');
@@ -1019,8 +1605,65 @@
                     document.body.appendChild(link);
                     link.click();
                     document.body.removeChild(link);
-                }, i * 400);
+                }, i * 350);
             });
+
+            // 2. PNG Document files
+            docsData.forEach((doc, i) => {
+                setTimeout(() => {
+                    const link = document.createElement('a');
+                    link.href = doc.url;
+                    link.download = doc.filename;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                }, tracksData.length * 350 + i * 350);
+            });
+
+            // 3. MP4 Video file
+            setTimeout(() => {
+                const vLink = document.createElement('a');
+                vLink.href = "./식전영상.mp4";
+                vLink.download = "식전영상.mp4";
+                document.body.appendChild(vLink);
+                vLink.click();
+                document.body.removeChild(vLink);
+            }, (tracksData.length + docsData.length) * 350 + 200);
+        }
+
+        // Video Theater Modal Functions
+        function openVideoTheaterModal() {
+            const storageVideo = document.getElementById('storage-video-player');
+            const theaterVideo = document.getElementById('theater-video-player');
+            
+            if (storageVideo && !storageVideo.paused) {
+                storageVideo.pause();
+            }
+            if (isPlaying && globalAudio) {
+                globalAudio.pause();
+                isPlaying = false;
+                updateUIState();
+            }
+
+            const modal = document.getElementById('video-theater-modal');
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                if (theaterVideo) theaterVideo.play().catch(() => {});
+            }
+        }
+
+        function closeVideoTheaterModal(e) {
+            if (e && e.target && e.target.id !== 'video-theater-modal' && !e.target.classList.contains('video-modal-close')) {
+                return;
+            }
+            const modal = document.getElementById('video-theater-modal');
+            const theaterVideo = document.getElementById('theater-video-player');
+            if (modal) {
+                modal.classList.remove('active');
+                if (theaterVideo) theaterVideo.pause();
+            }
+            document.body.style.overflow = '';
         }
 
         // Toast Notification Helper
@@ -1033,9 +1676,42 @@
             }, 3000);
         }
 
-        // Initialize Page
+        // Initialize Page & Event Listeners
         window.addEventListener('DOMContentLoaded', () => {
             renderTracks();
+            renderDocs();
+
+            const storageVideo = document.getElementById('storage-video-player');
+            const theaterVideo = document.getElementById('theater-video-player');
+
+            if (storageVideo) {
+                storageVideo.addEventListener('play', () => {
+                    if (isPlaying && globalAudio) {
+                        globalAudio.pause();
+                        isPlaying = false;
+                        updateUIState();
+                    }
+                    if (theaterVideo && !theaterVideo.paused) theaterVideo.pause();
+                });
+            }
+
+            if (theaterVideo) {
+                theaterVideo.addEventListener('play', () => {
+                    if (isPlaying && globalAudio) {
+                        globalAudio.pause();
+                        isPlaying = false;
+                        updateUIState();
+                    }
+                    if (storageVideo && !storageVideo.paused) storageVideo.pause();
+                });
+            }
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeVideoTheaterModal();
+                    closeDocModal();
+                }
+            });
         });
     </script>
 </body>
