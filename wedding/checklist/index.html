@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웨딩 체크리스트 & 업체 예약 관리 | 본식 스냅(여백) · 아이폰 스냅(커들리) · 하객 버스</title>
+    <meta name="description" content="결혼식 준비 핵심 업체 및 일정 관리 체크리스트. 본식 스냅(여백), 아이폰 스냅(커들리), 하객 대절 버스 상세 정보 및 진행 현황.">
+    <!-- Google Fonts & Pretendard -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Outfit:wght@400;500;600;700&family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f141c;
+            --card-bg: rgba(26, 34, 48, 0.75);
+            --card-border: rgba(226, 186, 132, 0.22);
+            --card-hover: rgba(35, 46, 64, 0.9);
+            --accent-gold: #e2ba84;
+            --accent-gold-glow: rgba(226, 186, 132, 0.35);
+            --accent-rose: #f43f5e;
+            --accent-blue: #38bdf8;
+            --accent-green: #34d399;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --text-sub: #cbd5e1;
+            --shadow-glow: 0 12px 40px rgba(0, 0, 0, 0.45);
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 10px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Pretendard', 'Outfit', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(circle at 15% 15%, rgba(226, 186, 132, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(244, 63, 94, 0.06) 0%, transparent 45%);
+            padding-bottom: 100px;
+            word-break: keep-all;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Top Navigation Header */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+            background: rgba(15, 20, 28, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(226, 186, 132, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+
+        .nav-brand span {
+            color: var(--accent-gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .nav-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 0.86rem;
+            color: var(--text-sub);
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.2s ease;
+        }
+
+        .nav-link-btn:hover {
+            background: rgba(226, 186, 132, 0.15);
+            color: var(--accent-gold);
+            border-color: rgba(226, 186, 132, 0.3);
+        }
+
+        /* Hero Header */
+        .hero {
+            text-align: center;
+            padding: 48px 24px 36px;
+            background: linear-gradient(135deg, rgba(226, 186, 132, 0.12) 0%, rgba(15, 20, 28, 0.85) 100%);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow-glow);
+            backdrop-filter: blur(16px);
+            margin-bottom: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(226, 186, 132, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .badge-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 16px;
+            background: rgba(226, 186, 132, 0.15);
+            border: 1px solid rgba(226, 186, 132, 0.4);
+            border-radius: 999px;
+            color: var(--accent-gold);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', 'Pretendard', serif;
+            font-size: clamp(2.1rem, 4.5vw, 3.2rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff 30%, var(--accent-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            color: var(--text-sub);
+            font-size: 1.05rem;
+            max-width: 680px;
+            margin: 0 auto 28px;
+        }
+
+        /* Progress Card */
+        .progress-card {
+            background: rgba(20, 27, 38, 0.8);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--card-border);
+            padding: 20px 24px;
+            margin-bottom: 32px;
+            backdrop-filter: blur(12px);
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .progress-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-sub);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .progress-percent {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+
+        .progress-bar-bg {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 999px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 33.3%;
+            background: linear-gradient(90deg, #e2ba84 0%, #34d399 100%);
+            border-radius: 999px;
+            transition: width 0.4s ease;
+        }
+
+        /* Filter Controls */
+        .filter-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .btn-filter {
+            padding: 8px 18px;
+            border-radius: 999px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: var(--text-sub);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-filter.active,
+        .btn-filter:hover {
+            background: var(--accent-gold);
+            color: #0f141c;
+            border-color: var(--accent-gold);
+            box-shadow: 0 4px 14px var(--accent-gold-glow);
+        }
+
+        .notice-badge {
+            font-size: 0.82rem;
+            color: var(--accent-gold);
+            background: rgba(226, 186, 132, 0.1);
+            border: 1px solid rgba(226, 186, 132, 0.25);
+            padding: 6px 14px;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Main Vendor Cards Container */
+        .vendor-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 28px;
+        }
+
+        .vendor-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--card-border);
+            padding: 28px;
+            backdrop-filter: blur(16px);
+            box-shadow: var(--shadow-glow);
+            transition: transform 0.25s ease, border-color 0.25s ease;
+            position: relative;
+        }
+
+        .vendor-card:hover {
+            border-color: rgba(226, 186, 132, 0.45);
+        }
+
+        .vendor-card.completed {
+            border-color: rgba(52, 211, 153, 0.4);
+            background: rgba(20, 35, 32, 0.7);
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .vendor-info-box {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .vendor-icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(226, 186, 132, 0.2) 0%, rgba(226, 186, 132, 0.05) 100%);
+            border: 1px solid rgba(226, 186, 132, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: var(--accent-gold);
+            flex-shrink: 0;
+        }
+
+        .vendor-cat {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 2px;
+        }
+
+        .vendor-name {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .vendor-sub {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        .status-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .status-pill {
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .status-confirmed {
+            background: rgba(52, 211, 153, 0.15);
+            color: #34d399;
+            border: 1px solid rgba(52, 211, 153, 0.35);
+        }
+
+        .status-pending {
+            background: rgba(226, 186, 132, 0.15);
+            color: var(--accent-gold);
+            border: 1px solid rgba(226, 186, 132, 0.35);
+        }
+
+        .status-blue {
+            background: rgba(56, 189, 248, 0.15);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.35);
+        }
+
+        .check-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            user-select: none;
+            font-size: 0.88rem;
+            color: var(--text-sub);
+            padding: 6px 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.2s ease;
+        }
+
+        .check-toggle:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .check-toggle input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--accent-gold);
+            cursor: pointer;
+        }
+
+        /* Detail Key Features List */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .feature-box {
+            background: rgba(15, 20, 28, 0.6);
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 16px;
+        }
+
+        .feature-title {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .feature-list {
+            list-style: none;
+            font-size: 0.88rem;
+            color: var(--text-sub);
+        }
+
+        .feature-list li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 6px;
+            line-height: 1.5;
+        }
+
+        .feature-list li::before {
+            content: '•';
+            position: absolute;
+            left: 4px;
+            color: var(--accent-gold);
+        }
+
+        /* Custom User Memo Box */
+        .memo-box-container {
+            background: rgba(226, 186, 132, 0.06);
+            border: 1px dashed rgba(226, 186, 132, 0.3);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            margin-top: 20px;
+        }
+
+        .memo-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .memo-title {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .memo-input {
+            width: 100%;
+            background: rgba(15, 20, 28, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: var(--radius-sm);
+            color: var(--text-main);
+            padding: 10px 14px;
+            font-size: 0.88rem;
+            font-family: inherit;
+            resize: vertical;
+            min-height: 70px;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .memo-input:focus {
+            border-color: var(--accent-gold);
+        }
+
+        .memo-save-btn {
+            margin-top: 8px;
+            padding: 6px 14px;
+            background: rgba(226, 186, 132, 0.2);
+            border: 1px solid rgba(226, 186, 132, 0.4);
+            color: var(--accent-gold);
+            border-radius: var(--radius-sm);
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            float: right;
+            transition: all 0.2s ease;
+        }
+
+        .memo-save-btn:hover {
+            background: var(--accent-gold);
+            color: #0f141c;
+        }
+
+        /* Action Buttons Row */
+        .card-actions-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .btn-card-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 18px;
+            border-radius: 999px;
+            font-size: 0.86rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-main);
+            transition: all 0.2s ease;
+        }
+
+        .btn-card-action:hover {
+            background: rgba(226, 186, 132, 0.18);
+            border-color: rgba(226, 186, 132, 0.4);
+            color: var(--accent-gold);
+        }
+
+        .btn-card-primary {
+            background: linear-gradient(135deg, rgba(226, 186, 132, 0.25) 0%, rgba(226, 186, 132, 0.1) 100%);
+            border: 1px solid rgba(226, 186, 132, 0.4);
+            color: var(--accent-gold);
+        }
+
+        .btn-card-primary:hover {
+            background: var(--accent-gold);
+            color: #0f141c;
+        }
+
+        /* Additional Request Notice Section */
+        .details-notice-card {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(15, 20, 28, 0.8) 100%);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            margin-top: 36px;
+            backdrop-filter: blur(12px);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .notice-icon-box {
+            font-size: 2.2rem;
+            background: rgba(56, 189, 248, 0.15);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            width: 60px;
+            height: 60px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .notice-text h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #38bdf8;
+            margin-bottom: 6px;
+        }
+
+        .notice-text p {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+        }
+
+        /* Contract Image Viewer Lightbox Modal */
+        .contract-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.88);
+            backdrop-filter: blur(14px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 20px;
+        }
+
+        .contract-modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .contract-modal-container {
+            background: rgba(26, 34, 48, 0.95);
+            border: 1px solid var(--accent-gold);
+            border-radius: var(--radius-lg);
+            max-width: 960px;
+            width: 100%;
+            padding: 24px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+            position: relative;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contract-modal-close {
+            position: absolute;
+            top: 18px;
+            right: 22px;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 2rem;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.2s ease;
+        }
+
+        .contract-modal-close:hover {
+            color: var(--accent-gold);
+        }
+
+        .contract-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-right: 40px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .contract-modal-body {
+            flex: 1;
+            overflow-y: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px;
+            background: rgba(15, 20, 28, 0.85);
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .contract-modal-img {
+            max-width: 100%;
+            max-height: 68vh;
+            border-radius: 8px;
+            object-fit: contain;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        }
+
+        .contract-modal-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 16px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: rgba(15, 20, 28, 0.95);
+            border: 1px solid var(--accent-gold);
+            color: var(--text-main);
+            padding: 12px 24px;
+            border-radius: 999px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 14px;
+            }
+
+            .hero {
+                padding: 32px 18px 24px;
+            }
+
+            .card-top {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .status-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .details-notice-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Top Navigation Header -->
+    <header class="top-nav">
+        <a href="../storage/index.html" class="nav-brand">
+            <span>💍</span> WEDDING PREPARATION
+        </a>
+        <nav class="nav-links">
+            <a href="../storage/index.html" class="nav-link-btn">
+                <span>🎵</span> 음원/자료 보관함
+            </a>
+            <a href="../radomus-amorium-hall.html" class="nav-link-btn">
+                <span>🏛️</span> 라도무스 아모리움홀
+            </a>
+            <a href="../honeymoon/data.json" class="nav-link-btn">
+                <span>✈️</span> 신혼여행 데이터
+            </a>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <!-- Hero Banner -->
+        <section class="hero">
+            <div class="badge-tag">
+                <span>✨</span> WEDDING CHECKLIST & VENDORS
+            </div>
+            <h1>결혼식 핵심 체크리스트</h1>
+            <p>본식 메인 스냅(여백), 아이폰 스냅(커들리), 하객 대절 버스 진행 현황 및 상세 관리</p>
+        </section>
+
+        <!-- Overall Progress Overview -->
+        <section class="progress-card">
+            <div class="progress-header">
+                <div class="progress-title">
+                    <span>📊</span> 체크리스트 준비 진행률
+                </div>
+                <div class="progress-percent" id="progress-text">33% 완료 (1/3)</div>
+            </div>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="progress-fill"></div>
+            </div>
+        </section>
+
+        <!-- Filter Row -->
+        <div class="filter-row">
+            <div class="filter-buttons">
+                <button class="btn-filter active" onclick="filterVendors('all', this)">전체 항목 (3)</button>
+                <button class="btn-filter" onclick="filterVendors('snap-main', this)">📷 본식 스냅 (여백)</button>
+                <button class="btn-filter" onclick="filterVendors('snap-iphone', this)">📱 아이폰 스냅 (커들리)</button>
+                <button class="btn-filter" onclick="filterVendors('bus', this)">🚌 하객 버스</button>
+            </div>
+            <div class="notice-badge">
+                <span>💡</span> 추가 상세 내용은 실시간 메모장에 기록해둘 수 있습니다.
+            </div>
+        </div>
+
+        <!-- Main Vendor Cards List -->
+        <div class="vendor-grid">
+
+            <!-- 1. 본식 스냅 (여백) -->
+            <article class="vendor-card" data-category="snap-main" id="card-snap-main">
+                <div class="card-top">
+                    <div class="vendor-info-box">
+                        <div class="vendor-icon">📷</div>
+                        <div>
+                            <div class="vendor-cat">Item 01 · 메인 스냅 (라도무스 제휴 Type)</div>
+                            <h2 class="vendor-name">본식 스냅 (여백 Snap)</h2>
+                            <div class="vendor-sub">신랑 김영길 ❤ 신부 성수진 · 2026.08.23 13:00 (라도무스 아모리움홀)</div>
+                        </div>
+                    </div>
+                    <div class="status-actions">
+                        <span class="status-pill status-confirmed">
+                            <span>✅</span> 예약 확정 (잔금 659,000원)
+                        </span>
+                        <label class="check-toggle">
+                            <input type="checkbox" onchange="toggleItemComplete('card-snap-main', this)">
+                            <span>준비 완료</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <div class="feature-title">
+                            <span>📋</span> 계약 및 상품 구성 (라도무스 제휴 Type)
+                        </div>
+                        <ul class="feature-list">
+                            <li><strong>총 상품금액:</strong> 759,000원 (계약금 100,000원 / 잔금 659,000원)</li>
+                            <li><strong>촬영 인원:</strong> 1인 작가 전담 촬영 (신부대기실·본식·원판·연회장)</li>
+                            <li><strong>원본 데이터:</strong> 원본 1,500장 내외 제공</li>
+                            <li><strong>보정 & 앨범:</strong> 정밀보정본 50장 제공 + 14x11인치 50P 앨범 1권</li>
+                            <li><strong>특별 혜택:</strong> 초상권 활용 동의 시 <strong>흑백사진 인화 10장 무료 제공</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-title">
+                            <span>💒</span> 예식 정보 및 계약 인적사항
+                        </div>
+                        <ul class="feature-list">
+                            <li><strong>예식 일시:</strong> 2026년 8월 23일 (일요일) 13:00</li>
+                            <li><strong>예식 장소:</strong> 대전 라도무스 아트센터 아모리움홀</li>
+                            <li><strong>이메일:</strong> rkc246800@naver.com (계약일: 2026.06.26)</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box" style="grid-column: 1 / -1;">
+                        <div class="feature-title">
+                            <span>📅</span> 데이터 전달 일정 & 보존 기간 규정
+                        </div>
+                        <ul class="feature-list" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:6px 20px;">
+                            <li><strong>촬영 원본:</strong> 예식일 기준 7~14일 이내 이메일 발송</li>
+                            <li><strong>정밀 보정본:</strong> 고객 셀렉 완료 기준 5~90일 이내 발송</li>
+                            <li><strong>데이터 보존:</strong> 원본은 발송일 기준 6개월, 보정본은 8개월 보관 (이후 삭제)</li>
+                            <li><strong>안심 조항:</strong> 작가 사유 사전 양해 없는 [노쇼] 발생 시 상품금액의 3배 배상</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Custom Memo -->
+                <div class="memo-box-container">
+                    <div class="memo-header">
+                        <div class="memo-title">
+                            <span>📝</span> 여백 스냅 메모 & 촬영 요청사항
+                        </div>
+                    </div>
+                    <textarea class="memo-input" id="memo-snap-main" placeholder="원판 촬영 순서지, 신부대기실 대표 연출 컷, 반지/청첩장 디테일 컷 등 작가님께 전달할 추가 요청사항을 적어두세요..."></textarea>
+                    <button class="memo-save-btn" onclick="saveMemo('memo-snap-main', '본식 스냅 (여백)')">💾 메모 저장</button>
+                    <div style="clear:both;"></div>
+                </div>
+
+                <div class="card-actions-row">
+                    <button id="btn-contract-snap-main" class="btn-card-action btn-card-primary" onclick="openContractModalByKeyword('여백')">
+                        <span>📄</span> 계약서 원본 보기
+                    </button>
+                    <button class="btn-card-action" onclick="copyTemplate('본식 스냅 (여백) - 예식 일정(2026.08.23 13:00 라도무스 아모리움홀) 및 촬영 구도 요청건입니다.')">
+                        <span>📋</span> 요청사항 문구 복사
+                    </button>
+                </div>
+            </article>
+
+            <!-- 2. 아이폰 스냅 (커들리) -->
+            <article class="vendor-card" data-category="snap-iphone" id="card-snap-iphone">
+                <div class="card-top">
+                    <div class="vendor-info-box">
+                        <div class="vendor-icon">📱</div>
+                        <div>
+                            <div class="vendor-cat">Item 02 · 서브 스냅 (커들리스냅 - 2인 작가 팀)</div>
+                            <h2 class="vendor-name">아이폰 스냅 (커들리 Snap)</h2>
+                            <div class="vendor-sub">2인 작가 지정 · 현장 감성 컷 · 릴스 숏폼 · 당일/24시간 이내 원본 전송</div>
+                        </div>
+                    </div>
+                    <div class="status-actions">
+                        <span class="status-pill status-confirmed">
+                            <span>✅</span> 예약 완료 (예약금 10만원)
+                        </span>
+                        <label class="check-toggle">
+                            <input type="checkbox" onchange="toggleItemComplete('card-snap-iphone', this)">
+                            <span>준비 완료</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <div class="feature-title">
+                            <span>✨</span> 촬영 구성 & 주요 특징
+                        </div>
+                        <ul class="feature-list">
+                            <li><strong>촬영 인원:</strong> 2인 작가 팀 지정 출장 촬영</li>
+                            <li><strong>감성 톤:</strong> 아이폰 특유의 자연스럽고 따뜻한 감성 컷 연출</li>
+                            <li><strong>릴스 숏폼:</strong> 인스타 릴스/쇼츠용 숏폼 비디오 세컨 앵글 포함</li>
+                            <li><strong>당일 전송:</strong> 예식 당일 또는 24시간 이내 전체 원본 무제한 전송</li>
+                            <li><strong>공식 블로그:</strong> <a href="https://m.blog.naver.com/cuddlysnap/224280809185" target="_blank" rel="noopener noreferrer" style="color:var(--accent-gold); font-weight:600; text-decoration:underline;">커들리스냅 네이버 블로그 보기</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-title">
+                            <span>💳</span> 예약금 & 계좌 입금 정보
+                        </div>
+                        <ul class="feature-list">
+                            <li><strong>예약금:</strong> 100,000원 (신청 후 6시간 이내 입금 완료)</li>
+                            <li><strong>입금 계좌:</strong> 국민은행 <strong style="color:var(--accent-gold);">461301-04-570527</strong> (예금주: 안초롱)</li>
+                            <li><strong>예약 확정:</strong> 입금 후 [입금자 성함 / 연락처] 확인 시 예약 확정</li>
+                            <li><strong>환불 규정:</strong> 규정 사전 확인 및 일정 변경 시 사전 협의 필수</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box" style="grid-column: 1 / -1;">
+                        <div class="feature-title">
+                            <span>⚠️</span> 커들리스냅 필독 예약 & 동선 준수 규정
+                        </div>
+                        <ul class="feature-list" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:6px 20px;">
+                            <li><strong>메인스냅 필수:</strong> 커들리스냅은 메인스냅(여백스냅)이 필수로 계약되어 있어야 예약 가능한 서브 스냅입니다.</li>
+                            <li><strong>동시촬영 불가:</strong> 타 아이폰 스냅 업체와의 동시 촬영은 불가합니다 (단독 아이폰 서브스냅).</li>
+                            <li><strong>동선 최우선:</strong> 메인 스냅(여백스냅) 작가님의 동선을 최우선으로 보장하고 협의하여 촬영 진행합니다.</li>
+                            <li><strong>전송 수단:</strong> 예식 당일 에어드랍 / 샌드애니웨어 원본 수신 사전 준비</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Custom Memo -->
+                <div class="memo-box-container">
+                    <div class="memo-header">
+                        <div class="memo-title">
+                            <span>📝</span> 아이폰 스냅 (커들리) 메모 & 추가 전달사항
+                        </div>
+                    </div>
+                    <textarea class="memo-input" id="memo-snap-iphone" placeholder="원하는 릴스 음악/분위기, 2인 작가님 요청 앵글, 하객 땡큐 카드 문구 등을 기록해두세요..."></textarea>
+                    <button class="memo-save-btn" onclick="saveMemo('memo-snap-iphone', '아이폰 스냅 (커들리)')">💾 메모 저장</button>
+                    <div style="clear:both;"></div>
+                </div>
+
+                <div class="card-actions-row">
+                    <button class="btn-card-action btn-card-primary" onclick="copyTemplate('국민 461301-04-570527 안초롱 (커들리스냅 예약금 10만원 계좌)')">
+                        <span>💳</span> 계좌번호 복사
+                    </button>
+                    <a href="https://m.blog.naver.com/cuddlysnap/224280809185" target="_blank" rel="noopener noreferrer" class="btn-card-action">
+                        <span>🌐</span> 네이버 블로그 보기
+                    </a>
+                    <button class="btn-card-action" onclick="copyTemplate('아이폰 스냅 (커들리) - 예식 당일 2인 작가님 릴스 숏폼 촬영 구도 및 땡큐 카드 요청건입니다.')">
+                        <span>📋</span> 요청사항 문구 복사
+                    </button>
+                </div>
+            </article>
+
+            <!-- 3. 버스 (하객 전세버스) -->
+            <article class="vendor-card" data-category="bus" id="card-bus">
+                <div class="card-top">
+                    <div class="vendor-info-box">
+                        <div class="vendor-icon">🚌</div>
+                        <div>
+                            <div class="vendor-cat">Item 03 · 하객 수송 (콜버스 예약 완료)</div>
+                            <h2 class="vendor-name">하객 대절 버스 (서울 ↔ 대전 라도무스)</h2>
+                            <div class="vendor-sub">담당: 콜버스 김이슬 매니저 · 김성군 기사님 (010-5518-7878)</div>
+                        </div>
+                    </div>
+                    <div class="status-actions">
+                        <span class="status-pill status-confirmed">
+                            <span>✅</span> 예약 확정 (68만원)
+                        </span>
+                        <label class="check-toggle">
+                            <input type="checkbox" onchange="toggleItemComplete('card-bus', this)">
+                            <span>준비 완료</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <div class="feature-title">
+                            <span>📍</span> 운행 일정 & 왕복 노선
+                        </div>
+                        <ul class="feature-list">
+                            <li><strong>운행 일시:</strong> 2026년 8월 23일 (일요일)</li>
+                            <li><strong>출발지:</strong> 서울 영등포구 의사당대로 88 한국투자증권 본사 (10:00 출발)</li>
+                            <li><strong>도착지:</strong> 대전 유성구 동서대로 639 라도무스아트센터 아모리움홀</li>
+                            <li><strong>귀환 일정:</strong> 예식 후 14:40 탑승하여 서울로 귀환</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-title">
+                            <span>🚌</span> 기사님 & 차량 정보
+                        </div>
+                        <ul class="feature-list">
+                            <li><strong>기사님 성함:</strong> 김성군 기사님</li>
+                            <li><strong>연락처:</strong> <a href="tel:01055187878" style="color:var(--accent-gold); font-weight:600; text-decoration:underline;">010-5518-7878</a></li>
+                            <li><strong>차량 정보:</strong> 대형버스 (45인승 / 2026년식 최신형)</li>
+                            <li><strong>사전 미팅:</strong> 운행 전 기사님과 세부 탑승 장소/시간 최종 확인</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box" style="grid-column: 1 / -1;">
+                        <div class="feature-title">
+                            <span>💳</span> 운행 요금 & 결제 및 유의사항
+                        </div>
+                        <ul class="feature-list" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:6px 20px;">
+                            <li><strong>총 운행 요금:</strong> 680,000원 (만나서 현장 카드 결제)</li>
+                            <li><strong>포함 항목:</strong> 통행료(톨게이트비) 포함, 주차료 포함</li>
+                            <li><strong>미포함 항목:</strong> 식사비 미포함, 숙박비 미포함 (기사님 식대/봉투 별도)</li>
+                            <li><strong>증빙 발행:</strong> 현금영수증/세금계산서 필요 시 기사님 요청 (부가세 10% 별도)</li>
+                            <li><strong>경로 변경:</strong> 약속된 경로 외 추가 이동 시 추가 요금 발생 가능</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Custom Memo -->
+                <div class="memo-box-container">
+                    <div class="memo-header">
+                        <div class="memo-title">
+                            <span>📝</span> 하객 버스 메모 & 탑승자 명단/간식 준비
+                        </div>
+                    </div>
+                    <textarea class="memo-input" id="memo-bus" placeholder="기사님 식사비/봉투 준비 (현금), 하객 탑승자 명단, 버스 간식(샌드위치/음료) 준비 목록 등을 기록하세요..."></textarea>
+                    <button class="memo-save-btn" onclick="saveMemo('memo-bus', '하객 대절 버스')">💾 메모 저장</button>
+                    <div style="clear:both;"></div>
+                </div>
+
+                <div class="card-actions-row">
+                    <button class="btn-card-action btn-card-primary" onclick="copyBusSmsTemplate()">
+                        <span>📲</span> 하객 안내 문자 양식 복사
+                    </button>
+                    <a href="tel:01055187878" class="btn-card-action">
+                        <span>📞</span> 기사님께 전화걸기
+                    </a>
+                    <button class="btn-card-action" onclick="showToast('🚌 버스 정류장: 서울 영등포구 의사당대로 88 한국투자증권 본사 앞 (10:00 출발)')">
+                        <span>📍</span> 탑승장소 위치 확인
+                    </button>
+                </div>
+            </article>
+
+        </div>
+
+        <!-- Additional Detail Request Notice Banner -->
+        <div class="details-notice-card">
+            <div class="notice-icon-box">📌</div>
+            <div class="notice-text">
+                <h3>상세 내용을 추가로 등록해보세요!</h3>
+                <p>각 항목별 <strong>[메모 저장]</strong> 칸에 알려주실 계약 조건, 금액, 담당자 연락처, 촬영 씬 요청사항 등을 적어두시면 언제든 다시 확인하실 수 있습니다.</p>
+            </div>
+        </div>
+
+        <!-- Contract Image Viewer Lightbox Modal -->
+        <div id="contract-modal" class="contract-modal-overlay" onclick="closeContractModal(event)">
+            <div class="contract-modal-container" onclick="event.stopPropagation()">
+                <button class="contract-modal-close" onclick="closeContractModal()">&times;</button>
+                <div class="contract-modal-header">
+                    <div id="contract-modal-title" style="font-size: 1.2rem; font-weight:700; color:var(--accent-gold); display:flex; align-items:center; gap:8px;">
+                        <span>📄</span> 계약서 원본 보기
+                    </div>
+                    <span id="contract-file-tag" class="status-pill status-confirmed">계약서.PNG</span>
+                </div>
+                <div class="contract-modal-body">
+                    <img id="contract-modal-img" class="contract-modal-img" src="" alt="계약서 원본 이미지">
+                </div>
+                <div class="contract-modal-footer">
+                    <span style="font-size:0.86rem; color:var(--text-muted);">💡 원본 고화질 base64 계약서 이미지입니다.</span>
+                    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                        <a id="contract-download-btn" href="#" download="계약서.png" class="btn-card-action btn-card-primary">
+                            <span>📥</span> 다운로드
+                        </a>
+                        <button class="btn-card-action" onclick="closeContractModal()">
+                            <span>❌</span> 닫기
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast -->
+        <div class="toast" id="toast">
+            <span id="toast-icon">✅</span>
+            <span id="toast-msg">메모가 성공적으로 저장되었습니다.</span>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>Our Wedding Preparation Checklist · 2026</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Filter Vendors
+        function filterVendors(cat, btn) {
+            const buttons = document.querySelectorAll('.btn-filter');
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const cards = document.querySelectorAll('.vendor-card');
+            cards.forEach(card => {
+                if (cat === 'all' || card.getAttribute('data-category') === cat) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Toggle Item Completion & Update Progress
+        function toggleItemComplete(cardId, checkbox) {
+            const card = document.getElementById(cardId);
+            if (checkbox.checked) {
+                card.classList.add('completed');
+                showToast('🎉 해당 항목이 준비 완료로 등록되었습니다!');
+            } else {
+                card.classList.remove('completed');
+                showToast('🔄 준비 상태로 변경되었습니다.');
+            }
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const total = 3;
+            const checked = document.querySelectorAll('.check-toggle input[type="checkbox"]:checked').length;
+            const percent = Math.round((checked / total) * 100);
+
+            const fill = document.getElementById('progress-fill');
+            const text = document.getElementById('progress-text');
+
+            if (fill) fill.style.width = percent + '%';
+            if (text) text.innerText = `${percent}% 완료 (${checked}/${total})`;
+        }
+
+        // LocalStorage Memo Persistence
+        function saveMemo(id, title) {
+            const val = document.getElementById(id).value;
+            localStorage.setItem('wedding_memo_' + id, val);
+            showToast(`💾 [${title}] 메모가 저장되었습니다.`);
+        }
+
+        function loadMemos() {
+            ['memo-snap-main', 'memo-snap-iphone', 'memo-bus'].forEach(id => {
+                const saved = localStorage.getItem('wedding_memo_' + id);
+                if (saved) {
+                    const el = document.getElementById(id);
+                    if (el) el.value = saved;
+                }
+            });
+        }
+
+        // Copy Text Helpers
+        function copyTemplate(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast('📋 요청사항 템플릿 문구가 클립보드에 복사되었습니다.');
+            }).catch(() => {
+                showToast('❌ 복사에 실패했습니다.');
+            });
+        }
+
+        function copyBusSmsTemplate() {
+            const smsText = `[결혼식 하객 대절 버스 안내]\n안녕하세요! 저희의 특별한 날을 축하해 주시기 위해 발걸음 해주셔서 진심으로 감사드립니다. 하객 대절 버스 운행 정보를 안내해 드립니다.\n\n📅 일시: 2026년 8월 23일 (일요일)\n⏰ 출발 시간: 오전 10:00 (정시 출발)\n📍 출발 장소: 서울 영등포구 의사당대로 88 한국투자증권 본사 앞\n🏛️ 도착 장소: 대전 유성구 동서대로 639 라도무스아트센터 (아모리움홀)\n🚌 귀환 출발: 오후 2:40 (14:40) 탑승 후 서울 귀환\n👤 담당 기사님: 김성군 기사님 (010-5518-7878) / 대형버스 (2026년식)\n\n편안하고 안전하게 모시겠습니다. 시간 맞춰 탑승해 주시기 바랍니다! 💕`;
+            navigator.clipboard.writeText(smsText).then(() => {
+                showToast('📲 하객 버스 안내 문자 양식이 클립보드에 복사되었습니다!');
+            }).catch(() => {
+                showToast('❌ 복사에 실패했습니다.');
+            });
+        }
+
+        // Toast Popup Helper
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-msg');
+            toastMsg.innerText = msg;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Contract Images Loader & Lightbox Modal Control
+        let contractImages = [];
+
+        async function loadContractImages() {
+            try {
+                const res = await fetch('images_base64.json');
+                if (res.ok) {
+                    contractImages = await res.json();
+                    checkAndShowContractButtons();
+                }
+            } catch (err) {
+                console.log('Notice: images_base64.json load skipped or missing.');
+            }
+        }
+
+        function getBase64Src(base64Str, filename) {
+            if (!base64Str) return '';
+            if (base64Str.startsWith('data:image')) {
+                return base64Str;
+            }
+            const ext = (filename || '').split('.').pop().toLowerCase();
+            const mime = (ext === 'png') ? 'image/png' : 'image/jpeg';
+            return `data:${mime};base64,${base64Str}`;
+        }
+
+        function findContractImage(keyword) {
+            if (!contractImages || !contractImages.length) return null;
+            const normKeyword = keyword.normalize('NFC').toLowerCase();
+            return contractImages.find(item => {
+                const normFile = (item.file || '').normalize('NFC').toLowerCase();
+                return normFile.includes(normKeyword);
+            });
+        }
+
+        function openContractModalByKeyword(keyword) {
+            const item = findContractImage(keyword);
+            if (!item) {
+                showToast(`⚠️ [${keyword}] 관련 계약서 이미지를 찾을 수 없습니다.`);
+                return;
+            }
+            openContractModal(item);
+        }
+
+        function openContractModal(item) {
+            const modal = document.getElementById('contract-modal');
+            const img = document.getElementById('contract-modal-img');
+            const tag = document.getElementById('contract-file-tag');
+            const downloadBtn = document.getElementById('contract-download-btn');
+
+            const src = getBase64Src(item.base64, item.file);
+            img.src = src;
+            tag.innerText = item.file;
+            downloadBtn.href = src;
+            downloadBtn.download = item.file;
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeContractModal(e) {
+            if (e && e.target && e.target.id !== 'contract-modal' && !e.target.classList.contains('contract-modal-close')) {
+                return;
+            }
+            const modal = document.getElementById('contract-modal');
+            if (modal) {
+                modal.classList.remove('active');
+            }
+            document.body.style.overflow = '';
+        }
+
+        function checkAndShowContractButtons() {
+            // Snap Main (여백)
+            const snapMainImg = findContractImage('여백');
+            const snapMainBtn = document.getElementById('btn-contract-snap-main');
+            if (snapMainImg && snapMainBtn) {
+                snapMainBtn.style.display = 'inline-flex';
+            }
+
+            // Snap iPhone (커들리)
+            const iphoneImg = findContractImage('커들리');
+            if (iphoneImg) {
+                const iphoneRow = document.querySelector('#card-snap-iphone .card-actions-row');
+                if (iphoneRow && !document.getElementById('btn-contract-snap-iphone')) {
+                    const btn = document.createElement('button');
+                    btn.id = 'btn-contract-snap-iphone';
+                    btn.className = 'btn-card-action btn-card-primary';
+                    btn.onclick = () => openContractModal(iphoneImg);
+                    btn.innerHTML = '<span>📄</span> 계약서 보기';
+                    iphoneRow.insertBefore(btn, iphoneRow.firstChild);
+                }
+            }
+
+            // Bus (하객 버스)
+            const busImg = findContractImage('버스');
+            if (busImg) {
+                const busRow = document.querySelector('#card-bus .card-actions-row');
+                if (busRow && !document.getElementById('btn-contract-bus')) {
+                    const btn = document.createElement('button');
+                    btn.id = 'btn-contract-bus';
+                    btn.className = 'btn-card-action btn-card-primary';
+                    btn.onclick = () => openContractModal(busImg);
+                    btn.innerHTML = '<span>📄</span> 계약서 보기';
+                    busRow.insertBefore(btn, busRow.firstChild);
+                }
+            }
+        }
+
+        // Close modal on ESC key
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeContractModal();
+            }
+        });
+
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', () => {
+            loadMemos();
+            updateProgress();
+            loadContractImages();
+        });
+    </script>
+</body>
+
+</html>
