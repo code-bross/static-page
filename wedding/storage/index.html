@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>웨딩 음원 보관함 | 고음질 MP3 미리듣기 및 다운로드</title>
-    <meta name="description" content="결혼식 본식 음원(어머니들 입장곡, 신랑 입장곡, 신부 입장곡, 퇴장곡) 미리듣기 및 고음질 MP3 다운로드 보관함">
+    <meta name="description" content="결혼식 본식 음원(어머니들 입장곡, 신랑 입장곡, 신부 입장곡, 축가, 퇴장곡) 미리듣기 및 고음질 MP3 다운로드 보관함">
     <!-- Google Fonts & Pretendard -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -332,6 +332,7 @@
         }
 
         .tag-entrance { background: rgba(226, 186, 132, 0.15); color: var(--accent-gold); border-color: rgba(226, 186, 132, 0.3); }
+        .tag-celebration { background: rgba(168, 85, 247, 0.18); color: #c084fc; border-color: rgba(168, 85, 247, 0.4); }
         .tag-exit { background: rgba(244, 63, 94, 0.15); color: var(--accent-rose); border-color: rgba(244, 63, 94, 0.3); }
 
         .track-meta {
@@ -1065,7 +1066,7 @@
         <div class="stats-bar">
             <div class="stat-item">
                 <div class="stat-label">총 보관 자료</div>
-                <div class="stat-val">9개 항목 (음원4 + 영상1 + 문서4)</div>
+                <div class="stat-val">10개 항목 (음원5 + 영상1 + 문서4)</div>
             </div>
             <div class="stat-item">
                 <div class="stat-label">포맷 / 화질</div>
@@ -1073,7 +1074,7 @@
             </div>
             <div class="stat-item">
                 <div class="stat-label">전체 용량</div>
-                <div class="stat-val">205.19 MB</div>
+                <div class="stat-val">212.07 MB</div>
             </div>
             <div class="stat-item">
                 <div class="stat-label">다운로드 상태</div>
@@ -1252,6 +1253,17 @@
             },
             {
                 id: 4,
+                title: "본식 축가 (오반 - Flower)",
+                filename: "축가-오반 Flower.mp3",
+                url: "./축가-오반 Flower.mp3",
+                icon: "🎤",
+                tag: "축가",
+                tagClass: "tag-celebration",
+                size: "6.88 MB",
+                desc: "감미롭고 축복 가득한 본식 축가 음원 (오반 - Flower)"
+            },
+            {
+                id: 5,
                 title: "신랑 신부 행진 & 퇴장곡",
                 filename: "퇴장곡.mp3",
                 url: "./퇴장곡.mp3",
@@ -1602,7 +1614,7 @@
 
         // Download All Resources Sequentially (Audio + Video + Documents)
         function downloadAllResources() {
-            showToast("📦 전체 자료(음원 4곡 + 영상 1편 + 문서 4장) 다운로드를 시작합니다.");
+            showToast("📦 전체 자료(음원 5곡 + 영상 1편 + 문서 4장) 다운로드를 시작합니다.");
             
             // 1. Audio tracks
             tracksData.forEach((track, i) => {
