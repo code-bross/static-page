@@ -135,8 +135,8 @@
 
         .timeline-container {
             overflow-y: auto;
-            max-height: 700px;
-            padding-right: 8px;
+            max-height: 720px;
+            padding-right: 6px;
         }
 
         .date-group {
@@ -155,12 +155,13 @@
             border: 1px solid var(--line);
             border-radius: 16px;
             background: #fff;
-            padding: 14px 14px 14px 16px;
+            padding: 14px 16px;
             margin-bottom: 10px;
             text-align: left;
             cursor: pointer;
             transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
             overflow: hidden;
+            box-sizing: border-box;
         }
 
         .schedule-item:hover {
@@ -175,33 +176,42 @@
 
         .schedule-row {
             display: flex;
+            align-items: flex-start;
             justify-content: space-between;
-            align-items: center;
             gap: 12px;
+            width: 100%;
         }
 
         .time-badge {
-            min-width: 70px;
+            flex-shrink: 0;
+            min-width: 65px;
             font-weight: 700;
             color: var(--accent);
-            flex-direction: column;
             display: flex;
+            flex-direction: column;
             align-items: flex-end;
+            text-align: right;
+            padding-top: 2px;
         }
 
         .schedule-content {
-            flex-grow: 1;
+            flex: 1 1 0%;
+            min-width: 0;
         }
 
         .place-name {
             font-size: 1rem;
             font-weight: 700;
+            line-height: 1.35;
+            word-break: keep-all;
         }
 
         .schedule-desc {
-            margin: 2px 0 0;
+            margin: 4px 0 0;
             color: var(--muted);
             font-size: 0.88rem;
+            line-height: 1.4;
+            word-break: keep-all;
         }
 
         .schedule-details {
@@ -697,13 +707,364 @@
             box-shadow: 0 4px 12px rgba(220, 38, 38, 0.25);
         }
 
-        @media (max-width: 960px) {
+        /* 모바일 전용 뷰 전환 버튼 (상단 스티키 아님) */
+        .mobile-view-toggle {
+            display: none;
+            gap: 10px;
+            margin-top: 18px;
+            width: 100%;
+        }
+
+        .mobile-toggle-btn {
+            flex: 1;
+            padding: 12px 16px;
+            border-radius: 14px;
+            border: 1px solid var(--line);
+            background: var(--panel);
+            color: var(--muted);
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .mobile-toggle-btn.active {
+            background: linear-gradient(135deg, var(--accent-2) 0%, var(--accent) 100%);
+            color: #ffffff;
+            border-color: transparent;
+            box-shadow: 0 4px 14px rgba(47, 111, 143, 0.25);
+        }
+
+        @media (max-width: 768px) {
             .layout {
                 grid-template-columns: 1fr;
             }
 
             .map-box {
                 height: 400px;
+            }
+
+            .mobile-view-toggle {
+                display: flex;
+            }
+
+            .layout.mobile-overview #scheduleCard {
+                display: none !important;
+            }
+
+            .layout.mobile-itinerary #mapCard {
+                display: none !important;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .mobile-view-toggle {
+                display: none !important;
+            }
+
+            .layout #scheduleCard,
+            .layout #mapCard,
+            .layout.mobile-overview #scheduleCard,
+            .layout.mobile-overview #mapCard,
+            .layout.mobile-itinerary #scheduleCard,
+            .layout.mobile-itinerary #mapCard {
+                display: flex !important;
+            }
+        }
+
+        /* 항공편 정보 카드 스타일 (스케줄 카드와 100% 동일한 너비 및 박스사이징 적용) */
+        .flight-section {
+            margin-bottom: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .flight-section-title {
+            font-size: 1.02rem;
+            font-weight: 700;
+            color: var(--accent-2);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .flight-card {
+            width: 100%;
+            box-sizing: border-box;
+            background: #ffffff;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 14px 16px;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 14px rgba(36, 49, 58, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .flight-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(47, 111, 143, 0.12);
+        }
+
+        .flight-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .flight-card .fno {
+            font-size: 0.86rem;
+            color: var(--muted);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 0;
+        }
+
+        .flight-card .ftag {
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 999px;
+            background: #e8f0f7;
+            color: var(--accent-2);
+            border: 1px solid #cce0f0;
+            flex-shrink: 0;
+        }
+
+        .flight-card .ftag.return {
+            background: #fef2f2;
+            color: #be123c;
+            border-color: #fecdd3;
+        }
+
+        .froute {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            padding: 4px 0 8px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .fend {
+            flex: 1 1 0%;
+            min-width: 0;
+            text-align: center;
+        }
+
+        .fend .code {
+            font-size: 1.55rem;
+            font-weight: 800;
+            color: var(--text);
+            letter-spacing: 0.5px;
+            line-height: 1;
+        }
+
+        .fend .city {
+            font-size: 0.8rem;
+            color: var(--muted);
+            font-weight: 600;
+            margin-top: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .fend .time {
+            font-size: 0.88rem;
+            font-weight: 700;
+            margin-top: 4px;
+            color: var(--accent-2);
+            white-space: nowrap;
+        }
+
+        .fmid {
+            flex: 0 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+            min-width: 70px;
+        }
+
+        .fmid .plane-icon {
+            font-size: 1.1rem;
+        }
+
+        .fmid .line {
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, #d0e1f0, var(--accent-2), var(--accent));
+            border-radius: 2px;
+        }
+
+        .fmid .duration {
+            font-size: 0.72rem;
+            color: var(--muted);
+            font-weight: 700;
+            background: #f1f5f9;
+            padding: 2px 7px;
+            border-radius: 10px;
+            margin-top: 2px;
+            white-space: nowrap;
+        }
+
+        .fnote {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed var(--line);
+            font-size: 0.82rem;
+            color: #475569;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .fnote-text {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-weight: 500;
+            flex: 1 1 auto;
+            min-width: 0;
+        }
+
+        .flight-voucher-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, #e11d48 0%, #be123c 100%);
+            color: #ffffff;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(225, 29, 72, 0.2);
+        }
+
+        .flight-voucher-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(225, 29, 72, 0.3);
+        /* 지도 동선 이동 & 캐릭터 애니메이션 스타일 */
+            .map-progress-info {
+                font-size: 0.88rem;
+                font-weight: 700;
+                color: var(--accent-2);
+                display: flex;
+                align-items: center;
+                gap: 6px;
+            }
+        }
+
+        .map-progress-bar {
+            width: 100%;
+            height: 7px;
+            background: #ede6da;
+            border-radius: 999px;
+            overflow: hidden;
+            margin-top: 6px;
+            margin-bottom: 14px;
+        }
+
+        .map-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--accent-2) 0%, var(--accent) 100%);
+            border-radius: 999px;
+            transition: width 0.4s ease;
+        }
+
+        .map-nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .map-nav-btn {
+            flex: 1;
+            padding: 10px 14px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: #ffffff;
+            color: var(--accent-2);
+            font-size: 0.86rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            box-shadow: 0 3px 10px rgba(36, 49, 58, 0.05);
+            white-space: nowrap;
+        }
+
+        .map-nav-btn:hover {
+            background: #fdfaf6;
+            border-color: var(--accent-2);
+            color: var(--accent-2);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(47, 111, 143, 0.15);
+        }
+
+        .map-nav-btn:active {
+            transform: translateY(0);
+        }
+
+        .map-nav-btn.primary {
+            background: linear-gradient(135deg, var(--accent-2) 0%, var(--accent) 100%);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 4px 14px rgba(47, 111, 143, 0.25);
+        }
+
+        .map-nav-btn.primary:hover {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 122, 89, 0.35);
+        }
+
+        .character-marker-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #ff7a59 0%, #e11d48 100%);
+            border: 3px solid #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 4px 18px rgba(255, 122, 89, 0.5), 0 0 0 6px rgba(255, 122, 89, 0.25);
+            font-size: 1.3rem;
+            animation: characterPulse 1.8s infinite ease-in-out;
+            transition: all 0.3s ease;
+        }
+
+        @keyframes characterPulse {
+            0% {
+                box-shadow: 0 4px 18px rgba(255, 122, 89, 0.5), 0 0 0 0px rgba(255, 122, 89, 0.4);
+            }
+            70% {
+                box-shadow: 0 4px 18px rgba(255, 122, 89, 0.5), 0 0 0 10px rgba(255, 122, 89, 0);
+            }
+            100% {
+                box-shadow: 0 4px 18px rgba(255, 122, 89, 0.5), 0 0 0 0px rgba(255, 122, 89, 0);
             }
         }
 
@@ -941,15 +1302,34 @@
             <div class="chip-row" id="dateFilters"></div>
         </section>
 
-        <main class="layout">
-            <section class="card">
+        <!-- 모바일 전용 뷰 전환 버튼 (상단 스티키 아님) -->
+        <div class="mobile-view-toggle" id="mobileViewToggle">
+            <button class="mobile-toggle-btn active" id="btnViewOverview" onclick="switchMobileView('overview')">🗺️ 지도</button>
+            <button class="mobile-toggle-btn" id="btnViewItinerary" onclick="switchMobileView('itinerary')">📅 일정</button>
+        </div>
+
+        <main class="layout mobile-overview" id="mainLayout">
+            <section class="card" id="scheduleCard">
                 <div class="card-title">타임테이블</div>
                 <div class="timeline-container" id="timelineList"></div>
             </section>
-            <aside class="card">
-                <div class="card-title">여행 지도</div>
+            <aside class="card" id="mapCard">
+                <div class="card-title" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+                    <span>여행 지도</span>
+                    <span class="map-progress-info">
+                        🧭 동선 이동 <span id="mapProgressText" style="color:var(--accent); font-weight:800;">1 / 1</span>
+                    </span>
+                </div>
+                <div class="map-progress-bar">
+                    <div class="map-progress-fill" id="mapProgressFill"></div>
+                </div>
                 <div id="tripMap" class="map-box"></div>
-                <div id="mapSummary" style="margin-top:15px; color:var(--muted); font-weight: 600;"></div>
+                <div class="map-nav-controls">
+                    <button class="map-nav-btn" onclick="prevMapSpot()">◀ 이전 스팟</button>
+                    <button class="map-nav-btn primary" id="btnAutoTour" onclick="toggleAutoTour()">▶️ 자동 투어</button>
+                    <button class="map-nav-btn" onclick="nextMapSpot()">다음 스팟 ▶</button>
+                </div>
+                <div id="mapSummary" style="margin-top:12px; color:var(--muted); font-weight: 600; font-size:0.88rem;"></div>
             </aside>
         </main>
     </div>
@@ -1014,6 +1394,34 @@
             });
         };
 
+        let currentMobileView = 'overview';
+
+        function switchMobileView(view) {
+            currentMobileView = view;
+            const layout = document.getElementById('mainLayout');
+            const btnOverview = document.getElementById('btnViewOverview');
+            const btnItinerary = document.getElementById('btnViewItinerary');
+
+            if (!layout || !btnOverview || !btnItinerary) return;
+
+            if (view === 'overview') {
+                layout.classList.remove('mobile-itinerary');
+                layout.classList.add('mobile-overview');
+                btnOverview.classList.add('active');
+                btnItinerary.classList.remove('active');
+                if (map) {
+                    setTimeout(() => {
+                        map.invalidateSize();
+                    }, 100);
+                }
+            } else {
+                layout.classList.remove('mobile-overview');
+                layout.classList.add('mobile-itinerary');
+                btnItinerary.classList.add('active');
+                btnOverview.classList.remove('active');
+            }
+        }
+
         function initMap() {
             map = L.map('tripMap').setView([47.8, 17.5], 7);
 
@@ -1025,6 +1433,10 @@
             polylineLayer = L.layerGroup().addTo(map);
 
             renderUI();
+
+            setTimeout(() => {
+                if (map) map.invalidateSize();
+            }, 300);
         }
 
         const countryNameMap = {
@@ -1054,6 +1466,89 @@
             return { chip: chipLabel, title: titleLabel, flags: flagStr };
         }
 
+        const flightData = [
+            {
+                id: 'fl-outbound',
+                tag: '🛫 출국',
+                isReturn: false,
+                no: '대한항공 KE963',
+                fromCode: 'ICN',
+                fromCity: '인천 T2',
+                dep: '8.24 12:45',
+                toCode: 'BUD',
+                toCity: '부다페스트 T2',
+                arr: '8.24 17:55',
+                duration: '11시간 10분',
+                note: '대한항공 직항 · 수하물 23kg 2개 포함 · 모바일 체크인 완료',
+                dates: ['8.24'],
+                voucherUniqueId: btoa(encodeURIComponent('인천국제공항12:45')).replace(/=/g, '')
+            },
+            {
+                id: 'fl-inbound',
+                tag: '🛬 귀국',
+                isReturn: true,
+                no: '대한항공 KE970',
+                fromCode: 'PRG',
+                fromCity: '프라하 T1',
+                dep: '9.02 19:05',
+                toCode: 'ICN',
+                toCity: '인천 T2',
+                arr: '9.03 13:20 (+1)',
+                duration: '11시간 15분',
+                note: '대한항공 직항 · 야간 비행 (기내식 2회) · 수하물 23kg 2개 포함',
+                dates: ['9.02', '9.03'],
+                voucherUniqueId: btoa(encodeURIComponent('프라하 바츨라프 하벨 국제공항19:05')).replace(/=/g, '')
+            }
+        ];
+
+        function getFlightsHtml() {
+            let activeFlights = [];
+            if (selectedDate === 'all') {
+                activeFlights = flightData;
+            } else {
+                activeFlights = flightData.filter(f => f.dates && f.dates.includes(selectedDate));
+            }
+
+            if (!activeFlights || activeFlights.length === 0) return '';
+
+            return `
+                <div class="flight-section">
+                    <div class="flight-section-title">✈️ 항공편 일정</div>
+                    ${activeFlights.map(f => `
+                        <div class="flight-card">
+                            <div class="flight-header">
+                                <div class="fno">✈️ ${f.no} · 직항</div>
+                                <span class="ftag ${f.isReturn ? 'return' : ''}">${f.tag}</span>
+                            </div>
+                            <div class="froute">
+                                <div class="fend">
+                                    <div class="code">${f.fromCode}</div>
+                                    <div class="city">${f.fromCity}</div>
+                                    <div class="time">${f.dep}</div>
+                                </div>
+                                <div class="fmid">
+                                    <span class="plane-icon">✈️</span>
+                                    <span class="line"></span>
+                                    <span class="duration">${f.duration}</span>
+                                </div>
+                                <div class="fend">
+                                    <div class="code">${f.toCode}</div>
+                                    <div class="city">${f.toCity}</div>
+                                    <div class="time">${f.arr}</div>
+                                </div>
+                            </div>
+                            <div class="fnote">
+                                <div class="fnote-text">📌 ${f.note}</div>
+                                <button class="flight-voucher-btn" onclick="openVoucherModal('${f.voucherUniqueId}')">
+                                    🎫 e-티켓 바우처 보기
+                                </button>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
         function renderUI() {
             const dateFilters = document.getElementById('dateFilters');
             if (!itineraryData || itineraryData.length === 0) {
@@ -1079,7 +1574,7 @@
             const timelineList = document.getElementById('timelineList');
             const groups = filtered.reduce((acc, cur) => { (acc[cur.date] = acc[cur.date] || []).push(cur); return acc; }, {});
 
-            timelineList.innerHTML = Object.entries(groups).map(([date, items]) => {
+            const scheduleGroupsHtml = Object.entries(groups).map(([date, items]) => {
                 const info = getDateFlagInfo(date);
                 const itemsHtml = items.map(item => {
                     const uniqueId = btoa(encodeURIComponent(item.place + item.time)).replace(/=/g, '');
@@ -1236,6 +1731,8 @@
                 `;
             }).join('');
 
+            timelineList.innerHTML = getFlightsHtml() + scheduleGroupsHtml;
+
             updateMap(filtered);
         }
 
@@ -1244,6 +1741,12 @@
             activePlace = null;
             renderUI();
         }
+
+        let currentSpotIndex = 0;
+        let currentValidItems = [];
+        let characterMarker = null;
+        let donePolylineLayer = null;
+        let autoPlayTimer = null;
 
         function setActive(place, time) {
             activePlace = place;
@@ -1256,52 +1759,57 @@
                 correctEl.classList.add('active');
             }
 
-            Object.keys(markersMap).forEach(key => {
-                const element = markersMap[key].getElement();
-                if (element) element.classList.remove('active');
-            });
+            const idx = currentValidItems.findIndex(i => i.place === place);
+            if (idx !== -1 && idx !== currentSpotIndex) {
+                moveToSpotIndex(idx, false);
+            }
 
             if (markersMap[place]) {
                 const marker = markersMap[place];
-                map.setView(marker.getLatLng(), 14, { animate: true, duration: 0.6 });
                 marker.openPopup();
-
-                const element = marker.getElement();
-                if (element) element.classList.add('active');
             }
-
-            document.getElementById('mapSummary').innerHTML = `📍 <strong>${place}</strong> 스팟 정보를 확인 중입니다.`;
         }
-
 
         function updateMap(items) {
             markerLayer.clearLayers();
             polylineLayer.clearLayers();
+            if (donePolylineLayer) donePolylineLayer.clearLayers();
             markersMap = {};
 
-            const validItems = items.filter(i => i.lat && i.lng);
-            const lineCoordinates = validItems
+            currentValidItems = items.filter(i => i.lat && i.lng);
+            const lineCoordinates = currentValidItems
                 .filter(i => !i.place.includes('인천국제공항'))
                 .map(i => [i.lat, i.lng]);
 
-            if (validItems.length === 0) return;
+            if (currentValidItems.length === 0) {
+                const fillEl = document.getElementById('mapProgressFill');
+                if (fillEl) fillEl.style.width = '0%';
+                const textEl = document.getElementById('mapProgressText');
+                if (textEl) textEl.textContent = '0 / 0';
+                return;
+            }
 
-            validItems.forEach((item) => {
-                const isSelected = activePlace === item.place;
+            if (currentSpotIndex >= currentValidItems.length) {
+                currentSpotIndex = 0;
+            }
+
+            currentValidItems.forEach((item, index) => {
+                const isSelected = activePlace === item.place || index === currentSpotIndex;
 
                 const emojiIcon = L.divIcon({
-                    html: item.emoji || '📍',
+                    html: `<span style="font-size:13px;">${item.emoji || '📍'}</span><span style="position:absolute; bottom:-2px; right:-2px; background:var(--accent-2); color:white; font-size:9px; font-weight:800; border-radius:50%; width:15px; height:15px; display:flex; align-items:center; justify-content:center;">${index + 1}</span>`,
                     className: `emoji-marker ${isSelected ? 'active' : ''}`,
-                    iconSize: [32, 32],
-                    iconAnchor: [16, 16],
+                    iconSize: [34, 34],
+                    iconAnchor: [17, 17],
                     popupAnchor: [0, -14]
                 });
 
                 const customMarker = L.marker([item.lat, item.lng], { icon: emojiIcon });
 
-                customMarker.bindPopup(`<strong>${item.emoji || '📍'} ${item.place}</strong><br><span style="font-size:11px; color:#666;">${item.time} - ${item.desc || ''}</span>`);customMarker.bindPopup(`<strong>${item.emoji || '📍'} ${item.place}</strong><br><span style="font-size:11px; color:#666;">${item.time} - ${item.desc || ''}</span>`);
+                customMarker.bindPopup(`<strong>${item.emoji || '📍'} [${index + 1}] ${item.place}</strong><br><span style="font-size:11px; color:#666;">${item.time} - ${item.desc || ''}</span>`);
 
                 customMarker.on('click', () => {
+                    moveToSpotIndex(index);
                     setActive(item.place, item.time);
                 });
 
@@ -1311,20 +1819,155 @@
 
             if (lineCoordinates.length > 1) {
                 L.polyline(lineCoordinates, {
-                    color: 'var(--accent)',
+                    color: '#94a3b8',
                     weight: 3,
-                    opacity: 0.6,
+                    opacity: 0.5,
                     dashArray: '6, 6'
                 }).addTo(polylineLayer);
             }
 
-            const mapBoundsItems = selectedDate === 'all' || selectedDate === 'shopping'
-                ? validItems.filter(i => !i.place.includes('인천국제공항'))
-                : validItems;
+            donePolylineLayer = L.layerGroup().addTo(map);
+            updateDoneLine();
 
-            const targetBounds = mapBoundsItems.length > 0 ? mapBoundsItems : validItems;
+            const curItem = currentValidItems[currentSpotIndex];
+            const charIcon = L.divIcon({
+                html: '🏃‍♂️',
+                className: 'character-marker-icon',
+                iconSize: [40, 40],
+                iconAnchor: [20, 20]
+            });
+
+            if (!characterMarker) {
+                characterMarker = L.marker([curItem.lat, curItem.lng], {
+                    icon: charIcon,
+                    zIndexOffset: 2000
+                }).addTo(map);
+            } else {
+                characterMarker.setLatLng([curItem.lat, curItem.lng]);
+            }
+
+            const mapBoundsItems = selectedDate === 'all' || selectedDate === 'shopping'
+                ? currentValidItems.filter(i => !i.place.includes('인천국제공항'))
+                : currentValidItems;
+
+            const targetBounds = mapBoundsItems.length > 0 ? mapBoundsItems : currentValidItems;
             const bounds = L.latLngBounds(targetBounds.map(i => [i.lat, i.lng]));
             map.fitBounds(bounds, { padding: [40, 40] });
+
+            updateStepUI();
+        }
+
+        function updateDoneLine() {
+            if (!donePolylineLayer) return;
+            donePolylineLayer.clearLayers();
+
+            if (currentValidItems.length > 1 && currentSpotIndex > 0) {
+                const doneCoords = currentValidItems.slice(0, currentSpotIndex + 1).map(i => [i.lat, i.lng]);
+                L.polyline(doneCoords, {
+                    color: 'var(--accent)',
+                    weight: 5,
+                    opacity: 0.95
+                }).addTo(donePolylineLayer);
+            }
+        }
+
+        function animateCharacterTo(targetLatLng, duration = 750) {
+            if (!characterMarker) return;
+            const startLatLng = characterMarker.getLatLng();
+            const startTime = performance.now();
+
+            function step(now) {
+                const elapsed = now - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const ease = 1 - Math.pow(1 - progress, 3);
+
+                const currentLat = startLatLng.lat + (targetLatLng.lat - startLatLng.lat) * ease;
+                const currentLng = startLatLng.lng + (targetLatLng.lng - startLatLng.lng) * ease;
+
+                characterMarker.setLatLng([currentLat, currentLng]);
+
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                }
+            }
+
+            requestAnimationFrame(step);
+        }
+
+        function moveToSpotIndex(index, triggerPan = true) {
+            if (currentValidItems.length === 0) return;
+            currentSpotIndex = Math.max(0, Math.min(index, currentValidItems.length - 1));
+
+            const targetItem = currentValidItems[currentSpotIndex];
+            animateCharacterTo({ lat: targetItem.lat, lng: targetItem.lng }, 700);
+
+            if (triggerPan) {
+                map.panTo([targetItem.lat, targetItem.lng], { animate: true, duration: 0.6 });
+            }
+
+            updateDoneLine();
+            updateStepUI();
+
+            Object.keys(markersMap).forEach(key => {
+                const element = markersMap[key].getElement();
+                if (element) element.classList.remove('active');
+            });
+            if (markersMap[targetItem.place]) {
+                const el = markersMap[targetItem.place].getElement();
+                if (el) el.classList.add('active');
+            }
+        }
+
+        function prevMapSpot() {
+            if (currentSpotIndex > 0) {
+                moveToSpotIndex(currentSpotIndex - 1);
+            } else {
+                moveToSpotIndex(currentValidItems.length - 1);
+            }
+        }
+
+        function nextMapSpot() {
+            if (currentSpotIndex < currentValidItems.length - 1) {
+                moveToSpotIndex(currentSpotIndex + 1);
+            } else {
+                moveToSpotIndex(0);
+            }
+        }
+
+        function toggleAutoTour() {
+            const btn = document.getElementById('btnAutoTour');
+            if (autoPlayTimer) {
+                clearInterval(autoPlayTimer);
+                autoPlayTimer = null;
+                if (btn) btn.innerHTML = '▶️ 자동 투어';
+            } else {
+                if (btn) btn.innerHTML = '⏸️ 일시정지';
+                nextMapSpot();
+                autoPlayTimer = setInterval(() => {
+                    if (currentSpotIndex >= currentValidItems.length - 1) {
+                        moveToSpotIndex(0);
+                    } else {
+                        nextMapSpot();
+                    }
+                }, 2800);
+            }
+        }
+
+        function updateStepUI() {
+            if (currentValidItems.length === 0) return;
+            const curItem = currentValidItems[currentSpotIndex];
+
+            const fillPercent = ((currentSpotIndex + 1) / currentValidItems.length) * 100;
+            const fillEl = document.getElementById('mapProgressFill');
+            if (fillEl) fillEl.style.width = `${fillPercent}%`;
+
+            const textEl = document.getElementById('mapProgressText');
+            if (textEl) textEl.textContent = `${currentSpotIndex + 1} / ${currentValidItems.length}`;
+
+            const summaryEl = document.getElementById('mapSummary');
+            if (summaryEl && curItem) {
+                summaryEl.innerHTML = `📍 <strong>[${currentSpotIndex + 1}/${currentValidItems.length}] ${curItem.place}</strong> ${curItem.time ? `(${curItem.time})` : ''} - 동선 스팟 정보를 확인 중입니다.`;
+            }
         }
 
         function formatDocentText(text) {
