@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>프라하 신혼여행 프리미엄 가이드북 | 8월 31일 주간 & 야경 투어</title>
+  <meta name="description" content="8월 31일 프라하 투어 완전정복 가이드! 프라하 성, 비투스 대성당 알폰스 무하, 성 이르지 바실리카, 존레논 벽, 카를교 얀 네포묵 소원, 공화국 광장, 구시가지, 유람선, 마네스교, 밤의 카를교 악마 전설까지">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main: #0a0d18;
+      --bg-card: rgba(22, 28, 44, 0.8);
+      --bg-card-hover: rgba(30, 39, 60, 0.9);
+      --gold-accent: #f39c12;
+      --gold-gradient: linear-gradient(135deg, #f7d070 0%, #d4af37 50%, #b37d14 100%);
+      --blue-glow: #3498db;
+      --amber-light: #e67e22;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-gold: rgba(212, 175, 55, 0.35);
+      --shadow-glow: 0 8px 32px 0 rgba(212, 175, 55, 0.15);
+      --radius-lg: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', 'Noto Serif KR', -apple-system, sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.75;
+      padding-bottom: 80px;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(243, 156, 18, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(52, 152, 219, 0.07) 0%, transparent 50%);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 18px;
+      border-radius: 30px;
+      background: rgba(212, 175, 55, 0.15);
+      border: 1px solid var(--border-gold);
+      color: var(--gold-accent);
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-family: 'Cinzel', 'Noto Serif KR', serif;
+      font-size: clamp(2.1rem, 5vw, 3.2rem);
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 24px;
+    }
+
+    .hero-meta {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .meta-item {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 8px 18px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .banner-card {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-gold);
+      box-shadow: var(--shadow-glow);
+      margin-bottom: 40px;
+    }
+
+    .banner-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .section-divider {
+      font-family: 'Cinzel', 'Noto Serif KR', serif;
+      font-size: 1.5rem;
+      color: var(--gold-accent);
+      margin: 36px 0 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid var(--border-gold);
+      padding-bottom: 10px;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 15px;
+      bottom: 15px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--gold-accent), rgba(52, 152, 219, 0.2));
+    }
+
+    .step-card {
+      position: relative;
+      background: var(--bg-card);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-lg);
+      padding: 24px 28px;
+      margin-bottom: 28px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .step-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-gold);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .step-badge {
+      position: absolute;
+      left: -38px;
+      top: 24px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--bg-main);
+      border: 2px solid var(--gold-accent);
+      color: var(--gold-accent);
+      font-weight: 700;
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+    }
+
+    .step-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .step-number {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--gold-accent);
+      letter-spacing: 1px;
+    }
+
+    .step-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .tag-day {
+      font-size: 0.8rem;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: rgba(243, 156, 18, 0.15);
+      color: var(--gold-accent);
+      border: 1px solid rgba(243, 156, 18, 0.3);
+      font-weight: 600;
+    }
+
+    .tag-night {
+      font-size: 0.8rem;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: rgba(52, 152, 219, 0.15);
+      color: var(--blue-glow);
+      border: 1px solid rgba(52, 152, 219, 0.3);
+      font-weight: 600;
+    }
+
+    .story-box {
+      background: rgba(212, 175, 55, 0.05);
+      border-left: 3px solid var(--gold-accent);
+      padding: 14px 18px;
+      border-radius: 0 10px 10px 0;
+      margin: 14px 0;
+      font-size: 0.95rem;
+      color: #e2e8f0;
+    }
+
+    .story-box strong {
+      color: var(--gold-accent);
+    }
+
+    .highlights-list {
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    .highlights-list li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .highlights-list li::before {
+      content: "✦";
+      position: absolute;
+      left: 0;
+      color: var(--gold-accent);
+    }
+
+    .tip-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 12px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.85rem;
+      color: #cbd5e1;
+    }
+
+    .checklist-section {
+      background: linear-gradient(135deg, rgba(22, 28, 44, 0.9), rgba(10, 13, 24, 0.95));
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      margin-top: 40px;
+    }
+
+    .checklist {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+
+    .checklist-item input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--gold-accent);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <span class="badge">PRAGUE HONEYMOON 2026.08.31</span>
+    <h1>프라하 낮 & 밤 가스등 투어 가이드</h1>
+    <p>유럽 최대 프라하 성부터 존레논 벽, 로맨틱 블타바 강 유람선과 카를교 악마의 계약 전설까지</p>
+    <div class="hero-meta">
+      <span class="meta-item">📍 프라하 성 ➔ 말라스트라나 ➔ 카를교 ➔ 유람선</span>
+      <span class="meta-item">⏱️ 일정: 오전 명소 투어 + 150분 야경 투어</span>
+      <span class="meta-item">✨ 얀 네포묵 신부 동상 소원 빌기</span>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <div class="banner-card">
+      <img src="prague_honeymoon_1786766122238.jpg" alt="프라하 신혼여행 아트워크">
+    </div>
+
+    <!-- PART 1: DAY TOUR -->
+    <h2 class="section-divider">☀️ PART 1. 오전 프라하 성 & 말라 스트라나 코스</h2>
+
+    <div class="timeline">
+
+      <!-- 1. 프라하 성 -->
+      <article class="step-card">
+        <div class="step-badge">1</div>
+        <div class="step-header">
+          <div>
+            <span class="step-number">STEP 01</span>
+            <h3 class="step-title">프라하 성 (Pražský hrad)</h3>
+          </div>
+          <span class="tag-day">☀️ 오전 투어</span>
+        </div>
+        <p>기네스북에 등재된 세계 최대 규모의 단지형 고성이자 체코의 역사적 중심지입니다.</p>
+        
+        <div class="story-box">
+          <strong>👑 살아있는 대통령궁 단지</strong><br>
+          다른 박물관화된 성과 달리, 현재도 체코 공화국 대통령의 공식 집무실로서 살아있는 '역할'을 수행하고 있습니다. 성 전체가 화려한 장식과 다채로운 양식의 건물군으로 둘러싸여 있습니다.
+        </div>
+      </article>
+
+      <!-- 2. 비투스 대성당 -->
+      <article class="step-card">
+        <div class="step-badge">2</div>
+        <div class="step-header">
+          <div>
+            <span class="step-number">STEP 02</span>
+            <h3 class="step-title">비투스 대성당 (Katedrála sv. Víta)</h3>
+          </div>
+          <span class="tag-day">☀️ 제 3정원</span>
+        </div>
+        <p>925년 시작되어 무려 1,000년의 건축 역사를 간직한 124m 길이의 거대한 고딕 성당입니다.</p>
+
+        <div class="story-box">
+          <strong>🎨 알폰스 무하의 '녹색의 창' & 장미의 창</strong><br>
+          아르누보 거장 알폰스 무하가 기독교 전파 이야기를 그린 화려한 **'녹색의 스테인드글라스 창'**과 천지창조를 표현한 27,000개 유리의 **'장미의 창'**이 시선을 사로잡습니다.
+        </div>
+
+        <ul class="highlights-list">
+          <li>체코 수호성인 성 바츨라프 예배당 관람.</li>
+          <li>은 2톤으로 제작된 성 얀 네포묵 신부의 화려한 은제 무덤.</li>
+        </ul>
+      </article>
+
+      <!-- 3. 성 이르지 바실리카 -->
+      <article class="step-card">
+        <div class="step-badge">3</div>
+        <div class="step-header">
+          <div>
+            <span class="step-number">STEP 03</span>
+            <h3 class="step-title">성 이르지 바실리카 (Bazilika sv. Jiří)</h3>
+          </div>
+          <span class="tag-day">☀️ 로마네스크 양식</span>
+        </div>
+        <p>930년 세워진 프라하 성 단지 내 가장 오래된 로마네스크 양식 건물입니다.</p>
+
+        <div class="story-box">
+          <strong>🎻 클래식 음악 홀과 성 루드밀라의 안식처</strong><br>
+          비투스 성당의 고딕 양식과 대조되는 붉은 파사드의 로마네스크 성당입니다. 바츨라프 왕의 조모이자 순교자인 **'성 루드밀라'**의 유해가 안치되어 있으며, 음향이 뛰어나 현재 연주회 홀로 쓰입니다.
+        </div>
+      </article>
+
+      <!-- 4. 존 레논 벽 & 카를교 낮 -->
+      <article class="step-card">
+        <div class="step-badge">4</div>
+        <div class="step-header">
+          <div>
+            <span class="step-number">STEP 04</span>
+            <h3 class="step-title">존 레논 벽 & 낮의 카를교</h3>
+          </div>
+          <span class="tag-day">☀️ 오전 투어 종료</span>
+        </div>
+        <p>프라하에서 가장 아기자기하고 아름다운 소지구 말로스트란스카(Malá Strana) 탐방!</p>
+
+        <div class="story-box">
+          <strong>🕊️ 존 레논 벽 & 성 얀 네포묵 동상 소원</strong><br>
+          공산 시절 자유와 평화를 노래하던 존 레논 벽을 지나 유럽 최고 미학의 카를교로 향합니다. 카를교 위의 **'성 얀 네포묵' 신부 동상 밑 금빛 부조**를 만지며 소원을 빌면 꼭 이루어진다는 전설!
+        </div>
+      </article>
+
+    </div>
+
+    <!-- PART 2: NIGHT TOUR -->
+    <h2 class="section-divider">🌙 PART 2. 하이프라하 야경 투어 & 블타바강 유람선 (150분)</h2>
+
+    <div class="timeline">
+
+      <!-- 5. 공화국 광장 -->
+      <article class="step-card">
+        <div class="step-badge">5</div>
+        <div class="step-header">
+          <div>
+            <span class="step-number">STEP 05</span>
+            <h3 class="step-title">공화국 광장 (Náměstí Republiky)</h3>
+          </div>
+          <span class="tag-night">🌙 UniCredit Bank 앞 미팅</span>
+        </div>
+        <p>체코 공화국의 탄생을 알렸던 신시가지의 출발점이자 야경 투어의 미팅 장소입니다.</p>
+
+        <ul class="highlights-list">
+          <li>화려한 아르누보 양식의 시민회관(Obecní dům) 조망.</li>
+          <li>황제의 길을 따라 구시가지로 이동하는 야경 투어의 시작!</li>
+        </ul>
+      </article>
+
+      <!-- 6. 구시가지 광장 -->
+      <article class="step-card">
+        <div class="step-badge">6</div>
+        <div class="step-header">
+          <div>
+            <span class="step-number">STEP 06</span>
+            <h3 class="step-title">구시가지 광장 (Staroměstské náměstí)</h3>
+          </div>
+          <span class="tag-night">🌙 은은한 밤의 광장</span>
+        </div>
+        <p>세계인들이 사랑하는 구시가지 광장의 화려한 밤 풍경과 역사의 이야기!</p>
+
+        <div class="story-box">
+          <strong>🕰️ 600년 역사 천문시계탑 (Orloj)</strong><br>
+          1410년에 제작된 세계 최고의 가동 천문시계. 정시마다 제자들이 등장하는 장관과 시계 장인의 눈을 멀게 한 잔혹한 전설을 청취합니다.
+        </div>
+      </article>
+
+      <!-- 7. 파르지슈스카 거리 & 유람선 -->
+      <article class="step-card">
+        <div class="step-badge">7</div>
+        <div class="step-header">
+          <div>
+            <span class="step-number">STEP 07</span>
+            <h3 class="step-title">파르지슈스카 거리 & 유람선 탑승</h3>
+          </div>
+          <span class="tag-night">🌙 낭만 블타바 강 유람선</span>
+        </div>
+        <p>'체코의 가로수길'이라 불리는 화려한 파르지슈스카 명품 거리를 거쳐 선착장으로 이동합니다.</p>
+
+        <div class="story-box">
+          <strong>🚢 유럽 3대 야경 블타바 강 유람선</strong><br>
+          시원한 강바람을 맞으며 잔잔한 강물 위로 반짝이는 프라하 성과 카를교의 낭만적인 실루엣을 감상합니다.
+        </div>
+      </article>
+
+      <!-- 8. 마네스교 -->
+      <article class="step-card">
+        <div class="step-badge">8</div>
+        <div class="step-header">
+          <div>
+            <span class="step-number">STEP 08</span>
+            <h3 class="step-title">마네스교 (Mánesův most)</h3>
+          </div>
+          <span class="tag-night">🌙 영화 촬영 뷰포인트</span>
+        </div>
+        <p>카를교와 프라하 성을 한눈에 담을 수 있는 최상의 포토 스팟입니다.</p>
+
+        <ul class="highlights-list">
+          <li>영화 《미션 임파서블》, 《뷰티 인사이드》 등 로맨스 영화의 실제 촬영지 탐방.</li>
+        </ul>
+      </article>
+
+      <!-- 9. 카를교 야경 -->
+      <article class="step-card">
+        <div class="step-badge">9</div>
+        <div class="step-header">
+          <div>
+            <span class="step-number">STEP 09</span>
+            <h3 class="step-title">밤의 카를교 (야경 투어 종료)</h3>
+          </div>
+          <span class="tag-night">🌙 악마의 계약 전설</span>
+        </div>
+        <p>은은한 가스등 조명이 비치는 밤의 카를교에서 감성 충만한 야경 투어를 마무리합니다.</p>
+
+        <div class="story-box">
+          <strong>👿 카를교 건축가와 악마의 계약 전설</strong><br>
+          다리가 홍수로 자꾸 무너지자 건축가가 완성의 대가로 "다리를 첫 번째로 건너는 생명체의 영혼"을 악마에게 바치기로 계약했으나, 악마의 꾀에 속아 사랑하는 사람이 다리를 먼저 건너게 되었다는 슬프고도 섬뜩한 비하인드 이야기!
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Honeymoon Checklist -->
+    <section class="checklist-section">
+      <h2 class="section-divider" style="border:none; margin-bottom: 8px;">💍 프라하 신혼여행 미션 체크리스트</h2>
+      <p style="color: var(--text-muted); font-size: 0.9rem;">투어 중 커플 미션을 완수해보세요!</p>
+
+      <ul class="checklist">
+        <li class="checklist-item"><label><input type="checkbox"> 비투스 성당 알폰스 무하 스테인드글라스 사진</label></li>
+        <li class="checklist-item"><label><input type="checkbox"> 성 이르지 바실리카 붉은 파사드 배경 셀카</label></li>
+        <li class="checklist-item"><label><input type="checkbox"> 존 레논 벽 앞에서 손잡고 커플샷</label></li>
+        <li class="checklist-item"><label><input type="checkbox"> 낮의 카를교 얀 네포묵 동상 손 대고 소원 비기</label></li>
+        <li class="checklist-item"><label><input type="checkbox"> 구시가지 천문시계 정시 제자들 장관 관람</label></li>
+        <li class="checklist-item"><label><input type="checkbox"> 블타바 강 유람선 위에서 프라하 성 배경 사진</label></li>
+        <li class="checklist-item"><label><input type="checkbox"> 마네스교에서 뷰티 인사이드 느낌 샷</label></li>
+        <li class="checklist-item"><label><input type="checkbox"> 가스등 켜진 밤의 카를교에서 낭만 키스 샷</label></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>💖 Romantic Prague Honeymoon Itinerary Guide</p>
+    <p>Wish you a magical and unforgettable night in Prague!</p>
+  </footer>
+
+</body>
+</html>
