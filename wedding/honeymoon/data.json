@@ -614,7 +614,7 @@
   },
   {
     "date": "8.26",
-    "time": "19:30",
+    "time": "18:00",
     "place": "Halászbástya Étterem",
     "country_flag": "🇭🇺",
     "emoji": "🍽️",
@@ -628,6 +628,7 @@
     "link": "https://maps.app.goo.gl/xigtmrHbjNiLN82HA",
     "lat": 47.5027757,
     "lng": 19.0320084,
+    "reserved": "18:00",
     "menus": [
       {
         "name": "쉐프 3~4코스 테이스팅 메뉴 (Chef's Tasting Menu)",
@@ -1508,7 +1509,7 @@
   },
   {
     "date": "8.30",
-    "time": "19:30",
+    "time": "17:30",
     "place": "Lokál Dlouhááá",
     "country_flag": "🇨🇿",
     "emoji": "🍽️",
@@ -1518,6 +1519,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Lok%C3%A1l+Dlouh%C3%A1%C3%A1%C3%A1+Prague",
     "lat": 50.0908655,
     "lng": 14.4268789,
+    "reserved": "17:30",
     "isRestaurant": true,
     "menus": [
       {
