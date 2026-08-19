@@ -484,7 +484,7 @@
   },
   {
     "date": "8.26",
-    "time": "13:30",
+    "time": "13:00",
     "place": "New York Kávéház",
     "country_flag": "🇭🇺",
     "emoji": "☕",
@@ -498,6 +498,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=New+York+Café+Budapest",
     "lat": 47.4987259,
     "lng": 19.0704556,
+    "reserved": "13:00",
     "guide_links": [
       "https://www.newyorkcafe.hu/en/gallery"
     ],
@@ -2052,7 +2053,7 @@
   },
   {
     "date": "9.01",
-    "time": "14:30",
+    "time": "13:00",
     "place": "Pork's Mostecka (포크스)",
     "country_flag": "🇨🇿",
     "emoji": "🍽️",
@@ -2062,6 +2063,7 @@
     "link": "https://www.google.com/maps/search/?api=1&query=Pork%27s+Mostecka+Prague",
     "lat": 50.0874459,
     "lng": 14.4060437,
+    "reserved": "13:00",
     "isRestaurant": true,
     "menus": [
       {
