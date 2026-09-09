@@ -1,4 +1,4 @@
-window.EXAM_DATA = [
+window.EXAM_DATA_ROUND1 = [
   {
     "id": 1,
     "category": "1과목: 증권분석 및 증권시장",
@@ -124,7 +124,7 @@ window.EXAM_DATA = [
       "5배"
     ],
     "pageImage": "3.jpg",
-    "correctAnswer": 2,
+    "correctAnswer": 1,
     "explanation": "시가총액 = 3만원 × 100만주 = 300억원. 순부채 = 총부채(200억) - 현금성자산(100억) = 100억원. 기업가치(EV) = 시가총액 + 순부채 = 400억원. EV/EBITDA = 400억 / 200억 = 2배."
   },
   {
@@ -188,7 +188,7 @@ window.EXAM_DATA = [
       "흑삼병은 주가가 상승추세를 지속하다가 양선이 연속 3개 발생하는 현상이다."
     ],
     "pageImage": "4.jpg",
-    "correctAnswer": 3,
+    "correctAnswer": 4,
     "explanation": "적삼병(Three White Soldiers)은 하락 추세 끝에서 연속 3개의 양봉이 출현하여 강한 바닥 확인 및 상승 추세 전환 신호로 해석됩니다."
   },
   {
@@ -204,7 +204,7 @@ window.EXAM_DATA = [
       "Stochastic"
     ],
     "pageImage": "4.jpg",
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "OBV(On Balance Volume)는 주가 상승일 거래량 합계에서 주가 하락일 거래량 합계를 차감하여 누적 집계하는 대표적 거래량 지표입니다."
   },
   {
@@ -220,7 +220,7 @@ window.EXAM_DATA = [
       "자기매매우선의 원칙"
     ],
     "pageImage": "4.jpg",
-    "correctAnswer": 4,
+    "correctAnswer": 1,
     "explanation": "증권시장의 매매체결 우선원칙은 가격우선, 시간우선, 위탁매매우선, 수량우선 원칙 등이 있으며, 자기매매우선 원칙은 존재하지 않습니다 (고객인 위탁매매가 우선입니다)."
   },
   {
@@ -252,7 +252,7 @@ window.EXAM_DATA = [
       "상장폐지는 한국거래소의 직권으로만 이루어지며 발행회사의 신청에 의한 상장폐지는 불가능하다."
     ],
     "pageImage": "5.jpg",
-    "correctAnswer": 4,
+    "correctAnswer": 1,
     "explanation": "상장법인은 주주총회 특별결의 등을 거쳐 한국거래소에 자진 상장폐지를 신청할 수 있습니다."
   },
   {
@@ -268,7 +268,7 @@ window.EXAM_DATA = [
       "가격 지정 없이 즉시 체결 가능한 가격으로 매매 체결하는 호가이다."
     ],
     "pageImage": "6.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "조건부지정가호가는 장중에는 지정가호가로 참여하다가 정규시장 마감 전까지 체결되지 않은 경우 마감 단일가매매 시 시장가호가로 자동 전환됩니다."
   },
   {
@@ -284,7 +284,7 @@ window.EXAM_DATA = [
       "24시간 상시 운영된다."
     ],
     "pageImage": "6.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 4,
     "explanation": "장중경쟁대량매매는 정규시장 중 09:00부터 15:00까지 운영되며, 마감 30분 전(15:00)에 종료됩니다."
   },
   {
@@ -316,7 +316,7 @@ window.EXAM_DATA = [
       "선호영역이론"
     ],
     "pageImage": "7.jpg",
-    "correctAnswer": 2,
+    "correctAnswer": 4,
     "explanation": "유동성프리미엄이론은 장기 채권일수록 가격변동 위험 및 유동성 위험이 크므로 투자자들이 추가적인 유동성 프리미엄을 요구하기 때문에 수익률곡선이 우상향한다고 봅니다."
   },
   {
@@ -332,7 +332,7 @@ window.EXAM_DATA = [
       "무표면채(순수할인채)의 듀레이션은 만기와 같다."
     ],
     "pageImage": "7.jpg",
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "채권의 만기수익률(YTM)이 상승하면 미래 현금흐름의 현재가치 비중이 만기 가깝게 줄어들어 듀레이션은 '짧아집니다'."
   },
   {
@@ -364,7 +364,7 @@ window.EXAM_DATA = [
       "이익참가부사채(PB)"
     ],
     "pageImage": "7.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "전환사채(Convertible Bond)는 일정 조건 하에 사채권자가 '발행회사의 주식'으로 전환을 청구할 수 있는 주식연계채권입니다."
   },
   {
@@ -380,7 +380,7 @@ window.EXAM_DATA = [
       "기업의 자기자본 총액이 증가한다."
     ],
     "pageImage": "8.jpg",
-    "correctAnswer": 4,
+    "correctAnswer": 3,
     "explanation": "무상증자는 잉여금을 자본금으로 계정 대체하는 것이므로 기업의 '자기자본 총액'에는 변동이 없습니다."
   },
   {
@@ -428,7 +428,7 @@ window.EXAM_DATA = [
       "(포트폴리오 수익률 - 무위험수익률) / 젠센의 알파"
     ],
     "pageImage": "8.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "샤프지수 = (Sp = (Rp - Rf) / σp)로 단위 총위험(표준편차) 당 초과수익률을 측정합니다."
   },
   {
@@ -444,7 +444,7 @@ window.EXAM_DATA = [
       "바이앤홀드(Buy & Hold) 전략"
     ],
     "pageImage": "9.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "전술적 자산배분은 단기적인 시장 저평가 자산을 발굴하여 과중/저중치를 능동적으로 조절하는 전략입니다."
   },
   {
@@ -476,7 +476,7 @@ window.EXAM_DATA = [
       "세타 (Theta)"
     ],
     "pageImage": "9.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "델타(Delta)는 기초자산 가격 1단위 변동 시 옵션 가격이 얼마나 변동하는지 나타내는 기울기/민감도 지표입니다."
   },
   {
@@ -492,7 +492,7 @@ window.EXAM_DATA = [
       "증거금 제도(Margin)를 이용하여 레버리지 효과가 발생한다."
     ],
     "pageImage": "9.jpg",
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "선물거래는 매일 장마감 후 일일정산(Marking to Market)을 실시하여 정산차금을 이체합니다."
   },
   {
@@ -508,7 +508,7 @@ window.EXAM_DATA = [
       "외환시장에서만 거래되는 계약이다."
     ],
     "pageImage": "10.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "금리스왑(IRS)은 동일한 통화 금액 기준으로 고정금리 현금흐름과 변동금리 현금흐름을 상호 교환하는 거래입니다."
   },
   {
@@ -524,7 +524,7 @@ window.EXAM_DATA = [
       "디지털(Digital)형"
     ],
     "pageImage": "10.jpg",
-    "correctAnswer": 3,
+    "correctAnswer": 4,
     "explanation": "스텝다운(Step-down) ELS는 평가주기마다 기준가격 하향 조정 및 만기 터치(Knock-In) 발생 여부에 따라 수익을 지급하는 가장 흔한 ELS 구조입니다."
   },
   {
@@ -540,7 +540,7 @@ window.EXAM_DATA = [
       "보증인으로서 채무를 대신 상환한다."
     ],
     "pageImage": "10.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 4,
     "explanation": "CDS 보증매수자는 신용위험 회피를 위해 주기적으로 프리미엄을 보증매도자에게 지급하고 부도 등 신용사건 발생 시 손해 보전금을 수취합니다."
   },
   {
@@ -556,7 +556,7 @@ window.EXAM_DATA = [
       "채권 금리의 변동성을 산출하는 지수이다."
     ],
     "pageImage": "10.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "VKOSPI 지수는 KOSPI 200 옵션 가격에 반영된 향후 30일간의 시장 내재변동성(Implied Volatility)을 산출한 지수입니다."
   },
   {
@@ -572,7 +572,7 @@ window.EXAM_DATA = [
       "공정성의 원칙"
     ],
     "pageImage": "11.jpg",
-    "correctAnswer": 2,
+    "correctAnswer": 1,
     "explanation": "투자자 이익 우선의 원칙은 금융투자업 임직원이 직무를 수행함에 있어 금융투자업자 자신이나 제3자의 이익보다 투자자의 이익을 최우선시해야 한다는 윤리 원칙입니다."
   },
   {
@@ -588,7 +588,7 @@ window.EXAM_DATA = [
       "이해상충이 예상되면 투자자의 동의 없이 임의로 처리할 수 있다."
     ],
     "pageImage": "11.jpg",
-    "correctAnswer": 4,
+    "correctAnswer": 2,
     "explanation": "이해상충이 발생하는 경우 사전에 고지하거나 이해상충을 차단/관리해야 하며, 투자자의 동의 없이 임의 처리할 수 없습니다."
   },
   {
@@ -604,7 +604,7 @@ window.EXAM_DATA = [
       "무제한 권유의 원칙"
     ],
     "pageImage": "11.jpg",
-    "correctAnswer": 4,
+    "correctAnswer": 2,
     "explanation": "금소법 6대 판매규제: 적합성 원칙, 적정성 원칙, 설명의무, 불공정영업행위 금지, 부당권유행위 금지, 광고준수 의무."
   },
   {
@@ -620,7 +620,7 @@ window.EXAM_DATA = [
       "일반 개인 투자자"
     ],
     "pageImage": "11.jpg",
-    "correctAnswer": 4,
+    "correctAnswer": 3,
     "explanation": "일반 개인 투자자는 위험 관리 능력이나 정보 접근성 면에서 금융소비자보호법상 '일반금융소비자'로 보호받습니다."
   },
   {
@@ -636,7 +636,7 @@ window.EXAM_DATA = [
       "정당한 사유 없이 고객에게 불확실한 사항에 대해 단정적 판단을 제공해서는 안 된다."
     ],
     "pageImage": "12.jpg",
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "투자권유 시 확정적 수익 보장 표현이나 단정적 판단 제공은 부당권유행위로 엄격히 금지됩니다."
   },
   {
@@ -668,7 +668,7 @@ window.EXAM_DATA = [
       "채권형 증권펀드"
     ],
     "pageImage": "12.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 4,
     "explanation": "부동산, 특별자산 펀드 등 환매가 용이하지 않은 자산에 20%를 초과하여 투자하는 경우 의무적으로 환매금지형(폐쇄형)으로 설정해야 합니다."
   },
   {
@@ -700,7 +700,7 @@ window.EXAM_DATA = [
       "펀드의 총위험을 나타내는 변동성 지수이다."
     ],
     "pageImage": "13.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "젠센의 알파(α) = 펀드실제수익률 - CAPM 기대수익률 [Rf + β(Rm - Rf)]로, 펀드매니저의 우수한 종목선정 능력을 평가합니다."
   },
   {
@@ -716,7 +716,7 @@ window.EXAM_DATA = [
       "채권만을 전액 편입하여 운용하는 안전 펀드이다."
     ],
     "pageImage": "13.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 4,
     "explanation": "ELF(Equity Linked Fund)는 펀드 자산의 대부분을 ELS(주가연계증권)에 편입하여 ELS의 수익 구조를 구현하는 집합투자기구입니다."
   },
   {
@@ -732,7 +732,7 @@ window.EXAM_DATA = [
       "환매가 언제나 자유로운 오픈형 펀드 구조이다."
     ],
     "pageImage": "13.jpg",
-    "correctAnswer": 4,
+    "correctAnswer": 3,
     "explanation": "리츠(REITs)는 상장주식 거래를 통해 유동성을 얻으며, 일반 환매청구가 자유로운 오픈형 펀드가 아닌 주식회사 형태입니다."
   },
   {
@@ -748,7 +748,7 @@ window.EXAM_DATA = [
       "단순 상장주식 가격 (단순 주식만으로 구성)"
     ],
     "pageImage": "13.jpg",
-    "correctAnswer": 4,
+    "correctAnswer": 1,
     "explanation": "단순 상장주식이나 주가지수만을 기초자산으로 하는 것은 ELS(주가연계증권)이며, DLS는 원자재, 금리, 환율, 신용 등을 기초자산으로 합니다."
   },
   {
@@ -764,7 +764,7 @@ window.EXAM_DATA = [
       "청약철회권은 적용되지 않는다."
     ],
     "pageImage": "14.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "금소법상 일반적인 투자성 상품의 청약철회 기간은 계약서류를 받은 날(또는 계약체결일)로부터 7일 이내입니다."
   },
   {
@@ -796,7 +796,7 @@ window.EXAM_DATA = [
       "펀드 집합투자규약의 수시 변경이 불가능하다."
     ],
     "pageImage": "14.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 4,
     "explanation": "사모펀드는 소수의 전문투자자 및 사모 요건(투자자 총수 100인 이하, 일반투자자 49인 이하)을 충족하여 설립됩니다."
   },
   {
@@ -812,7 +812,7 @@ window.EXAM_DATA = [
       "분석보고서 공표 전 자회사의 주식을 먼저 매수하는 행위"
     ],
     "pageImage": "14.jpg",
-    "correctAnswer": 3,
+    "correctAnswer": 4,
     "explanation": "공개된 기업분석 보고서에 기초하여 객관적으로 투자권유를 제공하는 것은 정당한 직무 수행입니다."
   },
   {
@@ -860,7 +860,7 @@ window.EXAM_DATA = [
       "간이투자설명서 교부 및 설명"
     ],
     "pageImage": "15.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "투자자의 요청이 없음에도 불쑥 방문하거나 전화하여 투자권유를 지속하는 불요청 권유(Cold Calling)는 부당권유행위로 금지됩니다."
   },
   {
@@ -876,7 +876,7 @@ window.EXAM_DATA = [
       "숙려기간 후 자동 가입 취소만 가능하다."
     ],
     "pageImage": "15.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "고위험 파생결합증권 등 숙려대상 상품 가입 시 일반투자자(고령자 등)에게 2영업일 이상의 숙려기간을 주어 신중히 판단하게 합니다."
   },
   {
@@ -892,7 +892,7 @@ window.EXAM_DATA = [
       "고객재산은 상계나 압류 대상이 되지 아니한다."
     ],
     "pageImage": "16.jpg",
-    "correctAnswer": 3,
+    "correctAnswer": 1,
     "explanation": "고객예치금 및 자산은 금융투자업자의 고유재산과 철저히 separation(분리)되어야 하며 임시 차용은 엄격히 금지됩니다."
   },
   {
@@ -908,7 +908,7 @@ window.EXAM_DATA = [
       "고객과의 약정에 따른 자산운용 보고서 교부"
     ],
     "pageImage": "16.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 4,
     "explanation": "회사의 수수료 수입만을 위해 고객 계좌에서 잦은 매매를 유발하는 과회전매매(Churning)는 신의성실 및 투자자이익우선 원칙 위배입니다."
   },
   {
@@ -924,7 +924,7 @@ window.EXAM_DATA = [
       "준법감시인은 내부통제기준 위반 발견 시 이사회 등에 보고해야 한다."
     ],
     "pageImage": "16.jpg",
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "준법감시인은 업무의 독립성 확보를 위해 자산운용이나 자산매매 등 영업 관련 직무 겸직이 금지됩니다."
   },
   {
@@ -940,7 +940,7 @@ window.EXAM_DATA = [
       "사모펀드는 공시 의무가 공모펀드보다 엄격하다."
     ],
     "pageImage": "16.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 4,
     "explanation": "공모펀드는 50인 이상의 인원을 대상으로 청약 권유를 하는 펀드이며, 공시 및 보호 규정이 엄격합니다."
   },
   {
@@ -956,7 +956,7 @@ window.EXAM_DATA = [
       "투자자의 외모 및 학벌"
     ],
     "pageImage": "17.jpg",
-    "correctAnswer": 4,
+    "correctAnswer": 3,
     "explanation": "적합성 평가 요소는 연령, 투자경험, 재산상황, 손실감수능력, 투자목적 등이며 개인의 학벌이나 외모 등은 무관합니다."
   },
   {
@@ -972,7 +972,7 @@ window.EXAM_DATA = [
       "투자위험 고지문 서면 보관"
     ],
     "pageImage": "17.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "금소법상 6대 판매규제를 위반한 금융회사에는 관련 수입의 최대 50%까지 징벌적 과징금이 부과될 수 있습니다."
   },
   {
@@ -988,7 +988,7 @@ window.EXAM_DATA = [
       "증권시장에 상장된 장기 채권에만 투자한다."
     ],
     "pageImage": "17.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "MMF는 단기 유동성과 안전성 확보를 위해 주식 투자가 금지되며 가중평균 잔존만기 규제(75일 이내 등)를 받는 단기금융상품 펀드입니다."
   },
   {
@@ -1004,7 +1004,7 @@ window.EXAM_DATA = [
       "정부의 세수를 증대시키기 위함이다."
     ],
     "pageImage": "17.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "환매금지형(폐쇄형) 펀드는 부동산, 인프라 등 벵크런성 대량 환매 시 중도 처분이 어려운 자산을 안정적으로 운용하기 위해 설정됩니다."
   },
   {
@@ -1020,7 +1020,7 @@ window.EXAM_DATA = [
       "대주주 신용공여 내역은 금융위원회에 보고할 필요가 없다."
     ],
     "pageImage": "18.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "사익 편취 방지를 위해 금융투자업자의 대주주에 대한 신용공여는 원칙적으로 엄격히 제한되며 이사회 의결 및 공시 보고 의무가 수반됩니다."
   },
   {
@@ -1052,7 +1052,7 @@ window.EXAM_DATA = [
       "법원 판사"
     ],
     "pageImage": "18.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "금소법상 설명의무 위반으로 인한 손해배상청구 소송에서는 입증책임이 '금융회사(판매업자)'에게 전환되어 고의/과실이 없었음을 회사가 입증해야 합니다."
   },
   {
@@ -1068,7 +1068,7 @@ window.EXAM_DATA = [
       "예금자보호법에 의해 보호된다."
     ],
     "pageImage": "18.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "파생상품(선물 등)은 소액의 증거금으로 큰 금액을 거래하므로 주가 반대 변동 시 원금 초과 손실(추가 증거금 납부 발생)이 가능합니다."
   },
   {
@@ -1084,7 +1084,7 @@ window.EXAM_DATA = [
       "펀드매니저가 임의로 가격을 책정한다."
     ],
     "pageImage": "19.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "펀드의 기준가격 = (순자산총액 / 총좌수) × 1,000으로 집계하여 매일 공시합니다."
   },
   {
@@ -1100,7 +1100,7 @@ window.EXAM_DATA = [
       "부실 운용사 등록 취소 제도"
     ],
     "pageImage": "19.jpg",
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "사모펀드 개편으로 인해 일반투자자가 포함된 사모펀드의 경우 신탁업자의 운용감시 및 핵심상품설명서 제공 등 최소한의 투자자 보호 장치가 도입되었습니다."
   },
   {
@@ -1116,7 +1116,7 @@ window.EXAM_DATA = [
       "고객 본인의 서면 동의가 있는 경우"
     ],
     "pageImage": "19.jpg",
-    "correctAnswer": 3,
+    "correctAnswer": 4,
     "explanation": "동료 직원의 사적 목적 정보 요청은 고객 비밀보호 의무에 위배되는 불법 정보 유출 행위입니다."
   },
   {
@@ -1148,7 +1148,7 @@ window.EXAM_DATA = [
       "신용정보조회업"
     ],
     "pageImage": "20.jpg",
-    "correctAnswer": 4,
+    "correctAnswer": 2,
     "explanation": "자본시장법상 6대 금융투자업: 투자매매업, 투자중개업, 집합투자업, 투자자문업, 투자일임업, 신탁업. (신용정보업은 신용정보법 적용 대상)"
   },
   {
@@ -1164,7 +1164,7 @@ window.EXAM_DATA = [
       "이자지급의 확정성"
     ],
     "pageImage": "20.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 4,
     "explanation": "금융투자상품은 투자 원금 손실 가능성(투자성)을 갖는 것을 핵심 요건으로 하며, 원금 초과 손실 여부에 따라 증권과 파생상품으로 나뉩니다."
   },
   {
@@ -1180,7 +1180,7 @@ window.EXAM_DATA = [
       "부동산증권"
     ],
     "pageImage": "20.jpg",
-    "correctAnswer": 4,
+    "correctAnswer": 2,
     "explanation": "자본시장법상 증권 6종류: 채무증권, 지분증권, 수익증권, 투자계약증권, 파생결합증권, 증권예탁증권(DR)."
   },
   {
@@ -1196,7 +1196,7 @@ window.EXAM_DATA = [
       "신문 기사를 보고 주식을 매수한 일반 대중 투자자"
     ],
     "pageImage": "20.jpg",
-    "correctAnswer": 4,
+    "correctAnswer": 3,
     "explanation": "공개된 신문 기사나 공시를 보고 투자한 일반 대중은 미공개중요정보 이용자에 해당하지 않습니다."
   },
   {
@@ -1212,7 +1212,7 @@ window.EXAM_DATA = [
       "종가관여주문"
     ],
     "pageImage": "21.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 4,
     "explanation": "통정매매는 2인 이상이 사전에 가격과 수량을 정하여 매도/매수 주문을 약정하고 시세를 조종하는 불법 행위입니다."
   },
   {
@@ -1228,7 +1228,7 @@ window.EXAM_DATA = [
       "차익이 발생하더라도 법인에 반환할 필요가 없다."
     ],
     "pageImage": "21.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "단기매매차익 반환제도는 임원 및 주요주주가 6개월 이내의 짧은 기간 동안 주식을 매매하여 얻은 차익을 회사에 반환하도록 규정합니다."
   },
   {
@@ -1244,7 +1244,7 @@ window.EXAM_DATA = [
       "경영권에 영향을 주기 위한 목적 여부에 따라 보고 기한 및 작성 방식에 차이가 있다."
     ],
     "pageImage": "21.jpg",
-    "correctAnswer": 3,
+    "correctAnswer": 1,
     "explanation": "5% 보고의무 위반 시 위반분에 대해 의결권 행사가 제한(5% 초과분에 대한 의결권 제한)되며 금융위원회의 처분을 받습니다."
   },
   {
@@ -1260,7 +1260,7 @@ window.EXAM_DATA = [
       "상장법인이 주식분할을 실시하는 경우"
     ],
     "pageImage": "21.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "공개매수는 장외에서 6개월간 10인 이상의 자로부터 주식등을 매수하여 합계 5% 이상을 보유하려는 경우 의무 적용됩니다."
   },
   {
@@ -1276,7 +1276,7 @@ window.EXAM_DATA = [
       "일반 금융소비자는 분쟁조정을 신청할 수 없다."
     ],
     "pageImage": "22.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 4,
     "explanation": "금융분쟁조정위원회의 조정안을 양 당사자가 수락하면 민사소송법상 '재판상 화해'와 동일한 확정 효력이 부여됩니다."
   },
   {
@@ -1292,7 +1292,7 @@ window.EXAM_DATA = [
       "100만원 이하"
     ],
     "pageImage": "22.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 4,
     "explanation": "일반금융소비자가 신청한 2,000만원 이하의 소액분쟁사건은 조정절차가 완료될 때까지 금융회사가 소송을 제기할 수 없습니다(소제기 차단)."
   },
   {
@@ -1308,7 +1308,7 @@ window.EXAM_DATA = [
       "현물출자자의 성명과 그 목적인 재산 (상대적 기재사항)"
     ],
     "pageImage": "22.jpg",
-    "correctAnswer": 4,
+    "correctAnswer": 1,
     "explanation": "현물출자, 변형설립사항 등은 정관의 '상대적 기재사항'(기재해야 효력이 발생하는 사항)이며 절대적 기재사항이 아닙니다."
   },
   {
@@ -1324,7 +1324,7 @@ window.EXAM_DATA = [
       "이사회 3분의 2 찬성"
     ],
     "pageImage": "22.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "상법상 주주총회 특별결의(정관변경, 합병 등)는 출석 주주 의결권의 2/3 이상 & 발행주식총수의 1/3 이상 찬성이 필요합니다."
   },
   {
@@ -1564,7 +1564,7 @@ window.EXAM_DATA = [
       "a, b, c, d"
     ],
     "pageImage": "27.jpg",
-    "correctAnswer": 4,
+    "correctAnswer": 2,
     "explanation": "보기 a, b, c, d 모두 소득세법 제16조에 명시된 이자소득의 범위에 해당합니다."
   },
   {
@@ -1600,5 +1600,3 @@ window.EXAM_DATA = [
     "explanation": "과세표준의 크기에 관계없이 일정 비율을 적용하면 비례세(Proportional tax), 과세표준이 커질수록 높은 세율을 적용하면 누진세(Progressive tax)입니다."
   }
 ];
-window.EXAM_DATA_ROUND1 = window.EXAM_DATA;
-

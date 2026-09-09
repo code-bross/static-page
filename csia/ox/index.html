@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>증권투자권유자문인력 핵심 OX & 단답형 퀴즈 | CSIA CBT</title>
+  <link rel="stylesheet" href="css/ox-style.css">
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+</head>
+<body>
+  <div class="ox-container">
+    <!-- Top Header -->
+    <header class="app-header">
+      <a href="../index.html" class="back-btn">
+        <span>←</span> CBT 메인으로
+      </a>
+      <h1 class="app-title">⚡ 핵심 OX 퀴즈</h1>
+    </header>
+
+    <!-- Controls & Filters -->
+    <section class="filter-card">
+      <div class="filter-group">
+        <div class="select-wrapper">
+          <select id="subjectFilter" class="custom-select">
+            <option value="ALL">전체 과목 보기</option>
+          </select>
+        </div>
+        
+        <div class="select-wrapper">
+          <select id="chapterFilter" class="custom-select">
+            <option value="ALL">전체 장 보기</option>
+          </select>
+        </div>
+
+        <div class="select-wrapper">
+          <select id="typeFilter" class="custom-select">
+            <option value="ALL">전체 문제 유형 (OX + 빈칸/단답)</option>
+            <option value="OX">OX 퀴즈만 보기</option>
+            <option value="BLANK">빈칸 / 괄호 채우기 퀴즈만 보기</option>
+            <option value="BOOKMARK">⭐ 즐겨찾기(북마크)한 문항</option>
+            <option value="WRONG">❌ 오답 문항만 복습</option>
+          </select>
+        </div>
+
+        <div class="mode-toggle-group">
+          <button class="mode-btn active" id="cardModeBtn">📱 플래시 카드 풀이</button>
+          <button class="mode-btn" id="listModeBtn">📜 전체 스크롤 풀이</button>
+        </div>
+      </div>
+
+      <!-- Stats Bar -->
+      <div class="stats-bar">
+        <span id="progressText">0 / 0</span>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <span id="accuracyText">정답률 0%</span>
+      </div>
+    </section>
+
+    <!-- Single Quiz Card Area (Flashcard View) -->
+    <main id="cardView" class="quiz-card-view">
+      <!-- Dynamically Rendered by ox-app.js -->
+    </main>
+
+    <!-- Full List Area (Scroll View) -->
+    <main id="listView" class="quiz-list-view" style="display: none;">
+      <!-- Dynamically Rendered by ox-app.js -->
+    </main>
+  </div>
+
+  <!-- Image Preview Modal -->
+  <div id="imgModal" class="modal-backdrop hidden">
+    <div class="modal-content">
+      <button id="modalClose" class="modal-close-btn">&times;</button>
+      <div style="font-size: 14px; font-weight: 700; color: #a78bfa; margin-top: 10px;">교재 원본 스캔 페이지</div>
+      <img id="modalImage" class="modal-img" src="" alt="원본 페이지 이미지">
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/ox-data.js"></script>
+  <script src="js/ox-app.js"></script>
+</body>
+</html>

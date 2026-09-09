@@ -92,7 +92,7 @@ window.EXAM_DATA_ROUND2 = [
       "BSI 지수가 전월 40에서 금월 90으로 상승하였다면 경기가 하강국면에 있지만 그 에너지가 좋아져서 조만간 경기가 상승 전환할 것으로 예상된다."
     ],
     "pageImage": "증투2회 - 2.jpg",
-    "correctAnswer": 2,
+    "correctAnswer": 4,
     "explanation": "BSI 산출식 = 긍정응답비율(%) - 부정응답비율(%) + 100. 긍정 70%, 부정 30%이면 BSI = 70 - 30 + 100 = 140이 됩니다. (하지만 기본 기준 100 초과 해석 시 100 기준이므로 식 적용값은 140이며, 적절하지 않은 항목은 기준 해석상 문제 또는 계산 확인 요망 - BSI 계산 BSI=(70-30)+100=140으로 타당하나 긍정-부정 차이 계산식 특성에 따른 오답 지문 선택)."
   },
   {
@@ -188,7 +188,7 @@ window.EXAM_DATA_ROUND2 = [
       "지지선이 하향 돌파되더라도 기존 지지선 역할은 그대로 유지된다."
     ],
     "pageImage": "증투2회 - 4.jpg",
-    "correctAnswer": 4,
+    "correctAnswer": 2,
     "explanation": "기존 지지선이 아래로 하향 붕괴되면 해당 선은 향후 반등 시 새로운 '저항선'으로 성격이 전환됩니다."
   },
   {
@@ -204,7 +204,7 @@ window.EXAM_DATA_ROUND2 = [
       "상승 3파, 하락 3파 (총 6파동)"
     ],
     "pageImage": "증투2회 - 4.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 4,
     "explanation": "엘리어트 파동이론은 1주기 동안 추진파동 5개(상승 1~5파)와 조정파동 3개(하락 a, b, c파)로 구성되어 총 8개의 파동이 순환합니다."
   },
   {
@@ -220,7 +220,7 @@ window.EXAM_DATA_ROUND2 = [
       "추세선: 거래량 변동률선"
     ],
     "pageImage": "증투2회 - 5.jpg",
-    "correctAnswer": 4,
+    "correctAnswer": 1,
     "explanation": "볼린저 밴드는 중심선(20일 이동평균선), 상한선(중심선 + 2표준편차), 하한선(중심선 - 2표준편차)의 3개 선으로 구성됩니다."
   },
   {
@@ -236,7 +236,7 @@ window.EXAM_DATA_ROUND2 = [
       "RSI가 100을 초과하면 강력한 상승 추세로 지속 매수한다."
     ],
     "pageImage": "증투2회 - 5.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "RSI는 0~100 사이의 값으로 산출되며 70 이상은 과매수(매도 검토), 30 이하는 과매도(매수 검토) 구간입니다."
   },
   {
@@ -284,7 +284,7 @@ window.EXAM_DATA_ROUND2 = [
       "현물 매수 + 콜옵션 매수"
     ],
     "pageImage": "증투2회 - 7.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 4,
     "explanation": "컨버전(Conversion)은 합성현물이 실제현물보다 비쌀 때 '현물 매수 + 합성현물 매도(콜매도+풋매수)'하여 차익을 고정하는 전략입니다."
   },
   {
@@ -300,7 +300,7 @@ window.EXAM_DATA_ROUND2 = [
       "서킷브레이커 (Circuit Breaker)"
     ],
     "pageImage": "증투2회 - 7.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "선물가격이 현물가격보다 높은 보관비용 가산 시장 상태를 콘탱고(Contango) 또는 정상시장이라 부릅니다."
   },
   {
@@ -316,7 +316,7 @@ window.EXAM_DATA_ROUND2 = [
       "아시아식 옵션 (Asian Option)"
     ],
     "pageImage": "증투2회 - 7.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 4,
     "explanation": "미국식 옵션은 만기일 이전까지 권리행사 기간 중 언제라도 옵션 행사가 가능합니다. (유럽식은 만기 당일에만 가능)"
   },
   {
@@ -332,7 +332,7 @@ window.EXAM_DATA_ROUND2 = [
       "잔존만기가 길면 채권 가격이 항상 상승한다."
     ],
     "pageImage": "증투2회 - 8.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 4,
     "explanation": "채권 정리: 만기가 길수록 듀레이션이 크므로 금리 변동 시 가격 변동 폭이 커집니다."
   },
   {
@@ -348,7 +348,7 @@ window.EXAM_DATA_ROUND2 = [
       "무위험 수익률"
     ],
     "pageImage": "증투2회 - 8.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "트레이너 지수 = (Rp - Rf) / βp 로 분모에 체계적 위험인 베타(Beta)를 사용합니다. (샤프지수는 분모에 표준편차 사용)"
   },
   {
@@ -364,7 +364,7 @@ window.EXAM_DATA_ROUND2 = [
       "포트폴리오가 손실을 기록했다."
     ],
     "pageImage": "증투2회 - 9.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 4,
     "explanation": "젠센의 알파 > 0 은 시장 위험 대비 CAPM 모델이 정한 기대수익률을 초과하는 아웃퍼폼(우수한 성과)을 거두었음을 의미합니다."
   },
   {
@@ -380,7 +380,7 @@ window.EXAM_DATA_ROUND2 = [
       "투자자의 위험 선호도가 매주 바뀐다고 가정한다."
     ],
     "pageImage": "증투2회 - 9.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "전략적 자산배분은 투자자의 장기적인 목표와 위험 허용 범위를 고려하여 각 자산군의 목표 비중을 정하고 이를 유지(리밸런싱)하는 전략입니다."
   },
   {
@@ -396,7 +396,7 @@ window.EXAM_DATA_ROUND2 = [
       "장 마감 후에만 작동한다."
     ],
     "pageImage": "증투2회 - 10.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "서킷브레이커는 시장 전체 지수가 일정 수준 이상 폭락할 때 매매를 중지시켜 시장의 과열과 패닉을 진정시키는 제도입니다."
   },
   {
@@ -412,7 +412,7 @@ window.EXAM_DATA_ROUND2 = [
       "채권 시장에서만 작동한다."
     ],
     "pageImage": "증투2회 - 10.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "VI(변동성 완화장치)는 개별 종목의 주가가 급변할 때 약 2분간 단일가매매를 실시하여 가격 변동성을 완화하는 제도입니다."
   },
   {
@@ -460,7 +460,7 @@ window.EXAM_DATA_ROUND2 = [
       "이자를 전혀 지급하지 않는 무이자 채권이다."
     ],
     "pageImage": "증투2회 - 10.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 4,
     "explanation": "BW는 신주인수권을 행사하더라도 별도의 신주인수대금을 납입하면 사채권 자체는 만기까지 존속합니다 (CB와 차이점)."
   },
   {
@@ -476,7 +476,7 @@ window.EXAM_DATA_ROUND2 = [
       "시장 참가자 간 무애로 차익거래가 가능하다."
     ],
     "pageImage": "증투2회 - 10.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "풋콜 패리티의 전제 조건은 거래비용과 세금이 존재하지 않는 '완전경쟁시장'을 가정합니다."
   },
   {
@@ -492,7 +492,7 @@ window.EXAM_DATA_ROUND2 = [
       "내재가치와 시간가치는 동일한 개념이다."
     ],
     "pageImage": "증투2회 - 10.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "만기까지 잔여 기간이 길수록 기초자산 가격이 유리하게 변동할 가능성이 높으므로 옵션의 시간가치가 커집니다."
   },
   {
@@ -508,7 +508,7 @@ window.EXAM_DATA_ROUND2 = [
       "행사가격"
     ],
     "pageImage": "증투2회 - 10.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "옵션을 지금 당장 행사했을 때 이익이 발생하지 않는 상태를 외가격(OTM)이라 하며 이때 내재가치는 0입니다."
   },
   {
@@ -524,7 +524,7 @@ window.EXAM_DATA_ROUND2 = [
       "주식 수량만을 교환하는 거래이다."
     ],
     "pageImage": "증투2회 - 10.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "통화스왑(CRS)은 거래 개시 시와 만기 시에 서로 다른 통화의 원금을 교환하고 기간 중 이자를 상호 지급하는 거래입니다."
   },
   {
@@ -540,7 +540,7 @@ window.EXAM_DATA_ROUND2 = [
       "파생상품 매도를 통해서만 수익을 올린다."
     ],
     "pageImage": "증투2회 - 10.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "패시브 운용은 시장 지수(Index)의 성과를 그대로 추종하는 것을 목표로 하는 전략입니다."
   },
   {
@@ -556,7 +556,7 @@ window.EXAM_DATA_ROUND2 = [
       "자기자본승수 / 재무레버리지 (안정성)"
     ],
     "pageImage": "증투2회 - 10.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "듀퐁 분석 ROE = 매출액순이익률 × 총자산회전율 × 자기자본승수(총자산/자기자본) 의 3가지 결합으로 분해됩니다."
   },
   {
@@ -572,7 +572,7 @@ window.EXAM_DATA_ROUND2 = [
       "투자 위험에 대해 설명할 필요가 없다."
     ],
     "pageImage": "증투2회 - 11.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "설명의무는 일반금융소비자에게 금융상품의 구조, 손실 위험 등 주요 내용을 이해하기 쉽게 설명하고 설명서를 교부해야 하는 판매 규제입니다."
   },
   {
@@ -588,7 +588,7 @@ window.EXAM_DATA_ROUND2 = [
       "선행매매 등 미공개 정보를 이용한 거래는 엄격히 금지된다."
     ],
     "pageImage": "증투2회 - 11.jpg",
-    "correctAnswer": 3,
+    "correctAnswer": 4,
     "explanation": "금융투자회사 임직원의 타인 명의 차명계좌 매매는 자본시장법 및 직무윤리상 엄격히 불법 및 금지 행위입니다."
   },
   {
@@ -604,7 +604,7 @@ window.EXAM_DATA_ROUND2 = [
       "금융회사"
     ],
     "pageImage": "증투2회 - 11.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 4,
     "explanation": "적합성 원칙은 일반금융소비자의 성향, 재산상황 등을 파악하여 적합한 상품을 권유하도록 하는 보호 규정입니다."
   },
   {
@@ -620,7 +620,7 @@ window.EXAM_DATA_ROUND2 = [
       "일반사무관리회사"
     ],
     "pageImage": "증투2회 - 12.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 4,
     "explanation": "펀드 재산의 보관, 관리 및 운용지시 이행 감시는 신탁업자(수탁은행 등)가 독립적으로 담당합니다."
   },
   {
@@ -636,7 +636,7 @@ window.EXAM_DATA_ROUND2 = [
       "미공개 운용 정보를 사적으로 이용하는 행위"
     ],
     "pageImage": "증투2회 - 12.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 4,
     "explanation": "법이 정한 합법적 요건 및 절차를 준수한 펀드 간 자산 거래는 금지 행위가 아닌 정당한 운용 행위입니다."
   },
   {
@@ -652,7 +652,7 @@ window.EXAM_DATA_ROUND2 = [
       "주식형 펀드는 시장 주가 변동에 직접적인 영향을 받는다."
     ],
     "pageImage": "증투2회 - 13.jpg",
-    "correctAnswer": 3,
+    "correctAnswer": 1,
     "explanation": "주식형 펀드가 채권형 펀드에 비해 상대적으로 위험과 기대수익이 훨씬 높습니다."
   },
   {
@@ -668,7 +668,7 @@ window.EXAM_DATA_ROUND2 = [
       "가상자산 (비트코인 등)"
     ],
     "pageImage": "증투2회 - 13.jpg",
-    "correctAnswer": 4,
+    "correctAnswer": 3,
     "explanation": "부동산펀드는 부동산 실물, 부동산 개발 사업 대출, 부동산 관련 증권 등에 투자하며 가상자산은 대상이 아닙니다."
   },
   {
@@ -684,7 +684,7 @@ window.EXAM_DATA_ROUND2 = [
       "자산운용보고서"
     ],
     "pageImage": "증투2회 - 14.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 4,
     "explanation": "간이투자설명서는 일반투자자가 핵심 위험 및 수수료 등을 손쉽게 파악할 수 있도록 요약 제작된 설명서입니다."
   },
   {
@@ -700,7 +700,7 @@ window.EXAM_DATA_ROUND2 = [
       "예금자보호 미적용에 따른 정부 원금 보장 위험"
     ],
     "pageImage": "증투2회 - 14.jpg",
-    "correctAnswer": 4,
+    "correctAnswer": 1,
     "explanation": "ELS는 예금자보호법 대상 상품이 아니며, 정부가 원금을 보장해주지 않는 무보증 파생결합증권입니다."
   },
   {
@@ -716,7 +716,7 @@ window.EXAM_DATA_ROUND2 = [
       "증권시장에서 실시간 거래되는 상장주식 직접 매수"
     ],
     "pageImage": "증투2회 - 15.jpg",
-    "correctAnswer": 4,
+    "correctAnswer": 1,
     "explanation": "증권시장에서 가격이 실시간 변동 체결되는 일반 상장 주식 직접 매매 거래는 청약철회권 적용 대상이 아닙니다."
   },
   {
@@ -748,7 +748,7 @@ window.EXAM_DATA_ROUND2 = [
       "고객의 주문을 매매 체결하는 딜러이다."
     ],
     "pageImage": "증투2회 - 16.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 4,
     "explanation": "준법감시인은 금융회사 내부통제 체계의 핵심으로서 법령 및 윤리 준수를 감독하는 독립적 감사자 역할을 수행합니다."
   },
   {
@@ -764,7 +764,7 @@ window.EXAM_DATA_ROUND2 = [
       "고객에게 수수료를 할인해 주는 행사이다."
     ],
     "pageImage": "증투2회 - 16.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 4,
     "explanation": "과회전매매(Churning)는 수수료 수입만을 위해 고객 계좌에서 잦은 매매를 반복시켜 고객에게 손실을 입히는 신의성실 위배 행위입니다."
   },
   {
@@ -780,7 +780,7 @@ window.EXAM_DATA_ROUND2 = [
       "고객의 요청에 따라 시장가 주문을 즉시 내는 행위"
     ],
     "pageImage": "증투2회 - 17.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 4,
     "explanation": "선행매매(Front Running)는 고객의 대량 매매 주문 정보를 사전에 이용하여 주가 변동 전 사익을 얻는 불공정 행위입니다."
   },
   {
@@ -796,7 +796,7 @@ window.EXAM_DATA_ROUND2 = [
       "중요 사항을 고의로 은폐하거나 누락하는 행위"
     ],
     "pageImage": "증투2회 - 17.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "위험과 구조를 객관적인 자료에 근거하여 정확히 설명하는 행위는 부당권유가 아니라 법적으로 권장되는 설명의무 준수 행위입니다."
   },
   {
@@ -812,7 +812,7 @@ window.EXAM_DATA_ROUND2 = [
       "5년에 1회"
     ],
     "pageImage": "증투2회 - 18.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 4,
     "explanation": "공모 집합투자기구의 자산운용보고서는 최소 3개월마다 1회 이상 투자자에게 직접 교부(전자우편 포함)해야 합니다."
   },
   {
@@ -828,7 +828,7 @@ window.EXAM_DATA_ROUND2 = [
       "우량 CP(기업어음)"
     ],
     "pageImage": "증투2회 - 18.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "MMF는 단기 유동성 확보를 목적으로 하므로 가격 변동성이 큰 주식 투자는 법적으로 전면 금지됩니다."
   },
   {
@@ -844,7 +844,7 @@ window.EXAM_DATA_ROUND2 = [
       "지수를 산출하는 평가 기관"
     ],
     "pageImage": "증투2회 - 18.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 4,
     "explanation": "지정참가자(AP)는 자산운용사와 계약을 맺고 실물 주식 바스켓을 납입하여 ETF 유닛을 설정/해지하는 핵심 증권사입니다."
   },
   {
@@ -860,7 +860,7 @@ window.EXAM_DATA_ROUND2 = [
       "운전면허 적성검사"
     ],
     "pageImage": "증투2회 - 18.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "투자권유자문인력은 법령 및 규정 변경사항 숙지를 위해 금융투자협회의 정기 보수교육을 의무 이수해야 자격이 유지됩니다."
   },
   {
@@ -876,7 +876,7 @@ window.EXAM_DATA_ROUND2 = [
       "금융회사가 고객을 상대로 소송을 낼 수 없다."
     ],
     "pageImage": "증투2회 - 18.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "위법계약해지권이 행사되면 장래를 향해 계약이 해지되며, 금융회사는 중도해지수수료나 정산수수료 등 부대 비용을 고객에게 청구할 수 없습니다."
   },
   {
@@ -892,7 +892,7 @@ window.EXAM_DATA_ROUND2 = [
       "금융회사 (은행, 증권사, 보험사)"
     ],
     "pageImage": "증투2회 - 18.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "개인 투자자는 당연 전문투자자가 아니라 자격 요건 충족 시 본인의 신청에 의해 지정받는 '자발적 전문투자자' 분류입니다."
   },
   {
@@ -908,7 +908,7 @@ window.EXAM_DATA_ROUND2 = [
       "일반 개인에게 판매하는 주택담보대출"
     ],
     "pageImage": "증투2회 - 18.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 4,
     "explanation": "전문금융소비자에게는 위험 감수 능력이 있으므로 적합성·적정성 원칙 및 설명의무 등 6대 판매규제의 상당 부분이 면제 적용됩니다."
   },
   {
@@ -972,7 +972,7 @@ window.EXAM_DATA_ROUND2 = [
       "시효중단 효과는 전문투자자에게만 적용된다."
     ],
     "pageImage": "증투2회 - 18.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "금소법상 분쟁조정 신청이 접수되면 재판상 청구와 마찬가지로 소멸시효가 중단되는 법적 효과가 발생합니다."
   },
   {
@@ -988,7 +988,7 @@ window.EXAM_DATA_ROUND2 = [
       "부과 불가능"
     ],
     "pageImage": "증투2회 - 18.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "금소법 6대 판매규제 위반 시 관련 계약으로 얻은 수입등의 최대 50%까지 징벌적 과징금이 부과될 수 있습니다."
   },
   {
@@ -1004,7 +1004,7 @@ window.EXAM_DATA_ROUND2 = [
       "영업 실적을 올리기 위함이다."
     ],
     "pageImage": "증투2회 - 18.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "부당 이익 수령 금지는 펀드 판매회사나 판매인이 리베이트 수령으로 특정 펀드를 부당 추천하는 이해상충을 차단합니다."
   },
   {
@@ -1020,7 +1020,7 @@ window.EXAM_DATA_ROUND2 = [
       "고객 간의 대화를 금지하는 제도이다."
     ],
     "pageImage": "증투2회 - 18.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 4,
     "explanation": "차이니즈월(Chinese Wall)은 내부 정보를 다루는 IB 부서와 자기매매/위탁매매 부서 간의 내부정보 공유를 엄격히 격리 차단하는 제도입니다."
   },
   {
@@ -1036,7 +1036,7 @@ window.EXAM_DATA_ROUND2 = [
       "채권형 펀드"
     ],
     "pageImage": "증투2회 - 18.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "헤지펀드는 롱/숏, 레버리지, 파생상품 등 다양한 기법을 동원해 시장 방향성과 무관한 절대수익을 추구하는 사모펀드입니다."
   },
   {
@@ -1052,7 +1052,7 @@ window.EXAM_DATA_ROUND2 = [
       "신탁업자 보수 (수탁보수)"
     ],
     "pageImage": "증투2회 - 18.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "총보수 비율(TER)에는 운용, 판매, 수탁, 사무관리 보수 등이 포함되며, 주식 직접 매매 시 발생하는 거래 수수료/세금은 기타 비용으로 따로 정산됩니다."
   },
   {
@@ -1068,7 +1068,7 @@ window.EXAM_DATA_ROUND2 = [
       "환매수수료는 국고로 귀속된다."
     ],
     "pageImage": "증투2회 - 18.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "환매수수료는 잔존 투자자의 이익 보호와 단기 매매 방지를 위해 부과되며, 부과 금액은 펀드 자산으로 귀속 편입됩니다."
   },
   {
@@ -1084,7 +1084,7 @@ window.EXAM_DATA_ROUND2 = [
       "열람 요구 시 회사는 무조건 거절할 수 있다."
     ],
     "pageImage": "증투2회 - 19.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 4,
     "explanation": "금소법상 금융소비자는 분쟁조정 또는 소송 등 목적 범위 내에서 금융회사가 보유한 본인 관련 거래서류 열람을 요구할 수 있습니다."
   },
   {
@@ -1116,7 +1116,7 @@ window.EXAM_DATA_ROUND2 = [
       "상계 금지는 법적으로 존재하지 않는다."
     ],
     "pageImage": "증투2회 - 19.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "고객예치금은 고객 자산이므로 금융투자업자의 고유 부채나 채권과 임의로 상계(Netting)할 수 없습니다."
   },
   {
@@ -1148,7 +1148,7 @@ window.EXAM_DATA_ROUND2 = [
       "매매 장소가 장내인지 장외인지 여부"
     ],
     "pageImage": "증투2회 - 20.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "손실 한도가 원금 이내로 제한되면 '증권', 투자 원금을 초과하여 추가 손실이 발생할 가능성이 있으면 '파생상품'으로 구별합니다."
   },
   {
@@ -1180,7 +1180,7 @@ window.EXAM_DATA_ROUND2 = [
       "누구나 인터넷으로 검색 가능한 정보"
     ],
     "pageImage": "증투2회 - 20.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "미공개중요정보는 법률이 정한 공시 매체(DART 등)에 공개되기 전으로서 주가에 중대한 영향을 줄 수 있는 비공개 정보입니다."
   },
   {
@@ -1196,7 +1196,7 @@ window.EXAM_DATA_ROUND2 = [
       "회사 직원의 친척"
     ],
     "pageImage": "증투2회 - 20.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "주요주주는 의결권 있는 발행주식총수의 10% 이상을 보유하거나 이사 선임 등 사실상 경영에 영향력을 행사하는 자를 말합니다."
   },
   {
@@ -1212,7 +1212,7 @@ window.EXAM_DATA_ROUND2 = [
       "1개월 이내"
     ],
     "pageImage": "증투2회 - 21.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 4,
     "explanation": "임원 및 주요주주가 주식을 매수 후 6개월 이내 매도하거나 매도 후 6개월 이내 매수하여 얻은 차익은 회사에 반환해야 합니다."
   },
   {
@@ -1228,7 +1228,7 @@ window.EXAM_DATA_ROUND2 = [
       "보고 의무 없음"
     ],
     "pageImage": "증투2회 - 21.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 4,
     "explanation": "상장주식을 5% 이상 보유하게 되거나 보유 비중이 1% 이상 변동된 경우 5영업일 이내에 금융위원회와 거래소에 보고해야 합니다."
   },
   {
@@ -1244,7 +1244,7 @@ window.EXAM_DATA_ROUND2 = [
       "배당금을 지급받는 경우"
     ],
     "pageImage": "증투2회 - 21.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 4,
     "explanation": "장외에서 다수인(10인 이상)으로부터 6개월 이내 5% 이상의 주식을 매수하려는 경우 공정한 기회 제공을 위해 공개매수를 거쳐야 합니다."
   },
   {
@@ -1276,7 +1276,7 @@ window.EXAM_DATA_ROUND2 = [
       "지배인의 선임 및 해임"
     ],
     "pageImage": "증투2회 - 22.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 4,
     "explanation": "정관 변경, 이사·감사 해임, 회사의 합병·해산 등은 주주총회의 전속 결의 사항이며 이사회가 독단 결의할 수 없습니다."
   },
   {
@@ -1292,7 +1292,7 @@ window.EXAM_DATA_ROUND2 = [
       "이사회 과반수 동의"
     ],
     "pageImage": "증투2회 - 22.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "상법상 주총 보통결의 요건은 출석 주주 의결권의 과반수 & 발행주식총수의 1/4 이상 찬성입니다."
   },
   {
@@ -1308,7 +1308,7 @@ window.EXAM_DATA_ROUND2 = [
       "10년"
     ],
     "pageImage": "증투2회 - 22.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "상법 제410조에 따라 감사의 임기는 취임 후 3년 내의 최종 결산기에 관한 정기주주총회 종결 시까지입니다."
   },
   {
@@ -1324,7 +1324,7 @@ window.EXAM_DATA_ROUND2 = [
       "이사 해임청구권"
     ],
     "pageImage": "증투2회 - 22.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "이익배당청구권, 잔여재산분배청구권 등은 주주 개인이 경제적 이익을 얻는 자익권입니다. (의결권 등은 공익권)"
   },
   {
@@ -1340,7 +1340,7 @@ window.EXAM_DATA_ROUND2 = [
       "무조건 종합과세"
     ],
     "pageImage": "증투2회 - 23.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "개인의 연간 금융소득(이자+배당) 합계액이 2,000만원을 초과하는 경우 타 소득과 합산하여 종합소득세를 과세합니다."
   },
   {
@@ -1356,7 +1356,7 @@ window.EXAM_DATA_ROUND2 = [
       "40%"
     ],
     "pageImage": "증투2회 - 23.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 4,
     "explanation": "이자소득 및 배당소득의 기본 국세 원천징수세율은 14%입니다. (지방소득세 1.4% 포함 시 15.4%)"
   },
   {
@@ -1372,7 +1372,7 @@ window.EXAM_DATA_ROUND2 = [
       "즉시 당일 납부"
     ],
     "pageImage": "증투2회 - 23.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "증여세 신고납부 기한은 증여받은 날이 속하는 달의 말일로부터 3개월 이내입니다."
   },
   {
@@ -1420,7 +1420,7 @@ window.EXAM_DATA_ROUND2 = [
       "관세"
     ],
     "pageImage": "증투2회 - 24.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "explanation": "직접세(소득세, 법인세 등)는 세금을 실제 부담하는 자(담세자)와 법적 납세의무자가 동일한 조세입니다."
   },
   {
@@ -1436,7 +1436,7 @@ window.EXAM_DATA_ROUND2 = [
       "회사가 발행할 주식의 총수"
     ],
     "pageImage": "증투2회 - 25.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "발기인의 보수, 현물출자 등 변칙설립사항은 정관의 '상대적 기재사항'입니다."
   },
   {
@@ -1484,7 +1484,7 @@ window.EXAM_DATA_ROUND2 = [
       "주주명부 폐쇄기간 중에도 명의개서가 자유롭게 허용된다."
     ],
     "pageImage": "증투2회 - 25.jpg",
-    "correctAnswer": 4,
+    "correctAnswer": 2,
     "explanation": "주주명부 폐쇄기간 중에는 권리 확정을 위해 명의개서 및 주주명부 기재 변경이 정지(금지)됩니다."
   },
   {
@@ -1516,7 +1516,7 @@ window.EXAM_DATA_ROUND2 = [
       "상법에 이사 수에 관한 규정이 없다."
     ],
     "pageImage": "증투2회 - 26.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "상법 제383조에 따라 이사는 3인 이상이어야 하나 소규모 회사(자본금 10억원 미만)는 1인 또는 2인으로 둘 수 있는 특례가 있습니다."
   },
   {
@@ -1580,7 +1580,7 @@ window.EXAM_DATA_ROUND2 = [
       "종가세 - 종량세"
     ],
     "pageImage": "증투2회 - 27.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 4,
     "explanation": "세율의 구조에 따른 조세 분류는 비례세(동일 비율 적용)와 누진세(과세표준에 따라 세율 상승)입니다."
   },
   {
@@ -1596,7 +1596,7 @@ window.EXAM_DATA_ROUND2 = [
       "분납이 불가하다."
     ],
     "pageImage": "증투2회 - 27.jpg",
-    "correctAnswer": 1,
+    "correctAnswer": 3,
     "explanation": "납부세액이 1천만원 초과 2천만원 이하인 경우 1,000만원을 초과하는 금액(1,400만 - 1,000만 = 400만원)을 분납할 수 있으므로, 납부기한 내 1,000만원, 분납기한 내 400만원입니다."
   }
 ];
