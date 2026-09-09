@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>증권투자권유자문인력 실제유형 모의고사 CBT</title>
+  <meta name="description" content="증권투자권유자문인력 모의고사 100문항 온라인 CBT 시험 응시 및 연습 플랫폼">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/modal.css">
+  
+  <!-- Pretendard Font -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+</head>
+<body>
+
+  <!-- Landing View: Exam Round Selection -->
+  <div id="roundSelectionView" class="selection-view">
+    <div class="landing-header">
+      <div class="landing-brand">
+        <div class="brand-icon">📈</div>
+        <div>
+          <h2>증권투자권유자문인력 CBT</h2>
+          <p>실제 시험 유형 반영 모의고사 시스템</p>
+        </div>
+      </div>
+      <button class="themeToggleLandingBtn btn-icon" title="테마 변경">🌙</button>
+    </div>
+
+    <div class="landing-hero">
+      <h1 class="hero-title">실전 모의고사 회차 선택</h1>
+      <p class="hero-desc">응시할 시험 회차를 선택하세요. 실전 시험 환경과 동일한 120분 타이머와 자동 채점 기능이 제공됩니다.</p>
+    </div>
+
+    <div class="round-cards-grid">
+      <!-- Round 1 Card -->
+      <div class="round-card">
+        <div class="round-card-badge">제1회차</div>
+        <h3 class="round-card-title">증권투자권유자문인력 제1회 모의고사</h3>
+        <p class="round-card-desc">실제 출제 유형을 반영한 제1회 핵심 모의고사 100문항</p>
+        
+        <div class="round-stats-row">
+          <span class="stat-tag">⏱️ 120분</span>
+          <span class="stat-tag">📝 100문항</span>
+          <span class="stat-tag">🎯 60점 이상 합격</span>
+        </div>
+
+        <ul class="round-subject-list">
+          <li><span>1과목</span> 증권분석 및 증권시장 (35문항)</li>
+          <li><span>2과목</span> 금융투자상품 및 직무윤리 등 (35문항)</li>
+          <li><span>3과목</span> 투자법규 및 분쟁예방 등 (30문항)</li>
+        </ul>
+
+        <div id="round1StatusBox" class="round-status-box">
+          <!-- Loaded dynamically -->
+          <span>진행 상태: 미응시</span>
+        </div>
+
+        <button class="btn btn-primary btn-start-round" data-round="1">
+          🚀 제1회 모의고사 응시하기
+        </button>
+      </div>
+
+      <!-- Round 2 Card -->
+      <div class="round-card">
+        <div class="round-card-badge badge-round-2">제2회차</div>
+        <h3 class="round-card-title">증권투자권유자문인력 제2회 모의고사</h3>
+        <p class="round-card-desc">실제 출제 유형을 반영한 제2회 핵심 모의고사 100문항</p>
+        
+        <div class="round-stats-row">
+          <span class="stat-tag">⏱️ 120분</span>
+          <span class="stat-tag">📝 100문항</span>
+          <span class="stat-tag">🎯 60점 이상 합격</span>
+        </div>
+
+        <ul class="round-subject-list">
+          <li><span>1과목</span> 증권분석 및 증권시장 (35문항)</li>
+          <li><span>2과목</span> 금융투자상품 및 직무윤리 등 (35문항)</li>
+          <li><span>3과목</span> 투자법규 및 분쟁예방 등 (30문항)</li>
+        </ul>
+
+        <div id="round2StatusBox" class="round-status-box">
+          <!-- Loaded dynamically -->
+          <span>진행 상태: 미응시</span>
+        </div>
+
+        <button class="btn btn-primary btn-start-round" data-round="2">
+          🚀 제2회 모의고사 응시하기
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CBT Exam View Wrapper -->
+  <div id="cbtExamView" class="cbt-view view-hidden">
+    <!-- Top Header Navigation -->
+    <header class="app-header">
+      <div class="header-container">
+        <div class="brand-section">
+          <button id="btnGoHome" class="btn btn-outline btn-sm" title="회차 선택으로 이동">🏠 회차 선택</button>
+          <div class="brand-icon">📈</div>
+          <div class="brand-title">
+            <h1 id="examRoundTitle">증권투자권유자문인력 모의고사</h1>
+            <div class="subtitle" id="examRoundSubtitle">제1회 실제유형 모의고사 (100문항 / 120분)</div>
+          </div>
+        </div>
+
+        <div class="header-center">
+          <!-- Timer Widget -->
+          <div class="timer-card">
+            <span>⏱️</span>
+            <span id="timerText">120:00</span>
+          </div>
+
+          <!-- Mode Toggle -->
+          <div class="mode-toggle-group">
+            <button id="modeExamBtn" class="mode-btn active">
+              <span>⏱️</span> 실전 모의고사
+            </button>
+            <button id="modePracticeBtn" class="mode-btn">
+              <span>💡</span> 연습/학습 모드
+            </button>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <button id="themeToggleBtn" class="btn-icon" title="테마 변경">🌙</button>
+          <button id="btnReset" class="btn btn-outline">🔄 초기화</button>
+          <button id="btnSubmit" class="btn btn-primary">📝 제출 및 채점</button>
+        </div>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="progress-bar-container">
+        <div id="progressBarFill" class="progress-bar-fill"></div>
+      </div>
+    </header>
+
+    <!-- Main Content Layout -->
+    <main class="main-wrapper">
+      
+      <!-- Left: Question Card Area -->
+      <section class="question-container">
+        <div class="question-card">
+          
+          <div class="question-header">
+            <div class="badge-group">
+              <span id="qCategoryBadge" class="badge badge-cat-1">1과목: 증권분석 및 증권시장</span>
+              <span id="qDifficultyBadge" class="badge badge-difficulty">난이도 ★★</span>
+            </div>
+            <div class="q-number" id="qNumber">문제 01 / 100</div>
+            <div class="q-actions">
+              <button id="btnBookmark" class="btn-bookmark">☆ 찜하기</button>
+              <button id="btnViewImage" class="btn-view-image">🔍 원본 시험지 보기</button>
+            </div>
+          </div>
+
+          <!-- Question Body -->
+          <h3 id="qTitle" class="question-title">문제를 불러오는 중입니다...</h3>
+          
+          <!-- Condition / Example Box -->
+          <div id="qBox" class="question-box" style="display: none;"></div>
+
+          <!-- Options Container -->
+          <div id="qOptionsContainer" class="options-list"></div>
+
+          <!-- Explanation Card (Practice / Review Mode) -->
+          <div id="qExplanationCard" class="explanation-card" style="display: none;">
+            <div class="explanation-header">
+              <span>💡</span> 정답 및 상세 해설
+            </div>
+            <div id="qExplanationText" class="explanation-body"></div>
+          </div>
+
+          <!-- Footer Navigation -->
+          <div class="question-footer-nav">
+            <button id="btnPrev" class="btn btn-outline">⬅️ 이전 문제</button>
+            <button id="btnNext" class="btn btn-primary">다음 문제 ➡️</button>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Right: OMR Panel -->
+      <aside class="omr-panel">
+        <div class="omr-header">
+          <div class="omr-title">
+            <span>📋</span> OMR 답안지
+          </div>
+          <div class="omr-stats">
+            <span id="answeredCount">0</span> / 100 작성
+          </div>
+        </div>
+
+        <!-- OMR Filter Tabs -->
+        <div class="omr-filter-tabs">
+          <button class="omr-tab active" data-filter="all">전체</button>
+          <button class="omr-tab" data-filter="unanswered">미풀이</button>
+          <button class="omr-tab" data-filter="answered">풀이완료</button>
+          <button class="omr-tab" data-filter="bookmark">★ 찜목록</button>
+        </div>
+
+        <!-- OMR Grid -->
+        <div id="omrContainer" class="omr-grid-container"></div>
+      </aside>
+
+    </main>
+  </div>
+
+  <!-- Modal 1: Original Test Page Image Viewer -->
+  <div id="imageModal" class="modal-backdrop">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>🖼️</span> <span id="modalPageTitle">원본 시험지 페이지</span>
+        </div>
+        <button id="closeImageModal" class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body image-viewer-container">
+        <div class="image-wrapper">
+          <img id="modalPageImage" src="" alt="원본 시험지 스캔 이미지">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: Test Result Report -->
+  <div id="resultModal" class="modal-backdrop">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>📊</span> 모의고사 최종 성적표
+        </div>
+        <button id="closeResultModal" class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        
+        <div class="result-summary-card">
+          <div id="resultStatusBadge" class="result-status-badge status-pass">
+            🎉 합격 (PASS)
+          </div>
+          <div id="resultScoreDisplay" class="score-display">
+            0<span> / 100점</span>
+          </div>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.25rem;">
+            * 합격 기준: 총점 60점 이상 및 단일 과목 40% 미만 과락 없음
+          </p>
+        </div>
+
+        <h4 style="margin-bottom: 0.5rem; font-weight: 700;">과목별 세부 득점 현황</h4>
+        <table class="section-table">
+          <thead>
+            <tr>
+              <th>과목명</th>
+              <th>득점 문항 수</th>
+              <th>득점률</th>
+              <th>과락 여부</th>
+            </tr>
+          </thead>
+          <tbody id="resultSectionBody">
+            <!-- Rendered by JS -->
+          </tbody>
+        </table>
+
+      </div>
+      <div class="modal-footer">
+        <button id="btnReviewWrong" class="btn btn-outline">📝 오답 문제로 이동</button>
+        <button id="btnRestart" class="btn btn-primary">🔄 다시 풀기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS Modules -->
+  <script src="js/1-data.js"></script>
+  <script src="js/2-data.js"></script>
+  <script src="js/timer.js"></script>
+  <script src="js/omr.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
