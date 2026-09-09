@@ -126,7 +126,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Render Landing Page Status Cards
   function updateLandingStatuses() {
-    [1, 2].forEach((r) => {
+    const round3StatusBox = document.getElementById('round3StatusBox');
+    const round4StatusBox = document.getElementById('round4StatusBox');
+    [1, 2, 3, 4].forEach((r) => {
       const answersKey = `cbt_answers_r${r}`;
       const submittedKey = `cbt_submitted_r${r}`;
       const scoreKey = `cbt_score_r${r}`;
@@ -138,7 +140,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const score = localStorage.getItem(scoreKey);
       const isPass = localStorage.getItem(passKey) === 'true';
 
-      const targetBox = r === 1 ? round1StatusBox : round2StatusBox;
+      let targetBox = null;
+      if (r === 1) targetBox = round1StatusBox;
+      else if (r === 2) targetBox = round2StatusBox;
+      else if (r === 3) targetBox = round3StatusBox;
+      else if (r === 4) targetBox = round4StatusBox;
+
       if (!targetBox) return;
 
       if (isSub && score !== null) {
@@ -170,10 +177,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Pick Exam Dataset
     if (currentRoundId === '1') {
       examQuestions = window.EXAM_DATA_ROUND1 || window.EXAM_DATA || [];
-    } else {
+    } else if (currentRoundId === '2') {
       examQuestions = window.EXAM_DATA_ROUND2 || [];
+    } else if (currentRoundId === '3') {
+      examQuestions = window.EXAM_DATA_ROUND3 || [];
+    } else if (currentRoundId === '4') {
+      examQuestions = window.EXAM_DATA_ROUND4 || [];
     }
     totalQuestions = examQuestions.length || 100;
+
+
 
     // Load LocalStorage per Round
     userAnswers = JSON.parse(localStorage.getItem(`cbt_answers_r${currentRoundId}`) || '{}');

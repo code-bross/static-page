@@ -711,6 +711,28 @@ body {
   color: #c084fc;
 }
 
+.badge-round-3 {
+  background-color: rgba(16, 185, 129, 0.12);
+  color: #059669;
+}
+
+[data-theme="dark"] .badge-round-3 {
+  background-color: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+}
+
+.badge-round-4 {
+  background-color: rgba(245, 158, 11, 0.12);
+  color: #d97706;
+}
+
+[data-theme="dark"] .badge-round-4 {
+  background-color: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+}
+
+
+
 .round-card-title {
   font-size: 1.3rem;
   font-weight: 800;
