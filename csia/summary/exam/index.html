@@ -664,11 +664,64 @@
       });
 
       const btnExportQuizPdf = document.getElementById('btnExportQuizPdf');
+      const summaryWrongModal = document.getElementById('summaryWrongModal');
+      const closeSummaryWrongModal = document.getElementById('closeSummaryWrongModal');
+      const btnSummaryModalPrint = document.getElementById('btnSummaryModalPrint');
+      const btnSummaryModalDownload = document.getElementById('btnSummaryModalDownload');
+      const summaryWrongContentList = document.getElementById('summaryWrongContentList');
+
       if (btnExportQuizPdf) {
-        btnExportQuizPdf.addEventListener('click', exportSummaryQuizPdf);
+        btnExportQuizPdf.addEventListener('click', openSummaryWrongModal);
       }
 
-      function exportSummaryQuizPdf() {
+      if (closeSummaryWrongModal) {
+        closeSummaryWrongModal.addEventListener('click', () => {
+          summaryWrongModal.style.display = 'none';
+        });
+      }
+
+      if (summaryWrongModal) {
+        summaryWrongModal.addEventListener('click', (e) => {
+          if (e.target === summaryWrongModal) summaryWrongModal.style.display = 'none';
+        });
+      }
+
+      if (btnSummaryModalPrint) {
+        btnSummaryModalPrint.addEventListener('click', () => {
+          window.print();
+        });
+      }
+
+      if (btnSummaryModalDownload) {
+        btnSummaryModalDownload.addEventListener('click', () => {
+          const container = document.getElementById('summaryWrongContentList');
+          if (!container) return;
+          if (!window.html2pdf) {
+            window.print();
+            return;
+          }
+          const origText = btnSummaryModalDownload.innerHTML;
+          btnSummaryModalDownload.textContent = '⏳ PDF 생성 중...';
+
+          const opt = {
+            margin: [10, 10, 10, 10],
+            filename: `증투_핵심요약퀴즈_오답노트.pdf`,
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 1.5, useCORS: true, scrollY: 0, scrollX: 0, logging: false },
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+          };
+
+          window.html2pdf().set(opt).from(container).save().then(() => {
+            btnSummaryModalDownload.innerHTML = origText;
+          }).catch(err => {
+            console.warn('html2pdf error, fallback to print:', err);
+            btnSummaryModalDownload.innerHTML = origText;
+            window.print();
+          });
+        });
+      }
+
+      function openSummaryWrongModal() {
         const wrongItems = userQuizResults.filter(r => !r.isCorrect);
         if (wrongItems.length === 0) {
           alert('🎉 오답이 없습니다! 100점 만점으로 모든 요약 퀴즈를 맞히셨습니다.');
@@ -678,39 +731,21 @@
         const now = new Date();
         const dateStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
 
-        const pdfWrapper = document.createElement('div');
-        pdfWrapper.style.cssText = `
-          position: absolute;
-          top: 0;
-          left: 0;
-          z-index: -9999;
-          pointer-events: none;
-          width: 794px;
-          font-family: 'Pretendard', -apple-system, sans-serif;
-          color: #1e293b;
-          background: #ffffff;
-          padding: 24px;
-          box-sizing: border-box;
-          white-space: normal;
-        `;
-
         let html = `
-          <div style="border-bottom: 2px solid #2563eb; padding-bottom: 16px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: flex-end;">
+          <div style="border-bottom: 2px solid #2563eb; padding-bottom: 12px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 8px;">
             <div>
-              <h1 style="font-size: 20px; font-weight: 800; color: #0f172a; margin: 0 0 6px 0;">🎯 증권투자권유자문인력 핵심 요약 퀴즈 오답 노트</h1>
-              <p style="font-size: 13px; color: #64748b; margin: 0;">전 과목 핵심 요약 퀴즈 오답 및 해설 보고서</p>
+              <h2 style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin: 0 0 4px 0;">🎯 핵심 요약 퀴즈 오답 노트</h2>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">전 과목 핵심 요약 퀴즈 오답 및 상세 해설</p>
             </div>
-            <div style="text-align: right; font-size: 12px; color: #64748b;">
-              <div>발행일시: ${dateStr}</div>
-            </div>
+            <div style="font-size: 0.8rem; color: var(--text-secondary);">발행일시: ${dateStr}</div>
           </div>
 
-          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center;">
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; padding: 12px 16px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
             <div>
-              <span style="font-size: 13px; font-weight: 700; color: #334155;">취득 점수: </span>
-              <span style="font-size: 18px; font-weight: 800; color: #dc2626;">${userScore}점</span>
+              <span style="font-size: 0.88rem; font-weight: 700;">취득 점수: </span>
+              <span style="font-size: 1.15rem; font-weight: 800; color: #dc2626;">${userScore}점</span>
             </div>
-            <div style="font-size: 13px; color: #475569;">
+            <div style="font-size: 0.85rem; color: var(--text-secondary);">
               <span>풀이 문항: <strong>${userQuizResults.length}개</strong></span>
               <span style="margin-left: 10px;">오답: <strong style="color: #dc2626;">${wrongItems.length}개</strong></span>
             </div>
@@ -728,27 +763,27 @@
           let userChoiceIndex = isOX ? (userChoice === 'O' ? 0 : (userChoice === 'X' ? 1 : -1)) : Number(userChoice);
 
           html += `
-            <div style="border: 1px solid #cbd5e1; border-radius: 10px; padding: 18px; background: #ffffff; page-break-inside: avoid; margin-bottom: 14px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+            <div style="border: 1px solid var(--border-color); border-radius: 10px; padding: 18px; background: var(--bg-card); page-break-inside: avoid; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
               
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #f1f5f9;">
-                <span style="background: #2563eb; color: #ffffff; font-size: 11px; font-weight: 800; padding: 3px 10px; border-radius: 12px;">${escapeHtml(q.subject || '과목')}</span>
-                <span style="font-size: 12px; font-weight: 800; background: #fee2e2; color: #dc2626; padding: 3px 10px; border-radius: 6px; border: 1px solid #fca5a5;">❌ 오답</span>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--border-color);">
+                <span style="background: #2563eb; color: #ffffff; font-size: 0.72rem; font-weight: 800; padding: 3px 10px; border-radius: 12px;">${escapeHtml(q.subject || '과목')}</span>
+                <span style="font-size: 0.78rem; font-weight: 800; background: #fee2e2; color: #dc2626; padding: 3px 10px; border-radius: 6px; border: 1px solid #fca5a5;">❌ 오답</span>
               </div>
               
-              <div style="font-size: 15px; font-weight: 700; color: #0f172a; margin-bottom: 10px; white-space: pre-wrap; word-break: break-word;">${idx + 1}. ${escapeHtml(q.title)}</div>
-              ${q.box ? `<div style="font-size: 13.5px; color: #1e293b; margin-bottom: 12px; background: #f8fafc; padding: 12px 14px; border-radius: 0 8px 8px 0; border-left: 4px solid #3b82f6; border-top: 1px solid #e2e8f0; border-right: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; white-space: pre-wrap; word-break: break-word;">${escapeHtml(q.box)}</div>` : ''}
+              <div style="font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 10px; line-height: 1.5; white-space: pre-wrap; word-break: break-word;">${idx + 1}. ${escapeHtml(q.title)}</div>
+              ${q.box ? `<div style="font-size: 0.9rem; color: var(--text-primary); margin-bottom: 12px; background: var(--bg-surface); padding: 12px 14px; border-radius: 0 8px 8px 0; border-left: 4px solid #3b82f6; border-top: 1px solid var(--border-color); border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); white-space: pre-wrap; word-break: break-word;">${escapeHtml(q.box)}</div>` : ''}
 
               <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px;">
                 ${(q.options || []).map((optText, optIdx) => {
                   const isCorrectOpt = optIdx === correctChoiceIndex;
                   const isUserOpt = optIdx === userChoiceIndex;
 
-                  let cardBg = '#ffffff';
-                  let cardBorder = '#e2e8f0';
-                  let idxBg = '#f1f5f9';
-                  let idxColor = '#64748b';
-                  let idxBorder = '#cbd5e1';
-                  let textColor = '#334155';
+                  let cardBg = 'var(--bg-card)';
+                  let cardBorder = 'var(--border-color)';
+                  let idxBg = 'var(--bg-surface)';
+                  let idxColor = 'var(--text-secondary)';
+                  let idxBorder = 'var(--border-color)';
+                  let textColor = 'var(--text-primary)';
                   let statusBadge = '';
 
                   if (isCorrectOpt) {
@@ -758,7 +793,7 @@
                     idxColor = '#ffffff';
                     idxBorder = '#10b981';
                     textColor = '#047857';
-                    statusBadge = '<span style="font-size: 12px; font-weight: 800; color: #059669; background: #d1fae5; padding: 2px 8px; border-radius: 4px;">⭕ 정답</span>';
+                    statusBadge = '<span style="font-size: 0.75rem; font-weight: 800; color: #059669; background: #d1fae5; padding: 2px 8px; border-radius: 4px;">⭕ 정답</span>';
                   } else if (isUserOpt) {
                     cardBg = '#fef2f2';
                     cardBorder = '#ef4444';
@@ -766,15 +801,15 @@
                     idxColor = '#ffffff';
                     idxBorder = '#ef4444';
                     textColor = '#b91c1c';
-                    statusBadge = '<span style="font-size: 12px; font-weight: 800; color: #dc2626; background: #fee2e2; padding: 2px 8px; border-radius: 4px;">❌ 내가 푼 답</span>';
+                    statusBadge = '<span style="font-size: 0.75rem; font-weight: 800; color: #dc2626; background: #fee2e2; padding: 2px 8px; border-radius: 4px;">❌ 내 선택</span>';
                   }
 
                   const displayIdx = isOX ? (optIdx === 0 ? 'O' : 'X') : (optIdx + 1);
 
                   return `
-                    <div style="padding: 10px 14px; background: ${cardBg}; border: 1.5px solid ${cardBorder}; border-radius: 8px; font-size: 13.5px; color: ${textColor}; display: flex; align-items: center; justify-content: space-between; gap: 10px; white-space: pre-wrap; word-break: break-word;">
+                    <div style="padding: 10px 14px; background: ${cardBg}; border: 1.5px solid ${cardBorder}; border-radius: 8px; font-size: 0.92rem; color: ${textColor}; display: flex; align-items: center; justify-content: space-between; gap: 10px; white-space: pre-wrap; word-break: break-word;">
                       <div style="display: flex; align-items: center; gap: 10px; flex: 1;">
-                        <span style="width: 24px; height: 24px; border-radius: 50%; background: ${idxBg}; color: ${idxColor}; border: 1px solid ${idxBorder}; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; flex-shrink: 0;">
+                        <span style="width: 24px; height: 24px; border-radius: 50%; background: ${idxBg}; color: ${idxColor}; border: 1px solid ${idxBorder}; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 800; flex-shrink: 0;">
                           ${displayIdx}
                         </span>
                         <span style="font-weight: 500; line-height: 1.45;">${escapeHtml(optText)}</span>
@@ -785,11 +820,11 @@
                 }).join('')}
               </div>
 
-              <div style="background: #ecfdf5; border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 8px; padding: 14px 16px; margin-top: 6px;">
-                <div style="display: flex; align-items: center; gap: 6px; font-weight: 800; color: #065f46; margin-bottom: 6px; font-size: 13.5px;">
+              <div style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 0 8px 8px 0; padding: 12px 14px; margin-top: 6px;">
+                <div style="display: flex; align-items: center; gap: 6px; font-weight: 800; color: #1d4ed8; margin-bottom: 4px; font-size: 0.85rem;">
                   <span>💡</span> <span>정답 및 상세 해설</span>
                 </div>
-                <div style="font-size: 13px; color: #064e3b; line-height: 1.6; white-space: pre-wrap; word-break: break-word;">
+                <div style="font-size: 0.88rem; color: #1e3a8a; line-height: 1.55; white-space: pre-wrap; word-break: break-word;">
                   ${escapeHtml(q.explanation)}
                 </div>
               </div>
@@ -797,68 +832,10 @@
           `;
         });
 
-        html += `
-          </div>
-          <div style="text-align: center; margin-top: 24px; font-size: 11px; color: #94a3b8; border-top: 1px solid #e2e8f0; padding-top: 12px;">
-            증권투자권유자문인력 요약 퀴즈 오답 분석 시스템
-          </div>
-        `;
+        html += `</div>`;
 
-        pdfWrapper.innerHTML = html;
-        document.body.appendChild(pdfWrapper);
-
-        if (window.html2pdf) {
-          const btn = document.getElementById('btnExportQuizPdf');
-          const origText = btn ? btn.textContent : '';
-          if (btn) btn.textContent = '⏳ PDF 생성 중...';
-
-          const opt = {
-            margin: [10, 10, 10, 10],
-            filename: `증투_핵심요약퀴즈_오답노트.pdf`,
-            image: { type: 'jpeg', quality: 0.98 },
-            html2canvas: { scale: 2, useCORS: true, logging: false },
-            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-          };
-
-          window.html2pdf().set(opt).from(pdfWrapper).save().then(() => {
-            if (btn) btn.textContent = origText;
-            pdfWrapper.remove();
-          }).catch(err => {
-            console.error('html2pdf error:', err);
-            alert('PDF 생성 중 오류가 발생했습니다.');
-            if (btn) btn.textContent = origText;
-            pdfWrapper.remove();
-            fallbackPrint(html);
-          });
-        } else {
-          alert('PDF 변환 라이브러리를 불러오지 못했습니다. 새로고침 후 다시 시도해주세요.');
-          pdfWrapper.remove();
-          fallbackPrint(html);
-        }
-      }
-
-      function fallbackPrint(containerEl) {
-        const printWin = window.open('', '_blank');
-        if (!printWin) {
-          alert('팝업 차단을 해제해 주세요.');
-          return;
-        }
-        const content = typeof containerEl === 'string' ? containerEl : (containerEl.innerHTML || '');
-        printWin.document.write(`
-          <!DOCTYPE html>
-          <html>
-          <head>
-            <title>증권투자권유자문인력 요약 퀴즈 오답 노트</title>
-            <meta charset="utf-8">
-            <style>body { margin: 0; padding: 20px; font-family: sans-serif; color: #1e293b; background: #ffffff; }</style>
-          </head>
-          <body>
-            ${content}
-            <script>window.onload = function() { window.print(); };</script>
-          </body>
-          </html>
-        `);
-        printWin.document.close();
+        summaryWrongContentList.innerHTML = html;
+        summaryWrongModal.style.display = 'flex';
       }
 
       function escapeHtml(text) {
