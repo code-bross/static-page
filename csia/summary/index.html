@@ -6,6 +6,10 @@
   <title>증권투자권유자문인력 - 시니어 전문가 심화 요약집 & 구조도 캡처</title>
   <link rel="stylesheet" href="../css/variables.css">
   <link rel="stylesheet" href="../css/style.css">
+  <!-- KaTeX Math Formula Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
   <style>
     body {
       background-color: var(--bg-body);
@@ -580,6 +584,38 @@
             </div>
           `;
         }).join('');
+
+        // Trigger KaTeX math rendering for LaTeX formulas
+        if (window.renderMathInElement) {
+          try {
+            renderMathInElement(chaptersContainer, {
+              delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+              ],
+              throwOnError: false
+            });
+          } catch(e) {
+            console.warn('KaTeX render warning:', e);
+          }
+        } else {
+          // Fallback if KaTeX loads async
+          setTimeout(() => {
+            if (window.renderMathInElement) {
+              renderMathInElement(chaptersContainer, {
+                delimiters: [
+                  {left: '$$', right: '$$', display: true},
+                  {left: '$', right: '$', display: false},
+                  {left: '\\(', right: '\\)', display: false},
+                  {left: '\\[', right: '\\]', display: true}
+                ],
+                throwOnError: false
+              });
+            }
+          }, 300);
+        }
       }
 
       function formatMarkdownBody(text) {
