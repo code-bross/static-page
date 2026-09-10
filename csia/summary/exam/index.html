@@ -358,6 +358,7 @@
   </div>
 
   <script src="../summary-data.js"></script>
+  <script src="./summary-quiz-data.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const configView = document.getElementById('configView');
@@ -393,6 +394,23 @@
       let userScore = 0;
       let isAnswered = false;
 
+      // URL Chapter Filter check
+      const urlParams = new URLSearchParams(window.location.search);
+      const chapterParam = urlParams.get('chapter');
+      let activeChapterParam = chapterParam;
+
+      if (chapterParam) {
+        const matchingChapter = (window.SUMMARY_DATA || []).find(c => c.id === chapterParam);
+        if (matchingChapter) {
+          const catPill = Array.from(subjectGroup.querySelectorAll('.cfg-btn')).find(b => matchingChapter.subject.includes(b.dataset.subj));
+          if (catPill) {
+            subjectGroup.querySelectorAll('.cfg-btn').forEach(b => b.classList.remove('active'));
+            catPill.classList.add('active');
+            selectedSubj = catPill.dataset.subj;
+          }
+        }
+      }
+
       // Theme toggle
       const savedTheme = localStorage.getItem('theme') || 'dark';
       document.documentElement.setAttribute('data-theme', savedTheme);
@@ -406,6 +424,16 @@
         themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
       });
 
+      // Utility: Fisher-Yates Shuffle Algorithm
+      function shuffleArray(arr) {
+        const array = [...arr];
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+      }
+
       // Config handlers
       subjectGroup.addEventListener('click', (e) => {
         const btn = e.target.closest('.cfg-btn');
@@ -413,6 +441,7 @@
         subjectGroup.querySelectorAll('.cfg-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         selectedSubj = btn.dataset.subj;
+        activeChapterParam = null; // User manually selected subject, clear chapter lock
       });
 
       countGroup.addEventListener('click', (e) => {
@@ -423,57 +452,30 @@
         totalQCount = parseInt(btn.dataset.count, 10);
       });
 
-      // Generate Questions from SUMMARY_DATA
+      // Generate Questions from SUMMARY_QUIZ_DATA & SUMMARY_DATA with Randomization
       function generateQuizList() {
-        const rawData = window.SUMMARY_DATA || [];
-        const filteredChapters = rawData.filter(ch => selectedSubj === 'ALL' || ch.subject.includes(selectedSubj));
+        let pool = window.SUMMARY_QUIZ_DATA || [];
 
-        let generated = [];
+        if (activeChapterParam) {
+          const chPool = pool.filter(q => q.chapterId === activeChapterParam);
+          if (chPool.length > 0) pool = chPool;
+        } else if (selectedSubj !== 'ALL') {
+          pool = pool.filter(q => q.subject.includes(selectedSubj));
+        }
 
-        filteredChapters.forEach(ch => {
-          let lines = ch.lines || [];
-          if (lines.length === 0 && ch.pages) {
-            ch.pages.forEach(p => { lines = lines.concat(p.lines); });
+        // 1. Randomly shuffle question order using Fisher-Yates
+        let selectedQuestions = shuffleArray(pool).slice(0, Math.min(totalQCount, pool.length));
+
+        // 2. Deep clone and shuffle option choices for 4-choice questions
+        return selectedQuestions.map(q => {
+          const clone = JSON.parse(JSON.stringify(q));
+          if (clone.options && clone.correctAnswerIndex !== undefined) {
+            const correctOptText = clone.options[clone.correctAnswerIndex];
+            clone.options = shuffleArray(clone.options);
+            clone.correctAnswerIndex = clone.options.indexOf(correctOptText);
           }
-
-          for (let i = 0; i < lines.length - 1; i += 2) {
-            const correctStmt = lines[i];
-            const nextStmt = lines[i + 1] || '해당 과목의 핵심 규정에 따라 집행됨';
-
-            // 50% chance OX, 50% chance 4choice
-            if (Math.random() > 0.5) {
-              generated.push({
-                chapterTitle: ch.title,
-                title: `[OX 퀴즈] ${ch.title}`,
-                box: `다음 핵심 개념 설명은 올바른 설명인가요?\n\n"${correctStmt}"`,
-                correctAnswer: 'O',
-                explanation: `올바른 설명입니다: ${correctStmt} (${nextStmt})`,
-                options: ['O (올바른 지문이다)', 'X (잘못된 지문이다)']
-              });
-            } else {
-              const opts = [
-                correctStmt,
-                `잘못 변형된 지문: ${correctStmt.replace('이상', '이하').replace('이내', '초과')}`,
-                `반대 개념 지문: ${nextStmt.replace('적용', '미적용')}`,
-                '기타 예외 항목 규정'
-              ].sort(() => Math.random() - 0.5);
-
-              const correctIdx = opts.indexOf(correctStmt);
-
-              generated.push({
-                chapterTitle: ch.title,
-                title: `[핵심 개념 선택] ${ch.title}`,
-                box: `다음 중 [${ch.title}]에 관한 올바른 설명으로 가장 적절한 것은?`,
-                correctAnswerIndex: correctIdx,
-                explanation: `정답: ${correctStmt}\n해설: ${nextStmt}`,
-                options: opts
-              });
-            }
-          }
+          return clone;
         });
-
-        generated.sort(() => Math.random() - 0.5);
-        return generated.slice(0, Math.min(totalQCount, generated.length));
       }
 
       btnStartQuiz.addEventListener('click', () => {
