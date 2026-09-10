@@ -339,12 +339,53 @@
         </table>
 
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer" style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end;">
+        <button id="btnExportWrongPdf" class="btn btn-primary" style="background: linear-gradient(135deg, #ef4444, #dc2626); border-color: #dc2626; border-radius: var(--radius-md); font-weight: 700;">📄 오답 노트 확인 & PDF 다운로드</button>
         <button id="btnReviewWrong" class="btn btn-outline">📝 오답 문제로 이동</button>
-        <button id="btnRestart" class="btn btn-primary">🔄 다시 풀기</button>
+        <button id="btnRestart" class="btn btn-outline">🔄 다시 풀기</button>
       </div>
     </div>
   </div>
+
+  <!-- Dedicated Wrong Answer Note Modal -->
+  <div id="wrongAnswerModal" class="modal-backdrop">
+    <div class="modal-container" style="max-width: 960px; height: 92vh; display: flex; flex-direction: column;">
+      <div class="modal-header" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; background: var(--bg-surface); border-bottom: 1px solid var(--border-color);">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 1.4rem;">📋</span>
+          <div>
+            <h3 class="modal-title" id="wrongModalTitle" style="margin: 0; font-size: 1.15rem; font-weight: 800;">오답 분석 노트</h3>
+            <p id="wrongModalSubtitle" style="margin: 2px 0 0 0; font-size: 0.82rem; color: var(--text-secondary);">틀린 문제 및 미응답 문제 상세 복습</p>
+          </div>
+        </div>
+        <div style="display: flex; gap: 8px; align-items: center;">
+          <button id="btnWrongModalPrint" class="btn btn-primary btn-sm" style="background: #2563eb; border-color: #2563eb; font-weight: 700; padding: 0.4rem 0.85rem;">🖨️ PDF 저장 / 인쇄</button>
+          <button id="btnWrongModalDownload" class="btn btn-outline btn-sm" style="font-weight: 700; padding: 0.4rem 0.85rem;">📥 PDF 파일 다운로드</button>
+          <button id="closeWrongModal" class="modal-close" style="font-size: 1.6rem; background: none; border: none; cursor: pointer; color: var(--text-secondary); margin-left: 6px;">&times;</button>
+        </div>
+      </div>
+
+      <!-- Filter Tabs & Stats Bar -->
+      <div style="padding: 0.75rem 1.5rem; background: var(--bg-primary); border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+        <div id="wrongFilterTabs" style="display: flex; gap: 6px;">
+          <!-- Dynamically populated buttons -->
+        </div>
+        <div id="wrongStatsText" style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600;">
+          <!-- Stats summary -->
+        </div>
+      </div>
+
+      <!-- Scrollable Note Content -->
+      <div id="wrongNoteScrollBody" class="modal-body" style="padding: 1.5rem; overflow-y: auto; flex: 1; background: var(--bg-card);">
+        <div id="wrongQuestionsListContainer">
+          <!-- Rendered Questions List -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HTML2PDF CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
   <!-- JS Modules -->
   <script src="js/1-data.js"></script>
