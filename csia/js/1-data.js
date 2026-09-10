@@ -11,7 +11,7 @@ window.EXAM_DATA_ROUND1 = [
       "회복과 호황 또는 후퇴와 불황을 구분한 2분법보다 4분법이 주로 통용되고 있다.",
       "순환의 강도를 의미하는 정점과 저점 간의 차이를 순환진폭이라고 한다."
     ],
-    "pageImage": "1.jpg",
+    "pageImage": "1.png",
     "correctAnswer": 3,
     "explanation": "경기순환의 구분 방식에서는 통상 확장기(회복·호황)와 수축기(후퇴·불황)로 구분하는 2분법이 실무적으로 더 광범위하게 통용되고 기준순환일 설정에도 주로 사용됩니다."
   },
@@ -27,7 +27,7 @@ window.EXAM_DATA_ROUND1 = [
       "7%",
       "11%"
     ],
-    "pageImage": "1.jpg",
+    "pageImage": "1.png",
     "correctAnswer": 4,
     "explanation": "교환방식(MV=PY)의 변화율 공식: 통화증가율(%ΔM) + 유통속도증가율(%ΔV) = 명목GDP증가율(%ΔP + %ΔY). 따라서 %ΔM = %ΔP(4%) + %ΔY(5%) - %ΔV(-2%) = 4% + 5% + 2% = 11%입니다."
   },
@@ -43,7 +43,7 @@ window.EXAM_DATA_ROUND1 = [
       "환율경로를 통하여 금리 변동은 환율에 영향을 준다.",
       "신용경로는 토빈의 q로 설명된다."
     ],
-    "pageImage": "1.jpg",
+    "pageImage": "1.png",
     "correctAnswer": 4,
     "explanation": "토빈의 q(Tobin's q)는 주식가격 및 기업 가치 변동에 따른 자산가격경로(자산가격 파급경로)를 설명하는 이론입니다. 신용경로는 은행 대출 경로 및 기업 재무상태표 경로로 설명됩니다."
   },
