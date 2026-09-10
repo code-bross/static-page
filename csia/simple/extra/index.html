@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>증권투자권유자문인력 - 핵심지문 80선 빈출 숫자 노트</title>
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    /* Custom Styles for Extra Study Notes */
+    body {
+      background-color: var(--bg-body);
+      color: var(--text-primary);
+      min-height: 100vh;
+      font-family: var(--font-sans);
+    }
+
+    .extra-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.75rem 1.5rem;
+    }
+
+    .extra-nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nav-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .hero-banner {
+      max-width: 1200px;
+      margin: 1.5rem auto 1rem auto;
+      padding: 1.75rem 2rem;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.22), rgba(168, 85, 247, 0.18));
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-content h1 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 0.4rem;
+      color: var(--text-primary);
+    }
+
+    .hero-content p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .btn-quiz-start {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      border-radius: var(--radius-full);
+      box-shadow: 0 4px 20px rgba(99, 102, 241, 0.35);
+      white-space: nowrap;
+      text-decoration: none;
+    }
+
+    .filter-bar {
+      max-width: 1200px;
+      margin: 0 auto 1.5rem auto;
+      padding: 0 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .search-box {
+      position: relative;
+      width: 100%;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 0.85rem 1.25rem 0.85rem 2.8rem;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-color);
+      background-color: var(--bg-card);
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      font-weight: 500;
+      outline: none;
+      transition: all var(--transition-fast);
+    }
+
+    .search-box input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.3);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.1rem;
+      opacity: 0.8;
+    }
+
+    .category-pills {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding-bottom: 0.25rem;
+      scrollbar-width: thin;
+    }
+
+    .pill-btn {
+      padding: 0.45rem 1rem;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-color);
+      background-color: var(--bg-card);
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all var(--transition-fast);
+    }
+
+    .pill-btn:hover {
+      background-color: var(--bg-surface-hover);
+      color: var(--text-primary);
+    }
+
+    .pill-btn.active {
+      background-color: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .notes-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem 3rem 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .note-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.35rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+      position: relative;
+    }
+
+    .note-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary);
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .num-tag {
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.9rem;
+      font-weight: 800;
+      background: rgba(96, 165, 250, 0.18);
+      color: var(--primary);
+      border: 1px solid rgba(96, 165, 250, 0.35);
+      font-family: var(--font-mono);
+    }
+
+    .cat-badge {
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.775rem;
+      font-weight: 700;
+      background-color: var(--bg-surface-hover);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-color);
+    }
+
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1.4;
+    }
+
+    .card-content {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      line-height: 1.65;
+      background-color: var(--bg-surface);
+      border-radius: var(--radius-md);
+      padding: 0.9rem 1.1rem;
+      border-left: 4px solid var(--primary);
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .card-remark {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4rem;
+      line-height: 1.45;
+    }
+
+    .card-remark::before {
+      content: '💡';
+    }
+
+    .empty-result {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 4rem 1rem;
+      color: var(--text-secondary);
+    }
+
+    .counter-info {
+      max-width: 1200px;
+      margin: 0 auto 0.75rem auto;
+      padding: 0 1rem;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .hero-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.25rem;
+      }
+      .notes-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="extra-header">
+    <div class="extra-nav">
+      <div class="nav-left">
+        <a href="../../index.html" class="btn btn-outline btn-sm">🏠 회차 선택</a>
+        <div class="nav-title">증투 핵심지문 80선</div>
+      </div>
+      <div class="nav-right">
+        <a href="./exam/index.html" class="btn btn-primary btn-sm">🎯 퀴즈 풀기</a>
+        <button id="themeToggle" class="btn-icon">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <div class="hero-banner">
+    <div class="hero-content">
+      <h1>📌 시험 직전 필수! 빈출포인트 숫자 80선</h1>
+      <p>증권투자권유자문인력 시험에 꼭 출제되는 기간·비율·금액 숫자 핵심지문을 한눈에 암기하세요.</p>
+    </div>
+    <a href="./exam/index.html" class="btn btn-primary btn-quiz-start">📝 80선 퀴즈 도전하기 ➔</a>
+  </div>
+
+  <!-- Filter & Search Bar -->
+  <div class="filter-bar">
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="키워드 또는 숫자 검색 (예: 5일, 해피콜, 청약철회, 15%, 50억원)...">
+    </div>
+
+    <div class="category-pills" id="categoryPills">
+      <button class="pill-btn active" data-cat="ALL">전체 (80)</button>
+      <button class="pill-btn" data-cat="금융소비자보호법">금융소비자보호법</button>
+      <button class="pill-btn" data-cat="자본시장법">자본시장법</button>
+      <button class="pill-btn" data-cat="거래소규정">거래소규정</button>
+      <button class="pill-btn" data-cat="세법">세법/금융상품</button>
+      <button class="pill-btn" data-cat="직무윤리/내부통제">직무윤리/내부통제</button>
+      <button class="pill-btn" data-cat="상법/회사법">상법/회사법</button>
+    </div>
+  </div>
+
+  <!-- Counter Info -->
+  <div class="counter-info">
+    <span>검색 항목: <strong id="itemCount">80</strong>개</span>
+    <span>💡 카드를 클릭하거나 퀴즈 버튼을 눌러 테스트해보세요!</span>
+  </div>
+
+  <!-- Notes Grid -->
+  <div class="notes-grid" id="notesGrid">
+    <!-- Rendered dynamically by JS -->
+  </div>
+
+  <!-- Load Data and JS -->
+  <script src="./extra-data.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const notesGrid = document.getElementById('notesGrid');
+      const searchInput = document.getElementById('searchInput');
+      const categoryPills = document.getElementById('categoryPills');
+      const itemCount = document.getElementById('itemCount');
+      const themeToggle = document.getElementById('themeToggle');
+
+      let activeCategory = 'ALL';
+      let searchQuery = '';
+
+      // Theme toggle
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+      });
+
+      // Render items
+      function renderItems() {
+        const data = window.APPENDIX_80_DATA || [];
+        const filtered = data.filter(item => {
+          const matchCat = activeCategory === 'ALL' || item.category.includes(activeCategory);
+          const q = searchQuery.toLowerCase().trim();
+          const matchSearch = !q ||
+            item.title.toLowerCase().includes(q) ||
+            item.content.toLowerCase().includes(q) ||
+            item.numberTag.toLowerCase().includes(q) ||
+            item.remark.toLowerCase().includes(q) ||
+            item.id.toString() === q;
+          return matchCat && matchSearch;
+        });
+
+        itemCount.textContent = filtered.length;
+
+        if (filtered.length === 0) {
+          notesGrid.innerHTML = `
+            <div class="empty-result">
+              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🔍</div>
+              <h3>검색 결과가 없습니다.</h3>
+              <p>다른 검색어나 카테고리를 선택해 보세요.</p>
+            </div>
+          `;
+          return;
+        }
+
+        notesGrid.innerHTML = filtered.map(item => `
+          <div class="note-card">
+            <div class="card-top">
+              <span class="num-tag">#${item.id} · ${escapeHtml(item.numberTag)}</span>
+              <span class="cat-badge">${escapeHtml(item.category)}</span>
+            </div>
+            <div class="card-title">${escapeHtml(item.title)}</div>
+            <div class="card-content">${escapeHtml(item.content)}</div>
+            ${item.remark ? `<div class="card-remark">${escapeHtml(item.remark)}</div>` : ''}
+          </div>
+        `).join('');
+      }
+
+      function escapeHtml(text) {
+        if (!text) return '';
+        return text.replace(/[&<>"']/g, function(m) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m];
+        });
+      }
+
+      // Event listeners
+      categoryPills.addEventListener('click', (e) => {
+        const btn = e.target.closest('.pill-btn');
+        if (!btn) return;
+        categoryPills.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeCategory = btn.dataset.cat;
+        renderItems();
+      });
+
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value;
+        renderItems();
+      });
+
+      // Initial render
+      renderItems();
+    });
+  </script>
+</body>
+</html>

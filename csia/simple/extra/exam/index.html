@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>핵심지문 80선 빈출 숫자 퀴즈 - 증권투자권유자문인력</title>
+  <link rel="stylesheet" href="../../../css/variables.css">
+  <link rel="stylesheet" href="../../../css/style.css">
+  <style>
+    body {
+      background-color: var(--bg-body);
+      color: var(--text-primary);
+      min-height: 100vh;
+      font-family: var(--font-sans);
+    }
+
+    .quiz-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.65rem 1.25rem;
+    }
+
+    .quiz-nav {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .quiz-container {
+      max-width: 760px;
+      margin: 1.5rem auto 3rem auto;
+      padding: 0 1rem;
+    }
+
+    .quiz-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      position: relative;
+    }
+
+    .quiz-meta-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .quiz-progress-text {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary);
+      font-family: var(--font-mono);
+    }
+
+    .quiz-score-badge {
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      background-color: var(--bg-surface-hover);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+    }
+
+    .progress-bar-wrap {
+      width: 100%;
+      height: 6px;
+      background-color: var(--bg-surface-hover);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+      margin-top: -0.5rem;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transition: width 0.3s ease;
+    }
+
+    .quiz-q-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1.5;
+    }
+
+    .quiz-q-box {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.1rem 1.25rem;
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.65;
+      color: var(--text-primary);
+      border-left: 4px solid var(--primary);
+    }
+
+    /* Options */
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .opt-btn {
+      padding: 0.95rem 1.25rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      background-color: var(--bg-surface);
+      color: var(--text-primary);
+      font-size: 0.975rem;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .opt-btn:hover {
+      border-color: var(--primary);
+      background-color: var(--bg-surface-hover);
+      color: var(--text-primary);
+    }
+
+    .opt-btn.correct {
+      border-color: var(--success) !important;
+      background-color: var(--success-bg) !important;
+      color: var(--success) !important;
+      font-weight: 800;
+    }
+
+    .opt-btn.wrong {
+      border-color: var(--danger) !important;
+      background-color: var(--danger-bg) !important;
+      color: var(--danger) !important;
+      font-weight: 700;
+    }
+
+    .opt-btn:disabled {
+      cursor: default;
+    }
+
+    /* Feedback Box */
+    .feedback-box {
+      padding: 1.1rem 1.25rem;
+      border-radius: var(--radius-md);
+      font-size: 0.95rem;
+      font-weight: 500;
+      line-height: 1.6;
+      display: none;
+    }
+
+    .feedback-box.show {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .feedback-box.is-correct {
+      background-color: var(--success-bg);
+      border: 1px solid var(--success);
+      color: var(--success);
+    }
+
+    .feedback-box.is-wrong {
+      background-color: var(--danger-bg);
+      border: 1px solid var(--danger);
+      color: var(--danger);
+    }
+
+    .btn-next-q {
+      padding: 0.85rem;
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: var(--radius-md);
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+
+    /* Mode & Config Selector */
+    .quiz-config-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .config-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+    }
+
+    .config-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .config-group label {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+    }
+
+    .config-btn-group {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .cfg-btn {
+      padding: 0.6rem 1.1rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      background-color: var(--bg-surface);
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .cfg-btn.active {
+      background-color: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    /* Result Screen */
+    .result-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .result-score-big {
+      font-size: 3.5rem;
+      font-weight: 900;
+      font-family: var(--font-mono);
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header -->
+  <header class="quiz-header">
+    <div class="quiz-nav">
+      <a href="../index.html" class="btn btn-outline btn-sm">📚 핵심 80선 노트</a>
+      <div class="nav-title">🎯 핵심지문 80선 퀴즈</div>
+      <button id="themeToggle" class="btn-icon">🌙</button>
+    </div>
+  </header>
+
+  <div class="quiz-container">
+
+    <!-- Config / Start View -->
+    <div id="configView" class="quiz-config-card">
+      <div class="config-title">🎯 80선 빈출 숫자 퀴즈 설정</div>
+      
+      <div class="config-group">
+        <label>1. 퀴즈 유치/유형 선택</label>
+        <div class="config-btn-group" id="quizTypeGroup">
+          <button class="cfg-btn active" data-type="4choice">4지선다형 (빈칸/숫자 맞추기)</button>
+          <button class="cfg-btn" data-type="ox">O/X 스피드 퀴즈</button>
+        </div>
+      </div>
+
+      <div class="config-group">
+        <label>2. 문항 수 선택</label>
+        <div class="config-btn-group" id="countGroup">
+          <button class="cfg-btn active" data-count="10">10문항 (Quick Test)</button>
+          <button class="cfg-btn" data-count="20">20문항 (Standard)</button>
+          <button class="cfg-btn" data-count="50">50문항 (Master)</button>
+          <button class="cfg-btn" data-count="80">80문항 (전체 풀기)</button>
+        </div>
+      </div>
+
+      <button id="btnStartQuiz" class="btn btn-primary btn-next-q" style="margin-top: 1rem;">🚀 퀴즈 시작하기</button>
+    </div>
+
+    <!-- Play View -->
+    <div id="playView" class="quiz-card" style="display: none;">
+      <div class="quiz-meta-bar">
+        <div class="quiz-progress-text" id="quizProgressText">Q 1 / 10</div>
+        <div class="quiz-score-badge" id="quizScoreBadge">점수: 0점</div>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="progressBarFill"></div>
+      </div>
+
+      <div class="quiz-q-title" id="quizQTitle">문제 파악 중...</div>
+      <div class="quiz-q-box" id="quizQBox">...</div>
+
+      <div class="quiz-options" id="quizOptions">
+        <!-- Options rendered dynamically -->
+      </div>
+
+      <div class="feedback-box" id="feedbackBox">
+        <div id="feedbackResult" style="font-size: 1.1rem; font-weight: 800; margin-bottom: 0.3rem;"></div>
+        <div id="feedbackText"></div>
+      </div>
+
+      <button id="btnNext" class="btn btn-primary btn-next-q" style="display: none;">다음 문제 ➔</button>
+    </div>
+
+    <!-- Result View -->
+    <div id="resultView" class="result-card" style="display: none;">
+      <div style="font-size: 3rem;">🎉</div>
+      <h2 style="font-size: 1.6rem; font-weight: 800;">퀴즈 완료!</h2>
+      <div class="result-score-big" id="finalScore">100점</div>
+      <p id="resultComment" style="color: var(--text-secondary); font-size: 1rem;"></p>
+      
+      <div style="display: flex; gap: 0.75rem; width: 100%; margin-top: 1rem;">
+        <button id="btnRetry" class="btn btn-outline" style="flex: 1; padding: 0.85rem;">🔄 다시 도전</button>
+        <a href="../index.html" class="btn btn-primary" style="flex: 1; padding: 0.85rem; text-decoration: none; text-align: center;">📚 노트 복습하기</a>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="../extra-data.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const configView = document.getElementById('configView');
+      const playView = document.getElementById('playView');
+      const resultView = document.getElementById('resultView');
+
+      const quizTypeGroup = document.getElementById('quizTypeGroup');
+      const countGroup = document.getElementById('countGroup');
+      const btnStartQuiz = document.getElementById('btnStartQuiz');
+
+      const quizProgressText = document.getElementById('quizProgressText');
+      const quizScoreBadge = document.getElementById('quizScoreBadge');
+      const progressBarFill = document.getElementById('progressBarFill');
+
+      const quizQTitle = document.getElementById('quizQTitle');
+      const quizQBox = document.getElementById('quizQBox');
+      const quizOptions = document.getElementById('quizOptions');
+      const feedbackBox = document.getElementById('feedbackBox');
+      const feedbackResult = document.getElementById('feedbackResult');
+      const feedbackText = document.getElementById('feedbackText');
+      const btnNext = document.getElementById('btnNext');
+
+      const finalScore = document.getElementById('finalScore');
+      const resultComment = document.getElementById('resultComment');
+      const btnRetry = document.getElementById('btnRetry');
+
+      const themeToggle = document.getElementById('themeToggle');
+
+      let quizType = '4choice';
+      let totalQCount = 10;
+      let quizList = [];
+      let currentIdx = 0;
+      let userScore = 0;
+      let isAnswered = false;
+
+      // Theme toggle
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+      });
+
+      // Selection handlers
+      quizTypeGroup.addEventListener('click', (e) => {
+        const btn = e.target.closest('.cfg-btn');
+        if (!btn) return;
+        quizTypeGroup.querySelectorAll('.cfg-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        quizType = btn.dataset.type;
+      });
+
+      countGroup.addEventListener('click', (e) => {
+        const btn = e.target.closest('.cfg-btn');
+        if (!btn) return;
+        countGroup.querySelectorAll('.cfg-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        totalQCount = parseInt(btn.dataset.count, 10);
+      });
+
+      // Generate Questions
+      function generateQuizList() {
+        const rawData = [...(window.APPENDIX_80_DATA || [])];
+        // Shuffle array
+        rawData.sort(() => Math.random() - 0.5);
+        const selectedData = rawData.slice(0, Math.min(totalQCount, rawData.length));
+
+        return selectedData.map((item, idx) => {
+          if (quizType === 'ox') {
+            // Randomly decide if statement should be true or false
+            const isTrue = Math.random() > 0.5;
+            let questionContent = item.content;
+            let explanationStr = item.content + (item.remark ? ` (${item.remark})` : '');
+
+            if (!isTrue) {
+              // Create a plausible wrong statement by altering numbers
+              questionContent = alterStatementNumber(item.content, item.numberTag);
+            }
+
+            return {
+              id: item.id,
+              type: 'ox',
+              title: `[OX 퀴즈] #${item.id} ${item.title}`,
+              box: questionContent,
+              correctAnswer: isTrue ? 'O' : 'X',
+              explanation: explanationStr,
+              options: ['O (옳은 설명이다)', 'X (잘못된 설명이다)']
+            };
+          } else {
+            // 4-choice question
+            const correctOpt = item.numberTag;
+            const wrongOptions = generateDistractors(item.numberTag, rawData);
+            const allOptions = [correctOpt, ...wrongOptions].sort(() => Math.random() - 0.5);
+            const correctIndex = allOptions.indexOf(correctOpt);
+
+            // Replace target number in content with (   )
+            const maskedContent = item.content.replace(item.numberTag, '(   )');
+
+            return {
+              id: item.id,
+              type: '4choice',
+              title: `[빈칸 맞추기] #${item.id} ${item.title}`,
+              box: `다음 설명의 (   ) 안에 들어갈 알맞은 숫자는?\n\n"${maskedContent}"`,
+              correctAnswerIndex: correctIndex,
+              correctAnswerText: correctOpt,
+              explanation: `정답: ${correctOpt}\n해설: ${item.content} (${item.remark || ''})`,
+              options: allOptions
+            };
+          }
+        });
+      }
+
+      function alterStatementNumber(text, numberTag) {
+        const fakeMap = {
+          '1사': '2사', '1년': '2년', '1일': '3일', '2년': '3년', '2주': '1개월',
+          '3개월': '6개월', '3단계': '5단계', '3년': '5년', '3영업일': '5영업일',
+          '5년': '3년', '5억원': '10억원', '5일': '10일', '5인': '10인',
+          '6개월': '1년', '6영업일': '10영업일', '7일': '14일', '7영업일': '14영업일',
+          '10억원': '50억원', '15%': '30%', '20%': '30%', '30%': '15%',
+          '50%': '30%', '90%': '70%', '100억원': '500억원', '600만원': '900만원',
+          '1,000만원': '5,000만원', '1,800만원': '2,000만원', '3,000만원': '5,000만원'
+        };
+        const fakeTag = fakeMap[numberTag] || '3일';
+        return text.replace(numberTag, fakeTag);
+      }
+
+      function generateDistractors(correctTag, allData) {
+        const pool = allData.map(d => d.numberTag).filter(t => t !== correctTag);
+        const uniquePool = Array.from(new Set(pool));
+        uniquePool.sort(() => Math.random() - 0.5);
+        return uniquePool.slice(0, 3);
+      }
+
+      // Start Quiz
+      btnStartQuiz.addEventListener('click', () => {
+        quizList = generateQuizList();
+        currentIdx = 0;
+        userScore = 0;
+        configView.style.display = 'none';
+        resultView.style.display = 'none';
+        playView.style.display = 'flex';
+        renderQuestion();
+      });
+
+      // Render Question
+      function renderQuestion() {
+        isAnswered = false;
+        btnNext.style.display = 'none';
+        feedbackBox.className = 'feedback-box';
+
+        const q = quizList[currentIdx];
+        quizProgressText.textContent = `Q ${currentIdx + 1} / ${quizList.length}`;
+        quizScoreBadge.textContent = `점수: ${userScore}점`;
+        progressBarFill.style.width = `${((currentIdx + 1) / quizList.length) * 100}%`;
+
+        quizQTitle.textContent = q.title;
+        quizQBox.textContent = q.box;
+
+        quizOptions.innerHTML = '';
+
+        if (q.type === 'ox') {
+          q.options.forEach((optText, i) => {
+            const btn = document.createElement('button');
+            btn.className = 'opt-btn';
+            const val = i === 0 ? 'O' : 'X';
+            btn.innerHTML = `<span>${optText}</span>`;
+            btn.addEventListener('click', () => checkAnswer(val, q));
+            quizOptions.appendChild(btn);
+          });
+        } else {
+          q.options.forEach((optText, i) => {
+            const btn = document.createElement('button');
+            btn.className = 'opt-btn';
+            btn.innerHTML = `<span>${i + 1}. ${escapeHtml(optText)}</span>`;
+            btn.addEventListener('click', () => checkAnswer(i, q));
+            quizOptions.appendChild(btn);
+          });
+        }
+      }
+
+      function checkAnswer(userChoice, q) {
+        if (isAnswered) return;
+        isAnswered = true;
+
+        let isCorrect = false;
+        const buttons = quizOptions.querySelectorAll('.opt-btn');
+
+        if (q.type === 'ox') {
+          isCorrect = (userChoice === q.correctAnswer);
+          buttons.forEach((btn, i) => {
+            btn.disabled = true;
+            const val = i === 0 ? 'O' : 'X';
+            if (val === q.correctAnswer) btn.classList.add('correct');
+            if (val === userChoice && !isCorrect) btn.classList.add('wrong');
+          });
+        } else {
+          isCorrect = (userChoice === q.correctAnswerIndex);
+          buttons.forEach((btn, i) => {
+            btn.disabled = true;
+            if (i === q.correctAnswerIndex) btn.classList.add('correct');
+            if (i === userChoice && !isCorrect) btn.classList.add('wrong');
+          });
+        }
+
+        if (isCorrect) {
+          userScore += Math.round(100 / quizList.length);
+          quizScoreBadge.textContent = `점수: ${userScore}점`;
+          feedbackResult.textContent = '⭕ 정답입니다!';
+          feedbackBox.className = 'feedback-box show is-correct';
+        } else {
+          feedbackResult.textContent = '❌ 오답입니다!';
+          feedbackBox.className = 'feedback-box show is-wrong';
+        }
+
+        feedbackText.textContent = q.explanation;
+        btnNext.style.display = 'block';
+      }
+
+      btnNext.addEventListener('click', () => {
+        currentIdx++;
+        if (currentIdx < quizList.length) {
+          renderQuestion();
+        } else {
+          showResult();
+        }
+      });
+
+      function showResult() {
+        playView.style.display = 'none';
+        resultView.style.display = 'flex';
+        finalScore.textContent = `${userScore}점`;
+
+        if (userScore >= 90) {
+          resultComment.textContent = '🏆 대단합니다! 빈출포인트 숫자 80선을 완벽하게 마스터하셨습니다.';
+        } else if (userScore >= 70) {
+          resultComment.textContent = '👍 우수한 성적입니다! 헷갈렸던 항목만 암기 노터에서 재복습해 보세요.';
+        } else {
+          resultComment.textContent = '📚 암기 노트를 2~3회 반복 회독 후 다시 도전해 보세요!';
+        }
+      }
+
+      btnRetry.addEventListener('click', () => {
+        resultView.style.display = 'none';
+        configView.style.display = 'flex';
+      });
+
+      function escapeHtml(text) {
+        if (!text) return '';
+        return text.replace(/[&<>"']/g, function(m) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m];
+        });
+      }
+    });
+  </script>
+</body>
+</html>
