@@ -104,6 +104,7 @@ body {
     radial-gradient(circle at 90% 80%, rgba(56, 189, 248, 0.05) 0%, transparent 40%);
   background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
+  overflow-wrap: anywhere;
 }
 
 /* Container */
@@ -130,6 +131,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
 .brand-logo {
@@ -138,6 +141,7 @@ body {
   gap: 12px;
   text-decoration: none;
   color: var(--text-primary);
+  flex-shrink: 0;
 }
 
 .brand-icon {
@@ -172,6 +176,8 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
+  min-width: 0;
+  max-width: 100%;
 }
 
 /* Theme Toggle Button */
@@ -190,6 +196,8 @@ body {
   transition: var(--transition);
   box-shadow: var(--shadow-sm);
   font-family: inherit;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .theme-toggle-btn:hover {
@@ -206,6 +214,8 @@ body {
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-light);
   gap: 6px;
+  min-width: 0;
+  overflow-x: auto;
 }
 
 .tab-btn {
@@ -222,6 +232,8 @@ body {
   gap: 8px;
   transition: var(--transition);
   font-family: inherit;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .tab-btn:hover {
@@ -341,7 +353,7 @@ body {
 /* Key Metrics Grid */
 .metrics-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
   gap: 16px;
 }
 
@@ -395,7 +407,7 @@ body {
 /* Main Layout Split */
 .main-content {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 32px;
   padding-bottom: 60px;
 }
@@ -508,7 +520,7 @@ body {
 
 .flight-routes-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
   gap: 24px;
 }
 
@@ -619,14 +631,14 @@ body {
 /* Budget Section */
 .budget-overview-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
   margin-bottom: 32px;
 }
 
 @media (max-width: 900px) {
   .budget-overview-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
@@ -933,7 +945,7 @@ body {
 /* Day Photo Gallery Highlight Grid */
 .day-photo-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
   gap: 16px;
   margin-bottom: 32px;
 }
@@ -1168,7 +1180,7 @@ body {
 /* Senior Guide Grid Cards */
 .guide-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
   gap: 20px;
 }
 
@@ -1235,14 +1247,88 @@ body {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .navbar {
+    padding: 12px 0;
+  }
+  .nav-actions {
+    width: 100%;
+  }
+  .destination-tabs {
+    flex: 1;
+  }
+  .theme-toggle-btn {
+    padding: 10px;
+    min-height: 44px;
+  }
+  #themeToggleText {
+    display: none;
+  }
+  .tab-btn {
+    min-height: 44px;
+    padding: 8px 12px;
+  }
   .hero-card {
-    padding: 24px;
+    padding: 16px;
+  }
+  .hero-header-box {
+    padding: 20px 16px;
+  }
+  .metric-card {
+    padding: 16px;
   }
   .hero-title {
     font-size: 1.7rem;
   }
   .flight-routes-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .flight-card,
+  .budget-card,
+  .guide-card {
+    padding: 20px;
+  }
+  .flight-header,
+  .category-meta,
+  .calc-label,
+  .activity-header {
+    flex-wrap: wrap;
+    gap: 8px 12px;
+  }
+  .route-box {
+    padding: 14px;
+  }
+  .timeline-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    gap: 8px;
+  }
+  .flight-path {
+    padding: 0;
+  }
+  .time-city .time {
+    font-size: 1.1rem;
+  }
+  .section-icon,
+  .airline-logo-badge {
+    flex-shrink: 0;
+  }
+  .section-title,
+  .day-title-text {
+    font-size: 1.3rem;
+  }
+  .summary-box {
+    padding: 16px 8px;
+  }
+  .summary-box-val {
+    font-size: 1.5rem;
+  }
+  .calc-btn {
+    width: 44px;
+    height: 44px;
   }
   .active-day-container {
     padding: 20px;
