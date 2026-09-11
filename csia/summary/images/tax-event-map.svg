@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="640" viewBox="0 0 720 640" role="img" aria-labelledby="title desc">
+  <title id="title">증권세제 과세 사건 분류</title>
+  <desc id="desc">보유 중 이자와 배당, 매도 시 양도차익과 양도가액, 무상이전 시 증여와 상속을 구분한다. 양도차익과 양도가액은 다르다.</desc>
+  <rect width="720" height="640" rx="24" fill="#f4f7fc"/>
+  <g font-family="sans-serif" fill="#172b4d">
+    <text x="36" y="52" font-size="16" fill="#2563eb">06 / TAXATION</text>
+    <text x="36" y="94" font-size="30" font-weight="700">세율 전에 '무슨 일이 있었는가?'</text>
+    <rect x="36" y="126" width="648" height="116" rx="16" fill="#dbeafe"/>
+    <text x="58" y="164" font-size="25" font-weight="700">보유 중 수익을 받았다</text>
+    <text x="58" y="203" font-size="23">이자 → 이자소득 / 배당 → 배당소득</text>
+    <rect x="36" y="260" width="648" height="142" rx="16" fill="#e0e7ff"/>
+    <text x="58" y="298" font-size="25" font-weight="700">팔았다</text>
+    <text x="58" y="337" font-size="22">양도차익 → 양도소득 과세 여부 판단</text>
+    <text x="58" y="373" font-size="22">양도가액 → 증권거래세 과세 여부 판단</text>
+    <rect x="36" y="420" width="648" height="116" rx="16" fill="#ccfbf1"/>
+    <text x="58" y="458" font-size="25" font-weight="700">대가 없이 재산을 받았다</text>
+    <text x="58" y="497" font-size="23">생전 이전 → 증여 / 사망에 따른 이전 → 상속</text>
+    <text x="36" y="583" font-size="22" font-weight="700" fill="#9a3412">양도차익 ≠ 양도가액 · 손실 매도도 거래세 가능</text>
+    <text x="36" y="617" font-size="17">시장 · 상품 · 납세자 · 과세연도에 따른 과세 및 면제 요건 확인</text>
+  </g>
+</svg>

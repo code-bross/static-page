@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>증권투자권유자문인력 - 시니어 전문가 심화 요약집 & 구조도 캡처</title>
+  <title>증권투자권유자문인력 - 그림과 사례로 이해하는 핵심 요약집</title>
   <link rel="stylesheet" href="../css/variables.css">
   <link rel="stylesheet" href="../css/style.css">
   <!-- KaTeX Math Formula Rendering -->
@@ -317,6 +317,8 @@
       justify-content: center;
       align-items: center;
       overflow-x: auto;
+      border: 0;
+      cursor: zoom-in;
     }
 
     .diagram-img-box img {
@@ -367,8 +369,15 @@
       padding: 1.5rem;
     }
 
-    .lightbox-modal.show {
+    .lightbox-modal[open] {
       display: flex;
+    }
+
+    .lightbox-modal {
+      max-width: none;
+      max-height: none;
+      margin: 0;
+      border: 0;
     }
 
     .lightbox-img-wrap {
@@ -381,7 +390,8 @@
     }
 
     .lightbox-img-wrap img {
-      width: 100%;
+      width: max(720px, 80vw);
+      max-width: 1400px;
       height: auto;
       display: block;
     }
@@ -399,6 +409,46 @@
       font-size: 1.35rem;
       cursor: pointer;
       font-weight: 700;
+    }
+
+    .learning-guide {
+      padding: 1.25rem;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      background: var(--bg-surface);
+      line-height: 1.8;
+      overflow-wrap: anywhere;
+    }
+
+    .learning-guide h3 { margin: 0 0 0.65rem; color: var(--primary); }
+    .learning-guide h4 { margin: 0 0 0.4rem; }
+    .learning-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; }
+    .learning-grid > div { padding: 1rem; border-radius: var(--radius-md); background: var(--bg-card); }
+    .self-check { border-top: 1px solid var(--border-color); padding-top: 0.85rem; }
+    summary { cursor: pointer; font-weight: 700; }
+    .self-check p { margin-top: 0.7rem; }
+    .diagram-inline-card { margin: 0; }
+    .diagram-caption { padding: 0.75rem 1.25rem; color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6; }
+    .detail-notes > summary { padding: 1rem 0; color: var(--primary); }
+    .detail-notes .section-block { margin-bottom: 1.5rem; }
+    .reference-notice { font-size: 0.85rem; line-height: 1.7; color: var(--text-secondary); }
+    .reference-notice a { color: var(--primary); text-decoration: underline; }
+    button:focus-visible, summary:focus-visible, a:focus-visible, input:focus-visible {
+      outline: 3px solid var(--primary);
+      outline-offset: 3px;
+    }
+    [data-theme="light"] .hero-content h1 { color: var(--text-primary); }
+
+    @media (max-width: 640px) {
+      .summary-header { position: static; padding: 0.75rem; }
+      .summary-nav, .chapter-header { flex-wrap: wrap; }
+      .nav-title { font-size: 0.9rem; }
+      .hero-banner { margin: 1rem; padding: 1.25rem; }
+      .chapter-card { padding: 1rem; min-width: 0; }
+      .learning-guide { padding: 1rem; }
+      .learning-grid { grid-template-columns: 1fr; }
+      .diagram-img-box { padding: 0.5rem; }
+      .summary-table { display: block; overflow-x: auto; }
     }
   </style>
 </head>
@@ -421,25 +471,29 @@
   <!-- Hero Banner -->
   <div class="hero-banner">
     <div class="hero-content">
-      <h1>👨‍💼 증권사 시니어 전문가 핵심 출제 요약집</h1>
-      <p>증권투자권유자문인력 자격시험 합격을 위한 1~4과목 전 범위 법령·공식·수치·파급경로 심화 요약 및 원본 구조도 캡처 가이드입니다.</p>
+      <h1>그림과 사례로 이해하는 핵심 요약집</h1>
+      <p>14개 장을 쉬운 설명 → 숫자·상황 예시 → 그림 → 확인 질문 순서로 학습하세요. 이미지는 클릭하거나 키보드로 선택해 크게 볼 수 있습니다.</p>
     </div>
     <a href="./exam/index.html" class="btn btn-primary" style="padding: 0.75rem 1.5rem; border-radius: var(--radius-full); text-decoration: none; font-weight: 800;">📝 전과목 퀴즈 도전하기 ➔</a>
   </div>
 
   <!-- Filter & Search Bar -->
   <div class="filter-bar">
+    <p class="reference-notice">학습 안내: 예시는 이해를 위한 가정이며 투자 권유가 아닙니다. 기존 상세 암기노트에는 과거 제도 수치가 포함되어 있습니다. 보호한도·세율·신고기한·가입요건은 응시연도 교재와
+      <a href="https://www.law.go.kr/" target="_blank" rel="noopener noreferrer">국가법령정보센터</a>,
+      <a href="https://www.kdic.or.kr/" target="_blank" rel="noopener noreferrer">예금보험공사</a>,
+      <a href="https://www.nts.go.kr/" target="_blank" rel="noopener noreferrer">국세청</a>의 적용 시점 기준을 확인하세요.</p>
     <div class="search-box">
       <span class="search-icon">🔍</span>
-      <input type="text" id="searchInput" placeholder="심화 요약 키워드 검색 (예: DuPont, PER, 5% 룰, 서킷브레이커, 2,000만원, Gross-up)...">
+      <input type="search" id="searchInput" aria-label="요약, 사례, 그림 검색" placeholder="개념·사례·그림 검색 (예: 듀퐁, 양봉, 예금자보호, 특별결의)...">
     </div>
 
     <div class="category-pills" id="categoryPills">
       <button class="pill-btn active" data-cat="ALL">전체 과목 (14개 장)</button>
       <button class="pill-btn" data-cat="1과목">1과목 (증권분석 및 시장)</button>
-      <button class="pill-btn" data-cat="2과목">2과목 (금융투자상품 & 직무윤리)</button>
-      <button class="pill-btn" data-cat="3과목">3과목 (자본시장법 & 금소법)</button>
-      <button class="pill-btn" data-cat="4과목">4과목 (세제 & 자산배분)</button>
+      <button class="pill-btn" data-cat="2과목">2과목 (상품·리스크·포트폴리오)</button>
+      <button class="pill-btn" data-cat="3과목">3과목 (직무윤리·금융법규)</button>
+      <button class="pill-btn" data-cat="4과목">4과목 (관련 법규·회사법·세제)</button>
     </div>
   </div>
 
@@ -449,11 +503,11 @@
   </div>
 
   <!-- Lightbox Modal -->
-  <div class="lightbox-modal" id="lightboxModal">
-    <button class="lightbox-close" id="lightboxClose">✕</button>
+  <dialog class="lightbox-modal" id="lightboxModal" aria-label="학습 그림 확대 보기">
+    <button class="lightbox-close" id="lightboxClose" aria-label="확대 보기 닫기" autofocus>✕</button>
     <div class="lightbox-img-wrap">
-      <img id="lightboxImg" src="" alt="구조도 확대 뷰어">
-    </div>
+      <img id="lightboxImg" alt="구조도 확대 뷰어">
+    </dialog>
   </div>
 
   <script src="./summary-data.js"></script>
@@ -493,6 +547,8 @@
             ch.title.toLowerCase().includes(q) ||
             ch.subject.toLowerCase().includes(q) ||
             (ch.expertNotice && ch.expertNotice.toLowerCase().includes(q)) ||
+            (ch.guide && Object.values(ch.guide).some(text => text.toLowerCase().includes(q))) ||
+            (ch.diagrams && ch.diagrams.some(d => [d.title, d.alt, d.caption, d.description].some(text => text && text.toLowerCase().includes(q)))) ||
             (ch.sections && ch.sections.some(s => s.subtitle.toLowerCase().includes(q) || s.body.toLowerCase().includes(q)));
           return matchCat && matchSearch;
         });
@@ -521,6 +577,29 @@
                 <a href="./exam/index.html?chapter=${ch.id}" class="btn btn-outline btn-sm">✍️ 이 장 퀴즈 풀기</a>
               </div>
 
+              ${ch.guide ? `
+                <section class="learning-guide" aria-label="쉽게 이해하기">
+                  <h3>먼저, 이렇게 이해하세요</h3>
+                  <p>${escapeHtml(ch.guide.concept)}</p>
+                  <div class="learning-grid">
+                    <div><h4>숫자·상황으로 보는 예시</h4><p>${escapeHtml(ch.guide.example)}</p></div>
+                    <div><h4>헷갈리기 쉬운 점</h4><p>${escapeHtml(ch.guide.pitfall)}</p></div>
+                  </div>
+                  <p><strong>그림 읽는 순서</strong> · ${escapeHtml(ch.guide.reading)}</p>
+                </section>
+              ` : ''}
+
+              ${renderDiagrams(diagrams, ch.title)}
+
+              ${ch.guide ? `
+                <details class="self-check">
+                  <summary>이해 확인 · ${escapeHtml(ch.guide.question)} <span>(정답 보기)</span></summary>
+                  <p class="section-body">${escapeHtml(ch.guide.answer)}</p>
+                </details>
+              ` : ''}
+
+              <details class="detail-notes" ${searchQuery.trim() ? 'open' : ''}>
+                <summary>상세 암기노트 · 공식·비교표·출제 포인트 펼치기</summary>
               <!-- Expert Notice Box -->
               ${ch.expertNotice ? `
                 <div class="expert-notice-box">
@@ -560,27 +639,7 @@
                 </div>
               `).join('')}
 
-              <!-- Inline Diagram Cards with Explanations -->
-              ${diagrams.length > 0 ? `
-                <div class="diagram-inline-container">
-                  ${diagrams.map((d, idx) => `
-                    <div class="diagram-inline-card">
-                      <div class="diagram-header-bar">
-                        <span>📊</span> <span>${escapeHtml(d.title || `${ch.title} 시각 다이어그램 #${idx+1}`)}</span>
-                      </div>
-                      <div class="diagram-img-box" onclick="openLightbox('${d.path}')" style="cursor: pointer;" title="클릭 시 100% 해상도 창 팝업">
-                        <img src="${d.path}" alt="${escapeHtml(d.title || ch.title)}" loading="lazy">
-                      </div>
-                      ${d.description ? `
-                        <div class="diagram-explanation-box">
-                          <div class="diagram-exp-tag">💡 [다이어그램 상세 해설 & 출제 핵심 포인트]</div>
-                          <div class="diagram-exp-text">${formatMarkdownBody(d.description)}</div>
-                        </div>
-                      ` : ''}
-                    </div>
-                  `).join('')}
-                </div>
-              ` : ''}
+              </details>
             </div>
           `;
         }).join('');
@@ -618,6 +677,24 @@
         }
       }
 
+      function renderDiagrams(diagrams, chapterTitle) {
+        return `<div class="diagram-inline-container">${diagrams.map(d => `
+          <figure class="diagram-inline-card">
+            <div class="diagram-header-bar">${escapeHtml(d.title || chapterTitle)}</div>
+            <button type="button" class="diagram-img-box" aria-label="${escapeHtml(d.title || chapterTitle)} 확대 보기">
+              <img src="${escapeHtml(d.path)}" alt="${escapeHtml(d.alt || d.title || chapterTitle)}" loading="lazy" decoding="async">
+            </button>
+            <figcaption class="diagram-caption">${escapeHtml(d.caption || d.title || chapterTitle)} · 선택하면 확대됩니다.</figcaption>
+            ${d.description ? `
+              <div class="diagram-explanation-box">
+                <div class="diagram-exp-tag">그림 해설</div>
+                <div class="diagram-exp-text">${formatMarkdownBody(d.description)}</div>
+              </div>
+            ` : ''}
+          </figure>
+        `).join('')}</div>`;
+      }
+
       function formatMarkdownBody(text) {
         if (!text) return '';
         let formatted = escapeHtml(text);
@@ -651,18 +728,22 @@
       }
 
       // Lightbox functions
-      window.openLightbox = function(imgUrl) {
-        lightboxImg.src = imgUrl;
-        lightboxModal.classList.add('show');
-      };
+      chaptersContainer.addEventListener('click', (e) => {
+        const button = e.target.closest('.diagram-img-box');
+        if (!button) return;
+        const img = button.querySelector('img');
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightboxModal.showModal();
+      });
 
       lightboxClose.addEventListener('click', () => {
-        lightboxModal.classList.remove('show');
+        lightboxModal.close();
       });
 
       lightboxModal.addEventListener('click', (e) => {
         if (e.target === lightboxModal) {
-          lightboxModal.classList.remove('show');
+          lightboxModal.close();
         }
       });
 

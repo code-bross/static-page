@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="640" viewBox="0 0 720 640" role="img" aria-labelledby="title desc">
+  <title id="title">CDD, STR, CTR 비교</title>
+  <desc id="desc">CDD는 신원 확인, STR은 의심에 따른 FIU 보고, CTR은 법정 고액 현금거래의 FIU 보고이다. 동시에 적용될 수 있다.</desc>
+  <rect width="720" height="640" rx="24" fill="#f4f7fc"/>
+  <g font-family="sans-serif" fill="#172b4d">
+    <text x="36" y="52" font-size="16" fill="#2563eb">03 / ANTI-MONEY LAUNDERING</text>
+    <text x="36" y="94" font-size="30" font-weight="700">서로 다른 세 질문, 각각 판단하세요</text>
+    <rect x="36" y="126" width="648" height="128" rx="16" fill="#dbeafe"/>
+    <text x="58" y="164" font-size="25" font-weight="700">CDD · 누구와 거래하나요?</text>
+    <text x="58" y="202" font-size="22">고객 신원 · 실제 소유자 · 거래 목적 확인</text>
+    <text x="58" y="232" font-size="19" fill="#1d4ed8">금융회사의 확인 절차 / 위험에 따라 강화된 확인</text>
+    <rect x="36" y="272" width="648" height="128" rx="16" fill="#e0e7ff"/>
+    <text x="58" y="310" font-size="25" font-weight="700">STR · 의심할 근거가 있나요?</text>
+    <text x="58" y="348" font-size="22">의심거래 → FIU 보고</text>
+    <text x="58" y="378" font-size="19" fill="#4338ca">금액이 작아도 대상이 될 수 있음 / 보고 사실 누설 금지</text>
+    <rect x="36" y="418" width="648" height="128" rx="16" fill="#ccfbf1"/>
+    <text x="58" y="456" font-size="25" font-weight="700">CTR · 현금거래 기준에 해당하나요?</text>
+    <text x="58" y="494" font-size="22">법정 고액 현금거래 → FIU 보고</text>
+    <text x="58" y="524" font-size="19" fill="#115e59">의심 여부와 별개 / 일반 계좌이체와 구분</text>
+    <text x="36" y="592" font-size="22" font-weight="700">CDD + STR + CTR이 함께 적용될 수 있습니다.</text>
+    <text x="36" y="621" font-size="17">학습용 개념도 · 보고 기준과 합산 방식은 현행 규정 확인</text>
+  </g>
+</svg>

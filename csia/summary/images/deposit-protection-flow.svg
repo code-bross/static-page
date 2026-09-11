@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="640" viewBox="0 0 720 640" role="img" aria-labelledby="title desc">
+  <title id="title">예금자보호 판단의 세 단계</title>
+  <desc id="desc">상품 확인, 보호제도 확인, 동일 금융회사 합산 순서로 판단한다. 투자손실 보전과 예금자보호는 다르다.</desc>
+  <rect width="720" height="640" rx="24" fill="#f4f7fc"/>
+  <g font-family="sans-serif" fill="#172b4d">
+    <text x="36" y="52" font-size="16" fill="#2563eb">01 / PROTECTION</text>
+    <text x="36" y="92" font-size="30" font-weight="700">은행에서 샀다고 모두 예금은 아닙니다</text>
+    <rect x="36" y="126" width="648" height="110" rx="16" fill="#dbeafe"/>
+    <text x="58" y="163" font-size="24" font-weight="700">1. 어떤 상품인가요?</text>
+    <text x="58" y="201" font-size="22">예금 등 보호상품 / 펀드 등 투자상품 구분</text>
+    <path d="M360 240v28m-8-8 8 8 8-8" stroke="#2563eb" stroke-width="3" fill="none"/>
+    <rect x="36" y="280" width="648" height="110" rx="16" fill="#e0e7ff"/>
+    <text x="58" y="317" font-size="24" font-weight="700">2. 어떤 제도가 적용되나요?</text>
+    <text x="58" y="355" font-size="22">예금보험 / 별도 기금 / 국가 지급보장 확인</text>
+    <path d="M360 394v28m-8-8 8 8 8-8" stroke="#2563eb" stroke-width="3" fill="none"/>
+    <rect x="36" y="434" width="648" height="110" rx="16" fill="#ccfbf1"/>
+    <text x="58" y="471" font-size="24" font-weight="700">3. 어떤 단위로 합산하나요?</text>
+    <text x="58" y="509" font-size="22">같은 금융회사 합산 · 상품별 별도 보호 확인</text>
+    <text x="36" y="591" font-size="22" font-weight="700" fill="#9a3412">주의: 투자상품의 가격 하락을 보전하는 제도가 아닙니다.</text>
+    <text x="36" y="621" font-size="17">학습용 개념도 · 한도와 예외는 적용 시점의 공식 안내 확인</text>
+  </g>
+</svg>

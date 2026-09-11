@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="640" viewBox="0 0 720 640" role="img" aria-labelledby="title desc">
+  <title id="title">공모 절차와 인수 방식</title>
+  <desc id="desc">발행 준비, 수요예측과 가격 결정, 청약, 배정과 납입 순서. 모집주선은 잔량 인수 의무가 없고, 잔액인수는 미판매분을, 총액인수는 전량을 인수한다.</desc>
+  <rect width="720" height="640" rx="24" fill="#f4f7fc"/>
+  <g font-family="sans-serif" fill="#172b4d">
+    <text x="36" y="52" font-size="16" fill="#2563eb">04 / UNDERWRITING</text>
+    <text x="36" y="94" font-size="30" font-weight="700">절차와 위험 부담을 나눠 봅니다</text>
+    <rect x="36" y="126" width="648" height="158" rx="16" fill="#172b4d"/>
+    <text x="58" y="165" font-size="23" fill="white" font-weight="700">발행 준비 → 수요예측·가격 결정</text>
+    <path d="M360 179v28m-8-8 8 8 8-8" stroke="#93c5fd" stroke-width="3" fill="none"/>
+    <text x="58" y="247" font-size="23" fill="white" font-weight="700">투자자 청약 → 배정·납입</text>
+    <text x="36" y="327" font-size="24" font-weight="700">팔리지 않은 물량은 누가 부담할까요?</text>
+    <rect x="36" y="348" width="648" height="68" rx="14" fill="#dbeafe"/>
+    <text x="58" y="390" font-size="22"><tspan font-weight="700">모집주선</tspan><tspan dx="20">판매를 도움 / 잔량 인수 의무 없음</tspan></text>
+    <rect x="36" y="432" width="648" height="68" rx="14" fill="#e0e7ff"/>
+    <text x="58" y="474" font-size="22"><tspan font-weight="700">잔액인수</tspan><tspan dx="20">판매 후 미판매 잔량을 인수</tspan></text>
+    <rect x="36" y="516" width="648" height="68" rx="14" fill="#ccfbf1"/>
+    <text x="58" y="558" font-size="22"><tspan font-weight="700">총액인수</tspan><tspan dx="20">먼저 전량 인수 후 투자자에게 판매</tspan></text>
+    <text x="36" y="621" font-size="17">일반 절차의 단순화 · 실제 일정, 공시, 계약 조건은 별도 확인</text>
+  </g>
+</svg>

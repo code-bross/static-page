@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="640" viewBox="0 0 720 640" role="img" aria-labelledby="title desc">
+  <title id="title">기능별 규제를 읽는 세 가지 질문</title>
+  <desc id="desc">무엇을 제공하는지, 어떤 금융투자 기능인지, 누구에게 제공하는지 판단한다. 포괄주의는 규제의 부재가 아니다.</desc>
+  <rect width="720" height="640" rx="24" fill="#f4f7fc"/>
+  <g font-family="sans-serif" fill="#172b4d">
+    <text x="36" y="52" font-size="16" fill="#2563eb">02 / CAPITAL MARKETS</text>
+    <text x="36" y="94" font-size="30" font-weight="700">간판보다 실제 기능을 봅니다</text>
+    <rect x="36" y="126" width="648" height="94" rx="16" fill="#dbeafe"/>
+    <text x="58" y="164" font-size="24" font-weight="700">무엇을? → 금융투자상품</text>
+    <text x="58" y="199" font-size="22">증권 / 파생상품 등 상품의 실질</text>
+    <rect x="36" y="238" width="648" height="94" rx="16" fill="#e0e7ff"/>
+    <text x="58" y="276" font-size="24" font-weight="700">어떻게? → 금융투자업</text>
+    <text x="58" y="311" font-size="22">매매 · 중개 · 집합투자 · 신탁 · 자문 · 일임</text>
+    <rect x="36" y="350" width="648" height="94" rx="16" fill="#ccfbf1"/>
+    <text x="58" y="388" font-size="24" font-weight="700">누구에게? → 투자자 유형</text>
+    <text x="58" y="423" font-size="22">일반투자자 / 전문투자자 등 구분</text>
+    <path d="M360 451v26m-8-8 8 8 8-8" stroke="#2563eb" stroke-width="3" fill="none"/>
+    <rect x="36" y="490" width="648" height="74" rx="16" fill="#172b4d"/>
+    <text x="360" y="522" text-anchor="middle" font-size="22" fill="white" font-weight="700">같은 경제적 기능에는 같은 규제</text>
+    <text x="360" y="549" text-anchor="middle" font-size="18" fill="#bfdbfe">포괄주의 · 기능별 규제 · 업무 확대 · 투자자 보호</text>
+    <text x="36" y="609" font-size="21" fill="#9a3412">포괄주의 ≠ 모든 상품·영업행위의 무제한 허용</text>
+  </g>
+</svg>
