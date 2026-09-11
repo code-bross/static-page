@@ -1,0 +1,1156 @@
+/**
+ * Travel Dashboard Data Store
+ * Supports multi-destination scaling (Rome, Barcelona, Hawaii)
+ */
+
+const TRAVEL_DATA = {
+  destinations: {
+    rome: {
+      id: "rome",
+      name: "로마",
+      country: "이탈리아 🇮🇹",
+      title: "영원의 도시, 로마 5일 럭셔리 힐링 여행",
+      subtitle: "어머니와 자녀 3명이 함께 떠나는 편안하고 품격 있는 로마 감성 여정",
+      heroImage: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?q=80&w=1600&auto=format&fit=crop",
+      status: "active",
+      dates: {
+        departure: "2026.02.03 (화)",
+        return: "2026.02.07 (토)",
+        duration: "5일 (현지 4박 5일)"
+      },
+      travelers: {
+        total: 4,
+        composition: "4인가족",
+        style: "도보 최소화, 프라이빗 픽업, 럭셔리 미식 & 패스트트랙 중심"
+      },
+      flight: {
+        airline: "대한항공 (Korean Air)",
+        airlineCode: "KE",
+        type: "직항 (Direct)",
+        outbound: {
+          flightNo: "KE931",
+          depTime: "14:05",
+          depAirport: "인천 (ICN)",
+          arrTime: "19:35",
+          arrAirport: "로마 피우미치노 (FCO)",
+          duration: "13시간 30분"
+        },
+        inbound: {
+          flightNo: "KE932",
+          depTime: "22:00",
+          depAirport: "로마 피우미치노 (FCO)",
+          arrTime: "17:25 (+1일)",
+          arrAirport: "인천 (ICN)",
+          duration: "11시간 25분"
+        },
+        pricing: {
+          perPerson: 1822300,
+          total: 7289200,
+          discountNote: "KB국민카드 결제 조건 할인 적용가 (성인 1인당 1,822,300원)"
+        }
+      },
+      budget: {
+        total: 12329200,
+        perPerson: 3082300,
+        currency: "원 (KRW)",
+        categories: [
+          {
+            id: "flight",
+            name: "항공권",
+            icon: "✈️",
+            amount: 7289200,
+            perPerson: 1822300,
+            percentage: 59.1,
+            desc: "대한항공 직항 왕복 4인 (KB카드 특가)"
+          },
+          {
+            id: "accommodation",
+            name: "숙소 (4박)",
+            icon: "🏨",
+            amount: 2000000,
+            perPerson: 500000,
+            percentage: 16.2,
+            desc: "스페인 광장/판테온 인근 4성급 프리미엄 호텔 룸 2개 (엘리베이터 & 조식 포함)"
+          },
+          {
+            id: "food",
+            name: "식비 & 디저트",
+            icon: "🍝",
+            amount: 1400000,
+            perPerson: 350000,
+            percentage: 11.4,
+            desc: "1일 4인 약 35만원 (트라토리아, 파인다이닝, 3대 에스프레소 & 젤라또)"
+          },
+          {
+            id: "tours",
+            name: "투어 & 입장권",
+            icon: "🏛️",
+            amount: 640000,
+            perPerson: 160000,
+            percentage: 5.2,
+            desc: "바티칸 박물관 패스트트랙 단독 가이드, 콜로세움/포로로마노 패스트트랙, 보르게세 미술관"
+          },
+          {
+            id: "transport",
+            name: "현지 교통비",
+            icon: "🚕",
+            amount: 400000,
+            perPerson: 100000,
+            percentage: 3.2,
+            desc: "공항 ↔ 시내 8인승 프라이빗 밴 왕복 + 시내 택시/우버 이용 (체력 안배)"
+          },
+          {
+            id: "misc",
+            name: "예비비 & 쇼핑",
+            icon: "🎁",
+            amount: 600000,
+            perPerson: 150000,
+            percentage: 4.9,
+            desc: "기념품(올리브유, 발사믹, 와인), 유심/포켓와이파이, 여행자보험"
+          }
+        ]
+      },
+      itinerary: [
+        {
+          day: 1,
+          date: "2월 3일 (화)",
+          title: "로마 입국 & 편안한 첫날 휴식",
+          badge: "입국 & 여독 해소",
+          summary: "인천 공항 출발 후 로마 피우미치노 공항 도착. 예약된 프리미엄 밴으로 호텔 이동 후 숙면.",
+          seniorTip: "💡 긴 비행 후 여독을 풀기 위해 첫날 밤은 일정 없이 전용 차량 이동 후 곧바로 휴식을 취합니다.",
+          activities: [
+            {
+              time: "14:05",
+              title: "인천국제공항(ICN) 출발",
+              desc: "대한항공 KE931 탑승 (편안한 기내식 2회 제공 & 영화 감상)",
+              icon: "✈️",
+              tag: "항공"
+            },
+            {
+              time: "19:35",
+              title: "로마 피우미치노 공항(FCO) 도착",
+              desc: "입국 심사 및 수하물 수령 (사전 패스트트랙 체크인 권장)",
+              icon: "🛬",
+              tag: "입국"
+            },
+            {
+              time: "20:40",
+              title: "프리미엄 8인승 밴 시내 이동",
+              desc: "사전 기사 대기 밴 탑승. 짐 걱정 없이 스페인 광장 호텔까지 직행 (약 45분)",
+              icon: "🚐",
+              tag: "교통"
+            },
+            {
+              time: "21:30",
+              title: "호텔 체크인 & 숙면",
+              desc: "호텔 가벼운 수프/클럽 샌드위치 간식 후 수면 (다음 날 일정을 위한 재충전)",
+              icon: "🏨",
+              tag: "휴식"
+            }
+          ]
+        },
+        {
+          day: 2,
+          date: "2월 4일 (수)",
+          title: "로마의 심장: 역사 유적 & 낭만 명소 느긋하게 관람",
+          badge: "고대 유적 & 카페",
+          summary: "콜로세움 외관 관람, 트레비 분수, 판테온, 나보나 광장 코스. 무리 없는 택시 이동.",
+          seniorTip: "💡 돌바닥이 많으므로 쿠션감 좋은 운동화 필수! 주요 명소 간 도보는 10분 이내로 제한하고 택시를 이용합니다.",
+          activities: [
+            {
+              time: "09:30",
+              title: "호텔 여유로운 조식 후 출발",
+              desc: "호텔 뷔페 조식 후 전용 택시로 콜로세움 이동",
+              icon: "🍳",
+              tag: "식사"
+            },
+            {
+              time: "10:00",
+              title: "콜로세움 & 포로 로마노 외관 감상",
+              desc: "웅장한 콜로세움 대표 포토존 사진 촬영 및 전경 감상",
+              icon: "🏛️",
+              tag: "관람",
+              image: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "12:30",
+              title: "점심 식사 (Trattoria Luzzi)",
+              desc: "현지인 추천 까르보나라, 피자 & 생맥주/와인 파스타 오찬",
+              icon: "🍝",
+              tag: "미식",
+              image: "https://images.unsplash.com/photo-1612874742237-6526221588e3?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "14:30",
+              title: "트레비 분수 & 동전 던지기",
+              desc: "택시 이동 후 트레비 분수에서 다시 로마에 오길 기원하는 동전 던지기",
+              icon: "⛲",
+              tag: "명소",
+              image: "https://images.unsplash.com/photo-1525874684015-5837e8831055?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "16:00",
+              title: "판테온 내부 관람 & 3대 카페 타짜도로",
+              desc: "세계 최고의 콘크리트 돔 내부 감상 후 타짜도로 '비안코 에스프레소' 타임",
+              icon: "☕",
+              tag: "휴식",
+              image: "https://images.unsplash.com/photo-1548625149-fc4a29cf7092?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "18:00",
+              title: "나보나 광장 & 야경 테라스 저녁",
+              desc: "3대 분수가 빛나는 나보나 광장 산책 후 'Ristorante Mastrociccia'에서 로맨틱 저녁",
+              icon: "🍷",
+              tag: "저녁",
+              image: "https://images.unsplash.com/photo-1531572753322-ad063cecc140?auto=format&fit=crop&w=800&q=80"
+            }
+          ]
+        },
+        {
+          day: 3,
+          date: "2월 5일 (목)",
+          title: "바티칸 시국 문화 예술 & 스페인 광장 럭셔리 가이드",
+          badge: "바티칸 & 명품거리",
+          summary: "대기 없는 바티칸 박물관 오전 패스트트랙 및 스페인 계단/콘도티 거리 명품관 투어.",
+          seniorTip: "💡 바티칸 박물관은 매우 넓으므로 중간중간 휠체어/의자가 준비된 휴게 구역에서 15분씩 쉬어갑니다.",
+          activities: [
+            {
+              time: "08:30",
+              title: "바티칸 박물관 패스트트랙 모닝 투어",
+              desc: "줄 서지 않는 오전 단독 한국어 가이드 입장 (시스티나 성당 천장화, 아테네 학당)",
+              icon: "🎨",
+              tag: "투어",
+              image: "https://images.unsplash.com/photo-1543429776-2782fc8e1acd?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "11:30",
+              title: "성 베드로 대성당 관람",
+              desc: "세계 최대 규모 성당 내부 감상 및 미켈란젤로의 '피에타' 조각상 감상",
+              icon: "⛪",
+              tag: "명소",
+              image: "https://images.unsplash.com/photo-1576085898323-218337e3e43c?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "13:00",
+              title: "점심 식사 (Ristorante Sorpasso)",
+              desc: "바티칸 인근 최고급 하몽 & 생파스타 & 프레시 샐러드",
+              icon: "🍽️",
+              tag: "미식"
+            },
+            {
+              time: "15:00",
+              title: "스페인 광장 & 뽐삐(Pompi) 딸기 티라미수",
+              desc: "'로마의 휴일' 영화 명소 스페인 계단과 달콤한 뽐삐 티라미수 맛보기",
+              icon: "🍰",
+              tag: "디저트",
+              image: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "17:00",
+              title: "비아 콘도티 명품 쇼핑 & 티타임",
+              desc: "어머니와 함께하는 여유로운 브랜드 쇼핑 및 1760년 개업 카페 'Caffè Greco' 에스프레소",
+              icon: "🛍️",
+              tag: "쇼핑",
+              image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "19:30",
+              title: "시티 뷰 파인다이닝 만찬",
+              desc: "로마 시내가 한눈에 내다보이는 테라스 레스토랑에서 럭셔리 디너",
+              icon: "🥂",
+              tag: "저녁"
+            }
+          ]
+        },
+        {
+          day: 4,
+          date: "2월 6일 (금)",
+          title: "보르게세 공원 힐링 산책 & 트라스테베레 골목 감성",
+          badge: "힐링 & 미식",
+          summary: "보르게세 미술관 조각상 감상, 전동 카트로 공원 숲길 둘러보기 및 트라스테베레 낭만 골목.",
+          seniorTip: "💡 보르게세 공원에서는 도보 대신 4인용 전동 카트를 대여하여 어머니도 편안하고 즐겁게 둘러봅니다.",
+          activities: [
+            {
+              time: "10:00",
+              title: "보르게세 미술관 (사전 예약 패스트트랙)",
+              desc: "베르니니의 '아폴론과 다프네' 등 살아 움직이는 듯한 대리석 조각상 관람",
+              icon: "🏛️",
+              tag: "미술관",
+              image: "https://images.unsplash.com/photo-1581337204873-ef36aa186caa?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "12:00",
+              title: "보르게세 공원 4인용 전동 카트 산책",
+              desc: "울창한 공원 숲길을 전동 카트로 바람을 맞으며 편안하게 드라이브",
+              icon: "🛺",
+              tag: "힐링",
+              image: "https://images.unsplash.com/photo-1504198453319-5ce911bafcde?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "13:30",
+              title: "점심 식사 (Osteria Barberini)",
+              desc: "이탈리아 최고급 트러플(송로버섯) 뇨끼 & 파스타 오찬",
+              icon: "🍄",
+              tag: "미식"
+            },
+            {
+              time: "16:00",
+              title: "트라스테베레(Trastevere) 감성 골목 탐방",
+              desc: "아기자기한 핸드메이드 공방, 아티스트 카페, 꽃 장식 골목 풍경 감상",
+              icon: "📸",
+              tag: "산책",
+              image: "https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "19:00",
+              title: "로마 마지막 밤: 피렌체식 티본 스테이크 만찬",
+              desc: "최고급 티본 스테이크(Bistecca alla Fiorentina)와 키안티 클라시코 레드 와인으로 축배",
+              icon: "🥩",
+              tag: "만찬",
+              image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"
+            }
+          ]
+        },
+        {
+          day: 5,
+          date: "2월 7일 (토)",
+          title: "기념품 선물 쇼핑 & 피우미치노 공항 귀국 (FCO 22:00)",
+          badge: "쇼핑 & 귀국",
+          summary: "체크아웃 후 기념품 구매, 전통 카페 브런치 후 공항 이동 및 22:00 대한항공 귀국편 탑승.",
+          seniorTip: "💡 늦은 밤 비행기이므로 공항에 3시간 30분 전 도착하여 수하물 수속 및 택스리펀, 공항 라운지 휴식을 취합니다.",
+          activities: [
+            {
+              time: "11:00",
+              title: "호텔 체크아웃 & 프리미엄 짐 보관",
+              desc: "체크아웃 후 호텔 벨데스크에 짐을 안전하게 맡기고 편안한 복장 출발",
+              icon: "🧳",
+              tag: "체크아웃"
+            },
+            {
+              time: "11:30",
+              title: "이탈리아 특산품 & 쇼핑 (Eataly / 마트)",
+              desc: "엑스트라 버진 올리브오일, 모데나 발사믹 식초, 트러플 오일, 마르비스 치약, 포켓 커피 구매",
+              icon: "🛍️",
+              tag: "쇼핑"
+            },
+            {
+              time: "13:30",
+              title: "굿바이 브런치 & 카푸치노",
+              desc: "전통 앤틱 분위기의 카페에서 샌드위치, 브런치 & 카푸치노 타임",
+              icon: "🥪",
+              tag: "식사"
+            },
+            {
+              time: "17:30",
+              title: "호텔 짐 픽업 ➔ 피우미치노 공항(FCO) 샌딩",
+              desc: "예약된 전용 픽업 밴으로 편안하게 공항까지 이동 (약 40~50분)",
+              icon: "🚐",
+              tag: "교통"
+            },
+            {
+              time: "18:30",
+              title: "FCO 공항 수속 & 택스 리펀(Tax Refund)",
+              desc: "대한항공 카운터 체크인, 수하물 수탁 및 명품 쇼핑건 택스리펀 환급 진행",
+              icon: "💶",
+              tag: "공항"
+            },
+            {
+              time: "22:00",
+              title: "대한항공 KE932 귀국편 탑승",
+              desc: "로마 출발 ➔ 다음날(2/8 일요일) 17:25 인천국제공항(ICN) 안전하게 도착",
+              icon: "✈️",
+              tag: "귀국"
+            }
+          ]
+        }
+      ],
+      seniorGuideTips: [
+        {
+          title: "👟 보행 및 신발 선택",
+          desc: "로마 시내는 울퉁불퉁한 '삼판토니(Sampietrini)' 돌바닥이 많습니다. 구두나 얇은 슬리퍼 대신 쿠션감이 풍부한 편안한 운동화를 착용해 주세요."
+        },
+        {
+          title: "🚕 택시 & 프라이빗 이동",
+          desc: "지하철 계단 이동은 체력 부담이 큽니다. 시내 이동 시 Uber Black이나 FreeNow 앱 택시를 적극 활용하며, 공항 이동 시엔 8인승 프라이빗 밴을 이용합니다."
+        },
+        {
+          title: "🎟️ 대기 시간 제로 (패스트트랙)",
+          desc: "바티칸 박물관과 콜로세움은 일반 대기 시 1~2시간 이상 소요됩니다. 모든 핵심 유적지는 패스트트랙 사전 예약 티켓으로 대기 없이 입장합니다."
+        },
+        {
+          title: "💧 수분 보충 및 화장실",
+          desc: "이탈리아 카페(Bar)에서 에스프레소 한 잔(약 1.5유로)을 주문하면 깨끗한 화장실을 이용할 수 있으므로, 1~2시간마다 카페 휴식을 취하는 것을 추천합니다."
+        }
+      ]
+    },
+    barcelona: {
+      id: "barcelona",
+      name: "바르셀로나",
+      country: "스페인 🇪🇸",
+      title: "지중해의 낭만과 가우디 건축 예술, 바르셀로나 5일 힐링 여행",
+      subtitle: "어머니와 자녀 3명이 함께 떠나는 편안하고 감성 넘치는 스페인 여정",
+      heroImage: "https://images.unsplash.com/photo-1583422409516-2895a77efded?q=80&w=1600&auto=format&fit=crop",
+      status: "active",
+      dates: {
+        departure: "2026.02.03 (화)",
+        return: "2026.02.07 (토)",
+        duration: "5일 (현지 4박 5일)"
+      },
+      travelers: {
+        total: 4,
+        composition: "4인가족",
+        style: "가우디 명소 패스트트랙, 지중해 해산물 미식, 프라이빗 공항 픽업 & 택시 위주"
+      },
+      flight: {
+        airline: "아시아나항공 (Asiana Airlines)",
+        airlineCode: "OZ",
+        type: "직항 (Direct)",
+        outbound: {
+          flightNo: "OZ511",
+          depTime: "12:00",
+          depAirport: "인천 (ICN)",
+          arrTime: "18:55",
+          arrAirport: "바르셀로나 (BCN)",
+          duration: "14시간 55분"
+        },
+        inbound: {
+          flightNo: "OZ512",
+          depTime: "20:40",
+          depAirport: "바르셀로나 (BCN)",
+          arrTime: "17:00 (+1일)",
+          arrAirport: "인천 (ICN)",
+          duration: "12시간 20분"
+        },
+        pricing: {
+          perPerson: 1847700,
+          total: 7390800,
+          discountNote: "KB국민카드 결제 조건 할인 적용가 (성인 1인당 1,847,700원)"
+        }
+      },
+      budget: {
+        total: 12270800,
+        perPerson: 3067700,
+        currency: "원 (KRW)",
+        categories: [
+          {
+            id: "flight",
+            name: "항공권",
+            icon: "✈️",
+            amount: 7390800,
+            perPerson: 1847700,
+            percentage: 60.2,
+            desc: "아시아나항공 직항 왕복 4인 (KB카드 특가)"
+          },
+          {
+            id: "accommodation",
+            name: "숙소 (4박)",
+            icon: "🏨",
+            amount: 1800000,
+            perPerson: 450000,
+            percentage: 14.7,
+            desc: "그라시아 거리/까탈루냐 광장 인근 4성급 부티크 호텔 룸 2개 (조식 포함)"
+          },
+          {
+            id: "food",
+            name: "식비 & 타파스/빠에야",
+            icon: "🥘",
+            amount: 1400000,
+            perPerson: 350000,
+            percentage: 11.4,
+            desc: "해산물 빠에야, 먹물 리조또, 고급 타파스 바, 츄러스 & 하몽 미식"
+          },
+          {
+            id: "tours",
+            name: "투어 & 입장권",
+            icon: "⛪",
+            amount: 680000,
+            perPerson: 170000,
+            percentage: 5.5,
+            desc: "사그라다 파밀리아 타워 패스트트랙 가이드, 구엘 공원, 카사 바트요, 플라멩코 공연"
+          },
+          {
+            id: "transport",
+            name: "현지 교통비",
+            icon: "🚕",
+            amount: 400000,
+            perPerson: 100000,
+            percentage: 3.3,
+            desc: "공항 ↔ 시내 8인승 프라이빗 밴 왕복 + 시내 택시/우버 이용"
+          },
+          {
+            id: "misc",
+            name: "예비비 & 쇼핑",
+            icon: "🎁",
+            amount: 600000,
+            perPerson: 150000,
+            percentage: 4.9,
+            desc: "스페인 뚜론(Turron), 꿀국화차, 올리브오일 선물 구매, 유심/보험"
+          }
+        ]
+      },
+      itinerary: [
+        {
+          day: 1,
+          date: "2월 3일 (화)",
+          title: "바르셀로나 입국 & 편안한 첫날 휴식",
+          badge: "입국 & 프라이빗 픽업",
+          summary: "인천 공항 출발 후 바르셀로나 엘프라트 공항 도착. 프라이빗 밴으로 호텔 이동 및 숙면.",
+          seniorTip: "💡 약 15시간 비행 후 여독 해소를 위해 도착 직후 밴 차량으로 호텔 직행 후 편안하게 휴식합니다.",
+          activities: [
+            {
+              time: "12:00",
+              title: "인천국제공항(ICN) 출발",
+              desc: "아시아나항공 OZ511 탑승 (기내식 2회 & 최신 엔터테인먼트 감상)",
+              icon: "✈️",
+              tag: "항공"
+            },
+            {
+              time: "18:55",
+              title: "바르셀로나 엘프라트 공항(BCN) 도착",
+              desc: "입국 심사 및 수하물 수령 (사전 패스트트랙 체크인)",
+              icon: "🛬",
+              tag: "입국"
+            },
+            {
+              time: "20:00",
+              title: "프리미엄 8인승 밴 시내 이동",
+              desc: "사전 피켓 기사 대기. 짐 부담 없이 그라시아 거리 호텔까지 30분 직행",
+              icon: "🚐",
+              tag: "교통"
+            },
+            {
+              time: "20:40",
+              title: "호텔 체크인 & 따뜻한 간식",
+              desc: "4성급 부티크 호텔 체크인 후 따뜻한 클럽 샌드위치/수프 간식 후 숙면",
+              icon: "🏨",
+              tag: "휴식"
+            }
+          ]
+        },
+        {
+          day: 2,
+          date: "2월 4일 (수)",
+          title: "가우디 거장 코스: 사그라다 파밀리아 & 카사 바트요",
+          badge: "가우디 핵심",
+          summary: "대기 없는 성가족 성당 타워 엘리베이터 패스트트랙 및 그라시아 명품관 거리 산책.",
+          seniorTip: "💡 성가족 성당 내부는 수직 엘리베이터로 이동하며, 내부 성당 의자에 앉아 스테인드글라스 빛의 무지개를 느긋하게 감상합니다.",
+          activities: [
+            {
+              time: "09:30",
+              title: "호텔 뷔페 조식 후 출발",
+              desc: "호텔 조식 후 전용 택시로 사그라다 파밀리아 이동 (약 10분)",
+              icon: "🍳",
+              tag: "식사"
+            },
+            {
+              time: "10:00",
+              title: "사그라다 파밀리아 (성가족 성당) 패스트트랙 입장",
+              desc: "줄 서지 않는 한국어 단독 가이드 투어 및 타워 엘리베이터 관람",
+              icon: "⛪",
+              tag: "투어",
+              image: "https://images.unsplash.com/photo-1583778176476-4a8b02a64c01?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "12:30",
+              title: "점심 식사 (Can Majó 또는 해산물 전문점)",
+              desc: "바르셀로나 최고급 먹물 빠에야(Paella Negra) & 지중해 하몽 샐러드",
+              icon: "🥘",
+              tag: "미식"
+            },
+            {
+              time: "15:00",
+              title: "카사 바트요 & 카사 밀라 가우디 주택 외관 감상",
+              desc: "바다 속과 산을 형상화한 가우디의 대표 건축물 포토존 사진 촬영",
+              icon: "🏛️",
+              tag: "관람"
+            },
+            {
+              time: "16:30",
+              title: "스페인 전통 츄러스 명가 'Granja M.Viader'",
+              desc: "1870년 개업 맛집에서 따뜻한 초콜렛에 찍어먹는 갓 튀긴 츄러스 디저트 타임",
+              icon: "☕",
+              tag: "휴식"
+            },
+            {
+              time: "18:30",
+              title: "그라시아 거리 미식 타파스 저녁",
+              desc: "스페인 명품 거리 야경 산책 후 고급 타파스 바 'Ciudad Condal'에서 와인과 타파스",
+              icon: "🍷",
+              tag: "저녁"
+            }
+          ]
+        },
+        {
+          day: 3,
+          date: "2월 5일 (목)",
+          title: "동화 속 구엘 공원 산책 & 지중해 바르셀로네타 해변",
+          badge: "공원 & 지중해",
+          summary: "구엘 공원 숲길 둘러보기, 지중해 바다 전망 점심 및 플라멩코 명품 관람.",
+          seniorTip: "💡 구엘 공원 입구는 경사가 있으므로 공원 상부 주차장까지 택시로 이동하여 내리막길로 편안하게 관람합니다.",
+          activities: [
+            {
+              time: "10:00",
+              title: "구엘 공원 (Park Güell) 패스트트랙 관람",
+              desc: "가우디 타일 도마뱀 분수대, 곡선 벤치에서 지중해 바다 배경 가족 사진 촬영",
+              icon: "🦎",
+              tag: "공원"
+            },
+            {
+              time: "12:30",
+              title: "지중해 해변 런치 (Ristorante 7 Portes)",
+              desc: "1836년 개업 전통의 해산물 빠에야 & 감바스 알 아히요 맛집",
+              icon: "🦐",
+              tag: "미식"
+            },
+            {
+              time: "14:30",
+              title: "바르셀로네타 해변 프롬나드 산책",
+              desc: "탁 트인 지중해 바닷바람과 벤치에서 여유로운 야외 티타임",
+              icon: "🌊",
+              tag: "힐링"
+            },
+            {
+              time: "16:30",
+              title: "고딕 지구 & 바르셀로나 대성당 골목 탐방",
+              desc: "중세 골목의 고풍스러운 분위기 및 아기자기한 공방 숍 구경",
+              icon: "📸",
+              tag: "산책"
+            },
+            {
+              time: "19:00",
+              title: "스페인 정통 플라멩코 공연 & 코스 디너",
+              desc: "열정적인 음악과 무용이 펼쳐지는 명품 플라멩코 쇼 관람하며 저녁 식사",
+              icon: "💃",
+              tag: "공연"
+            }
+          ]
+        },
+        {
+          day: 4,
+          date: "2월 6일 (금)",
+          title: "몬주익 언덕 힐링 전경 & 스페인 쇼핑 라이프",
+          badge: "전망 & 쇼핑",
+          summary: "택시로 몬주익 언덕 올라 시내 전경 감상, 그라시아 명품 쇼핑 및 마지막 밤 만찬.",
+          seniorTip: "💡 몬주익 언덕은 케이블카나 택시로 이동하여 계단 없이 탁 트인 바르셀로나 항구 전경을 감상합니다.",
+          activities: [
+            {
+              time: "10:30",
+              title: "몬주익 언덕 & 파노라마 전망대",
+              desc: "바르셀로나 도시 전체와 지중해 항구가 한눈에 내다보이는 대표 전망대",
+              icon: "🏔️",
+              tag: "전망"
+            },
+            {
+              time: "12:30",
+              title: "점심 식사 (El Nacional)",
+              desc: "화려한 인테리어의 명품 푸드 홀에서 최고급 하몽, 안심 스테이크 오찬",
+              icon: "🍽️",
+              tag: "미식"
+            },
+            {
+              time: "14:30",
+              title: "그라시아 거리 스페인 브랜드 쇼핑",
+              desc: "스페인 대표 명품 브랜드 Loewe, Camper, Zara 등 어머니와 여유로운 쇼핑",
+              icon: "🛍️",
+              tag: "쇼핑"
+            },
+            {
+              time: "17:00",
+              title: "카페 카푸치노 & 젤라또 타임",
+              desc: "쇼핑 후 테라스 카페에서 오렌지 주스 & 카푸치노 휴식",
+              icon: "🍊",
+              tag: "휴식"
+            },
+            {
+              time: "19:30",
+              title: "바르셀로나 마지막 밤: 지중해 와인 & 해산물 만찬",
+              desc: "상그리아(Sangria) 와인과 랍스터 리조또로 즐거운 여행 축하 저녁",
+              icon: "🥂",
+              tag: "만찬"
+            }
+          ]
+        },
+        {
+          day: 5,
+          date: "2월 7일 (토)",
+          title: "특산품 선물 쇼핑 & 귀국 (BCN 20:40 출발)",
+          badge: "쇼핑 & 귀국",
+          summary: "보케리아 시장 특산품 구매, 여유로운 브런치 후 16:30 공항 샌딩 밴 이동.",
+          seniorTip: "💡 보케리아 시장은 인파가 많으므로 어머니 가방을 앞으로 메고, 1시간 이내로 선물(뚜론, 꿀차) 구매 후 카페로 이동합니다.",
+          activities: [
+            {
+              time: "11:00",
+              title: "호텔 체크아웃 & 프리미엄 짐 보관",
+              desc: "체크아웃 후 호텔 벨데스크에 짐을 맡기고 가벼운 차림 출발",
+              icon: "🧳",
+              tag: "체크아웃"
+            },
+            {
+              time: "11:30",
+              title: "보케리아 재래시장 선물 쇼핑",
+              desc: "스페인 수제 뚜론(Turron), 꿀국화차(Manzanilla con Miel), 최고급 올리브유 구매",
+              icon: "🍯",
+              tag: "쇼핑"
+            },
+            {
+              time: "13:30",
+              title: "굿바이 브런치 & 카푸치노",
+              desc: "까탈루냐 광장 부근 전통 카페에서 클럽 샌드위치 & 카푸치노 타임",
+              icon: "🥪",
+              tag: "식사"
+            },
+            {
+              time: "16:30",
+              title: "호텔 짐 픽업 ➔ 엘프라트 공항(BCN) 샌딩",
+              desc: "예약된 전용 픽업 밴으로 편안하게 공항 이동 (약 25~30분 소요)",
+              icon: "🚐",
+              tag: "교통"
+            },
+            {
+              time: "17:30",
+              title: "BCN 공항 수속 & 택스 리펀(Tax Refund)",
+              desc: "아시아나 카운터 수하물 위탁 및 쇼핑건 택스리펀 현금/카드 환급 진행",
+              icon: "💶",
+              tag: "공항"
+            },
+            {
+              time: "20:40",
+              title: "아시아나항공 OZ512 귀국편 탑승",
+              desc: "바르셀로나 출발 ➔ 다음날(2/8 일요일) 17:00 인천국제공항(ICN) 도착",
+              icon: "✈️",
+              tag: "귀국"
+            }
+          ]
+        }
+      ],
+      seniorGuideTips: [
+        {
+          title: "👜 소매치기 철저 예방",
+          desc: "람블라스 거리와 보케리아 시장은 붐빕니다. 어머니 가방은 지퍼가 있는 크로스백으로 전면에 밀착하고 여권/큰돈은 호텔 세이프티 박스에 보관합니다."
+        },
+        {
+          title: "🧂 음식 간 조절 (소금 적게)",
+          desc: "스페인 음식은 기본 간이 짤 수 있습니다. 주문 시 'Sin Sal, por favor (씬 살 프르 파보르 - 소금 적게 부탁해요)'라고 요청하면 더욱 맛있게 드실 수 있습니다."
+        },
+        {
+          title: "🎟️ 가우디 명소 사전 예약 패스트트랙",
+          desc: "사그라다 파밀리아와 구엘 공원은 현장 표 매진이 흔합니다. 모두 한국어 가이드 포함 대기 없는 패스트트랙 예약으로 진행합니다."
+        },
+        {
+          title: "🚕 언덕 관람 시 전용 택시 활용",
+          desc: "구엘 공원과 몬주익 언덕은 경사 구간이 많습니다. 진입 시 상부 입구까지 택시로 이동하여 내리막 도보 동선으로 체력을 아낍니다."
+        }
+      ]
+    },
+    hawaii: {
+      id: "hawaii",
+      name: "하와이 (오아후)",
+      country: "미국 🇺🇸",
+      title: "알로하! 하와이 쉐라톤 와이키키 오션프론트 6일 힐링 여행",
+      subtitle: "어머니와 자녀 3명의 쉐라톤 와이키키 럭셔리 휴양 + 오아후 1일 핵심 섬일주 투어 (하나투어 명품 패키지 스타일)",
+      heroImage: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600&auto=format&fit=crop",
+      status: "active",
+      dates: {
+        departure: "2027.02.03 (수)",
+        return: "2027.02.08 (월)",
+        duration: "6일 (4박 6일 - 시차 적용)"
+      },
+      travelers: {
+        total: 4,
+        composition: "4인가족",
+        style: "쉐라톤 와이키키 오션프론트룸 업그레이드, 1일 오아후 섬일주 투어, 전용 밴 픽업 & 노 쇼핑 패키지"
+      },
+      flight: {
+        airline: "하와이안항공 (Hawaiian Airlines) / 대한항공",
+        airlineCode: "HA",
+        type: "직항 (Direct)",
+        outbound: {
+          flightNo: "HA460",
+          depTime: "21:25",
+          depAirport: "인천 (ICN)",
+          arrTime: "10:20 (2/3 오전)",
+          arrAirport: "호놀룰루 (HNL)",
+          duration: "7시간 55분"
+        },
+        inbound: {
+          flightNo: "HA459",
+          depTime: "13:20 (2/7)",
+          depAirport: "호놀룰루 (HNL)",
+          arrTime: "19:15 (+1일 2/8)",
+          arrAirport: "인천 (ICN)",
+          duration: "10시간 55분"
+        },
+        pricing: {
+          perPerson: 1880000,
+          total: 7520000,
+          discountNote: "하와이안항공/대한항공 직항 특가 (성인 1인당 1,880,000원)"
+        }
+      },
+      budget: {
+        total: 14000000,
+        perPerson: 3500000,
+        currency: "원 (KRW)",
+        categories: [
+          {
+            id: "flight",
+            name: "항공권",
+            icon: "✈️",
+            amount: 7520000,
+            perPerson: 1880000,
+            percentage: 53.7,
+            desc: "하와이안항공/대한항공 직항 왕복 4인"
+          },
+          {
+            id: "accommodation",
+            name: "숙소 (4박)",
+            icon: "🏨",
+            amount: 3200000,
+            perPerson: 800000,
+            percentage: 22.9,
+            desc: "쉐라톤 와이키키 오션프론트 룸 2개 (리조트피 & 인피니티 풀 이용 포함)"
+          },
+          {
+            id: "food",
+            name: "식비 & 미식",
+            icon: "🥩",
+            amount: 1600000,
+            perPerson: 400000,
+            percentage: 11.4,
+            desc: "울프강 스테이크하우스, 노스쇼어 지오반니 새우트럭, 루아우 민속 만찬, 포케"
+          },
+          {
+            id: "tours",
+            name: "투어 & 입장권",
+            icon: "🌺",
+            amount: 800000,
+            perPerson: 200000,
+            percentage: 5.7,
+            desc: "오아후 섬일주 단독 가이드 투어, 쿠알로아 랜치, 다이아몬드 헤드, 선셋 카타마란 크루즈"
+          },
+          {
+            id: "transport",
+            name: "현지 교통비",
+            icon: "🚐",
+            amount: 400000,
+            perPerson: 100000,
+            percentage: 2.9,
+            desc: "공항 ↔ 쉐라톤 프라이빗 픽업/샌딩 밴 + 와이키키 핑크 트롤리 & 우버"
+          },
+          {
+            id: "misc",
+            name: "예비비 & 쇼핑",
+            icon: "🎁",
+            amount: 480000,
+            perPerson: 120000,
+            percentage: 3.4,
+            desc: "코나 커피, 마카다미아 초콜릿, 미국 ESTA 비자, 여행자보험"
+          }
+        ]
+      },
+      itinerary: [
+        {
+          day: 1,
+          date: "2월 3일 (수)",
+          title: "알로하 하와이! 호놀룰루 시내 투어 & 쉐라톤 체크인",
+          badge: "시내 투어 & 쉐라톤",
+          summary: "인천 출발 ➔ 호놀룰루 오전 도착. 이올라니 궁전, 카카아코 벽화 산책 후 쉐라톤 와이키키 오션프론트 체크인.",
+          seniorTip: "💡 시차(한국보다 19시간 늦음) 적응을 위해 첫날 낮에는 야외 햇살을 받으며 가벼운 시내 산책을 즐긴 후 일찍 수면을 취합니다.",
+          activities: [
+            {
+              time: "21:25 (2/3)",
+              title: "인천국제공항(ICN) 출발",
+              desc: "하와이안항공 HA460 직항 탑승 (날짜변경선을 통과하여 시차 적용)",
+              icon: "✈️",
+              tag: "항공"
+            },
+            {
+              time: "10:20 (2/3 오전)",
+              title: "호놀룰루 다니엘 K. 이노우에 공항(HNL) 도착",
+              desc: "미국 입국 심사 및 수하물 수령 후 단독 가이드 미팅",
+              icon: "🛬",
+              tag: "입국"
+            },
+            {
+              time: "11:30",
+              title: "호놀룰루 역사 시내 투어",
+              desc: "하와이 왕국의 상징 '이올라니 궁전', '카메하메하 대왕 동상' 관람 및 사진 촬영",
+              icon: "🏛️",
+              tag: "관람",
+              image: "https://images.unsplash.com/photo-1542259009477-d625272157b7?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "13:00",
+              title: "카카아코(Kakaako) 트렌디 벽화 거리 & 점심",
+              desc: "인생샷 포인트 카카아코 거리를 거닐고 하와이안 프레시 포케(Poke) 런치",
+              icon: "🎨",
+              tag: "미식",
+              image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "15:00",
+              title: "쉐라톤 와이키키 (Sheraton Waikiki) 체크인",
+              desc: "와이키키 최고의 위치! 오션프론트(Ocean Front) 룸에서 펼쳐지는 에메랄드빛 태평양 감상",
+              icon: "🏨",
+              tag: "호텔",
+              image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "18:00",
+              title: "환영 저녁 식사 (울프강 스테이크하우스)",
+              desc: "로열 하와이안 센터 명품 드라이에이징 포터하우스 스테이크 만찬",
+              icon: "🥩",
+              tag: "저녁",
+              image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"
+            }
+          ]
+        },
+        {
+          day: 2,
+          date: "2월 4일 (목)",
+          title: "하나투어 추천: 오아후 섬일주 단독 가이드 1일 명소 관람",
+          badge: "오아후 섬일주 1일",
+          summary: "다이아몬드 헤드 전망, 쿠알로아 랜치, 노스쇼어 새우트럭, 돌 파인애플 농장, 와이켈레 아웃렛.",
+          seniorTip: "💡 전용 8인승 밴으로 가이드가 명소 바로 앞까지 이동하므로 어머니께서 계단을 오르지 않고 편안하게 섬 전체를 관광할 수 있습니다.",
+          activities: [
+            {
+              time: "09:00",
+              title: "쉐라톤 호텔 로비 가이드 픽업 출발",
+              desc: "맛있는 호텔 뷔페 조식 후 가이드 전용 밴 탑승",
+              icon: "🚐",
+              tag: "출발"
+            },
+            {
+              time: "09:30",
+              title: "다이아몬드 헤드 & 하노우마 베이 전망대",
+              desc: "하와이의 상징 다이아몬드 헤드 외관 및 코발트빛 하노우마 해양보호구역 포토존",
+              icon: "🌋",
+              tag: "명소",
+              image: "https://images.unsplash.com/photo-1542259009477-d625272157b7?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "10:30",
+              title: "할로나 블로우홀 (Halona Blowhole)",
+              desc: "바위 사이로 거대한 바닷물이 분수처럼 솟구치는 장관 감상",
+              icon: "🌊",
+              tag: "관람"
+            },
+            {
+              time: "12:00",
+              title: "쿠알로아 랜치 (Kualoa Ranch) 경관 관람",
+              desc: "영화 '쥬라기 공원' 촬영지인 웅장한 산맥 전경 배경 가족 기념사진",
+              icon: "🎬",
+              tag: "투어",
+              image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "13:00",
+              title: "노스쇼어 할레이바 타운 & 지오반니 새우트럭 점심",
+              desc: "하와이 대표 서핑 마일 마을 노스쇼어 및 유명 갈릭 버터 새우 요리 오찬",
+              icon: "🦐",
+              tag: "미식",
+              image: "https://images.unsplash.com/photo-1559737525-470a1c1d044f?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "15:00",
+              title: "돌 플랜테이션 (Dole Plantation) 파인애플 농장",
+              desc: "상큼한 파인애플 소프트 젤라또 아이스크림 맛보기 및 기념품 구경",
+              icon: "🍍",
+              tag: "휴식",
+              image: "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "16:30",
+              title: "와이켈레 프리미엄 아웃렛 (Waikele Outlets)",
+              desc: "코치, 폴로, 토리버치 등 스페셜 할인 아웃렛 자유 쇼핑 (약 1.5시간)",
+              icon: "🛍️",
+              tag: "쇼핑",
+              image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "19:00",
+              title: "호텔 복귀 및 시푸드 디너",
+              desc: "쉐라톤 와이키키 복귀 후 해변 인근 메이킹 해산물 파인다이닝 식사",
+              icon: "🦞",
+              tag: "저녁"
+            }
+          ]
+        },
+        {
+          day: 3,
+          date: "2월 5일 (금)",
+          title: "쉐라톤 와이키키 힐링 & 인피니티 풀 휴양",
+          badge: "호캉스 & 루아우 쇼",
+          summary: "쉐라톤 엣지 인피니티 풀에서 태평양 바다 감상, 알라모아나 쇼핑 및 저녁 루아우 민속 공연.",
+          seniorTip: "💡 쉐라톤 와이키키의 'Edge Infinity Pool'은 수평선과 수영장이 이어져 어머니께 최고의 힐링을 선사합니다.",
+          activities: [
+            {
+              time: "09:30",
+              title: "쉐라톤 오션뷰 테라스 조식",
+              desc: "파도 소리를 들으며 카푸치노와 오믈렛, 열대 과일 뷔페 조식",
+              icon: "☕",
+              tag: "식사"
+            },
+            {
+              time: "10:30",
+              title: "쉐라톤 엣지 인피니티 풀 & 와이키키 해변 힐링",
+              desc: "세계 최고 수준의 인피니티 풀 카바나에서 여유로운 수영 & 선베드 휴식",
+              icon: "🏊‍♀️",
+              tag: "휴양",
+              image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "13:00",
+              title: "알라모아나 쇼핑센터 (Ala Moana Center) 브런치",
+              desc: "세계 최대 야외 쇼핑몰 구경 및 하와이 마카다미아 펜케이크 브런치",
+              icon: "🥞",
+              tag: "미식",
+              image: "https://images.unsplash.com/photo-1528207776546-365bb710ee93?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "16:00",
+              title: "와이키키 핑크 트롤리 탑승 체험",
+              desc: "지붕이 트인 핑크 트롤리를 타고 와이키키 해변 시원한 바람맞기",
+              icon: "🚋",
+              tag: "체험"
+            },
+            {
+              time: "18:30",
+              title: "하와이 정통 루아우(Luau) 민속 공연 & 코스 디너",
+              desc: "우쿨렐레 연주, 훌라 댄스, 불쇼가 함께하는 환상적인 민속 공연 만찬",
+              icon: "💃",
+              tag: "공연",
+              image: "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=800&q=80"
+            }
+          ]
+        },
+        {
+          day: 4,
+          date: "2월 6일 (토)",
+          title: "하와이 감성 힐링 & 와이키키 선셋 카타마란 크루즈",
+          badge: "선셋 크루즈",
+          summary: "카할라 고급 주택가 드라이브, 마노아 숲길 둘러보기 및 석양을 감상하는 요트 크루즈.",
+          seniorTip: "💡 선셋 카타마란 요트는 흔들림이 적어 어머니도 안전하게 와이키키 노을을 감상하실 수 있습니다.",
+          activities: [
+            {
+              time: "10:30",
+              title: "카할라(Kahala) 고급 주택가 & 카임키 카페 거리",
+              desc: "하와이의 비버리힐스 카할라 거리를 드라이브하고 아기자기한 로컬 카페 탐방",
+              icon: "🚗",
+              tag: "드라이브"
+            },
+            {
+              time: "12:30",
+              title: "점심 식사 (Teddy's Bigger Burgers)",
+              desc: "하와이 3대 수제버거 맛집 아보카도 수제버거 오찬",
+              icon: "🍔",
+              tag: "미식"
+            },
+            {
+              time: "14:30",
+              title: "마노아 폴스 (Manoa) 녹음 숲길 산책",
+              desc: "울창한 열대 우림과 피톤치드를 마시는 평지 위주 힐링 산책",
+              icon: "🌿",
+              tag: "산책",
+              image: "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "17:00",
+              title: "와이키키 선셋 카타마란 요트 크루즈",
+              desc: "와이키키 바다 한가운데에서 음료를 마시며 주황빛 노을과 다이아몬드 헤드 감상",
+              icon: "⛵",
+              tag: "크루즈",
+              image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "19:30",
+              title: "하와이 마지막 밤: 해산물 파인다이닝 디너",
+              desc: "쉐라톤 럼파이어(RumFire) 레스토랑에서 모히또 와인과 랍스터 요리로 축배",
+              icon: "🥂",
+              tag: "만찬"
+            }
+          ]
+        },
+        {
+          day: 5,
+          date: "2월 7일 (일)",
+          title: "특산품 선물 쇼핑 & 호놀룰루 공항 귀국 (HNL 13:20 출발)",
+          badge: "쇼핑 & 귀국",
+          summary: "오션뷰 마지막 힐링, 하와이 특산품(코나 커피, 마카다미아) 구매 후 13:20 귀국편 탑승.",
+          seniorTip: "💡 귀국 당일 오전은 호텔 체크아웃 후 전용 밴으로 공항에 2시간 30분 전 편안하게 이동합니다.",
+          activities: [
+            {
+              time: "09:00",
+              title: "호텔 체크아웃 준비 & 오션뷰 티타임",
+              desc: "테라스에서 마지막으로 와이키키 파도를 바라보며 커피 한잔",
+              icon: "☕",
+              tag: "휴식"
+            },
+            {
+              time: "10:00",
+              title: "하와이 대표 선물 쇼핑 (ABC Store / 로열 하와이안)",
+              desc: "100% 코나 커피, 마카다미아 초콜릿, 하와이안 호스트, 유기농 꿀 구매",
+              icon: "🛍️",
+              tag: "쇼핑"
+            },
+            {
+              time: "10:40",
+              title: "쉐라톤 체크아웃 & 공항 전용 밴 샌딩",
+              desc: "예약된 전용 8인승 밴으로 호놀룰루 공항까지 이동 (약 25분 소요)",
+              icon: "🚐",
+              tag: "교통"
+            },
+            {
+              time: "11:20",
+              title: "HNL 공항 수속 & 면세점 구경",
+              desc: "하와이안항공 카운터 수하물 위탁 및 면세점 선물 코너 관람",
+              icon: "🛫",
+              tag: "공항"
+            },
+            {
+              time: "13:20",
+              title: "하와이안항공 HA459 귀국편 탑승",
+              desc: "호놀룰루 출발 ➔ 다음날(2/8 월요일) 19:15 인천국제공항(ICN) 도착",
+              icon: "✈️",
+              tag: "귀국"
+            }
+          ]
+        },
+        {
+          day: 6,
+          date: "2월 8일 (월)",
+          title: "인천국제공항(ICN) 도착 및 여행 완료",
+          badge: "인천 도착",
+          summary: "19:15 인천 공항 도착, 입국 수속 후 안전하게 귀가.",
+          seniorTip: "💡 시차로 인한 피로를 해소하도록 귀국 후 따뜻한 식사와 푹 쉬는 저녁 시간을 보냅니다.",
+          activities: [
+            {
+              time: "19:15",
+              title: "인천국제공항(ICN) 도착",
+              desc: "입국 심사 및 수하물 수령 후 귀가 (가족 여행 완료)",
+              icon: "🛬",
+              tag: "도착"
+            }
+          ]
+        }
+      ],
+      seniorGuideTips: [
+        {
+          title: "🌊 쉐라톤 와이키키 최고의 입지 & 엘리베이터",
+          desc: "쉐라톤 와이키키는 해변 및 쇼핑몰과 바로 연결되어 도보 동선이 가장 짧으며, 인피니티 풀 수영장이 타 호텔과 비교 불가할 정도로 우수합니다."
+        },
+        {
+          title: "☀️ 강렬한 햇빛 및 피부 보호",
+          desc: "하와이는 자외선이 매우 강합니다. 어머니를 위해 챙이 넓은 모자, 선글라스, 얇은 긴소매 겉옷, SPF50+ 선크림을 철저히 준비해 주세요."
+        },
+        {
+          title: "🚐 오아후 섬일주 단독 차량 수송",
+          desc: "하나투어 핵심 구성처럼 1일 오아후 섬일주 투어는 계단이나 긴 보행 없이 가이드 전용 밴으로 명소 바로 앞까지 이동하여 체력을 보존합니다."
+        },
+        {
+          title: "📄 미국 ESTA 비자 사전 발급",
+          desc: "미국 입국을 위한 전자허가제(ESTA)는 한국 출발 최소 72시간 전 온라인 신청하여 여권 승인을 받아야 합니다."
+        }
+      ]
+    }
+  }
+};

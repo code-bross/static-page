@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>로마 5일 여행 경비 & 일정 플래너 | 대한항공 직항 (2/3~2/7)</title>
+  <meta name="description" content="2월 3일 출발 2월 7일 귀국 대한항공 직항 로마 5일 4박 여행 경비 한눈에 보기, 어머니 맞춤 느긋한 동선과 일자별 루트, 실시간 예산 계산기">
+  
+  <!-- Open Graph Meta -->
+  <meta property="og:title" content="로마 5일 여행 경비 & 일정 플래너">
+  <meta property="og:description" content="어머니 & 자녀 3명 4인 가족 로마 럭셔리 힐링 여행 경비 및 일정">
+  <meta property="og:type" content="website">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">✈️</div>
+        <div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span class="brand-title">Travel Planner</span>
+            <span class="brand-tag">2026/2027</span>
+          </div>
+        </div>
+      </a>
+
+      <div class="nav-actions">
+        <!-- Destination Selector Tabs (Scalable for Barcelona & Hawaii) -->
+        <div class="destination-tabs" id="destinationTabs">
+          <button class="tab-btn active" data-id="rome">
+            <span>🇮🇹 로마</span>
+            <span class="tab-badge">2/3~2/7</span>
+          </button>
+          <button class="tab-btn" data-id="barcelona">
+            <span>🇪🇸 바르셀로나</span>
+            <span class="tab-badge">2/3~2/7</span>
+          </button>
+          <button class="tab-btn" data-id="hawaii">
+            <span>🇺🇸 하와이</span>
+            <span class="tab-badge">2/3~2/8</span>
+          </button>
+        </div>
+
+        <!-- Theme Toggle Button -->
+        <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="테마 전환">
+          <span id="themeToggleIcon">☀️</span>
+          <span id="themeToggleText">화이트 모드</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content Container (Populated via JS) -->
+  <main class="container main-content" id="mainContentArea">
+    <!-- Dynamic Content Loaded by travel-data.js & main.js -->
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p style="margin-bottom: 8px;">✈️ Rome Travel Budget & Itinerary Planner | 4-Person Family Travel Edition</p>
+      <p>대한항공 직항 (KE931 / KE932) 4인 특가 경비 기준 작성됨 · 스페인 바르셀로나 및 하와이 확장 지원</p>
+    </div>
+  </footer>
+
+  <!-- Lightbox Fullscreen Photo Modal -->
+  <div class="lightbox-modal" id="lightboxModal">
+    <button class="lightbox-close-btn" id="lightboxCloseBtn">&times;</button>
+    <div class="lightbox-img-wrapper">
+      <img id="lightboxImg" src="" alt="Photo Preview">
+    </div>
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/travel-data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
