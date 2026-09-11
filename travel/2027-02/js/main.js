@@ -58,6 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const data = TRAVEL_DATA.destinations[destId];
     if (!data) return;
 
+    currentDay = 1; // Reset day selection on destination change
+
     // Handle Destination Selector Active State
     document.querySelectorAll('.tab-btn').forEach(btn => {
       if (btn.dataset.id === destId) {

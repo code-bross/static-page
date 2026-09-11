@@ -383,6 +383,410 @@ const TRAVEL_DATA = {
         }
       ]
     },
+    rome_milan: {
+      id: "rome_milan",
+      name: "로마-베네치아-밀라노",
+      country: "이탈리아 🇮🇹",
+      title: "영원의 도시 로마 & 물의 도시 베네치아 & 패션의 수도 밀라노 6일 종단 여행",
+      subtitle: "어머니와 자녀 3명이 함께 떠나는 로마 역사 탐방 + 베네치아 곤돌라 & 밀라노 두오모 루프탑 힐링 여정",
+      heroImage: "https://images.unsplash.com/photo-1514890547357-a9ee288728e0?q=80&w=1600&auto=format&fit=crop",
+      status: "active",
+      dates: {
+        departure: "2027.02.03 (수)",
+        return: "2027.02.08 (월)",
+        duration: "6일 (현지 5박 6일)"
+      },
+      travelers: {
+        total: 4,
+        composition: "4인가족",
+        style: "로마 2박 + 베네치아 1박 + 밀라노 1박, 초고속 열차 비즈니스석, 수상 택시 & 두오모 엘리베이터"
+      },
+      flight: {
+        airline: "대한항공 (Korean Air)",
+        airlineCode: "KE",
+        type: "직항 (Direct - 로마 입국 / 밀라노 출국)",
+        outbound: {
+          flightNo: "KE931",
+          depTime: "14:05",
+          depAirport: "인천 (ICN)",
+          arrTime: "19:35",
+          arrAirport: "로마 피우미치노 (FCO)",
+          duration: "13시간 30분"
+        },
+        inbound: {
+          flightNo: "KE928",
+          depTime: "20:00",
+          depAirport: "밀라노 말펜사 (MXP)",
+          arrTime: "15:35 (+1일)",
+          arrAirport: "인천 (ICN)",
+          duration: "11시간 35분"
+        },
+        pricing: {
+          perPerson: 1950000,
+          total: 7800000,
+          discountNote: "대한항공 로마 입국 / 밀라노 출국 다구간 직항 특가 (성인 1인당 1,950,000원)"
+        }
+      },
+      budget: {
+        total: 13900000,
+        perPerson: 3475000,
+        currency: "원 (KRW)",
+        categories: [
+          {
+            id: "flight",
+            name: "항공권",
+            icon: "✈️",
+            amount: 7800000,
+            perPerson: 1950000,
+            percentage: 56.1,
+            desc: "대한항공 로마/밀라노 다구간 직항 4인"
+          },
+          {
+            id: "accommodation",
+            name: "숙소 (4박)",
+            icon: "🏨",
+            amount: 2400000,
+            perPerson: 600000,
+            percentage: 17.3,
+            desc: "로마 2박 + 베네치아 1박 + 밀라노 1박 4성급 호텔 룸 2개 (조식 포함)"
+          },
+          {
+            id: "food",
+            name: "식비 & 디저트",
+            icon: "🍝",
+            amount: 1600000,
+            perPerson: 400000,
+            percentage: 11.5,
+            desc: "로마 까르보나라, 베네치아 먹물 파스타, 밀라노 리조또 & 에스프레소"
+          },
+          {
+            id: "tours",
+            name: "투어 & 열차/수상택시",
+            icon: "🚆",
+            amount: 1100000,
+            perPerson: 275000,
+            percentage: 7.9,
+            desc: "이탈로 비즈니스석(로마-베네치아-밀라노), 베네치아 수상택시/곤돌라, 바티칸 & 두오모 패스트트랙"
+          },
+          {
+            id: "transport",
+            name: "현지 공항 픽업",
+            icon: "🚕",
+            amount: 400000,
+            perPerson: 100000,
+            percentage: 2.8,
+            desc: "로마/밀라노 공항 8인승 프라이빗 밴 픽업 & 샌딩"
+          },
+          {
+            id: "misc",
+            name: "예비비 & 쇼핑",
+            icon: "🎁",
+            amount: 600000,
+            perPerson: 150000,
+            percentage: 4.4,
+            desc: "이탈리아 올리브유, 밀라노 패션 선물, 유심 & 여행자보험"
+          }
+        ]
+      },
+      itinerary: [
+        {
+          day: 1,
+          date: "2월 3일 (수)",
+          title: "1일차: 인천 출발 ➔ 로마 입국 & 프라이빗 밴 호텔 이동",
+          badge: "1일차: 인천-로마",
+          summary: "인천 출발 ➔ 로마 피우미치노 공항 도착. 전용 밴으로 호텔까지 짐 편안하게 이동 후 첫날 휴식.",
+          seniorTip: "💡 장시간 비행 후 여독 해소를 위해 첫날은 호텔 직행 후 편안하게 휴식을 취합니다.",
+          activities: [
+            {
+              time: "14:05",
+              title: "인천국제공항(ICN) 출발",
+              desc: "대한항공 KE931 직항 탑승 (기내식 2회 제공)",
+              icon: "✈️",
+              tag: "항공"
+            },
+            {
+              time: "19:35",
+              title: "로마 피우미치노 공항(FCO) 도착",
+              desc: "입국 심사 및 수하물 수령 후 기사 피켓 대기 장소로 이동",
+              icon: "🛬",
+              tag: "입국"
+            },
+            {
+              time: "20:40",
+              title: "프리미엄 8인승 밴 시내 이동",
+              desc: "스페인 광장 부근 호텔까지 45분 직행 (짐 걱정 없는 시니어 맞춤 이동)",
+              icon: "🚐",
+              tag: "교통"
+            },
+            {
+              time: "21:30",
+              title: "호텔 체크인 & 숙면",
+              desc: "로마 시내 4성급 호텔 체크인 및 편안한 수면",
+              icon: "🏨",
+              tag: "휴식"
+            }
+          ]
+        },
+        {
+          day: 2,
+          date: "2월 4일 (목)",
+          title: "2일차: 로마 핵심 유적 탐방 & 바티칸 박물관 패스트트랙",
+          badge: "2일차: 로마",
+          summary: "콜로세움 외관 포토존, 트레비 분수, 판테온 및 바티칸 박물관 단독 가이드 관람.",
+          seniorTip: "💡 콜로세움과 트레비 분수는 택시로 이동하여 어머니 도보 동선을 최적화합니다.",
+          activities: [
+            {
+              time: "09:30",
+              title: "콜로세움 & 포로 로마노 관람",
+              desc: "웅장한 콜로세움 포토존 가족 사진 촬영",
+              icon: "🏛️",
+              tag: "관람",
+              image: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "12:00",
+              title: "점심 식사 (Trattoria 전통 파스타)",
+              desc: "로마 전통 까르보나라 & 생파스타 오찬",
+              icon: "🍝",
+              tag: "미식",
+              image: "https://images.unsplash.com/photo-1612874742237-6526221588e3?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "14:00",
+              title: "트레비 분수 & 판테온 관람",
+              desc: "트레비 분수 동전 던지기 및 3대 카페 타짜도로 에스프레소 휴식",
+              icon: "☕",
+              tag: "명소",
+              image: "https://images.unsplash.com/photo-1525874684015-5837e8831055?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "16:00",
+              title: "바티칸 박물관 패스트트랙 입장",
+              desc: "대기 없는 한국어 가이드 단독 투어 (시스티나 천장화)",
+              icon: "🎨",
+              tag: "투어",
+              image: "https://images.unsplash.com/photo-1543429776-2782fc8e1acd?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "19:00",
+              title: "로마 가든 테라스 디너",
+              desc: "로마 야경이 내다보이는 테라스 레스토랑 와인 만찬",
+              icon: "🍷",
+              tag: "저녁"
+            }
+          ]
+        },
+        {
+          day: 3,
+          date: "2월 5일 (금)",
+          title: "3일차: 로마 보르게세 공원 힐링 산책 & 스페인 광장 명품 거리",
+          badge: "3일차: 로마",
+          summary: "보르게세 미술관 감상, 전동 카트로 숲길 드라이브, 스페인 계단 뽐삐 티라미수 & 명품 쇼핑.",
+          seniorTip: "💡 보르게세 공원에서는 도보 대신 4인용 전동 카트를 대여하여 어머니도 편안하게 둘러봅니다.",
+          activities: [
+            {
+              time: "10:00",
+              title: "보르게세 미술관 & 전동 카트 산책",
+              desc: "미술관 대리석 조각상 감상 후 4인용 전동 카트로 숲길 드라이브",
+              icon: "🛺",
+              tag: "힐링",
+              image: "https://images.unsplash.com/photo-1581337204873-ef36aa186caa?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "12:30",
+              title: "점심 식사 (Osteria Barberini)",
+              desc: "이탈리아 최고급 트러플(송로버섯) 파스타 오찬",
+              icon: "🍄",
+              tag: "미식"
+            },
+            {
+              time: "14:30",
+              title: "스페인 광장 & 뽐삐(Pompi) 딸기 티라미수",
+              desc: "스페인 계단 전경 감상 및 뽐삐 티라미수 디저트 타임",
+              icon: "🍰",
+              tag: "디저트",
+              image: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "16:30",
+              title: "비아 콘도티 명품 쇼핑 & Caffè Greco",
+              desc: "여유로운 명품 브랜드 쇼핑 및 1760년 전통 카페 에스프레소",
+              icon: "🛍️",
+              tag: "쇼핑",
+              image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "19:00",
+              title: "트라스테베레 낭만 골목 저녁 만찬",
+              desc: "로마의 아기자기한 트라스테베레 골목 레스토랑에서 로맨틱 디너",
+              icon: "🥩",
+              tag: "만찬",
+              image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"
+            }
+          ]
+        },
+        {
+          day: 4,
+          date: "2월 6일 (토)",
+          title: "4일차: 로마 ➔ 베네치아 이동 (고속열차) & 물의 도시 곤돌라 감성",
+          badge: "4일차: 로마-베네치아",
+          summary: "로마 테르미니역에서 이탈로 초고속 열차 탑승(3시간 45분) 후 베네치아 도착. 수상 택시, 산 마르코 광장 & 곤돌라 투어.",
+          seniorTip: "💡 베네치아 섬 도착 후 계단 다리가 많으므로 호텔까지 프라이빗 수상 택시(Water Taxi)로 짐 부담 없이 바로 이동합니다.",
+          activities: [
+            {
+              time: "09:30",
+              title: "로마 테르미니역 ➔ 베네치아 산타루치아역 (Italo 비즈니스)",
+              desc: "시속 300km 이탈로 초고속 열차 비즈니스석 탑승 (3시간 45분 이동)",
+              icon: "🚆",
+              tag: "열차",
+              image: "https://images.unsplash.com/photo-1532105956626-9569c03602f6?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "13:15",
+              title: "베네치아 산타루치아역 도착 & 프라이빗 수상 택시",
+              desc: "역 앞 전용 수상 택시 탑승 ➔ 대운하(Grand Canal)를 지나 호텔 도크에 직접 하차",
+              icon: "🚤",
+              tag: "수상택시",
+              image: "https://images.unsplash.com/photo-1514890547357-a9ee288728e0?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "14:00",
+              title: "점심 식사 (베네치아 해산물 먹물 파스타)",
+              desc: "대운하 전망 테라스에서 프레시 해산물 파스타 & 먹물 리조또 오찬",
+              icon: "🦐",
+              tag: "미식",
+              image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "16:00",
+              title: "산 마르코 광장 & 리알토 다리 산책",
+              desc: "나폴레옹이 세상에서 가장 아름다운 접견실이라 칭송한 산 마르코 광장 및 리알토 다리 감상",
+              icon: "🏛️",
+              tag: "명소",
+              image: "https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "17:30",
+              title: "프라이빗 곤돌라(Gondola) 선셋 투어",
+              desc: "베네치아 낭만 곤돌라에 탑승하여 수로를 노닐며 석양 노을 감상",
+              icon: "🚣‍♂️",
+              tag: "곤돌라",
+              image: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "19:30",
+              title: "베네치아 운하 뷰 디너",
+              desc: "운하 야경이 비치는 식당에서 베네토 와인과 해산물 만찬",
+              icon: "🍷",
+              tag: "저녁"
+            }
+          ]
+        },
+        {
+          day: 5,
+          date: "2월 7일 (일)",
+          title: "5일차: 베네치아 ➔ 밀라노 이동 & 두오모 루프탑 관람 후 출국 (MXP 20:00 out)",
+          badge: "5일차: 베네치아-밀라노-out",
+          summary: "베네치아에서 밀라노 고속열차 이동(2시간 25분). 두오모 루프탑 패스트트랙, 갤러리아 아케이드 산책 후 16:30 공항 이동 및 20:00 귀국편 out.",
+          seniorTip: "💡 밀라노 두오모 지붕 전망대는 엘리베이터 패스트트랙으로 올라가 어머니도 편안하게 시내 전경을 감상합니다.",
+          activities: [
+            {
+              time: "09:30",
+              title: "베네치아 산타루치아역 ➔ 밀라노 중앙역 (고속열차)",
+              desc: "초고속 열차 탑승 (2시간 25분 편안한 이동)",
+              icon: "🚆",
+              tag: "열차"
+            },
+            {
+              time: "12:00",
+              title: "밀라노 중앙역 도착 & 짐 보관",
+              desc: "밀라노 중앙역 짐 보관 서비스(FrecciaClub) 수탁 후 가벼운 차림 이동",
+              icon: "🧳",
+              tag: "짐보관"
+            },
+            {
+              time: "12:40",
+              title: "점심 식사 (밀라노 샤프란 리조또)",
+              desc: "밀라노 대표 명물 리조또 & 오소부코 맛집 오찬",
+              icon: "🍽️",
+              tag: "미식",
+              image: "https://images.unsplash.com/photo-1633964913295-ceb43826e7c9?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "14:00",
+              title: "밀라노 두오모 루프탑 (엘리베이터 패스트트랙)",
+              desc: "첨탑 조각상과 밀라노 시내가 내다보이는 루프탑 전망대 관람",
+              icon: "🏰",
+              tag: "두오모",
+              image: "https://images.unsplash.com/photo-1513581166391-887a96ddeafd?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+              time: "15:30",
+              title: "갤러리아 비토리오 에마누엘레 2세 산책 & 카페 Cova",
+              desc: "화려한 유리아케이드 산책 및 1817년 개업 카페 에스프레소 휴식",
+              icon: "☕",
+              tag: "카페"
+            },
+            {
+              time: "16:30",
+              title: "밀라노 짐 픽업 ➔ 말펜사 공항(MXP) 샌딩 밴",
+              desc: "사전 예약된 프라이빗 픽업 밴으로 말펜사 공항 직행 (약 50분)",
+              icon: "🚐",
+              tag: "교통"
+            },
+            {
+              time: "17:30",
+              title: "MXP 공항 수속 & 택스 리펀(Tax Refund)",
+              desc: "대한항공 카운터 체크인, 수하물 위탁 및 택스리펀 환급 진행",
+              icon: "💶",
+              tag: "공항"
+            },
+            {
+              time: "20:00",
+              title: "대한항공 KE928 귀국편 out 탑승",
+              desc: "밀라노 출발 ➔ 다음날(2/8 월요일) 15:35 인천국제공항(ICN) 도착",
+              icon: "✈️",
+              tag: "귀국out"
+            }
+          ]
+        },
+        {
+          day: 6,
+          date: "2월 8일 (월)",
+          title: "6일차: 인천국제공항 도착 & 즐거운 가족 여행 마무리",
+          badge: "6일차: 인천 도착",
+          summary: "15:35 인천 공항 도착 후 수하물 수령 및 프라이빗 밴 편안한 귀가.",
+          seniorTip: "💡 공항 도착 후 전용 샌딩 차량으로 자택까지 안전하게 이동합니다.",
+          activities: [
+            {
+              time: "15:35",
+              title: "인천국제공항(ICN) 도착",
+              desc: "입국 심사 및 수하물 수령 후 가족 귀가 밴 탑승",
+              icon: "🛬",
+              tag: "도착"
+            }
+          ]
+        }
+      ],
+      seniorGuideTips: [
+        {
+          title: "🚆 이탈리아 고속열차(Italo) 비즈니스석",
+          desc: "로마 ➔ 베네치아 ➔ 밀라노 이동 시 이탈로 비즈니스(Prima) 좌석을 이용합니다. 짐 보관 공간이 넓고 좌석이 안락해 어머니의 체력 부담을 줄여드립니다."
+        },
+        {
+          title: "🚤 베네치아 프라이빗 수상 택시",
+          desc: "베네치아에서는 계단 다리 도보 이동을 줄이기 위해 역과 호텔 사이를 프라이빗 수상 택시(Water Taxi)로 편안하게 이동합니다."
+        },
+        {
+          title: "🏰 밀라노 두오모 엘리베이터 패스트트랙",
+          desc: "두오모 성당 루프탑 관람 시 계단을 오르지 않고 전용 엘리베이터 패스트트랙 티켓을 사용하여 안전하고 수월하게 관람합니다."
+        },
+        {
+          title: "💶 다구간 공항 샌딩 & 택스리펀",
+          desc: "로마 입국과 밀라노 출국 시 모두 8인승 프라이빗 밴 차량이 대기하므로 캐리어 짐 걱정이 없습니다. 마지막 날 밀라노 말펜사 공항에서 택스리펀을 진행합니다."
+        }
+      ]
+    },
     barcelona: {
       id: "barcelona",
       name: "바르셀로나",
