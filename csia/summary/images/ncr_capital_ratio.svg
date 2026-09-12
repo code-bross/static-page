@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="650" viewBox="0 0 960 650" role="img" aria-labelledby="title desc">
+  <title id="title">순자본비율과 금융투자업 진입 규제</title>
+  <desc id="desc">순자본비율은 영업용순자본에서 총위험액을 뺀 금액을 필요유지자기자본으로 나눠 100을 곱한다. 구 영업용순자본비율과 분모가 다르다. 인가·등록과 건전성 규제를 구분하고 업종별 예외를 확인한다.</desc>
+  <rect width="960" height="650" rx="24" fill="#0f172a"/>
+  <g font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" fill="#f1f5f9">
+    <text x="40" y="48" font-size="16" fill="#93c5fd">REGULATION / CAPITAL ADEQUACY &amp; ENTRY</text>
+    <text x="40" y="94" font-size="30" font-weight="700">진입 자격과 위험 감당 능력은 별개</text>
+    <rect x="40" y="125" width="880" height="211" rx="16" fill="#1e293b"/>
+    <text x="64" y="165" font-size="24" fill="#93c5fd">순자본비율 (NCR)</text>
+    <text x="465" y="213" text-anchor="middle" font-size="26">영업용순자본 − 총위험액</text>
+    <path d="M242 230H686" stroke="#93c5fd" stroke-width="2"/>
+    <text x="465" y="265" text-anchor="middle" font-size="26">필요유지자기자본</text>
+    <text x="706" y="239" font-size="26">× 100(%)</text>
+    <text x="64" y="308" font-size="20">구 영업용순자본비율 = 영업용순자본 / 총위험액 × 100(%)</text>
+    <text x="40" y="380" font-size="23" fill="#fcd34d">경영개선 조치의 강도: 권고 → 요구 → 명령</text>
+    <text x="40" y="419" font-size="20">적용 비율·발동 요건·예외는 대상 업종과 현행 감독규정으로 확인합니다.</text>
+    <rect x="40" y="447" width="880" height="122" rx="16" fill="#1e293b"/>
+    <text x="64" y="487" font-size="23">기본 구분: 매매·중개·집합투자·신탁은 인가</text>
+    <text x="64" y="526" font-size="23">자문·일임은 등록 / 업무 유형별 특례·예외는 별도 확인</text>
+    <text x="40" y="613" font-size="19" fill="#cbd5e1">학습용 기본 체계 · 일반 사모집합투자업 등 등록 특례와 적용 기준을 구분하세요.</text>
+  </g>
+</svg>

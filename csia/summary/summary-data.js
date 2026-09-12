@@ -61,11 +61,11 @@ window.SUMMARY_DATA = [
       {
         "id": "formula-fisher-tobin",
         "title": "📐 거시경제 핵심 공식 카드: 피셔의 화폐수량설 & 토빈의 q (Tobin's q)",
-        "src": "images/formula_fisher_tobin_q.png",
-        "path": "images/formula_fisher_tobin_q.png",
-        "alt": "Fisher Quantity Theory and Tobin q Formula Card",
+        "src": "images/formula_fisher_tobin_q.svg",
+        "path": "images/formula_fisher_tobin_q.svg",
+        "alt": "피셔 교환방정식 MV = PY와 V = 명목 GDP / 통화량. 토빈의 q는 기업 시장가치 / 자본 대체비용이며 1보다 크면 신규투자 유인이 커진다.",
         "caption": "📐 [그림 1-1] 피셔 화폐수량설 (M × V = P × Y) 및 토빈의 q (q > 1 신규투자 / q < 1 M&A) 수식 카드",
-        "description": "**화폐수량설 & 토빈의 q 해설**: 화폐수량설에서 통화유통속도 V = 명목 GDP / 통화량(M)이며 한국은 장기 하락 추세를 보입니다. 토빈의 q는 주식시장가치 / 실물자본대체비용으로, q > 1 이면 신규 설비투자가 유리하고 q < 1 이면 기업 M&A가 유리합니다."
+        "description": "**피셔 & 토빈의 q 해설**: MV = PY에서 V = 명목 GDP / 통화량입니다. 명목 GDP가 일정할 때 통화량이 늘면 V는 하락합니다. 토빈의 q는 기업의 시장가치를 자본의 대체비용과 비교합니다. 다른 조건이 같을 때 q > 1이면 신규투자 유인이 커지고 q < 1이면 기존 자산 취득이 상대적으로 유리합니다. 분자·분모의 기업·자본 범위를 맞춰야 하며 실제 투자에는 조정비용 등도 영향을 줍니다."
       }
     ]
   },
@@ -120,20 +120,20 @@ window.SUMMARY_DATA = [
       {
         "id": "formula-dupont",
         "title": "📐 기본적 분석 핵심 공식 카드 1: 듀퐁분석 3단계 ROE 분해 공식",
-        "src": "images/formula_dupont_roe.png",
-        "path": "images/formula_dupont_roe.png",
-        "alt": "DuPont ROE Breakdown Formula Card",
+        "src": "images/formula_dupont_roe.svg",
+        "path": "images/formula_dupont_roe.svg",
+        "alt": "듀퐁분석: ROE = 순이익률 × 총자산회전율 × 재무레버리지. 10% × 0.5회 × 4배 = 20%.",
         "caption": "📐 [그림 1-2A] 듀퐁분석 3단계 ROE (매출액순이익률 × 총자산회전율 × 재무레버리지) 분해 수식 카드",
         "description": "**듀퐁분석 해설**: ROE는 당기순이익 / 자기자본이며, 3단계로 분해하면 [수익성(매출액순이익률) × 활동성(총자산회전율) × 자본구조/안정성(재무레버리지)]의 곱으로 표현됩니다."
       },
       {
         "id": "formula-gordon",
         "title": "📐 기본적 분석 핵심 공식 카드 2: 고든의 배당할인모형 (Gordon Growth Model)",
-        "src": "images/formula_gordon_model.png",
-        "path": "images/formula_gordon_model.png",
-        "alt": "Gordon Growth Model Formula Card",
+        "src": "images/formula_gordon_model.svg",
+        "path": "images/formula_gordon_model.svg",
+        "alt": "고든 배당할인모형: P0 = D1 / (k - g), D1 = D0 × (1 + g), 적용 조건 k > g. 올해 배당 1,000원, 성장률 3%, 요구수익률 8%이면 이론 주가는 20,600원",
         "caption": "📐 [그림 1-2B] 고든 배당할인모형 적정주가 산출식 P₀ = D₁ / ( k - g ) 수식 카드",
-        "description": "**고든 성장모형 해설**: 적정 주가 P₀는 내년 예상 배당금 D₁을 (요구수익률 k - 지속가능 배당성장률 g)로 나눈 값입니다. 배당성장률 g = ROE × (1 - 배당성향)으로 산출됩니다."
+        "description": "**고든 성장모형 해설**: 이론 주가 P₀는 다음 해 예상 배당금 D₁을 (요구수익률 k - 배당성장률 g)로 나눈 값입니다. **k > g**이고 배당이 영구히 일정한 비율로 성장한다고 가정합니다. 올해 배당 D₀가 주어지면 D₁ = D₀ × (1 + g)로 먼저 바꿉니다. D₀ = 1,000원, g = 3%, k = 8%이면 D₁ = 1,030원, P₀ = 20,600원입니다. g = ROE × (1 - 배당성향)은 ROE와 유보율이 일정한 성장 가정에서 사용합니다."
       }
     ]
   },
@@ -165,19 +165,19 @@ window.SUMMARY_DATA = [
     "diagrams": [
       {
         "id": "candle-chart",
-        "title": "봉차트(Candle Chart) 구조 및 시가·종가·고가·저가 원리 분석",
-        "src": "images/candle_chart_analysis.png",
-        "path": "images/candle_chart_analysis.png",
-        "alt": "Candle Chart Structure Analysis Diagram",
-        "caption": "📊 [그림 1-3A] 양봉과 음봉의 시가, 종가, 고가, 저가 형성 원리 및 매수/매도 압력 분석 다이어그램",
-        "description": "**캔들차트 핵심 가이드**: 몸통의 길이는 시가와 종가 간의 동력을 나타내며, 꼬리의 길이는 당일 최고가 및 최저가 지지/저항 테스트를 의미합니다. 바닥권에서의 길다란 아래꼬리 양봉은 강한 지지력을, 상단에서의 위꼬리 음봉은 강력한 매도 압력을 예고합니다."
+        "title": "봉차트 패턴 전체 비교: 한 개봉·두 개봉·세 개봉과 추세 전환 형태",
+        "src": "images/candle_chart_analysis.svg",
+        "path": "images/candle_chart_analysis.svg",
+        "alt": "원본 PNG의 전체 패턴 분류를 SVG로 재구성. 한 개봉의 해머·교수·유성·샅바·십자형, 두 개봉의 장악·잉태·관통·먹구름·반격형, 세 개봉의 샛별·석별·까마귀형을 앞선 추세와 함께 비교.",
+        "caption": "📊 [그림 1-3A] 한 개봉·두 개봉·세 개봉의 전체 패턴과 상승·하락 전환 형태 비교",
+        "description": "**캔들차트 패턴 가이드**: 먼저 회색 선으로 표시한 앞선 추세를 보고 봉의 몸통·꼬리·갭·종가 위치를 비교하세요. 한 개봉은 해머형·교수형·역전된 해머형·유성형·샅바형·십자형, 두 개봉은 장악형·잉태형·관통형·먹구름형·반격형, 세 개봉은 샛별형·석별형·까마귀형을 보여줍니다. 같은 모양도 추세 위치에 따라 해석이 달라집니다. 십자형만으로 전환 방향을 확정하지 않으며 이후 봉과 거래량 등을 함께 확인합니다. 빨강은 양봉, 파랑은 음봉이며 패턴은 확정 수익 신호가 아닙니다."
       },
       {
         "id": "elliot-dow",
         "title": "기술적 분석 핵심 인포그래픽: 엘리어트 파동 8파 & 다우이론 6단계 구조도",
-        "src": "images/elliot_wave_dow_theory.png",
-        "path": "images/elliot_wave_dow_theory.png",
-        "alt": "Elliot Wave and Dow Theory Infographic Diagram",
+        "src": "images/elliot_wave_dow_theory.svg",
+        "path": "images/elliot_wave_dow_theory.svg",
+        "alt": "엘리어트 상승 1~5파와 조정 a-b-c 개념도. 3파는 가장 짧을 수 없지만 항상 가장 긴 것은 아니다. 다우이론 강세는 매집·상승·과열, 약세는 분산·공포·침체.",
         "caption": "📈 [그림 1-3B] 엘리어트 파동 8파(상승 5파+하락 3파) 및 다우이론 6단계(매집-상승-과열 / 분산-공포-침체) 시각화 구조도",
         "description": "**엘리어트 파동 & 다우이론 해설**: 그림은 파동과 국면의 전형적인 형태를 단순화한 것입니다. 3파는 1·3·5파 중 가장 짧을 수 없지만, 항상 길이·거래량이 최대인 것은 아닙니다. 강세 3단계(매집➔상승➔과열)와 약세 3단계(분산➔공포➔침체)를 비교하되 실제 시세 예측을 보장하는 규칙으로 받아들이지 마세요."
       }
@@ -245,11 +245,11 @@ window.SUMMARY_DATA = [
       {
         "id": "yield-curve",
         "title": "채권 만기별 수익률곡선(Yield Curve) 우상향·우하향·평탄화 형태 분석",
-        "src": "images/yield_curve.png",
-        "path": "images/yield_curve.png",
-        "alt": "Bond Yield Curve Analysis Diagram",
-        "caption": "📈 [그림 2-1] 경기 전망에 따른 만기별 수익률곡선(우상향, 우하향, 평탄화) 패턴 다이어그램",
-        "description": "**수익률곡선 해설**: 정상적 경기 확장기에는 우상향 곡선을 그리며 만기 프리미엄을 반영합니다. 반면 중앙은행의 급격한 금리 인상이나 향후 경기 침체가 우려될 때 장단기 금리가 역전되는 우하향 곡선이 나타납니다."
+        "src": "images/yield_curve.svg",
+        "path": "images/yield_curve.svg",
+        "alt": "같은 시점에서 비교한 잔존만기별 수익률곡선: 우상향, 우하향, 평탄형, 낙타형. 세로축은 수익률, 가로축은 잔존만기.",
+        "caption": "📈 [그림 2-1] 같은 시점의 만기별 수익률곡선 네 가지 형태: 우상향·우하향·평탄형·낙타형",
+        "description": "**수익률곡선 해설**: 신용위험 등 비교 조건을 맞춰 한 시점의 잔존만기별 수익률을 봅니다. 우상향은 장기금리가 단기보다 높고, 우하향은 반대입니다. 평탄형은 만기별 금리가 비슷하고 낙타형은 중간 만기에서 높습니다. 금리 기대뿐 아니라 기간 프리미엄과 수급도 반영되므로 곡선 모양만으로 경기나 미래 금리를 확정하지 않습니다."
       }
     ]
   },
@@ -277,11 +277,11 @@ window.SUMMARY_DATA = [
       {
         "id": "formula-var-greeks",
         "title": "📐 리스크 관리 핵심 공식 카드: VaR 측정식 & 옵션 5대 민감도 지표 (Greeks)",
-        "src": "images/formula_var_greeks.png",
-        "path": "images/formula_var_greeks.png",
-        "alt": "VaR and Option Greeks Formula Card",
+        "src": "images/formula_var_greeks.svg",
+        "path": "images/formula_var_greeks.svg",
+        "alt": "정규모형의 VaR ≈ V × z × σ × √T와 적용 가정. VaR는 최대손실이 아니다. 델타·감마·세타·베가·로의 정의.",
         "caption": "📐 [그림 2-2] VaR 측정 공식 (V × Z × σ × √T) 및 5대 Greeks (델타, 감마, 세타, 베가, 로) 수식 카드",
-        "description": "**VaR & Greeks 해설**: VaR는 보유기간 T 동안 신뢰수준 Z(95%시 1.65, 99%시 2.33)에서 발생 가능한 최대 손실액입니다. 옵션 민감도 중 시간 경과에 따른 시간가치 하락 지표는 세타(Theta)입니다."
+        "description": "**VaR & Greeks 해설**: VaR는 정해진 기간·신뢰수준에서 손실분포의 경계값이며 **가능한 최대손실이 아닙니다**. 그림의 식은 평균수익률 0 근사, 정규분포, 독립성·분산 안정성 등을 가정합니다. z는 신뢰수준 자체가 아니라 정규분위수입니다. 델타는 기초자산 가격, 감마는 델타 변화, 세타는 시간 경과, 베가는 변동성, 로는 금리의 영향을 측정합니다. 세타를 항상 음수라고 일반화하지 않습니다."
       }
     ]
   },
@@ -338,29 +338,29 @@ window.SUMMARY_DATA = [
       {
         "id": "utility-function",
         "title": "투자자의 위험회피 성향과 무차별 효용곡선(Indifference Curve) 기울기 분석",
-        "src": "images/utility_function.png",
-        "path": "images/utility_function.png",
-        "alt": "Indifference Utility Curve Diagram",
+        "src": "images/utility_function.svg",
+        "path": "images/utility_function.svg",
+        "alt": "위험 σ와 기대수익률 E(R) 공간의 무차별곡선. U = E(R) - Aσ²/2에서 위험회피도 A가 클수록 곡선이 가파르다.",
         "caption": "📊 [그림 2-3A] 보수적·공격적 투자자의 위험 대 기대수익률 공간에서의 무차별 효용곡선 분석 다이어그램",
         "description": "**무차별 효용곡선 해설**: 위험회피도가 높은 보수적 투자자는 동일한 위험 증가에 대해 더 큰 추가 기대수익을 요구하므로 곡선 기울기가 가파르게 나타납니다."
       },
       {
         "id": "formula-capm",
         "title": "📐 포트폴리오 이론 핵심 공식 카드 1: CAPM CML vs SML 산출식",
-        "src": "images/formula_cml_sml_capm.png",
-        "path": "images/formula_cml_sml_capm.png",
-        "alt": "CML and SML Formula Card",
+        "src": "images/formula_cml_sml_capm.svg",
+        "path": "images/formula_cml_sml_capm.svg",
+        "alt": "CML은 효율적 포트폴리오와 총위험 σ, SML은 개별 자산을 포함한 자산과 시장 민감도 β를 연결한다. CAPM 요구수익률 계산 예시.",
         "caption": "📐 [그림 2-3B] 자본시장선 (CML: 횡축 총위험 σ) vs 증권시장선 (SML: 횡축 체계적위험 β) 비교 수식 카드",
         "description": "**CML vs SML 해설**: CML은 효율적 포트폴리오를 대상으로 총위험(표준편차 σ)을 측정하며, SML은 개별 자산을 포함한 모든 자산을 대상으로 체계적 위험(베타 β)을 측정합니다."
       },
       {
         "id": "formula-performance",
         "title": "📐 포트폴리오 이론 핵심 공식 카드 2: 3대 위험조정 성과평가지표 (샤프, 트레이너, 젠센)",
-        "src": "images/formula_sharpe_treynor_jensen.png",
-        "path": "images/formula_sharpe_treynor_jensen.png",
-        "alt": "3 Performance Index Formula Card",
+        "src": "images/formula_sharpe_treynor_jensen.svg",
+        "path": "images/formula_sharpe_treynor_jensen.svg",
+        "alt": "샤프지수는 초과수익 / σ, 트레이너지수는 초과수익 / β, 젠센 알파는 실제 수익률 - CAPM 기준 수익률이다.",
         "caption": "📐 [그림 2-3C] 샤프지수 (총위험 단위당 초과수익), 트레이너지수 (체계적위험 단위당 초과수익), 젠센의 알파 수식 카드",
-        "description": "**3대 성과평가지표 해설**: 잘 분산된 포트폴리오는 비체계적 위험이 제거되어 트레이너지수로 평가하며, 비분산 포트폴리오는 총위험을 반영하는 샤프지수로 평가합니다."
+        "description": "**3대 성과평가지표 해설**: 샤프지수는 총위험 대비 초과수익, 트레이너지수는 시장위험 대비 초과수익을 평가합니다. 트레이너지수는 충분히 분산된 포트폴리오 비교에 활용하며 샤프지수는 전체 포트폴리오 위험을 반영합니다. 젠센 알파는 CAPM 기준 수익률과의 차이입니다. 같은 기간·같은 지표끼리 비교하고 분모가 0이거나 β가 음수인 경우는 별도 해석이 필요합니다."
       }
     ]
   },
@@ -484,11 +484,11 @@ window.SUMMARY_DATA = [
       {
         "id": "objection-aml",
         "title": "영업실무 & 준법감시: 고객 반감 처리 4단계 & 자금세탁방지(AML) 3대 제도 시각화",
-        "src": "images/objection_handling_aml.png",
-        "path": "images/objection_handling_aml.png",
-        "alt": "Objection Handling and AML Systems Diagram",
+        "src": "images/objection_handling_aml.svg",
+        "path": "images/objection_handling_aml.svg",
+        "alt": "고객 우려 대응은 경청·인정·응답·확인 순서. CDD는 신원 확인, STR은 의심거래 보고, CTR은 고액 현금거래 보고로 동시에 적용될 수 있다.",
         "caption": "🛡️ [그림 3-3] 고객 반감 처리 4단계(경청➔인정➔응답➔확인) 및 AML 3대 제도(STR/CTR/CDD) 수험 다이어그램",
-        "description": "**반감 처리 & AML 해설**: 고객 반감 처리의 첫 시작은 '경청'이며, 이후 우려를 '인정'한 뒤 대안을 제시해야 합니다. 자금세탁방지(AML)에서 STR(의심거래)은 보고 금액 제한이 없으며, CTR(고액현금)은 1일 1,000만원 이상 시 자동 보고됩니다."
+        "description": "**반감 처리 & AML 해설**: 경청 → 인정 → 응답 → 확인 순서로 고객의 우려를 다룹니다. 인정은 허위 주장에 동의한다는 뜻이 아니며 설명의무를 대신하지 않습니다. CDD는 고객 신원 등을 확인하고, STR은 의심할 근거를 바탕으로, CTR은 법정 고액 현금거래 기준에 따라 FIU에 보고합니다. 동시에 적용될 수 있으며 금액·합산 방식·예외는 현행 규정을 확인합니다."
       }
     ]
   },
@@ -608,12 +608,12 @@ window.SUMMARY_DATA = [
     "diagrams": [
       {
         "id": "ncr-auth",
-        "title": "자본시장법 규제: 순자본비율(NCR) 3단계 & 금융투자업 인가·등록 체계도",
-        "src": "images/ncr_capital_ratio.png",
-        "path": "images/ncr_capital_ratio.png",
-        "alt": "NCR 3 Tiers and Licensing Diagram",
-        "caption": "🏛️ [그림 4-1] 순자본비율(NCR) 건전성 조치 3단계(권고➔요구➔명령) 및 인가·등록 구분 체계도",
-        "description": "**NCR 및 인가·등록 해설**: NCR 비율이 0% 미만으로 떨어지면 최상위 단계인 '경영개선 명령'이 발령됩니다. 금융투자업 진입 방식에서 매매·중개·집합투자·신탁업은 금융위원회 '인가' 대상이며, 자문·일임업은 '등록' 대상입니다."
+        "title": "자본시장법 규제: 순자본비율(NCR) 산식 & 금융투자업 인가·등록 체계",
+        "src": "images/ncr_capital_ratio.svg",
+        "path": "images/ncr_capital_ratio.svg",
+        "alt": "순자본비율은 (영업용순자본 - 총위험액) / 필요유지자기자본 × 100%. 구 영업용순자본비율과 구분하며 인가·등록은 업종별 특례를 확인한다.",
+        "caption": "🏛️ [그림 4-1] 순자본비율과 구 비율의 산식 구분 · 경영개선 조치 및 인가·등록 기본 체계",
+        "description": "**NCR 및 인가·등록 해설**: 순자본비율은 (영업용순자본 - 총위험액) / 필요유지자기자본 × 100%입니다. 구 영업용순자본비율과 혼동하지 마세요. 경영개선 조치는 권고 → 요구 → 명령 순으로 강해지며 구체적인 발동 요건은 대상 업종과 현행 규정을 확인합니다. 매매·중개·집합투자·신탁의 인가, 자문·일임의 등록이라는 기본 구분 외에 일반 사모집합투자업 등 특례를 별도로 구분합니다."
       }
     ]
   },

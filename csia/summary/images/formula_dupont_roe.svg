@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">듀퐁분석: ROE를 세 가지 요인으로 분해</title>
+  <desc id="desc">ROE = 순이익률 × 총자산회전율 × 재무레버리지. 순이익/매출액 × 매출액/총자산 × 총자산/자기자본 = 순이익/자기자본. 10% × 0.5 × 4 = 20%.</desc>
+  <rect width="960" height="600" rx="24" fill="#0f172a"/>
+  <g font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" fill="#f1f5f9">
+    <text x="40" y="48" font-size="16" fill="#93c5fd">VALUATION / DUPONT ANALYSIS</text>
+    <text x="40" y="94" font-size="30" font-weight="700">ROE는 왜 높아졌을까요?</text>
+    <text x="40" y="136" font-size="22">자기자본이익률 = 순이익 / 자기자본</text>
+    <g fill="#1e293b">
+      <rect x="40" y="170" width="264" height="158" rx="16"/>
+      <rect x="348" y="170" width="264" height="158" rx="16"/>
+      <rect x="656" y="170" width="264" height="158" rx="16"/>
+    </g>
+    <g text-anchor="middle" font-size="23">
+      <text x="172" y="211" fill="#93c5fd">순이익률</text>
+      <text x="172" y="256">순이익</text><text x="172" y="306">매출액</text>
+      <text x="480" y="211" fill="#93c5fd">총자산회전율</text>
+      <text x="480" y="256">매출액</text><text x="480" y="306">총자산</text>
+      <text x="788" y="211" fill="#93c5fd">재무레버리지</text>
+      <text x="788" y="256">총자산</text><text x="788" y="306">자기자본</text>
+      <text x="326" y="283" font-size="30">×</text><text x="634" y="283" font-size="30">×</text>
+    </g>
+    <path d="M80 271H264 M388 271H572 M696 271H880" stroke="#93c5fd" stroke-width="2"/>
+    <text x="40" y="376" font-size="22">수익성 × 자산 활용 효율 × 자본구조</text>
+    <rect x="40" y="406" width="880" height="100" rx="16" fill="#1e3a5f"/>
+    <text x="64" y="447" font-size="24" font-weight="700">예시: 10% × 0.5회 × 4배 = ROE 20%</text>
+    <text x="64" y="481" font-size="20">매출액과 총자산을 약분하면 순이익 / 자기자본만 남습니다.</text>
+    <text x="40" y="549" font-size="21" fill="#fcd34d">ROE 상승이 항상 좋은 것은 아닙니다. 부채 증가의 영향도 확인!</text>
+    <text x="40" y="579" font-size="18" fill="#cbd5e1">기간·평균잔액 등 각 비율의 산정 기준을 일관되게 사용합니다.</text>
+  </g>
+</svg>

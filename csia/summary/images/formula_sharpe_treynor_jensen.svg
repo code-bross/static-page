@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="640" viewBox="0 0 960 640" role="img" aria-labelledby="title desc">
+  <title id="title">샤프지수, 트레이너지수, 젠센 알파</title>
+  <desc id="desc">샤프는 초과수익을 표준편차로, 트레이너는 초과수익을 베타로 나눈다. 젠센 알파는 실제 수익률에서 CAPM 기준 수익률을 뺀다. 서로 다른 지표의 수치를 직접 비교하지 않는다.</desc>
+  <rect width="960" height="640" rx="24" fill="#0f172a"/>
+  <g font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" fill="#f1f5f9">
+    <text x="40" y="48" font-size="16" fill="#fcd34d">PERFORMANCE / RISK-ADJUSTED RETURN</text>
+    <text x="40" y="94" font-size="30" font-weight="700">수익을 어떤 위험으로 나눴나요?</text>
+    <rect x="40" y="126" width="880" height="120" rx="16" fill="#1e293b"/>
+    <text x="64" y="166" font-size="25" fill="#fcd34d">샤프지수 = (Rp − Rf) / σp</text>
+    <text x="64" y="210" font-size="22">총위험 1단위당 초과수익 · 전체 포트폴리오 위험 반영</text>
+    <rect x="40" y="264" width="880" height="120" rx="16" fill="#1e293b"/>
+    <text x="64" y="304" font-size="25" fill="#67e8f9">트레이너지수 = (Rp − Rf) / βp</text>
+    <text x="64" y="348" font-size="22">시장위험 1단위당 초과수익 · 분산된 포트폴리오 비교에 활용</text>
+    <rect x="40" y="402" width="880" height="120" rx="16" fill="#1e293b"/>
+    <text x="64" y="442" font-size="25" fill="#5eead4">젠센 알파 = Rp − [Rf + βp × (Rm − Rf)]</text>
+    <text x="64" y="486" font-size="22">CAPM 기준을 얼마나 초과했는가 · 수익률 차이로 측정</text>
+    <text x="40" y="561" font-size="19" fill="#cbd5e1">Rp 포트폴리오 수익률 · Rm 시장수익률 · Rf 무위험수익률</text>
+    <text x="40" y="596" font-size="20" fill="#fcd34d">동일 기간·같은 지표끼리 비교! 분모 0 또는 음의 β는 별도 해석이 필요합니다.</text>
+  </g>
+</svg>

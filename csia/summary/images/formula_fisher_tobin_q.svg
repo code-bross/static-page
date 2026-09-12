@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="620" viewBox="0 0 960 620" role="img" aria-labelledby="title desc">
+  <title id="title">피셔의 교환방정식과 토빈의 q</title>
+  <desc id="desc">MV = PY, V = 명목 GDP / 통화량. 토빈의 q는 기업 시장가치를 자본 대체비용으로 나눈 값이다. 다른 조건이 같을 때 q가 1보다 크면 신규투자 유인이 커진다.</desc>
+  <rect width="960" height="620" rx="24" fill="#0f172a"/>
+  <g font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" fill="#f1f5f9">
+    <text x="40" y="48" font-size="16" fill="#67e8f9">ECONOMICS / FISHER &amp; TOBIN</text>
+    <text x="40" y="94" font-size="30" font-weight="700">돈의 흐름과 기업의 투자 유인</text>
+    <rect x="40" y="124" width="880" height="194" rx="16" fill="#1e293b"/>
+    <text x="64" y="162" font-size="23" fill="#67e8f9">01  피셔의 교환방정식</text>
+    <text x="64" y="209" font-size="32" font-weight="700">M × V = P × Y     →     V = (P × Y) / M</text>
+    <text x="64" y="251" font-size="21">M 통화량 · V 유통속도 · P 물가 수준 · Y 실질 생산량</text>
+    <text x="64" y="289" font-size="21">명목 GDP가 일정하고 통화량만 늘면 유통속도는 하락합니다.</text>
+    <rect x="40" y="338" width="880" height="190" rx="16" fill="#1e293b"/>
+    <text x="64" y="377" font-size="23" fill="#67e8f9">02  토빈의 q</text>
+    <text x="64" y="423" font-size="29" font-weight="700">q = 기업의 시장가치 / 자본의 대체비용</text>
+    <text x="64" y="467" font-size="21">q &gt; 1 : 자본을 새로 만드는 비용보다 시장 평가가 높음</text>
+    <text x="64" y="501" font-size="21">q &lt; 1 : 신규투자보다 기존 자산 취득이 상대적으로 유리</text>
+    <text x="40" y="570" font-size="20" fill="#fcd34d">q의 분자·분모는 같은 범위의 기업·자본을 비교해야 합니다.</text>
+    <text x="40" y="601" font-size="18" fill="#cbd5e1">기본 개념도 · 실제 투자에는 조정비용·기대수익 등도 영향을 줍니다.</text>
+  </g>
+</svg>

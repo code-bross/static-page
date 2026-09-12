@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="730" viewBox="0 0 960 730" role="img" aria-labelledby="title desc">
+  <title id="title">VaR와 옵션 민감도</title>
+  <desc id="desc">평균수익률을 0으로 근사하는 정규모형에서 VaR = V × z × σ × √T. VaR는 최대손실이 아니다. 델타는 기초자산 가격, 감마는 델타 변화, 세타는 시간 경과, 베가는 변동성, 로는 금리의 영향을 나타낸다.</desc>
+  <rect width="960" height="730" rx="24" fill="#0f172a"/>
+  <g font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" fill="#f1f5f9">
+    <text x="40" y="48" font-size="16" fill="#fda4af">RISK / VALUE AT RISK &amp; GREEKS</text>
+    <text x="40" y="94" font-size="30" font-weight="700">손실 경계와 가격 민감도를 구분하세요</text>
+    <rect x="40" y="124" width="880" height="218" rx="16" fill="#1e293b"/>
+    <text x="64" y="171" font-size="32" font-weight="700">VaR ≈ V × z × σ × √T</text>
+    <text x="64" y="213" font-size="21">V 자산가치 · z 단측 정규분위수 · σ 1일 변동성 · T 일수</text>
+    <text x="64" y="247" font-size="20">평균수익률 0 근사 · 정규분포 · 독립성·분산 안정성 등 가정</text>
+    <text x="64" y="282" font-size="21">95%: z ≈ 1.645 / 99%: z ≈ 2.326</text>
+    <text x="64" y="317" font-size="20" fill="#fcd34d">99% VaR도 그 금액을 초과하는 손실을 배제하지 않습니다.</text>
+    <g font-size="22">
+      <text x="48" y="391" fill="#fda4af">델타 Δ</text><text x="236" y="391">기초자산 가격 변화에 대한 옵션가격의 변화율</text>
+      <text x="48" y="441" fill="#fda4af">감마 Γ</text><text x="236" y="441">기초자산 가격 변화에 대한 델타의 변화율</text>
+      <text x="48" y="491" fill="#fda4af">세타 Θ</text><text x="236" y="491">시간 경과에 대한 옵션가격의 변화율</text>
+      <text x="48" y="541" fill="#fda4af">베가 Vega</text><text x="236" y="541">변동성 변화에 대한 옵션가격의 변화율</text>
+      <text x="48" y="591" fill="#fda4af">로 ρ</text><text x="236" y="591">금리 변화에 대한 옵션가격의 변화율</text>
+    </g>
+    <text x="40" y="650" font-size="20" fill="#fcd34d">세타를 ‘모든 옵션·모든 상황에서 항상 음수’라고 외우지 마세요.</text>
+    <text x="40" y="687" font-size="19" fill="#cbd5e1">변동성·금리는 1%p 변화인지, 소수 1단위 변화인지 단위를 확인합니다.</text>
+  </g>
+</svg>

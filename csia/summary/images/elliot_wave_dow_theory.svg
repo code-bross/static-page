@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="740" viewBox="0 0 960 740" role="img" aria-labelledby="title desc">
+  <title id="title">엘리어트 파동 기본형과 다우이론 국면</title>
+  <desc id="desc">상승시장 5개의 파동 1·2·3·4·5와 하강시장 3개의 조정파동 a·b·c를 부드러운 곡선으로 표시한다. 각 구간에 파동 이름을 붙였으며 기본형의 한 사이클은 총 8개 파동이다. 일반적 충격파의 3파는 1·3·5파 중 가장 짧을 수 없다. 다우이론 강세는 매집·상승·과열, 약세는 분산·공포·침체이다.</desc>
+  <rect width="960" height="740" rx="24" fill="#0f172a"/>
+  <g font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" fill="#f1f5f9">
+    <text x="40" y="48" font-size="16" fill="#93c5fd">TECHNICAL ANALYSIS / WAVE &amp; TREND</text>
+    <text x="40" y="94" font-size="30" font-weight="700">추세와 조정의 순서를 읽습니다</text>
+    <rect x="40" y="126" width="880" height="390" rx="16" fill="#1e293b"/>
+    <text x="64" y="166" font-size="22">엘리어트 기본형: 상승 5파 + 조정 3파</text>
+    <path d="M84 417L84 192 M84 417H884" fill="none" stroke="#64748b" stroke-width="2"/>
+    <path d="M102 400C132 400 162 330 192 330S244 370 270 370S350 245 390 245S450 287 480 287S547 206 580 206" fill="none" stroke="#5eead4" stroke-width="4" stroke-linecap="round"/>
+    <path d="M580 206C617 206 653 296 690 296S743 257 770 257S834 365 866 365" fill="none" stroke="#fda4af" stroke-width="4" stroke-linecap="round"/>
+    <text x="110" y="217" font-size="21" font-weight="700" fill="#5eead4">상승시장: 5개의 파동</text>
+    <text x="663" y="198" font-size="21" font-weight="700" fill="#fda4af">하강시장: 3개의 파동</text>
+    <g font-size="16" text-anchor="middle" fill="#99f6e4">
+      <text transform="translate(139 355) rotate(-43)">파동 1</text>
+      <text transform="translate(240 336) rotate(35)">파동 2</text>
+      <text transform="translate(319 297) rotate(-48)">파동 3</text>
+      <text transform="translate(445 249) rotate(32)">파동 4</text>
+      <text transform="translate(519 239) rotate(-42)">파동 5</text>
+    </g>
+    <g font-size="16" text-anchor="middle" fill="#fecdd3">
+      <text transform="translate(646 237) rotate(43)">파동 a</text>
+      <text transform="translate(724 260) rotate(-32)">파동 b</text>
+      <text transform="translate(832 292) rotate(49)">파동 c</text>
+    </g>
+    <g font-size="22" text-anchor="middle">
+      <text x="192" y="311">1</text><text x="270" y="398">2</text>
+      <text x="390" y="226">3</text><text x="480" y="316">4</text>
+      <text x="580" y="191">5</text><text x="690" y="325">a</text>
+      <text x="770" y="238">b</text><text x="866" y="393">c</text>
+    </g>
+    <text x="480" y="455" text-anchor="middle" font-size="22" font-weight="700">한 사이클은 총 8개의 파동으로 구성 (기본형)</text>
+    <text x="64" y="492" font-size="19" fill="#cbd5e1">세로축: 가격 · 가로축: 시간 / 길이와 위치는 설명을 위한 예시</text>
+    <text x="40" y="558" font-size="22" fill="#fcd34d">3파는 1·3·5파 중 가장 짧을 수 없음 ≠ 반드시 가장 김</text>
+    <text x="40" y="603" font-size="23">다우이론 강세: 매집 → 상승 → 과열</text>
+    <text x="40" y="643" font-size="23">다우이론 약세: 분산 → 공포 → 침체</text>
+    <text x="40" y="698" font-size="19" fill="#cbd5e1">일반적 충격파의 개념도 · 예외 패턴은 구분하며 실제 시세 예측을 보장하지 않습니다.</text>
+  </g>
+</svg>

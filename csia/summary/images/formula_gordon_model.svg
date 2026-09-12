@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="800" viewBox="0 0 960 800" role="img" aria-labelledby="title desc">
+  <title id="title">고든의 배당할인모형: 다음 해 배당으로 현재 가치를 계산</title>
+  <desc id="desc">P0 = D1 / (k - g) = D0 × (1 + g) / (k - g). D0는 올해 배당, D1은 다음 해 예상 배당, k는 요구수익률, g는 일정한 배당성장률이다. k가 g보다 커야 하며 배당이 영구히 일정한 비율로 성장한다고 가정한다. D0 1,000원, g 3%, k 8%이면 D1은 1,030원, 주가는 20,600원이다.</desc>
+  <rect width="960" height="800" rx="24" fill="#0f172a"/>
+  <rect x="16" y="16" width="928" height="768" rx="20" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+  <g font-family="'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', sans-serif" fill="#f1f5f9">
+    <text x="44" y="57" font-size="16" fill="#c4b5fd" letter-spacing="2">VALUATION / GORDON GROWTH MODEL</text>
+    <text x="44" y="103" font-size="32" font-weight="700">고든의 배당할인모형</text>
+    <text x="44" y="140" font-size="21" fill="#cbd5e1">주식의 현재 가치 = 다음 해 예상 배당 ÷ (요구수익률 − 성장률)</text>
+
+    <rect x="44" y="166" width="872" height="160" rx="16" fill="#0f172a" stroke="#64748b"/>
+    <g font-family="Arial, sans-serif" font-size="34" text-anchor="middle">
+      <text x="122" y="254">P<tspan dy="9" font-size="22">0</tspan></text>
+      <text x="188" y="254">=</text>
+      <text x="310" y="224">D<tspan dy="9" font-size="22">1</tspan></text>
+      <path d="M228 242H392" stroke="#c4b5fd" stroke-width="2"/>
+      <text x="310" y="285">k − g</text>
+      <text x="446" y="254">=</text>
+      <text x="667" y="224">D<tspan dy="9" font-size="22">0</tspan><tspan dy="-9" font-size="34"> × (1 + g)</tspan></text>
+      <path d="M502 242H832" stroke="#c4b5fd" stroke-width="2"/>
+      <text x="667" y="285">k − g</text>
+    </g>
+
+    <text x="44" y="366" font-size="23" font-weight="700" fill="#c4b5fd">01  기호를 먼저 구분하세요</text>
+    <g font-size="21">
+      <text x="52" y="405">P<tspan dy="6" font-size="14">0</tspan><tspan dy="-6"> : 현재 시점의 이론 주가</tspan></text>
+      <text x="486" y="405">k : 주식 투자자의 요구수익률</text>
+      <text x="52" y="441">D<tspan dy="6" font-size="14">0</tspan><tspan dy="-6"> : 올해 배당금 (기준 배당)</tspan></text>
+      <text x="486" y="441">g : 매년 일정한 배당성장률</text>
+      <text x="52" y="477">D<tspan dy="6" font-size="14">1</tspan><tspan dy="-6"> : 다음 해 예상 배당금 = D</tspan><tspan dy="6" font-size="14">0</tspan><tspan dy="-6"> × (1 + g)</tspan></text>
+    </g>
+
+    <rect x="44" y="505" width="872" height="136" rx="14" fill="#312e81"/>
+    <text x="64" y="541" font-size="23" font-weight="700">02  올해 배당 1,000원 · g = 3% · k = 8%</text>
+    <text x="64" y="578" font-size="22">다음 해 배당 = 1,000 × 1.03 = 1,030원</text>
+    <text x="64" y="614" font-size="24" font-weight="700" fill="#ddd6fe">이론 주가 = 1,030 ÷ (0.08 − 0.03) = 20,600원</text>
+
+    <text x="44" y="683" font-size="22" font-weight="700" fill="#fcd34d">적용 조건: k &gt; g · 배당이 영구히 일정한 비율로 성장</text>
+    <text x="44" y="720" font-size="20" fill="#cbd5e1">g = ROE × (1 − 배당성향): ROE·유보율이 일정한 성장 가정에서 사용</text>
+    <text x="44" y="754" font-size="19" fill="#cbd5e1">분자는 다음 해 배당!  k ≤ g이면 이 모형을 적용하지 않습니다.</text>
+  </g>
+</svg>

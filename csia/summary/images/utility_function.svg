@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="680" viewBox="0 0 960 680" role="img" aria-labelledby="title desc">
+  <title id="title">위험과 기대수익률 공간의 무차별곡선</title>
+  <desc id="desc">가로축은 위험 σ, 세로축은 기대수익률이다. U = E(R) - Aσ²/2에서 A가 클수록 같은 위험 증가에 더 많은 기대수익률을 요구하므로 무차별곡선이 가파르다. 부와 효용 사이의 효용함수 그래프와 다르다.</desc>
+  <rect width="960" height="680" rx="24" fill="#f4f7fc"/>
+  <g font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" fill="#172b4d">
+    <text x="40" y="48" font-size="16" fill="#2563eb">PORTFOLIO / INDIFFERENCE CURVE</text>
+    <text x="40" y="94" font-size="30" font-weight="700">더 조심스러운 투자자는 더 큰 보상을 요구</text>
+    <text x="40" y="137" font-size="22">평균·분산 효용: U = E(R) − A × σ² / 2</text>
+    <rect x="40" y="166" width="880" height="346" rx="16" fill="white"/>
+    <path d="M120 451V219 M120 451H867" fill="none" stroke="#64748b" stroke-width="2"/>
+    <text x="65" y="200" font-size="20">기대수익률 E(R)</text>
+    <text x="754" y="484" font-size="20">위험 σ</text>
+    <path d="M120 415Q340 415 570 239" fill="none" stroke="#7c3aed" stroke-width="4"/>
+    <path d="M120 415Q470 415 833 310" fill="none" stroke="#2563eb" stroke-width="4"/>
+    <text x="577" y="240" font-size="22" fill="#6d28d9">A가 큼 · 더 가파름</text>
+    <text x="620" y="410" font-size="22" fill="#1d4ed8">A가 작음 · 더 완만</text>
+    <text x="154" y="488" font-size="18" fill="#475569">같은 효용 수준 U에서 비교한 개념도 (A &gt; 0)</text>
+    <text x="40" y="553" font-size="22">A는 위험회피도. 클수록 같은 위험을 지려면 더 높은 수익을 요구합니다.</text>
+    <text x="40" y="595" font-size="21">위로 갈수록 기대수익이 높고, 왼쪽으로 갈수록 위험이 작습니다.</text>
+    <text x="40" y="637" font-size="19" fill="#9a3412">주의: ‘가로축 부·세로축 효용’인 효용함수와는 축과 곡선 모양이 다릅니다.</text>
+  </g>
+</svg>

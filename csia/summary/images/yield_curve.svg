@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">만기별 수익률곡선의 네 가지 형태</title>
+  <desc id="desc">같은 시점의 잔존만기별 수익률을 비교한다. 우상향은 장기금리가 높고, 우하향은 단기금리가 높다. 평탄형은 비슷하고 낙타형은 중간 만기의 금리가 높다.</desc>
+  <rect width="960" height="600" rx="24" fill="#f4f7fc"/>
+  <g font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" fill="#172b4d">
+    <text x="40" y="48" font-size="16" fill="#2563eb">BONDS / YIELD CURVE</text>
+    <text x="40" y="94" font-size="30" font-weight="700">한 시점에서 서로 다른 만기를 비교</text>
+    <text x="40" y="135" font-size="21">세로축: 수익률 / 가로축: 잔존만기 (짧음 → 김)</text>
+    <g fill="white">
+      <rect x="32" y="165" width="210" height="260" rx="14"/>
+      <rect x="258" y="165" width="210" height="260" rx="14"/>
+      <rect x="484" y="165" width="210" height="260" rx="14"/>
+      <rect x="710" y="165" width="218" height="260" rx="14"/>
+    </g>
+    <g text-anchor="middle" font-size="23" font-weight="700">
+      <text x="137" y="204">우상향</text><text x="363" y="204">우하향</text>
+      <text x="589" y="204">평탄형</text><text x="819" y="204">낙타형</text>
+    </g>
+    <path d="M60 236V363H221 M286 236V363H447 M512 236V363H673 M738 236V363H906" fill="none" stroke="#64748b" stroke-width="2"/>
+    <path d="M68 348Q110 267 216 257 M294 251Q329 333 442 347 M520 298H668 M746 347Q825 174 902 347" fill="none" stroke="#2563eb" stroke-width="4"/>
+    <g font-size="18" text-anchor="middle">
+      <text x="137" y="400">장기 &gt; 단기</text><text x="363" y="400">장기 &lt; 단기</text>
+      <text x="589" y="400">만기별 금리 유사</text><text x="819" y="400">중간 만기가 높음</text>
+    </g>
+    <text x="40" y="477" font-size="22" font-weight="700">같은 신용위험 등 비교 조건을 맞추고 만기의 차이를 봅니다.</text>
+    <text x="40" y="520" font-size="21">곡선에는 향후 금리 기대뿐 아니라 기간 프리미엄·수급도 반영됩니다.</text>
+    <text x="40" y="562" font-size="20" fill="#9a3412">우상향만으로 미래 금리 상승이나 경기 확장을 확정할 수 없습니다.</text>
+  </g>
+</svg>
