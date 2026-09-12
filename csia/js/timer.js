@@ -30,7 +30,7 @@ class ExamTimer {
 
         if (this.remainingSeconds <= 0) {
           this.remainingSeconds = 0;
-          this.stop();
+          this.pause();
           this.onTick(this.getFormattedTime(), true);
           this.onExpire();
           return;

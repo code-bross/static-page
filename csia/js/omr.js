@@ -86,7 +86,6 @@ class OMRCard {
       const qId = parseInt(item.dataset.id, 10);
       if (qId === this.activeQuestionId) {
         item.classList.add('active-q');
-        item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       } else {
         item.classList.remove('active-q');
       }

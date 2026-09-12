@@ -1,9 +1,35 @@
 /**
  * Main Application Logic for CSIA CBT Exam Web Platform
- * Multi-Round Support (1회차 & 2회차)
+ * Shared CBT engine for the original and user-provided TomatoPass exams.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  const originalSections = [
+    { name: '1과목: 증권분석 및 증권시장', end: 35 },
+    { name: '2과목: 금융투자상품 및 직무윤리 등', end: 70 },
+    { name: '3과목: 투자법규 및 분쟁예방 등', end: 100 }
+  ];
+  const exams = Object.fromEntries([1, 2, 3, 4].map((round) => [String(round), {
+    title: `기존 실제유형 제${round}회 모의고사`,
+    subtitle: '증권투자권유자문인력 실제유형 모의고사',
+    available: true,
+    sections: originalSections,
+    questions: window[`EXAM_DATA_ROUND${round}`] || (round === 1 ? window.EXAM_DATA : []) || []
+  }]));
+  Object.assign(exams, window.TOMATO_EXAMS || {});
+  const tomatoCards = document.getElementById('tomatoRoundCards');
+  if (tomatoCards) {
+    tomatoCards.innerHTML = Object.entries(window.TOMATO_EXAMS || {}).map(([id, exam]) => `
+      <article class="round-card">
+        <div class="round-card-badge">홀인원 적중모의고사 · 2025년 11월</div>
+        <h3 class="round-card-title">${escapeHtml(exam.title)}</h3>
+        <p class="round-card-desc">${exam.available ? '원문 100문항 · 120분 · 연습/시험 모드' : escapeHtml(exam.reason)}</p>
+        <ul class="round-subject-list">${exam.sections.map((s, i) => `<li>${escapeHtml(s.name)} (${s.end - (exam.sections[i - 1]?.end || 0)}문항)</li>`).join('')}</ul>
+        ${exam.available ? `<div id="round${id}StatusBox" class="round-status-box"></div>
+          <button class="btn btn-primary btn-start-round" data-round="${id}">🚀 응시 / 이어풀기</button>` :
+          '<button class="btn btn-outline" disabled>문항지 미제공 · 응시 불가</button>'}
+      </article>`).join('') || '<p>홀인원 적중모의고사 데이터를 불러오지 못했습니다. 페이지를 새로고침하세요.</p>';
+  }
   // Views
   const roundSelectionView = document.getElementById('roundSelectionView');
   const cbtExamView = document.getElementById('cbtExamView');
@@ -21,11 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const progressBarFill = document.getElementById('progressBarFill');
   const answeredCountEl = document.getElementById('answeredCount');
 
-  // Landing Page Buttons & Status Boxes
-  const btnStartRounds = document.querySelectorAll('.btn-start-round');
-  const round1StatusBox = document.getElementById('round1StatusBox');
-  const round2StatusBox = document.getElementById('round2StatusBox');
-
   // Question Card Elements
   const qCategoryBadge = document.getElementById('qCategoryBadge');
   const qDifficultyBadge = document.getElementById('qDifficultyBadge');
@@ -35,6 +56,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const qOptionsContainer = document.getElementById('qOptionsContainer');
   const qExplanationCard = document.getElementById('qExplanationCard');
   const qExplanationText = document.getElementById('qExplanationText');
+  const qSourceImages = document.createElement('div');
+  qTitleEl.after(qSourceImages);
+  const qExplanationImages = document.createElement('div');
+  qExplanationText.after(qExplanationImages);
 
   // Navigation Buttons
   const btnPrev = document.getElementById('btnPrev');
@@ -63,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const omrTabs = document.querySelectorAll('.omr-tab');
 
   // App State
-  let currentRoundId = '1'; // '1' or '2'
+  let currentRoundId = '1';
   let examQuestions = [];
   let totalQuestions = 100;
   let currentExamMode = 'exam'; // 'exam' or 'practice'
@@ -81,6 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isWarning) timerCardEl.classList.add('warning');
         else timerCardEl.classList.remove('warning');
       }
+      if (timer.isRunning) saveSession();
     },
     onExpire: () => {
       alert('⏰ 제한시간(120분)이 종료되어 답안이 자동 제출됩니다.');
@@ -92,10 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let omrCard = new window.OMRCard({
     containerEl: omrContainer,
     totalQuestions: totalQuestions,
-    onSelectQuestion: (qId) => {
-      currentQuestionId = qId;
-      renderCurrentQuestion();
-    }
+    onSelectQuestion: (qId) => goToQuestion(qId)
   });
 
   // Dark/Light Theme Toggle
@@ -137,9 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Render Landing Page Status Cards
   function updateLandingStatuses() {
-    const round3StatusBox = document.getElementById('round3StatusBox');
-    const round4StatusBox = document.getElementById('round4StatusBox');
-    [1, 2, 3, 4].forEach((r) => {
+    Object.keys(exams).forEach((r) => {
       const answersKey = `cbt_answers_r${r}`;
       const submittedKey = `cbt_submitted_r${r}`;
       const scoreKey = `cbt_score_r${r}`;
@@ -151,11 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const score = localStorage.getItem(scoreKey);
       const isPass = localStorage.getItem(passKey) === 'true';
 
-      let targetBox = null;
-      if (r === 1) targetBox = round1StatusBox;
-      else if (r === 2) targetBox = round2StatusBox;
-      else if (r === 3) targetBox = round3StatusBox;
-      else if (r === 4) targetBox = round4StatusBox;
+      const targetBox = document.getElementById(`round${r}StatusBox`);
 
       if (!targetBox) return;
 
@@ -190,29 +207,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Round Launch Handler (direct fallback)
-  btnStartRounds.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const rId = e.currentTarget.dataset.round || '1';
-      startExamRound(rId);
-    });
-  });
-
   function startExamRound(roundId) {
-    currentRoundId = String(roundId);
-
-    // Pick Exam Dataset
-    if (currentRoundId === '1') {
-      examQuestions = window.EXAM_DATA_ROUND1 || window.EXAM_DATA || [];
-    } else if (currentRoundId === '2') {
-      examQuestions = window.EXAM_DATA_ROUND2 || [];
-    } else if (currentRoundId === '3') {
-      examQuestions = window.EXAM_DATA_ROUND3 || [];
-    } else if (currentRoundId === '4') {
-      examQuestions = window.EXAM_DATA_ROUND4 || [];
+    const exam = exams[String(roundId)];
+    if (!exam?.available || !exam.questions?.length) {
+      alert('문항지를 제공하지 않았거나 문제 데이터를 불러올 수 없습니다.');
+      return;
     }
-    totalQuestions = examQuestions.length || 100;
+    if (!cbtExamView.classList.contains('view-hidden')) saveSession();
+    timer.pause();
+    currentRoundId = String(roundId);
+    examQuestions = exam.questions;
+    totalQuestions = examQuestions.length;
 
     // Load LocalStorage per Round safely
     userAnswers = getSafeLocalStorageJSON(`cbt_answers_r${currentRoundId}`, {});
@@ -221,25 +226,29 @@ document.addEventListener('DOMContentLoaded', () => {
     isSubmitted = localStorage.getItem(`cbt_submitted_r${currentRoundId}`) === 'true';
 
     // Update Header Text
-    if (examRoundTitle) examRoundTitle.textContent = `증권투자권유자문인력 제${currentRoundId}회 모의고사`;
-    if (examRoundSubtitle) examRoundSubtitle.textContent = `제${currentRoundId}회 실제유형 모의고사 (${totalQuestions}문항 / 120분)`;
+    if (examRoundTitle) examRoundTitle.textContent = exam.title;
+    if (examRoundSubtitle) examRoundSubtitle.textContent = `${exam.subtitle} (${totalQuestions}문항 / 120분)`;
+    document.title = `${exam.title} · CBT`;
+    omrTabs.forEach((tab) => tab.classList.toggle('active', tab.dataset.filter === 'all'));
 
     // Re-init OMR Card
     if (omrContainer) {
       omrCard = new window.OMRCard({
         containerEl: omrContainer,
         totalQuestions: totalQuestions,
-        onSelectQuestion: (qId) => {
-          currentQuestionId = qId;
-          renderCurrentQuestion();
-        }
+        onSelectQuestion: (qId) => goToQuestion(qId)
       });
       omrCard.setAnswers(userAnswers);
       omrCard.setBookmarks(Array.from(bookmarks));
     }
 
     // Reset view state
-    currentQuestionId = 1;
+    const session = getSafeLocalStorageJSON(`cbt_session_r${currentRoundId}`, {});
+    currentQuestionId = Math.max(1, Math.min(totalQuestions, Number(session.question) || 1));
+    timer.reset(120);
+    timer.remainingSeconds = Math.max(0, Math.min(7200, Number.isFinite(session.remaining) ? session.remaining : 7200));
+    timer.elapsedSeconds = Math.max(0, Number(session.elapsed) || 0);
+    setMode(session.mode === 'practice' ? 'practice' : 'exam');
 
     // Switch Views
     if (roundSelectionView) roundSelectionView.classList.add('view-hidden');
@@ -249,7 +258,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Timer setup
     if (timer) {
       if (!isSubmitted) {
-        timer.start();
+        if (timer.remainingSeconds === 0 && currentExamMode === 'exam') submitExam();
+        else timer.start();
       } else {
         timer.pause();
       }
@@ -260,10 +270,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Go Back to Selection View
   btnGoHome.addEventListener('click', () => {
+    saveSession();
     timer.pause();
     cbtExamView.classList.add('view-hidden');
     roundSelectionView.classList.remove('view-hidden');
     updateLandingStatuses();
+    document.title = '증권투자권유자문인력 실제유형 모의고사 CBT';
+  });
+
+  function saveSession() {
+    if (!examQuestions.length) return;
+    localStorage.setItem(`cbt_session_r${currentRoundId}`, JSON.stringify({
+      question: currentQuestionId, mode: currentExamMode,
+      remaining: timer.remainingSeconds, elapsed: timer.elapsedSeconds
+    }));
+  }
+  window.addEventListener('pagehide', () => {
+    if (!cbtExamView.classList.contains('view-hidden')) saveSession();
   });
 
   // Mode Switcher
@@ -280,7 +303,16 @@ document.addEventListener('DOMContentLoaded', () => {
       modeExamBtn.classList.remove('active');
     }
     timer.setMode(mode);
+    saveSession();
     renderCurrentQuestion();
+  }
+
+  function sourceImages(paths, label) {
+    return (paths || []).map((path, index) =>
+      `<a class="source-image-link" href="${escapeHtml(path)}" target="_blank" rel="noopener" title="원문 이미지 크게 보기">
+        <img class="source-exam-image" src="${escapeHtml(path)}" alt="${escapeHtml(label)}${index ? ` (계속 ${index + 1})` : ''}">
+      </a>`
+    ).join('');
   }
 
   // OMR Tabs Handler
@@ -309,10 +341,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Update Difficulty Badge
     const stars = '★'.repeat(q.difficulty || 1);
     qDifficultyBadge.textContent = `난이도 ${stars}`;
+    qDifficultyBadge.hidden = !q.difficulty;
 
     // Update Number & Title
     qNumberEl.textContent = `문제 ${String(q.id).padStart(2, '0')} / ${totalQuestions}`;
-    qTitleEl.textContent = `${q.id}. ${q.question}`;
+    qTitleEl.textContent = q.questionImages ? `${q.id}. 원문 문항·보기 (이미지를 누르면 확대)` : `${q.id}. ${q.question}`;
+    qSourceImages.innerHTML = (q.questionImages ? `<p class="source-exam-note">${escapeHtml(exams[currentRoundId].subtitle)} · 원문 기준</p>` : '') +
+      sourceImages(q.questionImages, q.sourceText || `${exams[currentRoundId].title} ${q.id}번 문항과 네 개 보기`);
 
     // Update Condition Box
     if (q.box) {
@@ -340,6 +375,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const optNum = idx + 1;
       const optItem = document.createElement('div');
       optItem.className = 'option-item';
+      optItem.setAttribute('role', 'button');
+      optItem.tabIndex = isSubmitted ? -1 : 0;
+      optItem.setAttribute('aria-pressed', String(selectedAns === optNum));
 
       if (selectedAns === optNum) {
         optItem.classList.add('selected');
@@ -369,6 +407,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isSubmitted) return; // Locked if submitted
         selectOption(currentQuestionId, optNum);
       });
+      optItem.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          optItem.click();
+        }
+      });
 
       qOptionsContainer.appendChild(optItem);
     });
@@ -376,9 +420,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Explanation Visibility
     if ((currentExamMode === 'practice' && selectedAns !== undefined) || isSubmitted) {
       qExplanationCard.style.display = 'block';
-      qExplanationText.textContent = `[정답: ${q.correctAnswer}번] ${q.explanation || '해설이 제공됩니다.'}`;
+      qExplanationText.textContent = `[정답: ${q.correctAnswer}번] ${q.answerNote || ''} ${q.explanation || '해설이 제공됩니다.'}`;
+      qExplanationImages.innerHTML = sourceImages(q.explanationImages, `${q.id}번 정답·해설 원문`);
     } else {
       qExplanationCard.style.display = 'none';
+      qExplanationImages.innerHTML = '';
     }
 
     // Navigation Buttons State
@@ -388,6 +434,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Sync OMR Card
     omrCard.setActiveQuestion(currentQuestionId);
     updateProgress();
+    saveSession();
   }
 
   // Select Option Handler
@@ -405,17 +452,21 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Navigation Listeners
+  function goToQuestion(qId) {
+    currentQuestionId = qId;
+    renderCurrentQuestion();
+    document.querySelector('.question-card').scrollIntoView({ block: 'start' });
+  }
+
   btnPrev.addEventListener('click', () => {
     if (currentQuestionId > 1) {
-      currentQuestionId--;
-      renderCurrentQuestion();
+      goToQuestion(currentQuestionId - 1);
     }
   });
 
   btnNext.addEventListener('click', () => {
     if (currentQuestionId < totalQuestions) {
-      currentQuestionId++;
-      renderCurrentQuestion();
+      goToQuestion(currentQuestionId + 1);
     }
   });
 
@@ -436,8 +487,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const q = examQuestions.find((item) => item.id === currentQuestionId);
     if (!q) return;
 
-    modalPageImage.src = `assets/images/${currentRoundId}/${q.pageImage}`;
-    modalPageTitle.textContent = `원본 시험지 페이지 (${q.pageImage}) - 문제 ${q.id}번`;
+    modalPageImage.src = q.questionImages ? q.pageImage : `assets/images/${currentRoundId}/${q.pageImage}`;
+    modalPageTitle.textContent = `${exams[currentRoundId].title} 원본 시험지 - 문제 ${q.id}번`;
     imageModal.classList.add('open');
   });
 
@@ -457,7 +508,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Reset Exam Progress
   btnReset.addEventListener('click', () => {
-    if (confirm(`제${currentRoundId}회 모의고사의 모든 답안과 진행 상황을 초기화하시겠습니까?`)) {
+    if (confirm(`${exams[currentRoundId].title}의 모든 답안과 진행 상황을 초기화하시겠습니까?`)) {
       userAnswers = {};
       bookmarks.clear();
       isSubmitted = false;
@@ -466,6 +517,7 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.removeItem(`cbt_submitted_r${currentRoundId}`);
       localStorage.removeItem(`cbt_score_r${currentRoundId}`);
       localStorage.removeItem(`cbt_pass_r${currentRoundId}`);
+      localStorage.removeItem(`cbt_session_r${currentRoundId}`);
 
       omrCard.setAnswers(userAnswers);
       omrCard.setBookmarks([]);
@@ -481,7 +533,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const answeredCount = omrCard.getAnsweredCount();
     const unansweredCount = totalQuestions - answeredCount;
 
-    let msg = `제${currentRoundId}회 모의고사 총 ${totalQuestions}문항 중 ${answeredCount}문항에 답안을 작성하셨습니다.`;
+    let msg = `${exams[currentRoundId].title} 총 ${totalQuestions}문항 중 ${answeredCount}문항에 답안을 작성하셨습니다.`;
     if (unansweredCount > 0) {
       msg += `\n⚠️ 미작성된 문제: ${unansweredCount}개`;
     }
@@ -495,34 +547,21 @@ document.addEventListener('DOMContentLoaded', () => {
   function submitExam() {
     isSubmitted = true;
     timer.pause();
+    resultModal.querySelector('.modal-title').textContent = `${exams[currentRoundId].title} 최종 성적표`;
 
     localStorage.setItem(`cbt_submitted_r${currentRoundId}`, 'true');
 
     // Calculate Scores
-    let totalCorrect = 0;
-    let sec1Correct = 0, sec1Total = 35; // Q1~35
-    let sec2Correct = 0, sec2Total = 35; // Q36~70
-    let sec3Correct = 0, sec3Total = 30; // Q71~100
-
-    examQuestions.forEach((q) => {
-      const userAns = userAnswers[q.id];
-      const isCorrect = userAns === q.correctAnswer;
-
-      if (isCorrect) {
-        totalCorrect++;
-        if (q.id <= 35) sec1Correct++;
-        else if (q.id <= 70) sec2Correct++;
-        else sec3Correct++;
-      }
+    const totalCorrect = examQuestions.filter((q) => userAnswers[q.id] === q.correctAnswer).length;
+    const sections = exams[currentRoundId].sections.map((section, index, all) => {
+      const questions = examQuestions.filter((q) => q.id > (all[index - 1]?.end || 0) && q.id <= section.end);
+      const correct = questions.filter((q) => userAnswers[q.id] === q.correctAnswer).length;
+      return { name: section.name, total: questions.length, correct, rate: correct / questions.length * 100 };
     });
-
     const score = Math.round((totalCorrect / totalQuestions) * 100);
-    const sec1Rate = Math.round((sec1Correct / sec1Total) * 100);
-    const sec2Rate = Math.round((sec2Correct / sec2Total) * 100);
-    const sec3Rate = Math.round((sec3Correct / sec3Total) * 100);
 
     // Pass / Fail Judgment: Total >= 60 AND no section < 40%
-    const hasFailSection = sec1Rate < 40 || sec2Rate < 40 || sec3Rate < 40;
+    const hasFailSection = sections.some((section) => section.rate < 40);
     const isPassed = score >= 60 && !hasFailSection;
 
     // Save score status per round
@@ -543,26 +582,13 @@ document.addEventListener('DOMContentLoaded', () => {
     resultScoreDisplay.innerHTML = `${score}<span> / 100점</span>`;
 
     // Render Section Breakdown
-    resultSectionBody.innerHTML = `
+    resultSectionBody.innerHTML = sections.map((section) => `
       <tr>
-        <td>1과목: 증권분석 및 증권시장 (35문항)</td>
-        <td>${sec1Correct} / ${sec1Total}개</td>
-        <td>${sec1Rate}%</td>
-        <td class="${sec1Rate >= 40 ? 'section-pass' : 'section-fail'}">${sec1Rate >= 40 ? '통과' : '과락'}</td>
-      </tr>
-      <tr>
-        <td>2과목: 금융투자상품 및 직무윤리 등 (35문항)</td>
-        <td>${sec2Correct} / ${sec2Total}개</td>
-        <td>${sec2Rate}%</td>
-        <td class="${sec2Rate >= 40 ? 'section-pass' : 'section-fail'}">${sec2Rate >= 40 ? '통과' : '과락'}</td>
-      </tr>
-      <tr>
-        <td>3과목: 투자법규 및 분쟁예방 등 (30문항)</td>
-        <td>${sec3Correct} / ${sec3Total}개</td>
-        <td>${sec3Rate}%</td>
-        <td class="${sec3Rate >= 40 ? 'section-pass' : 'section-fail'}">${sec3Rate >= 40 ? '통과' : '과락'}</td>
-      </tr>
-    `;
+        <td>${escapeHtml(section.name)} (${section.total}문항)</td>
+        <td>${section.correct} / ${section.total}개</td>
+        <td>${Math.round(section.rate)}%</td>
+        <td class="${section.rate >= 40 ? 'section-pass' : 'section-fail'}">${section.rate >= 40 ? '통과' : '과락'}</td>
+      </tr>`).join('');
 
     resultModal.classList.add('open');
     renderCurrentQuestion();
@@ -577,8 +603,7 @@ document.addEventListener('DOMContentLoaded', () => {
     resultModal.classList.remove('open');
     const wrongQ = examQuestions.find((q) => userAnswers[q.id] !== q.correctAnswer);
     if (wrongQ) {
-      currentQuestionId = wrongQ.id;
-      renderCurrentQuestion();
+      goToQuestion(wrongQ.id);
     }
   });
 
@@ -618,12 +643,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!pdfBtn) return;
       e.stopPropagation();
       const rId = pdfBtn.dataset.round;
-      let questions = [];
-      if (rId === '1') questions = window.EXAM_DATA_ROUND1 || window.EXAM_DATA || [];
-      else if (rId === '2') questions = window.EXAM_DATA_ROUND2 || [];
-      else if (rId === '3') questions = window.EXAM_DATA_ROUND3 || [];
-      else if (rId === '4') questions = window.EXAM_DATA_ROUND4 || [];
-      const savedAns = JSON.parse(localStorage.getItem(`cbt_answers_r${rId}`) || '{}');
+      const questions = exams[rId]?.questions || [];
+      const savedAns = getSafeLocalStorageJSON(`cbt_answers_r${rId}`, {});
       openWrongAnswerModal(rId, questions, savedAns);
     });
   }
@@ -645,9 +666,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Print Button Handler (Native High-Res Vector PDF Print)
   if (btnWrongModalPrint) {
-    btnWrongModalPrint.addEventListener('click', () => {
+    btnWrongModalPrint.addEventListener('click', printWrongAnswers);
+  }
+
+  async function printWrongAnswers() {
+    try {
+      await Promise.all(Array.from(wrongQuestionsListContainer.querySelectorAll('img'), (image) => image.decode()));
       window.print();
-    });
+    } catch {
+      alert('원문 이미지를 불러오지 못했습니다. 연결을 확인한 뒤 다시 인쇄하세요.');
+    }
   }
 
   // Download PDF Handler (html2pdf with fallback to native print)
@@ -661,8 +689,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('wrongQuestionsListContainer');
     if (!container) return;
 
-    if (!window.html2pdf) {
-      window.print();
+    // Image-rich notes can exceed the browser's single-canvas size limit.
+    // Native print supports multi-page output and Save as PDF without rasterizing it all.
+    if (!window.html2pdf || currentWrongModalQuestions.some((q) => q.questionImages)) {
+      printWrongAnswers();
       return;
     }
 
@@ -671,7 +701,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const opt = {
       margin: [10, 10, 10, 10],
-      filename: `증투_제${currentWrongModalRoundId}회_오답분석노트.pdf`,
+      filename: `${exams[currentWrongModalRoundId].title}_오답분석노트.pdf`,
       image: { type: 'jpeg', quality: 0.98 },
       html2canvas: { scale: 1.5, useCORS: true, scrollY: 0, scrollX: 0, logging: false },
       jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
@@ -695,6 +725,9 @@ document.addEventListener('DOMContentLoaded', () => {
     currentWrongModalRoundId = String(roundId);
     currentWrongModalQuestions = questions;
     currentWrongModalAnswers = answers || {};
+    if (btnWrongModalDownload) {
+      btnWrongModalDownload.textContent = questions.some((q) => q.questionImages) ? '📥 PDF 저장 (인쇄창)' : '📥 PDF 다운로드';
+    }
 
     const answeredWrongList = [];
     const unansweredList = [];
@@ -743,10 +776,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const score = Math.round((correctCount / questions.length) * 100);
 
     if (wrongModalTitle) {
-      wrongModalTitle.textContent = `제${roundId}회 모의고사 오답 분석 노트`;
+      wrongModalTitle.textContent = `${exams[roundId].title} 오답 분석 노트`;
     }
     if (wrongModalSubtitle) {
-      wrongModalSubtitle.textContent = `시험 성적: ${score}점 / 100점 (${score >= 60 ? '🎉 합격권' : '복습 요망'}) · 전체 ${questions.length}문항 중 정답 ${correctCount}개`;
+      wrongModalSubtitle.textContent = `${exams[roundId].subtitle} · 시험 성적: ${score}점 / 100점 · 전체 ${questions.length}문항 중 정답 ${correctCount}개 · 합격 여부는 과목별 과락을 포함한 채점 결과를 확인하세요.`;
     }
 
     if (wrongStatsText) {
@@ -807,7 +840,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 ${escapeHtml(q.category || '과목')}
               </span>
               <span style="background: var(--bg-surface); color: var(--text-secondary); font-size: 0.72rem; font-weight: 700; padding: 3px 8px; border-radius: 12px; border: 1px solid var(--border-color);">
-                난이도 ${stars}
+                ${q.difficulty ? `난이도 ${stars}` : '원문 문항'}
               </span>
               <span style="font-size: 0.95rem; font-weight: 800; color: var(--text-primary); margin-left: 4px;">
                 문제 ${q.id}번 / ${questions.length}
@@ -823,6 +856,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div style="font-size: 1.02rem; font-weight: 700; color: var(--text-primary); line-height: 1.55; margin-bottom: 0.85rem; white-space: pre-wrap; word-break: break-word;">
             ${q.id}. ${escapeHtml(q.question)}
           </div>
+          ${sourceImages(q.questionImages, `${q.id}번 문항과 보기`)}
 
           ${q.box ? `
             <div style="background: var(--bg-surface); border-left: 4px solid #3b82f6; border-top: 1px solid var(--border-color); border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 0.85rem 1rem; font-size: 0.9rem; color: var(--text-primary); line-height: 1.6; margin-bottom: 1rem; border-radius: 0 8px 8px 0; white-space: pre-wrap; word-break: break-word;">
@@ -881,8 +915,10 @@ document.addEventListener('DOMContentLoaded', () => {
               <span>💡</span> [정답: ${correctChoice}번] 상세 해설
             </div>
             <div style="font-size: 0.88rem; color: #1e3a8a; line-height: 1.55; white-space: pre-wrap; word-break: break-word;">
+              ${escapeHtml(q.answerNote || '')}
               ${escapeHtml(q.explanation || '상세 해설이 제공됩니다.')}
             </div>
+            ${sourceImages(q.explanationImages, `${q.id}번 해설`)}
           </div>
 
         </div>
@@ -900,17 +936,17 @@ document.addEventListener('DOMContentLoaded', () => {
   // Keyboard Shortcuts (Arrow Left/Right, 1-4 option select)
   document.addEventListener('keydown', (e) => {
     if (cbtExamView.classList.contains('view-hidden')) return;
-    if (imageModal.classList.contains('open') || resultModal.classList.contains('open')) return;
+    if (imageModal.classList.contains('open') || resultModal.classList.contains('open') || wrongAnswerModal?.classList.contains('open')) return;
 
     if (e.key === 'ArrowLeft') {
+      e.preventDefault();
       if (currentQuestionId > 1) {
-        currentQuestionId--;
-        renderCurrentQuestion();
+        goToQuestion(currentQuestionId - 1);
       }
     } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
       if (currentQuestionId < totalQuestions) {
-        currentQuestionId++;
-        renderCurrentQuestion();
+        goToQuestion(currentQuestionId + 1);
       }
     } else if (['1', '2', '3', '4'].includes(e.key)) {
       if (!isSubmitted) {

@@ -988,3 +988,30 @@ body {
 }
 
 
+.source-exam-image {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  margin: 0.75rem auto;
+  background: white;
+  border-radius: var(--radius-md);
+}
+
+.source-exam-note {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+#tomatoTitle {
+  margin-top: 3rem;
+}
+
+.option-item:focus-visible {
+  outline: 3px solid var(--accent-color, #2563eb);
+  outline-offset: 3px;
+}
+
+.question-card {
+  scroll-margin-top: 140px;
+}
