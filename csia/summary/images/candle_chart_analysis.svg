@@ -19,9 +19,9 @@
     <g id="hammer" stroke="#dc2626" stroke-width="3"><path d="M105 83V151"/><path d="M96 87H114V108H96Z" fill="#dc2626"/></g>
     <g id="hanging" stroke="#2563eb" stroke-width="3"><path d="M105 18V88"/><path d="M96 23H114V45H96Z" fill="#2563eb"/></g>
     <g id="inverted" stroke="#dc2626" stroke-width="3"><path d="M105 73V143"/><path d="M96 116H114V138H96Z" fill="#dc2626"/></g>
-    <g id="shooting" stroke="#2563eb" stroke-width="3"><path d="M105 12V82"/><path d="M96 55H114V77H96Z" fill="#2563eb"/></g>
+    <g id="shooting" stroke="#2563eb" stroke-width="3"><path d="M105 10V61"/><path d="M96 61H114V73H96Z" fill="#2563eb"/></g>
     <g id="bull-belt" stroke="#dc2626" stroke-width="3"><path d="M105 65V82"/><path d="M96 82H114V143H96Z" fill="#dc2626"/></g>
-    <g id="bear-belt" stroke="#2563eb" stroke-width="3"><path d="M105 87V102"/><path d="M96 25H114V87H96Z" fill="#2563eb"/></g>
+    <g id="bear-belt" stroke="#2563eb" stroke-width="3"><path d="M105 65V80"/><path d="M96 5H114V65H96Z" fill="#2563eb"/></g>
     <g id="bull-engulf">
       <g stroke="#2563eb" stroke-width="2"><path d="M100 78V137"/><path d="M92 90H108V123H92Z" fill="#2563eb"/></g>
       <g stroke="#dc2626" stroke-width="2"><path d="M131 65V147"/><path d="M122 78H140V135H122Z" fill="#dc2626"/></g>
@@ -41,37 +41,43 @@
     <g id="piercing">
       <g stroke="#2563eb" stroke-width="2"><path d="M100 70V137"/><path d="M91 78H109V130H91Z" fill="#2563eb"/></g>
       <g stroke="#dc2626" stroke-width="2"><path d="M133 87V156"/><path d="M124 95H142V147H124Z" fill="#dc2626"/></g>
-      <path d="M84 104H153" stroke="#94a3b8" stroke-dasharray="3 3"/>
+      <path d="M78 104H158" fill="none" stroke="#6d28d9" stroke-width="3" stroke-dasharray="6 3"/>
     </g>
     <g id="dark-cloud">
       <g stroke="#dc2626" stroke-width="2"><path d="M100 25V92"/><path d="M91 33H109V85H91Z" fill="#dc2626"/></g>
       <g stroke="#2563eb" stroke-width="2"><path d="M133 9V78"/><path d="M124 18H142V70H124Z" fill="#2563eb"/></g>
-      <path d="M84 59H153" stroke="#94a3b8" stroke-dasharray="3 3"/>
+      <path d="M78 59H158" fill="none" stroke="#6d28d9" stroke-width="3" stroke-dasharray="6 3"/>
     </g>
     <g id="bull-counter">
       <g stroke="#2563eb" stroke-width="2"><path d="M100 60V120"/><path d="M91 70H109V110H91Z" fill="#2563eb"/></g>
       <g stroke="#dc2626" stroke-width="2"><path d="M133 100V157"/><path d="M124 110H142V148H124Z" fill="#dc2626"/></g>
-      <path d="M83 110H153" stroke="#64748b" stroke-dasharray="3 3"/>
+      <path d="M78 110H158" fill="none" stroke="#6d28d9" stroke-width="3" stroke-dasharray="6 3"/>
     </g>
     <g id="bear-counter">
       <g stroke="#dc2626" stroke-width="2"><path d="M100 57V118"/><path d="M91 67H109V108H91Z" fill="#dc2626"/></g>
       <g stroke="#2563eb" stroke-width="2"><path d="M133 12V77"/><path d="M124 22H142V67H124Z" fill="#2563eb"/></g>
-      <path d="M83 67H153" stroke="#64748b" stroke-dasharray="3 3"/>
+      <path d="M78 67H158" fill="none" stroke="#6d28d9" stroke-width="3" stroke-dasharray="6 3"/>
     </g>
     <g id="morning">
       <g stroke="#2563eb" stroke-width="2"><path d="M91 72V132"/><path d="M84 80H98V124H84Z" fill="#2563eb"/></g>
-      <g stroke="#64748b" stroke-width="2"><path d="M119 130V153"/><path d="M113 138H125V145H113Z" fill="white"/></g>
+      <g stroke="#dc2626" stroke-width="2"><path d="M119 130V153"/><path d="M113 138H125V145H113Z" fill="#dc2626"/></g>
       <g stroke="#dc2626" stroke-width="2"><path d="M147 83V136"/><path d="M140 92H154V129H140Z" fill="#dc2626"/></g>
+      <path d="M78 102H162" fill="none" stroke="#6d28d9" stroke-width="3" stroke-dasharray="6 3"/>
     </g>
     <g id="evening">
       <g stroke="#dc2626" stroke-width="2"><path d="M91 33V93"/><path d="M84 41H98V85H84Z" fill="#dc2626"/></g>
-      <g stroke="#64748b" stroke-width="2"><path d="M119 12V35"/><path d="M113 20H125V27H113Z" fill="white"/></g>
+      <g stroke="#2563eb" stroke-width="2"><path d="M119 12V35"/><path d="M113 20H125V27H113Z" fill="#2563eb"/></g>
       <g stroke="#2563eb" stroke-width="2"><path d="M147 29V82"/><path d="M140 36H154V73H140Z" fill="#2563eb"/></g>
+      <path d="M78 63H162" fill="none" stroke="#6d28d9" stroke-width="3" stroke-dasharray="6 3"/>
     </g>
     <g id="crows">
+      <g stroke="#dc2626" stroke-width="2">
+        <path d="M91 47V131"/>
+        <path d="M84 55H98V122H84Z" fill="#dc2626"/>
+      </g>
       <g stroke="#2563eb" stroke-width="2">
-        <path d="M91 19V79 M121 52V112 M151 85V145"/>
-        <path d="M84 27H98V70H84Z M114 60H128V103H114Z M144 93H158V136H144Z" fill="#2563eb"/>
+        <path d="M121 19V52 M151 7V94"/>
+        <path d="M114 27H128V44H114Z M144 15H158V86H144Z" fill="#2563eb"/>
       </g>
     </g>
   </defs>
@@ -102,12 +108,33 @@
       <g transform="translate(804 247)"><g transform="scale(.78 1)"><use href="#fall"/><use href="#morning"/><use href="#after-up" x="163" y="92"/></g><text x="87" y="186">샛별형</text></g>
       <g transform="translate(998 247)"><g transform="scale(.78 1)"><use href="#rise"/><use href="#evening"/><use href="#after-down" x="163" y="73"/></g><text x="87" y="186">석별형</text></g>
       <g transform="translate(28 451)"><g transform="scale(.78 1)"><use href="#fall"/><use href="#inverted"/><use href="#after-up" x="122" y="116"/></g><text x="87" y="186">역전된 해머형</text></g>
-      <g transform="translate(222 451)"><g transform="scale(.78 1)"><use href="#rise"/><use href="#shooting"/><use href="#after-down" x="122" y="77"/></g><text x="87" y="186">유성형</text></g>
+      <g transform="translate(222 451)">
+        <g transform="scale(.78 1)">
+          <path d="M36 135V157 M55 112V134 M74 88V110" fill="none" stroke="#64748b" stroke-width="3" stroke-linecap="round"/>
+          <use href="#shooting"/>
+          <path d="M130 88V110 M149 112V134 M168 135V157" fill="none" stroke="#2563eb" stroke-width="3" stroke-dasharray="5 4" stroke-linecap="round"/>
+        </g>
+        <text x="87" y="186">유성형</text>
+      </g>
       <g transform="translate(416 451)"><g transform="scale(.78 1)"><use href="#fall"/><use href="#bull-harami"/><use href="#after-up" x="149" y="101"/></g><text x="87" y="186">상승잉태형</text></g>
       <g transform="translate(610 451)"><g transform="scale(.78 1)"><use href="#rise"/><use href="#bear-harami"/><use href="#after-down" x="149" y="62"/></g><text x="87" y="186">하락잉태형</text></g>
-      <g transform="translate(998 451)"><g transform="scale(.78 1)"><use href="#rise"/><use href="#crows"/><use href="#after-down" transform="translate(165 136) scale(1 .55)"/></g><text x="87" y="186">까마귀형 (흑삼병)</text></g>
+      <g transform="translate(988 451)">
+        <g transform="translate(-91.26 0) scale(.78 1)">
+          <path d="M16 140V160 M36 118V138 M56 96V116 M72 77V97" fill="none" stroke="#64748b" stroke-width="3" stroke-linecap="round"/>
+          <use href="#crows"/>
+          <path d="M178 99V119 M198 121V141 M218 143V163" fill="none" stroke="#2563eb" stroke-width="3" stroke-dasharray="5 4" stroke-linecap="round"/>
+        </g>
+        <text x="0" y="186">까마귀형</text>
+      </g>
       <g transform="translate(28 655)"><g transform="scale(.78 1)"><use href="#fall"/><use href="#bull-belt"/><use href="#after-up" x="122" y="82"/></g><text x="87" y="186">상승샅바형</text></g>
-      <g transform="translate(222 655)"><g transform="scale(.78 1)"><use href="#rise"/><use href="#bear-belt"/><use href="#after-down" x="122" y="87"/></g><text x="87" y="186">하락샅바형</text></g>
+      <g transform="translate(222 655)">
+        <g transform="scale(.78 1)">
+          <path d="M16 146V162 M34 127V143 M52 108V124 M70 89V105 M84 76V92" fill="none" stroke="#64748b" stroke-width="3" stroke-linecap="round"/>
+          <use href="#bear-belt"/>
+          <path d="M128 77V93 M146 99V115 M164 121V137" fill="none" stroke="#2563eb" stroke-width="3" stroke-dasharray="5 4" stroke-linecap="round"/>
+        </g>
+        <text x="87" y="186">하락샅바형</text>
+      </g>
       <g transform="translate(416 655)"><g transform="scale(.78 1)"><use href="#fall"/><use href="#piercing"/><use href="#after-up" x="153" y="95"/></g><text x="87" y="186">관통형</text></g>
       <g transform="translate(610 655)"><g transform="scale(.78 1)"><use href="#rise"/><use href="#dark-cloud"/><use href="#after-down" x="153" y="70"/></g><text x="87" y="186">먹구름형</text></g>
       <g transform="translate(416 859)"><g transform="scale(.78 1)"><use href="#fall"/><use href="#bull-counter"/><use href="#after-up" x="153" y="110"/></g><text x="87" y="186">상승반격형</text></g>
@@ -131,7 +158,7 @@
     <g font-size="19">
       <text x="835" y="763">1. 먼저 상승·하락 추세 확인</text>
       <text x="835" y="808">2. 몸통의 길이·포함 관계 확인</text>
-      <text x="835" y="853">3. 꼬리·가격 갭·종가 위치 확인</text>
+      <text x="835" y="853">3. 보라 점선: 몸통 중간·종가 기준</text>
       <text x="835" y="898">4. 점선: 이후 전환 흐름의 예시</text>
       <text x="835" y="947" fill="#475569">십자형은 시가와 종가가 유사.</text>
       <text x="835" y="978" fill="#475569">그 자체로 전환 방향을</text>
