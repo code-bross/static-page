@@ -1,0 +1,215 @@
+@page {
+  size: A4;
+  margin: 14mm 12mm;
+}
+
+html {
+  font-size: 11px;
+}
+
+body {
+  min-height: 0;
+  background: white !important;
+}
+
+*, *::before, *::after {
+  color: #17202a !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
+  border-color: #cbd5e1 !important;
+}
+
+.navbar, .footer, .print-toolbar, .calc-card, .day-selector-bar,
+#activeDayContainer, .lightbox-modal, .day-photo-gallery,
+.img-badge-overlay, .timeline-dot-icon, .progress-bar-bg {
+  display: none !important;
+}
+
+.print-only {
+  display: block !important;
+}
+
+.container, .main-content {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-section {
+  padding: 0 0 12px;
+}
+
+.hero-card, .flight-card, .budget-card, .guide-card {
+  padding: 12px;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.hero-title {
+  font-size: 22px;
+  -webkit-text-fill-color: #17202a;
+}
+
+.metrics-grid, .flight-routes-grid, .budget-overview-grid, .guide-grid {
+  display: block;
+}
+
+.metric-card {
+  padding: 6px 0;
+}
+
+.metric-value, .flight-price-val {
+  font-size: 18px;
+}
+
+.route-box {
+  padding: 10px;
+  margin-bottom: 8px;
+}
+
+.section-header {
+  margin-bottom: 12px;
+}
+
+.section-title, .day-title-text {
+  font-size: 18px;
+}
+
+.section-header, .day-header-meta, .activity-header, .activity-title {
+  break-after: avoid;
+}
+
+.category-item, .route-box, .metric-card, .guide-card, .timeline-item {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.itinerary-section, .print-day + .print-day {
+  break-before: page;
+}
+
+.timeline-list {
+  padding-left: 0;
+}
+
+.timeline-list::before, .hero-card::before {
+  display: none;
+}
+
+.timeline-content-card {
+  margin-left: 0;
+  padding: 10px;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.timeline-item {
+  margin-bottom: 10px;
+}
+
+.activity-img-box {
+  height: 38mm;
+  margin-bottom: 8px;
+  border: 0;
+  border-radius: 0;
+}
+
+.activity-img-box img {
+  object-fit: contain;
+  object-position: left center;
+}
+
+.day-summary-banner, .senior-tip-box, .photo-credit {
+  margin-bottom: 10px;
+  padding: 4px 0;
+}
+
+.photo-credit, .print-image-note {
+  font-size: 9px;
+}
+
+p {
+  orphans: 3;
+  widows: 3;
+}
+
+.print-cover-photo {
+  display: block;
+  width: 100%;
+  height: 55mm;
+  object-fit: contain;
+  margin: 12px 0;
+}
+
+.print-without-photos .activity-img-box,
+.print-without-photos .print-cover-photo,
+.print-without-photos .photo-credit,
+.print-without-photos .print-image-note {
+  display: none !important;
+}
+
+@media screen {
+  html {
+    font-size: 14px;
+  }
+
+  .print-preview .main-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px 40px;
+  }
+
+  .preview-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 16px 0;
+    background: white !important;
+    border-bottom: 1px solid #cbd5e1;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+
+  .preview-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 10px 0;
+  }
+
+  .preview-actions label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .preview-actions button:focus-visible,
+  .preview-actions input:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 3px;
+  }
+
+  .print-preview .print-day {
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 2px solid #cbd5e1;
+  }
+
+  .print-preview .activity-img-box {
+    height: 240px;
+  }
+}
+
+@media print {
+  .preview-toolbar {
+    display: none !important;
+  }
+}
