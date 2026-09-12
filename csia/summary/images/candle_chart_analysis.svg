@@ -1,7 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1160" viewBox="0 0 1200 1160" role="img" aria-labelledby="title desc">
   <title id="title">봉차트 패턴 전체 비교: 한 개봉·두 개봉·세 개봉</title>
-  <desc id="desc">원본의 패턴 분류를 벡터로 재구성했다. 한 개봉은 해머형·교수형·역전된 해머형·유성형·상승 및 하락 샅바형·십자형, 두 개봉은 장악형·잉태형·관통형·먹구름형·반격형, 세 개봉은 샛별형·석별형·까마귀형이다. 각 패턴 앞의 추세와 양봉·음봉의 위치를 함께 보여준다. 전환 가능성을 해석하는 도구이며 확정 신호는 아니다.</desc>
+  <desc id="desc">한 개봉·두 개봉·세 개봉의 패턴을 비교한다. 각 패턴 앞의 추세는 회색 실선, 뒤의 상승·하락 전환 예시는 점선으로 표시한다. 십자형은 앞선 흐름의 한 예와 이후 양방향 가능성을 보여준다. 점선은 확정 예측이 아니라 해석을 돕는 예시다.</desc>
   <defs>
+    <g id="after-up" fill="none" stroke="#dc2626" stroke-width="3" stroke-dasharray="5 4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M0 0L13 -18L23 -10L38 -32L48 -25L62 -48"/>
+      <path d="M53 -46L62 -48L62 -39" stroke-dasharray="none"/>
+    </g>
+    <g id="after-down" fill="none" stroke="#2563eb" stroke-width="3" stroke-dasharray="5 4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M0 0L13 18L23 10L38 32L48 25L62 48"/>
+      <path d="M53 46L62 48L62 39" stroke-dasharray="none"/>
+    </g>
     <g id="fall" fill="none" stroke="#64748b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
       <path d="M12 28L28 48L38 39L55 64L65 55L81 79"/>
     </g>
@@ -70,8 +78,8 @@
   <rect width="1200" height="1160" rx="24" fill="#f4f7fc"/>
   <g font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" fill="#172b4d">
     <text x="32" y="43" font-size="15" fill="#2563eb">TECHNICAL ANALYSIS / CANDLESTICK PATTERN ATLAS</text>
-    <text x="32" y="86" font-size="30" font-weight="700">봉차트 패턴, 앞선 추세와 함께 비교하세요</text>
-    <text x="32" y="120" font-size="18">원본의 한 개봉·두 개봉·세 개봉 구성 · 빨강: 양봉 / 파랑: 음봉 / 회색 선: 앞선 추세</text>
+    <text x="32" y="86" font-size="30" font-weight="700">앞선 추세 → 봉차트 패턴 → 이후 흐름</text>
+    <text x="32" y="120" font-size="18">빨강: 양봉·상승 / 파랑: 음봉·하락 / 회색 실선: 앞선 추세 / 점선: 이후 흐름의 예시</text>
     <g fill="#e2e8f0">
       <rect x="24" y="145" width="376" height="51" rx="10"/>
       <rect x="412" y="145" width="376" height="51" rx="10"/>
@@ -87,27 +95,32 @@
     </g>
     <path d="M406 145V1050 M794 145V1050 M24 447H1176 M24 651H1176 M24 855H788" stroke="#cbd5e1" stroke-width="2"/>
     <g font-size="20" text-anchor="middle">
-      <g transform="translate(28 247)"><use href="#fall"/><use href="#hammer"/><text x="87" y="186">해머형</text></g>
-      <g transform="translate(222 247)"><use href="#rise"/><use href="#hanging"/><text x="87" y="186">교수형</text></g>
-      <g transform="translate(416 247)"><use href="#fall"/><use href="#bull-engulf"/><text x="87" y="186">상승장악형</text></g>
-      <g transform="translate(610 247)"><use href="#rise"/><use href="#bear-engulf"/><text x="87" y="186">하락장악형</text></g>
-      <g transform="translate(804 247)"><use href="#fall"/><use href="#morning"/><text x="87" y="186">샛별형</text></g>
-      <g transform="translate(998 247)"><use href="#rise"/><use href="#evening"/><text x="87" y="186">석별형</text></g>
-      <g transform="translate(28 451)"><use href="#fall"/><use href="#inverted"/><text x="87" y="186">역전된 해머형</text></g>
-      <g transform="translate(222 451)"><use href="#rise"/><use href="#shooting"/><text x="87" y="186">유성형</text></g>
-      <g transform="translate(416 451)"><use href="#fall"/><use href="#bull-harami"/><text x="87" y="186">상승잉태형</text></g>
-      <g transform="translate(610 451)"><use href="#rise"/><use href="#bear-harami"/><text x="87" y="186">하락잉태형</text></g>
-      <g transform="translate(998 451)"><use href="#rise"/><use href="#crows"/><text x="87" y="186">까마귀형 (흑삼병)</text></g>
-      <g transform="translate(28 655)"><use href="#fall"/><use href="#bull-belt"/><text x="87" y="186">상승샅바형</text></g>
-      <g transform="translate(222 655)"><use href="#rise"/><use href="#bear-belt"/><text x="87" y="186">하락샅바형</text></g>
-      <g transform="translate(416 655)"><use href="#fall"/><use href="#piercing"/><text x="87" y="186">관통형</text></g>
-      <g transform="translate(610 655)"><use href="#rise"/><use href="#dark-cloud"/><text x="87" y="186">먹구름형</text></g>
-      <g transform="translate(416 859)"><use href="#fall"/><use href="#bull-counter"/><text x="87" y="186">상승반격형</text></g>
-      <g transform="translate(610 859)"><use href="#rise"/><use href="#bear-counter"/><text x="87" y="186">하락반격형</text></g>
+      <g transform="translate(28 247)"><g transform="scale(.78 1)"><use href="#fall"/><use href="#hammer"/><use href="#after-up" x="122" y="87"/></g><text x="87" y="186">해머형</text></g>
+      <g transform="translate(222 247)"><g transform="scale(.78 1)"><use href="#rise"/><use href="#hanging"/><use href="#after-down" x="122" y="45"/></g><text x="87" y="186">교수형</text></g>
+      <g transform="translate(416 247)"><g transform="scale(.78 1)"><use href="#fall"/><use href="#bull-engulf"/><use href="#after-up" x="149" y="78"/></g><text x="87" y="186">상승장악형</text></g>
+      <g transform="translate(610 247)"><g transform="scale(.78 1)"><use href="#rise"/><use href="#bear-engulf"/><use href="#after-down" x="149" y="80"/></g><text x="87" y="186">하락장악형</text></g>
+      <g transform="translate(804 247)"><g transform="scale(.78 1)"><use href="#fall"/><use href="#morning"/><use href="#after-up" x="163" y="92"/></g><text x="87" y="186">샛별형</text></g>
+      <g transform="translate(998 247)"><g transform="scale(.78 1)"><use href="#rise"/><use href="#evening"/><use href="#after-down" x="163" y="73"/></g><text x="87" y="186">석별형</text></g>
+      <g transform="translate(28 451)"><g transform="scale(.78 1)"><use href="#fall"/><use href="#inverted"/><use href="#after-up" x="122" y="116"/></g><text x="87" y="186">역전된 해머형</text></g>
+      <g transform="translate(222 451)"><g transform="scale(.78 1)"><use href="#rise"/><use href="#shooting"/><use href="#after-down" x="122" y="77"/></g><text x="87" y="186">유성형</text></g>
+      <g transform="translate(416 451)"><g transform="scale(.78 1)"><use href="#fall"/><use href="#bull-harami"/><use href="#after-up" x="149" y="101"/></g><text x="87" y="186">상승잉태형</text></g>
+      <g transform="translate(610 451)"><g transform="scale(.78 1)"><use href="#rise"/><use href="#bear-harami"/><use href="#after-down" x="149" y="62"/></g><text x="87" y="186">하락잉태형</text></g>
+      <g transform="translate(998 451)"><g transform="scale(.78 1)"><use href="#rise"/><use href="#crows"/><use href="#after-down" transform="translate(165 136) scale(1 .55)"/></g><text x="87" y="186">까마귀형 (흑삼병)</text></g>
+      <g transform="translate(28 655)"><g transform="scale(.78 1)"><use href="#fall"/><use href="#bull-belt"/><use href="#after-up" x="122" y="82"/></g><text x="87" y="186">상승샅바형</text></g>
+      <g transform="translate(222 655)"><g transform="scale(.78 1)"><use href="#rise"/><use href="#bear-belt"/><use href="#after-down" x="122" y="87"/></g><text x="87" y="186">하락샅바형</text></g>
+      <g transform="translate(416 655)"><g transform="scale(.78 1)"><use href="#fall"/><use href="#piercing"/><use href="#after-up" x="153" y="95"/></g><text x="87" y="186">관통형</text></g>
+      <g transform="translate(610 655)"><g transform="scale(.78 1)"><use href="#rise"/><use href="#dark-cloud"/><use href="#after-down" x="153" y="70"/></g><text x="87" y="186">먹구름형</text></g>
+      <g transform="translate(416 859)"><g transform="scale(.78 1)"><use href="#fall"/><use href="#bull-counter"/><use href="#after-up" x="153" y="110"/></g><text x="87" y="186">상승반격형</text></g>
+      <g transform="translate(610 859)"><g transform="scale(.78 1)"><use href="#rise"/><use href="#bear-counter"/><use href="#after-down" x="153" y="67"/></g><text x="87" y="186">하락반격형</text></g>
     </g>
     <g transform="translate(24 882)" text-anchor="middle">
       <g stroke="#475569" stroke-width="3">
         <path d="M62 51V101 M44 76H80 M188 24V132 M170 76H206 M314 24V116 M296 116H332"/>
+      </g>
+      <path d="M4 38L15 54L23 48L38 70 M130 38L141 54L149 48L164 70 M256 151L267 135L275 141L290 120" fill="none" stroke="#64748b" stroke-width="2"/>
+      <g fill="none" stroke-width="2" stroke-dasharray="4 3">
+        <path d="M84 76L97 59L104 65L119 45 M210 76L223 59L230 65L245 45 M336 116L349 99L356 105L371 85" stroke="#dc2626"/>
+        <path d="M84 76L97 93L104 87L119 107 M210 76L223 93L230 87L245 107 M336 116L349 133L356 127L371 147" stroke="#2563eb"/>
       </g>
       <g font-size="17">
         <text x="62" y="163">십자형</text><text x="188" y="163">장족십자형</text><text x="314" y="163">비석십자형</text>
@@ -119,12 +132,12 @@
       <text x="835" y="763">1. 먼저 상승·하락 추세 확인</text>
       <text x="835" y="808">2. 몸통의 길이·포함 관계 확인</text>
       <text x="835" y="853">3. 꼬리·가격 갭·종가 위치 확인</text>
-      <text x="835" y="898">4. 이후 봉·거래량으로 재확인</text>
+      <text x="835" y="898">4. 점선: 이후 전환 흐름의 예시</text>
       <text x="835" y="947" fill="#475569">십자형은 시가와 종가가 유사.</text>
       <text x="835" y="978" fill="#475569">그 자체로 전환 방향을</text>
       <text x="835" y="1006" fill="#475569">확정하지는 않습니다.</text>
     </g>
     <text x="32" y="1096" font-size="21" font-weight="700" fill="#9a3412">같은 봉 모양도 추세 위치에 따라 이름과 해석이 달라집니다.</text>
-    <text x="32" y="1131" font-size="18" fill="#475569">전형적인 형태를 단순화한 학습용 그림입니다. 패턴만으로 향후 가격이나 수익을 보장하지 않습니다.</text>
+    <text x="32" y="1131" font-size="18" fill="#475569">점선은 확정 예측이 아닙니다. 이후 봉·거래량으로 재확인하며 패턴만으로 수익을 보장하지 않습니다.</text>
   </g>
 </svg>
