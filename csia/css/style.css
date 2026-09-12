@@ -1054,6 +1054,48 @@ body {
   font-size: 0.85rem;
 }
 
+.source-reference {
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  border: 1px dashed var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.source-reference > summary { cursor: pointer; font-weight: 600; }
+.source-reference[open] > summary { margin-bottom: 0.75rem; }
+.source-reference > summary:focus-visible,
+.question-table-wrap:focus-visible { outline: 2px solid var(--primary); outline-offset: 4px; }
+
+.question-table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 0.75rem 0;
+  white-space: normal;
+}
+
+.question-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--text-primary);
+  background: var(--bg-card);
+}
+
+.question-table caption { text-align: left; font-weight: 700; padding-bottom: 0.5rem; }
+.question-table th, .question-table td {
+  border: 1px solid var(--border-color);
+  padding: 0.6rem 0.75rem;
+  vertical-align: top;
+  text-align: left;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+.question-table th { background: var(--bg-surface); font-weight: 600; }
+.question-table .numeric-cell { white-space: nowrap; font-variant-numeric: tabular-nums; }
+
 #tomatoTitle {
   margin-top: 3rem;
 }

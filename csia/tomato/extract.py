@@ -1,8 +1,9 @@
-"""Rebuild the local CBT images/data from the supplied PDFs.
+"""Legacy importer for image-based CBT data from supplied PDFs.
 
 Requires Poppler (pdftotext/pdftoppm) and Pillow. Some PDF Korean fonts have
 no text mapping: page crops, not incomplete extracted text, are authoritative.
-Run with --check to validate the existing output without rendering again.
+Reviewed text editions must not be overwritten by this incomplete text layer.
+Validate the current text edition with: node csia/tomato/test.cjs
 """
 import io
 import json
@@ -138,11 +139,19 @@ def render(path, pages, crops, folder, kind, check):
 
 def main():
     check = "--check" in sys.argv
+    target = ROOT / "data.js"
+    if target.exists():
+        existing = json.loads(target.read_text().split("=", 1)[1].strip().removesuffix(";"))
+        if any(q.get("textReady") for exam in existing.values() for q in exam.get("questions", [])):
+            raise SystemExit("Reviewed text edition exists; refusing to overwrite text or cleaned images. "
+                             "Validate with: node csia/tomato/test.cjs")
     sources = {}
     for path in ROOT.joinpath("pdfs").glob("*.pdf"):
         name = unicodedata.normalize("NFC", path.name)
         number = int(re.search(r"(\d)회", name)[1])
         sources.setdefault(number, {})["answer" if "정답" in name else "question"] = path
+    if not sources:
+        raise SystemExit("No supplied PDFs found; existing data and images were not changed.")
     registry = {}
     for number, files in sorted(sources.items()):
         answer_pages, answer_anchors = read_pdf(files["answer"], answer=True)
@@ -202,7 +211,6 @@ def main():
         render(files["question"], question_pages, q_crops, folder, "question", check)
         render(files["answer"], answer_pages, a_crops, folder, "answer", check)
         print(f"Round {number}: 100 questions, 400 options, 100 verified answers/explanations.")
-    target = ROOT / "data.js"
     output = "window.TOMATO_EXAMS = " + json.dumps(registry, ensure_ascii=False, indent=2) + ";\n"
     if check:
         assert target.read_text() == output, "Generated data differs; rebuild it."

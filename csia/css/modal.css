@@ -311,4 +311,12 @@
   .concept-reading-note, .explanation-count { color: #475569 !important; }
   .explanation-answer, .concept-answer-tag { color: #047857 !important; }
   .concept-number { background: #eff6ff !important; color: #1d4ed8 !important; }
+  .source-reference { display: none !important; }
+  .question-table-wrap { overflow: visible; }
+  .question-table, .question-table th, .question-table td {
+    background: #fff !important;
+    color: #1e293b !important;
+    border-color: #cbd5e1 !important;
+  }
+  .question-table tr { break-inside: avoid; }
 }

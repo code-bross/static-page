@@ -22,15 +22,30 @@ assert.deepEqual(Object.keys(context.window.TOMATO_EXAMS), [
   'tomato-2025-11-1', 'tomato-2025-11-2', 'tomato-2025-11-3'
 ]);
 for (const [id, exam] of Object.entries(context.window.TOMATO_EXAMS)) {
-  assert.ok(fs.existsSync(path.join(root, exam.answerPdf)));
   assert.equal(exam.available, true);
-  assert.ok(fs.existsSync(path.join(root, exam.questionPdf)));
   assert.equal(exam.questions.length, 100);
   assert.equal(exam.sections.map(s => s.end).join(','), '15,35,65,100');
   exam.questions.forEach((question, index) => {
     assert.equal(question.id, index + 1);
+    assert.equal(question.textReady, true, `${id} Q${question.id}: text edition`);
+    assert.ok(question.question.trim());
+    assert.ok(question.explanation.trim());
+    assert.doesNotMatch(question.question, /원문 문항과 보기를 읽고|[★☆]/);
+    assert.doesNotMatch(question.explanation, /사용자 제공 정답·해설 원문/);
+    assert.ok(question.box === null || typeof question.box === 'string');
     assert.equal(question.options.length, 4);
-    assert.ok(question.options.every(option => option.trim()));
+    assert.ok(question.options.every(option => typeof option === 'string' && option.trim()));
+    for (const text of [question.question, ...question.options]) {
+      assert.doesNotMatch(text, /원문 [①②③④]번 보기 선택|[\uFFFD\uE000-\uF8FF]|\n/);
+    }
+    for (const table of [...(question.tables || []), ...(question.explanationTables || [])]) {
+      assert.ok(table.headers.length > 0 && table.rows.length > 0);
+      assert.ok(table.headers.every(cell => typeof cell === 'string'));
+      for (const row of table.rows) {
+        assert.equal(row.length, table.headers.length);
+        assert.ok(row.every(cell => typeof cell === 'string'));
+      }
+    }
     assert.ok(question.correctAnswer >= 1 && question.correctAnswer <= 4);
     assert.ok(question.questionImages.length && question.explanationImages.length);
     assert.equal(question.category, exam.sections.find(s => question.id <= s.end).name);
@@ -42,6 +57,13 @@ for (const [id, exam] of Object.entries(context.window.TOMATO_EXAMS)) {
 }
 assert.equal(count, 300);
 assert.match(context.window.TOMATO_EXAMS['tomato-2025-11-1'].questions[33].answerNote, /서로 다릅니다/);
+const round2 = context.window.TOMATO_EXAMS['tomato-2025-11-2'].questions;
+assert.match(round2[0].question, /루카스 비판/);
+assert.equal(round2[0].options[1], '고전학파에 속한다');
+assert.equal(round2[23].tables[0].rows[3].join('|'), '|69,700|70');
+assert.equal(round2[23].correctAnswer, 3);
+const round3 = context.window.TOMATO_EXAMS['tomato-2025-11-3'].questions;
+assert.match(round3[90].explanationTables[0].rows[0][1], /정관에서 더 낮은 주식 보유비율/);
 const timer = new context.window.ExamTimer({ onExpire() { expired++; } });
 timer.remainingSeconds = 1;
 timer.start();
@@ -57,4 +79,4 @@ assert.equal(timer.remainingSeconds, 7200);
 assert.equal(timer.elapsedSeconds, 1);
 timer.pause();
 assert.equal(timer.isRunning, false);
-console.log('PASS: 400 existing + 300 TomatoPass questions, local assets, section mapping, timer expiry/practice.');
+console.log('PASS: 400 existing + 300 text-first TomatoPass questions, 1,200 choices, explanations, tables, local images, sections and timer.');

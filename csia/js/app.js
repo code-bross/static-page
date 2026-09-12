@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <article class="round-card">
         <div class="round-card-badge">홀인원 적중모의고사 · 2025년 11월</div>
         <h3 class="round-card-title">${escapeHtml(exam.title)}</h3>
-        <p class="round-card-desc">${exam.available ? '원문 100문항 · 120분 · 연습/시험 모드' : escapeHtml(exam.reason)}</p>
+        <p class="round-card-desc">${exam.available ? '텍스트 100문항 · 120분 · 연습/시험 모드' : escapeHtml(exam.reason)}</p>
         <ul class="round-subject-list">${exam.sections.map((s, i) => `<li>${escapeHtml(s.name)} (${s.end - (exam.sections[i - 1]?.end || 0)}문항)</li>`).join('')}</ul>
         ${exam.available ? `<div id="round${id}StatusBox" class="round-status-box"></div>
           <button class="btn btn-primary btn-start-round" data-round="${id}">🚀 응시 / 이어풀기</button>` :
@@ -317,16 +317,46 @@ document.addEventListener('DOMContentLoaded', () => {
   function sourceImages(paths, label) {
     return (paths || []).map((path, index) =>
       `<a class="source-image-link" href="${escapeHtml(path)}" target="_blank" rel="noopener" title="원문 이미지 크게 보기">
-        <img class="source-exam-image" src="${escapeHtml(path)}" alt="${escapeHtml(label)}${index ? ` (계속 ${index + 1})` : ''}">
+        <img class="source-exam-image" src="${escapeHtml(path)}" loading="lazy" alt="${escapeHtml(label)}${index ? ` (계속 ${index + 1})` : ''}">
       </a>`
     ).join('');
+  }
+
+  function sourceReference(paths, label) {
+    if (!paths?.length) return '';
+    return `<details class="source-reference"><summary>${escapeHtml(label)} 확인</summary>${sourceImages(paths, label)}</details>`;
+  }
+
+  function questionTables(tables) {
+    return (tables || []).map(table => `
+      <div class="question-table-wrap" role="region" aria-label="${escapeHtml(table.caption || '자료 표')}" tabindex="0">
+        <table class="question-table">
+          ${table.caption ? `<caption>${escapeHtml(table.caption)}</caption>` : ''}
+          <thead><tr>${table.headers.map(header => `<th scope="col">${escapeHtml(header)}</th>`).join('')}</tr></thead>
+          <tbody>${table.rows.map(row => `<tr>${row.map((cell, index) => {
+            const tag = index === 0 ? 'th' : 'td';
+            const numeric = /^[+-]?\d[\d,.%]*$/.test(cell);
+            return `<${tag}${index === 0 ? ' scope="row"' : ''} class="${numeric ? 'numeric-cell' : ''}">${escapeHtml(cell)}</${tag}>`;
+          }).join('')}</tr>`).join('')}</tbody>
+        </table>
+      </div>`.trim()).join('');
+  }
+
+  function questionConditions(q) {
+    return (q.box ? `<div class="condition-text">${escapeHtml(q.box)}</div>` : '') + questionTables(q.tables);
+  }
+
+  function explanationSources(q) {
+    return q.textReady
+      ? sourceReference(q.explanationImages, `${q.id}번 정답·해설 원문`)
+      : sourceImages(q.explanationImages, `${q.id}번 정답·해설 원문`);
   }
 
   function detailedExplanation(q) {
     return `
       <details class="explanation-section answer-reason" open>
         <summary>정답 해설 <span class="explanation-answer">정답 ${q.correctAnswer}번</span></summary>
-        <div class="explanation-section-body">${escapeHtml(q.explanation || '해설이 제공됩니다.')}</div>
+        <div class="explanation-section-body">${escapeHtml(q.explanation || '해설이 제공됩니다.')}${questionTables(q.explanationTables)}</div>
       </details>
       ${q.optionConcepts ? `
         <details class="explanation-section option-concepts" open>
@@ -383,14 +413,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Update Number & Title
     qNumberEl.textContent = `문제 ${String(q.id).padStart(2, '0')} / ${totalQuestions}`;
-    qTitleEl.textContent = q.questionImages ? `${q.id}. 원문 문항·보기 (이미지를 누르면 확대)` : `${q.id}. ${q.question}`;
-    qSourceImages.innerHTML = (q.questionImages ? `<p class="source-exam-note">${escapeHtml(exams[currentRoundId].subtitle)} · 원문 기준</p>` : '') +
-      sourceImages(q.questionImages, q.sourceText || `${exams[currentRoundId].title} ${q.id}번 문항과 네 개 보기`);
+    const imageQuestion = q.questionImages && !q.textReady;
+    qTitleEl.textContent = imageQuestion ? `${q.id}. 원문 문항·보기 (이미지를 누르면 확대)` : `${q.id}. ${q.question}`;
+    if (q.textReady) {
+      qOptionsContainer.after(qSourceImages);
+      qSourceImages.innerHTML = sourceReference(q.questionImages, `${q.id}번 문제·보기 원문`);
+    } else {
+      qTitleEl.after(qSourceImages);
+      qSourceImages.innerHTML = (imageQuestion ? `<p class="source-exam-note">${escapeHtml(exams[currentRoundId].subtitle)} · 원문 기준</p>` : '') +
+        sourceImages(q.questionImages, q.sourceText || `${exams[currentRoundId].title} ${q.id}번 문항과 네 개 보기`);
+    }
 
     // Update Condition Box
-    if (q.box) {
+    if (q.box || q.tables?.length) {
       qBoxEl.style.display = 'block';
-      qBoxEl.textContent = q.box;
+      qBoxEl.innerHTML = questionConditions(q);
     } else {
       qBoxEl.style.display = 'none';
     }
@@ -459,7 +496,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if ((currentExamMode === 'practice' && selectedAns !== undefined) || isSubmitted) {
       qExplanationCard.style.display = 'block';
       qExplanationText.innerHTML = detailedExplanation(q);
-      qExplanationImages.innerHTML = sourceImages(q.explanationImages, `${q.id}번 정답·해설 원문`);
+      qExplanationImages.innerHTML = explanationSources(q);
     } else {
       qExplanationCard.style.display = 'none';
       qExplanationImages.innerHTML = '';
@@ -525,7 +562,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const q = examQuestions.find((item) => item.id === currentQuestionId);
     if (!q) return;
 
-    modalPageImage.src = q.questionImages ? q.pageImage : `assets/images/${currentRoundId}/${q.pageImage}`;
+    modalPageImage.src = q.pageImage.includes('/') ? q.pageImage : `assets/images/${currentRoundId}/${q.pageImage}`;
     modalPageTitle.textContent = `${exams[currentRoundId].title} 원본 시험지 - 문제 ${q.id}번`;
     imageModal.classList.add('open');
   });
@@ -719,7 +756,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function printWrongAnswers() {
     try {
-      await Promise.all(Array.from(wrongQuestionsListContainer.querySelectorAll('img'), (image) => image.decode()));
+      const images = Array.from(wrongQuestionsListContainer.querySelectorAll('img'))
+        .filter(image => !image.closest('.source-reference'));
+      await Promise.all(images.map(image => image.decode()));
       window.print();
     } catch {
       alert('원문 이미지를 불러오지 못했습니다. 연결을 확인한 뒤 다시 인쇄하세요.');
@@ -904,11 +943,11 @@ document.addEventListener('DOMContentLoaded', () => {
           <div style="font-size: 1.02rem; font-weight: 700; color: var(--text-primary); line-height: 1.55; margin-bottom: 0.85rem; white-space: pre-wrap; word-break: break-word;">
             ${q.id}. ${escapeHtml(q.question)}
           </div>
-          ${sourceImages(q.questionImages, `${q.id}번 문항과 보기`)}
+          ${q.textReady ? '' : sourceImages(q.questionImages, `${q.id}번 문항과 보기`)}
 
-          ${q.box ? `
+          ${q.box || q.tables?.length ? `
             <div style="background: var(--bg-surface); border-left: 4px solid #3b82f6; border-top: 1px solid var(--border-color); border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 0.85rem 1rem; font-size: 0.9rem; color: var(--text-primary); line-height: 1.6; margin-bottom: 1rem; border-radius: 0 8px 8px 0; white-space: pre-wrap; word-break: break-word;">
-              ${escapeHtml(q.box)}
+              ${questionConditions(q)}
             </div>
           ` : ''}
 
@@ -958,9 +997,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }).join('')}
           </div>
 
+          ${q.textReady ? sourceReference(q.questionImages, `${q.id}번 문제·보기 원문`) : ''}
           <div class="explanation-body">
             ${detailedExplanation(q)}
-            ${sourceImages(q.explanationImages, `${q.id}번 해설`)}
+            ${explanationSources(q)}
           </div>
 
         </div>
@@ -979,6 +1019,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keydown', (e) => {
     if (cbtExamView.classList.contains('view-hidden')) return;
     if (imageModal.classList.contains('open') || resultModal.classList.contains('open') || wrongAnswerModal?.classList.contains('open')) return;
+    if (e.target.closest('.question-table-wrap')) return;
 
     if (e.key === 'ArrowLeft') {
       e.preventDefault();
