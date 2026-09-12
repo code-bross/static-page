@@ -288,10 +288,27 @@
   }
 
   .wrong-q-card {
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
+    page-break-inside: auto !important;
+    break-inside: auto !important;
     margin-bottom: 1.5rem !important;
     border: 1px solid #cbd5e1 !important;
   }
-}
 
+  .explanation-section, .option-concept {
+    background: #fff !important;
+    color: #1e293b !important;
+    border-color: #cbd5e1 !important;
+    overflow: visible;
+  }
+
+  .explanation-section > summary {
+    break-after: avoid;
+    color: #1e293b !important;
+  }
+
+  .option-concept { break-inside: avoid; }
+  .option-concept-heading { break-after: avoid; }
+  .concept-reading-note, .explanation-count { color: #475569 !important; }
+  .explanation-answer, .concept-answer-tag { color: #047857 !important; }
+  .concept-number { background: #eff6ff !important; color: #1d4ed8 !important; }
+}

@@ -322,6 +322,37 @@ document.addEventListener('DOMContentLoaded', () => {
     ).join('');
   }
 
+  function detailedExplanation(q) {
+    return `
+      <details class="explanation-section answer-reason" open>
+        <summary>정답 해설 <span class="explanation-answer">정답 ${q.correctAnswer}번</span></summary>
+        <div class="explanation-section-body">${escapeHtml(q.explanation || '해설이 제공됩니다.')}</div>
+      </details>
+      ${q.optionConcepts ? `
+        <details class="explanation-section option-concepts" open>
+          <summary>보기별 개념 정리 <span class="explanation-count">${q.optionConcepts.length}개 보기</span></summary>
+          <div class="explanation-section-body">
+            <p class="concept-reading-note">‘정답 보기’는 채점 기준입니다. ‘옳지 않은 것’을 묻는 문제에서는 다른 보기가 옳은 설명일 수 있습니다.</p>
+            <ol class="option-concept-list">
+              ${q.optionConcepts.map((concept, index) => `
+                <li class="option-concept">
+                  <div class="option-concept-heading">
+                    <span class="concept-number">${index + 1}</span>
+                    <h4>${escapeHtml(concept.title)}</h4>
+                    ${index + 1 === q.correctAnswer ? '<span class="concept-answer-tag">정답 보기</span>' : ''}
+                  </div>
+                  <p>${escapeHtml(concept.explanation)}</p>
+                </li>`).join('')}
+            </ol>
+          </div>
+        </details>` : ''}
+      ${q.answerNote ? `
+        <details class="explanation-section source-caution" open>
+          <summary>원문·정답 확인 메모</summary>
+          <div class="explanation-section-body">${escapeHtml(q.answerNote)}</div>
+        </details>` : ''}`;
+  }
+
   // OMR Tabs Handler
   omrTabs.forEach((tab) => {
     tab.addEventListener('click', (e) => {
@@ -427,7 +458,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Explanation Visibility
     if ((currentExamMode === 'practice' && selectedAns !== undefined) || isSubmitted) {
       qExplanationCard.style.display = 'block';
-      qExplanationText.textContent = `[정답: ${q.correctAnswer}번] ${q.answerNote || ''} ${q.explanation || '해설이 제공됩니다.'}`;
+      qExplanationText.innerHTML = detailedExplanation(q);
       qExplanationImages.innerHTML = sourceImages(q.explanationImages, `${q.id}번 정답·해설 원문`);
     } else {
       qExplanationCard.style.display = 'none';
@@ -676,6 +707,16 @@ document.addEventListener('DOMContentLoaded', () => {
     btnWrongModalPrint.addEventListener('click', printWrongAnswers);
   }
 
+  let collapsedPrintSections = [];
+  window.addEventListener('beforeprint', () => {
+    collapsedPrintSections = Array.from(wrongQuestionsListContainer.querySelectorAll('.explanation-section:not([open])'));
+    collapsedPrintSections.forEach(section => { section.open = true; });
+  });
+  window.addEventListener('afterprint', () => {
+    collapsedPrintSections.forEach(section => { section.open = false; });
+    collapsedPrintSections = [];
+  });
+
   async function printWrongAnswers() {
     try {
       await Promise.all(Array.from(wrongQuestionsListContainer.querySelectorAll('img'), (image) => image.decode()));
@@ -696,9 +737,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('wrongQuestionsListContainer');
     if (!container) return;
 
-    // Image-rich notes can exceed the browser's single-canvas size limit.
+    // Long concept explanations and images can exceed the single-canvas size limit.
     // Native print supports multi-page output and Save as PDF without rasterizing it all.
-    if (!window.html2pdf || currentWrongModalQuestions.some((q) => q.questionImages)) {
+    if (!window.html2pdf || currentWrongModalQuestions.some((q) => q.questionImages || q.optionConcepts)) {
       printWrongAnswers();
       return;
     }
@@ -733,7 +774,7 @@ document.addEventListener('DOMContentLoaded', () => {
     currentWrongModalQuestions = questions;
     currentWrongModalAnswers = answers || {};
     if (btnWrongModalDownload) {
-      btnWrongModalDownload.textContent = questions.some((q) => q.questionImages) ? '📥 PDF 저장 (인쇄창)' : '📥 PDF 다운로드';
+      btnWrongModalDownload.textContent = questions.some((q) => q.questionImages || q.optionConcepts) ? '📥 PDF 저장 (인쇄창)' : '📥 PDF 다운로드';
     }
 
     const answeredWrongList = [];
@@ -917,14 +958,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }).join('')}
           </div>
 
-          <div style="background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 0 8px 8px 0; padding: 12px 14px; margin-top: 6px;">
-            <div style="font-weight: 800; color: #1d4ed8; font-size: 0.85rem; margin-bottom: 4px; display: flex; align-items: center; gap: 6px;">
-              <span>💡</span> [정답: ${correctChoice}번] 상세 해설
-            </div>
-            <div style="font-size: 0.88rem; color: #1e3a8a; line-height: 1.55; white-space: pre-wrap; word-break: break-word;">
-              ${escapeHtml(q.answerNote || '')}
-              ${escapeHtml(q.explanation || '상세 해설이 제공됩니다.')}
-            </div>
+          <div class="explanation-body">
+            ${detailedExplanation(q)}
             ${sourceImages(q.explanationImages, `${q.id}번 해설`)}
           </div>
 

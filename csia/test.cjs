@@ -25,6 +25,12 @@ for (let round = 1; round <= 4; round++) {
     pages.add(question.pageImage);
     assert.ok(!/[\uE000-\uF8FF\uFFFD]/u.test(JSON.stringify(question)), `${label}: damaged glyph`);
     assert.ok(!question.questionImages, `${label}: retain searchable text`);
+    assert.equal(question.optionConcepts?.length, 4, `${label}: concepts for all four choices`);
+    question.optionConcepts.forEach((concept, option) => {
+      assert.ok(typeof concept.title === 'string' && concept.title.trim(), `${label} option ${option + 1}: concept title`);
+      assert.ok(typeof concept.explanation === 'string' && concept.explanation.trim().length >= 20, `${label} option ${option + 1}: substantive explanation`);
+      assert.notEqual(concept.explanation.trim(), question.options[option].trim(), `${label} option ${option + 1}: explain, not just repeat`);
+    });
   });
   assert.equal(pages.size, 27, `Round ${round}: every source page is referenced`);
 }
@@ -35,4 +41,4 @@ assert.equal(round3[61].correctAnswer, 3, 'User-confirmed round 3 Q62');
 assert.equal(round3[10].answerSource, 'user');
 assert.equal(round3[61].answerSource, 'user');
 assert.equal(round3[5].correctAnswer, 1, 'Round 3 Q6 was not the user override');
-console.log('PASS: 400 original questions, 108 source pages, choices, answer bounds, categories and user-confirmed answers.');
+console.log('PASS: 400 questions, 1,600 choice concepts, 108 source pages, categories and user-confirmed answers.');
