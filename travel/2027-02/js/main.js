@@ -3,6 +3,10 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  const previewDestination = new URLSearchParams(window.location.search).get('preview');
+  const isPrintPreview = Object.hasOwn(TRAVEL_DATA.destinations, previewDestination) &&
+    TRAVEL_DATA.destinations[previewDestination].status === 'active';
+
   // Theme Toggle Functionality (Default: Light Mode)
   const themeToggleBtn = document.getElementById('themeToggleBtn');
   const themeToggleIcon = document.getElementById('themeToggleIcon');
@@ -37,16 +41,48 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Initialize theme
-  initTheme();
+  if (isPrintPreview) {
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.body.classList.add('print-preview');
+    document.querySelector('link[href="css/print.css"]').media = 'all';
+  } else {
+    initTheme();
+  }
 
   // Current active destination ID & selected day
-  let currentDestination = 'rome';
+  let currentDestination = isPrintPreview ? previewDestination : 'rome';
   let currentDay = 1;
   let customHeadcount = 4; // Default group size (4인 가족)
 
   // Initialize UI elements
   const destTabsContainer = document.getElementById('destinationTabs');
   const mainContentContainer = document.getElementById('mainContentArea');
+  const pageTitle = document.title;
+
+  function preparePrint() {
+    const data = TRAVEL_DATA.destinations[currentDestination];
+    const container = document.getElementById('printItinerary');
+    if (!container) return;
+    if (!container.children.length) {
+      container.innerHTML = data.itinerary.map(day => `
+        <article class="print-day">${renderDayDetails(day, true)}</article>
+      `).join('');
+    }
+    return true;
+  }
+
+  window.addEventListener('beforeprint', () => {
+    if (!preparePrint()) return;
+    const data = TRAVEL_DATA.destinations[currentDestination];
+    document.title = `${data.name}_${data.dates.departure.split(' ')[0]}_${data.travelers.total}인_전체일정`;
+  });
+
+  window.addEventListener('afterprint', () => {
+    if (isPrintPreview) return;
+    document.title = pageTitle;
+    const container = document.getElementById('printItinerary');
+    if (container) container.replaceChildren();
+  });
 
   // Load Initial Destination
   renderDestination(currentDestination);
@@ -86,6 +122,26 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // HTML Markup Generation
     const html = `
+      ${isPrintPreview ? `
+        <div class="preview-toolbar">
+          <strong>${data.name} · 전체 일정 인쇄 미리보기</strong>
+          <div class="preview-actions">
+            <button type="button" class="theme-toggle-btn" id="previewPrintBtn">PDF 저장 / 인쇄</button>
+            <label><input type="checkbox" id="previewPhotos" checked> 사진 포함</label>
+            <button type="button" class="theme-toggle-btn" id="previewReloadBtn">사진 다시 불러오기</button>
+            <button type="button" class="theme-toggle-btn" id="previewCloseBtn">닫기</button>
+            <a href="index.html">플래너로 돌아가기</a>
+          </div>
+          <p>기본 ${data.travelers.total}인 예산 · 전체 ${data.itinerary.length}일. 아래 사진을 확인한 후 인쇄하세요. 인쇄창에서 ‘PDF로 저장’을 선택할 수 있습니다.</p>
+          <p id="previewImageStatus" role="status" aria-live="polite"></p>
+        </div>
+      ` : ''}
+      <div class="print-toolbar">
+        <button type="button" class="theme-toggle-btn" id="printTripBtn">📄 ${data.name} 전체 일정 인쇄 미리보기</button>
+        <p>새 팝업에서 사진을 확인한 뒤 PDF 저장 / 인쇄를 선택하세요. 항공·기본 ${data.travelers.total}인 예산·전체 ${data.itinerary.length}일·사진·여행 팁을 포함합니다. 인원 시뮬레이션은 제외됩니다.</p>
+        <p id="printStatus" role="status" aria-live="polite"></p>
+      </div>
+      <p class="print-only print-image-note">사진은 외부 제공 이미지로, 연결 상태에 따라 누락될 수 있습니다. 숙소·식당 참고 사진은 예약 확정을 의미하지 않습니다.</p>
       <!-- Hero Section -->
       <section class="hero-section">
         <div class="hero-card" style="background-image: var(--hero-card-bg)${data.heroImage ? `, url('${data.heroImage}')` : ''};">
@@ -118,6 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
           </div>
         </div>
+        ${isPrintPreview && data.heroImage ? `<img class="print-cover-photo" src="${data.heroImage}" alt="${data.heroImageCaption || `${data.name} 대표 사진`}" loading="eager">` : ''}
         ${data.heroImageSource ? `<p class="photo-credit">${data.heroImageCaption} · <a href="${data.heroImageSource}" target="_blank" rel="noopener noreferrer">사진 출처</a></p>` : ''}
       </section>
 
@@ -280,6 +337,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="active-day-container" id="activeDayContainer">
           ${renderDayDetails(data.itinerary.find(i => i.day === currentDay))}
         </div>
+        <div class="print-only" id="printItinerary"></div>
       </section>
 
       <!-- Senior Travel Tips Section -->
@@ -307,8 +365,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
     mainContentContainer.innerHTML = html;
 
-    // Attach Event Listeners for Calculator & Day Pills
-    attachEvents(data);
+    if (isPrintPreview) {
+      preparePrint();
+      document.title = `${data.name}_${data.dates.departure.split(' ')[0]}_${data.travelers.total}인_전체일정`;
+      attachPreviewEvents();
+    } else {
+      attachEvents(data);
+    }
+  }
+
+  function attachPreviewEvents() {
+    const photosToggle = document.getElementById('previewPhotos');
+    const status = document.getElementById('previewImageStatus');
+    const images = [...document.querySelectorAll('#printItinerary img, .print-cover-photo')];
+
+    function updateImageStatus() {
+      const loaded = images.filter(image => image.complete && image.naturalWidth > 0).length;
+      const failed = images.filter(image => image.complete && !image.naturalWidth).length;
+      const pending = images.length - loaded - failed;
+      status.textContent = photosToggle.checked
+        ? `사진 ${images.length}개 중 ${loaded}개 표시 · ${pending}개 로딩 중 · ${failed}개 실패. ${failed ? '실패한 사진은 다시 불러오거나 사진 포함을 해제하세요.' : '사진이 모두 보이는지 확인해 주세요.'}`
+        : '사진 없이 텍스트 일정과 예산을 인쇄합니다.';
+      return pending + failed;
+    }
+
+    images.forEach(image => {
+      image.addEventListener('load', updateImageStatus);
+      image.addEventListener('error', updateImageStatus);
+    });
+    updateImageStatus();
+
+    photosToggle.addEventListener('change', () => {
+      document.body.classList.toggle('print-without-photos', !photosToggle.checked);
+      updateImageStatus();
+    });
+    document.getElementById('previewReloadBtn').addEventListener('click', () => window.location.reload());
+    document.getElementById('previewCloseBtn').addEventListener('click', () => window.close());
+    document.getElementById('previewPrintBtn').addEventListener('click', () => {
+      const unavailable = updateImageStatus();
+      if (photosToggle.checked && unavailable &&
+          !window.confirm(`아직 표시되지 않은 사진이 ${unavailable}개 있습니다. 기다리거나 다시 불러오면 사진을 확인할 수 있습니다. 현재 상태로 인쇄할까요?`)) return;
+      window.print();
+    });
   }
 
   /**
@@ -340,7 +438,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /**
    * Render Specific Day Timeline Details
    */
-  function renderDayDetails(dayData) {
+  function renderDayDetails(dayData, forPrint = false) {
     if (!dayData) return '<p>일정 정보를 불러올 수 없습니다.</p>';
 
     // Filter activities with photos for the Top Photo Highlights Gallery
@@ -363,7 +461,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ` : ''}
 
       <!-- Top Photo Highlight Gallery Grid -->
-      ${photoActivities.length > 0 ? `
+      ${!forPrint && photoActivities.length > 0 ? `
         <div style="margin-bottom: 32px;">
           <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--accent-gold); margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
             <span>📸</span> <span>DAY 0${dayData.day} 주요 명소 & 미식 화보</span>
@@ -390,7 +488,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="timeline-content-card">
               ${act.image ? `
                 <div class="activity-img-box js-lightbox-trigger" data-img="${act.image}" data-caption="${act.imageCaption || `${act.title} (${act.tag}) - ${act.desc}`}">
-                  <img src="${act.image}" alt="${act.imageCaption || act.title}" loading="lazy" onerror="this.alt='사진을 불러오지 못했습니다';">
+                  <img src="${act.image}" alt="${act.imageCaption || act.title}" loading="${forPrint ? 'eager' : 'lazy'}" onerror="this.alt='사진을 불러오지 못했습니다';">
                   <span class="img-badge-overlay">🔍 크게 보기</span>
                 </div>
                 ${act.imageSource ? `<p class="photo-credit">${act.imageCaption} · <a href="${act.imageSource}" target="_blank" rel="noopener noreferrer">사진 출처</a></p>` : ''}
@@ -428,6 +526,25 @@ document.addEventListener('DOMContentLoaded', () => {
    * Event Listeners Attachment
    */
   function attachEvents(data) {
+    const printButton = document.getElementById('printTripBtn');
+    printButton.addEventListener('click', () => {
+      const status = document.getElementById('printStatus');
+      const url = new URL(window.location.href);
+      url.searchParams.set('preview', data.id);
+      url.hash = '';
+      const popup = window.open(url.href, '_blank', 'popup,width=1100,height=850,scrollbars=yes,resizable=yes');
+      if (!popup) {
+        status.textContent = '미리보기 팝업이 차단되었습니다. 브라우저에서 이 사이트의 팝업을 허용한 후 다시 눌러 주세요.';
+        const link = document.createElement('a');
+        link.href = url.href;
+        link.textContent = '현재 탭에서 미리보기 열기';
+        status.append(' ', link);
+        return;
+      }
+      popup.opener = null;
+      status.textContent = '전체 일정 미리보기를 열었습니다. 팝업에서 사진을 확인한 후 PDF 저장 / 인쇄를 눌러 주세요.';
+    });
+
     // Day Selection Pill Click
     const dayPills = document.querySelectorAll('.day-pill-btn');
     const dayContainer = document.getElementById('activeDayContainer');

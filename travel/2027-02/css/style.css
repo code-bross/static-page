@@ -267,6 +267,37 @@ body {
   padding: 40px 0 24px;
 }
 
+.print-only {
+  display: none;
+}
+
+.print-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.print-toolbar p {
+  flex: 1 1 280px;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.print-toolbar button {
+  white-space: normal;
+}
+
+.print-toolbar button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+#printStatus:not(:empty) {
+  flex-basis: 100%;
+}
+
 .photo-credit {
   margin: 10px 0 16px;
   color: var(--text-secondary);
