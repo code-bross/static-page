@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark" data-ha-style="document">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="증권투자권유자문인력 핵심 체크포인트. PDF 23쪽의 개념·비교표·수식을 읽기 편하게 정리하고 과목별 탐색, 검색, 원문 대조를 제공합니다.">
+  <meta property="og:title" content="증권투자권유자문인력 · 핵심 체크포인트">
+  <meta property="og:description" content="개념부터 표와 수식까지, 원문과 함께 읽는 체크포인트 학습 노트">
+  <title>증권투자권유자문인력 · 핵심 체크포인트</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    :root { --reading-size: 18px; }
+    body { background: var(--bg-body); color: var(--text-primary); line-height: 1.6; }
+    a { color: var(--primary); }
+    button, input, select { font: inherit; }
+    button, select, .btn { min-height: 44px; }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible,
+    summary:focus-visible { outline: 3px solid var(--primary); outline-offset: 4px; }
+    [hidden] { display: none !important; }
+    .skip-link { position: absolute; top: -100px; left: 1rem; z-index: 200; padding: 1rem; background: var(--bg-card); }
+    .skip-link:focus { top: 0.5rem; }
+    .summary-header { position: sticky; top: 0; z-index: 100; padding: 0.75rem 1.5rem; background: var(--glass-bg); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-color); }
+    .summary-nav { max-width: 1200px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .nav-group { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+    .nav-title { font-size: 1.05rem; font-weight: 800; color: var(--primary); }
+    .hero-banner { max-width: 1200px; margin: 1.5rem auto; padding: 1.75rem 2rem; background: linear-gradient(135deg, rgba(37, 99, 235, 0.22), rgba(168, 85, 247, 0.16)); border: 1px solid var(--border-color); border-radius: var(--radius-lg); }
+    .eyebrow { color: var(--primary); font-size: 0.8rem; font-weight: 800; letter-spacing: 0.1em; }
+    .hero-banner h1 { margin: 0.5rem 0; font-size: clamp(1.7rem, 4vw, 2.3rem); line-height: 1.35; letter-spacing: -0.04em; }
+    .hero-banner p { color: var(--text-secondary); }
+    .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.1rem; }
+    .reference-notice { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.75; }
+    .source-notice { max-width: 1200px; margin: 0 auto 1.5rem; padding: 1rem 1.25rem; border-left: 3px solid var(--primary); background: var(--bg-card); border-radius: var(--radius-sm); }
+    .filter-bar { max-width: 1200px; margin: 0 auto 1.5rem; display: grid; gap: 0.85rem; }
+    .search-row { display: flex; align-items: center; gap: 0.75rem; }
+    .search-box { flex: 1; }
+    .search-box input { width: 100%; padding: 0.85rem 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-full); background: var(--bg-card); color: var(--text-primary); }
+    .category-pills { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .pill-btn { border-radius: var(--radius-full); padding: 0.5rem 1rem; border: 1px solid var(--border-color); background: var(--bg-card); color: var(--text-secondary); font-weight: 700; cursor: pointer; }
+    .pill-btn.active { background: var(--primary); color: var(--text-inverse); border-color: var(--primary); }
+    .reader-controls { display: flex; align-items: center; flex-wrap: wrap; justify-content: space-between; gap: 0.75rem; }
+    .reader-controls label { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: var(--text-secondary); }
+    select { padding: 0.35rem 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: var(--bg-card); color: var(--text-primary); }
+    .reading-layout { max-width: 1200px; margin: 0 auto 3rem; display: grid; grid-template-columns: 225px minmax(0, 1fr); gap: 1.5rem; align-items: start; }
+    .reading-rail { position: sticky; top: 90px; max-height: calc(100vh - 110px); overflow: auto; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1rem; }
+    .reading-rail summary { cursor: pointer; font-weight: 800; padding: 0.35rem 0; }
+    .chapter-links { display: flex; flex-direction: column; gap: 0.25rem; padding-top: 0.75rem; }
+    .chapter-links a { padding: 0.65rem; border-radius: var(--radius-sm); text-decoration: none; color: var(--text-secondary); font-size: 0.9rem; }
+    .chapter-links a:hover, .chapter-links a[aria-current] { background: var(--primary-light); color: var(--primary); }
+    .chapter-links small { display: block; font-size: 0.75rem; }
+    .chapters-container { min-width: 0; display: grid; gap: 1.5rem; }
+    .chapter-card { min-width: 0; padding: 1.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-lg); background: var(--bg-card); box-shadow: var(--shadow-md); scroll-margin-top: 95px; }
+    .chapter-header { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.75rem; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 1.15rem; margin-bottom: 1.5rem; }
+    .subj-tag { display: inline-block; padding: 0.2rem 0.65rem; background: var(--primary-light); color: var(--primary); font-size: 0.8rem; font-weight: 800; border-radius: var(--radius-full); margin-bottom: 0.5rem; }
+    .chapter-title { font-size: 1.5rem; letter-spacing: -0.03em; line-height: 1.4; }
+    .chapter-meta { color: var(--text-secondary); font-size: 0.8rem; margin-top: 0.45rem; }
+    .section-block { background: var(--bg-surface); padding: 1.3rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); margin-top: 1rem; }
+    .section-subtitle { font-size: 1.12rem; line-height: 1.5; border-left: 4px solid var(--primary); padding-left: 0.7rem; margin-bottom: 1rem; }
+    .section-body { font-size: var(--reading-size); line-height: 1.9; word-break: keep-all; overflow-wrap: anywhere; }
+    .section-body p + p, .section-body ul, .section-body ol { margin-top: 0.6rem; }
+    .section-body ul, .section-body ol { padding-left: 1.4em; margin-bottom: 0.8rem; }
+    .section-body li + li { margin-top: 0.4rem; }
+    .section-body h4 { margin-top: 1.3rem; margin-bottom: 0.6rem; font-size: 1em; color: var(--primary); }
+    .section-body h4:first-child { margin-top: 0; }
+    .section-body strong { font-weight: 800; }
+    .formula, .callout { margin: 1rem 0; padding: 0.85rem 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); }
+    .formula { font-variant-numeric: tabular-nums; font-weight: 700; }
+    .callout { border-left: 3px solid var(--primary); }
+    .table-wrap { max-width: 100%; overflow-x: auto; margin: 1rem 0; border: 1px solid var(--border-color); border-radius: var(--radius-sm); }
+    .section-body table { width: 100%; border-collapse: collapse; font-size: 0.9em; line-height: 1.7; }
+    .section-body th, .section-body td { padding: 0.75rem; border: 1px solid var(--border-color); text-align: left; vertical-align: top; min-width: 6em; }
+    .section-body th { background: var(--bg-surface-hover); font-weight: 800; }
+    mark { background: #fde68a; color: #172033; border-radius: 2px; }
+    .source-reference { margin-top: 1.4rem; border-top: 1px solid var(--border-color); padding-top: 1rem; }
+    .source-reference summary { cursor: pointer; color: var(--primary); font-weight: 700; padding: 0.3rem 0; }
+    .source-reference figure { margin: 1rem 0; }
+    .source-reference img { display: block; width: 100%; height: auto; background: white; border-radius: var(--radius-sm); }
+    .source-reference figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.6rem; font-size: 0.85rem; }
+    .empty-state { padding: 3rem 1.25rem; text-align: center; border: 1px solid var(--border-color); border-radius: var(--radius-lg); background: var(--bg-card); }
+    .empty-state p { margin: 0.6rem 0 1.25rem; color: var(--text-secondary); }
+    .reader-footer { text-align: center; margin: 2rem 1rem; }
+    @media (max-width: 1250px) {
+      .hero-banner, .source-notice, .filter-bar, .reading-layout { margin-left: 1rem; margin-right: 1rem; }
+    }
+    @media (max-width: 900px) {
+      .reading-layout { grid-template-columns: minmax(0, 1fr); }
+      .reading-rail { position: static; max-height: none; }
+      .chapter-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 640px) {
+      .summary-header { position: static; padding: 0.75rem; }
+      .summary-nav { flex-wrap: wrap; gap: 0.6rem; }
+      .nav-title { font-size: 0.9rem; }
+      .hero-banner { padding: 1.25rem; }
+      .chapter-card { padding: 1rem; scroll-margin-top: 1rem; }
+      .section-block { padding: 1rem; }
+      .chapter-title { font-size: 1.3rem; }
+      .section-body { line-height: 1.85; }
+      .search-row { align-items: stretch; }
+      .search-box input { padding-left: 1rem; }
+      .chapter-links { grid-template-columns: minmax(0, 1fr); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    }
+    @media print {
+      .summary-header, .filter-bar, .reading-rail, .hero-actions, .source-reference, .reader-footer, .skip-link { display: none !important; }
+      html { --reading-size: 11pt; }
+      body, .hero-banner, .source-notice, .chapter-card, .section-block, .formula, .callout { background: white !important; color: black !important; box-shadow: none; }
+      .reading-layout, .chapters-container { display: block; }
+      .chapter-card { padding: 1rem 0; border: none; }
+      .section-block { border-color: #aaa; }
+      .section-body h4, .eyebrow, .hero-banner p, .reference-notice, .chapter-meta { color: #333; }
+      .chapter-header, .section-subtitle { break-after: avoid; }
+      tr, .formula { break-inside: avoid; }
+      .table-wrap { overflow: visible; }
+      .section-body th { background: #eee; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#chaptersContainer">체크포인트 본문으로 건너뛰기</a>
+  <header class="summary-header">
+    <nav class="summary-nav" aria-label="주요 메뉴">
+      <div class="nav-group">
+        <a href="../index.html" class="btn btn-outline btn-sm">🏠 CBT 메인</a>
+        <span class="nav-title">증투자문인력 · 체크포인트</span>
+      </div>
+      <div class="nav-group">
+        <a href="../summary/index.html" class="btn btn-outline btn-sm">📚 전과목 요약집</a>
+        <button id="themeToggle" class="btn-icon" aria-label="밝은 테마로 전환">☀️</button>
+      </div>
+    </nav>
+  </header>
+  <section class="hero-banner" aria-labelledby="pageTitle">
+    <p class="eyebrow">CHECK POINT · STUDY NOTES</p>
+    <h1 id="pageTitle">핵심 체크포인트,<br>한 항목씩 확실하게.</h1>
+    <p>PDF 23쪽의 개념·비교표·수식을 읽기 편한 학습 노트로.<br>과목을 고르거나 궁금한 용어를 검색하고, 원문과 함께 확인하세요.</p>
+    <div class="hero-actions">
+      <a href="checkpoint.pdf" class="btn btn-primary" target="_blank" rel="noopener">원문 PDF 열기 ↗</a>
+      <button class="btn btn-outline" id="printReader">현재 내용 인쇄 / PDF 저장</button>
+      <span class="reference-notice" id="documentStats">원문 23쪽</span>
+    </div>
+  </section>
+  <aside class="source-notice reference-notice" aria-label="자료 이용 안내">
+    <strong>과거 자료를 바탕으로 한 학습용 정리입니다.</strong>
+    PDF 메타데이터 기준 2023년 자료이며, 법규·세율·한도·출제문항 수는 최신 기준과 다를 수 있습니다.
+    원문의 표현과 수치를 확인할 수 있도록 각 장에 원문을 함께 제공합니다.
+    응시연도 교재와 <a href="https://license.kofia.or.kr/" target="_blank" rel="noopener noreferrer">자격시험센터</a>의 최신 기준을 우선하세요. 투자 권유 자료가 아닙니다.
+  </aside>
+  <section class="filter-bar" aria-label="검색 및 읽기 설정">
+    <div class="search-row">
+      <div class="search-box">
+        <input type="search" id="searchInput" aria-label="체크포인트 전체 내용 검색" placeholder="용어·공식 검색 (예: GDP, 듀레이션, 배당)" autocomplete="off">
+      </div>
+      <button class="btn btn-outline" id="resetFilters">초기화</button>
+    </div>
+    <div class="category-pills" id="categoryPills" role="group" aria-label="과목 선택"></div>
+    <div class="reader-controls">
+      <span class="reference-notice" id="resultCount" role="status" aria-live="polite"></span>
+      <label for="fontSize">본문 글자 크기
+        <select id="fontSize">
+          <option value="16">작게</option>
+          <option value="18" selected>기본</option>
+          <option value="20">크게</option>
+          <option value="22">더 크게</option>
+        </select>
+      </label>
+    </div>
+  </section>
+  <div class="reading-layout">
+    <aside class="reading-rail">
+      <details id="contents">
+        <summary>장별 바로가기</summary>
+        <nav class="chapter-links" id="chapterLinks" aria-label="체크포인트 목차"></nav>
+      </details>
+    </aside>
+    <main class="chapters-container" id="chaptersContainer" tabindex="-1">
+      <p role="status">학습 내용을 불러오는 중입니다. 내용이 나타나지 않으면 새로고침하거나 <a href="checkpoint.pdf">원문 PDF</a>를 확인하세요.</p>
+      <noscript>학습 노트의 검색과 탐색에는 JavaScript가 필요합니다. 위의 원문 PDF 링크로 전체 내용을 읽을 수 있습니다.</noscript>
+    </main>
+  </div>
+  <footer class="reader-footer reference-notice">
+    <a href="../index.html">CBT 메인으로</a> · <a href="../summary/index.html">전과목 요약집</a> · <a href="checkpoint.pdf">체크포인트 원문</a>
+  </footer>
+  <script src="checkpoint-data.js"></script>
+  <script>
+    (() => {
+      const container = document.getElementById('chaptersContainer');
+      const chapters = window.CHECKPOINT_CHAPTERS;
+      if (!Array.isArray(chapters) || !chapters.length) {
+        container.innerHTML = '<p role="alert">학습 내용을 불러오지 못했습니다. 새로고침하거나 <a href="checkpoint.pdf">원문 PDF</a>를 확인하세요.</p>';
+        console.error('Checkpoint chapter data is missing.');
+        return;
+      }
+      const search = document.getElementById('searchInput');
+      const pills = document.getElementById('categoryPills');
+      const links = document.getElementById('chapterLinks');
+      const count = document.getElementById('resultCount');
+      const themeToggle = document.getElementById('themeToggle');
+      let subject = 'ALL';
+
+      function escapeHtml(value) {
+        return String(value).replace(/[&<>"']/g, character => ({
+          '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+        })[character]);
+      }
+      function plainText(html) {
+        const template = document.createElement('template');
+        template.innerHTML = html;
+        return template.content.textContent;
+      }
+      const searchable = chapters.map(chapter =>
+        [chapter.subject, chapter.title, ...chapter.sections.map(section =>
+          section.title + ' ' + plainText(section.html))].join(' ').normalize('NFC').toLowerCase()
+      );
+      function setTheme(theme) {
+        document.documentElement.dataset.theme = theme;
+        themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+        themeToggle.setAttribute('aria-label', theme === 'dark' ? '밝은 테마로 전환' : '어두운 테마로 전환');
+      }
+      setTheme(localStorage.getItem('theme') === 'light' ? 'light' : 'dark');
+      themeToggle.addEventListener('click', () => {
+        const theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+        setTheme(theme);
+        localStorage.setItem('theme', theme);
+      });
+      document.getElementById('fontSize').addEventListener('change', event => {
+        document.documentElement.style.setProperty('--reading-size', event.target.value + 'px');
+      });
+      document.getElementById('printReader').addEventListener('click', () => window.print());
+      document.getElementById('contents').open = matchMedia('(min-width: 901px)').matches;
+      const subjects = [...new Set(chapters.map(chapter => chapter.subject))];
+      pills.innerHTML = ['ALL', ...subjects].map(value => `<button class="pill-btn${value === 'ALL' ? ' active' : ''}" data-subject="${escapeHtml(value)}" aria-pressed="${value === 'ALL'}">${value === 'ALL' ? '전체 과목' : escapeHtml(value)}</button>`).join('');
+      links.innerHTML = chapters.map(chapter => `<a href="#${escapeHtml(chapter.id)}"><small>${escapeHtml(chapter.subject)}</small>${escapeHtml(chapter.title)}</a>`).join('');
+      const sectionCount = chapters.reduce((sum, chapter) => sum + chapter.sections.length, 0);
+      document.getElementById('documentStats').textContent = `${chapters.length}개 장 · ${sectionCount}개 항목 · 원문 23쪽`;
+      container.innerHTML = chapters.map(chapter => `
+        <article class="chapter-card" id="${escapeHtml(chapter.id)}" aria-labelledby="${escapeHtml(chapter.id)}-title">
+          <header class="chapter-header">
+            <div>
+              <span class="subj-tag">${escapeHtml(chapter.subject)}</span>
+              <h2 class="chapter-title" id="${escapeHtml(chapter.id)}-title">${escapeHtml(chapter.title)}</h2>
+              <p class="chapter-meta">${chapter.sections.length}개 항목 · PDF ${chapter.pages.join(', ')}쪽${chapter.questionCount == null ? '' : ` · 원문 표기 ${chapter.questionCount}문항`}</p>
+            </div>
+            <a class="btn btn-outline btn-sm" href="checkpoint.pdf#page=${chapter.pages[0]}" target="_blank" rel="noopener">원문 PDF ↗</a>
+          </header>
+          ${chapter.sections.map(section => `
+            <section class="section-block">
+              <h3 class="section-subtitle">${escapeHtml(section.title)}</h3>
+              <div class="section-body">${section.html}</div>
+            </section>`).join('')}
+          <details class="source-reference">
+            <summary>원문 이미지와 대조하기 · PDF ${chapter.pages.join(', ')}쪽</summary>
+            <p class="reference-notice">아래 쪽수는 PDF 파일 순서입니다. 인쇄된 쪽수와 다를 수 있습니다. 이미지를 누르면 새 탭에서 확대할 수 있습니다.</p>
+            ${chapter.pages.map(page => `<figure>
+              <figcaption><span>PDF ${page}쪽 · ${escapeHtml(chapter.title)}</span><a href="images/page-${page}.webp" target="_blank" rel="noopener">이미지 확대 ↗</a></figcaption>
+              <a href="images/page-${page}.webp" target="_blank" rel="noopener"><img src="images/page-${page}.webp" alt="${escapeHtml(chapter.title)} 원문 PDF ${page}쪽" width="1190" height="1684" loading="lazy" decoding="async"></a>
+            </figure>`).join('')}
+          </details>
+        </article>`).join('') + `
+        <div class="empty-state" id="emptyState" hidden>
+          <h2>검색 결과가 없습니다.</h2>
+          <p>검색어를 바꾸거나 전체 과목에서 다시 찾아보세요.</p>
+          <button class="btn btn-outline" id="emptyReset">전체 내용 보기</button>
+        </div>`;
+
+      container.querySelectorAll('.section-body table').forEach(table => {
+        if (table.parentElement.classList.contains('table-wrap')) return;
+        const wrap = document.createElement('div');
+        wrap.className = 'table-wrap';
+        table.before(wrap);
+        wrap.append(table);
+      });
+      container.querySelectorAll('.table-wrap').forEach(wrap => {
+        wrap.tabIndex = 0;
+        wrap.setAttribute('role', 'region');
+        wrap.setAttribute('aria-label', wrap.closest('.section-block').querySelector('h3').textContent + ' 표 · 좌우 스크롤');
+      });
+      const cards = [...container.querySelectorAll('.chapter-card')];
+      function highlight(query) {
+        container.querySelectorAll('mark').forEach(mark => mark.replaceWith(document.createTextNode(mark.textContent)));
+        container.normalize();
+        if (!query) return;
+        cards.filter(card => !card.hidden).forEach(card => {
+          card.querySelectorAll('.chapter-title, .section-subtitle, .section-body').forEach(element => {
+            const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+            const nodes = [];
+            while (walker.nextNode()) nodes.push(walker.currentNode);
+            nodes.forEach(node => {
+              const text = node.textContent;
+              const lower = text.toLowerCase();
+              if (!lower.includes(query)) return;
+              const fragment = document.createDocumentFragment();
+              let start = 0;
+              let index;
+              while ((index = lower.indexOf(query, start)) !== -1) {
+                fragment.append(text.slice(start, index));
+                const mark = document.createElement('mark');
+                mark.textContent = text.slice(index, index + query.length);
+                fragment.append(mark);
+                start = index + query.length;
+              }
+              fragment.append(text.slice(start));
+              node.replaceWith(fragment);
+            });
+          });
+        });
+      }
+      function filter() {
+        const query = search.value.trim().normalize('NFC').toLowerCase();
+        let visible = 0;
+        cards.forEach((card, index) => {
+          card.hidden = !(subject === 'ALL' || chapters[index].subject === subject) || !searchable[index].includes(query);
+          if (!card.hidden) visible++;
+        });
+        pills.querySelectorAll('button').forEach(button => {
+          const active = button.dataset.subject === subject;
+          button.classList.toggle('active', active);
+          button.setAttribute('aria-pressed', String(active));
+        });
+        count.textContent = `${visible} / ${chapters.length}개 장${query ? ` · “${search.value.trim()}” 검색 결과` : ' · 전체 본문 표시'}`;
+        document.getElementById('emptyState').hidden = visible !== 0;
+        highlight(query);
+      }
+      function reset() {
+        subject = 'ALL';
+        search.value = '';
+        filter();
+      }
+      search.addEventListener('input', filter);
+      pills.addEventListener('click', event => {
+        const button = event.target.closest('button');
+        if (!button) return;
+        subject = button.dataset.subject;
+        filter();
+      });
+      document.getElementById('resetFilters').addEventListener('click', reset);
+      document.getElementById('emptyReset').addEventListener('click', () => {
+        reset();
+        search.focus();
+      });
+      function navigateChapter() {
+        const id = location.hash.slice(1);
+        const card = cards.find(item => item.id === id);
+        if (!card) return;
+        reset();
+        links.querySelectorAll('a').forEach(link => {
+          if (link.hash === location.hash) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+        card.scrollIntoView({ block: 'start' });
+      }
+      links.addEventListener('click', event => {
+        if (!event.target.closest('a')) return;
+        reset();
+        if (event.target.closest('a').hash === location.hash) navigateChapter();
+      });
+      window.addEventListener('hashchange', navigateChapter);
+      filter();
+      if (location.hash) requestAnimationFrame(navigateChapter);
+    })();
+  </script>
+</body>
+</html>
