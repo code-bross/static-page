@@ -6,12 +6,13 @@
 document.addEventListener('DOMContentLoaded', () => {
   const originalSections = [
     { name: '1과목: 증권분석 및 증권시장', end: 35 },
-    { name: '2과목: 금융투자상품 및 직무윤리 등', end: 70 },
-    { name: '3과목: 투자법규 및 분쟁예방 등', end: 100 }
+    { name: '2과목: 금융상품 및 직무윤리', end: 65 },
+    { name: '3과목: 법규 및 세제', end: 100 }
   ];
   const exams = Object.fromEntries([1, 2, 3, 4].map((round) => [String(round), {
     title: `기존 실제유형 제${round}회 모의고사`,
     subtitle: '증권투자권유자문인력 실제유형 모의고사',
+    revision: 'source-20260912',
     available: true,
     sections: originalSections,
     questions: window[`EXAM_DATA_ROUND${round}`] || (round === 1 ? window.EXAM_DATA : []) || []
@@ -147,6 +148,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (themeToggleLandingBtn) themeToggleLandingBtn.textContent = icon;
   }
 
+  // Keep choices from the old, mismatched question data separate without deleting them.
+  function examStorageKey(field, roundId = currentRoundId) {
+    const revision = exams[String(roundId)].revision;
+    return `cbt_${field}_r${roundId}${revision ? `_${revision}` : ''}`;
+  }
+
   // Safe LocalStorage JSON parser
   function getSafeLocalStorageJSON(key, defaultValue = {}) {
     try {
@@ -161,10 +168,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Render Landing Page Status Cards
   function updateLandingStatuses() {
     Object.keys(exams).forEach((r) => {
-      const answersKey = `cbt_answers_r${r}`;
-      const submittedKey = `cbt_submitted_r${r}`;
-      const scoreKey = `cbt_score_r${r}`;
-      const passKey = `cbt_pass_r${r}`;
+      const answersKey = examStorageKey('answers', r);
+      const submittedKey = examStorageKey('submitted', r);
+      const scoreKey = examStorageKey('score', r);
+      const passKey = examStorageKey('pass', r);
 
       const savedAns = getSafeLocalStorageJSON(answersKey, {});
       const ansCount = Object.keys(savedAns).length;
@@ -220,10 +227,10 @@ document.addEventListener('DOMContentLoaded', () => {
     totalQuestions = examQuestions.length;
 
     // Load LocalStorage per Round safely
-    userAnswers = getSafeLocalStorageJSON(`cbt_answers_r${currentRoundId}`, {});
-    const savedBookmarks = getSafeLocalStorageJSON(`cbt_bookmarks_r${currentRoundId}`, []);
+    userAnswers = getSafeLocalStorageJSON(examStorageKey('answers'), {});
+    const savedBookmarks = getSafeLocalStorageJSON(examStorageKey('bookmarks'), []);
     bookmarks = new Set(Array.isArray(savedBookmarks) ? savedBookmarks : []);
-    isSubmitted = localStorage.getItem(`cbt_submitted_r${currentRoundId}`) === 'true';
+    isSubmitted = localStorage.getItem(examStorageKey('submitted')) === 'true';
 
     // Update Header Text
     if (examRoundTitle) examRoundTitle.textContent = exam.title;
@@ -243,7 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Reset view state
-    const session = getSafeLocalStorageJSON(`cbt_session_r${currentRoundId}`, {});
+    const session = getSafeLocalStorageJSON(examStorageKey('session'), {});
     currentQuestionId = Math.max(1, Math.min(totalQuestions, Number(session.question) || 1));
     timer.reset(120);
     timer.remainingSeconds = Math.max(0, Math.min(7200, Number.isFinite(session.remaining) ? session.remaining : 7200));
@@ -280,7 +287,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function saveSession() {
     if (!examQuestions.length) return;
-    localStorage.setItem(`cbt_session_r${currentRoundId}`, JSON.stringify({
+    localStorage.setItem(examStorageKey('session'), JSON.stringify({
       question: currentQuestionId, mode: currentExamMode,
       remaining: timer.remainingSeconds, elapsed: timer.elapsedSeconds
     }));
@@ -446,7 +453,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Save State per round
-    localStorage.setItem(`cbt_answers_r${currentRoundId}`, JSON.stringify(userAnswers));
+    localStorage.setItem(examStorageKey('answers'), JSON.stringify(userAnswers));
     omrCard.setAnswers(userAnswers);
     renderCurrentQuestion();
   }
@@ -477,7 +484,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       bookmarks.add(currentQuestionId);
     }
-    localStorage.setItem(`cbt_bookmarks_r${currentRoundId}`, JSON.stringify(Array.from(bookmarks)));
+    localStorage.setItem(examStorageKey('bookmarks'), JSON.stringify(Array.from(bookmarks)));
     omrCard.setBookmarks(Array.from(bookmarks));
     renderCurrentQuestion();
   });
@@ -512,12 +519,12 @@ document.addEventListener('DOMContentLoaded', () => {
       userAnswers = {};
       bookmarks.clear();
       isSubmitted = false;
-      localStorage.removeItem(`cbt_answers_r${currentRoundId}`);
-      localStorage.removeItem(`cbt_bookmarks_r${currentRoundId}`);
-      localStorage.removeItem(`cbt_submitted_r${currentRoundId}`);
-      localStorage.removeItem(`cbt_score_r${currentRoundId}`);
-      localStorage.removeItem(`cbt_pass_r${currentRoundId}`);
-      localStorage.removeItem(`cbt_session_r${currentRoundId}`);
+      localStorage.removeItem(examStorageKey('answers'));
+      localStorage.removeItem(examStorageKey('bookmarks'));
+      localStorage.removeItem(examStorageKey('submitted'));
+      localStorage.removeItem(examStorageKey('score'));
+      localStorage.removeItem(examStorageKey('pass'));
+      localStorage.removeItem(examStorageKey('session'));
 
       omrCard.setAnswers(userAnswers);
       omrCard.setBookmarks([]);
@@ -549,7 +556,7 @@ document.addEventListener('DOMContentLoaded', () => {
     timer.pause();
     resultModal.querySelector('.modal-title').textContent = `${exams[currentRoundId].title} 최종 성적표`;
 
-    localStorage.setItem(`cbt_submitted_r${currentRoundId}`, 'true');
+    localStorage.setItem(examStorageKey('submitted'), 'true');
 
     // Calculate Scores
     const totalCorrect = examQuestions.filter((q) => userAnswers[q.id] === q.correctAnswer).length;
@@ -565,8 +572,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const isPassed = score >= 60 && !hasFailSection;
 
     // Save score status per round
-    localStorage.setItem(`cbt_score_r${currentRoundId}`, score);
-    localStorage.setItem(`cbt_pass_r${currentRoundId}`, isPassed ? 'true' : 'false');
+    localStorage.setItem(examStorageKey('score'), score);
+    localStorage.setItem(examStorageKey('pass'), isPassed ? 'true' : 'false');
 
     // Display Status Badge
     if (isPassed) {
@@ -644,7 +651,7 @@ document.addEventListener('DOMContentLoaded', () => {
       e.stopPropagation();
       const rId = pdfBtn.dataset.round;
       const questions = exams[rId]?.questions || [];
-      const savedAns = getSafeLocalStorageJSON(`cbt_answers_r${rId}`, {});
+      const savedAns = getSafeLocalStorageJSON(examStorageKey('answers', rId), {});
       openWrongAnswerModal(rId, questions, savedAns);
     });
   }
