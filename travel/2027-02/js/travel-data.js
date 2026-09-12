@@ -1,10 +1,165 @@
 /**
  * Travel Dashboard Data Store
- * Supports multi-destination scaling (Rome, Barcelona, Hawaii)
+ * Destination itineraries and estimated budgets
  */
 
 const TRAVEL_DATA = {
   destinations: {
+    guam: {
+      id: "guam",
+      name: "괌",
+      country: "미국령 괌 🇬🇺",
+      title: "짧은 비행, 여유로운 바다 · 괌 4일 가족 휴양",
+      subtitle: "투몬 해변과 리조트 휴식 중심 · 성인 6인 가족 기준 · 연도는 2027년 기준",
+      heroImage: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2e/3a/a8/8e/caption.jpg?w=1100&h=1100&s=1",
+      heroImageCaption: "사랑의 절벽에서 바라본 괌 해안 · Tripadvisor 여행자 사진",
+      heroImageSource: "https://www.tripadvisor.com/Attraction_Review-g60678-d310576-Reviews-Two_Lovers_Point-Tumon_Tamuning_Guam.html",
+      status: "active",
+      dates: {
+        departure: "2027.02.05 (금)",
+        return: "2027.02.08 (월)",
+        duration: "3박 4일 · 2/8 체크아웃 후 오후 귀국"
+      },
+      travelers: {
+        total: 6,
+        composition: "성인 6인 가족",
+        style: "투몬 호텔 한 곳에서 휴식 · 반일 차량 관광 · 긴 도보·남부 종주 제외"
+      },
+      flight: {
+        airline: "대한항공 (Korean Air)",
+        airlineCode: "KE",
+        type: "직항",
+        outbound: {
+          depTime: "09:50",
+          depAirport: "인천 (ICN)",
+          arrTime: "15:05",
+          arrAirport: "괌 (GUM)",
+          duration: "4시간 15분",
+          note: "2/5 한국 09:50 출발 → 괌 15:05 도착. 모든 시각은 해당 공항 현지시간이며 괌은 한국보다 1시간 빠릅니다. 입국·수하물 수령 후 투몬 호텔까지 차량 약 15~25분을 예상합니다."
+        },
+        inbound: {
+          depTime: "16:50",
+          depAirport: "괌 (GUM)",
+          arrTime: "20:40",
+          arrAirport: "인천 (ICN)",
+          duration: "4시간 50분",
+          note: "2/8 월요일 괌 16:50 출발 → 한국 20:40 도착. 이날 호텔 정규 체크아웃 후 점심을 먹고 13:20 호텔 출발, 13:50 공항 도착을 목표로 약 3시간 여유를 확보합니다."
+        },
+        pricing: {
+          perPerson: 1097000,
+          total: 6582000,
+          priceLabel: "성인 1인 / 하나카드 이용실적 충족 시 · 로그인 후 특가 확인",
+          discountNote: "사용자 제공 성인 왕복 1,097,000원~ · 하나카드 이용실적 충족 조건 · 로그인 후 특가 확인. 6인 모두 동일 운임 적용 가정이며 잔여 좌석·유류할증료·세금·수하물·최종 결제액은 예약 단계에서 확인"
+        }
+      },
+      budget: {
+        total: 11772000,
+        perPerson: 1962000,
+        currency: "원 (KRW)",
+        note: "성인 6인·2인 1실·객실 3개 기준의 계획 예산입니다. 항공 외 금액은 실시간 견적이 아닌 추정치이며 환율은 1 USD = 1,450원으로 가정했습니다. 숙소는 2/5 체크인~2/8 정규 체크아웃 3박입니다. 오후 귀국편에 맞춰 마지막 날 조식·점심 6인 24만원을 식비에 포함했습니다. 교통은 성인 6인과 짐을 실을 수 있는 대형 밴 1대 기준 추정입니다. 유료 대형 액티비티와 개인 쇼핑은 별도이며, 객실·항공 성수기 할증 및 카드 적용 조건에 따라 늘어날 수 있습니다.",
+        categories: [
+          { id: "flight", name: "항공권", icon: "✈️", amount: 6582000, perPerson: 1097000, percentage: 55.9, desc: "대한항공 직항 성인 왕복 1,097,000원~ × 6인 · 하나카드 이용실적 충족 및 로그인 후 특가 확인" },
+          { id: "accommodation", name: "호텔 (객실 3개 × 3박)", icon: "🏨", amount: 2250000, perPerson: 375000, percentage: 19.1, desc: "투몬 해변 접근이 쉬운 호텔 · 객실당 1박 25만원 × 3실 × 3박, 세금·필수 요금 포함 목표 예산 / 조식 별도" },
+          { id: "food", name: "식비 & 카페", icon: "🍽️", amount: 1500000, perPerson: 250000, percentage: 12.7, desc: "6인 첫날 30만원 + 둘째 날 48만원 + 셋째 날 48만원 + 귀국일 조식·점심 24만원 · 음료·일반적인 팁 포함 예상" },
+          { id: "tours", name: "입장료 & 가벼운 체험", icon: "🌊", amount: 240000, perPerson: 40000, percentage: 2.0, desc: "사랑의 절벽 전망대 등 입장료와 해변 장비 대여 등 선택 이용 한도 · 돌핀크루즈·스쿠버는 별도" },
+          { id: "transport", name: "공항 이동 & 반일 차량", icon: "🚐", amount: 600000, perPerson: 100000, percentage: 5.1, desc: "성인 6인과 짐을 수용하는 대형 밴 기준 공항 왕복 24만원 + 반일 관광 27만원 + 단거리 이동 9만원 추정 · 2/8 낮 호텔 픽업 / 수용 인원·수하물 공간 확인" },
+          { id: "misc", name: "보험·통신 & 예비비", icon: "🧳", amount: 600000, perPerson: 100000, percentage: 5.1, desc: "여행자보험·통신 18만원 + 예비비 42만원 · 유료 입국 허가가 필요한 경우 예비비 또는 별도 반영 / 개인 쇼핑 제외" }
+        ]
+      },
+      itinerary: [
+        {
+          day: 1, date: "2월 5일 (금)", title: "괌 도착 · 투몬에서 느긋한 첫 저녁", badge: "입국 & 해변",
+          summary: "09:50 인천 출발 → 15:05 괌 도착. 첫날은 입국과 호텔 이동 후 해변 산책과 저녁만 계획합니다. 이후 일정 시각은 괌 현지시간입니다.",
+          seniorTip: "💡 호텔은 엘리베이터·해변 접근성·조용한 객실을 우선하고, 객실 3개를 같은 층에 요청하세요. 입국 지연 시 산책을 생략해도 좋습니다.",
+          activities: [
+            { time: "06:50 (한국)", title: "인천공항 도착 & 출국 수속", desc: "출발 약 3시간 전 도착 목표. 여권·입국 서류·수하물 조건을 확인하고 간단히 아침을 먹습니다. 터미널은 전자항공권 기준으로 확인하세요.", icon: "🧳", tag: "출국" },
+            { time: "09:50 (한국)", title: "대한항공 인천 → 괌 직항", desc: "제공받은 비행시간 4시간 15분. 편명은 아직 제공되지 않아 예약 내역에서 확인합니다.", icon: "✈️", tag: "항공" },
+            { time: "15:05 (괌)", title: "괌 국제공항 도착", desc: "입국심사·수하물 수령에 약 60~90분 여유를 둡니다. 실제 대기시간에 따라 픽업 시각을 조정합니다.", icon: "🛬", tag: "입국" },
+            { time: "16:30~17:00", title: "예약 차량 이동 & 투몬 호텔 체크인", desc: "차량 이동 약 15~25분 예상. 2인 1실 객실 3개에 짐을 풀고 1시간 정도 쉽니다. 체크인부터 2/8까지 총 3박 예약입니다.", icon: "🏨", tag: "숙소" },
+            {
+              time: "18:00", title: "투몬 해변 짧은 산책", desc: "호텔 앞 해변을 20~30분만 걸으며 바다를 봅니다. 피곤하면 객실이나 호텔 라운지에서 쉬는 것으로 대체합니다.", icon: "🏖️", tag: "휴식",
+              image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0a/fe/44/91/tumon-beach.jpg?w=1200&h=1200&s=1",
+              imageCaption: "투몬 북쪽 해안 풍경 · 낮에 촬영된 지역 참고 사진",
+              imageSource: "https://www.tripadvisor.com/Attraction_Review-g60678-d2075296-Reviews-Tumon_Beach-Tumon_Tamuning_Guam.html"
+            },
+            {
+              time: "18:40~20:00", title: "호텔 인근 저녁 & 이른 휴식", desc: "그릴 요리·차모로 스타일 BBQ 등으로 저녁. 대기 줄이 긴 식당 대신 예약 가능한 가까운 식당을 고릅니다. 첫날 식비·간식은 6인 약 30만원 한도입니다.", icon: "🍽️", tag: "식사",
+              image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/e9/33/c7/bbq-trio.jpg?w=1200&h=-1&s=1",
+              imageCaption: "PROA Restaurant Guam의 BBQ Trio · 메뉴 참고 사진, 방문·예약 미정",
+              imageSource: "https://www.tripadvisor.co.kr/LocationPhotoDirectLink-g60678-d1307881-i317273031-PROA_Restaurant_Guam-Tumon_Tamuning_Guam.html"
+            }
+          ]
+        },
+        {
+          day: 2, date: "2월 6일 (토)", title: "리조트 오전 · 사랑의 절벽과 쇼핑", badge: "휴양 & 전망",
+          summary: "오전에는 호텔에서 충분히 쉬고 오후에만 반일 차량으로 이동합니다. 투몬 → 사랑의 절벽 → 데데도 쇼핑몰 → 투몬의 짧은 북부 동선입니다.",
+          seniorTip: "💡 한낮 햇볕을 피해 모자·자외선차단제·물을 챙기세요. 수영하지 않는 가족도 그늘에서 쉴 수 있는 호텔을 고르면 모두 편합니다.",
+          activities: [
+            { time: "08:30", title: "느긋한 조식", desc: "호텔 조식은 별도 결제하거나 가까운 카페를 이용합니다. 조식이 숙박료에 포함된 상품이라면 식비 예산에서 조정하세요.", icon: "☕", tag: "식사" },
+            { time: "09:30~11:30", title: "투몬 해변 & 호텔 수영장", desc: "짧은 해변 산책이나 수영 후 객실에서 휴식합니다. 바다 상태와 안전 안내를 따르고, 파도가 높으면 수영장으로 대체합니다.", icon: "🌊", tag: "휴양" },
+            { time: "12:00", title: "호텔 근처 점심", desc: "해산물·버거·누들 등 취향에 맞춰 선택합니다. 오후 이동 전 객실에서 잠깐 쉬고 출발하세요.", icon: "🍴", tag: "식사" },
+            {
+              time: "13:30~14:30", title: "차량으로 사랑의 절벽 전망대", desc: "투몬에서 차량 약 15~20분 예상. 전망 감상과 사진 촬영을 30~40분 정도로 제한합니다. 입장료·운영시간·보행 접근성은 방문 전 확인합니다.", icon: "📍", tag: "전망",
+              image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2e/3a/a8/8e/caption.jpg?w=1100&h=1100&s=1",
+              imageCaption: "사랑의 절벽 전망대에서 내려다본 해안과 바다",
+              imageSource: "https://www.tripadvisor.com/Attraction_Review-g60678-d310576-Reviews-Two_Lovers_Point-Tumon_Tamuning_Guam.html"
+            },
+            {
+              time: "15:00~16:30", title: "마이크로네시아 몰 실내 쇼핑 & 카페", desc: "냉방이 되는 실내에서 쉬며 필요한 물건만 구입합니다. 쇼핑하지 않는 가족은 카페에서 휴식하고, 구입비는 여행 예산과 별도로 관리합니다.", icon: "🛍️", tag: "쇼핑",
+              image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/19/2c/d3/44/micronesia-mall-center.jpg?w=1200&h=-1&s=1",
+              imageCaption: "데데도 마이크로네시아 몰 중앙 실내 공간 · 매장 구성은 방문 시점에 따라 다를 수 있음",
+              imageSource: "https://www.tripadvisor.co.kr/Attraction_Review-g60674-d310589-Reviews-Micronesia_Mall-Dededo_Guam.html"
+            },
+            { time: "17:00~19:30", title: "호텔 복귀 · 일몰 무렵 저녁", desc: "반일 차량을 마치고 호텔에서 쉬었다가 인근 식당으로 이동합니다. 조식·점심·저녁·카페 합산 6인 약 48만원 예산입니다.", icon: "🌅", tag: "식사" }
+          ]
+        },
+        {
+          day: 3, date: "2월 7일 (일)", title: "온종일 휴양 · 괌에서 보내는 마지막 밤", badge: "휴식 & 미식",
+          summary: "장거리 관광 없이 해변·쇼핑·객실 휴식을 즐기고 호텔에서 마지막 밤을 보냅니다. 공항 이동은 내일 2/8 낮입니다.",
+          seniorTip: "💡 호텔은 2/5~2/8 총 3박입니다. 오늘은 조기 체크아웃 없이 숙면하고, 내일 오전 정규 체크아웃에 맞춰 짐을 준비하세요.",
+          activities: [
+            { time: "09:00", title: "늦은 아침 & 해변 산책", desc: "전날 피로에 따라 기상 시간을 조정하고, 호텔 주변에서만 가볍게 걷습니다.", icon: "☀️", tag: "휴식" },
+            { time: "11:00~12:00", title: "기념품 구입 또는 수영장", desc: "투몬 중심 상점에서 기념품을 사거나 호텔에서 쉽니다. 해양 액티비티를 추가한다면 귀국 비행 전 안전 대기시간을 확인해야 하는 스쿠버 대신 부담 없는 활동을 선택하세요.", icon: "🎁", tag: "자유시간" },
+            { time: "12:30", title: "가까운 식당에서 점심", desc: "차모로 음식 등 마지막 현지 식사를 즐깁니다. 대기시간이 길면 호텔 레스토랑으로 변경하세요.", icon: "🍽️", tag: "식사" },
+            {
+              time: "14:00~18:00", title: "객실 휴식 · 낮잠 · 자유시간", desc: "호텔 수영장이나 객실에서 편하게 쉽니다. 오늘 밤에도 같은 객실 3개에서 숙박하므로 서두를 필요가 없습니다.", icon: "🛏️", tag: "휴식",
+              image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/33/ed/2c/photo0jpg.jpg?w=1200&h=-1&s=1",
+              imageCaption: "실내에서 바라본 투몬 해안 · 휴양 분위기 참고용, 예약 호텔·객실 전망을 의미하지 않음",
+              imageSource: "https://www.tripadvisor.com/Attraction_Review-g60678-d2075296-Reviews-Tumon_Beach-Tumon_Tamuning_Guam.html"
+            },
+            { time: "18:30~20:00", title: "마지막 저녁 & 해변 산책", desc: "저녁은 가까운 곳에서 먹고 짧게 산책합니다. 이날 식비는 6인 약 48만원, 추가 쇼핑은 별도입니다.", icon: "🍽️", tag: "식사" },
+            { time: "20:30", title: "짐 정리 후 호텔에서 숙면", desc: "내일 체크아웃 시간과 13:20 공항 차량 픽업을 재확인합니다. 여권과 기내 반입 물품을 따로 챙긴 뒤 편안히 쉽니다.", icon: "🛏️", tag: "숙박" }
+          ]
+        },
+        {
+          day: 4, date: "2월 8일 (월)", title: "여유로운 오전 · 오후 출발, 저녁 인천 도착", badge: "오전 휴식 & 귀국",
+          summary: "호텔에서 조식과 짧은 산책 후 체크아웃합니다. 괌 16:50 출발 → 한국 20:40 도착이며, 출발일과 한국 도착일 모두 2월 8일입니다.",
+          seniorTip: "💡 무료 레이트 체크아웃을 가정하지 않습니다. 호텔 정규 퇴실 시간을 확인하고 점심 동안 짐을 맡기세요. 한국 도착 후 입국·수하물 수령을 고려해 귀가 교통편의 막차 시간을 확인합니다.",
+          activities: [
+            {
+              time: "08:30~10:30 (괌)", title: "조식 & 마지막 해변 산책", desc: "호텔이나 가까운 카페에서 아침을 먹고 호텔 주변만 가볍게 걷습니다. 객실에서 씻고 짐을 정리할 시간을 남겨둡니다.", icon: "☕", tag: "휴식",
+              image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0a/fe/44/91/tumon-beach.jpg?w=1200&h=1200&s=1",
+              imageCaption: "마지막 산책을 위한 투몬 북쪽 해안 참고 사진",
+              imageSource: "https://www.tripadvisor.com/Attraction_Review-g60678-d2075296-Reviews-Tumon_Beach-Tumon_Tamuning_Guam.html"
+            },
+            { time: "11:00 (괌)", title: "정규 체크아웃 & 짐 보관", desc: "11:00 퇴실을 목표로 하되 실제 호텔 규정을 따릅니다. 프런트에 짐 보관 가능 여부를 확인하고 가까운 식당으로 이동합니다.", icon: "🏨", tag: "체크아웃" },
+            { time: "11:30~12:30 (괌)", title: "호텔 인근 점심", desc: "조식·점심 합산 6인 24만원을 식비에 반영했습니다. 식사 후 호텔에서 짐을 찾아 공항 차량을 기다립니다.", icon: "🍽️", tag: "식사" },
+            { time: "13:20~13:50 (괌)", title: "호텔 픽업 → 괌 공항 이동", desc: "13:50 공항 도착 목표로 출발 약 3시간 전 여유를 둡니다. 실제 교통 상황과 항공사 권장 도착시간에 맞춰 조정하세요.", icon: "🚐", tag: "공항 이동" },
+            { time: "13:50~16:00 (괌)", title: "출국 수속 & 탑승구 대기", desc: "체크인·수하물 위탁·보안검색 후 탑승구를 확인합니다. 탑승 시작·마감시각은 탑승권과 현장 안내를 따릅니다.", icon: "🛂", tag: "출국" },
+            { time: "16:50 (괌)", title: "괌 → 인천 직항 출발", desc: "대한항공, 비행시간 4시간 50분. 한국 시각으로는 15:50 출발에 해당합니다.", icon: "✈️", tag: "항공" },
+            { time: "20:40 (한국)", title: "인천국제공항 도착", desc: "입국심사와 수하물 수령 후 귀가합니다. 늦은 저녁 귀가 교통편을 확인하세요. 국내 공항 왕복 교통비는 거주지에 따라 별도이며 여행 예산에는 포함하지 않았습니다.", icon: "🏠", tag: "귀국" }
+          ]
+        }
+      ],
+      seniorGuideTips: [
+        { title: "📅 연도·시간대 확인", desc: "월일만 전달받아 페이지 경로에 맞춘 2027년 일정으로 작성했습니다. 2/5 금요일 출발, 2/8 월요일 한국 도착입니다. 괌은 한국보다 1시간 빠르며 항공 시각·운항 여부·편명은 예약 확인서로 최종 확인하세요." },
+        { title: "🏨 호텔 3박 & 귀국일 짐 보관", desc: "2/5·6·7일 밤 숙박 후 2/8 정규 체크아웃하는 3박 일정입니다. 객실 3개·3박의 세금 및 필수 요금 포함 견적을 받고, 체크아웃 후 점심 동안 짐 보관이 가능한지 확인하세요." },
+        { title: "💳 하나카드 혜택가 · 로그인 후 확인", desc: "항공 1,097,000원~은 성인·하나카드 이용실적 충족 조건이며 로그인 후 특가 확인이 필요합니다. 6명에게 같은 할인가가 적용되는지, 유류할증료·세금·위탁수하물 포함 여부를 확인하세요. 비항공 비용은 추정이며 개인 쇼핑·국내 공항 이동·돌핀크루즈·스쿠버는 제외했습니다." },
+        { title: "🛂 입국 서류는 출발 전 공식 확인", desc: "국적·여권·체류 목적에 따라 입국 요건이 달라집니다. 대한민국 여권 단기 관광이라도 괌-북마리아나 무비자 프로그램의 전자여행허가(G-CNMI ETA), ESTA 등 본인에게 적용되는 경로와 전자세관신고 요건을 미국 CBP 및 괌 공식 안내에서 확인하세요. 승인기한과 비용은 예약 전에 확인합니다." },
+        { title: "🚐 낮 공항 이동과 체력 안배", desc: "공항 왕복은 성인 6인과 캐리어를 수용하는 대형 밴으로 예약하고 귀국 픽업은 2/8 13:20 호텔 출발로 요청하세요. 기사 좌석을 제외한 승객 정원과 수하물 공간을 확인합니다. 반일 관광 차량 비용에 입장료가 포함되는지 확인하고, 계단이 부담되면 전망대 대신 호텔 카페로 바꿉니다." },
+        { title: "🌦️ 날씨·영업시간·팁", desc: "소나기·강풍 시 바다 일정은 실내 쇼핑몰이나 호텔 휴식으로 대체합니다. 일몰·영업시간·식당 예약은 출발 직전 확인하세요. 계산서에 서비스 요금이 포함됐는지 먼저 보고 팁의 중복 지출을 피합니다." }
+      ]
+    },
     rome: {
       id: "rome",
       name: "로마",

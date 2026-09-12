@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /**
-   * Render Active Destination View (Rome)
+   * Render Active Destination View
    */
   function renderActiveDestinationView(data) {
     customHeadcount = data.travelers.total;
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const html = `
       <!-- Hero Section -->
       <section class="hero-section">
-        <div class="hero-card" style="background-image: var(--hero-card-bg), url('${data.heroImage}');">
+        <div class="hero-card" style="background-image: var(--hero-card-bg)${data.heroImage ? `, url('${data.heroImage}')` : ''};">
           <div class="hero-header-box">
             <div class="hero-meta">
               <span class="meta-pill highlight">📍 ${data.country}</span>
@@ -104,10 +104,10 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="metric-card">
               <div class="metric-label">총 여행 예상 경비</div>
               <div class="metric-value gold" id="metricTotalBudget">${formatKRW(data.budget.total)}</div>
-              <div class="metric-sub">인당 약 <span id="metricPerPersonBudget">${formatKRW(data.budget.perPerson)}</span> (4인 기준)</div>
+              <div class="metric-sub">인당 약 <span id="metricPerPersonBudget">${formatKRW(data.budget.perPerson)}</span> (${data.travelers.total}인 기준)</div>
             </div>
             <div class="metric-card">
-              <div class="metric-label">대한항공 직항 항공권</div>
+              <div class="metric-label">${data.flight.airline} ${data.flight.type} 항공권</div>
               <div class="metric-value">${formatKRW(data.flight.pricing.total)}</div>
               <div class="metric-sub">인당 ${formatKRW(data.flight.pricing.perPerson)} (${data.flight.pricing.discountNote})</div>
             </div>
@@ -118,6 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
           </div>
         </div>
+        ${data.heroImageSource ? `<p class="photo-credit">${data.heroImageCaption} · <a href="${data.heroImageSource}" target="_blank" rel="noopener noreferrer">사진 출처</a></p>` : ''}
       </section>
 
       <!-- Flight Details Card -->
@@ -125,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="flight-card">
           <div class="flight-header">
             <div class="airline-info">
-              <div class="airline-logo-badge">KE</div>
+              <div class="airline-logo-badge">${data.flight.airlineCode}</div>
               <div>
                 <div class="airline-name">${data.flight.airline}</div>
                 <div class="airline-type">${data.flight.type} 왕복</div>
@@ -133,14 +134,14 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div class="flight-price-tag">
               <div class="flight-price-val">${formatKRW(data.flight.pricing.perPerson)}~</div>
-              <div class="flight-price-sub">성인 1인 / KB국민카드 혜택가</div>
+              <div class="flight-price-sub">${data.flight.pricing.priceLabel || '성인 1인 / 카드 혜택 조건 확인'}</div>
             </div>
           </div>
 
           <div class="flight-routes-grid">
             <!-- Outbound Flight -->
             <div class="route-box">
-              <span class="route-label outbound">🛫 가는 편 (KE931) - ${data.dates.departure}</span>
+              <span class="route-label outbound">🛫 가는 편${data.flight.outbound.flightNo ? ` (${data.flight.outbound.flightNo})` : ' (편명 예약 시 확인)'} - ${data.dates.departure}</span>
               <div class="timeline-row">
                 <div class="time-city">
                   <div class="time">${data.flight.outbound.depTime}</div>
@@ -160,13 +161,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
               </div>
               <div class="flight-notes">
-                <span>💡 도착 후 전용 밴(8인승) 사전 대기. 공항 ➔ 호텔 약 45분 이동 후 편안하게 첫날 휴식.</span>
+                <span>💡 ${data.flight.outbound.note || '시각은 각 공항 현지시간 기준입니다. 도착 후 입국·수하물 수령 시간을 고려해 호텔 이동 차량을 예약하세요.'}</span>
               </div>
             </div>
 
             <!-- Inbound Flight -->
             <div class="route-box">
-              <span class="route-label inbound">🛬 오는 편 (KE932) - ${data.dates.return}</span>
+              <span class="route-label inbound">🛬 오는 편${data.flight.inbound.flightNo ? ` (${data.flight.inbound.flightNo})` : ' (편명 예약 시 확인)'} · 귀국 도착일 ${data.dates.return}</span>
               <div class="timeline-row">
                 <div class="time-city">
                   <div class="time">${data.flight.inbound.depTime}</div>
@@ -186,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
               </div>
               <div class="flight-notes">
-                <span>💡 늦은 밤 22:00 출발이므로 17:30 호텔 전용 샌딩 밴으로 이동, 공항 수속 & 택스리펀 여유 확보.</span>
+                <span>💡 ${data.flight.inbound.note || '현지 출발일과 한국 도착일은 다를 수 있습니다. 전자항공권의 현지 출발 날짜·시각에 맞춰 공항 이동과 출국 수속 시간을 확보하세요.'}</span>
               </div>
             </div>
           </div>
@@ -201,10 +202,11 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="section-icon">📊</span>
               <h2 class="section-title">여행 예산 한눈에 보기</h2>
             </div>
-            <p class="section-desc">항공, 숙소, 식비, 입장권 등 항목별 경비 내역 및 4인 가계산</p>
+            <p class="section-desc">항공, 숙소, 식비, 입장권 등 항목별 경비 내역 및 ${data.travelers.total}인 가계산 · 비중은 반올림</p>
           </div>
         </div>
 
+        ${data.budget.note ? `<p class="day-summary-banner">${data.budget.note}</p>` : ''}
         <div class="budget-overview-grid">
           <!-- Itemized Budget Card -->
           <div class="budget-card">
@@ -236,7 +238,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
               <div style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 20px;">
                 * 항공권(${formatKRW(data.flight.pricing.perPerson)}/인) 및 입장권/식비는 인원 비례 계산되며,<br>
-                숙소 및 전용 차량 비용은 그룹 단위(룸 2개, 밴 1대)로 나뉩니다.
+                숙소는 2인 1실, 교통비는 최대 ${data.travelers.total}인당 차량 1대의 예산 단위로 계산합니다.<br>
+                선택한 여행지의 항목별 예산을 사용한 단순 추정이며, 상단 경비표는 ${data.travelers.total}인 기준으로 유지됩니다.
               </div>
             </div>
 
@@ -287,7 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="section-icon">💡</span>
               <h2 class="section-title">어머니 맞춤 여행 꿀팁 & 주의사항</h2>
             </div>
-            <p class="section-desc">안전하고 쾌적한 로마 가족 여행을 위한 필수 체크리스트</p>
+            <p class="section-desc">안전하고 쾌적한 ${data.name} 가족 여행을 위한 필수 체크리스트</p>
           </div>
         </div>
 
@@ -367,11 +370,11 @@ document.addEventListener('DOMContentLoaded', () => {
           </h4>
           <div class="day-photo-gallery">
             ${photoActivities.map(act => `
-              <div class="gallery-photo-card js-lightbox-trigger" data-img="${act.image}" data-caption="${act.title} (${act.tag}) - ${act.desc}">
-                <img src="${act.image}" alt="${act.title}" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=800&auto=format&fit=crop';">
+              <div class="gallery-photo-card js-lightbox-trigger" data-img="${act.image}" data-caption="${act.imageCaption || `${act.title} (${act.tag}) - ${act.desc}`}">
+                <img src="${act.image}" alt="${act.imageCaption || act.title}" loading="lazy" onerror="this.alt='사진을 불러오지 못했습니다';">
                 <div class="gallery-caption-overlay">
                   <span class="gallery-caption-tag">${act.tag}</span>
-                  <span class="gallery-caption-title">${act.title}</span>
+                  <span class="gallery-caption-title">${act.title}${act.imageCaption ? ' · 참고 사진' : ''}</span>
                 </div>
               </div>
             `).join('')}
@@ -386,10 +389,11 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="timeline-dot-icon">${act.icon}</div>
             <div class="timeline-content-card">
               ${act.image ? `
-                <div class="activity-img-box js-lightbox-trigger" data-img="${act.image}" data-caption="${act.title} (${act.tag}) - ${act.desc}">
-                  <img src="${act.image}" alt="${act.title}" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=800&auto=format&fit=crop';">
+                <div class="activity-img-box js-lightbox-trigger" data-img="${act.image}" data-caption="${act.imageCaption || `${act.title} (${act.tag}) - ${act.desc}`}">
+                  <img src="${act.image}" alt="${act.imageCaption || act.title}" loading="lazy" onerror="this.alt='사진을 불러오지 못했습니다';">
                   <span class="img-badge-overlay">🔍 크게 보기</span>
                 </div>
+                ${act.imageSource ? `<p class="photo-credit">${act.imageCaption} · <a href="${act.imageSource}" target="_blank" rel="noopener noreferrer">사진 출처</a></p>` : ''}
               ` : ''}
               <div class="activity-header">
                 <span class="activity-time">⏰ ${act.time}</span>
@@ -473,17 +477,18 @@ document.addEventListener('DOMContentLoaded', () => {
       if (displayHeadcount) displayHeadcount.textContent = `${customHeadcount}명`;
       if (calcHeadcountLabel) calcHeadcountLabel.textContent = customHeadcount;
 
-      const flightTotal = data.flight.pricing.perPerson * customHeadcount;
-      const foodTotal = 350000 * customHeadcount;
-      const toursTotal = 160000 * customHeadcount;
-      const miscTotal = 150000 * customHeadcount;
-      
-      const roomsNeeded = Math.ceil(customHeadcount / 2);
-      const hotelTotal = 1000000 * roomsNeeded;
-      
-      const transportTotal = customHeadcount > 4 ? 600000 : 400000;
-
-      const newTotalBudget = flightTotal + foodTotal + toursTotal + miscTotal + hotelTotal + transportTotal;
+      const newTotalBudget = data.budget.categories.reduce((total, category) => {
+        if (category.id === 'flight') {
+          return total + data.flight.pricing.perPerson * customHeadcount;
+        }
+        if (category.id === 'accommodation') {
+          return total + category.amount / Math.ceil(data.travelers.total / 2) * Math.ceil(customHeadcount / 2);
+        }
+        if (category.id === 'transport') {
+          return total + category.amount * Math.ceil(customHeadcount / data.travelers.total);
+        }
+        return total + category.amount / data.travelers.total * customHeadcount;
+      }, 0);
       const newPerPerson = Math.round(newTotalBudget / customHeadcount);
 
       if (calcTotalValue) calcTotalValue.textContent = formatKRW(newTotalBudget);
@@ -510,6 +515,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (imgSrc) {
           modalImg.src = imgSrc;
+          modalImg.alt = caption || '여행 사진 확대 보기';
           if (modalCaption) modalCaption.textContent = caption || '';
           modal.classList.add('active');
         }

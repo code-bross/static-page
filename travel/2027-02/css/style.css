@@ -267,6 +267,20 @@ body {
   padding: 40px 0 24px;
 }
 
+.photo-credit {
+  margin: 10px 0 16px;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.photo-credit a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .hero-card {
   background-size: cover;
   background-position: center;
