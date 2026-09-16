@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" role="img" aria-labelledby="title desc">
+  <title id="title">배당평가모형의 현재가치 계산</title>
+  <desc id="desc">미래 배당과 요구수익률을 이용해 현재 주식가치를 계산하는 세 단계</desc>
+  <rect width="960" height="360" rx="24" fill="#f4f7fc"/>
+  <g font-family="sans-serif" fill="#172b4d">
+    <text x="48" y="54" font-size="19" fill="#2563eb" font-weight="700">DIVIDEND DISCOUNT MODEL</text>
+    <text x="48" y="94" font-size="29" font-weight="700">미래에 받을 배당을 오늘의 가치로 환산합니다</text>
+    <g transform="translate(48 145)">
+      <rect width="235" height="130" rx="18" fill="#172b4d"/>
+      <text x="24" y="48" fill="white" font-size="22" font-weight="700">미래 배당</text>
+      <text x="24" y="84" fill="#bfdbfe" font-size="17">D₁, D₂, D₃ …</text>
+      <text x="24" y="109" fill="#bfdbfe" font-size="16">받을 현금흐름</text>
+    </g>
+    <path d="M310 210h55m-13-9 13 9-13 9" stroke="#2563eb" stroke-width="4" fill="none"/>
+    <g transform="translate(390 145)">
+      <rect width="235" height="130" rx="18" fill="#dbeafe"/>
+      <text x="24" y="48" font-size="22" font-weight="700">할인</text>
+      <text x="24" y="84" font-size="17">요구수익률 k</text>
+      <text x="24" y="109" font-size="16">성장률 g와 비교</text>
+    </g>
+    <path d="M655 210h55m-13-9 13 9-13 9" stroke="#2563eb" stroke-width="4" fill="none"/>
+    <g transform="translate(740 145)">
+      <rect width="172" height="130" rx="18" fill="#ccfbf1"/>
+      <text x="24" y="48" font-size="22" font-weight="700">현재 주가</text>
+      <text x="24" y="84" font-size="17">P₀ = D₁ ÷</text>
+      <text x="24" y="109" font-size="17">(k − g)</text>
+    </g>
+    <text x="48" y="316" font-size="15" fill="#64748b">정률성장모형은 요구수익률(k)이 성장률(g)보다 커야 성립합니다.</text>
+  </g>
+</svg>

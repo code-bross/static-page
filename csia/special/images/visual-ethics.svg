@@ -1,1 +1,54 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" role="img" aria-labelledby="t d"><title id="t">고객 보호 업무 흐름</title><desc id="d">고객 파악, 적합성 확인, 설명과 사후관리</desc><rect width="960" height="360" rx="24" fill="#f4f7fc"/><g font-family="sans-serif" fill="#172b4d"><text x="48" y="56" font-size="20" fill="#2563eb" font-weight="700">ETHICS &amp; PROTECTION</text><text x="48" y="96" font-size="30" font-weight="700">좋은 권유는 고객을 먼저 확인합니다</text><g transform="translate(48 150)"><rect width="190" height="110" rx="16" fill="#172b4d"/><text x="27" y="198" fill="white" font-size="20" font-weight="700">고객 파악</text><text x="27" y="232" fill="#bfdbfe" font-size="16">목표·경험·위험</text></g><g transform="translate(285 150)"><rect width="190" height="110" rx="16" fill="#dbeafe"/><text x="27" y="198" font-size="20" font-weight="700">적합성 확인</text><text x="27" y="232" font-size="16">권유할 상품인가?</text></g><g transform="translate(522 150)"><rect width="190" height="110" rx="16" fill="#e0e7ff"/><text x="27" y="198" font-size="20" font-weight="700">설명·기록</text><text x="27" y="232" font-size="16">위험과 비용 전달</text></g><g transform="translate(759 150)"><rect width="150" height="110" rx="16" fill="#ccfbf1"/><text x="25" y="198" font-size="20" font-weight="700">사후관리</text><text x="25" y="232" font-size="16">신뢰 유지</text></g><path d="M250 205h25m-8-8 8 8-8 8M487 205h25m-8-8 8 8-8 8M724 205h25m-8-8 8 8-8 8" stroke="#2563eb" stroke-width="4" fill="none"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 430" role="img" aria-labelledby="title desc">
+  <title id="title">직무 윤리와 자본시장법의 고객 보호 흐름</title>
+  <desc id="desc">고객 확인, 상품 판단, 설명과 기록, 이해상충 관리, 사후관리로 이어지는 금융투자 업무 절차</desc>
+  <rect width="960" height="430" rx="24" fill="#f4f7fc"/>
+  <g font-family="sans-serif" fill="#172b4d">
+    <text x="48" y="52" font-size="19" fill="#2563eb" font-weight="700">DUTY ETHICS · CAPITAL MARKETS ACT</text>
+    <text x="48" y="91" font-size="29" font-weight="700">고객 보호는 권유 전부터 사후관리까지 이어집니다</text>
+    <text x="48" y="119" font-size="16" fill="#64748b">고객우선 · 적합성 · 설명의무 · 이해상충 관리 · 기록 보존</text>
+    <g transform="translate(48 151)">
+      <rect width="160" height="142" rx="16" fill="#172b4d"/>
+      <circle cx="28" cy="29" r="16" fill="#60a5fa"/><text x="23" y="35" fill="#172b4d" font-size="17" font-weight="700">1</text>
+      <text x="22" y="76" fill="white" font-size="19" font-weight="700">고객 확인</text>
+      <text x="22" y="105" fill="#bfdbfe" font-size="15">목표 · 경험 ·</text>
+      <text x="22" y="127" fill="#bfdbfe" font-size="15">위험감수능력</text>
+    </g>
+    <g transform="translate(242 151)">
+      <rect width="160" height="142" rx="16" fill="#dbeafe"/>
+      <circle cx="28" cy="29" r="16" fill="#2563eb"/><text x="23" y="35" fill="white" font-size="17" font-weight="700">2</text>
+      <text x="22" y="76" font-size="19" font-weight="700">상품 판단</text>
+      <text x="22" y="105" fill="#475569" font-size="15">적합성 · 적정성</text>
+      <text x="22" y="127" fill="#475569" font-size="15">권유 여부 구분</text>
+    </g>
+    <g transform="translate(436 151)">
+      <rect width="160" height="142" rx="16" fill="#e0e7ff"/>
+      <circle cx="28" cy="29" r="16" fill="#4f46e5"/><text x="23" y="35" fill="white" font-size="17" font-weight="700">3</text>
+      <text x="22" y="76" font-size="19" font-weight="700">설명·기록</text>
+      <text x="22" y="105" fill="#475569" font-size="15">위험 · 비용 ·</text>
+      <text x="22" y="127" fill="#475569" font-size="15">계약자료 보존</text>
+    </g>
+    <g transform="translate(630 151)">
+      <rect width="160" height="142" rx="16" fill="#ccfbf1"/>
+      <circle cx="28" cy="29" r="16" fill="#0f766e"/><text x="23" y="35" fill="white" font-size="17" font-weight="700">4</text>
+      <text x="22" y="76" font-size="19" font-weight="700">통제·관리</text>
+      <text x="22" y="105" fill="#475569" font-size="15">선행매매 · 과당매매</text>
+      <text x="22" y="127" fill="#475569" font-size="15">정보차단 · 보고</text>
+    </g>
+    <g transform="translate(824 151)">
+      <rect width="88" height="142" rx="16" fill="#dcfce7"/>
+      <circle cx="44" cy="29" r="16" fill="#16a34a"/><text x="38" y="35" fill="white" font-size="17" font-weight="700">5</text>
+      <text x="17" y="76" font-size="18" font-weight="700">사후</text>
+      <text x="17" y="101" font-size="18" font-weight="700">관리</text>
+      <text x="17" y="127" fill="#475569" font-size="14">분쟁 대응</text>
+    </g>
+    <g stroke="#2563eb" stroke-width="4" fill="none">
+      <path d="M216 222h18m-7-8 8 8-8 8"/>
+      <path d="M410 222h18m-7-8 8 8-8 8"/>
+      <path d="M604 222h18m-7-8 8 8-8 8"/>
+      <path d="M798 222h18m-7-8 8 8-8 8"/>
+    </g>
+    <rect x="48" y="333" width="864" height="48" rx="12" fill="#fff" stroke="#cbd5e1"/>
+    <text x="72" y="363" font-size="16" font-weight="700">핵심 원칙</text>
+    <text x="174" y="363" font-size="16" fill="#475569">고객 이익 우선 · 불공정영업 금지 · 비밀정보 보호 · 위반 시 보고와 기록</text>
+  </g>
+</svg>

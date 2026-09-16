@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="title desc">
+  <title id="title">경기변동 학파별 주장 흐름</title>
+  <desc id="desc">케인즈학파, 통화주의학파, 새고전학파, 새케인즈학파의 시대별 핵심 주장</desc>
+  <rect width="960" height="420" rx="24" fill="#f4f7fc"/>
+  <g font-family="sans-serif" fill="#172b4d">
+    <text x="48" y="48" font-size="19" fill="#2563eb" font-weight="700">THEORIES OF BUSINESS CYCLES</text>
+    <text x="48" y="82" font-size="27" font-weight="700">경기변동을 보는 질문이 시대별로 달라졌습니다</text>
+    <line x1="82" y1="132" x2="878" y2="132" stroke="#94a3b8" stroke-width="3"/>
+    <g fill="#2563eb">
+      <circle cx="160" cy="132" r="8"/><circle cx="365" cy="132" r="8"/>
+      <circle cx="570" cy="132" r="8"/><circle cx="775" cy="132" r="8"/>
+    </g>
+    <g font-size="14" fill="#64748b">
+      <text x="123" y="116">1930년대 이후</text>
+      <text x="338" y="116">1960~70년대</text>
+      <text x="548" y="116">1970년대 이후</text>
+      <text x="744" y="116">1980년대 이후</text>
+    </g>
+    <g transform="translate(55 160)">
+      <rect width="210" height="174" rx="16" fill="#172b4d"/>
+      <text x="20" y="38" fill="#bfdbfe" font-size="15" font-weight="700">KEYNESIAN</text>
+      <text x="20" y="72" fill="white" font-size="20" font-weight="700">케인즈학파</text>
+      <text x="20" y="108" fill="#bfdbfe" font-size="15">총수요 · 투자심리</text>
+      <text x="20" y="135" fill="#bfdbfe" font-size="15">승수효과 · 재정정책</text>
+    </g>
+    <g transform="translate(260 160)">
+      <rect width="210" height="174" rx="16" fill="#dbeafe"/>
+      <text x="20" y="38" fill="#2563eb" font-size="15" font-weight="700">MONETARIST</text>
+      <text x="20" y="72" font-size="20" font-weight="700">통화주의학파</text>
+      <text x="20" y="108" fill="#475569" font-size="15">통화량 · 화폐충격</text>
+      <text x="20" y="135" fill="#475569" font-size="15">통화준칙 · 물가안정</text>
+    </g>
+    <g transform="translate(465 160)">
+      <rect width="210" height="174" rx="16" fill="#e0e7ff"/>
+      <text x="20" y="38" fill="#4f46e5" font-size="15" font-weight="700">NEW CLASSICAL</text>
+      <text x="20" y="72" font-size="20" font-weight="700">새고전학파</text>
+      <text x="20" y="108" fill="#475569" font-size="15">합리적 기대</text>
+      <text x="20" y="135" fill="#475569" font-size="15">루카스 비판 · 최적화</text>
+    </g>
+    <g transform="translate(670 160)">
+      <rect width="235" height="174" rx="16" fill="#ccfbf1"/>
+      <text x="20" y="38" fill="#0f766e" font-size="15" font-weight="700">NEW KEYNESIAN</text>
+      <text x="20" y="72" font-size="20" font-weight="700">새케인즈학파</text>
+      <text x="20" y="108" fill="#475569" font-size="15">가격·임금 경직성</text>
+      <text x="20" y="135" fill="#475569" font-size="15">시장 불완전성 · 정책효과</text>
+    </g>
+    <path d="M265 247h-7m12-7-8 7 8 7M470 247h-7m12-7-8 7 8 7M675 247h-7m12-7-8 7 8 7"
+      stroke="#2563eb" stroke-width="3" fill="none"/>
+    <text x="55" y="372" font-size="15" fill="#64748b">비교 포인트: 충격의 원인 · 기대의 역할 · 가격 조정 속도 · 정책 처방</text>
+  </g>
+</svg>

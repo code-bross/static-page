@@ -20,9 +20,9 @@ window.TOMATO_EXAMS = {
         "end": 100
       }
     ],
-    "answerPdf": "tomato/pdfs/[토마토패스] 25년11월대비 증권투자권유자문인력 홀인원 적중모의고사 1회 (정답 ᄆ.pdf",
+    "answerPdf": "tomato/pdfs/25년11월대비 증권투자권유자문인력 홀인원 적중모의고사 1회 (정답 ᄆ.pdf",
     "available": true,
-    "questionPdf": "tomato/pdfs/[토마토패스] 25년11월대비 증권투자권유자문인력 홀인원 적중모의고사 1회.pdf",
+    "questionPdf": "tomato/pdfs/ 25년11월대비 증권투자권유자문인력 홀인원 적중모의고사 1회.pdf",
     "questions": [
       {
         "id": 1,
@@ -5425,9 +5425,9 @@ window.TOMATO_EXAMS = {
         "end": 100
       }
     ],
-    "answerPdf": "tomato/pdfs/[토마토패스] 25년11월대비 증권투자권유자문인력 홀인원 적중모의고사 2회 (정답 ᄆ.pdf",
+    "answerPdf": "tomato/pdfs/ 25년11월대비 증권투자권유자문인력 홀인원 적중모의고사 2회 (정답 ᄆ.pdf",
     "available": true,
-    "questionPdf": "tomato/pdfs/[토마토패스] 25년11월대비 증권투자권유자문인력 홀인원 적중모의고사 2회.pdf",
+    "questionPdf": "tomato/pdfs/ 25년11월대비 증권투자권유자문인력 홀인원 적중모의고사 2회.pdf",
     "questions": [
       {
         "id": 1,
@@ -10769,9 +10769,9 @@ window.TOMATO_EXAMS = {
         "end": 100
       }
     ],
-    "answerPdf": "tomato/pdfs/[토마토패스] 25년11월대비 증권투자권유자문인력 홀인원 적중모의고사 3회 (정답 ᄆ.pdf",
+    "answerPdf": "tomato/pdfs/ 25년11월대비 증권투자권유자문인력 홀인원 적중모의고사 3회 (정답 ᄆ.pdf",
     "available": true,
-    "questionPdf": "tomato/pdfs/[토마토패스] 25년11월대비 증권투자권유자문인력 홀인원 적중모의고사 3회.pdf",
+    "questionPdf": "tomato/pdfs/ 25년11월대비 증권투자권유자문인력 홀인원 적중모의고사 3회.pdf",
     "questions": [
       {
         "id": 1,
