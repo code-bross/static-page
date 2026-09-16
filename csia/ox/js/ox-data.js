@@ -7,7 +7,7 @@ window.OX_QUIZ_DATA = [
     "chapter": "제 1장 경기분석(6문항 대비)",
     "type": "BLANK",
     "question": "경기순환(business cycle)이란 한 나라 국민경제 전체의 활동수준이 반복적인 규칙성을 지니고 변동하는 경향을 말한다. 일반적으로 경기순환은 회복 -( ) -( )- 침체의 4개 국면으로 나누어 볼 수 있다.",
-    "answer": "완황, 후퇴",
+    "answer": "활황, 후퇴",
     "oxAnswer": null,
     "image": "증투 OX 퀴즈 - 1.jpg"
   },
