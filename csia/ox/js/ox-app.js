@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentMode = 'card'; // 'card' or 'list'
   let userAnswers = JSON.parse(localStorage.getItem('csia_ox_answers') || '{}');
   let bookmarks = JSON.parse(localStorage.getItem('csia_ox_bookmarks') || '[]');
+  let revealedBlanks = JSON.parse(localStorage.getItem('csia_ox_revealed_blanks') || '{}');
   
   // DOM Elements
   const subjectFilter = document.getElementById('subjectFilter');
@@ -16,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const typeFilter = document.getElementById('typeFilter');
   const cardModeBtn = document.getElementById('cardModeBtn');
   const listModeBtn = document.getElementById('listModeBtn');
+  const resetOxBtn = document.getElementById('resetOxBtn');
   
   const cardView = document.getElementById('cardView');
   const listView = document.getElementById('listView');
@@ -52,11 +54,23 @@ document.addEventListener('DOMContentLoaded', () => {
     
     cardModeBtn.addEventListener('click', () => switchMode('card'));
     listModeBtn.addEventListener('click', () => switchMode('list'));
+    resetOxBtn.addEventListener('click', resetQuiz);
     
     modalClose.addEventListener('click', () => imgModal.classList.add('hidden'));
     imgModal.addEventListener('click', (e) => {
       if (e.target === imgModal) imgModal.classList.add('hidden');
     });
+  }
+
+  function resetQuiz() {
+    if (!confirm('OX 퀴즈 풀이 기록과 북마크를 모두 초기화할까요?')) return;
+    userAnswers = {};
+    bookmarks = [];
+    revealedBlanks = {};
+    localStorage.removeItem('csia_ox_answers');
+    localStorage.removeItem('csia_ox_bookmarks');
+    localStorage.removeItem('csia_ox_revealed_blanks');
+    applyFilters();
   }
 
   function setFromField(field) {
@@ -109,6 +123,47 @@ document.addEventListener('DOMContentLoaded', () => {
     render();
   }
 
+  function blankAnswers(q) {
+    const answers = q.answer.split(/\s*,\s*/).map(answer => answer.trim()).filter(Boolean);
+    const blankCount = (q.question.match(/\(\s*\)/g) || []).length;
+    return answers.length === 1 && blankCount > 1
+      ? answers[0].split(/\.\s+/).map(answer => answer.trim()).filter(Boolean)
+      : answers;
+  }
+
+  function escapeHtml(value) {
+    return String(value).replace(/[&<>"']/g, character => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    }[character]));
+  }
+
+  function renderBlankQuestion(q, revealed = []) {
+    const answers = blankAnswers(q);
+    let blankIndex = 0;
+    return q.question.replace(/\(\s*\)/g, () => {
+      const index = blankIndex++;
+      const answer = answers[index] || answers[answers.length - 1] || '정답';
+      const isRevealed = revealed.includes(index);
+      const visibleAnswer = isRevealed ? escapeHtml(answer) : '&nbsp;';
+      const label = isRevealed ? `정답: ${escapeHtml(answer)}` : '빈칸 정답 보기';
+      return `<button class="blank-slot ${isRevealed ? 'revealed' : ''}" type="button" data-blank-index="${index}" aria-label="${label}">${visibleAnswer}</button>`;
+    });
+  }
+
+  function revealBlank(q, index) {
+    const current = Array.isArray(revealedBlanks[q.id]) ? revealedBlanks[q.id] : [];
+    if (!current.includes(index)) {
+      revealedBlanks[q.id] = [...current, index];
+      userAnswers[q.id] = true;
+      localStorage.setItem('csia_ox_revealed_blanks', JSON.stringify(revealedBlanks));
+      saveUserAnswers();
+    }
+  }
+
   function updateStats() {
     const total = filteredQuizzes.length;
     if (total === 0) {
@@ -154,6 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const q = filteredQuizzes[currentIndex];
     const isBookmarked = bookmarks.includes(q.id);
     const userAnswer = userAnswers[q.id]; // true, false, or undefined
+    const shouldShowAnswerDrawer = q.type === 'BLANK' ? false : userAnswer !== undefined;
     
     cardView.innerHTML = `
       <div class="quiz-card">
@@ -165,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </button>
         </div>
         
-        <div class="question-text">${q.question}</div>
+        <div class="question-text">${q.type === 'BLANK' ? renderBlankQuestion(q, revealedBlanks[q.id] || []) : q.question}</div>
         
         ${q.type === 'OX' ? `
           <div class="ox-buttons-group">
@@ -182,7 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </button>
         `}
         
-        <div class="answer-drawer ${userAnswer !== undefined ? '' : 'hidden'}" id="answerDrawer">
+        <div class="answer-drawer ${shouldShowAnswerDrawer ? '' : 'hidden'}" id="answerDrawer">
           <div class="ans-header">
             <span class="ans-title">정답 및 해설</span>
             ${q.oxAnswer ? `<span class="ans-ox-tag ${q.oxAnswer}">${q.oxAnswer}</span>` : ''}
@@ -211,6 +267,10 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('btnO').addEventListener('click', () => handleOXClick(q, 'O'));
       document.getElementById('btnX').addEventListener('click', () => handleOXClick(q, 'X'));
     } else {
+      cardView.querySelectorAll('.blank-slot').forEach((blank) => blank.addEventListener('click', () => {
+        revealBlank(q, Number(blank.dataset.blankIndex));
+        render();
+      }));
       document.getElementById('revealBtn').addEventListener('click', () => {
         const drawer = document.getElementById('answerDrawer');
         drawer.classList.toggle('hidden');
@@ -278,14 +338,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     listView.innerHTML = filteredQuizzes.map((q, idx) => {
-      const isAnsRevealed = userAnswers.hasOwnProperty(q.id);
+      const isAnsRevealed = q.type !== 'BLANK' && userAnswers.hasOwnProperty(q.id);
       return `
         <div class="list-item-card" id="listItem_${q.id}">
           <div class="quiz-meta">
             <span class="chapter-badge">${q.chapter}</span>
             <span class="qnum-badge">Q.${q.id} (p.${q.page})</span>
           </div>
-          <div class="question-text" style="font-size: 15px; margin-bottom: 12px;">${q.question}</div>
+          <div class="question-text" style="font-size: 15px; margin-bottom: 12px;">${q.type === 'BLANK' ? renderBlankQuestion(q, revealedBlanks[q.id] || []) : q.question}</div>
           
           <button class="reveal-ans-btn list-reveal-btn" data-id="${q.id}" style="padding: 10px; font-size: 13px;">
             ${isAnsRevealed ? '▲ 정답 닫기' : '💡 정답 및 해설 보기'}
@@ -320,5 +380,12 @@ document.addEventListener('DOMContentLoaded', () => {
         updateStats();
       });
     });
+
+    listView.querySelectorAll('.blank-slot').forEach((blank) => blank.addEventListener('click', () => {
+      const qid = Number(blank.closest('.list-item-card').id.replace('listItem_', ''));
+      const q = filteredQuizzes.find(item => item.id === qid);
+      revealBlank(q, Number(blank.dataset.blankIndex));
+      renderListView();
+    }));
   }
 });
