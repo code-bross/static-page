@@ -42,3 +42,41 @@ assert.equal(round3[10].answerSource, 'user');
 assert.equal(round3[61].answerSource, 'user');
 assert.equal(round3[5].correctAnswer, 1, 'Round 3 Q6 was not the user override');
 console.log('PASS: 400 questions, 1,600 choice concepts, 108 source pages, categories and user-confirmed answers.');
+
+for (const file of ['notes.js', 'pages.js']) {
+  vm.runInContext(fs.readFileSync(path.join(__dirname, 'special', file), 'utf8'), context);
+}
+const lectures = context.window.SPECIAL_NOTES;
+const sources = context.window.SPECIAL_PAGES;
+assert.equal(lectures.length, 7);
+assert.equal(sources.length, 7);
+assert.equal(new Set(lectures.map(lecture => lecture.id)).size, 7);
+assert.equal(sources.reduce((total, source) => total + source.totalPages, 0), 138);
+assert.equal(sources.reduce((total, source) => total + source.pages.length, 0), 133);
+lectures.forEach((lecture, index) => {
+  const source = sources[index];
+  assert.equal(lecture.id, source.id);
+  assert.ok(lecture.sections.length >= 5);
+  for (const field of ['title', 'session', 'intro', 'formula', 'example', 'question', 'answer']) {
+    assert.ok(lecture[field].trim(), `${lecture.id}: ${field}`);
+  }
+  for (const section of lecture.sections) {
+    assert.ok(section.title.trim() && section.body.trim() && section.pages.startsWith('PDF '));
+    for (const match of section.pages.matchAll(/\d+/g)) {
+      assert.ok(Number(match[0]) >= 1 && Number(match[0]) <= source.totalPages);
+    }
+  }
+  assert.ok(fs.existsSync(path.join(__dirname, 'special', source.pdf)));
+  const numbers = source.pages.map(page => page.number).concat(source.omittedPages);
+  assert.equal(numbers.length, source.totalPages);
+  assert.equal(new Set(numbers).size, source.totalPages);
+  for (const page of source.pages) {
+    assert.ok(page.number >= 1 && page.number <= source.totalPages);
+    assert.ok(page.width > 1000 && page.height > 1000);
+    assert.ok(fs.existsSync(path.join(__dirname, 'special', page.image)));
+    assert.ok(!/토마토패스|tomatopass/.test(page.text), 'No watermark text in extracted pages');
+  }
+});
+new vm.Script(fs.readFileSync(path.join(__dirname, 'special/app.js'), 'utf8'));
+assert.ok(fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8').includes('href="special/index.html"'));
+console.log('PASS: seven special lectures, 133 learning pages, source coverage and landing navigation.');
