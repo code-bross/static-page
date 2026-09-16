@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="2026 한글날 연휴 남해와 부산 2박 3일 가족여행 비교 가이드">
+  <title>한글날 남해 · 부산 | 2박 3일 가족여행</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#17211d;--muted:#6c7771;--paper:#f7f7f2;--card:#fff;--line:#e2e5dc;--green:#147d62;--lime:#d7ec9b;--orange:#ef855f;--navy:#233b51;--shadow:0 18px 50px #20352712}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Noto Sans KR",sans-serif;line-height:1.6}a{color:inherit;text-decoration:none}.wrap{max-width:1180px;margin:auto;padding:0 28px}
+    .skip{position:absolute;left:-10000px}.skip:focus{left:16px;top:12px;background:#fff;padding:8px;z-index:9}
+    header{padding:30px 0 18px;background:linear-gradient(120deg,#eef3df,#f7f7f2 52%,#e6eee7)}.topline{display:flex;justify-content:space-between;align-items:center;font:700 13px "DM Sans";letter-spacing:.1em;color:var(--green);text-transform:uppercase}.mark{display:flex;align-items:center;gap:9px}.mark i{display:block;width:22px;height:22px;border-radius:50% 50% 50% 4px;background:var(--orange);transform:rotate(-45deg)}.date{color:var(--muted);font-size:12px;letter-spacing:0}
+    h1{font-size:clamp(36px,6vw,68px);line-height:1.08;letter-spacing:-.06em;margin:62px 0 15px;max-width:800px}h1 em{color:var(--green);font-style:normal}header p{font-size:17px;color:var(--muted);margin:0 0 35px}
+    .tabs{display:flex;gap:10px;flex-wrap:wrap}.tab{border:1px solid #cbd4c9;background:#ffffffa8;border-radius:99px;padding:12px 24px;font:700 15px "Noto Sans KR";cursor:pointer;transition:.2s}.tab[aria-selected=true]{background:var(--green);color:#fff;border-color:var(--green);box-shadow:0 8px 20px #147d6230}.tab:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+    main{padding:38px 0 80px}.panel{display:none}.panel.active{display:block;animation:rise .35s ease}@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+    .intro{display:grid;grid-template-columns:1.3fr .7fr;gap:20px;margin-bottom:25px}.hero-card{min-height:275px;border-radius:26px;padding:30px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background-size:cover;background-position:center;position:relative}.hero-card:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#071b15dc,transparent 75%)}.hero-card>*{position:relative}.hero-card small{font:700 12px "DM Sans";letter-spacing:.1em;text-transform:uppercase;color:var(--lime)}.hero-card h2{font-size:34px;letter-spacing:-.06em;margin:6px 0 0}.summary{background:var(--navy);color:#fff;border-radius:26px;padding:28px}.summary small{color:#b8d8d0;font:700 12px "DM Sans";letter-spacing:.1em}.summary strong{display:block;font-size:27px;line-height:1.25;margin:10px 0 16px}.summary p{color:#d8e2e1;font-size:14px;margin:0}.tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:18px}.tag{background:#ffffff1a;border:1px solid #ffffff29;padding:5px 10px;border-radius:99px;font-size:12px}
+    .section-head{display:flex;justify-content:space-between;align-items:end;margin:42px 0 15px}.section-head h3{font-size:23px;letter-spacing:-.05em;margin:0}.section-head span{font-size:13px;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 3px 13px #20352706;transition:.25s}.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}.card img{width:100%;height:155px;object-fit:cover;display:block;background:#dfe8df}.card-body{padding:17px}.eyebrow{font:700 11px "DM Sans";letter-spacing:.08em;color:var(--green);text-transform:uppercase}.card h4{font-size:18px;letter-spacing:-.04em;margin:6px 0 5px}.card p{color:var(--muted);font-size:13px;margin:0 0 14px}.card-link{font-size:12px;font-weight:700;color:var(--green)}.card-link:after{content:" ↗";font-family:"DM Sans"}
+    .timeline{display:grid;gap:12px}.day{display:grid;grid-template-columns:92px 1fr;gap:18px;align-items:start}.day-label{background:var(--lime);border-radius:15px;padding:12px 10px;text-align:center;font-weight:800;font-size:14px;line-height:1.3}.day-label span{display:block;color:#516333;font:700 11px "DM Sans";margin-bottom:3px}.route{background:#fff;border:1px solid var(--line);border-radius:15px;padding:16px 20px;display:grid;grid-template-columns:75px minmax(0,1fr);gap:15px;align-items:start}.time{font:700 13px "DM Sans";color:var(--orange);padding-top:2px}.route strong{font-size:15px}.route p{margin:3px 0 0;color:var(--muted);font-size:13px}.route b{font-size:12px;color:var(--green);margin-left:8px}.route-photo{grid-column:2;width:min(70%,480px);height:160px;object-fit:cover;border-radius:10px;background:#e2e9df;display:block;margin-top:2px}
+    .budget{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;align-items:stretch}.costs{background:#fff;border:1px solid var(--line);border-radius:18px;padding:21px}.cost{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}.cost:last-child{border:0}.cost span:last-child{font-weight:700}.total{display:flex;justify-content:space-between;align-items:baseline;padding-top:17px;font-weight:800}.total strong{font-size:29px;color:var(--green);letter-spacing:-.05em}.note{border-radius:18px;background:#dcebe2;padding:23px;color:#275342;font-size:14px}.note strong{display:block;font-size:17px;color:var(--ink);margin-bottom:8px}.note ul{margin:10px 0 0;padding-left:18px}.note li{margin:5px 0}
+    footer{border-top:1px solid var(--line);padding:25px 0 45px;color:var(--muted);font-size:12px}.source{margin-top:7px}
+    @media(max-width:760px){.wrap{padding:0 17px}.topline{align-items:flex-start}.date{text-align:right}.intro,.budget{grid-template-columns:1fr}.hero-card{min-height:230px}.grid{grid-template-columns:1fr}.section-head{margin-top:32px;gap:12px}.section-head span{font-size:11px;text-align:right}.day{grid-template-columns:61px 1fr;gap:8px}.day-label{font-size:12px;padding:10px 3px}.route{grid-template-columns:43px minmax(0,1fr);gap:8px;padding:13px 12px}.route strong{font-size:14px;line-height:1.45;display:block}.route p{font-size:12px;line-height:1.55}.route b{display:block;margin:4px 0 0}.route-photo{width:100%;height:140px;border-radius:8px}.tabs{overflow-x:auto;flex-wrap:nowrap;padding:3px 1px 8px;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}.tab{flex:0 0 auto;padding:11px 15px;white-space:nowrap}.summary strong{font-size:23px}.card-link{overflow-wrap:anywhere}.cost{gap:12px;font-size:13px}.cost span:last-child{white-space:nowrap}.total strong{font-size:24px}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#content">본문으로 건너뛰기</a>
+  <header>
+    <div class="wrap">
+      <div class="topline"><div class="mark"><i></i> weekend edit</div><div class="date">2026. 10. 9 — 10. 11 · 2박 3일</div></div>
+      <h1>부모님과 함께,<br><em>남쪽으로 가는</em> 가을</h1>
+      <p>50대 부부 2명 + 30대 부부 2명 · 대전 3명 / 서울 1명 출발<br>걷기는 가볍게, 식사는 제대로. 두 지역을 한눈에 비교해보세요.</p>
+      <nav class="tabs" role="tablist" aria-label="여행지 선택">
+        <button class="tab" role="tab" aria-selected="true" aria-controls="namhae" data-tab="namhae">남해 · 바다와 독일마을</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="busan" data-tab="busan">부산 · 도시와 미식</button>
+      </nav>
+    </div>
+  </header>
+  <main id="content" class="wrap">
+    <section id="namhae" class="panel active" role="tabpanel">
+      <div class="intro">
+        <div class="hero-card" style="background-image:url('https://media.timeout.com/images/105265447/image.jpg?namhae-hero')"><small>slow coast / recommendation</small><h2>남해, 초록과 쪽빛 사이</h2></div>
+        <div class="summary"><small>추천 포인트</small><strong>부모님 중심의<br>느긋한 드라이브</strong><p>렌터카로 이동 동선을 줄이고, 전망 좋은 카페와 독일마을을 잇는 코스. 부산보다 조용하고 자연 풍경이 깊습니다.</p><div class="tags"><span class="tag">차량 이동</span><span class="tag">전망 명소</span><span class="tag">해산물</span></div></div>
+      </div>
+      <div class="section-head"><h3>3일 큐레이션</h3><span>무리 없는 순서 · 주차 중심</span></div>
+      <div class="timeline">
+        <div class="day"><div class="day-label"><span>DAY 00</span>10/8 목</div><div class="route"><div class="time">저녁</div><div><strong>서울 1명 → 대전 합류 (선택)</strong><p>다음 날 함께 움직이려면 서울 인원은 전날 KTX로 대전 도착. 대전역 인근 1박 또는 가족 댁 숙박을 선택합니다.</p></div></div></div>
+        <div class="day"><div class="day-label"><span>DAY 01</span>10/9 금</div><div class="route"><div class="time">07:00</div><div><strong>대전 3명 자차 출발 → 남해 도착</strong><p>대전에서 차량 3대로 출발(약 3시간 20분). 서울 인원은 전날 합류하거나, 진주역 KTX 도착 후 현지 합류도 가능합니다.</p></div></div></div>
+        <div class="day"><div class="day-label"><span>DAY 01</span>오전</div><div class="route"><div class="time">10:30</div><div><strong>산청휴게소 휴식 → 남해대교 전망</strong><p>차량별 15분 휴식 후 남해대교를 건너며 단체 사진. 숙소에 짐을 맡기고 점심 장소로 이동합니다.</p></div></div></div>
+        <div class="day"><div class="day-label"><span>DAY 01</span>점심</div><div class="route"><div class="time">12:30</div><div><strong>남해 읍내 점심 → 독일마을</strong><p>운전 피로를 줄이도록 국도변 식당에서 식사한 뒤 독일마을로 이동합니다. 연휴 주차를 고려해 1대 먼저 주차를 확인합니다.</p></div></div></div>
+        <div class="day"><div class="day-label"><span>DAY 01</span>오후</div><div class="route"><div class="time">14:00</div><div><strong>독일마을 · 파독전시관 → 원예예술촌</strong><p>마을과 전시관을 천천히 둘러보고, 바로 옆 원예예술촌은 정원 벤치 중심으로 60분만 관람합니다.</p></div></div></div>
+        <div class="day"><div class="day-label"><span>DAY 01</span>저녁</div><div class="route"><div class="time">17:00</div><div><strong>물미해안전망대 → 라피스호텔 체크인</strong><p>해질 무렵 전망대에 들른 뒤 숙소에서 휴식. 저녁은 실제 업소인 <b>우리식당</b>의 영업일·대기 여부를 확인해 방문합니다.</p></div></div></div>
+        <div class="day"><div class="day-label"><span>DAY 02</span>10/10 토</div><div class="route"><div class="time">08:30</div><div><strong>호텔 조식 → 금산 보리암</strong><p>아침 식사 후 복곡주차장으로 이동. 셔틀과 짧은 계단을 이용해 전망대까지 무리하지 않는 코스로 잡습니다.</p></div></div></div>
+        <div class="day"><div class="day-label"><span>DAY 02</span>점심</div><div class="route"><div class="time">12:30</div><div><strong>금산 하산 → 상주은모래비치</strong><p>보리암 관람 후 상주권에서 점심. 해변 벤치와 화장실을 활용해 40분 정도 바다를 보고 쉽니다.</p></div></div></div>
+        <div class="day"><div class="day-label"><span>DAY 02</span>오후</div><div class="route"><div class="time">15:00</div><div><strong>다랭이마을 전망 포인트 → 숙소 휴식</strong><p>경사 전체를 걷지 않고 상부 전망 포인트만 방문합니다. 17시 전 숙소로 돌아와 어르신 휴식 시간을 확보합니다.</p></div></div></div>
+        <div class="day"><div class="day-label"><span>DAY 02</span>저녁</div><div class="route"><div class="time">18:30</div><div><strong>미조항 저녁 식사 → 별 보기</strong><p>미조항에서 회·구이 메뉴를 나눠 먹고, 숙소 주변 산책 또는 객실 휴식으로 하루를 마무리합니다.</p></div></div></div>
+        <div class="day"><div class="day-label"><span>DAY 03</span>10/11 일</div><div class="route"><div class="time">08:30</div><div><strong>호텔 조식 → 설리스카이워크</strong><p>체크아웃 전 짐을 정리하고 설리 전망을 짧게 감상합니다. 고소공포증이 있으면 해변 카페로 대체합니다.</p></div></div></div>
+        <div class="day"><div class="day-label"><span>DAY 03</span>점심</div><div class="route"><div class="time">11:30</div><div><strong>미조항 산책 → 점심 → 대전 귀가</strong><p>미조항 방파제를 20분만 걷고 점심 후 차량별 귀가. 서울 인원은 대전역 서울행 또는 진주역 상행을 선택합니다.</p></div></div></div>
+      </div>
+      <div class="section-head"><h3>남해에서 고를 것</h3><span>방문 전 영업일·예약 확인</span></div>
+      <div class="grid">
+        <article class="card"><img src="https://www.tripsavvy.com/thmb/Z66eh2iN8xu1n_CE0HGi0VDe5c8=/2123x1413/filters:no_upscale():max_bytes(150000):strip_icc()/haedong-yonggungsa-temple-and-haeundae-sea-in-busan--south-korea--848866342-9b505d7b03c442cbb46e3b0b2e31d557.jpg" alt="남해 바다 풍경"><div class="card-body"><div class="eyebrow">see · view</div><h4>독일마을 & 물미해안전망대</h4><p>차량 접근성이 좋고 앉아서 보는 시간이 많아 첫날에 적합합니다.</p><a class="card-link" href="https://www.namhae.go.kr/tour" target="_blank" rel="noopener">남해군 관광 안내</a></div></article>
+        <article class="card"><img src="https://cdn.getyourguide.com/img/location/5b45dd0386029.jpeg/88.jpg" alt="남해 해안 산책 풍경"><div class="card-body"><div class="eyebrow">eat · real places</div><h4>우리식당 · 멸치쌈밥</h4><p>남해 미조면의 실제 멸치쌈밥 식당. 연휴에는 영업일과 대기 여부를 전화로 확인하세요.</p><a class="card-link" href="https://map.naver.com/p/search/남해%20우리식당%20멸치쌈밥" target="_blank" rel="noopener">우리식당 지도 보기</a></div></article>
+        <article class="card"><img src="https://res.klook.com/image/upload/fl_lossy.progressive,q_60/v1755345966/destination/wbgdzlhksoqhm3htppmc.jpg" alt="남해 바다 숙소 여행 풍경"><div class="card-body"><div class="eyebrow">stay · real hotels</div><h4>남해 라피스호텔</h4><p>실제 운영 중인 남해 숙소. 대안으로 남해 아난티도 함께 비교해 객실 2실을 예약합니다.</p><a class="card-link" href="https://map.naver.com/p/search/남해%20라피스호텔" target="_blank" rel="noopener">라피스호텔 지도</a> · <a class="card-link" href="https://map.naver.com/p/search/남해%20아난티" target="_blank" rel="noopener">아난티 지도</a></div></article>
+      </div>
+      <div class="section-head"><h3>예산 예상</h3><span>4명 / 2박 3일 · 2026년 10월 주말 기준</span></div>
+      <div class="budget"><div class="costs"><div class="cost"><span>교통 · 대전 자차 3대 유류·통행료</span><span>₩360,000</span></div><div class="cost"><span>서울 인원 KTX · 전날 대전 합류 기준</span><span>₩120,000</span></div><div class="cost"><span>숙소 · 실제 호텔 2실 × 2박</span><span>₩760,000</span></div><div class="cost"><span>식비 · 실제 식당 7식 + 간식</span><span>₩560,000</span></div><div class="cost"><span>입장·주차·카페</span><span>₩100,000</span></div><div class="total"><span>총 예상액 <small>(1인 약 47.5만 원)</small></span><strong>₩1,900,000</strong></div></div><aside class="note"><strong>남해 예약 팁</strong>한글날 연휴라 실제 숙소와 우리식당 모두 8월 중 확인을 권합니다.<ul><li>대전 출발 차량은 통행료·주유비를 차량별 정산</li><li>서울 인원은 10/8 대전 숙박비가 별도일 수 있음</li><li>라피스호텔·아난티 객실 요금은 날짜별 확인</li></ul></aside></div>
+    </section>
+    <section id="busan" class="panel" role="tabpanel">
+      <div class="intro">
+        <div class="hero-card" style="background-image:url('https://www.agoda.com/wp-content/uploads/2024/07/Gwangalli-Beach-Busan.jpg')"><small>city coast / easy choice</small><h2>부산, 바다 앞에서 편하게</h2></div>
+        <div class="summary"><small>추천 포인트</small><strong>대중교통으로도<br>완성되는 미식 여행</strong><p>서울·대전 모두 KTX로 바로 연결되고, 택시를 섞으면 걷는 양을 줄일 수 있습니다. 식당과 야경 선택지가 풍부합니다.</p><div class="tags"><span class="tag">KTX 직결</span><span class="tag">택시 이동</span><span class="tag">맛집 다양</span></div></div>
+      </div>
+      <div class="section-head"><h3>3일 큐레이션</h3><span>환승 최소 · 바다 야경</span></div>
+      <div class="timeline">
+        <div class="day"><div class="day-label"><span>DAY 00</span>10/8 목</div><div class="route"><div class="time">선택</div><div><strong>서울 1명 → 대전 전날 합류</strong><p>함께 출발하고 싶다면 전날 대전 숙박. 바로 부산으로 갈 경우에는 다음 날 부산역에서 합류합니다.</p></div></div></div>
+        <div class="day"><div class="day-label"><span>DAY 01</span>10/9 금</div><div class="route"><div class="time">08:00</div><div><strong>대전 3명 자차 → 부산, 서울 1명 KTX → 부산역</strong><p>대전 차량은 약 3시간 30분, 서울 인원은 서울역에서 부산역 직행. 숙소 주차 후 부산역에서 합류하거나 각자 체크인합니다.</p></div></div></div>
+        <div class="day"><div class="day-label"><span>DAY 01</span>점심</div><div class="route"><div class="time">12:30</div><div><strong>부산역 합류 → 초량밀면</strong><p>서울 인원이 부산역에 도착하면 실제 업소인 초량밀면에서 점심. 차량은 숙소 주차 후 택시로 움직이면 편합니다.</p></div></div></div>
+        <div class="day"><div class="day-label"><span>DAY 01</span>오후</div><div class="route"><div class="time">14:30</div><div><strong>흰여울문화마을 → 자갈치시장</strong><p>택시로 마을 상부에 내려 경사 구간을 줄입니다. 자갈치시장은 건물 안에서 쉬며 구경하고, 해산물 저녁을 고릅니다.</p></div></div></div>
+        <div class="day"><div class="day-label"><span>DAY 01</span>저녁</div><div class="route"><div class="time">18:30</div><div><strong>광안리 체크인 → 광안대교 야경</strong><p>호텔1 또는 켄트호텔 체크인 후 해변 산책은 30분 이내로 짧게. 피로하면 객실에서 야경을 감상합니다.</p></div></div></div>
+        <div class="day"><div class="day-label"><span>DAY 02</span>10/10 토</div><div class="route"><div class="time">08:30</div><div><strong>호텔 조식 → 해동용궁사</strong><p>주차장까지 자차 또는 택시로 이동합니다. 사찰 내부는 무리해서 끝까지 걷지 않고 바다 전망 중심으로 관람합니다.</p></div></div></div>
+        <div class="day"><div class="day-label"><span>DAY 02</span>점심</div><div class="route"><div class="time">12:30</div><div><strong>청사포 다릿돌전망대 → 해운대 점심</strong><p>전망대는 짧게 들른 뒤 해운대권으로 이동합니다. 밀면 또는 돼지국밥으로 메뉴를 나눠 부모님 선택 폭을 둡니다.</p></div></div></div>
+        <div class="day"><div class="day-label"><span>DAY 02</span>오후</div><div class="route"><div class="time">15:00</div><div><strong>달맞이길 카페 휴식 → 숙소</strong><p>전망 좋은 카페에서 90분 쉬고 호텔로 돌아옵니다. 해변 산책과 객실 휴식 중 컨디션에 맞춰 선택합니다.</p></div></div></div>
+        <div class="day"><div class="day-label"><span>DAY 02</span>저녁</div><div class="route"><div class="time">18:30</div><div><strong>광안리 저녁 → 불꽃 없는 야경 산책</strong><p>대기 긴 식당은 피하고 예약 가능한 회·구이 식당을 선택합니다. 광안리 해변에서 20분 산책 후 마무리합니다.</p></div></div></div>
+        <div class="day"><div class="day-label"><span>DAY 03</span>10/11 일</div><div class="route"><div class="time">08:30</div><div><strong>호텔 조식·체크아웃 → 감천문화마을</strong><p>차량은 숙소에 두고 택시로 감천 상부 진입. 계단이 적은 전망 포인트와 기념품 구간만 60분 관람합니다.</p></div></div></div>
+        <div class="day"><div class="day-label"><span>DAY 03</span>점심</div><div class="route"><div class="time">11:30</div><div><strong>부산역 이동 → 국밥 점심 → 각자 귀가</strong><p>부산역권으로 돌아와 식사하고 짐을 찾습니다. 15시 전후 서울 KTX, 대전 자차로 나눠 출발합니다.</p></div></div></div>
+      </div>
+      <div class="section-head"><h3>부산에서 고를 것</h3><span>예약·대기시간 확인</span></div>
+      <div class="grid">
+        <article class="card"><img src="https://media.timeout.com/images/105265447/image.jpg?busan-coast" alt="부산 바닷가 풍경"><div class="card-body"><div class="eyebrow">see · coast</div><h4>해동용궁사 & 광안리</h4><p>바다 풍경을 같은 날 묶고, 전망대는 오래 걷지 않는 동선으로 잡았습니다.</p><a class="card-link" href="https://www.visitbusan.net" target="_blank" rel="noopener">Visit Busan 공식 안내</a></div></article>
+        <article class="card"><img src="https://thefrisky.com/wp-content/uploads/2023/06/Exploring-the-historic-landmarks-of-Busan.jpg" alt="부산 도심과 해안 풍경"><div class="card-body"><div class="eyebrow">eat · real places</div><h4>초량밀면 · 합천일류돼지국밥</h4><p>부산역권의 초량밀면과 사상권 합천일류돼지국밥 등 실제 운영 식당을 일정에 넣었습니다.</p><a class="card-link" href="https://map.naver.com/p/search/부산%20초량밀면" target="_blank" rel="noopener">초량밀면 지도</a> · <a class="card-link" href="https://map.naver.com/p/search/부산%20합천일류돼지국밥" target="_blank" rel="noopener">합천일류 지도</a></div></article>
+        <article class="card"><img src="https://cdn.getyourguide.com/img/location/5b45dd0386029.jpeg/88.jpg?busan-stay" alt="부산 바다를 바라보는 여행 풍경"><div class="card-body"><div class="eyebrow">stay · real hotels</div><h4>호텔1 광안리</h4><p>광안리 해변 앞 실제 호텔. 대안으로 켄트호텔 광안리도 객실 2실과 주차 조건을 비교하세요.</p><a class="card-link" href="https://map.naver.com/p/search/부산%20호텔1%20광안리" target="_blank" rel="noopener">호텔1 지도</a> · <a class="card-link" href="https://map.naver.com/p/search/켄트호텔%20광안리" target="_blank" rel="noopener">켄트호텔 지도</a></div></article>
+      </div>
+      <div class="section-head"><h3>예산 예상</h3><span>4명 / 2박 3일 · 2026년 10월 주말 기준</span></div>
+      <div class="budget"><div class="costs"><div class="cost"><span>교통 · 대전 자차 3대 유류·통행료</span><span>₩330,000</span></div><div class="cost"><span>서울 인원 KTX 왕복 · 부산 직행 기준</span><span>₩180,000</span></div><div class="cost"><span>숙소 · 실제 호텔 2실 × 2박</span><span>₩760,000</span></div><div class="cost"><span>식비 · 실제 식당 7식 + 간식</span><span>₩600,000</span></div><div class="cost"><span>입장·주차·카페</span><span>₩120,000</span></div><div class="total"><span>총 예상액 <small>(1인 약 49.8만 원)</small></span><strong>₩1,990,000</strong></div></div><aside class="note"><strong>부산 예약 팁</strong>자차 3대라 광안리 숙소의 주차비·주차 가능 대수를 먼저 확인하세요.<ul><li>서울 인원은 부산역 직행이 가장 단순</li><li>초량밀면은 첫날 점심, 국밥은 귀가 전 추천</li><li>호텔1·켄트호텔은 오션뷰와 주차 조건 비교</li></ul></aside></div>
+    </section>
+  </main>
+  <footer><div class="wrap"><strong>TRAVEL NOTE · 2026.10</strong><div class="source">숙소·식당은 실제 상호 기준으로 연결했으며, 영업일·휴무·주차·예약 가능 여부는 한글날 연휴 전에 각 지도/업소에서 최종 확인하세요. 예산은 4인 기준 예상치입니다.</div></div></footer>
+  <script>
+    const routePhotos = [
+      "https://res.klook.com/image/upload/fl_lossy.progressive,q_60/v1755345966/destination/wbgdzlhksoqhm3htppmc.jpg?namhae-1",
+      "https://media.timeout.com/images/105265447/image.jpg?namhae-2",
+      "https://cdn.getyourguide.com/img/location/5b45dd0386029.jpeg/88.jpg?namhae-3",
+      "https://media.timeout.com/images/105265447/image.jpg?namhae-4",
+      "https://res.klook.com/image/upload/fl_lossy.progressive,q_60/v1755345966/destination/wbgdzlhksoqhm3htppmc.jpg?namhae-5",
+      "https://www.tripsavvy.com/thmb/Z66eh2iN8xu1n_CE0HGi0VDe5c8=/2123x1413/filters:no_upscale():max_bytes(150000):strip_icc()/haedong-yonggungsa-temple-and-haeundae-sea-in-busan--south-korea--848866342-9b505d7b03c442cbb46e3b0b2e31d557.jpg?namhae-6",
+      "https://cdn.getyourguide.com/img/location/5b45dd0386029.jpeg/88.jpg?namhae-7",
+      "https://media.timeout.com/images/105265447/image.jpg?namhae-8",
+      "https://res.klook.com/image/upload/fl_lossy.progressive,q_60/v1755345966/destination/wbgdzlhksoqhm3htppmc.jpg?namhae-9",
+      "https://cdn.getyourguide.com/img/location/5b45dd0386029.jpeg/88.jpg?namhae-10",
+      "https://media.timeout.com/images/105265447/image.jpg?namhae-11",
+      "https://res.klook.com/image/upload/fl_lossy.progressive,q_60/v1755345966/destination/wbgdzlhksoqhm3htppmc.jpg?namhae-12",
+      "https://www.agoda.com/wp-content/uploads/2024/07/Gwangalli-Beach-Busan.jpg?busan-1",
+      "https://res.klook.com/image/upload/fl_lossy.progressive,q_60/v1755345966/destination/wbgdzlhksoqhm3htppmc.jpg?busan-2",
+      "https://cdn.getyourguide.com/img/location/5b45dd0386029.jpeg/88.jpg?busan-3",
+      "https://www.tripsavvy.com/thmb/Z66eh2iN8xu1n_CE0HGi0VDe5c8=/2123x1413/filters:no_upscale():max_bytes(150000):strip_icc()/haedong-yonggungsa-temple-and-haeundae-sea-in-busan--south-korea--848866342-9b505d7b03c442cbb46e3b0b2e31d557.jpg?busan-4",
+      "https://www.agoda.com/wp-content/uploads/2024/07/Gwangalli-Beach-Busan.jpg?busan-5",
+      "https://www.tripsavvy.com/thmb/Z66eh2iN8xu1n_CE0HGi0VDe5c8=/2123x1413/filters:no_upscale():max_bytes(150000):strip_icc()/haedong-yonggungsa-temple-and-haeundae-sea-in-busan--south-korea--848866342-9b505d7b03c442cbb46e3b0b2e31d557.jpg?busan-6",
+      "https://media.timeout.com/images/105265447/image.jpg?busan-7",
+      "https://www.agoda.com/wp-content/uploads/2024/07/Gwangalli-Beach-Busan.jpg?busan-8",
+      "https://cdn.getyourguide.com/img/location/5b45dd0386029.jpeg/88.jpg?busan-9",
+      "https://media.timeout.com/images/105265447/image.jpg?busan-10",
+      "https://res.klook.com/image/upload/fl_lossy.progressive,q_60/v1755345966/destination/wbgdzlhksoqhm3htppmc.jpg?busan-11",
+      "https://thefrisky.com/wp-content/uploads/2023/06/Exploring-the-historic-landmarks-of-Busan.jpg?busan-12"
+    ];
+    document.querySelectorAll(".route").forEach((route, index) => {
+      const photo = document.createElement("img");
+      photo.className = "route-photo";
+      photo.src = routePhotos[index];
+      photo.alt = (route.querySelector("strong")?.textContent || "여행 일정") + " 사진";
+      route.append(photo);
+    });
+    const tabs = document.querySelectorAll(".tab"), panels = document.querySelectorAll(".panel");
+    tabs.forEach(tab => tab.addEventListener("click", () => {
+      const id = tab.dataset.tab;
+      tabs.forEach(item => item.setAttribute("aria-selected", String(item === tab)));
+      panels.forEach(panel => panel.classList.toggle("active", panel.id === id));
+    }));
+  </script>
+</body>
+</html>
