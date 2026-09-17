@@ -300,6 +300,147 @@ body {
   cursor: default;
 }
 
+/* Choice Questions Interactive Pills */
+.choice-group {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 6px;
+  margin: 2px 4px;
+  background: rgba(30, 41, 59, 0.75);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  border-radius: 10px;
+  vertical-align: middle;
+}
+
+.choice-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 4px 11px;
+  border-radius: 7px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: rgba(15, 23, 42, 0.85);
+  color: #f1f5f9;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  line-height: 1.35;
+  user-select: none;
+}
+
+.choice-btn:hover {
+  background: rgba(99, 102, 241, 0.3);
+  border-color: #818cf8;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.25);
+}
+
+.choice-btn:active {
+  transform: scale(0.97);
+}
+
+/* User selected correct option */
+.choice-btn.selected-correct {
+  background: rgba(16, 185, 129, 0.28) !important;
+  border: 1.5px solid #10b981 !important;
+  color: #34d399 !important;
+  font-weight: 800;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.35);
+}
+.choice-btn.selected-correct::after {
+  content: ' ✓';
+  font-weight: 900;
+  font-size: 12px;
+}
+
+/* User selected wrong option */
+.choice-btn.selected-wrong {
+  background: rgba(239, 68, 68, 0.28) !important;
+  border: 1.5px solid #ef4444 !important;
+  color: #f87171 !important;
+  font-weight: 700;
+  text-decoration: line-through;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.3);
+}
+.choice-btn.selected-wrong::after {
+  content: ' ✗';
+  font-weight: 900;
+  font-size: 12px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* Correct option revealed when user answered wrongly */
+.choice-btn.show-correct {
+  border: 2px solid #10b981 !important;
+  background: rgba(16, 185, 129, 0.15) !important;
+  color: #6ee7b7 !important;
+  font-weight: 800;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.25);
+}
+.choice-btn.show-correct::after {
+  content: ' (정답)';
+  font-size: 11px;
+  font-weight: 700;
+  color: #34d399;
+}
+
+/* Choice Question Status Banner / Retry */
+.choice-status-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.choice-status-banner.pending {
+  background: rgba(59, 130, 246, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: #93c5fd;
+}
+
+.choice-status-banner.correct {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #6ee7b7;
+}
+
+.choice-status-banner.wrong {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: #fca5a5;
+}
+
+.choice-retry-btn {
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  color: #f3f4f6;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.choice-retry-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
 /* OX Touch Controls */
 .ox-buttons-group {
   display: flex;
