@@ -7,6 +7,24 @@
       "skillPath": "bok-ecos-stats/SKILL.md",
       "computedHash": "e4b305b52ebe6a25430b663fa80888f570af5cc8629a17d8c4b2d5e97ecd6e82"
     },
+    "citation-check": {
+      "source": "serenakeyitan/open-exam-skills",
+      "sourceType": "github",
+      "skillPath": "skills/citation-check/SKILL.md",
+      "computedHash": "a1015c5f2058518d76193fa71097dfc7830c94061767008b9034450a91c135e5"
+    },
+    "exam-ready": {
+      "source": "github/awesome-copilot",
+      "sourceType": "github",
+      "skillPath": "skills/exam-ready/SKILL.md",
+      "computedHash": "16aa13b7cd04bfedbed32deb4fe74b3f40109ed9c4e53a57f483089715265e44"
+    },
+    "flashcards": {
+      "source": "serenakeyitan/open-exam-skills",
+      "sourceType": "github",
+      "skillPath": "skills/flashcards/SKILL.md",
+      "computedHash": "2f60577c3903156aae5a0b4694c7c17364f4a6381433ff26aeca7ad255aae88e"
+    },
     "korean-law-search": {
       "source": "NomaDamas/k-skill",
       "sourceType": "github",
@@ -18,6 +36,36 @@
       "sourceType": "github",
       "skillPath": "korean-stock-search/SKILL.md",
       "computedHash": "046d18c6e3f8ed2ca7992565a5ff27d7c029fc84fe808acedaf0c1f4b1476375"
+    },
+    "mindmap": {
+      "source": "serenakeyitan/open-exam-skills",
+      "sourceType": "github",
+      "skillPath": "skills/mindmap/SKILL.md",
+      "computedHash": "59e9d5dfb4837751bf57738536204dc521e151168d70bc6dbfaf0e3dbf97240a"
+    },
+    "quiz": {
+      "source": "serenakeyitan/open-exam-skills",
+      "sourceType": "github",
+      "skillPath": "skills/quiz/SKILL.md",
+      "computedHash": "17d75bd3edfbd8af7a38a4077f0f62ce6de0dd38faa49d67f7be11603768e6da"
+    },
+    "student-exam-prep-pack": {
+      "source": "serenakeyitan/open-exam-skills",
+      "sourceType": "github",
+      "skillPath": "skills/packs/student-exam-prep/SKILL.md",
+      "computedHash": "7a5c5414215b4e6e4aa86ca743bdb634d494d466173053cf320cd3e223547fba"
+    },
+    "trust-track-pack": {
+      "source": "serenakeyitan/open-exam-skills",
+      "sourceType": "github",
+      "skillPath": "skills/packs/trust-track/SKILL.md",
+      "computedHash": "db82765c5677055cdc08e0d42f2086300ca2f2a9444aa6979197545f2f597494"
+    },
+    "using-open-exam-skills": {
+      "source": "serenakeyitan/open-exam-skills",
+      "sourceType": "github",
+      "skillPath": "skills/using-open-exam-skills/SKILL.md",
+      "computedHash": "60d31b400909158503952a4d64191b2dd646aa1ff1530e6b1c5f0b15856fc0c0"
     }
   }
 }
