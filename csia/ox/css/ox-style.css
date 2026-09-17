@@ -213,6 +213,39 @@ body {
   text-align: center;
 }
 
+.spinner-btn {
+  width: 28px;
+  height: 30px;
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  background: rgba(139, 92, 246, 0.12);
+  color: #c4b5fd;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.spinner-btn:first-of-type {
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+}
+
+.spinner-btn:focus-visible {
+  outline: 2px solid rgba(139, 92, 246, 0.45);
+  outline-offset: 2px;
+}
+
+.spinner-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.35;
+}
+
+.spinner-btn + input {
+  border-radius: 0;
+}
+
+.spinner-btn + input + .spinner-btn {
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
 .progress-spinner input:focus {
   outline: 2px solid rgba(139, 92, 246, 0.35);
   outline-offset: 2px;

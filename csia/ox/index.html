@@ -59,7 +59,9 @@
       <div class="stats-bar">
         <label class="progress-spinner">
           <span class="sr-only">문제 번호</span>
+          <button class="spinner-btn" id="prevQuestionBtn" type="button" aria-label="이전 문제">‹</button>
           <input id="progressSpinner" type="number" min="1" value="1" inputmode="numeric" aria-label="문제 번호">
+          <button class="spinner-btn" id="nextQuestionBtn" type="button" aria-label="다음 문제">›</button>
           <span class="spinner-total" id="progressTotal">/ 0</span>
         </label>
         <span id="accuracyText">정답률 0%</span>

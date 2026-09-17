@@ -25,6 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
   
   const progressSpinner = document.getElementById('progressSpinner');
   const progressTotal = document.getElementById('progressTotal');
+  const prevQuestionBtn = document.getElementById('prevQuestionBtn');
+  const nextQuestionBtn = document.getElementById('nextQuestionBtn');
   const accuracyText = document.getElementById('accuracyText');
   
   // Modal Elements
@@ -68,6 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
       currentIndex = Math.min(Math.max(target - 1, 0), filteredQuizzes.length - 1);
       render();
     });
+    prevQuestionBtn.addEventListener('click', () => moveToQuestion(currentIndex - 1));
+    nextQuestionBtn.addEventListener('click', () => moveToQuestion(currentIndex + 1));
     
     modalClose.addEventListener('click', () => imgModal.classList.add('hidden'));
     imgModal.addEventListener('click', (e) => {
@@ -315,6 +319,8 @@ document.addEventListener('DOMContentLoaded', () => {
       progressSpinner.max = 0;
       progressSpinner.disabled = true;
       progressTotal.textContent = '/ 0';
+      prevQuestionBtn.disabled = true;
+      nextQuestionBtn.disabled = true;
       accuracyText.textContent = '정답률 0%';
       return;
     }
@@ -326,9 +332,17 @@ document.addEventListener('DOMContentLoaded', () => {
     progressSpinner.max = total;
     progressSpinner.value = currentIndex + 1;
     progressTotal.textContent = `/ ${total}`;
+    prevQuestionBtn.disabled = currentIndex === 0;
+    nextQuestionBtn.disabled = currentIndex === total - 1;
     
     const acc = answeredCount > 0 ? Math.round((correctCount / answeredCount) * 100) : 0;
     accuracyText.textContent = `정답률 ${acc}% (${correctCount}/${answeredCount})`;
+  }
+
+  function moveToQuestion(index) {
+    if (index < 0 || index >= filteredQuizzes.length) return;
+    currentIndex = index;
+    render();
   }
 
   function render() {
