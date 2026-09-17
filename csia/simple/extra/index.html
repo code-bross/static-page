@@ -242,6 +242,29 @@
       border-bottom: 1px solid var(--border-color);
     }
 
+    .overlap-word {
+      color: #f59e0b;
+      background: rgba(245, 158, 11, 0.16);
+      border-radius: 0.25rem;
+      padding: 0 0.12em;
+      font-weight: 800;
+    }
+
+    .period-word {
+      color: #06b6d4;
+      background: rgba(6, 182, 212, 0.16);
+    }
+
+    .percentage-word {
+      color: #a855f7;
+      background: rgba(168, 85, 247, 0.16);
+    }
+
+    .amount-word {
+      color: #22c55e;
+      background: rgba(34, 197, 94, 0.16);
+    }
+
     .card-remark {
       font-size: 0.85rem;
       font-weight: 500;
@@ -275,13 +298,23 @@
     }
 
     @media (max-width: 768px) {
+      .extra-header { padding: 0.65rem 0.75rem; }
+      .extra-nav { align-items: stretch; flex-direction: column; gap: 0.65rem; }
+      .nav-left, .nav-right { width: 100%; min-width: 0; }
+      .nav-left { justify-content: space-between; }
+      .nav-title { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .nav-right { justify-content: flex-end; }
       .hero-banner {
         flex-direction: column;
         align-items: flex-start;
         padding: 1.25rem;
       }
+      .hero-content { min-width: 0; }
+      .btn-quiz-start { width: 100%; text-align: center; }
+      .filter-bar { padding: 0 0.75rem; }
       .notes-grid {
         grid-template-columns: 1fr;
+        padding: 0 0.75rem 2rem;
       }
     }
   </style>
@@ -401,10 +434,36 @@
               <span class="cat-badge">${escapeHtml(item.category)}</span>
             </div>
             <div class="card-title">${escapeHtml(item.title)}</div>
-            <div class="card-content">${escapeHtml(item.content)}</div>
+            <div class="card-content">${highlightSharedWords(item.content, item.remark)}</div>
             ${item.remark ? `<div class="card-remark">${escapeHtml(item.remark)}</div>` : ''}
           </div>
         `).join('');
+      }
+
+      function highlightSharedWords(content, remark) {
+        const wordPattern = /\d[\d,]*(?:\.\d+)?(?:%|[가-힣A-Za-z]+)?|[가-힣A-Za-z]+/g;
+        const sharedWords = new Set(
+          ((remark || '').match(wordPattern) || [])
+            .filter(word => word.length > 1)
+            .map(word => word.toLowerCase())
+        );
+
+        return (content || '').split(/(\d[\d,]*(?:\.\d+)?(?:%|[가-힣A-Za-z]+)?|[가-힣A-Za-z]+)/g).map(part => {
+          if (!/^(?:\d[\d,]*(?:\.\d+)?(?:%|[가-힣A-Za-z]+)?|[가-힣A-Za-z]+)$/.test(part)) return escapeHtml(part);
+          const escapedWord = escapeHtml(part);
+          const classes = [];
+          if (sharedWords.has(part.toLowerCase())) classes.push('overlap-word');
+          if (/^\d+(?:\.\d+)?(?:년|개월|월|주|영업일|일|시간|분|초)(?:간|마다)?(?:을|를|이|가|은|는|에|부터|까지)?$/.test(part)) {
+            classes.push('period-word');
+          }
+          if (/^\d+(?:\.\d+)?%$/.test(part)) classes.push('percentage-word');
+          if (/^\d[\d,]*(?:\.\d+)?(?:천만원|억원|만원|천원|조원|원|달러)$/.test(part)) {
+            classes.push('amount-word');
+          }
+          return classes.length
+            ? `<mark class="${classes.join(' ')}">${escapedWord}</mark>`
+            : escapedWord;
+        }).join('');
       }
 
       function escapeHtml(text) {

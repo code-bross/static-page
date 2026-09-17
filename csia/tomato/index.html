@@ -45,6 +45,16 @@ caption { text-align: left; font-weight: 700; padding-bottom: 8px; }
 th, td { border: 1px solid var(--border-color); padding: 8px 10px; text-align: left; vertical-align: top; }
 th { background: var(--bg-input); }
 .numeric { white-space: nowrap; font-variant-numeric: tabular-nums; }
+@media (max-width: 640px) {
+  .reader { padding: 16px 12px 40px; }
+  .round-nav { position: static; grid-template-columns: 1fr; }
+  .question { padding: 16px; border-radius: 12px; }
+  h1 { font-size: 1.7rem; }
+  h3 { font-size: 1rem; line-height: 1.7; }
+  .options li { align-items: flex-start; padding: 10px; gap: 8px; }
+  .conditions, .note { padding: 12px; }
+  .table-scroll { max-width: 100%; }
+}
 @media print {
   body { background: white; }
   .reader { max-width: none; padding: 0; }

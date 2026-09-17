@@ -884,6 +884,10 @@ body {
 }
 
 @media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
   /* Compact App Header */
   .app-header {
     padding: 0.35rem 0.6rem;
@@ -930,8 +934,10 @@ body {
   }
 
   .header-actions {
+    width: 100%;
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     gap: 0.25rem;
   }
 
@@ -998,22 +1004,151 @@ body {
 
   /* Main Wrapper & Question Card Padding Optimization for Mobile */
   .main-wrapper {
+    min-width: 0;
     padding: 0.6rem 0.5rem;
     gap: 0.85rem;
   }
 
+  .question-container,
   .question-card {
+    min-width: 0;
     padding: 1rem;
     gap: 0.85rem;
     border-radius: var(--radius-md);
   }
 
   .question-header {
+    min-width: 0;
     padding-bottom: 0.65rem;
+  }
+
+  .badge-group {
+    min-width: 0;
+  }
+
+  .badge {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .q-number {
     font-size: 1.15rem;
+  }
+
+  .q-actions {
+    width: 100%;
+  }
+
+  .q-actions button {
+    min-width: 0;
+    flex: 1;
+    padding: 0.45rem 0.5rem;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .question-title,
+  .question-box,
+  .options-list,
+  .explanation-card {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .question-title {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .question-box {
+    padding: 0.85rem;
+    font-size: 0.875rem;
+  }
+
+  .option-item {
+    min-width: 0;
+    padding: 0.75rem;
+    gap: 0.6rem;
+  }
+
+  .option-text {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .question-footer-nav {
+    gap: 0.5rem;
+  }
+
+  .question-footer-nav .btn {
+    min-width: 0;
+    flex: 1;
+    padding: 0.65rem 0.45rem;
+    font-size: 0.8rem;
+  }
+
+  .omr-panel {
+    position: static;
+    min-width: 0;
+    max-height: none;
+    padding: 0.85rem;
+  }
+
+  .omr-filter-tabs {
+    gap: 0.15rem;
+  }
+
+  .omr-tab {
+    min-width: 0;
+    padding: 0.4rem 0.1rem;
+    font-size: 0.68rem;
+    white-space: nowrap;
+  }
+
+  .omr-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 0.35rem;
+  }
+
+  .omr-item {
+    border-radius: var(--radius-sm);
+  }
+
+  .modal-backdrop {
+    padding: 0.5rem;
+  }
+
+  .modal-container {
+    max-height: 94vh;
+    border-radius: var(--radius-md);
+  }
+
+  .modal-header,
+  .modal-footer {
+    padding: 0.85rem 1rem;
+  }
+
+  .modal-title {
+    min-width: 0;
+    font-size: 0.95rem;
+  }
+
+  .modal-body {
+    padding: 0.85rem;
+  }
+
+  .image-wrapper {
+    padding: 0.4rem;
+  }
+
+  .section-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
   }
 }
 
@@ -1035,6 +1170,46 @@ body {
 
   .btn-text-short {
     display: inline;
+  }
+}
+
+@media (max-width: 640px) {
+  .selection-view {
+    padding: 1.25rem 0.75rem 2rem;
+    gap: 1.25rem;
+  }
+
+  .landing-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .landing-header > div:last-child {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .hero-title {
+    font-size: 1.75rem;
+  }
+
+  .hero-desc {
+    font-size: 0.95rem;
+  }
+
+  .round-cards-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .round-card {
+    padding: 1.25rem;
+    gap: 0.9rem;
+  }
+
+  .exam-spec-card {
+    padding: 1rem !important;
   }
 }
 

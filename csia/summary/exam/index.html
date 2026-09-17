@@ -313,6 +313,25 @@
       from { opacity: 0; transform: translateY(5px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    @media (max-width: 640px) {
+      .quiz-header { position: static; padding: 0.65rem 0.75rem; }
+      .quiz-nav { flex-wrap: wrap; gap: 0.5rem; }
+      .quiz-nav > * { min-width: 0; }
+      .nav-title { order: -1; flex: 1 1 100%; font-size: 0.95rem; }
+      .quiz-container { margin: 1rem auto 2rem; padding: 0 0.75rem; }
+      .quiz-card, .quiz-config-card, .result-card { padding: 1rem; border-radius: var(--radius-md); }
+      .quiz-meta-bar { align-items: flex-start; flex-wrap: wrap; }
+      .quiz-q-title { font-size: 1.05rem; overflow-wrap: anywhere; }
+      .quiz-q-box { padding: 0.85rem; font-size: 0.9rem; overflow-wrap: anywhere; }
+      .opt-btn { min-width: 0; padding: 0.8rem; font-size: 0.9rem; overflow-wrap: anywhere; }
+      .config-btn-group { display: grid; grid-template-columns: 1fr; }
+      .cfg-btn { width: 100%; text-align: left; }
+      #summaryWrongModal { padding: 0.5rem !important; }
+      #summaryWrongModal .modal-container { height: 94vh !important; }
+      #summaryWrongModal .modal-header { padding: 0.75rem !important; flex-wrap: wrap; gap: 0.5rem; }
+      #summaryWrongModal .modal-header > div:last-child { width: 100%; justify-content: flex-end; flex-wrap: wrap; }
+      #summaryWrongModalBody { padding: 0.75rem !important; }
+    }
   </style>
 </head>
 <body>
