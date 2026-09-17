@@ -23,8 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const cardView = document.getElementById('cardView');
   const listView = document.getElementById('listView');
   
-  const progressText = document.getElementById('progressText');
-  const progressFill = document.getElementById('progressFill');
+  const progressSpinner = document.getElementById('progressSpinner');
+  const progressTotal = document.getElementById('progressTotal');
   const accuracyText = document.getElementById('accuracyText');
   
   // Modal Elements
@@ -58,6 +58,16 @@ document.addEventListener('DOMContentLoaded', () => {
     cardModeBtn.addEventListener('click', () => switchMode('card'));
     listModeBtn.addEventListener('click', () => switchMode('list'));
     resetOxBtn.addEventListener('click', resetQuiz);
+    progressSpinner.addEventListener('change', () => {
+      if (!filteredQuizzes.length) return;
+      const target = Number(progressSpinner.value);
+      if (!Number.isInteger(target)) {
+        progressSpinner.value = currentIndex + 1;
+        return;
+      }
+      currentIndex = Math.min(Math.max(target - 1, 0), filteredQuizzes.length - 1);
+      render();
+    });
     
     modalClose.addEventListener('click', () => imgModal.classList.add('hidden'));
     imgModal.addEventListener('click', (e) => {
@@ -301,8 +311,10 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateStats() {
     const total = filteredQuizzes.length;
     if (total === 0) {
-      progressText.textContent = '0 / 0';
-      progressFill.style.width = '0%';
+      progressSpinner.value = 0;
+      progressSpinner.max = 0;
+      progressSpinner.disabled = true;
+      progressTotal.textContent = '/ 0';
       accuracyText.textContent = '정답률 0%';
       return;
     }
@@ -310,9 +322,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const answeredCount = filteredQuizzes.filter(q => userAnswers.hasOwnProperty(q.id)).length;
     const correctCount = filteredQuizzes.filter(q => userAnswers[q.id] === true).length;
     
-    progressText.textContent = `${currentIndex + 1} / ${total}`;
-    const pct = Math.round(((currentIndex + 1) / total) * 100);
-    progressFill.style.width = `${pct}%`;
+    progressSpinner.disabled = false;
+    progressSpinner.max = total;
+    progressSpinner.value = currentIndex + 1;
+    progressTotal.textContent = `/ ${total}`;
     
     const acc = answeredCount > 0 ? Math.round((correctCount / answeredCount) * 100) : 0;
     accuracyText.textContent = `정답률 ${acc}% (${correctCount}/${answeredCount})`;
@@ -407,10 +420,10 @@ document.addEventListener('DOMContentLoaded', () => {
         ${q.type === 'OX' ? `
           <div class="ox-buttons-group">
             <button class="ox-btn ox-btn-o ${userAnswer !== undefined && q.oxAnswer === 'O' ? 'selected-o' : ''}" id="btnO">
-              <span>⭕</span> O
+              O
             </button>
             <button class="ox-btn ox-btn-x ${userAnswer !== undefined && q.oxAnswer === 'X' ? 'selected-x' : ''}" id="btnX">
-              <span>❌</span> X
+              X
             </button>
           </div>
         ` : `

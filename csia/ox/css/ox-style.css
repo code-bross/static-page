@@ -193,20 +193,37 @@ body {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.progress-track {
+.progress-spinner {
   flex: 1;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 3px;
+  display: flex;
+  align-items: center;
   margin: 0 12px;
-  overflow: hidden;
+  color: var(--text-muted);
+  font-weight: 700;
 }
 
-.progress-fill {
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(90deg, var(--accent-purple), var(--accent-blue));
-  transition: width 0.3s ease;
+.progress-spinner input {
+  width: 64px;
+  padding: 5px 7px;
+  border: 1px solid rgba(139, 92, 246, 0.45);
+  border-radius: var(--radius-sm);
+  background: rgba(15, 23, 42, 0.9);
+  color: var(--text-main);
+  font: inherit;
+  text-align: center;
+}
+
+.progress-spinner input:focus {
+  outline: 2px solid rgba(139, 92, 246, 0.35);
+  outline-offset: 2px;
+}
+
+.progress-spinner input:disabled {
+  opacity: 0.5;
+}
+
+.spinner-total {
+  margin-left: 6px;
 }
 
 /* Single Card Quiz Area (Flashcard Mode) */

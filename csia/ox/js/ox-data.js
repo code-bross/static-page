@@ -7572,3 +7572,101 @@ window.OX_QUIZ_DATA = [
     "image": "증투 OX 퀴즈 - 87.jpg"
   }
 ];
+
+(() => {
+  const splitRules = {
+    24: {
+      start: 1,
+      separators: /(?=(?:이시|이x|0 x|0x|Ox|이\*))/g,
+      answers: ['중소기업', 'O', '지정자문인, 1년, 30영업일', '6개월, 10(%)', '직상장', 'O', 'O']
+    },
+    30: {
+      start: 14,
+      separators: /(?=0x)/g,
+      answers: ['매출액', 'X', 'X']
+    },
+    167: {
+      start: 78,
+      separators: /(?=(?:0x|81이x))/g,
+      answers: ['대차거래, 대주거래', 'O', 'O', 'O']
+    },
+    291: {
+      start: 41,
+      separators: /(?=0x)/g,
+      answers: ['O', 'O', 'O']
+    },
+    369: {
+      start: 14,
+      separators: /(?=(?:이 x|Ox))/g,
+      answers: ['X', 'X', 'O']
+    },
+    526: {
+      start: 21,
+      separators: /(?=(?:0x|Ox))/g,
+      answers: ['기업금융(B)', 'O', 'X']
+    },
+    551: {
+      start: 54,
+      separators: /(?=(?:0 x|0x|Ox|증권투자권유자문인력))/g,
+      answers: ['X', 'X', 'O', 'O', 'CMA(Cash Management Account)']
+    },
+    511: {
+      start: 97,
+      separators: /(?=(?:0×|투자매매업자 또는 투자증개업자는 기업어음증권|100 g x))/g,
+      answers: ['단일의', 'O', '둘(2), 지급보증', 'O', '150']
+    }
+  };
+
+  const splitQuestions = (question, rule) => question
+    .split(rule.separators)
+    .map(part => part.trim())
+    .map(part => part.replace(/^(?:81)?(?:이시|이x|이 x|이\*|0 x|0x|0×|Ox)\.?\s*/i, ''))
+    .filter(Boolean)
+    .slice(0, rule.answers.length);
+
+  const source = window.OX_QUIZ_DATA;
+  const splitRanges = new Map(
+    Object.entries(splitRules).map(([id, rule]) => {
+      const base = source.find(quiz => quiz.id === Number(id));
+      return [
+        base ? base.image : '',
+        new Set(Array.from({ length: rule.answers.length }, (_, index) => rule.start + index))
+      ];
+    })
+  );
+  const isCoveredBySplit = quiz => {
+    const range = splitRanges.get(quiz.image);
+    return range && range.has(quiz.qNum);
+  };
+
+  const expanded = [];
+  for (const quiz of source) {
+    const rule = splitRules[quiz.id];
+    if (!rule) {
+      if (isCoveredBySplit(quiz)) continue;
+      expanded.push(quiz);
+      continue;
+    }
+
+    const questions = splitQuestions(quiz.question, rule);
+    if (quiz.id === 511) {
+      questions.push(
+        '영업용순자본에서 총위험액을 차감한 금액을 인가업무 또는 등록업무 단위별 자기자본을 합계한 금액으로 나눈 값이 100분의 ( )에 미달하는 경우에는 그 미달상태가 해소될 때까지 새로운 장외파생상품의 매매를 중지하고, 미종결거래의 정리나 위험회피에 관련된 업무만을 수행해야 한다.'
+      );
+    }
+    questions.forEach((question, index) => {
+      const answer = rule.answers[index];
+      const isOx = answer === 'O' || answer === 'X';
+      expanded.push({
+        ...quiz,
+        id: 700 + expanded.length,
+        qNum: rule.start + index,
+        type: isOx ? 'OX' : 'BLANK',
+        question,
+        answer: isOx ? answer : answer,
+        oxAnswer: isOx ? answer : null
+      });
+    });
+  }
+  window.OX_QUIZ_DATA = expanded;
+})();

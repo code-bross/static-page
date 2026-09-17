@@ -57,10 +57,11 @@
 
       <!-- Stats Bar -->
       <div class="stats-bar">
-        <span id="progressText">0 / 0</span>
-        <div class="progress-track">
-          <div class="progress-fill" id="progressFill"></div>
-        </div>
+        <label class="progress-spinner">
+          <span class="sr-only">문제 번호</span>
+          <input id="progressSpinner" type="number" min="1" value="1" inputmode="numeric" aria-label="문제 번호">
+          <span class="spinner-total" id="progressTotal">/ 0</span>
+        </label>
         <span id="accuracyText">정답률 0%</span>
       </div>
     </section>
