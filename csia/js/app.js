@@ -631,13 +631,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const sections = exams[currentRoundId].sections.map((section, index, all) => {
       const questions = examQuestions.filter((q) => q.id > (all[index - 1]?.end || 0) && q.id <= section.end);
       const correct = questions.filter((q) => userAnswers[q.id] === q.correctAnswer).length;
-      return { name: section.name, total: questions.length, correct, rate: correct / questions.length * 100 };
+      const passCutoff = Math.ceil(questions.length * 0.5); // 50% 과락 기준: 35문항->18개, 30문항->15개
+      const isSectionPassed = correct >= passCutoff;
+      return {
+        name: section.name,
+        total: questions.length,
+        correct,
+        passCutoff,
+        isSectionPassed,
+        rate: questions.length > 0 ? (correct / questions.length * 100) : 0
+      };
     });
     const score = Math.round((totalCorrect / totalQuestions) * 100);
 
-    // Pass / Fail Judgment: Total >= 60 AND no section < 40%
-    const hasFailSection = sections.some((section) => section.rate < 40);
-    const isPassed = score >= 60 && !hasFailSection;
+    // Pass / Fail Judgment: Total >= 70 AND no section < 50%
+    const hasFailSection = sections.some((section) => !section.isSectionPassed);
+    const isPassed = score >= 70 && !hasFailSection;
 
     // Save score status per round
     localStorage.setItem(examStorageKey('score'), score);
@@ -650,7 +659,15 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       resultStatusBadge.className = 'result-status-badge status-fail';
       let failReason = '불합격 (FAIL)';
-      if (score >= 60 && hasFailSection) failReason += ' - 과락 발생 (단일 과목 40% 미만)';
+      if (score >= 70 && hasFailSection) {
+        const failedSections = sections.filter((s) => !s.isSectionPassed);
+        failReason += ` - 과락 발생 (${failedSections.map((s) => `${s.name} ${s.correct}/${s.total}개 · 기준 ${s.passCutoff}개 미달`).join(', ')})`;
+      } else if (score < 70 && hasFailSection) {
+        const failedSections = sections.filter((s) => !s.isSectionPassed);
+        failReason += ` (총점 ${score}점/70점 미달 및 과락: ${failedSections.map((s) => `${s.name} ${s.correct}/${s.total}개`).join(', ')})`;
+      } else {
+        failReason += ` (총점 ${score}점 / 합격 기준 70점 미달)`;
+      }
       resultStatusBadge.textContent = failReason;
     }
 
@@ -659,10 +676,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Render Section Breakdown
     resultSectionBody.innerHTML = sections.map((section) => `
       <tr>
-        <td>${escapeHtml(section.name)} (${section.total}문항)</td>
+        <td>${escapeHtml(section.name)} (${section.total}문항 / 과락 기준 ${section.passCutoff}개)</td>
         <td>${section.correct} / ${section.total}개</td>
         <td>${Math.round(section.rate)}%</td>
-        <td class="${section.rate >= 40 ? 'section-pass' : 'section-fail'}">${section.rate >= 40 ? '통과' : '과락'}</td>
+        <td class="${section.isSectionPassed ? 'section-pass' : 'section-fail'}">${section.isSectionPassed ? '통과' : '과락'}</td>
       </tr>`).join('');
 
     resultModal.classList.add('open');
@@ -866,7 +883,7 @@ document.addEventListener('DOMContentLoaded', () => {
       wrongModalTitle.textContent = `${exams[roundId].title} 오답 분석 노트`;
     }
     if (wrongModalSubtitle) {
-      wrongModalSubtitle.textContent = `${exams[roundId].subtitle} · 시험 성적: ${score}점 / 100점 · 전체 ${questions.length}문항 중 정답 ${correctCount}개 · 합격 여부는 과목별 과락을 포함한 채점 결과를 확인하세요.`;
+      wrongModalSubtitle.textContent = `${exams[roundId].subtitle} · 시험 성적: ${score}점 / 100점 · 전체 ${questions.length}문항 중 정답 ${correctCount}개 · 합격 기준: 70점 이상(과목별 50% 미만 과락)`;
     }
 
     if (wrongStatsText) {

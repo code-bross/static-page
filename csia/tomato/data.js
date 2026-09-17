@@ -4,19 +4,15 @@ window.TOMATO_EXAMS = {
     "subtitle": "2025년 11월 대비 · 사용자 제공 원문",
     "sections": [
       {
-        "name": "1과목: 증권분석",
-        "end": 15
-      },
-      {
-        "name": "2과목: 증권시장",
+        "name": "1과목: 증권분석 및 증권시장",
         "end": 35
       },
       {
-        "name": "3과목: 금융상품 및 직무윤리",
+        "name": "2과목: 금융상품 및 직무윤리",
         "end": 65
       },
       {
-        "name": "4과목: 법규 및 세제",
+        "name": "3과목: 법규 및 세제",
         "end": 100
       }
     ],
@@ -26,7 +22,7 @@ window.TOMATO_EXAMS = {
     "questions": [
       {
         "id": 1,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "다음 중 물가지수 지표와 거리가 먼 것은?",
         "options": [
@@ -73,7 +69,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 2,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "다음 설명 중 옳지 않은 것은?",
         "options": [
@@ -120,7 +116,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 3,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "경제학파별 경기변동이론의 설명으로 옳지 않은 것은?",
         "options": [
@@ -177,7 +173,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 4,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "시차와 경기정책의 설명으로 올바른 것은?",
         "options": [
@@ -234,7 +230,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 5,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "경기종합지수(CI)에 대한 설명으로 적절하지 않은 것은?",
         "options": [
@@ -304,7 +300,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 6,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "통화량이 주가에 영향을 미치는 과정에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -361,7 +357,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 7,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 1,
         "question": "다음은 기본적 분석에 대한 내용이다. ( )에 순서대로 옳은 것은?",
         "options": [
@@ -418,7 +414,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 8,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "지난해에 300원을 배당한 A주식의 연간성장률은 10%이다. A주식의 주주의 요구수익률이 20%인 경우 적정 주가는 얼마인가?",
         "options": [
@@ -465,7 +461,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 9,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "PEGR에 대한 설명으로 옳은 것은?",
         "options": [
@@ -512,7 +508,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 10,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "기업의 손익계산서에 대한 설명으로 옳은 것은 모두 몇 개인가?",
         "options": [
@@ -559,7 +555,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 11,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "다음 중 재무상태표 상의 부채계정으로만 구성된 것은?",
         "options": [
@@ -626,7 +622,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 12,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "다음 중 캔들차트 분석상 하락추세로 전환된 것으로만 모은 것은?",
         "options": [
@@ -673,7 +669,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 13,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 1,
         "question": "다음은 사케다 전법으로 주가의 움직임을 설명한 것이다, 이에 해당하는 것은?",
         "options": [
@@ -720,7 +716,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 14,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "다음 중 거래량 지표와 관련이 깊은 지표는?",
         "options": [
@@ -777,7 +773,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 15,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 1,
         "question": "엘리어트파동에 대한 설명이다. 가장 적절하지 않은 것은?",
         "options": [
@@ -834,7 +830,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 16,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "다음 중 종류주식의 발행 기준이 아닌 것은?",
         "options": [
@@ -881,7 +877,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 17,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "다음 중 증권의 유상증자시 발행가격의 결정으로 옳은 것은?",
         "options": [
@@ -928,7 +924,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 18,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "다음 중 우회상장(SPAC상장 포함)의 설명으로 옳지 않은 것은?",
         "options": [
@@ -985,7 +981,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 19,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "다음 중 증권의 발행시장 공시에 속하는 것은?",
         "options": [
@@ -1042,7 +1038,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 20,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "아래의 설명에 해당하는 것은?",
         "options": [
@@ -1099,7 +1095,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 21,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "다음 중 주권의 상장폐지제도에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -1146,7 +1142,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 22,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "다음 중 상장기업의 주요사항공시의 대상이 아닌 것은?",
         "options": [
@@ -1193,7 +1189,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 23,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "다음 중 불성실 공시의 유형이 아닌 것은?",
         "options": [
@@ -1260,7 +1256,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 24,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "호가의 종류에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -1317,7 +1313,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 25,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "다음 중 매매거래의 종류가 아닌 것은?",
         "options": [
@@ -1364,7 +1360,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 26,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "주식시장의 매매중단(Circuit Breakers)에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -1421,7 +1417,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 27,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "다음의 설명에 해당하는 발행은?",
         "options": [
@@ -1478,7 +1474,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 28,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "A채권은 시장금리가 1% 상승할 경우 이 A채권의 실제가격은 1.25% 하락한다.(채권의 볼록도= 20) 이 채권의 수정듀레이션은 얼마인가?",
         "options": [
@@ -1525,7 +1521,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 29,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "다음 중 국채가 아닌 것은?",
         "options": [
@@ -1572,7 +1568,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 30,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "잔존기간이 3년 남은 표면이자율 8%인 연단위 이표채를 만기수익률(YTM) 10%, 단가 9.502원에 매입하여 만기상환받는다면 투자수익액은 얼마인가? (단, 만기까지 시장금리변동이 없는 재투자 가정)",
         "options": [
@@ -1619,7 +1615,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 31,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "여러가지 채권 등에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -1676,7 +1672,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 32,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "채권투자전략 중 적극적 투자전략에 속하는 것은?",
         "options": [
@@ -1733,7 +1729,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 33,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "여러가지 채권에 대한 설명이다. 옳지 않은 것은?",
         "options": [
@@ -1780,7 +1776,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 34,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 1,
         "question": "코넥스 시장이 갖춘 특징이 아닌 것은?",
         "options": [
@@ -1837,7 +1833,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 35,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "K-OTC시장의 매매제도 등에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -1894,7 +1890,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 36,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 3,
         "question": "주가연계증권(ELS)에 대한 설명이다. 옳은 항목의 개수는?",
         "options": [
@@ -1951,7 +1947,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 37,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "다음 중 랩어카운트에 대한 설명으로 적절하지 않은 것은?",
         "options": [
@@ -1998,7 +1994,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 38,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "다음 중 중개형 ISA에 편입할 수 없는 금융상품은?",
         "options": [
@@ -2045,7 +2041,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 39,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 3,
         "question": "다음의 ( ) 안에 들어갈 내용을 올바르게 나열한 것은?",
         "options": [
@@ -2102,7 +2098,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 40,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 3,
         "question": "다음이 설명하는 집합투자기구에 해당하는 것은?",
         "options": [
@@ -2149,7 +2145,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 41,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "부동산신탁에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -2196,7 +2192,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 42,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 3,
         "question": "다음 중 마코위츠의 평균-분산 모델의 설명으로 옳지 않은 것은?",
         "options": [
@@ -2243,7 +2239,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 43,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "자산배분을 위한 투자관리의 일차적 과제와 거리가 먼 것은?",
         "options": [
@@ -2300,7 +2296,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 44,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "채권투자에 대한 자산배분 포트폴리오에서 거리가 먼 것은?",
         "options": [
@@ -2347,7 +2343,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 45,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "다음 중 전술적 자산배분(TAA)의 실행도구가 아닌 것은?",
         "options": [
@@ -2404,7 +2400,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 46,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "어떤 주식을 첫째 해 초에 10,000원에 매입하여 연말에 400원의 배당을 받았다. 둘째 해 초에 동일 주식을 10,600 원에 추가매입하여 그 해 말에 800 원의 배당금(한 주에 400원) 을 받고서 21,600 원( 한 주당 10,800원)에 매각하였다.기하평균수익률(GRR)은? (근사값을 구하시오)",
         "options": [
@@ -2451,7 +2447,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 47,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 3,
         "question": "다음 중 공격적 투자자의 최적증권에 해당하는 것은?",
         "options": [
@@ -2570,7 +2566,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 48,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "다음 중 ( )안에 들어갈 용어로 적절한 것은",
         "options": [
@@ -2617,7 +2613,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 49,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 1,
         "question": "방문판매 등에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -2674,7 +2670,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 50,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "다음 중 부당권유행위에 해당하지 않는 것은?",
         "options": [
@@ -2731,7 +2727,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 51,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 3,
         "question": "조건부자본증권 투자권유시 추가설명사항 중 바르게 설명한 것을 모두 고르면 몇 개인가?",
         "options": [
@@ -2778,7 +2774,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 52,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "다음 중 고객에 대한 반감처리 화법에 속하지 않은 것은?",
         "options": [
@@ -2848,7 +2844,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 53,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 3,
         "question": "다음 중 성공적인 고객관리(CRM)의 전략으로의 지향으로 옳지 않은 것은?",
         "options": [
@@ -2905,7 +2901,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 54,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "다음 중 ‘금융투자회사의 영업 및 업무에 관한 규정’에서 정하고 있는 부당한 재산상 이익의 제공에 해당되지 않는 것은?",
         "options": [
@@ -2962,7 +2958,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 55,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "금융투자회사의 표준윤리준칙 제16조(대외활동)에 의거 임직원이 외부강연이나 기고, 언 론매체 접촉, Social Network Service(SNS) 등 전자통신수단을 이용한 대외활동을 하는 경우의 준수사항의 내용으로 옳지 않은 것은?",
         "options": [
@@ -3019,7 +3015,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 56,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 3,
         "question": "자본시장법상 시장질서 교란행위에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -3076,7 +3072,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 57,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "금융소비자보호 총괄책임자(CCO)의 업무가 아닌 것을 모두 연결한 것은?",
         "options": [
@@ -3123,7 +3119,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 58,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "영업점에 대한 내부통제로서 영업관리자에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -3170,7 +3166,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 59,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "금융투자회사의 준법감시인에 대한 설명이다. 옳은 항목의 개수는?",
         "options": [
@@ -3237,7 +3233,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 60,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 1,
         "question": "다음은 개인정보보호법의 내용이다. 옳지 않은 것은?",
         "options": [
@@ -3294,7 +3290,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 61,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 1,
         "question": "비밀정보의 관리에 대한 설명으로 옳지 못한 것은?",
         "options": [
@@ -3341,7 +3337,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 62,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 1,
         "question": "다음 중 금융투자상품의 내재적 특성에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -3388,7 +3384,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 63,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 3,
         "question": "다음 중 ( )에 들어갈 용어로 순서대로 옳은 것은?",
         "options": [
@@ -3445,7 +3441,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 64,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "다음 중 『고객확인제도』에 대한 설명으로 잘못된 것은?",
         "options": [
@@ -3492,7 +3488,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 65,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "다음 중 『의심거래보고제도』에 대한 설명으로 잘못된 것은?",
         "options": [
@@ -3549,7 +3545,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 66,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "다음 중 우리나라 금융법규 체계에 대한 설명이 적절하지 않은 것은?",
         "options": [
@@ -3596,7 +3592,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 67,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "금융투자회사의 위험관리체제 구축에 대한 설명이다. 가장 적절하지 않은 것은?",
         "options": [
@@ -3653,7 +3649,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 68,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "다음 중 금융투자업자의 건전성 규제 중 '긴급조치'의 내용이 아닌 것은?",
         "options": [
@@ -3700,7 +3696,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 69,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 1,
         "question": "다음 중 투자매매업 및 투자중개업자의 최선집행의무 대상인 투자상품은?",
         "options": [
@@ -3757,7 +3753,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 70,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 3,
         "question": "금융투자업자의 자산 건전성 분류에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -3804,7 +3800,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 71,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "다음은 금융투자업자에 대한 영업규제 사항이다. 옳은 설명을 모두 고르시오.",
         "options": [
@@ -3851,7 +3847,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 72,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "다음의 증권을 증권시장에 상장할 경우 주권상장법인등의 유통시장공시로서 사업보고서 등의 제출대상이 아닌 것은?",
         "options": [
@@ -3918,7 +3914,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 73,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "다음 중 주식 등의 대량보유상황 보고제도 등에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -3965,7 +3961,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 74,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 1,
         "question": "공개매수에 대한 설명으로 가장 올바른 것은?",
         "options": [
@@ -4012,7 +4008,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 75,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 1,
         "question": "다음 중 자본시장 조사업무규정 상 금융위원회의 조사대상이 아닌 것은?",
         "options": [
@@ -4069,7 +4065,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 76,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "금융소비자보호법상 투자성 상품에 대한 적합성의 원칙의 설명으로 옳지 않은 것은?",
         "options": [
@@ -4126,7 +4122,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 77,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 3,
         "question": "다음 중 금융소비자보호법에서 정하고 있는 내용과 상이한 것은?",
         "options": [
@@ -4173,7 +4169,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 78,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 1,
         "question": "금융소비자보호법상 과징금 부과대상이 아닌 것은?",
         "options": [
@@ -4230,7 +4226,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 79,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "금융소비자보호법상 전문금융소비자의 설명으로 옳지 않은 것은?",
         "options": [
@@ -4277,7 +4273,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 80,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 1,
         "question": "금융소비자보호법상 광고규제에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -4334,7 +4330,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 81,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "다음 중 금융소비자보호법에서 정하고 있는 내용으로 옳지 않은 것은?",
         "options": [
@@ -4391,7 +4387,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 82,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "다음 중 금융소비자의 위법계약 해지권의 적용에 대한 사항이다. 옳은 것을 모두 고르면 몇 개인가?",
         "options": [
@@ -4438,7 +4434,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 83,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "금융소비자보호법에서 정하고 있는 금융투자회사의 부당권유금지와 관련한 내용으로 옳지 않은 것은?",
         "options": [
@@ -4495,7 +4491,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 84,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "투자매매업자 및 투자중개업자의 신용공여에 대한 설명 중 옳지 못한 것은?",
         "options": [
@@ -4552,7 +4548,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 85,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 1,
         "question": "다음 중 금융분쟁에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -4609,7 +4605,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 86,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "다음 중 부당한 재산상이익의 제공 및 수령의 금지대상을 모두 묶은 것은?",
         "options": [
@@ -4666,7 +4662,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 87,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "신상품 보호에 관한 협회규정을 설명한 것이다. 가장 거리가 먼 것은?",
         "options": [
@@ -4723,7 +4719,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 88,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "다음 중 조사분석자료에 대한 설명으로 옳은 것을 모두 고르시오.",
         "options": [
@@ -4770,7 +4766,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 89,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "협회의 금융투자전문인력에 대한 제재의 설명으로 옳지 않은 것은?",
         "options": [
@@ -4837,7 +4833,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 90,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "다음 중 상법상 변태설립사항에 속하는 것은 모두 몇 개인가?",
         "options": [
@@ -4884,7 +4880,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 91,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "우리나라 회사법에 의한 감사에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -4941,7 +4937,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 92,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "다음 중 상법상 종류주식이 아닌 것은?",
         "options": [
@@ -4988,7 +4984,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 93,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "상법상 주주명부에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -5045,7 +5041,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 94,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "상법 상 주식회사의 합병에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -5102,7 +5098,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 95,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 3,
         "question": "이사에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -5149,7 +5145,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 96,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "다음 중 간접세에 해당하지 않는 것은?",
         "options": [
@@ -5196,7 +5192,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 97,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 3,
         "question": "다음 중 상속세 및 증여세에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -5253,7 +5249,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 98,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 3,
         "question": "국세기본법상 소멸시효 등에 대한 내용이다. 가장 적절하지 않은 것은?",
         "options": [
@@ -5310,7 +5306,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 99,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "다음 중 이자소득과 배당소득에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -5357,7 +5353,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 100,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "이자소득과 배당소득에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -5409,19 +5405,15 @@ window.TOMATO_EXAMS = {
     "subtitle": "2025년 11월 대비 · 사용자 제공 원문",
     "sections": [
       {
-        "name": "1과목: 증권분석",
-        "end": 15
-      },
-      {
-        "name": "2과목: 증권시장",
+        "name": "1과목: 증권분석 및 증권시장",
         "end": 35
       },
       {
-        "name": "3과목: 금융상품 및 직무윤리",
+        "name": "2과목: 금융상품 및 직무윤리",
         "end": 65
       },
       {
-        "name": "4과목: 법규 및 세제",
+        "name": "3과목: 법규 및 세제",
         "end": 100
       }
     ],
@@ -5431,7 +5423,7 @@ window.TOMATO_EXAMS = {
     "questions": [
       {
         "id": 1,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "경기변동이론 중 ‘루카스 비판’과 거리가 먼 것은?",
         "options": [
@@ -5478,7 +5470,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 2,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "다음 중 광의통화(M2)에 속하지 아니한 것은?",
         "options": [
@@ -5525,7 +5517,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 3,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "실질GDP가 1,500 조원이고 명목GDP가 3,000 조원일 경우 GDP 디플레이터 값은? (근사치를 구하시오)",
         "options": [
@@ -5582,7 +5574,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 4,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "다음 중 통화정책과 재정정책의 설명으로 옳은 것은?",
         "options": [
@@ -5639,7 +5631,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 5,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 1,
         "question": "보기는 경기종합지수(CI; Composite Index)를 구성하는 지표를 나열한 것이다. 이 중에서 경기선행지표에 해당하는 항목의 개수는?",
         "options": [
@@ -5686,7 +5678,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 6,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "기업경기실사지수(BSI)에 대한 설문에 대한 전체 응답자가 200 명이다. 향후 경기에 대하여 긍정적인 응답자가 80명이고 나머지는 부정적인 의견일 경우 BSI 값은?",
         "options": [
@@ -5733,7 +5725,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 7,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "어떤 기업의 매출액 순이익률이 30%, 총자산회전율이 3 회전인 경우 ROI(ROA)는?",
         "options": [
@@ -5790,7 +5782,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 8,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "K회사의 재무정보가 보기와 같다면 EV/EBITDA는 얼마인가?",
         "options": [
@@ -5847,7 +5839,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 9,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "항상성장모형과 CAPM에 의거 어느 기업의 이론주가를 산출하시오",
         "options": [
@@ -5894,7 +5886,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 10,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "다음 중 PEGR(Price Earning Growth Ratio:주가수익 성장비율)의 설명으로 옳지 않은 것은?",
         "options": [
@@ -5941,7 +5933,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 11,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "다음 중 재무제표의 설명으로 옳지 못한 것은?",
         "options": [
@@ -5988,7 +5980,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 12,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "다음 중 엘리어트 파동이론 중 옳지 못한 것은?",
         "options": [
@@ -6045,7 +6037,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 13,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "보기의 설명에 부합하는 갭(Gap)의 종류는?",
         "options": [
@@ -6102,7 +6094,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 14,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "다음 중 거래량 지표와 관련이 깊은 지표는?",
         "options": [
@@ -6149,7 +6141,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 15,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 1,
         "question": "기술적분석의 패턴분석 중 지속형에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -6216,7 +6208,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 16,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "증권의 상장제도에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -6263,7 +6255,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 17,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "구주주의 신주인수권을 배제하고 기준 주가의 70% 이상으로 발행가격을 정하는 방식의 유상증자에 해당하는 방식은?",
         "options": [
@@ -6310,7 +6302,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 18,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "증권발행 신고 시 모집 및 매출의 청약권유대상자 50인 산정에 포함되는 자는?",
         "options": [
@@ -6367,7 +6359,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 19,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "다음 중 한국거래소의 최소 호가단위(tick size)는?",
         "options": [
@@ -6424,7 +6416,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 20,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "사이드카(Sidecar)에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -6481,7 +6473,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 21,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "추가상장(또는 신주상장)에 해당하지 않는 것은?",
         "options": [
@@ -6538,7 +6530,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 22,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "재상장(再上場)에 해당하지 않는 것은?",
         "options": [
@@ -6585,7 +6577,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 23,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "거래소가 상장예비심사신청서에 대한 심의 결과에 대하여 효력을 인정하지 않는 경우에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -6642,7 +6634,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 24,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "거래소의 현재 호가상황은 아래와 같다. 최유리지정가로 매도주문 100주 접수 시 체결수량과 가격은?",
         "options": [
@@ -6726,7 +6718,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 25,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "다음의 설명에 해당하는 시장경보제도의 지정요건에 해당하는 것은?",
         "options": [
@@ -6783,7 +6775,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 26,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "다음 중 우회상장(SPAC상장 포함)의 설명으로 옳지 않은 것은?",
         "options": [
@@ -6840,7 +6832,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 27,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "채권의 분류상 성격이 다른 하나는?",
         "options": [
@@ -6897,7 +6889,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 28,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "다음 중 국가별 외국채 명칭으로 옳지 않은 것은?",
         "options": [
@@ -6944,7 +6936,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 29,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "다음 중 말킬의 채권가격정리에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -6991,7 +6983,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 30,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "잔존기간이 3년 남은 할인채를 만기수익률(YTM) 4%에 매입하여 2년 경과 후 만기수익률 6%에 매도하였다. 액면 10,000 원에 대한 손익은? (근사치를 구하시오)",
         "options": [
@@ -7038,7 +7030,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 31,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "향후 수익률 곡선의 수평적 하락이 예상될 경우 취할 전략이 아닌 것은?",
         "options": [
@@ -7095,7 +7087,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 32,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "자산유동화증권의 종류에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -7142,7 +7134,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 33,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "커버드본드에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -7199,7 +7191,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 34,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "코넥스 시장이 갖춘 특징이 아닌 것은?",
         "options": [
@@ -7256,7 +7248,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 35,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "다음 중 K-OTC 시장의 등록 및 지정해제 사유에 해당하지 아니한 것은?",
         "options": [
@@ -7333,7 +7325,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 36,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 3,
         "question": "개인종합자산관리계좌(ISA; Individual Savings Account)에 대한 설명이다. 가장 적절하지 않은 것은?",
         "options": [
@@ -7380,7 +7372,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 37,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "빈칸에 알맞은 것은?",
         "options": [
@@ -7427,7 +7419,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 38,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 3,
         "question": "단기금융집합투자기구(MMF)의 운용대상에 대한 설명이다. 틀린 항목의 개수는?",
         "options": [
@@ -7484,7 +7476,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 39,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 3,
         "question": "주식워런트증권(ELW)에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -7531,7 +7523,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 40,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 1,
         "question": "다음 중 예금자보호법에 의한 예금보호대상이 아닌 금융상품으로만 구성된 것은?",
         "options": [
@@ -7578,7 +7570,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 41,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 3,
         "question": "역모기지론에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -7635,7 +7627,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 42,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "전략적 자산배분의 실행단계를 옳게 연결한 것은?",
         "options": [
@@ -7692,7 +7684,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 43,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 3,
         "question": "포트폴리오 수정과 관련하여 빈칸에 알맞은 것은?",
         "options": [
@@ -7739,7 +7731,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 44,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 3,
         "question": "다음 중 최적증권을 선택하기 위한 지배원리(dominance principle)를 충족하는 효율적 포트폴리오에 해당하는 것은?",
         "options": [
@@ -7786,7 +7778,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 45,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 3,
         "question": "빈 칸에 옳게 연결된 것은?",
         "options": [
@@ -7833,7 +7825,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 46,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 3,
         "question": "다음의 자산집단에 대한 기대수익률의 추정방법에 해당하는 것은?",
         "options": [
@@ -7890,7 +7882,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 47,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 3,
         "question": "연초에 1000만원을 투자하였는데 1년 후에 가격상승으로 2,000만원이 되었다가 2년말에는 다시 가격하락으로 1,000만원이 되었다. 산술평균수익률과 기하평균수익률이 순서대로 옳은 것은? (가장 근사치를 구할 것)",
         "options": [
@@ -7947,7 +7939,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 48,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "다음 중 전술적 자산배분전략의 실행도구가 아닌 것은?",
         "options": [
@@ -7994,7 +7986,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 49,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 3,
         "question": "조건부자본증권을 투자권유하는 경우에 추가적으로 설명하여야 할 사항을 모두 고르시오.",
         "options": [
@@ -8041,7 +8033,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 50,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "방문판매에 대한 설명으로 옳은 것을 모두 고르면 몇 개인가?",
         "options": [
@@ -8098,7 +8090,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 51,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 1,
         "question": "다음 중 한국거래소의 장내금융투자상품이 아닌 것은?",
         "options": [
@@ -8145,7 +8137,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 52,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 1,
         "question": "이해상충방지를 위한 금융투자업자의 자기계약(자기거래)의 금지에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -8202,7 +8194,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 53,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "다음 중 성공적인 CRM 전략의 효과를 모두 고르시오",
         "options": [
@@ -8259,7 +8251,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 54,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "금융소비자보호법상 일반금융소비자와 전문금융소비자에게 공통으로 적용되는 것은?",
         "options": [
@@ -8306,7 +8298,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 55,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 3,
         "question": "금융소비자의 금융투자업자에 대한 위법계약해지권에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -8353,7 +8345,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 56,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 3,
         "question": "금융소비자의 자료열람요구권에 대한 금융투자업자의 열람의 제한 및 거절사유가 아닌 것은?",
         "options": [
@@ -8410,7 +8402,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 57,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "다음 중 금융투자회사의 준법감시인에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -8467,7 +8459,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 58,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 3,
         "question": "영업점에 대한 내부통제를 위한 영업점별 영업관리자에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -8524,7 +8516,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 59,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 1,
         "question": "금융투자회사의 표준윤리준칙 제6조 정보보호에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -8571,7 +8563,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 60,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 1,
         "question": "방문판매 및 전화권유판매 관련 금융소비자에게 사전안내가 가능한 상품은?",
         "options": [
@@ -8618,7 +8610,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 61,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 1,
         "question": "금융투자회사의 내부통제위원회에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -8685,7 +8677,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 62,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 1,
         "question": "금융소비자보호에 대한 내용으로 옳지 않은 것은?",
         "options": [
@@ -8732,7 +8724,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 63,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 3,
         "question": "다음 중 증권투자전문인력이 판매할 수 없는 상품으로만 묶은 것은?",
         "options": [
@@ -8779,7 +8771,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 64,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 1,
         "question": "자금세탁방지를 위한 위험기반 접근법(RBA)의 위험 기준이 아닌 것은?",
         "options": [
@@ -8826,7 +8818,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 65,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "자금세탁방지를 위한 조치의 설명으로 옳지 않은 것은?",
         "options": [
@@ -8893,7 +8885,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 66,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 3,
         "question": "다음 설명에 해당하는 금융투자업은?",
         "options": [
@@ -8940,7 +8932,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 67,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 3,
         "question": "금융투자업자의 순자본비율이 90%일 때 적기시정조치의 내용이 아닌 것은?",
         "options": [
@@ -8987,7 +8979,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 68,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "금융투자업자에 대한 건전성 규제에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -9044,7 +9036,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 69,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 3,
         "question": "다음 중 금융투자업자에 대한 규제 내용으로 옳지 않은 것은?",
         "options": [
@@ -9101,7 +9093,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 70,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "종합금융투자사업자의 일반사모집합투자기구에 대한 업무를 모두 고르시오",
         "options": [
@@ -9158,7 +9150,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 71,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "투자자예탁금 별도예치제도에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -9205,7 +9197,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 72,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 1,
         "question": "다음 중 간주모집으로 인정되는 것과 가장 거리가 먼 것은?",
         "options": [
@@ -9262,7 +9254,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 73,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 3,
         "question": "자본시장법상 공개매수에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -9319,7 +9311,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 74,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "금융기관에 대한 검사 및 제재규정에 관한 설명으로 옳지 않은 것은?",
         "options": [
@@ -9366,7 +9358,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 75,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 1,
         "question": "투자설명서 교부 등에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -9423,7 +9415,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 76,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 1,
         "question": "금융소비자보호법상 광고의 주체가 될 수 있는 자를 모두 고른 것은?",
         "options": [
@@ -9470,7 +9462,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 77,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 3,
         "question": "다음 중 금융소비자보호법상의 내용설명으로 옳지 않은 것은?",
         "options": [
@@ -9527,7 +9519,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 78,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 1,
         "question": "금융소비자보호법상의 6대 판매원칙 중 과징금 부과대상이 아닌 것으로만 묶은 것은?",
         "options": [
@@ -9574,7 +9566,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 79,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "다음의 투자성 상품 중 금소법상 청약철회권이 인정되지 아니한 상품은?",
         "options": [
@@ -9631,7 +9623,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 80,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "금융소비자보호법상 금융소비자의 금융상품판매업자등에 대한 청약철회에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -9688,7 +9680,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 81,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "다음 중 금융소비자보호법에서 정하고 있는 내용으로 옳지 않은 것은?",
         "options": [
@@ -9735,7 +9727,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 82,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "다음 중 불공정거래행위에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -9802,7 +9794,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 83,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "자본시장법상 ‘미공개중요정보 이용금지 조항’을 위반할 가능성이 있는 규제대상자를 모두 묶은 것은?",
         "options": [
@@ -9859,7 +9851,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 84,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "증권신고서 제도에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -9906,7 +9898,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 85,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 3,
         "question": "다음 중 유통시장 공시에 해당하는 것은?",
         "options": [
@@ -9953,7 +9945,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 86,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 3,
         "question": "다음 중 집합투자기구의 명칭 사용에 있어 사용할 수 없는 것은 모두 몇 개인가?",
         "options": [
@@ -10010,7 +10002,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 87,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "협회의 ‘영업 및 업무에 관한 규정’에서 정하는 신상품 보호에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -10067,7 +10059,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 88,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "‘증권 인수업무 등에 관한 규정’ 상 기업공개 시 주식배정의 내용으로 옳지 않은 것은?",
         "options": [
@@ -10114,7 +10106,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 89,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "협회의 금융투자전문인력 및 금융투자회사 등에 대한 제재에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -10171,7 +10163,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 90,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 3,
         "question": "다음 중 우리나라 상법 상 주식에 대한 설명으로 옳은 것은 모두 몇 개인가?",
         "options": [
@@ -10228,7 +10220,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 91,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 3,
         "question": "상법상 종류주식에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -10275,7 +10267,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 92,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "주식회사의 주주총회의 소집권자가 아닌 자는?",
         "options": [
@@ -10342,7 +10334,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 93,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "특수사채에 대한 설명이다. 가장 거리가 먼 것은?",
         "options": [
@@ -10389,7 +10381,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 94,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 3,
         "question": "우리 상법상 회사분할제도에 관한 설명이다. 가장 거리가 먼 것은?",
         "options": [
@@ -10436,7 +10428,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 95,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 3,
         "question": "상법상 회사법의 내용으로 옳은 것은?",
         "options": [
@@ -10493,7 +10485,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 96,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "다음 중 지방세가 아닌 것은?",
         "options": [
@@ -10550,7 +10542,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 97,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 3,
         "question": "비거주자에 대한 과세방법으로 옳지 않은 것은?",
         "options": [
@@ -10597,7 +10589,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 98,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "상속세 및 증여세법상 상속세가 비과세되는 항목으로 가장 거리가 먼 것은?",
         "options": [
@@ -10654,7 +10646,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 99,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "빈칸에 알맞은 것은?",
         "options": [
@@ -10701,7 +10693,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 100,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "소득세는 분리과세소득과 종합과세소득으로 구분할 수 있는바, 다음의 거주자가 반드시 확정신고를 하여야 하는 경우로 가장 올바른 것은?",
         "options": [
@@ -10753,19 +10745,15 @@ window.TOMATO_EXAMS = {
     "subtitle": "2025년 11월 대비 · 사용자 제공 원문",
     "sections": [
       {
-        "name": "1과목: 증권분석",
-        "end": 15
-      },
-      {
-        "name": "2과목: 증권시장",
+        "name": "1과목: 증권분석 및 증권시장",
         "end": 35
       },
       {
-        "name": "3과목: 금융상품 및 직무윤리",
+        "name": "2과목: 금융상품 및 직무윤리",
         "end": 65
       },
       {
-        "name": "4과목: 법규 및 세제",
+        "name": "3과목: 법규 및 세제",
         "end": 100
       }
     ],
@@ -10775,7 +10763,7 @@ window.TOMATO_EXAMS = {
     "questions": [
       {
         "id": 1,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "다음 중 전통적인 경기순환 4국면의 순서로 올바르게 연결된 것은?",
         "options": [
@@ -10822,7 +10810,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 2,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "다음 중 물가지표가 아닌 것은?",
         "options": [
@@ -10869,7 +10857,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 3,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "다음 중 통화정책의 파급경로 설명으로 옳지 못한 것은?",
         "options": [
@@ -10926,7 +10914,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 4,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 1,
         "question": "다음 중 경기확산지수(DI)에 대한 설명으로 거리가 먼 것은?",
         "options": [
@@ -10983,7 +10971,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 5,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "경기종합지수(CI)에 대한 설명으로 적절하지 않은 것은?",
         "options": [
@@ -11053,7 +11041,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 6,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 1,
         "question": "BSI 의 값이 80 인 경우와 거리가 먼 것은?",
         "options": [
@@ -11100,7 +11088,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 7,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "화폐공급의 증가로 인플레이션이 발생하면 명목금리가 상승한다는 이론과 관련된 것은??",
         "options": [
@@ -11147,7 +11135,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 8,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "다음은 기업가치분석에서 주가배수를 활용한 기업의 상대가치평가법에 대한 공식이다. A,B,C에 들어갈 용어로 모두 옳은 것은?",
         "options": [
@@ -11214,7 +11202,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 9,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "A회사의 자기자본의 장부가치는 200만원이고, 발행주식수는 100주이며, 주가 대 장부가치비율은 3이다. A회사의 주가는 얼마인가?",
         "options": [
@@ -11261,7 +11249,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 10,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "보기가 설명하는 지표는 무엇인가?",
         "options": [
@@ -11308,7 +11296,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 11,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "다음 중 재무상태표 상의 부채계정으로만 구성된 것은?",
         "options": [
@@ -11365,7 +11353,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 12,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 1,
         "question": "다음 중 캔들차트 분석상 하락추세로 예고하는 것으로만 모은 것은?",
         "options": [
@@ -11422,7 +11410,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 13,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 1,
         "question": "다음은 사케다 전법으로 주가의 움직임을 설명한 것이다, 이에 해당하는 것은?",
         "options": [
@@ -11469,7 +11457,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 14,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "다음 중 거래량 지표와 관련이 깊은 지표는?",
         "options": [
@@ -11516,7 +11504,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 15,
-        "category": "1과목: 증권분석",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 1,
         "question": "엘리어트파동에 대한 설명이다. 가장 적절하지 않은 것은?",
         "options": [
@@ -11573,7 +11561,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 16,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "다음 중 우리나라 상법상 인정되지 않는 주식은?",
         "options": [
@@ -11630,7 +11618,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 17,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "거래소는 상장예비심사 결과를 통지한 후에 중대한 사유가 생겨 상장예비심사 결과에 중대한 영향을 미친다고 판단하는 경우에는 그 상장예비심사 결과의 효력을 인정하지 않을 수 있다. 이에 대한 설명으로 거리가 먼 것은?",
         "options": [
@@ -11677,7 +11665,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 18,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "다음 중 우회상장(SPAC상장 포함)의 설명으로 옳지 않은 것은?",
         "options": [
@@ -11734,7 +11722,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 19,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "다음 중 증권의 발행시장 공시에 속하는 것은 모두 몇 개인가?",
         "options": [
@@ -11791,7 +11779,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 20,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "아래의 설명에 해당하는 것은?",
         "options": [
@@ -11838,7 +11826,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 21,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "다음 중 주권의 상장폐지제도에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -11885,7 +11873,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 22,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 1,
         "question": "동시호가 시 수량체결 배분방법의 설명으로 옳은 것은?",
         "options": [
@@ -11942,7 +11930,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 23,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "다음 중 불성실 공시의 유형이 아닌 것은?",
         "options": [
@@ -11999,7 +11987,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 24,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "한국거래소의 주문유형 및 조건과 관련하여 잘못 설명된 것은?",
         "options": [
@@ -12056,7 +12044,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 25,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "다음 중 거래소에서 가격제한폭이 없는 것은 모두 몇 개인가??",
         "options": [
@@ -12103,7 +12091,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 26,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "주식시장의 매매중단(Circuit Breakers)에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -12160,7 +12148,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 27,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "다음 중 채권의 간접모집에 해당하는 발행은?",
         "options": [
@@ -12217,7 +12205,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 28,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "현재 시장금리가 10%인 채권가격은 9,502 원 (볼록성 8.94)이다. 시장금리가 9%로 하락할 경우 볼록성에 의한 채권변동액은 얼마인가?",
         "options": [
@@ -12264,7 +12252,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 29,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "다음 중 우리나라 국채전문유통시장에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -12321,7 +12309,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 30,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "잔존기간이 3년 남은 표면이자율 8%인 연단위 이표채를 만기수익률(YTM) 10%, 단가 9.502원에 매입하여 만기상환받는다면 투자수익액은 얼마인가? (단, 만기까지 시장금리변동이 없는 재투자 가정)",
         "options": [
@@ -12368,7 +12356,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 31,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 3,
         "question": "보기에 대한 설명으로 가장 적절하지 않은 것은?",
         "options": [
@@ -12435,7 +12423,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 32,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "채권투자전략 중 소극적 투자전략에 속하는 것은?",
         "options": [
@@ -12482,7 +12470,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 33,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "여러가지 채권에 대한 설명이다. 옳지 않은 것은?",
         "options": [
@@ -12529,7 +12517,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 34,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 1,
         "question": "코넥스 시장이 갖춘 특징의 설명으로 옳지 않은 것은?",
         "options": [
@@ -12586,7 +12574,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 35,
-        "category": "2과목: 증권시장",
+        "category": "1과목: 증권분석 및 증권시장",
         "difficulty": 2,
         "question": "다음 중 K-OTC 시장의 특징이 아닌 것은?",
         "options": [
@@ -12643,7 +12631,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 36,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 3,
         "question": "ISA(개인종합자산관리계좌)에 대한 설명이다. 틀린 것으로 연결한 것은?",
         "options": [
@@ -12731,7 +12719,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 37,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "연금저축상품(세제적격 상품)에 대한 설명이다. 옳은 것은?",
         "options": [
@@ -12805,7 +12793,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 38,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "종류형 집합투자기구에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -12862,7 +12850,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 39,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 3,
         "question": "주식워런트증권(ELW)의 가격구조와 관련하여, 보기에 대한 설명으로 틀린 것은?",
         "options": [
@@ -12940,7 +12928,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 40,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 3,
         "question": "다음 중 MMF에 편입될 수 없는 금융상품은?",
         "options": [
@@ -12987,7 +12975,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 41,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "보기에서 예금자보호상품으로만 연결한 것은?",
         "options": [
@@ -13076,7 +13064,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 42,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 3,
         "question": "다음 중 운용자산에 대한 투자수익률 계산방법 중 시간가중 수익률(time-weighted rate of return)의 내용과 거리가 먼 것은?",
         "options": [
@@ -13133,7 +13121,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 43,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "자산배분과 관련하여 아래의 내용에 해당하는 용어는?",
         "options": [
@@ -13180,7 +13168,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 44,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "다음 중 블랙리터만의 자산배분 모델에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -13227,7 +13215,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 45,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "전술적 자산배분전략의 실행도구와 거리가 먼 것은?",
         "options": [
@@ -13284,7 +13272,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 46,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "투자자가 2기간 동안에 거둔 투자수익률은 1기간이 10%, 2기간이 4.9%이다. 이 경우 두 개의 관찰기간의 산술평균수익률과 기하평균수익률을 순서대로 구한다면 각각 얼마인가",
         "options": [
@@ -13341,7 +13329,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 47,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 3,
         "question": "다음 중 공격적 투자자의 최적증권에 해당하는 것은?",
         "options": [
@@ -13450,7 +13438,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 48,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "다음 중 ( )안에 들어갈 용어로 적절한 것은?",
         "options": [
@@ -13497,7 +13485,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 49,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 1,
         "question": "방문판매 등에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -13564,7 +13552,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 50,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "다음 중 투자권유의 설명으로 옳지 않은 것은?",
         "options": [
@@ -13611,7 +13599,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 51,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 3,
         "question": "조건부자본증권 투자권유시 추가설명사항 중 바르게 설명한 것을 모두 고르면 몇 개인가?",
         "options": [
@@ -13658,7 +13646,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 52,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "직무윤리기준의 절차적 규정 중 성격이 다른 것은?",
         "options": [
@@ -13715,7 +13703,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 53,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 3,
         "question": "‘금융투자회사의 표준내부통제기준’에 따른 준법감시인에 관한 설명 중 틀린 것은?",
         "options": [
@@ -13762,7 +13750,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 54,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "다음 전자정보통신수단을 사용하는 경우에 관한 설명 중 틀린 것은?",
         "options": [
@@ -13809,7 +13797,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 55,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "다음 금융투자업종사자의 대외활동에 관한 설명 중 맞는 것은?",
         "options": [
@@ -13866,7 +13854,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 56,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 3,
         "question": "자본시장법상 시장질서 교란행위에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -13923,7 +13911,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 57,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "다음 중 금융투자회사의 준법감시인에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -13980,7 +13968,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 58,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "영업점에 대한 내부통제로서 영업관리자에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -14027,7 +14015,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 59,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "과당매매에 대한 판단기준으로 거리가 먼 것은?",
         "options": [
@@ -14074,7 +14062,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 60,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 1,
         "question": "다음은 개인정보보호법의 내용이다. 옳지 않은 것은?",
         "options": [
@@ -14180,7 +14168,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 61,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 1,
         "question": "비밀정보의 관리에 대한 설명으로 옳지 못한 것은?",
         "options": [
@@ -14227,7 +14215,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 62,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 1,
         "question": "금융투자업이 여타 산업에 비하여 직무윤리가 특히 강조되는 이유와 가장 거리가 먼 것은?",
         "options": [
@@ -14274,7 +14262,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 63,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 3,
         "question": "다음 중 ( )에 들어갈 용어로 순서대로 옳은 것은?",
         "options": [
@@ -14331,7 +14319,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 64,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "다음 중 『고객확인제도』에 대한 설명으로 잘못된 것은?",
         "options": [
@@ -14378,7 +14366,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 65,
-        "category": "3과목: 금융상품 및 직무윤리",
+        "category": "2과목: 금융상품 및 직무윤리",
         "difficulty": 2,
         "question": "다음 중 『고액현금거래보고제도』에 대한 설명으로 잘못된 것은?",
         "options": [
@@ -14435,7 +14423,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 66,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "금융투자업자가 일반투자자 및 전문투자자를 구분하여 거래를 함에 있어 유의할 사항 또는 그 예외에 대한 설명으로 가장 올바른 것은?",
         "options": [
@@ -14492,7 +14480,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 67,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "금융투자회사의 위험관리체제 구축에 대한 설명이다. 가장 적절하지 않은 것은?",
         "options": [
@@ -14539,7 +14527,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 68,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "투자자예탁금의 별도예치제도에 대한 설명이다. 틀린 항목으로 연결한 것은?",
         "options": [
@@ -14586,7 +14574,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 69,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 1,
         "question": "다음 중 법률에 의하여 직접 설립된 법인이 발행하는 출자증권에 해당하는 것은?",
         "options": [
@@ -14643,7 +14631,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 70,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 3,
         "question": "다음 중 증권의 모집으로 보는 전매기준에 해당하지 아니하는 것은?",
         "options": [
@@ -14700,7 +14688,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 71,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "다음 중 증권분석기관이 될 수 없는 자는?",
         "options": [
@@ -14747,7 +14735,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 72,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "불공정거래행위에 대한 설명으로 가장 올바른 것은?",
         "options": [
@@ -14794,7 +14782,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 73,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "다음 중 주식 등의 대량보유상황 보고제도 등에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -14851,7 +14839,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 74,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 1,
         "question": "공개매수에 대한 설명으로 가장 올바른 것은?",
         "options": [
@@ -14908,7 +14896,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 75,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 1,
         "question": "자본시장조사업무규정에 따른 조사결과 증권의 발행·모집·매출 등과 관련한 자본시장법을 위반한 상장법인에 대한 조치사항이 아닌 것은?",
         "options": [
@@ -14955,7 +14943,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 76,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "금융투자업규정상 금융투자업자가 투자광고에 포함시켜야 하는 사항으로 가장 거리가 먼 것은?",
         "options": [
@@ -15002,7 +14990,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 77,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 3,
         "question": "다음 중 금융소비자보호법에서 정하고 있는 내용과 상이한 것은?",
         "options": [
@@ -15059,7 +15047,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 78,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "금융소비자보호법상 과징금 부과대상이 아닌 것은?",
         "options": [
@@ -15106,7 +15094,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 79,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "금융소비자보호법상 전문금융소비자의 설명으로 옳지 않은 것은?",
         "options": [
@@ -15163,7 +15151,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 80,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 1,
         "question": "금융소비자보호법상 광고규제에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -15210,7 +15198,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 81,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "다음 중 금융소비자보호법에서 정하고 있는 내용으로 옳지 않은 것은?",
         "options": [
@@ -15267,7 +15255,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 82,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "다음 중 금융소비자의 위법계약 해지권의 적용에 대한 사항이다. 옳은 것을 모두 고르면 몇 개인가?",
         "options": [
@@ -15324,7 +15312,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 83,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "금융소비자보호법에서 정하고 있는 금융투자회사의 부당권유금지와 관련한 내용으로 옳지 않은 것은?",
         "options": [
@@ -15371,7 +15359,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 84,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "투자매매업자 및 투자중개업자의 신용공여에 대한 설명 중 옳지 못한 것은?",
         "options": [
@@ -15438,7 +15426,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 85,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 1,
         "question": "금융 분쟁에 관한 설명으로 가장 거리가 먼 것은?",
         "options": [
@@ -15485,7 +15473,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 86,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "다음 중 부당한 재산상이익의 제공 및 수령의 금지대상을 모두 묶은 것은?",
         "options": [
@@ -15532,7 +15520,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 87,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "신상품 보호에 관한 협회규정을 설명한 것이다. 가장 거리가 먼 것은?",
         "options": [
@@ -15599,7 +15587,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 88,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "다음 중 조사분석자료에 대한 설명으로 옳은 것을 모두 고르시오.",
         "options": [
@@ -15646,7 +15634,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 89,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "다음 중 재산상 이익의 가치를 선정하는 방식이 틀린 것은?",
         "options": [
@@ -15703,7 +15691,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 90,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "다음 중 상법상 변태설립사항에 속하는 것은 모두 몇 개인가?",
         "options": [
@@ -15838,7 +15826,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 91,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "우리나라 상법상 감사에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -15908,7 +15896,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 92,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "다음 중 주주의 의결권에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -15955,7 +15943,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 93,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "상법상 주주명부에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -16012,7 +16000,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 94,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "상법 상 주식회사의 합병에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -16069,7 +16057,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 95,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 1,
         "question": "이사에 대한 설명으로 옳지 않은 것은?",
         "options": [
@@ -16126,7 +16114,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 96,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "다음 중 국세가 아닌 것은?",
         "options": [
@@ -16204,7 +16192,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 97,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 3,
         "question": "아래의 정보 중 다음 연도에 종합소득 신고 및 납부 대상자는 모두 몇 명인가?",
         "options": [
@@ -16261,7 +16249,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 98,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "확정된 납세의무의 소멸 사유가 아닌 것은?",
         "options": [
@@ -16318,7 +16306,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 99,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "국세기본법상 납세의무의 성립시기가 같은 것끼리 올바르게 모두 묶은 것은?",
         "options": [
@@ -16365,7 +16353,7 @@ window.TOMATO_EXAMS = {
       },
       {
         "id": 100,
-        "category": "4과목: 법규 및 세제",
+        "category": "3과목: 법규 및 세제",
         "difficulty": 2,
         "question": "다음 중 금융소득에 대한 원천징수세율(거주자 기준)이 가장 높은 것은?",
         "options": [

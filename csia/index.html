@@ -58,6 +58,63 @@
       </div>
     </div>
 
+    <!-- Exam Specification & Passing Criteria Banner -->
+    <section class="exam-spec-card" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem; margin-bottom: 2rem; box-shadow: var(--shadow-sm);">
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 0.75rem;">
+        <span style="font-size: 1.3rem;">📋</span>
+        <h3 style="margin: 0; font-size: 1.15rem; font-weight: 800;">01 시험과목 및 합격기준 (총 3과목 · 100문항 · 120분)</h3>
+      </div>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem;">
+        <!-- Subject 1 -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <strong style="color: var(--primary); font-size: 0.95rem;">1과목 : 증권분석 및 증권시장</strong>
+            <span style="font-size: 0.8rem; font-weight: 700; color: #ef4444; background: rgba(239, 68, 68, 0.1); padding: 2px 6px; border-radius: 4px;">총 35문항 / 과락 18문항</span>
+          </div>
+          <p style="font-size: 0.825rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            경기분석(6) · 기본적 분석(5) · 기술적 분석(4)<br>
+            유가증권시장(8) · 코스닥시장(3) · 채권시장(7) · 기타 증권시장(2)
+          </p>
+        </div>
+
+        <!-- Subject 2 -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <strong style="color: var(--primary); font-size: 0.95rem;">2과목 : 금융상품 및 직무윤리</strong>
+            <span style="font-size: 0.8rem; font-weight: 700; color: #ef4444; background: rgba(239, 68, 68, 0.1); padding: 2px 6px; border-radius: 4px;">총 30문항 / 과락 15문항</span>
+          </div>
+          <p style="font-size: 0.825rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            금융상품분석ㆍ투자전략(13)<br>
+            투자권유 및 고객관리(5) · 직무윤리ㆍ투자자분쟁예방(12)
+          </p>
+        </div>
+
+        <!-- Subject 3 -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <strong style="color: var(--primary); font-size: 0.95rem;">3과목 : 법규 및 세제</strong>
+            <span style="font-size: 0.8rem; font-weight: 700; color: #ef4444; background: rgba(239, 68, 68, 0.1); padding: 2px 6px; border-radius: 4px;">총 35문항 / 과락 18문항</span>
+          </div>
+          <p style="font-size: 0.825rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            자본시장 관련 법규(금융소비자 보호법 포함)(20)<br>
+            한국금융투자협회규정(4) · 회사법(6) · 증권세제(5)
+          </p>
+        </div>
+      </div>
+
+      <!-- Passing Rule -->
+      <div style="margin-top: 1rem; padding-top: 0.85rem; border-top: 1px dashed var(--border-color); display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: center; font-size: 0.85rem;">
+        <div>
+          ⏱️ <strong>시험시간</strong> : 120분 &nbsp;|&nbsp; 
+          📝 <strong>문제형식</strong> : 객관식 4지선다형 (총 100문항)
+        </div>
+        <div style="color: var(--primary); font-weight: 700;">
+          🎯 <strong>02 합격기준</strong> : 응시과목별 정답비율 50% 이상(과락 없음) 중, 전체 정답비율 70%(70문항) 이상
+        </div>
+      </div>
+    </section>
+
     <h2>기존 실제유형 모의고사</h2>
     <p class="hero-desc" style="margin-bottom: 1.5rem;">원본 대조 수정본 · 문제·보기·그림은 제공된 시험지 기준입니다. 원본 정답표·해설은 제공되지 않아 정답과 해설은 검토 풀이이며, 원문 오류·모호한 문항은 해설에 별도로 안내합니다. 수정 전 답안·성적은 브라우저에 보관하고, 수정본의 응시 기록은 별도로 저장합니다.</p>
     <div class="round-cards-grid">
@@ -70,13 +127,13 @@
         <div class="round-stats-row">
           <span class="stat-tag">⏱️ 120분</span>
           <span class="stat-tag">📝 100문항</span>
-          <span class="stat-tag">🎯 60점 이상 합격</span>
+          <span class="stat-tag">🎯 70점 이상 합격 (과락 50% 미만)</span>
         </div>
 
         <ul class="round-subject-list">
-          <li><span>1과목</span> 증권분석 및 증권시장 (35문항)</li>
-          <li><span>2과목</span> 금융상품 및 직무윤리 (30문항)</li>
-          <li><span>3과목</span> 법규 및 세제 (35문항)</li>
+          <li><span>1과목</span> 증권분석 및 증권시장 (35문항 · 과락 18)</li>
+          <li><span>2과목</span> 금융상품 및 직무윤리 (30문항 · 과락 15)</li>
+          <li><span>3과목</span> 법규 및 세제 (35문항 · 과락 18)</li>
         </ul>
 
         <div id="round1StatusBox" class="round-status-box">
@@ -98,13 +155,13 @@
         <div class="round-stats-row">
           <span class="stat-tag">⏱️ 120분</span>
           <span class="stat-tag">📝 100문항</span>
-          <span class="stat-tag">🎯 60점 이상 합격</span>
+          <span class="stat-tag">🎯 70점 이상 합격 (과락 50% 미만)</span>
         </div>
 
         <ul class="round-subject-list">
-          <li><span>1과목</span> 증권분석 및 증권시장 (35문항)</li>
-          <li><span>2과목</span> 금융상품 및 직무윤리 (30문항)</li>
-          <li><span>3과목</span> 법규 및 세제 (35문항)</li>
+          <li><span>1과목</span> 증권분석 및 증권시장 (35문항 · 과락 18)</li>
+          <li><span>2과목</span> 금융상품 및 직무윤리 (30문항 · 과락 15)</li>
+          <li><span>3과목</span> 법규 및 세제 (35문항 · 과락 18)</li>
         </ul>
 
         <div id="round2StatusBox" class="round-status-box">
@@ -126,13 +183,13 @@
         <div class="round-stats-row">
           <span class="stat-tag">⏱️ 120분</span>
           <span class="stat-tag">📝 100문항</span>
-          <span class="stat-tag">🎯 60점 이상 합격</span>
+          <span class="stat-tag">🎯 70점 이상 합격 (과락 50% 미만)</span>
         </div>
 
         <ul class="round-subject-list">
-          <li><span>1과목</span> 증권분석 및 증권시장 (35문항)</li>
-          <li><span>2과목</span> 금융상품 및 직무윤리 (30문항)</li>
-          <li><span>3과목</span> 법규 및 세제 (35문항)</li>
+          <li><span>1과목</span> 증권분석 및 증권시장 (35문항 · 과락 18)</li>
+          <li><span>2과목</span> 금융상품 및 직무윤리 (30문항 · 과락 15)</li>
+          <li><span>3과목</span> 법규 및 세제 (35문항 · 과락 18)</li>
         </ul>
 
         <div id="round3StatusBox" class="round-status-box">
@@ -154,13 +211,13 @@
         <div class="round-stats-row">
           <span class="stat-tag">⏱️ 120분</span>
           <span class="stat-tag">📝 100문항</span>
-          <span class="stat-tag">🎯 60점 이상 합격</span>
+          <span class="stat-tag">🎯 70점 이상 합격 (과락 50% 미만)</span>
         </div>
 
         <ul class="round-subject-list">
-          <li><span>1과목</span> 증권분석 및 증권시장 (35문항)</li>
-          <li><span>2과목</span> 금융상품 및 직무윤리 (30문항)</li>
-          <li><span>3과목</span> 법규 및 세제 (35문항)</li>
+          <li><span>1과목</span> 증권분석 및 증권시장 (35문항 · 과락 18)</li>
+          <li><span>2과목</span> 금융상품 및 직무윤리 (30문항 · 과락 15)</li>
+          <li><span>3과목</span> 법규 및 세제 (35문항 · 과락 18)</li>
         </ul>
 
         <div id="round4StatusBox" class="round-status-box">
@@ -337,7 +394,7 @@
             0<span> / 100점</span>
           </div>
           <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.25rem;">
-            * 합격 기준: 총점 60점 이상 및 단일 과목 40% 미만 과락 없음
+            * 합격 기준: 전체 70점(70문항) 이상 및 각 과목별 50% 이상(1과목 18개, 2과목 15개, 3과목 18개 이상 과락 없음)
           </p>
         </div>
 
