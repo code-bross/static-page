@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "skills": {
+    "bok-ecos-stats": {
+      "source": "NomaDamas/k-skill",
+      "sourceType": "github",
+      "skillPath": "bok-ecos-stats/SKILL.md",
+      "computedHash": "e4b305b52ebe6a25430b663fa80888f570af5cc8629a17d8c4b2d5e97ecd6e82"
+    },
+    "korean-law-search": {
+      "source": "NomaDamas/k-skill",
+      "sourceType": "github",
+      "skillPath": "korean-law-search/SKILL.md",
+      "computedHash": "b2d6390152f5a44ac22bf19cce15a50facaa05b3f2399d987aa4da2663e6a86f"
+    },
+    "korean-stock-search": {
+      "source": "NomaDamas/k-skill",
+      "sourceType": "github",
+      "skillPath": "korean-stock-search/SKILL.md",
+      "computedHash": "046d18c6e3f8ed2ca7992565a5ff27d7c029fc84fe808acedaf0c1f4b1476375"
+    }
+  }
+}
