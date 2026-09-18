@@ -1529,10 +1529,10 @@ window.OX_QUIZ_DATA = [
     "qNum": 48,
     "part": "1과목: 증권분석 및 증권시장",
     "chapter": "제1장 유가증권시장",
-    "type": "BLANK",
-    "question": "ox 신규로 진입하는 투자자A는 최유리지정가로 300주 매수주문 입력 시 체결되는 수량은 10,020원에 200주 체결되 고 10,020원에 매수대기 100주이다.",
-    "answer": "0",
-    "oxAnswer": null,
+    "type": "OX",
+    "question": "신규로 진입하는 투자자A는 최유리지정가로 300주 매수주문 입력 시 체결되는 수량은 10,020원에 200주 체결되고 10,020원에 매수대기 100주이다.",
+    "answer": "O",
+    "oxAnswer": "O",
     "image": "증투 OX 퀴즈 - 16.jpg"
   },
   {
@@ -1541,10 +1541,10 @@ window.OX_QUIZ_DATA = [
     "qNum": 49,
     "part": "1과목: 증권분석 및 증권시장",
     "chapter": "제1장 유가증권시장",
-    "type": "BLANK",
-    "question": "Ox 신규로 진입하는 투자자A는 최유리지정가로 300주 매도주문 입력 시 체결되는 수량은 300주로 전량 체결되고 매도대기는 없다.",
-    "answer": "0",
-    "oxAnswer": null,
+    "type": "OX",
+    "question": "신규로 진입하는 투자자A는 최유리지정가로 300주 매도주문 입력 시 체결되는 수량은 300주로 전량 체결되고 매도대기는 없다.",
+    "answer": "O",
+    "oxAnswer": "O",
     "image": "증투 OX 퀴즈 - 16.jpg"
   },
   {
@@ -1698,7 +1698,7 @@ window.OX_QUIZ_DATA = [
     "part": "1과목: 증권분석 및 증권시장",
     "chapter": "제1장 유가증권시장",
     "type": "BLANK",
-    "question": "으 x 한국거래소의 매매체결방식은 개별경쟁매매방식이다.",
+    "question": "한국거래소의 매매체결방식은 개별경쟁매매방식이다.",
     "answer": "0",
     "oxAnswer": null,
     "image": "증투 OX 퀴즈 - 17.jpg"
@@ -1841,10 +1841,10 @@ window.OX_QUIZ_DATA = [
     "qNum": 62,
     "part": "1과목: 증권분석 및 증권시장",
     "chapter": "제1장 유가증권시장",
-    "type": "BLANK",
-    "question": "[이x 동시호가는 수량우선원칙과 위탁매매우선원칙 그리고 접수순이 적용되며, 수량배분은 3단계 안분배분방식으로 한다.",
-    "answer": "0",
-    "oxAnswer": null,
+    "type": "OX",
+    "question": "동시호가는 수량우선원칙과 위탁매매우선원칙 그리고 접수순이 적용되며, 수량배분은 3단계 안분배분방식으로 한다.",
+    "answer": "O",
+    "oxAnswer": "O",
     "image": "증투 OX 퀴즈 - 18.jpg"
   },
   {
@@ -2250,7 +2250,7 @@ window.OX_QUIZ_DATA = [
     "part": "1과목: 증권분석 및 증권시장",
     "chapter": "제2장 코스닥시장",
     "type": "BLANK",
-    "question": "코스닥150지수의 구성종목 중 일평균거래대금이 상위 50%에 해당하는 종목의 대용증권 사정비율은 (",
+    "question": "코스닥150지수의 구성종목 중 일평균거래대금이 상위 50%에 해당하는 종목의 대용증권 사정비율은 ( )%이다.",
     "answer": "80(%) , 코스피200지수 구성종목과 동일하다.",
     "oxAnswer": null,
     "image": "증투 OX 퀴즈 - 23.jpg"
@@ -2490,8 +2490,8 @@ window.OX_QUIZ_DATA = [
     "part": "1과목: 증권분석 및 증권시장",
     "chapter": "제3장 기타 주식시장 (K-OTC/코넥스)",
     "type": "BLANK",
-    "question": "공시변경 공시변경이란 기 공시한 내용의 수량 및 금액, 비율 등을 일정기준 이상 변경하여 공시하는 경우이다. 현재 코스피 및 코스닥시장에서",
-    "answer": "영업일 이내에 등록 여부를 결정하고, 그 결과를",
+    "question": "코넥스시장에서는 공시부담 완화차원에서 불성실공시(공시불이행, 공시번복, 공시변경) 중 한 가지인 ( )은 적용하지 않는다.",
+    "answer": "공시변경",
     "oxAnswer": null,
     "image": "증투 OX 퀴즈 - 25.jpg"
   },
@@ -2862,7 +2862,7 @@ window.OX_QUIZ_DATA = [
     "part": "1과목: 증권분석 및 증권시장",
     "chapter": "제4장 채권시장",
     "type": "BLANK",
-    "question": "액면 10,000원인 전환사채의 전환주수가 2주일 때 주당 시가가 4,500원이면 패리티는 ( ( )원이다. )%이고 전환가치는",
+    "question": "액면 10,000원인 전환사채의 전환주수가 2주일 때 주당 시가가 4,500원이면 패리티는 ( )%이고 전환가치는 ( )원이다.",
     "answer": "90(%), 9,000(원)• 패리티(%)= 주식의 시장가격/전환가격 x 100= 4,500/5,000 x 100= 90%,",
     "oxAnswer": null,
     "image": "증투 OX 퀴즈 - 30.jpg"
@@ -2874,20 +2874,8 @@ window.OX_QUIZ_DATA = [
     "part": "1과목: 증권분석 및 증권시장",
     "chapter": "제4장 채권시장",
     "type": "BLANK",
-    "question": "액면 10,000원인 전환사채를 12,000원에 매수하였다. 전환사채 액면 10,000원당 전환주수가 2주이고 주식의 시장가격이",
+    "question": "액면 10,000원인 전환사채를 12,000원에 매수하였다. 전환사채 액면 10,000원당 전환주수가 2주이고 주식의 시장가격이 5,500원이면 패리티는 ( )%이고 전환가치는 ( )원이며 전환프리미엄은 ( )원이고 괴리율은 약 ( )%이다.",
     "answer": "110(%), 11,000(원), 1,000(원), 9.1(%) 패리티(%)= 5,500/5,000 x 100= 110%",
-    "oxAnswer": null,
-    "image": "증투 OX 퀴즈 - 30.jpg"
-  },
-  {
-    "id": 239,
-    "page": 30,
-    "qNum": 5,
-    "part": "1과목: 증권분석 및 증권시장",
-    "chapter": "제4장 채권시장",
-    "type": "BLANK",
-    "question": ",500원이면 패리티는 ( )%이고 전환가치는 ( )원이며 전환프리미엄은 ( )원이고 괴리율은 약 ( )%이다.",
-    "answer": ",500/5,000 x 100= 110%",
     "oxAnswer": null,
     "image": "증투 OX 퀴즈 - 30.jpg"
   },
@@ -3713,10 +3701,10 @@ window.OX_QUIZ_DATA = [
     "qNum": 10,
     "part": "2과목: 금융상품 및 직무윤리",
     "chapter": "제2장 금융소비자보호법 및 영업실무",
-    "type": "BLANK",
-    "question": "× 임직원등은 회사가 이미 투자자정보를 알고 있는 투자자에 대하여는 기존 투자자성향과 그 의미에 대해 설명하고 투자권유를 하는 것이 바람직하다.",
-    "answer": "0",
-    "oxAnswer": null,
+    "type": "OX",
+    "question": "임직원등은 회사가 이미 투자자정보를 알고 있는 투자자에 대하여는 기존 투자자성향과 그 의미에 대해 설명하고 투자권유를 하는 것이 바람직하다.",
+    "answer": "O",
+    "oxAnswer": "O",
     "image": "증투 OX 퀴즈 - 39.jpg"
   },
   {
@@ -7811,6 +7799,7 @@ window.OX_QUIZ_DATA = [
     128, 129, 130, 131, 132, 133, 134, 135,
     144, 145, 146, 147, 148, 149, 150
   ]);
+  const duplicateQuestionIds = new Set([74]);
   const isCoveredBySplit = quiz => {
     const range = splitRanges.get(quiz.image);
     return range && range.has(quiz.qNum);
@@ -7819,6 +7808,7 @@ window.OX_QUIZ_DATA = [
   const expanded = [];
   for (const quiz of source) {
     if (tableFragmentIds.has(quiz.id)) continue;
+    if (duplicateQuestionIds.has(quiz.id)) continue;
     const rule = splitRules[quiz.id];
     if (!rule) {
       if (isCoveredBySplit(quiz)) continue;

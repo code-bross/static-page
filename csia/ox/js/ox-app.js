@@ -219,6 +219,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }[character]));
   }
 
+  function renderContextTable(q) {
+    const isOrderBook16 = q.image === '증투 OX 퀴즈 - 16.jpg' && q.qNum >= 48 && q.qNum <= 51;
+    const isOrderBook17 = q.image === '증투 OX 퀴즈 - 17.jpg' && q.qNum >= 52 && q.qNum <= 55;
+    if (!isOrderBook16 && !isOrderBook17) return '';
+
+    const rows = isOrderBook16
+      ? [['100', '10,040', ''], ['200', '10,020', ''], ['', '10,000', '500'], ['', '9,980', '1,100'], ['', '9,970', '1,200']]
+      : [['400', '10,040', ''], ['200', '10,020', ''], ['', '10,000', '500'], ['', '9,980', '1,100'], ['', '9,970', '1,200']];
+    return `
+      <div class="question-context" aria-label="문항 공통 호가표">
+        <div class="context-label">공통 호가표</div>
+        <table class="order-book-table">
+          <thead><tr><th>매도 주문수량(주)</th><th>가격(원)</th><th>매수 주문수량(주)</th></tr></thead>
+          <tbody>${rows.map(row => `<tr>${row.map(cell => `<td>${cell}</td>`).join('')}</tr>`).join('')}</tbody>
+        </table>
+      </div>
+    `;
+  }
+
   function renderInteractiveQuestion(q) {
     const slots = getQuestionSlots(q);
     if (slots.length === 0) {
@@ -429,6 +448,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         ${choiceBannerHtml}
         
+        ${renderContextTable(q)}
         <div class="question-text">${renderInteractiveQuestion(q)}</div>
         
         ${q.type === 'OX' ? `

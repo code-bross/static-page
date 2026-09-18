@@ -321,6 +321,38 @@ body {
   word-break: keep-all;
 }
 
+.question-context {
+  margin-bottom: 18px;
+  overflow-x: auto;
+}
+
+.context-label {
+  margin-bottom: 6px;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.order-book-table {
+  width: 100%;
+  min-width: 420px;
+  border-collapse: collapse;
+  color: var(--text-main);
+  font-size: 14px;
+  text-align: center;
+}
+
+.order-book-table th,
+.order-book-table td {
+  border: 1px solid var(--border-color);
+  padding: 7px 8px;
+}
+
+.order-book-table th {
+  background: var(--bg-card-hover);
+  font-weight: 700;
+}
+
 .blank-slot {
   display: inline-block;
   min-width: 3.5em;
