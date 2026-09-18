@@ -318,7 +318,7 @@ window.OX_QUIZ_DATA = [
     "part": "1과목: 증권분석 및 증권시장",
     "chapter": "제2장 기본적 분석",
     "type": "BLANK",
-    "question": "1o x 유동비율 공식의 분자에는 유동부채가 표기된다.",
+    "question": "유동비율 공식의 분자에는 유동부채가 표기된다.",
     "answer": "/ 96",
     "oxAnswer": null,
     "image": "증투 OX 퀴즈 - 5.jpg"
@@ -342,7 +342,7 @@ window.OX_QUIZ_DATA = [
     "part": "1과목: 증권분석 및 증권시장",
     "chapter": "제2장 기본적 분석",
     "type": "BLANK",
-    "question": "기업의 활동성을 측정하는 모든 회전율 공식의 분자에는 항상 손익계산서 항목인 ( )이 표기된다. 0x 주가수익비율(Price Barning Ratio : PER)은 주가수익률이라고도 하는데 주가를 주당순이익(BPS)으로 나눈 것이다. 0x 주가순자산비율(Price to Book-value Ratio : PBP)은 주가를 1주당 순자산으로 나눈 값인데 이 때의 순자산이란 재무상태표상의 장부가치를 말한다.",
+    "question": "기업의 활동성을 측정하는 모든 회전율 공식의 분자에는 항상 손익계산서 항목인 ( )이 표기된다.",
     "answer": "매출액",
     "oxAnswer": null,
     "image": "증투 OX 퀴즈 - 5.jpg"
@@ -390,7 +390,7 @@ window.OX_QUIZ_DATA = [
     "part": "1과목: 증권분석 및 증권시장",
     "chapter": "제2장 기본적 분석",
     "type": "BLANK",
-    "question": "0 x 비율분석의 한계점으로는 (1) 재무제표는 과거자료라는 점, (2) 손의계산서와 재무상태표의 시간적 차이가 존재한 다는 점. 그리고 (3) 상이한 회계처리기준을 들 수 있다. 21손익계산서는 (Flow Stock) 개념이며, 재무상태표는 (FlOw / Stock) 개념이다. 정립 11ㅇ+ 총자본= 자기자본 + 타인자본이다. 따라서 차입금은 타인자본이므로 분모에 포함된다.",
+    "question": "비율분석의 한계점으로는 (1) 재무제표는 과거자료라는 점, (2) 손익계산서와 재무상태표의 시간적 차이가 존재한다는 점, 그리고 (3) 상이한 회계처리기준을 들 수 있다.",
     "answer": "0",
     "oxAnswer": null,
     "image": "증투 OX 퀴즈 - 5.jpg"
@@ -414,7 +414,7 @@ window.OX_QUIZ_DATA = [
     "part": "1과목: 증권분석 및 증권시장",
     "chapter": "제2장 기본적 분석",
     "type": "BLANK",
-    "question": "3(배)• 이자보상비율은 영업이익/이자비용이므로 60/20= 3배이다.",
+    "question": "매출총이익 = 100, 영업이익 = 60, 당기순이익 = 50이며, 이자비용이 20인 경우 이자보상비율은 ( )배이다.",
     "answer": "3(배)",
     "oxAnswer": null,
     "image": "증투 OX 퀴즈 - 5.jpg"
@@ -642,7 +642,7 @@ window.OX_QUIZ_DATA = [
     "part": "1과목: 증권분석 및 증권시장",
     "chapter": "제3장 기술적 분석",
     "type": "BLANK",
-    "question": "이× 다우 이론에 따르면 시장에서 예상되고 있거나 이미 알려진 모든 정보는 시장 평균에 모두 반영되어 있으며, 예상 치 못한 하나의 사건이 일어나면 이는 즉각적으로 시장에 반영된다. 다우이론의 장기추세 진행 과정에는 ① 매집국면(장래전망 여전히 어두움, 초보자는 매도하고 전문가는 매수함)- 상승국면(경제여건 호조, 상승추세 강화로 (기본석 / 기술적) 분석을 통해 가장 많은 수익을 올릴 수 있는 국면임)-' ③ 과열국면(장래전망 최고조, 초보자들이 적극 매수하여 과열양상을 보임) -④ ( )국면(주가가 조금만 하락해 도 거래량이 급증함, 전문투자자는 매도하고 일반투자자는 조정 후 상승기대로 매수함)-⑤ 공포국면(경제여건 악화, 주가의 수직 하락, 거래량도 급감함) -⑥ 침체국면(투매양상이 특징이지만 시간이 지날수록 주가낙폭은 완화됨)",
+    "question": "다우 이론에 따르면 시장에서 예상되고 있거나 이미 알려진 모든 정보는 시장 평균에 모두 반영되어 있으며, 예상 치 못한 하나의 사건이 일어나면 이는 즉각적으로 시장에 반영된다. 다우이론의 장기추세 진행 과정에는 ① 매집국면(장래전망 여전히 어두움, 초보자는 매도하고 전문가는 매수함)- 상승국면(경제여건 호조, 상승추세 강화로 (기본석 / 기술적) 분석을 통해 가장 많은 수익을 올릴 수 있는 국면임)-' ③ 과열국면(장래전망 최고조, 초보자들이 적극 매수하여 과열양상을 보임) -④ ( )국면(주가가 조금만 하락해 도 거래량이 급증함, 전문투자자는 매도하고 일반투자자는 조정 후 상승기대로 매수함)-⑤ 공포국면(경제여건 악화, 주가의 수직 하락, 거래량도 급감함) -⑥ 침체국면(투매양상이 특징이지만 시간이 지날수록 주가낙폭은 완화됨)",
     "answer": "ㅇ",
     "oxAnswer": null,
     "image": "증투 OX 퀴즈 - 8.jpg"
@@ -906,7 +906,7 @@ window.OX_QUIZ_DATA = [
     "part": "1과목: 증권분석 및 증권시장",
     "chapter": "제3장 기술적 분석",
     "type": "BLANK",
-    "question": "(스토캐스틱 / RSI)의 %K는 일정기간 동안의 주가변동폭 중 금일종가의 위치를 백분율로 나타낸 것으로 %K선이 %D선을 상향돌파하면 매수신호이고, 하향돌파하면 매도신호이다. 예를 들어. 최근 5일간 최고가가 15,000원이고 최저가가",
+    "question": "(스토캐스틱 / RSI)의 %K는 일정기간 동안의 주가변동폭 중 금일종가의 위치를 백분율로 나타낸 것으로 %K선이 %D선을 상향돌파하면 매수신호이고, 하향돌파하면 매도신호이다. 예를 들어, 최근 5일간 최고가가 15,000원이고 최저가가 10,000원인 주식이 있을 때 현재가가 14,500원이라면 스토캐스틱 값은 ( )%이며, 이 값이 나올 때 (%K / %D)가 (%K / %D)를 하향돌파하면 강력한 (매수 / 매도) 신호로 인식한다.",
     "answer": "스토캐스틱. 90, %K, %D, 매도",
     "oxAnswer": null,
     "image": "증투 OX 퀴즈 - 10.jpg"
@@ -918,7 +918,7 @@ window.OX_QUIZ_DATA = [
     "part": "1과목: 증권분석 및 증권시장",
     "chapter": "제3장 기술적 분석",
     "type": "BLANK",
-    "question": ",000원인 주식이 있을 때. 현재가가 14,500원이라면 스토캐스틱 값은 ( )%이며, 이 값이 나올 때 (9K / %D)가 (%K / %D)를 하향돌파하면 강력한 (매수 / 매도) 신호로 인식한다.",
+    "question": "(스토캐스틱 / RSI)의 %K는 일정기간 동안의 주가변동폭 중 금일종가의 위치를 백분율로 나타낸 것으로 %K선이 %D선을 상향돌파하면 매수신호이고, 하향돌파하면 매도신호이다. 예를 들어, 최근 5일간 최고가가 15,000원이고 최저가가 10,000원인 주식이 있을 때 현재가가 14,500원이라면 스토캐스틱 값은 ( )%이며, 이 값이 나올 때 (%K / %D)가 (%K / %D)를 하향돌파하면 강력한 (매수 / 매도) 신호로 인식한다.",
     "answer": "스토캐스틱, 90, %K, %D, 매도",
     "oxAnswer": null,
     "image": "증투 OX 퀴즈 - 10.jpg"
@@ -942,7 +942,7 @@ window.OX_QUIZ_DATA = [
     "part": "1과목: 증권분석 및 증권시장",
     "chapter": "제3장 기술적 분석",
     "type": "BLANK",
-    "question": "패턴분석의 지속형에 속하는 상승쐐기형은 주로 추세선의 천장권에서 형성되며 저점과 고점경계선이 모두 상향 기울기를",
+    "question": "패턴분석의 지속형에 속하는 상승쐐기형은 주로 추세선의 천장권에서 형성되며 저점과 고점경계선이 모두 상향 기울기를 나타내지만 고점경계선의 기울기가 저점경계선의 기울기보다 (완만한 / 급격한) 특징을 가진다.",
     "answer": "완만한",
     "oxAnswer": null,
     "image": "증투 OX 퀴즈 - 10.jpg"
@@ -990,7 +990,7 @@ window.OX_QUIZ_DATA = [
     "part": "1과목: 증권분석 및 증권시장",
     "chapter": "제 1장 유가증권시장(8문항 대비)",
     "type": "BLANK",
-    "question": "주식의 한 주의 금액(액면가)은 100원, 200원, 500원, 1,000원. ( 한다. )원, 5천원, 1만원(또는 1만원의 배수)이어야",
+    "question": "주식의 한 주의 금액(액면가)은 100원, 200원, 500원, 1,000원, ( )원, 5천원, 1만원(또는 1만원의 배수)이어야 한다.",
     "answer": "2,500(원)",
     "oxAnswer": null,
     "image": "증투 OX 퀴즈 - 11.jpg"
@@ -1121,10 +1121,10 @@ window.OX_QUIZ_DATA = [
     "qNum": 18,
     "part": "1과목: 증권분석 및 증권시장",
     "chapter": "제1장 유가증권시장",
-    "type": "BLANK",
-    "question": "Ox 상법상 무의결권주 발행한도는 발행주식총수의 1/4을 초과할 수 없지만 주권상장법인의 특례로서 상장법인은 1/2 을 초과할 수 없다.",
-    "answer": "0",
-    "oxAnswer": null,
+    "type": "OX",
+    "question": "상법상 무의결권주 발행한도는 발행주식총수의 1/4을 초과할 수 없지만 주권상장법인의 특례로서 상장법인은 1/2을 초과할 수 없다.",
+    "answer": "O",
+    "oxAnswer": "O",
     "image": "증투 OX 퀴즈 - 12.jpg"
   },
   {
@@ -1194,7 +1194,7 @@ window.OX_QUIZ_DATA = [
     "part": "1과목: 증권분석 및 증권시장",
     "chapter": "제1장 유가증권시장",
     "type": "BLANK",
-    "question": "거래소의 주권상장의 질적 심사기준은 기업의 계속성, 경영의 투명성, 경영의 ( 보호에 관한 사항 등으로 구성되어 있다. ), 상법상의 주식회사 및 투자자",
+    "question": "거래소의 주권상장의 질적 심사기준은 기업의 계속성, 경영의 투명성, 경영의 ( ), 상법상의 주식회사 및 투자자 보호에 관한 사항 등으로 구성되어 있다.",
     "answer": "안정성 주권의 주요 질적 심사기준에는 기업의 계속성 : 영업, 재무현황, 경영환경 등에 비추어 기업 계속성의 인정, ⑥ 경영의 투명성 :",
     "oxAnswer": null,
     "image": "증투 OX 퀴즈 - 13.jpg"
@@ -1218,7 +1218,7 @@ window.OX_QUIZ_DATA = [
     "part": "1과목: 증권분석 및 증권시장",
     "chapter": "제1장 유가증권시장",
     "type": "BLANK",
-    "question": "거래소는 상장예비심사 신청일로부터 영업일 기준으로 ( 에 문서로 통지하여야 한다. )일 이내에 그 심사 결과를 당해 신청인과 금융위원회",
+    "question": "거래소는 상장예비심사 신청일로부터 영업일 기준으로 ( )일 이내에 그 심사 결과를 당해 신청인과 금융위원회에 문서로 통지하여야 한다.",
     "answer": "45(일)• 단, 신속이전기업은 30일 외국기업 1차 상장은 65일이다.",
     "oxAnswer": null,
     "image": "증투 OX 퀴즈 - 13.jpg"
@@ -1230,7 +1230,7 @@ window.OX_QUIZ_DATA = [
     "part": "1과목: 증권분석 및 증권시장",
     "chapter": "제1장 유가증권시장",
     "type": "BLANK",
-    "question": "유가증권시장 신규상장심사요건으로서 상장주식수는 ( )명 이상이어야 한다. )주 이상, 자기자본 (",
+    "question": "유가증권시장 신규상장심사요건으로서 상장주식수는 ( )주 이상, 자기자본은 ( )원 이상, 일반주주는 ( )명 이상이어야 한다.",
     "answer": "100만(주), 300억(원), 500(명)",
     "oxAnswer": null,
     "image": "증투 OX 퀴즈 - 13.jpg"
@@ -1326,7 +1326,7 @@ window.OX_QUIZ_DATA = [
     "part": "1과목: 증권분석 및 증권시장",
     "chapter": "제1장 유가증권시장",
     "type": "BLANK",
-    "question": "불성실공시란 상장법인이 자본시장법 및 유가증권시장 공시규정에 의한 공시의무를 성실히 이행하지 아니하여 공시불이",
+    "question": "불성실공시란 상장법인이 자본시장법 및 유가증권시장 공시규정에 의한 공시의무를 성실히 이행하지 아니하여 공시불이행, 공시번복 또는 ( )에 해당하는 위반행위를 하는 것이다.",
     "answer": "공시변경",
     "oxAnswer": null,
     "image": "증투 OX 퀴즈 - 14.jpg"
@@ -1338,7 +1338,7 @@ window.OX_QUIZ_DATA = [
     "part": "1과목: 증권분석 및 증권시장",
     "chapter": "제1장 유가증권시장",
     "type": "BLANK",
-    "question": "미공개 기업정보의 선별적 제공을 금지하여 투자자 간 정보의 공평성을 확보하고자 하는 공시를 ( 한다(단, 비밀유지의무자에 대한 정보제공은 선별제공이 가능함). )공시라고",
+    "question": "미공개 기업정보의 선별적 제공을 금지하여 투자자 간 정보의 공평성을 확보하고자 하는 공시를 ( )공시라고 한다(단, 비밀유지의무자에 대한 정보제공은 선별제공이 가능함).",
     "answer": "공정",
     "oxAnswer": null,
     "image": "증투 OX 퀴즈 - 15.jpg"
@@ -1350,7 +1350,7 @@ window.OX_QUIZ_DATA = [
     "part": "1과목: 증권분석 및 증권시장",
     "chapter": "제1장 유가증권시장",
     "type": "BLANK",
-    "question": "불성실공시법인의 지정을 통보받은 경우 당해 법인은, 통보받은 날로부터 ( 할 수 있으며, 이 경우 거래소는 ( )일 이내에 공시위원회의 심의를 받고 심의일로부터 ( 불성실공시 지정여부 및 부과벌점을 결정해야 한다. )일 이내에 거래소에 이의신청을 )일 이내에 0x 유가증권시장과 코스닥시 공통으로 최근 1년간 공시위반 관련 벌점합계가 15점 이상이면 관리종목으로 편입된다.",
+    "question": "불성실공시법인의 지정을 통보받은 경우 당해 법인은, 통보받은 날로부터 ( )일 이내에 거래소에 이의신청을 할 수 있으며, 이 경우 거래소는 ( )일 이내에 공시위원회의 심의를 받고 심의일로부터 ( )일 이내에 불성실공시 지정여부 및 부과벌점을 결정해야 한다.",
     "answer": "7(일), 10(일), 3(일)",
     "oxAnswer": null,
     "image": "증투 OX 퀴즈 - 15.jpg"
@@ -1362,7 +1362,7 @@ window.OX_QUIZ_DATA = [
     "part": "1과목: 증권분석 및 증권시장",
     "chapter": "제1장 유가증권시장",
     "type": "BLANK",
-    "question": "불성실공시법인 지정 등으로 인한 벌점부과일로부터 기산하여 과거 1년 이내의 누계벌점이 ( 경우 관리종목으로 지정된다. )점 이상이 되는",
+    "question": "불성실공시법인 지정 등으로 인한 벌점부과일로부터 기산하여 과거 1년 이내의 누계벌점이 ( )점 이상이 되는 경우 관리종목으로 지정된다.",
     "answer": "15(점)",
     "oxAnswer": null,
     "image": "증투 OX 퀴즈 - 15.jpg"
@@ -1434,7 +1434,7 @@ window.OX_QUIZ_DATA = [
     "part": "1과목: 증권분석 및 증권시장",
     "chapter": "제1장 유가증권시장",
     "type": "BLANK",
-    "question": "이시 근로자의 날(5월 1일)은 한국거래소의 매매거래 휴장일이다. 148~51] ※ 기존의 호가표는 아래와 같다. 다음 문항에 답하시오. 매도 주문수량(주) 100 200 가격(원)",
+    "question": "근로자의 날(5월 1일)은 한국거래소의 매매거래 휴장일이다.",
     "answer": "0",
     "oxAnswer": null,
     "image": "증투 OX 퀴즈 - 16.jpg"
@@ -2058,7 +2058,7 @@ window.OX_QUIZ_DATA = [
     "part": "1과목: 증권분석 및 증권시장",
     "chapter": "제1장 유가증권시장",
     "type": "BLANK",
-    "question": "자기주식을 취득할 수 있는 기간은 이사회 결의사항 공시 후 ( ) 이내이다. ) 이내이며 처분 기간은 이사회 결의일 익일부터",
+    "question": "자기주식을 취득할 수 있는 기간은 이사회 결의사항 공시 후 ( ) 이내이며 처분 기간은 이사회 결의일 익일부터 ( ) 이내이다.",
     "answer": "3개월, 3개월",
     "oxAnswer": null,
     "image": "증투 OX 퀴즈 - 20.jpg"
@@ -2118,7 +2118,7 @@ window.OX_QUIZ_DATA = [
     "part": "1과목: 증권분석 및 증권시장",
     "chapter": "제1장 유가증권시장",
     "type": "BLANK",
-    "question": "회원이 거래소에 결제증권 미납부 시 증권미납부(Fail)로 확정되고, 해당 회원은 이연결제대금을 ( 소에 납부하며, 거래소는 이를 증권을 수령하지 못한 결제회원에게 지급한다. )시까지 거래",
+    "question": "회원이 거래소에 결제증권 미납부 시 증권미납부(Fail)로 확정되고, 해당 회원은 이연결제대금을 ( )시까지 거래소에 납부하며, 거래소는 이를 증권을 수령하지 못한 결제회원에게 지급한다.",
     "answer": "17(시)",
     "oxAnswer": null,
     "image": "증투 OX 퀴즈 - 21.jpg"
@@ -2130,7 +2130,7 @@ window.OX_QUIZ_DATA = [
     "part": "1과목: 증권분석 및 증권시장",
     "chapter": "제1장 유가증권시장",
     "type": "BLANK",
-    "question": "결제개시시점 09시부터 결제시한인 (",
+    "question": "결제개시시점 09시부터 결제시한인 ( )까지 결제증권을 결제계좌에 납부즉시 수령 가능한 회원에게 인도하고, 결제시한까지 미납된 증권은 익일로 이연한 후 익일 결제할 증권과 차감하여 익일에 결제함으로써 증권의 결제시한에 종결하는 제도를 이연결제제도(CNS)라고 한다.",
     "answer": "16시(또는 오후 4시) ~ 이연결제제도(Conlinuous Net Setllemenl)의 설명이며. 마감이 16시 30분이 아닌 16시임에 유의한다.",
     "oxAnswer": null,
     "image": "증투 OX 퀴즈 - 21.jpg"
@@ -2370,7 +2370,7 @@ window.OX_QUIZ_DATA = [
     "part": "1과목: 증권분석 및 증권시장",
     "chapter": "제3장 기타 주식시장 (K-OTC/코넥스)",
     "type": "OX",
-    "question": "이× 코넥스시장에서 매매 시 호가는 지정가호가와 시장가호가의 2종류만 허용된다.",
+    "question": "코넥스시장에서 매매 시 호가는 지정가호가와 시장가호가의 2종류만 허용된다.",
     "answer": "O",
     "oxAnswer": "O",
     "image": "증투 OX 퀴즈 - 25.jpg"
@@ -3798,7 +3798,7 @@ window.OX_QUIZ_DATA = [
     "part": "2과목: 금융상품 및 직무윤리",
     "chapter": "제2장 금융소비자보호법 및 영업실무",
     "type": "BLANK",
-    "question": "이× 계열회사등이 아닌 집합투자업자가 운용하는 유사한 펀드를 함께 일반투자자에게 투자권유 시 계열회사등의 펀드 와 같은 종류의 펀드이어야 한다. 다만, 증권집합투자기구 및 단기금융집합투자기구 이외의 종류일 경우 회사가 같은 종류의 펀드를 갖추지 못했을 때에는 다른 종류로 할 수 있다.",
+    "question": "계열회사등이 아닌 집합투자업자가 운용하는 유사한 펀드를 함께 일반투자자에게 투자권유 시 계열회사등의 펀드 와 같은 종류의 펀드이어야 한다. 다만, 증권집합투자기구 및 단기금융집합투자기구 이외의 종류일 경우 회사가 같은 종류의 펀드를 갖추지 못했을 때에는 다른 종류로 할 수 있다.",
     "answer": "0• 일반투자자에게 투자권유한 계열회사등의 펀드와 같은 종류(법 제229조에 따른 종류)의 펀드이어야 한다. 법 제229조의 종류란 증권펀드,",
     "oxAnswer": null,
     "image": "증투 OX 퀴즈 - 40.jpg"
@@ -5838,7 +5838,7 @@ window.OX_QUIZ_DATA = [
     "part": "2과목: 금융상품 및 직무윤리",
     "chapter": "제4장 분쟁예방 및 리스크 관리",
     "type": "OX",
-    "question": "이× 겸영금융투자업자, 투자매매업자 또는 투자중개업자는 투자자예탁금을 증권금융회사에 예치 또는 신탁 외에 신탁 업자에게 신탁할 수 있다. 이 경우 그 투자매매업자 또는 투자중개업자가 신탁업을 영위하는 경우에도 자기계약을 할 수 없다.",
+    "question": "겸영금융투자업자, 투자매매업자 또는 투자중개업자는 투자자예탁금을 증권금융회사에 예치 또는 신탁 외에 신탁 업자에게 신탁할 수 있다. 이 경우 그 투자매매업자 또는 투자중개업자가 신탁업을 영위하는 경우에도 자기계약을 할 수 없다.",
     "answer": "X • 투자매매업자 또는 투지중개업자가 신틱업을 영위히는 경우에는 '신탁법,에도 불구하고 자기계약을 할 수 있다.",
     "oxAnswer": "X",
     "image": "증투 OX 퀴즈 - 63.jpg"
@@ -6630,7 +6630,7 @@ window.OX_QUIZ_DATA = [
     "part": "3과목: 법규 및 세제",
     "chapter": "제2장 회사법 (상법)",
     "type": "BLANK",
-    "question": "0 x 집합투자회사는 집합투자기구의 명칭을 사용함에 있어 판매회사의 명칭을 사용할 수 있다. 0x 판매회사는 판매회사 변경의 절차를 이행하는 대가로 투자자로부터 별도의 비용을 징구할 수 있다. 0x 판매회사 변경효력이 발생하는 날이 집합투자규약에서 정하는 환매수수료 부과 기간 이내라 하더라도 판매회사는 투자자로부터 환매수수료를 징구할 수 없다. Ox 투자자문회사 또는 투자일임회사는 수수료 산정에 관한 사항으로서, 일반적인 수수료 체계를 기재하여야 하며. 해당 투자자문계약 또는 투자일임계약에 적용되는 수수료 산정방법, 수수료 지급시기 및 방법 등을 구체적으로 기재하고 투자일임계약의 중도해지 시 수수료 산출방식 및 환급 또는 징수절차를 기재하여야 한다. 증권투자권유자문인력(Certified Securities Investment Advisor)이란 투자자를 상대로 증권(집합투자증권 및 파생상",
+    "question": "집합투자회사는 집합투자기구의 명칭을 사용함에 있어 판매회사의 명칭을 사용할 수 있다.",
     "answer": "×• 펀드명칭에 판매회사의 명칭을 사용할 수 없다(. 빈출지문). 이 외에도 집합투자기구의 명칭에 집합투자기구의 종류를 표시하는 문자(증권",
     "oxAnswer": null,
     "image": "증투 OX 퀴즈 - 77.jpg"
@@ -7230,7 +7230,7 @@ window.OX_QUIZ_DATA = [
     "part": "3과목: 법규 및 세제",
     "chapter": "제2장 회사법 (상법)",
     "type": "OX",
-    "question": "이× 분할합병은 분할된 부분이 기존회사에 흡수되는 흡수분할합병'과, 기존회사와 분할된 부분이 합병하여 새로운 회사가 설립되는 '신설분할합병'으로 나눌 수 있다.",
+    "question": "분할합병은 분할된 부분이 기존회사에 흡수되는 흡수분할합병'과, 기존회사와 분할된 부분이 합병하여 새로운 회사가 설립되는 '신설분할합병'으로 나눌 수 있다.",
     "answer": "O ~ 회사는 분할에 의하여 1개 또는 수개의 존립 중의 회사와 합병(분함합병)할 수 있다(흡수분할합병). 또한 회사는 분할에 의하여 1개 또는",
     "oxAnswer": "O",
     "image": "증투 OX 퀴즈 - 83.jpg"
@@ -7574,25 +7574,101 @@ window.OX_QUIZ_DATA = [
 ];
 
 (() => {
+  const oxOverrides = {
+    28: 'X', 34: 'O', 35: 'X', 51: 'X', 54: 'O', 55: 'O', 64: 'O',
+    66: 'O', 72: 'O', 73: 'O', 76: 'O', 82: 'O', 92: 'O',
+    113: 'O', 118: 'O', 126: 'O', 127: 'O', 138: 'O', 139: 'X',
+    107: 'O', 140: 'O', 152: 'O', 154: 'X', 155: 'O', 169: 'O', 173: 'O', 177: 'O', 187: 'X', 190: 'O',
+    195: 'O', 197: 'X', 200: 'O', 205: 'O', 265: 'O', 267: 'O',
+    270: 'O', 279: 'O', 298: 'O', 329: 'O', 340: 'O', 341: 'O',
+    342: 'O', 347: 'X', 368: 'O', 378: 'O', 384: 'O', 389: 'O',
+    394: 'X', 397: 'O', 400: 'O', 418: 'X', 427: 'X', 437: 'X',
+    456: 'O', 458: 'O', 471: 'O', 472: 'O', 473: 'O', 498: 'O',
+    506: 'O', 508: 'O', 515: 'O', 535: 'O', 542: 'O', 566: 'O',
+    568: 'O', 593: 'O', 595: 'O', 609: 'O', 158: 'O', 163: 'O',
+    204: 'O', 220: 'O', 233: 'O', 308: 'O', 311: 'O',
+    315: 'O', 316: 'X', 320: 'O', 321: 'O', 338: 'O', 339: 'O',
+    362: 'O', 374: 'O', 376: 'O', 392: 'O', 402: 'X', 463: 'X',
+    467: 'O', 488: 'O', 532: 'O', 574: 'O', 591: 'X', 599: 'O'
+  };
+  const cleanOxPrefix = question => question
+    .replace(/^\s*(?:X\s*[•·.]|•\s*x|(?:이|1)\s*(?:[x×X]|시|\*)|(?:으\s*)?x\s*(?:r\s*)?|(?:\[?\s*[oO0]\s*[x×])|10\s*x|30ㅇ\s*x|1o\s*x|1ㅅ\s*|O×|0×|Ox|ox|\|)\s*/i, '')
+    .trim();
+
   const splitRules = {
+    211: {
+      start: 1,
+      separators: /(?=['‘]채권의 만기)/g,
+      answers: ['하락', '만기수익률(YTM)']
+    },
+    178: {
+      start: 2,
+      separators: /(?=0x)/g,
+      answers: ['X', 'X']
+    },
+    181: {
+      start: 6,
+      separators: /(?=0x)/g,
+      answers: ['4분의 1(25%)', 'O']
+    },
+    213: {
+      start: 4,
+      separators: /(?=0x)/g,
+      answers: ['X', 'O']
+    },
     24: {
       start: 1,
       separators: /(?=(?:이시|이x|0 x|0x|Ox|이\*))/g,
-      answers: ['중소기업', 'O', '지정자문인, 1년, 30영업일', '6개월, 10(%)', '직상장', 'O', 'O']
+      answers: ['O', 'O', 'X', 'X', 'O', 'X', 'X']
     },
     30: {
       start: 14,
       separators: /(?=0x)/g,
       answers: ['매출액', 'X', 'X']
     },
+    34: {
+      start: 20,
+      separators: /(?=(?:21손익|정립))/g,
+      answers: ['O', 'O', 'O']
+    },
+    63: {
+      start: 14,
+      separators: /(?=(?:15샛별형|0x))/g,
+      answers: ['1개', '3개', 'O']
+    },
     167: {
       start: 78,
       separators: /(?=(?:0x|81이x))/g,
       answers: ['대차거래, 대주거래', 'O', 'O', 'O']
     },
+    1005: {
+      start: 42,
+      separators: /(?=0 x)/g,
+      answers: ['O', 'O']
+    },
+    345: {
+      start: 50,
+      separators: /(?=0x)/g,
+      answers: ['구전(口傳)', 'X']
+    },
+    375: {
+      start: 24,
+      separators: /(?=Ox)/g,
+      answers: ['적정성', 'O']
+    },
+    396: {
+      start: 54,
+      separators: /(?=0x)/g,
+      answers: ['2년, 7(영업일)', 'O']
+    },
+    431: {
+      start: 3,
+      separators: /(?=이x)/g,
+      answers: ['한국거래소, 한국금융투자협회', 'O']
+    },
     291: {
       start: 41,
-      separators: /(?=0x)/g,
+      separators: /(?=0x|0 x)/g,
       answers: ['O', 'O', 'O']
     },
     369: {
@@ -7605,10 +7681,105 @@ window.OX_QUIZ_DATA = [
       separators: /(?=(?:0x|Ox))/g,
       answers: ['기업금융(B)', 'O', 'X']
     },
+    484: {
+      start: 62,
+      separators: /(?=0x)/g,
+      answers: ['3개월', 'O']
+    },
+    482: {
+      start: 59,
+      separators: /(?=이\*)/g,
+      answers: ['X', 'O']
+    },
+    499: {
+      start: 80,
+      separators: /(?=0x)/g,
+      answers: ['90(일), 45(일)', 'O']
+    },
+    500: {
+      start: 82,
+      separators: /(?=0x)/g,
+      answers: ['주요사항보고서', 'O']
+    },
+    507: {
+      start: 90,
+      separators: /(?=0 x)/g,
+      answers: ['20(일), 60(일), 금지되며', 'O']
+    },
     551: {
       start: 54,
       separators: /(?=(?:0 x|0x|Ox|증권투자권유자문인력))/g,
       answers: ['X', 'X', 'O', 'O', 'CMA(Cash Management Account)']
+    },
+    72: {
+      start: 25,
+      separators: /(?=\(OBV \/ 볼린저 밴드\))/g,
+      answers: ['O', 'OBV(On Balance Volume)']
+    },
+    521: {
+      start: 12,
+      separators: /(?=0x)/g,
+      answers: ['시스템', 'O']
+    },
+    519: {
+      start: 9,
+      separators: /(?=\[판매절차)/g,
+      answers: ['O', '7(영업일)']
+    },
+    525: {
+      start: 19,
+      separators: /(?=Ox)/g,
+      answers: ['증권투자권유대행인', 'X']
+    },
+    523: {
+      start: 16,
+      separators: /(?=이시)/g,
+      answers: ['녹취', 'O']
+    },
+    530: {
+      start: 27,
+      separators: /(?=(?:Ox|금융투자분석사는))/g,
+      answers: ['금융투자분석사, 24(시간), 7(일), 같은 (방향)', '3백만원(원)', 'O']
+    },
+    535: {
+      start: 34,
+      separators: /(?=0x)/g,
+      answers: ['O', 'O']
+    },
+    548: {
+      start: 49,
+      separators: /(?=Ox)/g,
+      answers: ['1만(불), 유지증거금, 50', 'O']
+    },
+    556: {
+      start: 64,
+      separators: /(?=투자일임회사)/g,
+      answers: ['O', '5억원']
+    },
+    567: {
+      start: 8,
+      separators: /(?=0x)/g,
+      answers: ['기준일', 'O']
+    },
+    592: {
+      start: 36,
+      separators: /(?=0x)/g,
+      answers: ['X', 'O']
+    },
+    577: {
+      start: 19,
+      separators: /(?=\[주주총회의 권한\])/g,
+      answers: ['X', '특수']
+    },
+    586: {
+      start: 29,
+      separators: /(?=30ㅇ\s*x)/g,
+      answers: ['O', 'O']
+    },
+    625: {
+      start: 33,
+      separators: /(?=이x)/g,
+      answers: ['의제(배당), 인정(배당)', 'O']
     },
     511: {
       start: 97,
@@ -7620,20 +7791,26 @@ window.OX_QUIZ_DATA = [
   const splitQuestions = (question, rule) => question
     .split(rule.separators)
     .map(part => part.trim())
-    .map(part => part.replace(/^(?:81)?(?:이시|이x|이 x|이\*|0 x|0x|0×|Ox)\.?\s*/i, ''))
+    .map(part => part.replace(/^(?:81)?(?:이시|이x|이 x|이\*|0 x|0x|0×|Ox|21|15(?=샛별형)|정립(?:\s*11ㅇ\+)?|11ㅇ\+)\.?\s*/i, ''))
     .filter(Boolean)
     .slice(0, rule.answers.length);
 
   const source = window.OX_QUIZ_DATA;
-  const splitRanges = new Map(
-    Object.entries(splitRules).map(([id, rule]) => {
-      const base = source.find(quiz => quiz.id === Number(id));
-      return [
-        base ? base.image : '',
-        new Set(Array.from({ length: rule.answers.length }, (_, index) => rule.start + index))
-      ];
-    })
-  );
+  const splitRanges = new Map();
+  Object.entries(splitRules).forEach(([id, rule]) => {
+    const base = source.find(quiz => quiz.id === Number(id));
+    if (!base) return;
+    const range = splitRanges.get(base.image) || new Set();
+    for (let index = 0; index < rule.answers.length; index += 1) {
+      range.add(rule.start + index);
+    }
+    splitRanges.set(base.image, range);
+  });
+  const tableFragmentIds = new Set([
+    119, 120, 121, 122, 123, 124, 125,
+    128, 129, 130, 131, 132, 133, 134, 135,
+    144, 145, 146, 147, 148, 149, 150
+  ]);
   const isCoveredBySplit = quiz => {
     const range = splitRanges.get(quiz.image);
     return range && range.has(quiz.qNum);
@@ -7641,10 +7818,19 @@ window.OX_QUIZ_DATA = [
 
   const expanded = [];
   for (const quiz of source) {
+    if (tableFragmentIds.has(quiz.id)) continue;
     const rule = splitRules[quiz.id];
     if (!rule) {
       if (isCoveredBySplit(quiz)) continue;
-      expanded.push(quiz);
+      const oxAnswer = oxOverrides[quiz.id];
+      const normalized = oxAnswer ? {
+        ...quiz,
+        type: 'OX',
+        oxAnswer
+      } : quiz;
+      expanded.push(normalized.type === 'OX'
+        ? { ...normalized, question: cleanOxPrefix(normalized.question) }
+        : normalized);
       continue;
     }
 
@@ -7662,7 +7848,7 @@ window.OX_QUIZ_DATA = [
         id: 700 + expanded.length,
         qNum: rule.start + index,
         type: isOx ? 'OX' : 'BLANK',
-        question,
+        question: isOx ? cleanOxPrefix(question) : question,
         answer: isOx ? answer : answer,
         oxAnswer: isOx ? answer : null
       });
