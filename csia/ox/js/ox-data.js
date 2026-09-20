@@ -7595,7 +7595,8 @@ window.OX_QUIZ_DATA = [
   const explanationOverrides = {
     '증투 OX 퀴즈 - 5.jpg|17': '당기순이익(100원) + 감가상각비(10원) - 유가증권평가차익(5원) = 105원. 현금흐름상 지출이 없는 감가상각비는 더하고, 현금유입이 없는 평가차익은 차감하여 발생주의 회계를 현금주의로 조정한다.',
     '증투 OX 퀴즈 - 6.jpg|23': '주식의 가치 = 1,000원 / 0.2 = 5,000원',
-    '증투 OX 퀴즈 - 8.jpg|5': '다우이론의 한계로는 주추세와 중기추세를 명확하게 구분하기 어렵다는 것과 추세전환을 확인할 수 있다 하여도 너무 늦게 확인되어 실제 투자에 도움이 되지 못하며, 추세를 정확히 예측한다고 해도 개별증권의 위험에 대해서는 아무런 정보를 제공할 수 없다는 것이다.'
+    '증투 OX 퀴즈 - 8.jpg|5': '다우이론의 한계로는 주추세와 중기추세를 명확하게 구분하기 어렵다는 것과 추세전환을 확인할 수 있다 하여도 너무 늦게 확인되어 실제 투자에 도움이 되지 못하며, 추세를 정확히 예측한다고 해도 개별증권의 위험에 대해서는 아무런 정보를 제공할 수 없다는 것이다.',
+    '증투 OX 퀴즈 - 10.jpg|29': 'RSI는 일정기간 동안의 개별종목과 업종 간 주가의 상대강도를 말한다(14일의 기간이 가장 적정). RSI가 75% 이상이면 과매수이고 25% 이하이면 과매도를 말한다. RSI가 직전 고점을 돌파하지 못하고 반락하는 현상(반대도 마찬가지)을 Failure Swing이라 한다.'
   };
   const getOxExplanation = quiz => oxExplanationsByPosition[`${quiz.image}|${quiz.qNum}`];
   const getExplanationOverride = quiz => explanationOverrides[`${quiz.image}|${quiz.qNum}`];
@@ -7608,6 +7609,11 @@ window.OX_QUIZ_DATA = [
       start: 2,
       separators: /(?=다우이론의 장기추세)/g,
       answers: ['O', '기술적, 분산']
+    },
+    76: {
+      start: 29,
+      separators: /(?=\(OBV \/ ADL \/ RSI\))/g,
+      answers: ['O', 'ADL(Advance Decline Line)']
     },
     211: {
       start: 1,
@@ -7886,7 +7892,7 @@ window.OX_QUIZ_DATA = [
         : null;
       expanded.push({
         ...quiz,
-        id: quiz.id === 52 && index === 0 ? quiz.id : 700 + expanded.length,
+        id: (quiz.id === 52 || quiz.id === 76) && index === 0 ? quiz.id : 700 + expanded.length,
         qNum: position,
         type: isOx ? 'OX' : 'BLANK',
         question: isOx ? cleanOxPrefix(question) : question,
