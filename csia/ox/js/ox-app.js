@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function getQuestionSlots(q) {
     if (q._slots) return q._slots;
     const tokenRegex = /\(\s*([^()]*?\s*\/\s*[^()]*?|\s*)\)/g;
-    const rawAnswers = (q.answer || '').split(/[,\n]/).map(s => s.trim()).filter(Boolean);
+    const rawAnswers = (q.answer || '').split(/,\s+|\n/).map(s => s.trim()).filter(Boolean);
 
     const slots = [];
     let m;
@@ -472,6 +472,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ${q.oxAnswer ? `<span class="ans-ox-tag ${q.oxAnswer}">${q.oxAnswer}</span>` : ''}
           </div>
           <div class="ans-body">${q.answer}</div>
+          ${q.explanation ? `<div class="ans-explanation">${q.explanation}</div>` : ''}
           <button class="img-preview-btn" id="imgBtn">
             📷 원본 교재 스캔 이미지 보기 (p.${q.page})
           </button>
@@ -619,6 +620,7 @@ document.addEventListener('DOMContentLoaded', () => {
               ${q.oxAnswer ? `<span class="ans-ox-tag ${q.oxAnswer}">${q.oxAnswer}</span>` : ''}
             </div>
             <div class="ans-body" style="font-size: 14px;">${q.answer}</div>
+            ${q.explanation ? `<div class="ans-explanation">${q.explanation}</div>` : ''}
           </div>
         </div>
       `;

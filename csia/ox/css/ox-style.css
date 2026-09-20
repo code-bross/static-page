@@ -652,6 +652,14 @@ body {
   word-break: keep-all;
 }
 
+.ans-explanation {
+  margin-top: 8px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+  word-break: keep-all;
+}
+
 .img-preview-btn {
   margin-top: 12px;
   display: inline-flex;

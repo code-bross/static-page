@@ -319,7 +319,7 @@ window.OX_QUIZ_DATA = [
     "chapter": "제2장 기본적 분석",
     "type": "BLANK",
     "question": "유동비율 공식의 분자에는 유동부채가 표기된다.",
-    "answer": "/ 96",
+    "answer": "X • 유동비율 공식은 유동자산 / 유동부채 × 100이므로 분자에는 유동자산이 표기된다.",
     "oxAnswer": null,
     "image": "증투 OX 퀴즈 - 5.jpg"
   },
@@ -7579,11 +7579,36 @@ window.OX_QUIZ_DATA = [
     362: 'O', 374: 'O', 376: 'O', 392: 'O', 402: 'X', 463: 'X',
     467: 'O', 488: 'O', 532: 'O', 574: 'O', 591: 'X', 599: 'O'
   };
+  const oxExplanationsByPosition = {
+    '증투 OX 퀴즈 - 4.jpg|7': 'x • 영업활동 중 금융기관에 지급할 이자비용은 영업외비용에 속한다.',
+    '증투 OX 퀴즈 - 22.jpg|2': 'X • 유가증권시장과는 독립된 시장이다',
+    '증투 OX 퀴즈 - 27.jpg|4': 'x• 통화안정증권(또는 봉화안정채권)은 국가와 동인한 신용도이므로 신용물(크레딧물)이 아니다.',
+    '증투 OX 퀴즈 - 36.jpg|41': '0~ 마코위츠의 평균-분산 모델의 추가적인 한계점으로는 모든 자산의 기대수익률과 위험에 대한 지표가 있어야 자산배분을 실행할 수 있다는',
+    '증투 OX 퀴즈 - 47.jpg|14': 'x • 금융투자업자는 이해상충이 발생할 가능성을 낮추는 것이 곤란하다고 판단되는 경우에는 매매. 그 밖의 거래를 하여서는 아니 된다.',
+    '증투 OX 퀴즈 - 63.jpg|59': 'x ~ 상장주권은 당일종가, 상장채권은 둘 이상의 채권평가회사가 제공하는 가격정보를 기초로 투자매매업자 또는 투자중개업자가 정한다.',
+    '증투 OX 퀴즈 - 77.jpg|54': '×• 펀드명칭에 판매회사의 명칭을 사용할 수 없다(. 빈출지문). 이 외에도 집합투자기구의 명칭에 집합투자기구의 종류를 표시하는 문자(증권',
+    '증투 OX 퀴즈 - 78.jpg|64': '0 • 개인투자자는 수요예측에 (간접참여이므로) 직접적으로는 참여할 수 없다(• 기출지문).',
+    '증투 OX 퀴즈 - 81.jpg|19': 'X • 예시 중 유한회사로의 조직변경은 총주주의 동의를 요하는 특수결의사항이다.',
+    '증투 OX 퀴즈 - 82.jpg|29': 'O (해설: 자산규모 2조원 이상 상장회사는 감사위원회를 설치하여야 한다.)',
+    '증투 OX 퀴즈 - 82.jpg|36': 'X • 대차대조표에 계상되지 않은 감추어진 적립금 또는 이익잉여금으로서 기업의 순 재산의 과소 표시나, 과대한 감가상각에 의한 자산의 과소'
+  };
+  const explanationOverrides = {
+    '증투 OX 퀴즈 - 5.jpg|17': '당기순이익(100원) + 감가상각비(10원) - 유가증권평가차익(5원) = 105원. 현금흐름상 지출이 없는 감가상각비는 더하고, 현금유입이 없는 평가차익은 차감하여 발생주의 회계를 현금주의로 조정한다.',
+    '증투 OX 퀴즈 - 6.jpg|23': '주식의 가치 = 1,000원 / 0.2 = 5,000원',
+    '증투 OX 퀴즈 - 8.jpg|5': '다우이론의 한계로는 주추세와 중기추세를 명확하게 구분하기 어렵다는 것과 추세전환을 확인할 수 있다 하여도 너무 늦게 확인되어 실제 투자에 도움이 되지 못하며, 추세를 정확히 예측한다고 해도 개별증권의 위험에 대해서는 아무런 정보를 제공할 수 없다는 것이다.'
+  };
+  const getOxExplanation = quiz => oxExplanationsByPosition[`${quiz.image}|${quiz.qNum}`];
+  const getExplanationOverride = quiz => explanationOverrides[`${quiz.image}|${quiz.qNum}`];
   const cleanOxPrefix = question => question
     .replace(/^\s*(?:X\s*[•·.]|•\s*x|(?:이|1)\s*(?:[x×X]|시|\*)|(?:으\s*)?x\s*(?:r\s*)?|(?:\[?\s*[oO0]\s*[x×])|10\s*x|30ㅇ\s*x|1o\s*x|1ㅅ\s*|O×|0×|Ox|ox|\|)\s*/i, '')
     .trim();
 
   const splitRules = {
+    52: {
+      start: 2,
+      separators: /(?=다우이론의 장기추세)/g,
+      answers: ['O', '기술적, 분산']
+    },
     211: {
       start: 1,
       separators: /(?=['‘]채권의 만기)/g,
@@ -7782,6 +7807,23 @@ window.OX_QUIZ_DATA = [
     .map(part => part.replace(/^(?:81)?(?:이시|이x|이 x|이\*|0 x|0x|0×|Ox|21|15(?=샛별형)|정립(?:\s*11ㅇ\+)?|11ㅇ\+)\.?\s*/i, ''))
     .filter(Boolean)
     .slice(0, rule.answers.length);
+  const splitAnswerExplanation = answer => {
+    const value = String(answer || '');
+    const oxMatch = value.match(/^\s*([oOxXㅇ0×])\s*[•·]\s*(.+)$/);
+    if (oxMatch) {
+      return { answer: oxMatch[1], explanation: oxMatch[2].trim() };
+    }
+    const match = value.match(/\s*[•·]\s*|\s+~\s*|~\s+|\s+\(해설\s*[:：]\s*/);
+    if (!match) return { answer, explanation: null };
+    return {
+      answer: value.slice(0, match.index).trim(),
+      explanation: value.slice(match.index + match[0].length).trim()
+    };
+  };
+  const normalizeAnswer = (answer, quiz) => ({
+    ...splitAnswerExplanation(answer),
+    ...(getExplanationOverride(quiz) ? { explanation: getExplanationOverride(quiz) } : {})
+  });
 
   const source = window.OX_QUIZ_DATA;
   const splitRanges = new Map();
@@ -7799,7 +7841,7 @@ window.OX_QUIZ_DATA = [
     128, 129, 130, 131, 132, 133, 134, 135,
     144, 145, 146, 147, 148, 149, 150
   ]);
-  const duplicateQuestionIds = new Set([74]);
+  const duplicateQuestionIds = new Set([35, 74]);
   const isCoveredBySplit = quiz => {
     const range = splitRanges.get(quiz.image);
     return range && range.has(quiz.qNum);
@@ -7816,11 +7858,16 @@ window.OX_QUIZ_DATA = [
       const normalized = oxAnswer ? {
         ...quiz,
         type: 'OX',
+        answer: getOxExplanation(quiz) || quiz.answer,
         oxAnswer
       } : quiz;
-      expanded.push(normalized.type === 'OX'
-        ? { ...normalized, question: cleanOxPrefix(normalized.question) }
-        : normalized);
+      expanded.push({
+        ...normalized,
+        ...normalizeAnswer(normalized.answer, normalized),
+        ...(normalized.type === 'OX'
+          ? { question: cleanOxPrefix(normalized.question) }
+          : {})
+      });
       continue;
     }
 
@@ -7833,13 +7880,17 @@ window.OX_QUIZ_DATA = [
     questions.forEach((question, index) => {
       const answer = rule.answers[index];
       const isOx = answer === 'O' || answer === 'X';
+      const position = rule.start + index;
+      const explanation = isOx
+        ? oxExplanationsByPosition[`${quiz.image}|${position}`]
+        : null;
       expanded.push({
         ...quiz,
-        id: 700 + expanded.length,
-        qNum: rule.start + index,
+        id: quiz.id === 52 && index === 0 ? quiz.id : 700 + expanded.length,
+        qNum: position,
         type: isOx ? 'OX' : 'BLANK',
         question: isOx ? cleanOxPrefix(question) : question,
-        answer: isOx ? answer : answer,
+        ...normalizeAnswer(explanation || answer, { ...quiz, qNum: position }),
         oxAnswer: isOx ? answer : null
       });
     });
