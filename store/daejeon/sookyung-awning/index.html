@@ -2239,6 +2239,7 @@
 
     /* Calculator Form */
     .calc-card {
+      scroll-margin-top: 85px;
       background: #ffffff;
       color: var(--text-main);
       border-radius: var(--radius-lg);
@@ -3063,15 +3064,15 @@
         <li><a href="#products">시공품목</a></li>
         <li><a href="#why">특장점</a></li>
         <li><a href="#cases">시공사례</a></li>
-        <li><a href="#estimate">견적시뮬레이터</a></li>
+        <li><a href="#estimateCalculator">견적시뮬레이터</a></li>
         <li><a href="#process">시공절차</a></li>
-        <li><a href="#fabric">원단</a></li>
+        <li><a href="#fabric">원단·샘플(78)</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">문의안내</a></li>
       </ul>
 
       <div class="nav-actions">
-        <a href="#estimate" class="btn-nav-estimate" title="실시간 간편 견적 산출"><i class="fa-solid fa-calculator"></i> 실시간 견적</a>
+        <a href="#estimateCalculator" class="btn-nav-estimate" title="실시간 간편 견적 산출"><i class="fa-solid fa-calculator"></i> 실시간 견적</a>
         <a href="javascript:void(0);" onclick="makePhoneCall()" class="btn-call-nav" title="실시간 전화 상담 연결"><i class="fa-solid fa-phone-volume"></i> 전화 상담</a>
         <button class="mobile-toggle" id="menuToggle" aria-label="전체 메뉴 열기">
           <i class="fa-solid fa-bars"></i>
@@ -3101,7 +3102,7 @@
       <li><a href="#products" class="drawer-link"><i class="fa-solid fa-shield-halved"></i> 시공품목 안내</a></li>
       <li><a href="#why" class="drawer-link"><i class="fa-solid fa-star"></i> 대전 수경어닝 특장점</a></li>
       <li><a href="#cases" class="drawer-link"><i class="fa-solid fa-images"></i> 실제 시공사례 (15+)</a></li>
-      <li><a href="#estimate" class="drawer-link"><i class="fa-solid fa-calculator"></i> 실시간 견적 계산기</a></li>
+      <li><a href="#estimateCalculator" class="drawer-link"><i class="fa-solid fa-calculator"></i> 실시간 견적 계산기</a></li>
       <li><a href="#process" class="drawer-link"><i class="fa-solid fa-list-check"></i> 4단계 책임 시공절차</a></li>
       <li><a href="#fabric" class="drawer-link"><i class="fa-solid fa-swatchbook"></i> 원단 샘플(78종) & 장단점</a></li>
       <li><a href="#faq" class="drawer-link"><i class="fa-solid fa-circle-question"></i> 자주 묻는 질문 (FAQ)</a></li>
@@ -3142,7 +3143,7 @@
 
           <div class="hero-actions">
             <a href="javascript:void(0);" onclick="makePhoneCall()" class="btn-primary" title="실시간 전화 상담"><i class="fa-solid fa-phone-volume"></i> 실시간 전화 상담하기</a>
-            <a href="#estimate" class="btn-secondary">
+            <a href="#estimateCalculator" class="btn-secondary">
               <i class="fa-solid fa-calculator"></i> 간편 견적 시뮬레이션
             </a>
             <button type="button" onclick="shareKakao()" class="btn-kakao-share" title="카카오톡 공유하기">
@@ -3237,7 +3238,7 @@
               <li><i class="fa-solid fa-circle-check"></i> 돌출 길이 조절 가능 (1.5m ~ 3.5m 맞춤 제작)</li>
               <li><i class="fa-solid fa-circle-check"></i> 바람/우천 시 간편하게 접어서 안전 관리</li>
             </ul>
-            <a href="#estimate" class="btn-product-calc"><i class="fa-solid fa-calculator"></i> 견적 내보기</a>
+            <a href="#estimateCalculator" class="btn-product-calc"><i class="fa-solid fa-calculator"></i> 견적 내보기</a>
           </div>
         </div>
 
@@ -3255,7 +3256,7 @@
               <li><i class="fa-solid fa-circle-check"></i> 실크스크린 로고 & 상호 인쇄로 가시성 극대화</li>
               <li><i class="fa-solid fa-circle-check"></i> 사계절 일정한 형태 유지로 외관 정돈 효과</li>
             </ul>
-            <a href="#estimate" class="btn-product-calc"><i class="fa-solid fa-calculator"></i> 견적 내보기</a>
+            <a href="#estimateCalculator" class="btn-product-calc"><i class="fa-solid fa-calculator"></i> 견적 내보기</a>
           </div>
         </div>
 
@@ -3273,7 +3274,7 @@
               <li><i class="fa-solid fa-circle-check"></i> 최고급 100% 방수·발수 딕슨 및 국산 원단</li>
               <li><i class="fa-solid fa-circle-check"></i> 기존 프레임 점검 및 수평 보정 서비스 포함</li>
             </ul>
-            <a href="#estimate" class="btn-product-calc"><i class="fa-solid fa-calculator"></i> 견적 내보기</a>
+            <a href="#estimateCalculator" class="btn-product-calc"><i class="fa-solid fa-calculator"></i> 견적 내보기</a>
           </div>
         </div>
 
@@ -3291,7 +3292,7 @@
               <li><i class="fa-solid fa-circle-check"></i> 강풍에도 끄떡없는 구조용 각파이프 및 트러스 보강</li>
               <li><i class="fa-solid fa-circle-check"></i> 우천 시에도 빗물 들이침 없는 넓은 작업공간 확보</li>
             </ul>
-            <a href="#estimate" class="btn-product-calc"><i class="fa-solid fa-calculator"></i> 견적 내보기</a>
+            <a href="#estimateCalculator" class="btn-product-calc"><i class="fa-solid fa-calculator"></i> 견적 내보기</a>
           </div>
         </div>
 
@@ -3309,7 +3310,7 @@
               <li><i class="fa-solid fa-circle-check"></i> 카페 통창 및 베란다 햇빛 차단에 강력 추천</li>
               <li><i class="fa-solid fa-circle-check"></i> 감각적인 투톤 스트라이프 패턴 적용 가능</li>
             </ul>
-            <a href="#estimate" class="btn-product-calc"><i class="fa-solid fa-calculator"></i> 견적 내보기</a>
+            <a href="#estimateCalculator" class="btn-product-calc"><i class="fa-solid fa-calculator"></i> 견적 내보기</a>
           </div>
         </div>
 
@@ -3327,7 +3328,7 @@
               <li><i class="fa-solid fa-circle-check"></i> 솜피(Somfy) 등 정품 모터 및 암 부품 수리</li>
               <li><i class="fa-solid fa-circle-check"></i> 대전/세종 및 충청 전지역 신속 A/S 출동</li>
             </ul>
-            <a href="#estimate" class="btn-product-calc"><i class="fa-solid fa-calculator"></i> 견적 내보기</a>
+            <a href="#estimateCalculator" class="btn-product-calc"><i class="fa-solid fa-calculator"></i> 견적 내보기</a>
           </div>
         </div>
       </div>
@@ -3792,7 +3793,7 @@
         </div>
 
         <!-- Calculator Card -->
-        <div class="calc-card">
+        <div id="estimateCalculator" class="calc-card">
           <h4><i class="fa-solid fa-calculator" style="color: var(--accent); margin-right: 8px;"></i> 실시간 가견적 시뮬레이터</h4>
           <p>종류와 크기를 선택하시면 표준 시공 기준 예상 견적을 안내해 드립니다.</p>
 
@@ -4123,7 +4124,7 @@
             <p>가로 폭과 돌출 길이를 입력하시면 공장직영 표준 예상 견적을 즉시 산출해 드립니다.</p>
           </div>
           <div class="fabric-action-btns">
-            <a href="#estimate" class="btn-calc-move"><i class="fa-solid fa-calculator"></i> 견적 내보기</a>
+            <a href="#estimateCalculator" class="btn-calc-move"><i class="fa-solid fa-calculator"></i> 견적 내보기</a>
             <button type="button" onclick="shareKakao()" class="btn-kakao-share"><i class="fa-solid fa-comment"></i> 카카오톡 공유</button>
           </div>
         </div>
@@ -4214,7 +4215,7 @@
           <p style="font-size:0.92rem; color:#94a3b8;">원하는 크기와 원단을 입력하면 실시간 공장직영 표준 견적을 즉시 확인하실 수 있습니다.</p>
         </div>
         <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-          <a href="#estimate" class="btn-calc-move">
+          <a href="#estimateCalculator" class="btn-calc-move">
             <i class="fa-solid fa-calculator"></i> 견적 내보기
           </a>
           <button type="button" onclick="shareKakao()" class="btn-kakao-share">
@@ -4307,7 +4308,7 @@
   <!-- Mobile Floating Dock Bar -->
   <div class="mobile-dock">
     <a href="javascript:void(0);" onclick="makePhoneCall()" class="dock-btn highlight"><i class="fa-solid fa-phone-volume"></i><span>전화 상담</span></a>
-    <a href="#estimate" class="dock-btn"><i class="fa-solid fa-calculator"></i><span>견적 내보기</span></a>
+    <a href="#estimateCalculator" class="dock-btn"><i class="fa-solid fa-calculator"></i><span>견적 내보기</span></a>
     <a href="javascript:void(0);" onclick="shareKakao()" class="dock-btn" style="color: #191919;"><i class="fa-solid fa-comment" style="color: #eab308;"></i><span>카톡 공유</span></a>
     <a href="https://blog.naver.com/wkdwjdaud92" target="_blank" rel="noopener" class="dock-btn"><img src="./images/naver_blog_icon.png" alt="네이버 블로그" style="width:20px;height:20px;border-radius:5px;margin-bottom:2px;"><span>블로그</span></a>
     <a href="https://www.instagram.com/sk.awning" target="_blank" rel="noopener" class="dock-btn">
@@ -4430,10 +4431,11 @@
     }
 
     function shareKakao() {
-      const shareUrl = 'https://code-bross.github.io/static-page/store/daejeon/sookyung-awning';
+      const shareUrl = 'https://code-bross.github.io/store/daejeon/sookyung-awning';
+      const estimateUrl = `${shareUrl}#estimateCalculator`;
       const shareTitle = '대전 수경어닝 | 대전·세종·충청 맞춤 어닝 전문기업';
       const shareDesc = '접이식·고정식·간판 어닝, 천갈이 공장직영 무료방문실측 & 실시간 간편 견적!';
-      const shareImg = 'https://code-bross.github.io/static-page/store/daejeon/sookyung-awning/images/profile.jpg';
+      const shareImg = 'https://code-bross.github.io/store/daejeon/sookyung-awning/images/profile.jpg';
 
       if (window.Kakao) {
         if (!Kakao.isInitialized()) {
@@ -4446,13 +4448,20 @@
             description: shareDesc,
             imageUrl: shareImg,
             link: {
-              mobileWebUrl: shareUrl,
-              webUrl: shareUrl,
+              mobileWebUrl: estimateUrl,
+              webUrl: estimateUrl,
             },
           },
           buttons: [
             {
-              title: '시공사례 보기',
+              title: '견적 내보기',
+              link: {
+                mobileWebUrl: estimateUrl,
+                webUrl: estimateUrl,
+              },
+            },
+            {
+              title: '시공사례 & 홈페이지',
               link: {
                 mobileWebUrl: shareUrl,
                 webUrl: shareUrl,
@@ -4467,19 +4476,19 @@
         navigator.share({
           title: shareTitle,
           text: shareDesc,
-          url: shareUrl
+          url: estimateUrl
         }).catch(() => {});
         return;
       }
 
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(shareUrl).then(() => {
-          showToast('카카오톡 공유 링크가 복사되었습니다! 대화창에 붙여넣기 해주세요.');
+        navigator.clipboard.writeText(estimateUrl).then(() => {
+          showToast('카카오톡 견적내보기 공유 링크가 복사되었습니다! 대화창에 붙여넣기 해주세요.');
         }).catch(() => {
-          window.open('https://sharer.kakao.com/talk/friends/picker/link?url=' + encodeURIComponent(shareUrl), '_blank');
+          window.open('https://sharer.kakao.com/talk/friends/picker/link?url=' + encodeURIComponent(estimateUrl), '_blank');
         });
       } else {
-        window.open('https://sharer.kakao.com/talk/friends/picker/link?url=' + encodeURIComponent(shareUrl), '_blank');
+        window.open('https://sharer.kakao.com/talk/friends/picker/link?url=' + encodeURIComponent(estimateUrl), '_blank');
       }
     }
 
@@ -4623,7 +4632,7 @@
         selectedFabricNotice.style.display = 'flex';
       }
       closeFabricDetail();
-      const estElem = document.getElementById('estimate');
+      const estElem = document.getElementById('estimateCalculator') || document.getElementById('estimate');
       if (estElem) estElem.scrollIntoView({ behavior: 'smooth' });
       showToast(`원단 #${code}이(가) 견적 문의에 선택되었습니다.`);
     }
@@ -5265,6 +5274,16 @@ ${photoNote}
 
     // Initial calculation
     updatePrice();
+
+    // Auto-scroll to calculator if hash is #estimateCalculator
+    if (window.location.hash === '#estimateCalculator') {
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          const calcElem = document.getElementById('estimateCalculator');
+          if (calcElem) calcElem.scrollIntoView({ behavior: 'smooth' });
+        }, 250);
+      });
+    }
   </script>
 </body>
 </html>
