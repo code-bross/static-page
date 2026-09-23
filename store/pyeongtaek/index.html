@@ -1,0 +1,4093 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer">
+  <title>평택 어닝하우스 | 평택·동탄·안성·천안 경기남부 맞춤 어닝 전문기업 (접이식·고정식·웨이브·원단교체)</title>
+  <meta name="description" content="평택, 고덕, 동탄, 안성, 천안, 경기남부 전역 어닝 전문기업 어닝하우스. 접이식 어닝, 고정식 간판어닝, 웨이브 어닝, 드롭어닝, 원단 교체(천갈이), 전동 모터 시공. 공장직영 무료방문 레이저 실측 및 365일 A/S 보증.">
+  <meta name="keywords" content="평택어닝, 고덕어닝, 동탄어닝, 안성어닝, 천안어닝, 오산어닝, 수원어닝, 어닝하우스, 접이식어닝, 고정식어닝, 간판어닝, 웨이브어닝, 천갈이, 어닝원단교체, 테라스어닝, 카페어닝">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="평택 어닝하우스 | 평택·동탄·경기남부 맞춤 어닝 전문기업">
+  <meta property="og:description" content="10년 노하우 & 젊은 감각. 접이식어닝, 고정식어닝, 웨이브어닝, 원단교체(천갈이). 100% 공장직영 합리적 견적 & 무료 방문실측.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="./images/profile.jpg">
+
+  <!-- Pretendard Font & Font Awesome -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    :root {
+      --primary: #0b1329;
+      --primary-light: #16203c;
+      --primary-card: #1e2c52;
+      --accent: #ea580c;
+      --accent-hover: #c2410c;
+      --accent-light: #fb923c;
+      --accent-soft: #fff7ed;
+      --naver-green: #03c75a;
+      --kakao-yellow: #fee500;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --text-light: #94a3b8;
+      --bg-light: #f8fafc;
+      --bg-white: #ffffff;
+      --border-color: #e2e8f0;
+      --shadow-sm: 0 2px 8px rgba(11, 19, 41, 0.05);
+      --shadow-md: 0 8px 24px rgba(11, 19, 41, 0.08);
+      --shadow-lg: 0 16px 40px rgba(11, 19, 41, 0.12);
+      --shadow-xl: 0 24px 60px rgba(11, 19, 41, 0.2);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --radius-full: 9999px;
+      --container-max: 1200px;
+      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-main);
+      line-height: 1.6;
+      word-break: keep-all;
+      padding-bottom: 74px;
+    }
+
+    @media (min-width: 992px) {
+      body {
+        padding-bottom: 0;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-family: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Top Info Bar */
+    .top-bar {
+      background: #060a17;
+      color: #94a3b8;
+      font-size: 0.84rem;
+      padding: 9px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    @media (max-width: 767px) {
+      .top-bar {
+        display: none;
+      }
+    }
+
+    .top-bar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .top-bar-left span {
+      color: #f1f5f9;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .top-bar-left i {
+      color: var(--accent);
+    }
+
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .top-bar-link {
+      color: #cbd5e1;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      transition: var(--transition);
+    }
+
+    .top-bar-link:hover {
+      color: #ffffff;
+    }
+
+    /* Main Sticky Navigation */
+    .header {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      transition: var(--transition);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon-badge {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, #ea580c 0%, #f97316 100%);
+      color: #ffffff;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      box-shadow: 0 4px 12px rgba(234, 88, 12, 0.35);
+    }
+
+    .logo-text-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-main {
+      font-size: 1.45rem;
+      font-weight: 900;
+      color: var(--primary);
+      letter-spacing: -0.6px;
+      line-height: 1.15;
+    }
+
+    .logo-main span {
+      color: var(--accent);
+    }
+
+    .logo-sub {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      letter-spacing: -0.2px;
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 18px;
+      list-style: none;
+    }
+
+    @media (min-width: 1040px) {
+      .nav-links {
+        display: flex;
+      }
+    }
+
+    .nav-links a {
+      font-size: 0.93rem;
+      font-weight: 700;
+      color: #334155;
+      padding: 6px 0;
+      position: relative;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: var(--transition);
+      border-radius: 2px;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-header-call {
+      display: none;
+      align-items: center;
+      gap: 7px;
+      background: linear-gradient(135deg, var(--accent) 0%, #f97316 100%);
+      color: #ffffff;
+      padding: 10px 18px;
+      border-radius: var(--radius-full);
+      font-size: 0.9rem;
+      font-weight: 800;
+      box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-header-kakao {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      background: var(--kakao-yellow);
+      color: #3c1e1e;
+      padding: 10px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(254, 229, 0, 0.3);
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    @media (min-width: 600px) {
+      .btn-header-call {
+        display: inline-flex;
+      }
+    }
+
+    @media (min-width: 820px) {
+      .btn-header-kakao {
+        display: inline-flex;
+      }
+    }
+
+    .btn-header-kakao:hover {
+      background: #fada0a;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(254, 229, 0, 0.45);
+      color: #1a0c0c;
+    }
+
+    .btn-header-call:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(234, 88, 12, 0.45);
+    }
+
+    .menu-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-sm);
+      color: var(--primary);
+      font-size: 1.35rem;
+      border: 1px solid var(--border-color);
+      background: #f8fafc;
+      flex-shrink: 0;
+    }
+
+    @media (min-width: 1040px) {
+      .menu-toggle {
+        display: none;
+      }
+    }
+
+    /* Mobile Drawer */
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 82%;
+      max-width: 340px;
+      height: 100vh;
+      background: #ffffff;
+      box-shadow: -8px 0 30px rgba(0,0,0,0.25);
+      z-index: 2000;
+      transition: right 0.35s ease;
+      display: flex;
+      flex-direction: column;
+      padding: 26px;
+    }
+
+    .mobile-drawer.open {
+      right: 0;
+    }
+
+    .drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 1999;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      backdrop-filter: blur(3px);
+    }
+
+    .drawer-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 26px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .drawer-close {
+      font-size: 1.5rem;
+      color: #64748b;
+      padding: 4px;
+    }
+
+    .drawer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .drawer-links a {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #1e293b;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+    }
+
+    .drawer-links a:hover {
+      background: var(--bg-light);
+      color: var(--accent);
+    }
+
+    .drawer-links a i {
+      color: var(--accent);
+      width: 22px;
+    }
+
+    .drawer-footer {
+      margin-top: auto;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #060a17 0%, #0d162e 50%, #162447 100%);
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+      padding: 60px 0 84px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -120px;
+      right: -80px;
+      width: 580px;
+      height: 580px;
+      background: radial-gradient(circle, rgba(234, 88, 12, 0.18) 0%, rgba(234, 88, 12, 0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: -100px;
+      left: -80px;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(249, 115, 22, 0.12) 0%, rgba(249, 115, 22, 0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    @media (min-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 56px;
+      }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(234, 88, 12, 0.18);
+      border: 1px solid rgba(234, 88, 12, 0.4);
+      color: #fb923c;
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.84rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-size: clamp(1.85rem, 5vw, 3.2rem);
+      font-weight: 900;
+      line-height: 1.25;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+      color: #ffffff;
+      word-break: keep-all;
+    }
+
+    .hero-title span {
+      background: linear-gradient(120deg, #fb923c 0%, #f97316 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      font-size: 1.06rem;
+      color: #cbd5e1;
+      margin-bottom: 30px;
+      line-height: 1.65;
+    }
+
+    .hero-desc strong {
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+
+    .hero-tag {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #e2e8f0;
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-direction: column;
+      margin-bottom: 40px;
+    }
+
+    @media (min-width: 576px) {
+      .hero-buttons {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 575px) {
+      .hero-buttons a,
+      .hero-buttons button {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+      }
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent) 0%, #f97316 100%);
+      color: #ffffff;
+      padding: 15px 28px;
+      border-radius: var(--radius-full);
+      font-size: 1.02rem;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      box-shadow: 0 8px 24px rgba(234, 88, 12, 0.4);
+      transition: var(--transition);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(234, 88, 12, 0.55);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      padding: 15px 26px;
+      border-radius: var(--radius-full);
+      font-size: 1.02rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      transition: var(--transition);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.18);
+      transform: translateY(-3px);
+    }
+
+    .btn-kakao {
+      background: var(--kakao-yellow);
+      color: #3c1e1e;
+      padding: 15px 26px;
+      border-radius: var(--radius-full);
+      font-size: 1.02rem;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      transition: var(--transition);
+      box-shadow: 0 8px 24px rgba(254, 229, 0, 0.3);
+      text-decoration: none;
+    }
+
+    .btn-kakao:hover {
+      background: #fada0a;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(254, 229, 0, 0.45);
+      color: #1a0c0c;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding-top: 26px;
+    }
+
+    @media (min-width: 576px) {
+      .hero-stats {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .stat-item h4 {
+      font-size: 1.7rem;
+      font-weight: 900;
+      color: #fb923c;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .stat-item p {
+      font-size: 0.82rem;
+      color: #94a3b8;
+      font-weight: 600;
+    }
+
+    /* Hero Carousel Showcase */
+    .hero-carousel {
+      background: rgba(22, 32, 60, 0.75);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.45);
+      position: relative;
+    }
+
+    .hero-carousel-viewport {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+    }
+
+    .hero-carousel-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+      width: 100%;
+    }
+
+    .hero-slide {
+      min-width: 100%;
+      flex-shrink: 0;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-slide-img-wrap {
+      position: relative;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      background: #060a17;
+      cursor: pointer;
+    }
+
+    .hero-slide-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .hero-carousel:hover .hero-slide-img-wrap img {
+      transform: scale(1.05);
+    }
+
+    .hero-slide-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(11, 19, 41, 0.88);
+      backdrop-filter: blur(6px);
+      color: #ffffff;
+      padding: 6px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      z-index: 2;
+    }
+
+    .hero-slide-cat-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(234, 88, 12, 0.95);
+      backdrop-filter: blur(6px);
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.78rem;
+      font-weight: 800;
+      z-index: 2;
+    }
+
+    .hero-slide-body {
+      padding: 22px 24px 20px;
+      background: rgba(11, 19, 41, 0.75);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .hero-slide-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.35;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .hero-slide-meta {
+      font-size: 0.86rem;
+      color: #94a3b8;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .hero-slide-btn {
+      color: #fb923c;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.86rem;
+      transition: var(--transition);
+    }
+
+    .hero-slide-btn:hover {
+      color: #ffffff;
+      transform: translateX(4px);
+    }
+
+    .hero-carousel-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px 16px;
+      background: rgba(6, 10, 23, 0.85);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-nav-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+
+    .hero-nav-btn:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: scale(1.08);
+    }
+
+    .hero-carousel-dots {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .hero-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.25);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .hero-dot.active {
+      width: 24px;
+      background: var(--accent-light);
+    }
+
+    .hero-carousel-counter {
+      font-size: 0.82rem;
+      color: #94a3b8;
+      font-weight: 600;
+    }
+
+    .hero-progress-bar {
+      height: 3px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      position: relative;
+    }
+
+    .hero-progress-inner {
+      height: 100%;
+      width: 0;
+      background: var(--accent);
+      transition: width 0.1s linear;
+    }
+
+    /* Section Global Headers */
+    .section-header {
+      text-align: center;
+      max-width: 740px;
+      margin: 0 auto 52px;
+    }
+
+    .section-pill {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      font-size: 2.1rem;
+      font-weight: 900;
+      color: var(--primary);
+      letter-spacing: -0.8px;
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+
+    @media (min-width: 768px) {
+      .section-title {
+        font-size: 2.6rem;
+      }
+    }
+
+    .section-desc {
+      font-size: 1.02rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* Products Section */
+    .products-section {
+      padding: 90px 0;
+      background: #ffffff;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    @media (min-width: 768px) {
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1100px) {
+      .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .product-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: #fdba74;
+    }
+
+    .product-img-wrap {
+      position: relative;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      background: #0b1329;
+    }
+
+    .product-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .product-card:hover .product-img-wrap img {
+      transform: scale(1.06);
+    }
+
+    .product-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(11, 19, 41, 0.88);
+      backdrop-filter: blur(6px);
+      color: #ffffff;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .product-body {
+      padding: 26px 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .product-name {
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .product-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .product-features {
+      list-style: none;
+      margin-top: auto;
+      padding-top: 18px;
+      border-top: 1px dashed var(--border-color);
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .product-features li {
+      font-size: 0.86rem;
+      color: #334155;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-weight: 600;
+    }
+
+    .product-features li i {
+      color: var(--accent);
+      font-size: 0.85rem;
+    }
+
+    /* Why Section */
+    .why-section {
+      padding: 90px 0;
+      background: var(--bg-light);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    @media (min-width: 640px) {
+      .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .why-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .why-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 34px 28px;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .why-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: #fdba74;
+    }
+
+    .why-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .why-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: var(--radius-md);
+      background: var(--accent-soft);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+    }
+
+    .why-num {
+      font-size: 2rem;
+      font-weight: 900;
+      color: #fed7aa;
+      line-height: 1;
+    }
+
+    .why-title {
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--primary);
+      margin-bottom: 12px;
+      line-height: 1.35;
+    }
+
+    .why-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* Cases / Portfolio Section */
+    .cases-section {
+      padding: 90px 0;
+      background: #ffffff;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .filter-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+
+    .filter-btn {
+      padding: 10px 22px;
+      border-radius: var(--radius-full);
+      font-size: 0.92rem;
+      font-weight: 800;
+      background: #f1f5f9;
+      color: #475569;
+      transition: var(--transition);
+      border: 1px solid transparent;
+    }
+
+    .filter-btn:hover {
+      background: #e2e8f0;
+      color: var(--primary);
+    }
+
+    .filter-btn.active {
+      background: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
+      border-color: var(--accent);
+    }
+
+    .cases-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    @media (min-width: 640px) {
+      .cases-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .cases-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .case-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .case-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: #fed7aa;
+    }
+
+    .case-img-wrap {
+      position: relative;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      background: #0b1329;
+      cursor: pointer;
+    }
+
+    .case-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.45s ease;
+    }
+
+    .case-card:hover .case-img-wrap img {
+      transform: scale(1.06);
+    }
+
+    .case-loc-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(11, 19, 41, 0.88);
+      backdrop-filter: blur(6px);
+      color: #ffffff;
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .case-cat-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(234, 88, 12, 0.95);
+      backdrop-filter: blur(6px);
+      color: #ffffff;
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .case-overlay-zoom {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: var(--transition);
+      color: #ffffff;
+      font-size: 1.6rem;
+    }
+
+    .case-img-wrap:hover .case-overlay-zoom {
+      opacity: 1;
+    }
+
+    .case-thumbs-preview {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4px;
+      padding: 6px;
+      background: #0f172a;
+    }
+
+    .case-thumb-mini {
+      aspect-ratio: 1/1;
+      overflow: hidden;
+      border-radius: 4px;
+      cursor: pointer;
+      opacity: 0.8;
+      transition: var(--transition);
+    }
+
+    .case-thumb-mini:hover {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
+    .case-thumb-mini img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .case-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .case-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 8px;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .case-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      line-height: 1.55;
+    }
+
+    .case-footer {
+      margin-top: auto;
+      padding-top: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .btn-blog-post {
+      color: #03a84b;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+
+    .btn-blog-post:hover {
+      color: #02853a;
+      transform: translateX(3px);
+    }
+
+    .btn-zoom {
+      color: #64748b;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: var(--transition);
+    }
+
+    .btn-zoom:hover {
+      color: var(--accent);
+    }
+
+    /* Lightbox Modal */
+    .modal-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.92);
+      z-index: 3000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-lightbox.open {
+      display: flex;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 960px;
+      width: 100%;
+      background: #0f172a;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.6);
+      color: #ffffff;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: var(--transition);
+    }
+
+    .lightbox-close:hover {
+      background: var(--accent);
+      transform: rotate(90deg);
+    }
+
+    .lightbox-img-area {
+      position: relative;
+      width: 100%;
+      height: 60vh;
+      max-height: 560px;
+      background: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-img-area img {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    .lightbox-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.6);
+      color: #ffffff;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .lightbox-nav-btn:hover {
+      background: var(--accent);
+    }
+
+    .lightbox-prev {
+      left: 16px;
+    }
+
+    .lightbox-next {
+      right: 16px;
+    }
+
+    .lightbox-info {
+      padding: 22px 28px;
+      background: #0f172a;
+      color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .lightbox-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .lightbox-meta {
+      font-size: 0.88rem;
+      color: #94a3b8;
+    }
+
+    .btn-lightbox-blog {
+      background: #03c75a;
+      color: #ffffff;
+      padding: 10px 18px;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-weight: 700;
+      transition: var(--transition);
+    }
+
+    .btn-lightbox-blog:hover {
+      background: #029d47;
+      transform: translateY(-2px);
+    }
+
+    /* Interactive Estimate Calculator */
+    .estimate-section {
+      padding: 90px 0;
+      background: linear-gradient(135deg, #060a17 0%, #0d162e 60%, #162447 100%);
+      color: #ffffff;
+    }
+
+    .estimate-section .section-title {
+      color: #ffffff;
+    }
+
+    .estimate-section .section-desc {
+      color: #cbd5e1;
+    }
+
+    .estimate-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+
+    @media (min-width: 992px) {
+      .estimate-container {
+        grid-template-columns: 1fr 1.15fr;
+      }
+    }
+
+    .estimate-guide-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-xl);
+      padding: 38px 32px;
+      backdrop-filter: blur(10px);
+    }
+
+    .estimate-guide-card h3 {
+      font-size: 1.45rem;
+      font-weight: 900;
+      color: #fb923c;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .estimate-guide-card p {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .guide-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .guide-step-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.88rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .step-text strong {
+      color: #ffffff;
+      font-size: 0.96rem;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .step-text span {
+      color: #94a3b8;
+      font-size: 0.85rem;
+    }
+
+    .estimate-phone-box {
+      background: rgba(234, 88, 12, 0.15);
+      border: 1px solid rgba(234, 88, 12, 0.4);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      text-align: center;
+    }
+
+    .estimate-phone-box span {
+      display: block;
+      font-size: 0.86rem;
+      color: #fed7aa;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .calc-card {
+      background: #ffffff;
+      color: var(--text-main);
+      border-radius: var(--radius-xl);
+      padding: 38px 34px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    @media (max-width: 640px) {
+      .calc-card,
+      .estimate-guide-card {
+        padding: 24px 18px;
+      }
+      .type-opt-btn {
+        padding: 8px 6px;
+        font-size: 0.82rem;
+      }
+    }
+
+    .calc-card h4 {
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .calc-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 22px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: #1e293b;
+      margin-bottom: 8px;
+    }
+
+    .type-select-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    @media (min-width: 500px) {
+      .type-select-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .type-opt-btn {
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.86rem;
+      font-weight: 700;
+      background: #f1f5f9;
+      color: #334155;
+      border: 1px solid var(--border-color);
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .type-opt-btn:hover {
+      background: #e2e8f0;
+    }
+
+    .type-opt-btn.active {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+      box-shadow: 0 4px 12px rgba(234, 88, 12, 0.3);
+    }
+
+    .range-wrap {
+      background: #f8fafc;
+      padding: 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+    }
+
+    .range-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #1e293b;
+    }
+
+    .range-val {
+      color: var(--accent);
+      font-size: 1.15rem;
+      font-weight: 900;
+    }
+
+    input[type=range] {
+      width: 100%;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+
+    .calc-result-box {
+      background: linear-gradient(135deg, #0b1329 0%, #162447 100%);
+      color: #ffffff;
+      padding: 24px;
+      border-radius: var(--radius-md);
+      text-align: center;
+      margin: 26px 0 20px;
+      border: 1px solid rgba(251, 146, 60, 0.3);
+    }
+
+    .calc-result-label {
+      font-size: 0.86rem;
+      color: #cbd5e1;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .calc-result-price {
+      font-size: 1.85rem;
+      font-weight: 900;
+      color: #fb923c;
+      margin-bottom: 6px;
+      letter-spacing: -0.5px;
+    }
+
+    .calc-result-note {
+      font-size: 0.78rem;
+      color: #94a3b8;
+    }
+
+    .calc-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    @media (min-width: 620px) {
+      .calc-actions {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .btn-calc-sms {
+      background: linear-gradient(135deg, var(--accent) 0%, #f97316 100%);
+      color: #ffffff;
+      padding: 13px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: var(--transition);
+      box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
+      white-space: nowrap;
+    }
+
+    .btn-calc-sms:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(234, 88, 12, 0.45);
+    }
+
+    .btn-calc-kakao {
+      background: var(--kakao-yellow);
+      color: #3c1e1e;
+      padding: 13px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: var(--transition);
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(254, 229, 0, 0.3);
+      white-space: nowrap;
+    }
+
+    .btn-calc-kakao:hover {
+      background: #fada0a;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(254, 229, 0, 0.45);
+      color: #1a0c0c;
+    }
+
+    .btn-calc-call {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 13px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-calc-call:hover {
+      background: #1e293b;
+      transform: translateY(-2px);
+    }
+
+    /* Process Section */
+    .process-section {
+      padding: 90px 0;
+      background: #ffffff;
+    }
+
+    .process-timeline {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      position: relative;
+    }
+
+    @media (min-width: 768px) {
+      .process-timeline {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .process-card {
+      background: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .process-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: #fdba74;
+    }
+
+    .process-step-badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 900;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      margin-bottom: 16px;
+    }
+
+    .process-title {
+      font-size: 1.18rem;
+      font-weight: 900;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .process-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Fabric Showcase */
+    .fabric-section {
+      padding: 90px 0;
+      background: var(--bg-light);
+    }
+
+    .fabric-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    @media (min-width: 992px) {
+      .fabric-grid {
+        grid-template-columns: 1.1fr 0.9fr;
+      }
+    }
+
+    .fabric-card-left {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 38px 32px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .fabric-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #ecfdf5;
+      color: #059669;
+      font-size: 0.82rem;
+      font-weight: 800;
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      margin-bottom: 16px;
+    }
+
+    .fabric-title {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--primary);
+      margin-bottom: 14px;
+      line-height: 1.35;
+    }
+
+    .fabric-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .fabric-specs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .spec-item {
+      background: var(--bg-light);
+      padding: 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+    }
+
+    .spec-item strong {
+      font-size: 0.92rem;
+      color: var(--primary);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .spec-item span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .color-swatches-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 38px 32px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .swatches-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .swatch-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .swatch-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 2px solid #ffffff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .swatch-box:hover .swatch-circle {
+      transform: scale(1.15);
+    }
+
+    .swatch-name {
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: #475569;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      padding: 90px 0;
+      background: #ffffff;
+    }
+
+    .faq-list {
+      max-width: 820px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .faq-item {
+      background: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .faq-item.active {
+      border-color: #fdba74;
+      background: #ffffff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 20px 24px;
+      text-align: left;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--primary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .faq-question i {
+      color: var(--accent);
+      transition: transform 0.3s ease;
+      font-size: 0.95rem;
+    }
+
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+      padding: 0 24px;
+      font-size: 0.94rem;
+      color: #475569;
+      line-height: 1.7;
+    }
+
+    .faq-answer-inner {
+      padding-bottom: 22px;
+    }
+
+    /* Contact & Location Section */
+    .contact-section {
+      padding: 90px 0;
+      background: var(--bg-light);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+
+    @media (min-width: 992px) {
+      .contact-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .contact-info-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 38px 32px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    @media (max-width: 640px) {
+      .contact-info-card {
+        padding: 24px 18px;
+      }
+      .phone-pill {
+        width: 100% !important;
+        justify-content: center;
+        text-align: center;
+      }
+    }
+
+    .contact-info-card h3 {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .contact-info-card p {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      margin-bottom: 26px;
+      line-height: 1.6;
+    }
+
+    .info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-bottom: 30px;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .info-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+    }
+
+    .info-text strong {
+      font-size: 0.92rem;
+      color: var(--primary);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .info-text span, .info-text a {
+      font-size: 0.92rem;
+      color: #334155;
+    }
+
+    .contact-phones-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .phone-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--primary);
+      padding: 8px 16px;
+      background: #f1f5f9;
+      border-radius: var(--radius-md);
+      transition: var(--transition);
+      width: fit-content;
+    }
+
+    .phone-pill:hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .phone-pill.main-phone {
+      background: linear-gradient(135deg, var(--accent) 0%, #f97316 100%);
+      color: #ffffff;
+      font-size: 1.25rem;
+      padding: 12px 22px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
+    }
+
+    .phone-pill.main-phone:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(234, 88, 12, 0.45);
+    }
+
+    .btn-reveal-numbers {
+      background: transparent;
+      border: 1px solid #cbd5e1;
+      color: #475569;
+      padding: 9px 14px;
+      border-radius: var(--radius-md);
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 4px;
+      transition: var(--transition);
+      width: fit-content;
+    }
+
+    .btn-reveal-numbers:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .map-preview-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .map-header {
+      padding: 24px 28px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .map-title {
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--primary);
+    }
+
+    .map-address {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .map-box {
+      width: 100%;
+      height: 280px;
+      background: #e2e8f0;
+      position: relative;
+    }
+
+    .map-actions {
+      padding: 20px 28px;
+      background: #f8fafc;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .btn-naver-map {
+      background: #03c75a;
+      color: #ffffff;
+      padding: 11px 20px;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+    }
+
+    .btn-naver-map:hover {
+      background: #029d47;
+      transform: translateY(-2px);
+    }
+
+    .btn-copy-addr {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      color: #334155;
+      padding: 11px 18px;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+
+    .btn-copy-addr:hover {
+      background: #f1f5f9;
+      color: var(--primary);
+    }
+
+    /* Footer */
+    .footer {
+      background: #060a17;
+      color: #94a3b8;
+      padding: 64px 0 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.88rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    @media (min-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1.4fr 1fr 1fr;
+      }
+    }
+
+    .footer-brand h3 {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand h3 span {
+      color: var(--accent);
+    }
+
+    .footer-brand p {
+      color: #64748b;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .footer-links-title {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 16px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      color: #94a3b8;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: #ffffff;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 26px;
+      text-align: center;
+      color: #64748b;
+      font-size: 0.82rem;
+    }
+
+    /* Mobile Floating Dock Bar */
+    .mobile-dock {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(11, 19, 41, 0.96);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 8px 6px calc(8px + env(safe-area-inset-bottom, 0px));
+      z-index: 1500;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    @media (min-width: 992px) {
+      .mobile-dock {
+        display: none;
+      }
+    }
+
+    .dock-btn {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      color: #cbd5e1;
+      font-size: 0.72rem;
+      font-weight: 700;
+      transition: var(--transition);
+      padding: 5px 2px;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .dock-btn i {
+      font-size: 1.15rem;
+    }
+
+    .dock-btn.highlight {
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--accent) 0%, #f97316 100%);
+      padding: 6px 4px;
+      border-radius: var(--radius-md);
+      box-shadow: 0 4px 12px rgba(234, 88, 12, 0.4);
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 90px;
+      left: 50%;
+      transform: translateX(-50%) translateY(50px);
+      background: rgba(11, 19, 41, 0.95);
+      backdrop-filter: blur(8px);
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: var(--radius-full);
+      font-size: 0.9rem;
+      font-weight: 700;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      border: 1px solid rgba(251, 146, 60, 0.4);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 4000;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Info Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <span><i class="fa-solid fa-industry"></i> 100% 공장직영 맞춤제작</span>
+        <span><i class="fa-solid fa-ruler-combined"></i> 수도권·경기남부·충남 전지역 무료 방문실측</span>
+        <span><i class="fa-solid fa-shield-halved"></i> 365일 안심 사후관리 A/S</span>
+      </div>
+      <div class="top-bar-right">
+        <a href="https://blog.naver.com/kimku0511" target="_blank" rel="noopener" class="top-bar-link">
+          <img src="./images/naver_blog_icon.png" alt="네이버 블로그" style="width:15px;height:15px;border-radius:3px;">
+          공식 블로그 490+ 시공후기
+        </a>
+        <a href="https://m.place.naver.com/place/1067088361" target="_blank" rel="noopener" class="top-bar-link">
+          <i class="fa-solid fa-map-location-dot" style="color:var(--accent);"></i> 네이버 플레이스
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <div class="logo-icon-badge">
+          <i class="fa-solid fa-umbrella"></i>
+        </div>
+        <div class="logo-text-wrap">
+          <div class="logo-main">평택 <span>어닝하우스</span></div>
+          <div class="logo-sub">AWNING HOUSE · 프리미엄 맞춤 차양</div>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#about">회사소개</a></li>
+          <li><a href="#products">제품안내</a></li>
+          <li><a href="#cases">시공사례</a></li>
+          <li><a href="#estimate">가견적기</a></li>
+          <li><a href="#fabric">원단안내</a></li>
+          <li><a href="#contact">오시는길</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="http://pf.kakao.com/_xnxhpVX" target="_blank" rel="noopener" class="btn-header-kakao">
+          <i class="fa-solid fa-comment"></i> 카톡상담
+        </a>
+        <button type="button" onclick="makePhoneCall()" class="btn-header-call">
+          <i class="fa-solid fa-phone-volume"></i> 실시간 전화상담
+        </button>
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="메뉴 열기">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <div class="logo">
+        <div class="logo-icon-badge" style="width:38px;height:38px;font-size:1.1rem;">
+          <i class="fa-solid fa-umbrella"></i>
+        </div>
+        <div class="logo-text-wrap">
+          <div class="logo-main" style="font-size:1.25rem;">평택 <span>어닝하우스</span></div>
+          <div class="logo-sub">공간의 가치를 높이는 익스테리어</div>
+        </div>
+      </div>
+      <button class="drawer-close" id="drawerClose" aria-label="닫기"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <ul class="drawer-links">
+      <li><a href="#about" onclick="closeDrawer()"><i class="fa-solid fa-building"></i> 회사소개</a></li>
+      <li><a href="#products" onclick="closeDrawer()"><i class="fa-solid fa-layer-group"></i> 어닝 제품안내</a></li>
+      <li><a href="#why" onclick="closeDrawer()"><i class="fa-solid fa-medal"></i> 어닝하우스 특장점</a></li>
+      <li><a href="#cases" onclick="closeDrawer()"><i class="fa-solid fa-camera-retro"></i> 실제 시공사례</a></li>
+      <li><a href="#estimate" onclick="closeDrawer()"><i class="fa-solid fa-calculator"></i> 실시간 가견적기</a></li>
+      <li><a href="#process" onclick="closeDrawer()"><i class="fa-solid fa-list-check"></i> 4단계 시공절차</a></li>
+      <li><a href="#fabric" onclick="closeDrawer()"><i class="fa-solid fa-palette"></i> 프랑스 딕슨 원단</a></li>
+      <li><a href="#faq" onclick="closeDrawer()"><i class="fa-solid fa-circle-question"></i> 자주하는 질문</a></li>
+      <li><a href="#contact" onclick="closeDrawer()"><i class="fa-solid fa-location-dot"></i> 오시는길 / 견적문의</a></li>
+    </ul>
+    <div class="drawer-footer">
+      <a href="http://pf.kakao.com/_xnxhpVX" target="_blank" rel="noopener" class="btn-primary" style="justify-content:center;background:#fee500;color:#3c1e1e;border-color:#fee500;box-shadow:0 4px 14px rgba(254,229,0,0.35);">
+        <i class="fa-solid fa-comment"></i> 카카오톡 1:1 상담 연결
+      </a>
+      <button type="button" onclick="makePhoneCall()" class="btn-primary" style="justify-content:center;">
+        <i class="fa-solid fa-phone-volume"></i> 대표전화 즉시 연결
+      </button>
+      <a href="https://blog.naver.com/kimku0511" target="_blank" rel="noopener" class="btn-secondary" style="justify-content:center;color:#1e293b;border-color:var(--border-color);background:#f1f5f9;">
+        <img src="./images/naver_blog_icon.png" alt="블로그" style="width:18px;height:18px;border-radius:4px;"> 공식 블로그 바로가기
+      </a>
+    </div>
+  </aside>
+
+  <!-- Hero Section -->
+  <section class="hero" id="about">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <i class="fa-solid fa-award"></i> 10년의 노하우와 감각적인 젊은 시공팀의 조화
+          </div>
+          <h1 class="hero-title">
+            건축물의 완성, 비즈니스의 시작<br>
+            <span>평택 어닝하우스</span>가 만듭니다
+          </h1>
+          <p class="hero-desc">
+            단순한 차양막을 넘어 건축물의 외피 성능을 극대화하는 <strong>익스테리어 차양 전문 기업</strong>입니다.<br>
+            접이식 어닝부터 고정식 간판어닝, 웨이브 어닝, 원단교체(천갈이)까지<br>
+            <strong>100% 공장 직영 제작</strong>과 <strong>무료 레이저 방문 실측</strong>으로 완벽한 공간을 선물합니다.
+          </p>
+
+          <div class="hero-tags">
+            <span class="hero-tag">#공장직영</span>
+            <span class="hero-tag">#무료방문실측</span>
+            <span class="hero-tag">#프랑스딕슨원단</span>
+            <span class="hero-tag">#고난도특수시공</span>
+            <span class="hero-tag">#365일AS</span>
+            <span class="hero-tag">#평택·동탄·경기남부</span>
+          </div>
+
+          <div class="hero-buttons">
+            <a href="#estimate" class="btn-primary"><i class="fa-solid fa-calculator"></i> 실시간 가견적 계산</a>
+            <a href="http://pf.kakao.com/_xnxhpVX" target="_blank" rel="noopener" class="btn-kakao"><i class="fa-solid fa-comment"></i> 카카오톡 상담</a>
+            <button type="button" onclick="makePhoneCall()" class="btn-secondary"><i class="fa-solid fa-phone-volume"></i> 실시간 전화상담</button>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <h4>2,500+</h4>
+              <p>누적 시공 실적</p>
+            </div>
+            <div class="stat-item">
+              <h4>100%</h4>
+              <p>공장직영 맞춤생산</p>
+            </div>
+            <div class="stat-item">
+              <h4>80%+</h4>
+              <p>유럽형 태양열 차단</p>
+            </div>
+            <div class="stat-item">
+              <h4>365일</h4>
+              <p>철저한 사후관리 보증</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Carousel Showcase -->
+        <div class="hero-carousel" id="heroCarousel">
+          <div class="hero-progress-bar">
+            <div class="hero-progress-inner" id="heroProgressBar"></div>
+          </div>
+          <div class="hero-carousel-viewport">
+            <div class="hero-carousel-track" id="heroCarouselTrack">
+              <!-- Injected dynamically via JS -->
+            </div>
+          </div>
+          <div class="hero-carousel-controls">
+            <button type="button" class="hero-nav-btn" id="heroCarouselPrev" aria-label="이전 슬라이드"><i class="fa-solid fa-chevron-left"></i></button>
+            <div class="hero-carousel-dots" id="heroCarouselDots"></div>
+            <div class="hero-carousel-counter" id="heroCarouselCounter">1 / 16</div>
+            <button type="button" class="hero-nav-btn" id="heroCarouselNext" aria-label="다음 슬라이드"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products" class="products-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill" style="background: var(--accent-soft); color: var(--accent);">OUR PRODUCTS</span>
+        <h2 class="section-title">공간의 목적에 맞춘 프리미엄 어닝 라인업</h2>
+        <p class="section-desc">상가 매장, 카페, 전원주택 테라스, 산업 시설까지 현장 구조와 용도에 최적화된 맞춤형 솔루션을 제안합니다.</p>
+      </div>
+
+      <div class="products-grid">
+        <!-- Product 1 -->
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="./images/case_224413927314_0.jpg" alt="접이식 어닝" loading="lazy">
+            <span class="product-tag">가장 대중적인 선택</span>
+          </div>
+          <div class="product-body">
+            <h3 class="product-name">접이식 어닝 (수동 / 전동)</h3>
+            <p class="product-desc">날씨와 일사량에 따라 자유롭게 접고 펼 수 있는 가변형 차양막. 핸들 수동형부터 리모컨/센서 제어 전동식까지 맞춤 제작합니다.</p>
+            <ul class="product-features">
+              <li><i class="fa-solid fa-circle-check"></i> 고강도 알루미늄 암 & 강력 텐션 스프링</li>
+              <li><i class="fa-solid fa-circle-check"></i> 프랑스 딕슨 및 최고급 발수 코팅 원단</li>
+              <li><i class="fa-solid fa-circle-check"></i> 대형 테라스용 프라자 어닝 제작 가능</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="./images/case_224413926892_0.jpg" alt="고정식 간판 어닝" loading="lazy">
+            <span class="product-tag">유럽풍 감성 익스테리어</span>
+          </div>
+          <div class="product-body">
+            <h3 class="product-name">고정식 어닝 · 간판 어닝</h3>
+            <p class="product-desc">사각, 바가지(돔), 바나나, 라운드 등 감각적인 조형미와 뛰어난 입체감으로 일반 간판 대비 2배 이상의 시인성을 자랑합니다.</p>
+            <ul class="product-features">
+              <li><i class="fa-solid fa-circle-check"></i> 브랜드 아이덴티티 맞춤 로고/문구 실크인쇄</li>
+              <li><i class="fa-solid fa-circle-check"></i> 빗물 완벽 차단 & 4계절 변형 없는 파이프 프레임</li>
+              <li><i class="fa-solid fa-circle-check"></i> 베이커리, 카페, 의류샵, 소품샵 인기 1순위</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="./images/case_224393490948_0.jpg" alt="웨이브 어닝" loading="lazy">
+            <span class="product-tag">하이엔드 럭셔리 차양</span>
+          </div>
+          <div class="product-body">
+            <h3 class="product-name">웨이브 어닝 (Wave Awning)</h3>
+            <p class="product-desc">물결치듯 흐르는 우아한 실루엣으로 이국적인 휴양지 분위기를 연출하는 최고급 차양막. S, L, E 타입 등 공간 구조에 맞춘 설계.</p>
+            <ul class="product-features">
+              <li><i class="fa-solid fa-circle-check"></i> 호텔 루프탑, 펜트하우스, 펜션 테라스 최적화</li>
+              <li><i class="fa-solid fa-circle-check"></i> 부드러운 개폐 레일 구동 & 완벽한 자외선 차단</li>
+              <li><i class="fa-solid fa-circle-check"></i> 야외 쉼터 공간의 품격을 한 단계 격상</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="./images/case_224411399262_0.jpg" alt="원단교체 천갈이" loading="lazy">
+            <span class="product-tag">비용 50% 절감 리폼</span>
+          </div>
+          <div class="product-body">
+            <h3 class="product-name">어닝 원단 교체 (천갈이 / 수리)</h3>
+            <p class="product-desc">기존의 튼튼한 프레임은 그대로 유지하고 변색·오염·파손된 원단만 새것으로 교체하여 신규 설치 대비 비용을 대폭 절감합니다.</p>
+            <ul class="product-features">
+              <li><i class="fa-solid fa-circle-check"></i> 노후 원단 철거 및 프레임 점검 무상 서비스</li>
+              <li><i class="fa-solid fa-circle-check"></i> 업종 변경, 매장 리뉴얼에 최적화된 리폼</li>
+              <li><i class="fa-solid fa-circle-check"></i> 모터 교체, 암 수리, 각도 재조절 동시 시공</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="./images/case_224411400349_0.jpg" alt="드롭 어닝 스카이어닝" loading="lazy">
+            <span class="product-tag">수직 직사광선 차단</span>
+          </div>
+          <div class="product-body">
+            <h3 class="product-name">드롭 어닝 & 스카이 어닝</h3>
+            <p class="product-desc">창호 전면에 수직 하강하여 실내 온도를 급격히 낮춰주는 드롭어닝과 대형 루프탑 테라스를 전동으로 덮는 스카이어닝 시스템.</p>
+            <ul class="product-features">
+              <li><i class="fa-solid fa-circle-check"></i> 어린이집, 유치원, 카페 창가 눈부심 완벽 방지</li>
+              <li><i class="fa-solid fa-circle-check"></i> 태양열 80% 이상 외부 차단 냉방비 절감</li>
+              <li><i class="fa-solid fa-circle-check"></i> 강풍에 견디는 고강도 윈도우 가이드 레일</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="./images/case_224360590085_0.jpg" alt="대형 산업용 어닝" loading="lazy">
+            <span class="product-tag">대형 면적 맞춤 시공</span>
+          </div>
+          <div class="product-body">
+            <h3 class="product-name">대형 상가 · 산업용 어닝</h3>
+            <p class="product-desc">물류센터, 정비소, 대형 마트, 공장 출입구 등 폭이 넓고 높은 공간에 안전 브라켓과 보강 트러스로 견고하게 시공하는 산업용 어닝.</p>
+            <ul class="product-features">
+              <li><i class="fa-solid fa-circle-check"></i> 다중 연동 전동 모터 및 중앙 집중 제어</li>
+              <li><i class="fa-solid fa-circle-check"></i> 샌드위치 판넬, H빔 전용 관통 볼트 체결</li>
+              <li><i class="fa-solid fa-circle-check"></i> 우천 시 하역 작업 및 차량 정비 효율 극대화</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Section -->
+  <section id="why" class="why-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill" style="background: var(--accent-soft); color: var(--accent);">WHY AWNING HOUSE</span>
+        <h2 class="section-title">어닝하우스가 고객님께 선택받는 이유</h2>
+        <p class="section-desc">보편적인 시공 수준에 안주하지 않고, 10년의 노하우와 데이터 기반의 체계적인 프로세스로 시공 품질을 보장합니다.</p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-card-top">
+            <div class="why-icon"><i class="fa-solid fa-users-gear"></i></div>
+            <span class="why-num">01</span>
+          </div>
+          <h3 class="why-title">10년 베테랑 & 청년 감각의 조화</h3>
+          <p class="why-desc">10년 이상의 풍부한 실무 경력을 가진 현장 베테랑과 감각적인 청년 시공팀이 만나 안전성과 세련된 디자인을 동시에 완성합니다.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-card-top">
+            <div class="why-icon"><i class="fa-solid fa-tags"></i></div>
+            <span class="why-num">02</span>
+          </div>
+          <h3 class="why-title">100% 공장직영 합리적 단가</h3>
+          <p class="why-desc">유통 마진 없는 자체 공장 다이렉트 생산 체계로 최고급 원자재를 확보하면서도 고객님께 합리적인 직영 시공 단가를 제공합니다.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-card-top">
+            <div class="why-icon"><i class="fa-solid fa-mountain"></i></div>
+            <span class="why-num">03</span>
+          </div>
+          <h3 class="why-title">고난도 특수 현장 완벽 시공</h3>
+          <p class="why-desc">바다 위 선박, 20층 고층 테라스, 빌라 옥상, 샌드위치 판넬, 천연 대리석 등 타 업체가 꺼리는 극한의 환경에서도 완벽히 시공합니다.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-card-top">
+            <div class="why-icon"><i class="fa-solid fa-sun"></i></div>
+            <span class="why-num">04</span>
+          </div>
+          <h3 class="why-title">유럽형 차열 시스템 & 딕슨 원단</h3>
+          <p class="why-desc">프랑스 Dickson 정품 아크릴 원단 사용으로 외부 태양열을 80% 이상 차단하여 실내 블라인드 대비 3배 이상의 에너지 절감 효과를 발휘합니다.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-card-top">
+            <div class="why-icon"><i class="fa-solid fa-headset"></i></div>
+            <span class="why-num">05</span>
+          </div>
+          <h3 class="why-title">365일 상시 A/S & 철저한 사후관리</h3>
+          <p class="why-desc">설치 후 연락이 두절되는 영세 업체와 달리, 365일 상시 전담 A/S 접수 시스템을 운영하여 사후 관리를 철저히 책임집니다.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-card-top">
+            <div class="why-icon"><i class="fa-solid fa-droplet-slash"></i></div>
+            <span class="why-num">06</span>
+          </div>
+          <h3 class="why-title">정밀 레이저 실측 & 완벽 방수</h3>
+          <p class="why-desc">0.1mm 오차 없는 레이저 실측과 구조별 맞춤 앙카 시공, 바이오 실리콘 2중 코킹으로 비가림막 누수를 원천 차단합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cases / Portfolio Section -->
+  <section id="cases" class="cases-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill" style="background: var(--accent-soft); color: var(--accent);">OUR PORTFOLIO</span>
+        <h2 class="section-title">평택 어닝하우스 실제 시공 갤러리</h2>
+        <p class="section-desc">평택, 고덕, 동탄, 안성, 천안 등 다양한 현장에서 직접 제작·시공한 생생한 포트폴리오를 확인해 보세요.</p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs">
+        <button type="button" class="filter-btn active" data-filter="all">전체보기 (16)</button>
+        <button type="button" class="filter-btn" data-filter="folding">접이식 어닝</button>
+        <button type="button" class="filter-btn" data-filter="fixed">고정식·간판</button>
+        <button type="button" class="filter-btn" data-filter="wave">웨이브 어닝</button>
+        <button type="button" class="filter-btn" data-filter="terrace">주택·테라스</button>
+        <button type="button" class="filter-btn" data-filter="drop">드롭·특수</button>
+        <button type="button" class="filter-btn" data-filter="fabric">원단교체(천갈이)</button>
+      </div>
+
+      <!-- Cases Grid -->
+      <div class="cases-grid" id="casesGrid">
+        <!-- Dynamically Rendered via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Estimate Calculator -->
+  <section id="estimate" class="estimate-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill" style="background: rgba(234, 88, 12, 0.2); color: #fb923c;">ONLINE ESTIMATOR</span>
+        <h2 class="section-title">실시간 간편 견적 시뮬레이터</h2>
+        <p class="section-desc">설치하실 크기와 종류를 선택하시면 공장직영 기준 대략적인 예상 비용을 실시간으로 확인하실 수 있습니다.</p>
+      </div>
+
+      <div class="estimate-container">
+        <!-- Guide Card -->
+        <div class="estimate-guide-card">
+          <h3><i class="fa-solid fa-lightbulb"></i> 정확한 견적을 위한 5가지 체크포인트</h3>
+          <p>현장 사진과 함께 아래 항목을 문자로 보내주시면 5분 내에 가장 정확한 가견적을 안내해 드립니다.</p>
+
+          <div class="guide-steps">
+            <div class="guide-step-item">
+              <div class="step-num">1</div>
+              <div class="step-text">
+                <strong>설치 공간 가로(전면) 길이</strong>
+                <span>어닝이 설치될 건물의 좌우 폭 치수 (예: 4.5m)</span>
+              </div>
+            </div>
+            <div class="guide-step-item">
+              <div class="step-num">2</div>
+              <div class="step-text">
+                <strong>앞으로 뻗어나오는 돌출 길이</strong>
+                <span>그늘막을 펼칠 바깥 방향 길이 (보통 1.5m ~ 3.0m)</span>
+              </div>
+            </div>
+            <div class="guide-step-item">
+              <div class="step-num">3</div>
+              <div class="step-text">
+                <strong>구동 방식 선택</strong>
+                <span>수동 핸들 구동형 / 리모컨 전동 모터 구동형</span>
+              </div>
+            </div>
+            <div class="guide-step-item">
+              <div class="step-num">4</div>
+              <div class="step-text">
+                <strong>원단 및 로고 인쇄 여부</strong>
+                <span>국산 고급원단 / 프랑스 딕슨 수입원단 & 상호 인쇄 여부</span>
+              </div>
+            </div>
+            <div class="guide-step-item">
+              <div class="step-num">5</div>
+              <div class="step-text">
+                <strong>현장 전경 사진 1~2장</strong>
+                <span>설치될 벽면(대리석/판넬/벽돌)과 전면 사진을 문자로 전송</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="estimate-phone-box">
+            <span>상담 직통 핫라인 (전화 및 문자 상담 환영)</span>
+            <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:12px;">
+              <button type="button" onclick="makePhoneCall()" class="btn-primary" style="padding:12px 22px; font-size:0.95rem;">
+                <i class="fa-solid fa-phone-volume"></i> 대표전화 즉시연결
+              </button>
+              <button type="button" onclick="revealPhoneNumber(this)" class="btn-secondary" style="padding:12px 20px; font-size:0.95rem;">
+                <i class="fa-solid fa-address-book"></i> 연락처 번호 확인
+              </button>
+            </div>
+            <div id="revealedPhoneBox" style="display:none; margin-top:14px; padding:12px 16px; background:rgba(0,0,0,0.35); border-radius:8px; border:1px dashed rgba(251,146,60,0.6);">
+              <span style="font-size:0.85rem; color:#fed7aa;">어닝하우스 직통 상담 라인:</span>
+              <strong id="revealedPhoneText" style="font-size:1.05rem; color:#ffffff; line-height:1.7; display:block; margin-top:6px;"></strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Calculator Card -->
+        <div class="calc-card">
+          <h4><i class="fa-solid fa-calculator" style="color: var(--accent); margin-right: 8px;"></i> 가견적 계산기</h4>
+          <p>원하시는 사양을 선택하시면 실시간으로 표준 시공 기준 예상 견적을 안내해 드립니다.</p>
+
+          <div class="form-group">
+            <label class="form-label">어닝 종류 선택</label>
+            <div class="type-select-grid">
+              <button type="button" class="type-opt-btn active" data-type="manual">접이식 (수동)</button>
+              <button type="button" class="type-opt-btn" data-type="electric">접이식 (전동)</button>
+              <button type="button" class="type-opt-btn" data-type="fixed">고정식·간판</button>
+              <button type="button" class="type-opt-btn" data-type="wave">웨이브 어닝</button>
+              <button type="button" class="type-opt-btn" data-type="fabric">원단교체(천갈이)</button>
+            </div>
+          </div>
+
+          <div class="form-group range-wrap">
+            <div class="range-header">
+              <span>가로(전면) 폭</span>
+              <span class="range-val" id="widthDisplay">4.0 m</span>
+            </div>
+            <input type="range" id="widthInput" min="2.0" max="8.0" step="0.5" value="4.0">
+          </div>
+
+          <div class="form-group range-wrap" id="armWrap">
+            <div class="range-header">
+              <span>돌출(앞으로 나오는) 길이</span>
+              <span class="range-val" id="armDisplay">2.0 m</span>
+            </div>
+            <input type="range" id="armInput" min="1.5" max="3.5" step="0.5" value="2.0">
+          </div>
+
+          <div class="form-group" style="display:flex; flex-direction:column; gap:8px;">
+            <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; font-weight: 700; cursor: pointer;">
+              <input type="checkbox" id="printCheck" style="width: 18px; height: 18px; accent-color: var(--accent);">
+              상호 / 로고 문구 인쇄 포함 (+6만~9만)
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; font-weight: 700; cursor: pointer;">
+              <input type="checkbox" id="dicksonCheck" style="width: 18px; height: 18px; accent-color: var(--accent);">
+              프랑스 딕슨(Dickson) 직수입 아크릴 원단 업그레이드
+            </label>
+          </div>
+
+          <div class="calc-result-box">
+            <div class="calc-result-label">공장직영 표준 예상 견적</div>
+            <div class="calc-result-price" id="calcPrice">약 580,000원 ~ 680,000원</div>
+            <div class="calc-result-note">※ 현장 벽면 보강, 사다리차 사용 여부, 원단 사양에 따라 변동될 수 있습니다.</div>
+          </div>
+
+          <div class="calc-actions">
+            <button type="button" class="btn-calc-sms" id="btnSmsQuote">
+              <i class="fa-solid fa-comment-dots"></i> 문자 견적문의
+            </button>
+            <a href="http://pf.kakao.com/_xnxhpVX" target="_blank" rel="noopener" class="btn-calc-kakao">
+              <i class="fa-solid fa-comment"></i> 카카오톡 상담
+            </a>
+            <button type="button" onclick="makePhoneCall()" class="btn-calc-call">
+              <i class="fa-solid fa-phone-volume"></i> 전화 상담
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section id="process" class="process-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill" style="background: var(--accent-soft); color: var(--accent);">INSTALLATION PROCESS</span>
+        <h2 class="section-title">체계적인 4단계 책임 시공 프로세스</h2>
+        <p class="section-desc">상담부터 실측, 제작, 설치, 사후관리까지 전 과정을 투명하게 공개하며 오차 없는 완벽함을 추구합니다.</p>
+      </div>
+
+      <div class="process-timeline">
+        <div class="process-card">
+          <span class="process-step-badge">STEP 01</span>
+          <h3 class="process-title">사전 답사 및 정밀 실측</h3>
+          <p class="process-desc">설치 환경과 매장 컨셉을 정밀 분석하고, 고정밀 레이저 측정기로 0.1mm 오차 없는 치수와 외벽 구조(벽돌, 판넬, 석재)를 확인합니다.</p>
+        </div>
+
+        <div class="process-card">
+          <span class="process-step-badge">STEP 02</span>
+          <h3 class="process-title">1:1 맞춤 디자인 & 설계</h3>
+          <p class="process-desc">확정된 실측 데이터를 바탕으로 브랜드 아이덴티티에 맞는 원단 컬러, 형태, 로고 레이아웃을 시뮬레이션 제안 후 일정을 공유합니다.</p>
+        </div>
+
+        <div class="process-card">
+          <span class="process-step-badge">STEP 03</span>
+          <h3 class="process-title">공장 직영 제작 & 책임 시공</h3>
+          <p class="process-desc">자체 직영 공장에서 최고급 원자재로 정밀 생산 후 안전 수칙을 준수하여 특수 브라켓 앵커 고정 및 바이오 실리콘 방수 마감까지 시공합니다.</p>
+        </div>
+
+        <div class="process-card">
+          <span class="process-step-badge">STEP 04</span>
+          <h3 class="process-title">최종 시운전 & 365일 A/S</h3>
+          <p class="process-desc">기어 및 전동 모터 작동 상태, 각도, 텐션을 정밀 테스트하고 관리 요령을 상세히 안내해 드리며 365일 A/S 보증을 약속합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fabric Showcase -->
+  <section id="fabric" class="fabric-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill" style="background: var(--accent-soft); color: var(--accent);">FABRIC & SYSTEM</span>
+        <h2 class="section-title">유럽형 일사 관리 시스템 & 프리미엄 원단</h2>
+        <p class="section-desc">단순한 비가림막을 넘어 태양열의 80% 이상을 차단하는 에너지 절감형 최고급 원단을 사용합니다.</p>
+      </div>
+
+      <div class="fabric-grid">
+        <div class="fabric-card-left">
+          <div class="fabric-badge"><i class="fa-solid fa-leaf"></i> 프랑스 딕슨(Dickson) 직수입 & 최고급 국산 원단</div>
+          <h3 class="fabric-title">외부에서 태양열을 80% 이상 억제하는 고성능 원단</h3>
+          <p class="fabric-desc">
+            유럽 차양 표준 Solar Management System을 적용하여 실내로 유입되는 직사광선을 완벽 분산합니다.
+            내부 커튼이나 롤스크린 대비 실내 온도 상승 억제 효과가 3배 이상 뛰어나 여름철 냉방비를 획기적으로 절약할 수 있습니다.
+          </p>
+          <div class="fabric-specs">
+            <div class="spec-item">
+              <strong><i class="fa-solid fa-droplet" style="color: #0284c7;"></i> 100% 방수 및 발수</strong>
+              <span>고압 수압에도 물방울이 튕겨나가는 특수 코팅</span>
+            </div>
+            <div class="spec-item">
+              <strong><i class="fa-solid fa-sun" style="color: #ea580c;"></i> UV 자외선 99% 차단</strong>
+              <span>실내 가구·제품 탈색 및 눈부심 완벽 방지</span>
+            </div>
+            <div class="spec-item">
+              <strong><i class="fa-solid fa-wand-magic-sparkles" style="color: #8b5cf6;"></i> 원사 착색(Solution Dyed)</strong>
+              <span>섬유 속까지 염색되어 수년간 햇빛 노출에도 색바램 방지</span>
+            </div>
+            <div class="spec-item">
+              <strong><i class="fa-solid fa-shield-virus" style="color: #10b981;"></i> 항균 & 곰팡이 방지</strong>
+              <span>장마철 습기에도 곰팡이 번식을 억제하는 클린 케어</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="color-swatches-card">
+          <h4 style="font-size:1.3rem;font-weight:900;color:var(--primary);margin-bottom:8px;">인기 원단 컬러 셀렉션</h4>
+          <p style="font-size:0.88rem;color:var(--text-muted);">매장 분위기와 인테리어에 어울리는 100여 종의 다양한 컬러칩을 보유하고 있습니다.</p>
+          <div class="swatches-grid">
+            <div class="swatch-box">
+              <div class="swatch-circle" style="background:#1e293b;"></div>
+              <span class="swatch-name">차콜 블랙</span>
+            </div>
+            <div class="swatch-box">
+              <div class="swatch-circle" style="background:#d4c4b5;"></div>
+              <span class="swatch-name">모던 베이지</span>
+            </div>
+            <div class="swatch-box">
+              <div class="swatch-circle" style="background:#7f1d1d;"></div>
+              <span class="swatch-name">클래식 버건디</span>
+            </div>
+            <div class="swatch-box">
+              <div class="swatch-circle" style="background:#1e3a8a;"></div>
+              <span class="swatch-name">로얄 네이비</span>
+            </div>
+            <div class="swatch-box">
+              <div class="swatch-circle" style="background:#14532d;"></div>
+              <span class="swatch-name">포레스트 그린</span>
+            </div>
+            <div class="swatch-box">
+              <div class="swatch-circle" style="background:#f59e0b;"></div>
+              <span class="swatch-name">머스타드 옐로우</span>
+            </div>
+            <div class="swatch-box">
+              <div class="swatch-circle" style="background:#ea580c;"></div>
+              <span class="swatch-name">시그니처 오렌지</span>
+            </div>
+            <div class="swatch-box">
+              <div class="swatch-circle" style="background:repeating-linear-gradient(45deg, #1e3a8a, #1e3a8a 6px, #ffffff 6px, #ffffff 12px);"></div>
+              <span class="swatch-name">블루 스트라이프</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="faq-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill" style="background: var(--accent-soft); color: var(--accent);">FAQ</span>
+        <h2 class="section-title">자주 묻는 질문</h2>
+        <p class="section-desc">어닝 제작 및 시공과 관련하여 고객님들께서 가장 많이 문의하시는 내용을 모았습니다.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>방문 실측 및 견적 상담은 정말 무료인가요?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              네, 그렇습니다! 평택 전역(고덕, 동삭, 서정, 송탄, 안중 등) 및 인근 동탄, 오산, 안성, 천안 등 경기남부·충남 전지역 무료 방문 실측 서비스를 제공하고 있습니다. 레이저 실측기를 통해 현장 구조와 정확한 치수를 측정해 드리고 원단 샘플북을 직접 지참하여 상세히 상담해 드립니다.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>제작 및 시공까지 기간은 얼마나 소요되나요?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              공장직영 시스템으로 운영되기 때문에 통상 실측 및 사양 확정 후 <strong>2일~4일 이내</strong>에 맞춤 제작과 시공이 완료됩니다. 긴급한 개업 일정이나 매장 리뉴얼이 있으신 경우 일정 조율을 통해 신속 시공도 가능합니다.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>수동 어닝과 전동 어닝 중 어떤 것을 추천하시나요?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              가로 폭이 4m 이하의 아담한 공간이라면 가격이 경제적인 핸들 수동식을 추천드립니다. 반면 가로 폭이 5m 이상이거나 층고가 높고, 테라스를 자주 개폐하시는 매장 및 주택의 경우 리모컨 원터치로 편리하게 조작할 수 있는 전동 모터 방식을 적극 권장해 드립니다.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>기존 어닝이 낡았는데 프레임 그대로 원단교체(천갈이)가 가능한가요?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              물론입니다! 알루미늄 프레임에 큰 파손이 없다면 기존 뼈대는 그대로 살리고 원단만 새것으로 교체(천갈이)하실 수 있습니다. 신규 설치 대비 비용이 40~50% 절감되며, 어닝하우스에서는 천갈이 시공 시 프레임 각도 조정 및 부속 점검 서비스를 무상으로 함께 제공해 드립니다.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>샌드위치 판넬벽이나 대리석 외벽에도 안전하게 설치 가능한가요?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              네, 어닝하우스의 대표적인 강점입니다. 샌드위치 판넬의 경우 내부 C형강 또는 판넬 맞볼트 관통 시공을 진행하며, 대리석/석재 외벽은 내부 콘크리트 골조까지 롱 앵커 볼트를 타공 체결하여 강풍에도 절대 흔들리지 않도록 특수 안전 브라켓으로 보강 시공합니다.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>비가 오거나 태풍이 올 때는 어떻게 관리해야 하나요?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              기본적인 생활 방수가 완벽히 처리되어 있어 가벼운 비가 올 때는 펼쳐두셔도 빗물이 원활히 배수됩니다. 다만, 폭우나 강풍, 태풍, 폭설 시에는 원단에 빗물이나 눈이 고여 프레임이 손상될 수 있으므로 반드시 어닝을 완전히 접어두시는 것이 제품 수명을 오래 유지하는 비결입니다.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>A/S 보증 기간과 사후 관리는 어떻게 되나요?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              시공 완료 후 1년간 무상 A/S를 보증해 드리며, 어닝하우스는 365일 상시 전담 A/S 접수 시스템을 운영하고 있어 언제든지 문제 발생 시 신속하게 방문 점검 및 수리를 진행해 드립니다.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Location Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill" style="background: var(--accent-soft); color: var(--accent);">CONTACT & LOCATION</span>
+        <h2 class="section-title">찾아오시는 길 & 견적 문의</h2>
+        <p class="section-desc">언제든지 편안하게 연락해 주세요. 친절하고 정확하게 상담해 드리겠습니다.</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Left: Info Card -->
+        <div class="contact-info-card">
+          <h3>평택 어닝하우스 직통 안내</h3>
+          <p>공장직영 맞춤 제작 및 현장 무료 방문 실측을 언제나 환영합니다.</p>
+
+          <div class="info-list">
+            <div class="info-item">
+              <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div class="info-text">
+                <strong>사업장 주소</strong>
+                <span>경기도 평택시 고덕면 문곡길 91-12 어닝하우스</span>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon"><i class="fa-solid fa-phone-volume"></i></div>
+              <div class="info-text">
+                <strong>상담 및 시공 핫라인</strong>
+                <div class="contact-phones-wrap">
+                  <a href="javascript:void(0);" onclick="makePhoneCall()" class="phone-pill main-phone">
+                    <i class="fa-solid fa-phone-volume"></i> 대표전화 바로연결 (터치 시 통화)
+                  </a>
+                  <a href="javascript:void(0);" onclick="callConstruction()" class="phone-pill">
+                    <i class="fa-solid fa-phone"></i> 시공문의 직통연결 (터치 시 통화)
+                  </a>
+                  <a href="javascript:void(0);" onclick="callSurvey()" class="phone-pill">
+                    <i class="fa-solid fa-ruler-combined"></i> 현장실측 직통연결 (터치 시 통화)
+                  </a>
+                  <button type="button" onclick="revealContactNumbers(this)" class="btn-reveal-numbers">
+                    <i class="fa-solid fa-address-book"></i> 직통 번호 확인하기
+                  </button>
+                  <div id="contactRevealedBox" style="display:none; margin-top:8px; padding:10px 14px; background:#f8fafc; border-radius:8px; border:1px solid #e2e8f0; font-size:0.9rem; color:#1e293b; line-height:1.7;"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon" style="background:#fee500;color:#3c1e1e;"><i class="fa-solid fa-comment"></i></div>
+              <div class="info-text">
+                <strong>카카오톡 상담 (1:1 채팅)</strong>
+                <a href="http://pf.kakao.com/_xnxhpVX" target="_blank" rel="noopener" style="color:#854d0e;font-weight:700;display:inline-flex;align-items:center;gap:6px;">
+                  카카오톡 채널 1:1 상담 바로가기 (어닝하우스) <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.8rem;"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon" style="background:#dcfce7;color:#16a34a;"><i class="fa-solid fa-blog"></i></div>
+              <div class="info-text">
+                <strong>네이버 공식 블로그</strong>
+                <a href="https://blog.naver.com/kimku0511" target="_blank" rel="noopener" style="color:#03a84b;font-weight:700;">
+                  https://blog.naver.com/kimku0511 (490+ 시공사례 수록)
+                </a>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon"><i class="fa-solid fa-truck-fast"></i></div>
+              <div class="info-text">
+                <strong>주요 출장 및 시공 권역</strong>
+                <span>평택 전역(고덕, 동삭, 송탄, 포승, 청북 등), 동탄, 안성, 오산, 수원, 화성, 천안, 아산 및 수도권 전역</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Map Preview Card -->
+        <div class="map-preview-card">
+          <div class="map-header">
+            <div>
+              <div class="map-title">평택 어닝하우스 본점</div>
+              <div class="map-address">경기도 평택시 고덕면 문곡길 91-12</div>
+            </div>
+            <a href="https://m.place.naver.com/place/1067088361" target="_blank" rel="noopener" class="btn-naver-map">
+              <i class="fa-solid fa-location-arrow"></i> 네이버 지도
+            </a>
+          </div>
+
+          <div class="map-box" style="position:relative;background:#060a17;overflow:hidden;">
+            <img src="./images/profile.jpg" alt="어닝하우스 본사 전경" style="width:100%;height:100%;object-fit:cover;opacity:0.85;">
+            <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(6,10,23,0.9) 0%, transparent 60%);display:flex;align-items:flex-end;padding:24px;">
+              <div>
+                <span style="display:inline-block;background:var(--accent);color:#ffffff;font-size:0.78rem;font-weight:800;padding:4px 10px;border-radius:var(--radius-full);margin-bottom:6px;">공장직영 본사</span>
+                <h4 style="color:#ffffff;font-size:1.2rem;font-weight:900;">경기도 평택시 고덕면 문곡길 91-12</h4>
+                <p style="color:#cbd5e1;font-size:0.85rem;">평택고덕IC 인근 · 주차 완비</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="map-actions">
+            <a href="https://m.place.naver.com/place/1067088361/location" target="_blank" rel="noopener" class="btn-naver-map">
+              <i class="fa-solid fa-map"></i> 네이버 길찾기 연동
+            </a>
+            <button type="button" onclick="copyAddress()" class="btn-copy-addr">
+              <i class="fa-solid fa-copy"></i> 주소 복사하기
+            </button>
+            <button type="button" onclick="makePhoneCall()" class="btn-copy-addr" style="color:var(--accent);border-color:#fdba74;">
+              <i class="fa-solid fa-phone"></i> 전화 상담
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>평택 <span>어닝하우스</span></h3>
+          <p>
+            10년의 노하우와 젊은 감각이 결합한 프리미엄 익스테리어 차양 전문 기업.<br>
+            접이식 어닝, 고정식 간판어닝, 웨이브 어닝, 원단교체(천갈이) 등 100% 공장직영 맞춤 제작으로 시공 품질과 만족을 보장합니다.
+          </p>
+          <div style="display:flex;gap:12px;align-items:center;">
+            <a href="https://blog.naver.com/kimku0511" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;color:#cbd5e1;">
+              <img src="./images/naver_blog_icon.png" alt="블로그" style="width:20px;height:20px;border-radius:4px;"> 공식 블로그
+            </a>
+            <span style="color:#475569;">|</span>
+            <a href="https://m.place.naver.com/place/1067088361" target="_blank" rel="noopener" style="color:#cbd5e1;">
+              <i class="fa-solid fa-map-location-dot" style="color:var(--accent);"></i> 네이버 플레이스
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-links-title">시공 서비스</h4>
+          <ul class="footer-links">
+            <li><a href="#products">접이식 어닝 (수동 / 전동)</a></li>
+            <li><a href="#products">고정식 어닝 · 간판 어닝</a></li>
+            <li><a href="#products">웨이브 어닝 (루프탑/펜션)</a></li>
+            <li><a href="#products">어닝 원단 교체 (천갈이)</a></li>
+            <li><a href="#products">드롭 어닝 & 스카이 어닝</a></li>
+            <li><a href="#products">대형 상가 · 산업용 어닝</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-links-title">고객 지원 & 문의</h4>
+          <ul class="footer-links">
+            <li><a href="javascript:void(0);" onclick="makePhoneCall()">대표전화: 직통 연결 (터치 시 통화)</a></li>
+            <li><a href="javascript:void(0);" onclick="callConstruction()">시공상담: 직통 연결 (터치 시 통화)</a></li>
+            <li><a href="javascript:void(0);" onclick="callSurvey()">현장실측: 직통 연결 (터치 시 통화)</a></li>
+            <li><a href="http://pf.kakao.com/_xnxhpVX" target="_blank" rel="noopener">카카오톡 문의: 1:1 상담 바로가기</a></li>
+            <li>주소: 경기도 평택시 고덕면 문곡길 91-12</li>
+            <li>업무시간: 연중무휴 365일 상담 접수</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        &copy; 2026 평택 어닝하우스 (Awning House). All Rights Reserved. 공간의 품격을 더하는 맞춤 차양 솔루션.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Floating Dock Bar -->
+  <div class="mobile-dock">
+    <a href="javascript:void(0);" onclick="makePhoneCall()" class="dock-btn highlight">
+      <i class="fa-solid fa-phone-volume"></i>
+      <span>전화 상담</span>
+    </a>
+    <a href="http://pf.kakao.com/_xnxhpVX" target="_blank" rel="noopener" class="dock-btn">
+      <i class="fa-solid fa-comment" style="color:#fee500;font-size:1.15rem;"></i>
+      <span>카톡 상담</span>
+    </a>
+    <a href="javascript:void(0);" onclick="makeSms()" class="dock-btn">
+      <i class="fa-solid fa-comment-sms"></i>
+      <span>문자 견적</span>
+    </a>
+    <a href="https://blog.naver.com/kimku0511" target="_blank" rel="noopener" class="dock-btn">
+      <img src="./images/naver_blog_icon.png" alt="블로그" style="width:20px;height:20px;border-radius:4px;margin-bottom:2px;">
+      <span>블로그</span>
+    </a>
+    <a href="https://m.place.naver.com/place/1067088361" target="_blank" rel="noopener" class="dock-btn">
+      <i class="fa-solid fa-map-location-dot" style="color:#fb923c;"></i>
+      <span>오시는길</span>
+    </a>
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div class="modal-lightbox" id="lightboxModal">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightboxClose" aria-label="닫기">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="lightbox-img-area">
+        <img id="lightboxImg" src="" alt="시공 상세 사진" referrerpolicy="no-referrer">
+        <button class="lightbox-nav-btn lightbox-prev" id="lightboxPrev" aria-label="이전 사진">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="lightbox-nav-btn lightbox-next" id="lightboxNext" aria-label="다음 사진">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="lightbox-info">
+        <div>
+          <h4 class="lightbox-title" id="lightboxTitle">시공 현장 제목</h4>
+          <span class="lightbox-meta" id="lightboxMeta">지역 · 분류 · <span id="lightboxIndex">1/4</span></span>
+        </div>
+        <div class="lightbox-actions">
+          <a href="#" id="lightboxBlogLink" target="_blank" rel="noopener" class="btn-lightbox-blog" style="display:inline-flex;align-items:center;gap:8px;">
+            <img src="./images/naver_blog_icon.png" alt="네이버 블로그" style="width:16px;height:16px;border-radius:3px;"> 블로그 원문 후기 보기
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Message -->
+  <div class="toast" id="toastMsg">메시지가 복사되었습니다.</div>
+
+  <!-- Cases Data & Interactive JS -->
+  <script>
+    const casesData = [
+  {
+    "id": "224413926892",
+    "title": "평택 서정동 베이글 카페 원형 고정식 차양막 시공",
+    "category": "fixed",
+    "categoryName": "고정식·간판 어닝",
+    "location": "평택",
+    "desc": "베이글 전문 카페 출입구에 시공된 감성적인 원형 라운드 고정식 어닝. 비가림 및 브랜드 시인성 극대화.",
+    "images": [
+      "./images/case_224413926892_0.jpg",
+      "./images/case_224413926892_1.jpg",
+      "./images/case_224413926892_2.jpg",
+      "./images/case_224413926892_3.jpg"
+    ],
+    "url": "https://blog.naver.com/kimku0511/224413926892"
+  },
+  {
+    "id": "224413927314",
+    "title": "동탄 중흥 부동산 출입구 접이식 수동 차양막 시공",
+    "category": "folding",
+    "categoryName": "접이식 어닝",
+    "location": "동탄",
+    "desc": "상가 출입구 일사 차단 및 비가림용 접이식 수동 어닝. 깔끔한 외관과 내구성 높은 국산 프레임 적용.",
+    "images": [
+      "./images/case_224413927314_0.jpg",
+      "./images/case_224413927314_1.jpg",
+      "./images/case_224413927314_2.jpg",
+      "./images/case_224413927314_3.jpg"
+    ],
+    "url": "https://blog.naver.com/kimku0511/224413927314"
+  },
+  {
+    "id": "224411400349",
+    "title": "평택 현덕면 어린이집 드롭어닝 신규 설치",
+    "category": "drop",
+    "categoryName": "드롭·특수 어닝",
+    "location": "평택",
+    "desc": "어린이집 창가 직사광선 차단 및 쾌적한 실내 환경을 위한 수직 하강형 드롭어닝 시공.",
+    "images": [
+      "./images/case_224411400349_0.jpg",
+      "./images/case_224411400349_1.jpg",
+      "./images/case_224411400349_2.jpg",
+      "./images/case_224411400349_3.jpg"
+    ],
+    "url": "https://blog.naver.com/kimku0511/224411400349"
+  },
+  {
+    "id": "224411399787",
+    "title": "아산 탕정면 과일가게 비가림 고정식 차양막 설치",
+    "category": "fixed",
+    "categoryName": "고정식·간판 어닝",
+    "location": "아산",
+    "desc": "과일가게 신선도 유지와 비가림, 고객 동선을 고려한 와이드 고정식 간판 차양막 시공.",
+    "images": [
+      "./images/case_224411399787_0.jpg",
+      "./images/case_224411399787_1.jpg",
+      "./images/case_224411399787_2.jpg",
+      "./images/case_224411399787_3.jpg"
+    ],
+    "url": "https://blog.naver.com/kimku0511/224411399787"
+  },
+  {
+    "id": "224411399262",
+    "title": "평택 송탄 마트 대형 전동차양막 원단교체(천갈이)",
+    "category": "fabric",
+    "categoryName": "원단교체 / 천갈이",
+    "location": "평택",
+    "desc": "기존 노후 원단을 철거하고 신규 고밀도 발수 원단으로 교체 리폼. 프레임 점검 및 모터 정비 완료.",
+    "images": [
+      "./images/case_224411399262_0.jpg",
+      "./images/case_224411399262_1.jpg",
+      "./images/case_224411399262_2.jpg",
+      "./images/case_224411399262_3.jpg"
+    ],
+    "url": "https://blog.naver.com/kimku0511/224411399262"
+  },
+  {
+    "id": "224404624925",
+    "title": "평택 고덕 감자탕 전문점 출입구 차양막 시공",
+    "category": "folding",
+    "categoryName": "접이식 어닝",
+    "location": "평택",
+    "desc": "고덕신도시 상가 출입구 비가림 및 대기 고객 쉼터를 위한 접이식 차양막 맞춤 제작.",
+    "images": [
+      "./images/case_224404624925_0.jpg",
+      "./images/case_224404624925_1.jpg",
+      "./images/case_224404624925_2.jpg",
+      "./images/case_224404624925_3.jpg"
+    ],
+    "url": "https://blog.naver.com/kimku0511/224404624925"
+  },
+  {
+    "id": "224404624091",
+    "title": "평택 청북 전원주택 테라스 접이식 수동어닝",
+    "category": "terrace",
+    "categoryName": "주택·테라스 어닝",
+    "location": "평택",
+    "desc": "전원주택 목재 데크 테라스 공간을 아늑한 힐링 쉼터로 업그레이드한 맞춤 접이식 어닝.",
+    "images": [
+      "./images/case_224404624091_0.jpg",
+      "./images/case_224404624091_1.jpg",
+      "./images/case_224404624091_2.jpg",
+      "./images/case_224404624091_3.jpg"
+    ],
+    "url": "https://blog.naver.com/kimku0511/224404624091"
+  },
+  {
+    "id": "224392322512",
+    "title": "평택 고덕 하루앤소쿠 매장 접이식 수동어닝",
+    "category": "folding",
+    "categoryName": "접이식 어닝",
+    "location": "평택",
+    "desc": "프랜차이즈 매장 전면부 브랜드 컬러 일체형 접이식 어닝. 외벽 안전 앙카 및 실리콘 마감.",
+    "images": [
+      "./images/case_224392322512_0.jpg",
+      "./images/case_224392322512_1.jpg",
+      "./images/case_224392322512_2.jpg",
+      "./images/case_224392322512_3.jpg"
+    ],
+    "url": "https://blog.naver.com/kimku0511/224392322512"
+  },
+  {
+    "id": "224392321931",
+    "title": "수원 인계동 소품샵 감성 고정식 차양막 시공",
+    "category": "fixed",
+    "categoryName": "고정식·간판 어닝",
+    "location": "수원",
+    "desc": "트렌디한 소품샵 외관에 맞춘 유럽풍 고정식 어닝. 고급 아크릴 원단 적용 및 로고 레터링 인쇄.",
+    "images": [
+      "./images/case_224392321931_0.jpg",
+      "./images/case_224392321931_1.jpg",
+      "./images/case_224392321931_2.jpg",
+      "./images/case_224392321931_3.jpg"
+    ],
+    "url": "https://blog.naver.com/kimku0511/224392321931"
+  },
+  {
+    "id": "224393490948",
+    "title": "광진구 피자펍 야외 테라스 쉼터 웨이브어닝 시공",
+    "category": "wave",
+    "categoryName": "웨이브 어닝",
+    "location": "수도권",
+    "desc": "루프탑 테라스 고객 쉼터를 위한 고급스러운 물결 형태의 웨이브어닝. 탁월한 분위기 연출.",
+    "images": [
+      "./images/case_224393490948_0.jpg",
+      "./images/case_224393490948_1.jpg",
+      "./images/case_224393490948_2.jpg",
+      "./images/case_224393490948_3.jpg"
+    ],
+    "url": "https://blog.naver.com/kimku0511/224393490948"
+  },
+  {
+    "id": "224384060502",
+    "title": "오산 제일교회 1층 카페 테라스 접이식 어닝",
+    "category": "folding",
+    "categoryName": "접이식 어닝",
+    "location": "오산",
+    "desc": "교회 1층 카페 외부 쉼터에 설치된 접이식 수동어닝. 넓은 그늘막 형성 및 편안한 휴식 공간 제공.",
+    "images": [
+      "./images/case_224384060502_0.jpg",
+      "./images/case_224384060502_1.jpg",
+      "./images/case_224384060502_2.jpg",
+      "./images/case_224384060502_3.jpg"
+    ],
+    "url": "https://blog.naver.com/kimku0511/224384060502"
+  },
+  {
+    "id": "224384060169",
+    "title": "평택 동삭동 디저트 카페 접이식 수동어닝 시공",
+    "category": "folding",
+    "categoryName": "접이식 어닝",
+    "location": "평택",
+    "desc": "동삭동 신상 카페 파사드에 어울리는 베이지 톤 접이식 어닝. 실내 냉방 효율 향상 및 채광 조절.",
+    "images": [
+      "./images/case_224384060169_0.jpg",
+      "./images/case_224384060169_1.jpg",
+      "./images/case_224384060169_2.jpg",
+      "./images/case_224384060169_3.jpg"
+    ],
+    "url": "https://blog.naver.com/kimku0511/224384060169"
+  },
+  {
+    "id": "224384059687",
+    "title": "홍성 남원추어탕 대형 매장 전동 접이식어닝",
+    "category": "folding",
+    "categoryName": "접이식 어닝",
+    "location": "홍성",
+    "desc": "대형 식당 전면부 리모컨 전동 제어식 광폭 접이식 어닝. 강풍 대비 튼튼한 프레임 설계.",
+    "images": [
+      "./images/case_224384059687_0.jpg",
+      "./images/case_224384059687_1.jpg",
+      "./images/case_224384059687_2.jpg",
+      "./images/case_224384059687_3.jpg"
+    ],
+    "url": "https://blog.naver.com/kimku0511/224384059687"
+  },
+  {
+    "id": "224370251344",
+    "title": "평택 동삭동 아파트 테라스 접이식 전동어닝",
+    "category": "terrace",
+    "categoryName": "주택·테라스 어닝",
+    "location": "평택",
+    "desc": "아파트 저층 테라스 세대 맞춤 전동 접이식 어닝. 사생활 보호 및 사계절 야외 공간 활용.",
+    "images": [
+      "./images/case_224370251344_0.jpg",
+      "./images/case_224370251344_1.jpg",
+      "./images/case_224370251344_2.jpg",
+      "./images/case_224370251344_3.jpg"
+    ],
+    "url": "https://blog.naver.com/kimku0511/224370251344"
+  },
+  {
+    "id": "224360590085",
+    "title": "평택 포승 정비소 작업장 접이식 전동어닝 3틀",
+    "category": "commercial",
+    "categoryName": "대형·산업용 어닝",
+    "location": "평택",
+    "desc": "차량검사정비소 야외 작업 라인 3틀 연동 전동어닝 시공. 우천 시 원활한 정비 작업 보장.",
+    "images": [
+      "./images/case_224360590085_0.jpg",
+      "./images/case_224360590085_1.jpg",
+      "./images/case_224360590085_2.jpg",
+      "./images/case_224360590085_3.jpg"
+    ],
+    "url": "https://blog.naver.com/kimku0511/224360590085"
+  },
+  {
+    "id": "224352848170",
+    "title": "안성 랜드보틀펍 펜션 테라스 웨이브어닝 시공",
+    "category": "wave",
+    "categoryName": "웨이브 어닝",
+    "location": "안성",
+    "desc": "펜션 야외 바베큐 및 테라스 펍을 위한 하이엔드 웨이브어닝. 감성적인 인테리어와 완벽한 차양.",
+    "images": [
+      "./images/case_224352848170_0.jpg",
+      "./images/case_224352848170_1.jpg",
+      "./images/case_224352848170_2.jpg",
+      "./images/case_224352848170_3.jpg"
+    ],
+    "url": "https://blog.naver.com/kimku0511/224352848170"
+  }
+];
+
+    // Phone numbers protection (Anti-Scraping partition)
+    const _p1 = '010';
+    const _p2 = '7254';
+    const _p3 = '6431';
+
+    const _c1 = '010';
+    const _c2 = '4617';
+    const _c3 = '6482';
+
+    const _s1 = '010';
+    const _s2 = '2680';
+    const _s3 = '9078';
+
+    function getRawPhone() {
+      return `${_p1}${_p2}${_p3}`;
+    }
+
+    function makePhoneCall() {
+      window.location.href = `tel:${getRawPhone()}`;
+    }
+
+    function callConstruction() {
+      window.location.href = `tel:${_c1}${_c2}${_c3}`;
+    }
+
+    function callSurvey() {
+      window.location.href = `tel:${_s1}${_s2}${_s3}`;
+    }
+
+    function makeSms(customBody = '') {
+      const defaultBody = '[평택 어닝하우스 견적문의]\n어닝 맞춤시공/원단교체 상담 요청드립니다.\n- 현장사진 첨부 예정';
+      const body = customBody || defaultBody;
+      window.location.href = `sms:${getRawPhone()}?body=${encodeURIComponent(body)}`;
+    }
+
+    function revealPhoneNumber(btnElem) {
+      const box = document.getElementById('revealedPhoneBox');
+      const textElem = document.getElementById('revealedPhoneText');
+      if (box && textElem) {
+        if (box.style.display === 'none' || !box.style.display) {
+          textElem.innerHTML = `
+            📞 <a href="tel:${_p1}${_p2}${_p3}" style="color:#fdba74;text-decoration:underline;">${_p1}-${_p2}-${_p3}</a> (대표 상담)<br>
+            📞 <a href="tel:${_c1}${_c2}${_c3}" style="color:#fdba74;text-decoration:underline;">${_c1}-${_c2}-${_c3}</a> (시공 문의)<br>
+            📞 <a href="tel:${_s1}${_s2}${_s3}" style="color:#fdba74;text-decoration:underline;">${_s1}-${_s2}-${_s3}</a> (현장 실측)
+          `;
+          box.style.display = 'block';
+          if (btnElem) btnElem.innerHTML = '<i class="fa-solid fa-eye-slash"></i> 연락처 닫기';
+        } else {
+          box.style.display = 'none';
+          if (btnElem) btnElem.innerHTML = '<i class="fa-solid fa-address-book"></i> 연락처 번호 확인';
+        }
+      }
+    }
+
+    function revealContactNumbers(btnElem) {
+      const box = document.getElementById('contactRevealedBox');
+      if (box) {
+        if (box.style.display === 'none' || !box.style.display) {
+          box.innerHTML = `
+            <div style="font-weight:700;margin-bottom:4px;color:var(--primary);">[직통 전화 안내]</div>
+            <div>대표상담: <a href="tel:${_p1}${_p2}${_p3}" style="color:var(--accent);font-weight:800;">${_p1}-${_p2}-${_p3}</a></div>
+            <div>시공문의: <a href="tel:${_c1}${_c2}${_c3}" style="color:var(--accent);font-weight:800;">${_c1}-${_c2}-${_c3}</a></div>
+            <div>현장실측: <a href="tel:${_s1}${_s2}${_s3}" style="color:var(--accent);font-weight:800;">${_s1}-${_s2}-${_s3}</a></div>
+          `;
+          box.style.display = 'block';
+          if (btnElem) btnElem.innerHTML = '<i class="fa-solid fa-eye-slash"></i> 번호 닫기';
+        } else {
+          box.style.display = 'none';
+          if (btnElem) btnElem.innerHTML = '<i class="fa-solid fa-address-book"></i> 직통 번호 확인하기';
+        }
+      }
+    }
+
+    function copyAddress() {
+      const addr = '경기도 평택시 고덕면 문곡길 91-12 어닝하우스';
+      navigator.clipboard.writeText(addr).then(() => {
+        showToast('어닝하우스 주소가 복사되었습니다.');
+      }).catch(() => {
+        showToast('주소: ' + addr);
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toastMsg');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+
+    // Mobile Drawer
+    const menuToggle = document.getElementById('menuToggle');
+    const drawerClose = document.getElementById('drawerClose');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const drawerOverlay = document.getElementById('drawerOverlay');
+
+    function openDrawer() {
+      mobileDrawer.classList.add('open');
+      drawerOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      mobileDrawer.classList.remove('open');
+      drawerOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    if (menuToggle) menuToggle.addEventListener('click', openDrawer);
+    if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
+    if (drawerOverlay) drawerOverlay.addEventListener('click', closeDrawer);
+
+    // Hero Carousel
+    const heroTrack = document.getElementById('heroCarouselTrack');
+    const heroPrevBtn = document.getElementById('heroCarouselPrev');
+    const heroNextBtn = document.getElementById('heroCarouselNext');
+    const heroDotsWrap = document.getElementById('heroCarouselDots');
+    const heroCounter = document.getElementById('heroCarouselCounter');
+    const heroProgressBar = document.getElementById('heroProgressBar');
+
+    let currentHeroIndex = 0;
+    let heroAutoPlayTimer = null;
+    let progressTimer = null;
+    const AUTOPLAY_DELAY = 4000;
+    let progressStartTime = 0;
+
+    function initHeroCarousel() {
+      if (!casesData || casesData.length === 0) return;
+
+      heroTrack.innerHTML = '';
+      heroDotsWrap.innerHTML = '';
+
+      casesData.forEach((c, idx) => {
+        const slide = document.createElement('div');
+        slide.className = 'hero-slide';
+        const bestImg = c.images && c.images.length > 0 ? c.images[0] : './images/profile.jpg';
+
+        slide.innerHTML = `
+          <div class="hero-slide-img-wrap" onclick="openLightbox('${c.id}')" title="클릭 시 크게 보기">
+            <img src="${bestImg}" alt="${c.title} - 평택 어닝하우스 실제 시공 사진" loading="${idx === 0 ? 'eager' : 'lazy'}" referrerpolicy="no-referrer">
+            <div class="hero-slide-badge"><i class="fa-solid fa-camera" style="color:#fb923c; margin-right:4px;"></i> 대표 시공 #${idx + 1}</div>
+            <div class="hero-slide-cat-badge">${c.categoryName}</div>
+          </div>
+          <div class="hero-slide-body">
+            <h3 class="hero-slide-title" title="${c.title}">${c.title}</h3>
+            <div class="hero-slide-meta">
+              <span><i class="fa-solid fa-location-dot" style="color: #fb923c;"></i> ${c.location} · ${c.categoryName}</span>
+              <a href="${c.url}" target="_blank" rel="noopener" class="hero-slide-btn">
+                <img src="./images/naver_blog_icon.png" alt="블로그" style="width:14px;height:14px;border-radius:3px;vertical-align:middle;"> 블로그 후기 <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        `;
+        heroTrack.appendChild(slide);
+
+        if (idx < 8) {
+          const dot = document.createElement('div');
+          dot.className = `hero-dot ${idx === 0 ? 'active' : ''}`;
+          dot.addEventListener('click', () => {
+            goToHeroSlide(idx);
+            startHeroAutoPlay();
+          });
+          heroDotsWrap.appendChild(dot);
+        }
+      });
+
+      updateHeroUI();
+      startHeroAutoPlay();
+    }
+
+    function goToHeroSlide(idx) {
+      if (idx < 0) {
+        currentHeroIndex = casesData.length - 1;
+      } else if (idx >= casesData.length) {
+        currentHeroIndex = 0;
+      } else {
+        currentHeroIndex = idx;
+      }
+      heroTrack.style.transform = `translateX(-${currentHeroIndex * 100}%)`;
+      updateHeroUI();
+    }
+
+    function updateHeroUI() {
+      if (heroCounter) {
+        heroCounter.textContent = `${currentHeroIndex + 1} / ${casesData.length}`;
+      }
+      const dots = heroDotsWrap.querySelectorAll('.hero-dot');
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === (currentHeroIndex % (dots.length || 1)));
+      });
+    }
+
+    function startHeroAutoPlay() {
+      clearInterval(heroAutoPlayTimer);
+      clearInterval(progressTimer);
+
+      progressStartTime = Date.now();
+      if (heroProgressBar) heroProgressBar.style.width = '0%';
+
+      progressTimer = setInterval(() => {
+        const elapsed = Date.now() - progressStartTime;
+        const pct = Math.min((elapsed / AUTOPLAY_DELAY) * 100, 100);
+        if (heroProgressBar) heroProgressBar.style.width = `${pct}%`;
+      }, 50);
+
+      heroAutoPlayTimer = setInterval(() => {
+        goToHeroSlide(currentHeroIndex + 1);
+        progressStartTime = Date.now();
+        if (heroProgressBar) heroProgressBar.style.width = '0%';
+      }, AUTOPLAY_DELAY);
+    }
+
+    if (heroPrevBtn) {
+      heroPrevBtn.addEventListener('click', () => {
+        goToHeroSlide(currentHeroIndex - 1);
+        startHeroAutoPlay();
+      });
+    }
+
+    if (heroNextBtn) {
+      heroNextBtn.addEventListener('click', () => {
+        goToHeroSlide(currentHeroIndex + 1);
+        startHeroAutoPlay();
+      });
+    }
+
+    // Cases Filter & Render
+    const casesGrid = document.getElementById('casesGrid');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+
+    function renderCases(categoryFilter = 'all') {
+      if (!casesGrid) return;
+      casesGrid.innerHTML = '';
+
+      const filtered = casesData.filter(c => {
+        if (categoryFilter === 'all') return true;
+        return c.category === categoryFilter;
+      });
+
+      filtered.forEach((c) => {
+        const card = document.createElement('div');
+        card.className = 'case-card';
+
+        const mainImg = c.images && c.images.length > 0 ? c.images[0] : './images/profile.jpg';
+        
+        let thumbsHtml = '';
+        if (c.images && c.images.length > 1) {
+          thumbsHtml = `<div class="case-thumbs-preview">` + 
+            c.images.slice(0, 4).map((img, i) => `
+              <div class="case-thumb-mini" onclick="openLightbox('${c.id}', ${i})">
+                <img src="${img}" alt="${c.title} 사진 ${i+1}" loading="lazy">
+              </div>
+            `).join('') + `</div>`;
+        }
+
+        card.innerHTML = `
+          <div class="case-img-wrap" onclick="openLightbox('${c.id}', 0)">
+            <img src="${mainImg}" alt="${c.title}" loading="lazy" referrerpolicy="no-referrer">
+            <span class="case-loc-badge"><i class="fa-solid fa-location-dot" style="color:#fb923c;"></i> ${c.location}</span>
+            <span class="case-cat-badge">${c.categoryName}</span>
+            <div class="case-overlay-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+          </div>
+          ${thumbsHtml}
+          <div class="case-body">
+            <h3 class="case-title" title="${c.title}">${c.title}</h3>
+            <p class="case-desc">${c.desc || '평택 어닝하우스 정밀 시공 사례. 고강도 프레임과 고급 원단 적용.'}</p>
+            <div class="case-footer">
+              <a href="${c.url}" target="_blank" rel="noopener" class="btn-blog-post">
+                <img src="./images/naver_blog_icon.png" alt="블로그" style="width:15px;height:15px;border-radius:3px;"> 블로그 후기 보기
+              </a>
+              <button type="button" class="btn-zoom" onclick="openLightbox('${c.id}', 0)">
+                <i class="fa-solid fa-images"></i> 사진 (${c.images.length})
+              </button>
+            </div>
+          </div>
+        `;
+        casesGrid.appendChild(card);
+      });
+    }
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderCases(btn.dataset.filter);
+      });
+    });
+
+    // Lightbox Modal
+    const lightboxModal = document.getElementById('lightboxModal');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    const lightboxNext = document.getElementById('lightboxNext');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+    const lightboxMeta = document.getElementById('lightboxMeta');
+    const lightboxBlogLink = document.getElementById('lightboxBlogLink');
+
+    let activeCase = null;
+    let activeImgIndex = 0;
+
+    function openLightbox(caseId, imgIndex = 0) {
+      activeCase = casesData.find(c => c.id === caseId);
+      if (!activeCase) return;
+      activeImgIndex = imgIndex;
+      updateLightboxContent();
+      lightboxModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightboxModal.classList.remove('open');
+      document.body.style.overflow = '';
+      activeCase = null;
+    }
+
+    function updateLightboxContent() {
+      if (!activeCase) return;
+      const images = activeCase.images || [];
+      if (images.length === 0) return;
+
+      lightboxImg.src = images[activeImgIndex];
+      lightboxTitle.textContent = activeCase.title;
+      lightboxMeta.innerHTML = `${activeCase.location} · ${activeCase.categoryName} · <span id="lightboxIndex">${activeImgIndex + 1}/${images.length}</span>`;
+      lightboxBlogLink.href = activeCase.url;
+    }
+
+    function prevLightboxImg() {
+      if (!activeCase || !activeCase.images) return;
+      activeImgIndex = (activeImgIndex - 1 + activeCase.images.length) % activeCase.images.length;
+      updateLightboxContent();
+    }
+
+    function nextLightboxImg() {
+      if (!activeCase || !activeCase.images) return;
+      activeImgIndex = (activeImgIndex + 1) % activeCase.images.length;
+      updateLightboxContent();
+    }
+
+    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+    if (lightboxPrev) lightboxPrev.addEventListener('click', prevLightboxImg);
+    if (lightboxNext) lightboxNext.addEventListener('click', nextLightboxImg);
+
+    if (lightboxModal) {
+      lightboxModal.addEventListener('click', (e) => {
+        if (e.target === lightboxModal) closeLightbox();
+      });
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (!lightboxModal.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') prevLightboxImg();
+      if (e.key === 'ArrowRight') nextLightboxImg();
+    });
+
+    // Estimate Calculator
+    let selectedType = 'manual';
+    const typeButtons = document.querySelectorAll('.type-opt-btn');
+    const widthInput = document.getElementById('widthInput');
+    const widthDisplay = document.getElementById('widthDisplay');
+    const armInput = document.getElementById('armInput');
+    const armDisplay = document.getElementById('armDisplay');
+    const armWrap = document.getElementById('armWrap');
+    const printCheck = document.getElementById('printCheck');
+    const dicksonCheck = document.getElementById('dicksonCheck');
+    const calcPrice = document.getElementById('calcPrice');
+    const btnSmsQuote = document.getElementById('btnSmsQuote');
+
+    typeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        typeButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        selectedType = btn.dataset.type;
+
+        if (selectedType === 'fabric') {
+          armWrap.style.display = 'none';
+        } else {
+          armWrap.style.display = 'block';
+        }
+        calculateEstimate();
+      });
+    });
+
+    widthInput.addEventListener('input', (e) => {
+      widthDisplay.textContent = `${parseFloat(e.target.value).toFixed(1)} m`;
+      calculateEstimate();
+    });
+
+    armInput.addEventListener('input', (e) => {
+      armDisplay.textContent = `${parseFloat(e.target.value).toFixed(1)} m`;
+      calculateEstimate();
+    });
+
+    printCheck.addEventListener('change', calculateEstimate);
+    dicksonCheck.addEventListener('change', calculateEstimate);
+
+    function calculateEstimate() {
+      const width = parseFloat(widthInput.value);
+      const arm = parseFloat(armInput.value);
+      const hasPrint = printCheck.checked;
+      const isDickson = dicksonCheck.checked;
+
+      let baseMin = 0;
+      let baseMax = 0;
+
+      if (selectedType === 'manual') {
+        baseMin = Math.round(width * 95000 + arm * 80000 + 120000);
+        baseMax = Math.round(baseMin * 1.2);
+      } else if (selectedType === 'electric') {
+        baseMin = Math.round(width * 95000 + arm * 80000 + 320000);
+        baseMax = Math.round(baseMin * 1.22);
+      } else if (selectedType === 'fixed') {
+        baseMin = Math.round(width * 110000 + arm * 70000 + 100000);
+        baseMax = Math.round(baseMin * 1.25);
+      } else if (selectedType === 'wave') {
+        baseMin = Math.round(width * 140000 + arm * 90000 + 200000);
+        baseMax = Math.round(baseMin * 1.25);
+      } else if (selectedType === 'fabric') {
+        baseMin = Math.round(width * 65000 + 120000);
+        baseMax = Math.round(baseMin * 1.2);
+      }
+
+      if (hasPrint) {
+        baseMin += 60000;
+        baseMax += 90000;
+      }
+
+      if (isDickson) {
+        baseMin += Math.round(width * 25000);
+        baseMax += Math.round(width * 35000);
+      }
+
+      calcPrice.textContent = `약 ${baseMin.toLocaleString('ko-KR')}원 ~ ${baseMax.toLocaleString('ko-KR')}원`;
+    }
+
+    if (btnSmsQuote) {
+      btnSmsQuote.addEventListener('click', () => {
+        const typeText = {
+          manual: '접이식 어닝(수동)',
+          electric: '접이식 어닝(전동/리모컨)',
+          fixed: '고정식·간판 어닝',
+          wave: '웨이브 어닝',
+          fabric: '원단교체(천갈이)'
+        }[selectedType];
+
+        const width = parseFloat(widthInput.value).toFixed(1);
+        const arm = parseFloat(armInput.value).toFixed(1);
+        const printStr = printCheck.checked ? '포함' : '미포함';
+        const fabricStr = dicksonCheck.checked ? '프랑스 딕슨' : '국산 고급원단';
+
+        const bodyText = `[평택 어닝하우스 견적문의]
+- 어닝종류: ${typeText}
+- 가로폭: ${width}m
+- 돌출길이: ${selectedType === 'fabric' ? '기존동일' : arm + 'm'}
+- 상호인쇄: ${printStr}
+- 원단선호: ${fabricStr}
+- 현장사진 첨부 예정
+무료 방문 실측 및 견적 상담 요청드립니다.`;
+        
+        makeSms(bodyText);
+      });
+    }
+
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        const answer = item.querySelector('.faq-answer');
+        const isActive = item.classList.contains('active');
+
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('active');
+          const ans = i.querySelector('.faq-answer');
+          if (ans) ans.style.maxHeight = null;
+        });
+
+        if (!isActive) {
+          item.classList.add('active');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    });
+
+    // Initialize Page
+    document.addEventListener('DOMContentLoaded', () => {
+      initHeroCarousel();
+      renderCases('all');
+      calculateEstimate();
+    });
+  </script>
+</body>
+</html>
