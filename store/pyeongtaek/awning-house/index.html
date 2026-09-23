@@ -14,6 +14,11 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="./images/profile.jpg">
 
+  <!-- Kakao JavaScript SDK -->
+  <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.8.1/kakao.min.js"
+    integrity="sha384-OL+ylM/iuPLtW5U3XcvLSGhE8JzReKDank5InqlHGWPhb4140/yrBw0bg0y7+C9J"
+    crossorigin="anonymous"></script>
+
   <!-- Pretendard Font & Font Awesome -->
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
@@ -1004,6 +1009,32 @@
       font-size: 0.85rem;
     }
 
+    .btn-product-calc {
+      margin-top: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 11px 16px;
+      background: #f8fafc;
+      color: var(--primary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      font-size: 0.92rem;
+      font-weight: 800;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .btn-product-calc:hover {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(234, 88, 12, 0.25);
+    }
+
     /* Why Section */
     .why-section {
       padding: 90px 0;
@@ -1768,6 +1799,127 @@
       transform: translateY(-2px);
     }
 
+    /* Photo Upload Dropzone in Estimate Simulator */
+    .photo-upload-group {
+      margin-top: 14px;
+      margin-bottom: 20px;
+    }
+
+    .photo-count-badge {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      border: 1px solid #fed7aa;
+    }
+
+    .photo-dropzone {
+      border: 2px dashed #cbd5e1;
+      border-radius: var(--radius-md);
+      padding: 16px 14px;
+      text-align: center;
+      background: #f8fafc;
+      cursor: pointer;
+      transition: var(--transition);
+      user-select: none;
+    }
+
+    .photo-dropzone:hover,
+    .photo-dropzone.dragover {
+      border-color: var(--accent);
+      background: #fff7ed;
+    }
+
+    .dropzone-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .dropzone-icon {
+      font-size: 1.6rem;
+      color: var(--accent);
+      margin-bottom: 2px;
+    }
+
+    .dropzone-text {
+      font-size: 0.88rem;
+      color: #334155;
+    }
+
+    .dropzone-text strong {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .dropzone-hint {
+      font-size: 0.76rem;
+      color: #94a3b8;
+    }
+
+    .photo-preview-list {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .photo-preview-item {
+      position: relative;
+      width: 68px;
+      height: 68px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 2px solid #e2e8f0;
+      box-shadow: var(--shadow-sm);
+      background: #0f172a;
+    }
+
+    .photo-preview-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .btn-remove-photo {
+      position: absolute;
+      top: 3px;
+      right: 3px;
+      width: 20px;
+      height: 20px;
+      background: rgba(15, 23, 42, 0.85);
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+    }
+
+    .btn-remove-photo:hover {
+      background: #ef4444;
+      transform: scale(1.1);
+    }
+
+    .photo-notice-tip {
+      font-size: 0.82rem;
+      color: #047857;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      margin-top: 10px;
+      display: none;
+      align-items: center;
+      gap: 6px;
+    }
+
     /* Process Section */
     .process-section {
       padding: 90px 0;
@@ -1946,6 +2098,219 @@
       font-size: 0.76rem;
       font-weight: 600;
       color: #475569;
+    }
+
+    /* Pros & Cons Section */
+    .pros-cons-wrap {
+      background: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 40px 32px;
+      margin-top: 36px;
+    }
+
+    .pros-cons-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 36px;
+    }
+
+    .pros-cons-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff7ed;
+      color: var(--accent);
+      border: 1px solid #fed7aa;
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .pros-cons-title {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .pros-cons-sub {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .pros-cons-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-bottom: 36px;
+    }
+
+    @media (min-width: 840px) {
+      .pros-cons-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .pro-con-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-color);
+      padding: 30px 26px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .pros-card {
+      border-top: 4px solid #10b981;
+    }
+
+    .cons-card {
+      border-top: 4px solid #f59e0b;
+    }
+
+    .pro-con-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      font-weight: 800;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      margin-bottom: 22px;
+    }
+
+    .pros-card .pro-con-badge {
+      background: #ecfdf5;
+      color: #047857;
+    }
+
+    .cons-card .pro-con-badge {
+      background: #fffbeb;
+      color: #b45309;
+    }
+
+    .pro-con-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .pro-con-list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .list-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .pros-card .list-icon {
+      background: #d1fae5;
+      color: #059669;
+    }
+
+    .cons-card .list-icon {
+      background: #fef3c7;
+      color: #d97706;
+    }
+
+    .list-content strong {
+      font-size: 0.96rem;
+      font-weight: 800;
+      color: var(--primary);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .list-content p {
+      font-size: 0.88rem;
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    /* Fabric Action Banner */
+    .fabric-action-banner {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 30px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .fabric-action-info h4 {
+      font-size: 1.25rem;
+      font-weight: 900;
+      margin-bottom: 6px;
+      color: #ffffff;
+    }
+
+    .fabric-action-info p {
+      font-size: 0.92rem;
+      color: #94a3b8;
+    }
+
+    .fabric-action-btns {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-calc-move {
+      background: var(--accent);
+      color: #ffffff;
+      padding: 12px 22px;
+      border-radius: var(--radius-full);
+      font-weight: 800;
+      font-size: 0.94rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .btn-calc-move:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(234, 88, 12, 0.4);
+    }
+
+    .btn-kakao-share {
+      background: #FEE500;
+      color: #191919;
+      padding: 12px 22px;
+      border-radius: var(--radius-full);
+      font-weight: 800;
+      font-size: 0.94rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+      cursor: pointer;
+      border: 1px solid #e5ce00;
+    }
+
+    .btn-kakao-share:hover {
+      background: #fada0a;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(254, 229, 0, 0.45);
     }
 
     /* FAQ Section */
@@ -2526,7 +2891,8 @@
           </div>
 
           <div class="hero-buttons">
-            <a href="#estimate" class="btn-primary"><i class="fa-solid fa-calculator"></i> 실시간 가견적 계산</a>
+            <a href="#estimate" class="btn-primary"><i class="fa-solid fa-calculator"></i> 견적 내보기</a>
+            <button type="button" onclick="shareKakao()" class="btn-kakao-share"><i class="fa-solid fa-comment"></i> 카카오톡 공유하기</button>
             <a href="http://pf.kakao.com/_xnxhpVX" target="_blank" rel="noopener" class="btn-kakao"><i class="fa-solid fa-comment"></i> 카카오톡 상담</a>
             <button type="button" onclick="makePhoneCall()" class="btn-secondary"><i class="fa-solid fa-phone-volume"></i> 실시간 전화상담</button>
           </div>
@@ -2596,6 +2962,7 @@
               <li><i class="fa-solid fa-circle-check"></i> 프랑스 딕슨 및 최고급 발수 코팅 원단</li>
               <li><i class="fa-solid fa-circle-check"></i> 대형 테라스용 프라자 어닝 제작 가능</li>
             </ul>
+            <a href="#estimate" class="btn-product-calc"><i class="fa-solid fa-calculator"></i> 견적 내보기</a>
           </div>
         </div>
 
@@ -2613,6 +2980,7 @@
               <li><i class="fa-solid fa-circle-check"></i> 빗물 완벽 차단 & 4계절 변형 없는 파이프 프레임</li>
               <li><i class="fa-solid fa-circle-check"></i> 베이커리, 카페, 의류샵, 소품샵 인기 1순위</li>
             </ul>
+            <a href="#estimate" class="btn-product-calc"><i class="fa-solid fa-calculator"></i> 견적 내보기</a>
           </div>
         </div>
 
@@ -2630,6 +2998,7 @@
               <li><i class="fa-solid fa-circle-check"></i> 부드러운 개폐 레일 구동 & 완벽한 자외선 차단</li>
               <li><i class="fa-solid fa-circle-check"></i> 야외 쉼터 공간의 품격을 한 단계 격상</li>
             </ul>
+            <a href="#estimate" class="btn-product-calc"><i class="fa-solid fa-calculator"></i> 견적 내보기</a>
           </div>
         </div>
 
@@ -2647,6 +3016,7 @@
               <li><i class="fa-solid fa-circle-check"></i> 업종 변경, 매장 리뉴얼에 최적화된 리폼</li>
               <li><i class="fa-solid fa-circle-check"></i> 모터 교체, 암 수리, 각도 재조절 동시 시공</li>
             </ul>
+            <a href="#estimate" class="btn-product-calc"><i class="fa-solid fa-calculator"></i> 견적 내보기</a>
           </div>
         </div>
 
@@ -2664,6 +3034,7 @@
               <li><i class="fa-solid fa-circle-check"></i> 태양열 80% 이상 외부 차단 냉방비 절감</li>
               <li><i class="fa-solid fa-circle-check"></i> 강풍에 견디는 고강도 윈도우 가이드 레일</li>
             </ul>
+            <a href="#estimate" class="btn-product-calc"><i class="fa-solid fa-calculator"></i> 견적 내보기</a>
           </div>
         </div>
 
@@ -2681,6 +3052,7 @@
               <li><i class="fa-solid fa-circle-check"></i> 샌드위치 판넬, H빔 전용 관통 볼트 체결</li>
               <li><i class="fa-solid fa-circle-check"></i> 우천 시 하역 작업 및 차량 정비 효율 극대화</li>
             </ul>
+            <a href="#estimate" class="btn-product-calc"><i class="fa-solid fa-calculator"></i> 견적 내보기</a>
           </div>
         </div>
       </div>
@@ -2894,6 +3266,28 @@
             </label>
           </div>
 
+          <!-- Photo Upload & Attachment Field -->
+          <div class="form-group photo-upload-group">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <span class="form-label" style="margin-bottom:0; font-size:0.9rem; font-weight:700;">
+                <i class="fa-solid fa-camera" style="color:var(--accent); margin-right:4px;"></i> 현장 사진 첨부 (선택)
+              </span>
+              <span class="photo-count-badge" id="photoCountBadge">0 / 3장</span>
+            </div>
+            <div class="photo-dropzone" id="photoDropzone">
+              <input type="file" id="photoInput" accept="image/*" multiple style="display:none;">
+              <div class="dropzone-content">
+                <i class="fa-solid fa-cloud-arrow-up dropzone-icon"></i>
+                <p class="dropzone-text"><strong>사진 첨부</strong>를 누르거나 이미지를 끌어오세요</p>
+                <span class="dropzone-hint">외벽 및 설치 공간 사진 첨부 시 99% 오차 없는 정밀 가견적 산출 (최대 3장)</span>
+              </div>
+            </div>
+            <div class="photo-preview-list" id="photoPreviewList"></div>
+            <div class="photo-notice-tip" id="photoNoticeTip">
+              <i class="fa-solid fa-circle-check"></i> <span>사진이 등록되었습니다. 전송 시 대표번호로 견적 문자가 자동 작성되며 사진 첨부(+)를 지원합니다.</span>
+            </div>
+          </div>
+
           <div class="calc-result-box">
             <div class="calc-result-label">공장직영 표준 예상 견적</div>
             <div class="calc-result-price" id="calcPrice">약 580,000원 ~ 680,000원</div>
@@ -2995,37 +3389,130 @@
           <p style="font-size:0.88rem;color:var(--text-muted);">매장 분위기와 인테리어에 어울리는 100여 종의 다양한 컬러칩을 보유하고 있습니다.</p>
           <div class="swatches-grid">
             <div class="swatch-box">
-              <div class="swatch-circle" style="background:#1e293b;"></div>
+              <div class="swatch-circle" style="background:#1e293b;" title="차콜 블랙"></div>
               <span class="swatch-name">차콜 블랙</span>
             </div>
             <div class="swatch-box">
-              <div class="swatch-circle" style="background:#d4c4b5;"></div>
+              <div class="swatch-circle" style="background:#d4c4b5;" title="모던 베이지"></div>
               <span class="swatch-name">모던 베이지</span>
             </div>
             <div class="swatch-box">
-              <div class="swatch-circle" style="background:#7f1d1d;"></div>
+              <div class="swatch-circle" style="background:#7f1d1d;" title="클래식 버건디"></div>
               <span class="swatch-name">클래식 버건디</span>
             </div>
             <div class="swatch-box">
-              <div class="swatch-circle" style="background:#1e3a8a;"></div>
+              <div class="swatch-circle" style="background:#1e3a8a;" title="로얄 네이비"></div>
               <span class="swatch-name">로얄 네이비</span>
             </div>
             <div class="swatch-box">
-              <div class="swatch-circle" style="background:#14532d;"></div>
+              <div class="swatch-circle" style="background:#14532d;" title="포레스트 그린"></div>
               <span class="swatch-name">포레스트 그린</span>
             </div>
             <div class="swatch-box">
-              <div class="swatch-circle" style="background:#f59e0b;"></div>
+              <div class="swatch-circle" style="background:#f59e0b;" title="머스타드 옐로우"></div>
               <span class="swatch-name">머스타드 옐로우</span>
             </div>
             <div class="swatch-box">
-              <div class="swatch-circle" style="background:#ea580c;"></div>
+              <div class="swatch-circle" style="background:#ea580c;" title="시그니처 오렌지"></div>
               <span class="swatch-name">시그니처 오렌지</span>
             </div>
             <div class="swatch-box">
-              <div class="swatch-circle" style="background:repeating-linear-gradient(45deg, #1e3a8a, #1e3a8a 6px, #ffffff 6px, #ffffff 12px);"></div>
+              <div class="swatch-circle" style="background:repeating-linear-gradient(45deg, #1e3a8a, #1e3a8a 6px, #ffffff 6px, #ffffff 12px);" title="블루 스트라이프"></div>
               <span class="swatch-name">블루 스트라이프</span>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pros & Cons Comparison -->
+      <div class="pros-cons-wrap">
+        <div class="pros-cons-header">
+          <span class="pros-cons-pill"><i class="fa-solid fa-scale-balanced"></i> 솔직하고 투명한 원단 비교 가이드</span>
+          <h3 class="pros-cons-title">프랑스 딕슨(Dickson) 원단 장점 vs 유의사항</h3>
+          <p class="pros-cons-sub">시공 후 수년간 만족스럽게 사용하실 수 있도록 장점뿐만 아니라 설치 전 고려사항까지 투명하게 안내합니다.</p>
+        </div>
+
+        <div class="pros-cons-grid">
+          <!-- Pros Card -->
+          <div class="pro-con-card pros-card">
+            <div class="pro-con-badge"><i class="fa-solid fa-thumbs-up"></i> 딕슨 원단의 독보적 장점 (PROS)</div>
+            <ul class="pro-con-list">
+              <li>
+                <div class="list-icon"><i class="fa-solid fa-check"></i></div>
+                <div class="list-content">
+                  <strong>최대 95% 태양열 차단 & 냉방 에너지 33% 절감</strong>
+                  <p>유럽 Solar Factor 표준 인증으로 복사열을 실외에서 흡수·차단하여 여름철 실내 온도를 3~5℃ 낮추고 에어컨 가동 전력을 대폭 아낍니다.</p>
+                </div>
+              </li>
+              <li>
+                <div class="list-icon"><i class="fa-solid fa-check"></i></div>
+                <div class="list-content">
+                  <strong>10년 무변색 피그먼트 Solution-Dyed 원사</strong>
+                  <p>직조 전 원사 자체에 피그먼트 안료를 주입하는 공법으로 강렬한 자외선(UV 99% 차단)과 비바람에도 탈색·변색 걱정 없이 원색을 유지합니다.</p>
+                </div>
+              </li>
+              <li>
+                <div class="list-icon"><i class="fa-solid fa-check"></i></div>
+                <div class="list-content">
+                  <strong>Cleangard® 나노 방수 & 자가 세정(Self-Cleaning) 코팅</strong>
+                  <p>특수 불소 코팅으로 우천 시 빗방울이 오염물질과 함께 미끄러져 씻겨 내려가며, 곰팡이와 악취 번식을 원천 차단합니다.</p>
+                </div>
+              </li>
+              <li>
+                <div class="list-icon"><i class="fa-solid fa-check"></i></div>
+                <div class="list-content">
+                  <strong>유럽 명품 텍스처와 감각적인 100여 종 프리미엄 컬러칩</strong>
+                  <p>비닐 느낌의 저가 타포린과 완전히 다른 패브릭 직물 질감으로 매장 익스테리어 품격과 브랜드 신뢰도를 극대화합니다.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Cons Card -->
+          <div class="pro-con-card cons-card">
+            <div class="pro-con-badge"><i class="fa-solid fa-triangle-exclamation"></i> 설치 전 꼭 체크할 유의사항 (CONS)</div>
+            <ul class="pro-con-list">
+              <li>
+                <div class="list-icon"><i class="fa-solid fa-info"></i></div>
+                <div class="list-content">
+                  <strong>일반 국산/타포린 대비 20~30% 높은 초기 시공 단가</strong>
+                  <p>프랑스 직수입 최고급 원단으로 초기 비용이 다소 높으나, 2~3배 이상 긴 수명(10년 이상)으로 장기적인 가성비는 훨씬 우수합니다.</p>
+                </div>
+              </li>
+              <li>
+                <div class="list-icon"><i class="fa-solid fa-info"></i></div>
+                <div class="list-content">
+                  <strong>고밀도 직조 원단 특성상 5m 이상은 전동 모터 권장</strong>
+                  <p>일반 얇은 원단보다 두껍고 튼튼하여 중량이 있으므로 가로 5m 이상의 대형 접이식 어닝은 수동 핸들보다 리모컨 전동 모터를 권장합니다.</p>
+                </div>
+              </li>
+              <li>
+                <div class="list-icon"><i class="fa-solid fa-info"></i></div>
+                <div class="list-content">
+                  <strong>태풍·돌풍 및 폭설 등 극한 기상 시 접기 관리 필수</strong>
+                  <p>어닝 암 프레임의 안전과 장기적 내구성을 위해 초속 15m/s 이상의 강풍이나 폭설 시에는 안전하게 접어두셔야 합니다.</p>
+                </div>
+              </li>
+              <li>
+                <div class="list-icon"><i class="fa-solid fa-info"></i></div>
+                <div class="list-content">
+                  <strong>장시간 젖은 채로 밀폐 접힘 보관 시 자연 건조 필요</strong>
+                  <p>방수 성능은 탁월하나 폭우 직후 물이 흥건한 상태로 장기간 밀폐해두기보다는 비가 갠 후 활짝 펴서 자연 건조해주시면 10년 이상 깨끗합니다.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Fabric Action Banner -->
+        <div class="fabric-action-banner">
+          <div class="fabric-action-info">
+            <h4>프리미엄 딕슨 원단으로 어닝하우스 맞춤 견적 알아보기</h4>
+            <p>가로 폭과 돌출 길이를 입력하시면 공장직영 표준 예상 견적을 즉시 산출해 드립니다.</p>
+          </div>
+          <div class="fabric-action-btns">
+            <a href="#estimate" class="btn-calc-move"><i class="fa-solid fa-calculator"></i> 견적 내보기</a>
+            <button type="button" onclick="shareKakao()" class="btn-kakao-share"><i class="fa-solid fa-comment"></i> 카카오톡 공유</button>
           </div>
         </div>
       </div>
@@ -3124,6 +3611,27 @@
               시공 완료 후 1년간 무상 A/S를 보증해 드리며, 어닝하우스는 365일 상시 전담 A/S 접수 시스템을 운영하고 있어 언제든지 문제 발생 시 신속하게 방문 점검 및 수리를 진행해 드립니다.
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kakao Share & Estimate Recommendation Banner -->
+  <section class="share-estimate-strip" style="background:#0b1329; padding: 48px 0; color: #ffffff; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08);">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;">
+        <div>
+          <span style="display:inline-block; font-size:0.8rem; font-weight:800; color:#fb923c; margin-bottom:6px; letter-spacing:0.5px;">RECOMMEND & SHARE</span>
+          <h3 style="font-size:1.45rem; font-weight:900; color:#ffffff; margin-bottom:6px;">지인·이웃에게 공유하고 간편하게 견적을 산출해보세요</h3>
+          <p style="font-size:0.92rem; color:#94a3b8;">원하는 크기와 구동 방식을 선택하시면 공장직영 표준 예상 견적을 즉시 확인하실 수 있습니다.</p>
+        </div>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <a href="#estimate" class="btn-calc-move">
+            <i class="fa-solid fa-calculator"></i> 견적 내보기
+          </a>
+          <button type="button" onclick="shareKakao()" class="btn-kakao-share">
+            <i class="fa-solid fa-comment"></i> 카카오톡 공유하기
+          </button>
         </div>
       </div>
     </div>
@@ -3306,17 +3814,17 @@
       <i class="fa-solid fa-comment" style="color:#fee500;font-size:1.15rem;"></i>
       <span>카톡 상담</span>
     </a>
-    <a href="javascript:void(0);" onclick="makeSms()" class="dock-btn">
-      <i class="fa-solid fa-comment-sms"></i>
-      <span>문자 견적</span>
+    <a href="#estimate" class="dock-btn">
+      <i class="fa-solid fa-calculator"></i>
+      <span>견적 내보기</span>
+    </a>
+    <a href="javascript:void(0);" onclick="shareKakao()" class="dock-btn" style="color:#191919;">
+      <i class="fa-solid fa-share-nodes" style="color:#eab308;"></i>
+      <span>카톡 공유</span>
     </a>
     <a href="https://blog.naver.com/kimku0511" target="_blank" rel="noopener" class="dock-btn">
       <img src="images/naver_blog_icon.png" alt="블로그" style="width:20px;height:20px;border-radius:4px;margin-bottom:2px;">
       <span>블로그</span>
-    </a>
-    <a href="https://m.place.naver.com/place/1067088361" target="_blank" rel="noopener" class="dock-btn">
-      <i class="fa-solid fa-map-location-dot" style="color:#fb923c;"></i>
-      <span>오시는길</span>
     </a>
   </div>
 
@@ -3614,6 +4122,10 @@
       return `${_p1}${_p2}${_p3}`;
     }
 
+    function getFormattedPhone() {
+      return `${_p1}-${_p2}-${_p3}`;
+    }
+
     function makePhoneCall() {
       window.location.href = `tel:${getRawPhone()}`;
     }
@@ -3629,7 +4141,9 @@
     function makeSms(customBody = '') {
       const defaultBody = '[평택 어닝하우스 견적문의]\n어닝 맞춤시공/원단교체 상담 요청드립니다.\n- 현장사진 첨부 예정';
       const body = customBody || defaultBody;
-      window.location.href = `sms:${getRawPhone()}?body=${encodeURIComponent(body)}`;
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      const separator = isIOS ? '&' : '?';
+      window.location.href = `sms:${getRawPhone()}${separator}body=${encodeURIComponent(body)}`;
     }
 
     function revealPhoneNumber(btnElem) {
@@ -3677,6 +4191,60 @@
       }).catch(() => {
         showToast('주소: ' + addr);
       });
+    }
+
+    function shareKakao() {
+      const shareUrl = 'https://code-bross.github.io/store/pyeongtaek/awning-house';
+      const shareTitle = '평택 어닝하우스 | 평택·동탄·경기남부 맞춤 어닝 전문기업';
+      const shareDesc = '10년 노하우 & 젊은 감각. 접이식어닝, 고정식어닝, 웨이브어닝, 원단교체(천갈이) 100% 공장직영 무료방문실측!';
+      const shareImg = 'https://code-bross.github.io/store/pyeongtaek/awning-house/images/profile.jpg';
+
+      if (window.Kakao) {
+        if (!Kakao.isInitialized()) {
+          Kakao.init('3a47ec6f479c78d837ef25cbe324cdec');
+        }
+        Kakao.Share.sendDefault({
+          objectType: 'feed',
+          content: {
+            title: shareTitle,
+            description: shareDesc,
+            imageUrl: shareImg,
+            link: {
+              mobileWebUrl: shareUrl,
+              webUrl: shareUrl,
+            },
+          },
+          buttons: [
+            {
+              title: '어닝 견적 및 시공사례 보기',
+              link: {
+                mobileWebUrl: shareUrl,
+                webUrl: shareUrl,
+              },
+            },
+          ],
+        });
+        return;
+      }
+
+      if (navigator.share) {
+        navigator.share({
+          title: shareTitle,
+          text: shareDesc,
+          url: shareUrl
+        }).catch(() => {});
+        return;
+      }
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(shareUrl).then(() => {
+          showToast('카카오톡 공유 링크가 복사되었습니다! 대화창에 붙여넣기 해주세요.');
+        }).catch(() => {
+          window.open('https://sharer.kakao.com/talk/friends/picker/link?url=' + encodeURIComponent(shareUrl), '_blank');
+        });
+      } else {
+        window.open('https://sharer.kakao.com/talk/friends/picker/link?url=' + encodeURIComponent(shareUrl), '_blank');
+      }
     }
 
     function showToast(msg) {
@@ -4034,6 +4602,122 @@
       calcPrice.textContent = `약 ${baseMin.toLocaleString('ko-KR')}원 ~ ${baseMax.toLocaleString('ko-KR')}원`;
     }
 
+    // Photo Attachment State & Logic
+    let attachedPhotos = [];
+    const photoInput = document.getElementById('photoInput');
+    const photoDropzone = document.getElementById('photoDropzone');
+    const photoPreviewList = document.getElementById('photoPreviewList');
+    const photoCountBadge = document.getElementById('photoCountBadge');
+    const photoNoticeTip = document.getElementById('photoNoticeTip');
+
+    if (photoDropzone && photoInput) {
+      photoDropzone.addEventListener('click', () => {
+        photoInput.click();
+      });
+
+      photoDropzone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        photoDropzone.classList.add('dragover');
+      });
+
+      photoDropzone.addEventListener('dragleave', () => {
+        photoDropzone.classList.remove('dragover');
+      });
+
+      photoDropzone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        photoDropzone.classList.remove('dragover');
+        if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+          handleSelectedFiles(e.dataTransfer.files);
+        }
+      });
+
+      photoInput.addEventListener('change', () => {
+        if (photoInput.files && photoInput.files.length > 0) {
+          handleSelectedFiles(photoInput.files);
+        }
+      });
+    }
+
+    function handleSelectedFiles(files) {
+      const remainingSlots = 3 - attachedPhotos.length;
+      if (remainingSlots <= 0) {
+        showToast('현장 사진은 최대 3장까지 등록 가능합니다.');
+        return;
+      }
+
+      const validFiles = Array.from(files).filter(f => f.type.startsWith('image/')).slice(0, remainingSlots);
+      if (validFiles.length === 0) {
+        showToast('이미지 파일(JPG, PNG 등)만 첨부하실 수 있습니다.');
+        return;
+      }
+
+      attachedPhotos = attachedPhotos.concat(validFiles);
+      updatePhotoUI();
+      showToast(`${validFiles.length}장의 사진이 추가되었습니다.`);
+    }
+
+    function removePhoto(idx) {
+      attachedPhotos.splice(idx, 1);
+      updatePhotoUI();
+    }
+
+    function updatePhotoUI() {
+      if (photoCountBadge) photoCountBadge.textContent = `${attachedPhotos.length} / 3장`;
+      if (photoPreviewList) photoPreviewList.innerHTML = '';
+
+      if (attachedPhotos.length > 0) {
+        if (photoNoticeTip) photoNoticeTip.style.display = 'flex';
+        btnSmsQuote.innerHTML = `<i class="fa-solid fa-paperclip"></i> 사진(${attachedPhotos.length}장) & 견적 문자 전송`;
+      } else {
+        if (photoNoticeTip) photoNoticeTip.style.display = 'none';
+        btnSmsQuote.innerHTML = '<i class="fa-solid fa-comment-dots"></i> 문자 견적문의';
+      }
+
+      attachedPhotos.forEach((file, index) => {
+        const item = document.createElement('div');
+        item.className = 'photo-preview-item';
+
+        const img = document.createElement('img');
+        img.src = URL.createObjectURL(file);
+        img.alt = `첨부사진 ${index + 1}`;
+
+        const rmBtn = document.createElement('button');
+        rmBtn.type = 'button';
+        rmBtn.className = 'btn-remove-photo';
+        rmBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+        rmBtn.title = '사진 삭제';
+        rmBtn.onclick = (e) => {
+          e.stopPropagation();
+          removePhoto(index);
+        };
+
+        item.appendChild(img);
+        item.appendChild(rmBtn);
+        if (photoPreviewList) photoPreviewList.appendChild(item);
+      });
+    }
+
+    async function sendQuoteWithPhotos(bodyText, files) {
+      // 1. Try copying image to clipboard for quick paste in SMS app
+      if (files && files.length > 0 && navigator.clipboard && window.ClipboardItem) {
+        try {
+          const item = new ClipboardItem({ [files[0].type]: files[0] });
+          await navigator.clipboard.write([item]);
+        } catch (e) {
+          // ignore
+        }
+      }
+
+      // 2. Always launch SMS directly to configured store phone number
+      makeSms(bodyText);
+
+      // 3. Guide toast
+      if (files && files.length > 0) {
+        showToast(`설정된 번호(${getFormattedPhone()})로 문자 창이 열립니다. 문자 앱의 [+] 또는 붙여넣기로 사진을 함께 전송해 주세요!`);
+      }
+    }
+
     if (btnSmsQuote) {
       btnSmsQuote.addEventListener('click', () => {
         const typeText = {
@@ -4048,6 +4732,13 @@
         const arm = parseFloat(armInput.value).toFixed(1);
         const printStr = printCheck.checked ? '포함' : '미포함';
         const fabricStr = dicksonCheck.checked ? '프랑스 딕슨' : '국산 고급원단';
+        const priceText = calcPrice.textContent.trim();
+
+        const photoNote = attachedPhotos.length > 0
+          ? `- 현장사진: ${attachedPhotos.length}장 선택됨 (문자 창의 사진첨부(+)를 통해 함께 발송됩니다)`
+          : `- 현장사진: 상담 시 추가 전송 예정`;
+          ? `- 현장사진: ${attachedPhotos.length}장 첨부 (사진 확인 부탁드립니다)`
+          : `- 현장사진: 상담 시 추가 전송 예정`;
 
         const bodyText = `[평택 어닝하우스 견적문의]
 - 어닝종류: ${typeText}
@@ -4055,10 +4746,11 @@
 - 돌출길이: ${selectedType === 'fabric' ? '기존동일' : arm + 'm'}
 - 상호인쇄: ${printStr}
 - 원단선호: ${fabricStr}
-- 현장사진 첨부 예정
+- 예상견적: ${priceText}
+${photoNote}
 무료 방문 실측 및 견적 상담 요청드립니다.`;
         
-        makeSms(bodyText);
+        sendQuoteWithPhotos(bodyText, attachedPhotos);
       });
     }
 
