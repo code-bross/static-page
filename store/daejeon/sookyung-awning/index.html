@@ -3749,7 +3749,7 @@
               <div class="step-num">2</div>
               <div class="step-text">
                 <strong>앞으로 뻗어나오는 돌출 길이</strong>
-                <span>그늘을 만들고자 하는 바깥 방향 길이 (보통 1.5m ~ 3.0m)</span>
+                <span>바깥 방향 돌출 길이 (가견적: 50cm ~ 1.5m, 1.5m 이상은 전화상담 후 견적)</span>
               </div>
             </div>
             <div class="guide-step-item">
@@ -3763,7 +3763,7 @@
               <div class="step-num">4</div>
               <div class="step-text">
                 <strong>인쇄 및 원단 종류</strong>
-                <span>상호/로고 레이아웃 인쇄 여부 및 국산/수입 원단 선호</span>
+                <span>상호/로고 하단 인쇄(+6만~30만) 여부 및 국산/수입 원단 선호</span>
               </div>
             </div>
             <div class="guide-step-item">
@@ -3818,15 +3818,21 @@
           <div class="form-group range-wrap" id="armWrap">
             <div class="range-header">
               <span>돌출(앞으로 나오는) 길이</span>
-              <span class="range-val" id="armDisplay">2.0 m</span>
+              <span class="range-val" id="armDisplay">100 cm (1.0m)</span>
             </div>
-            <input type="range" id="armInput" min="1.5" max="3.5" step="0.5" value="2.0">
+            <input type="range" id="armInput" min="50" max="160" step="10" value="100">
+            <div class="range-labels" style="display:flex; justify-content:space-between; font-size:0.75rem; color:#94a3b8; margin-top:6px; font-weight:500;">
+              <span>50cm(최소)</span>
+              <span>100cm(1.0m)</span>
+              <span>150cm(최대 1.5m)</span>
+              <span style="color:var(--accent,#f97316); font-weight:600;">1.5m 이상(전화상담)</span>
+            </div>
           </div>
 
           <div class="form-group">
             <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; font-weight: 600; cursor: pointer;">
               <input type="checkbox" id="printCheck" style="width: 18px; height: 18px; accent-color: var(--accent);">
-              상호 / 로고 문구 인쇄 포함
+              상호 / 로고 하단 인쇄 포함 (+6만~30만)
             </label>
           </div>
 
@@ -4673,7 +4679,12 @@
     });
 
     armInput.addEventListener('input', () => {
-      armDisplay.textContent = `${parseFloat(armInput.value).toFixed(1)} m`;
+      const armVal = parseInt(armInput.value, 10);
+      if (armVal > 150) {
+        armDisplay.textContent = '1.5m 이상 (전화상담)';
+      } else {
+        armDisplay.textContent = `${armVal} cm (${(armVal / 100).toFixed(1)}m)`;
+      }
       updatePrice();
     });
 
@@ -4681,20 +4692,30 @@
 
     function updatePrice() {
       const width = parseFloat(widthInput.value);
-      const arm = parseFloat(armInput.value);
+      const armVal = parseInt(armInput.value, 10);
       const hasPrint = printCheck.checked;
+      const isOverLimit = armVal > 150 && selectedType !== 'fabric';
 
+      const calcNote = document.querySelector('#estimateCalculator .calc-result-note');
+
+      if (isOverLimit) {
+        calcPrice.textContent = '전화상담 후 견적';
+        if (calcNote) {
+          calcNote.textContent = '※ 돌출 1.5m 이상 규격은 안전 보강(브라켓·트러스) 및 현장 확인이 필요하여 전화 상담 후 정확한 맞춤 견적을 안내해 드립니다.';
+        }
+        return;
+      }
+
+      const arm = armVal / 100;
       let baseMin = 0;
       let baseMax = 0;
 
       if (selectedType === 'manual') {
         // Folding manual
-        const area = width * arm;
         baseMin = Math.round(width * 95000 + arm * 80000 + 120000);
         baseMax = Math.round(baseMin * 1.2);
       } else if (selectedType === 'electric') {
         // Folding motor
-        const area = width * arm;
         baseMin = Math.round(width * 95000 + arm * 80000 + 320000);
         baseMax = Math.round(baseMin * 1.22);
       } else if (selectedType === 'fixed') {
@@ -4709,11 +4730,16 @@
 
       if (hasPrint) {
         baseMin += 60000;
-        baseMax += 90000;
+        baseMax += 300000;
       }
 
       // Format thousands
       calcPrice.textContent = `약 ${baseMin.toLocaleString('ko-KR')}원 ~ ${baseMax.toLocaleString('ko-KR')}원`;
+      if (calcNote) {
+        calcNote.textContent = armVal === 150
+          ? '※ 현장 벽면 보강, 사다리차 사용 여부, 원단 사양에 따라 변동될 수 있습니다. (1.5m 이상 규격은 전화상담 후 견적)'
+          : '※ 현장 벽면 보강, 사다리차 사용 여부, 원단(수입/국산)에 따라 변동될 수 있습니다.';
+      }
     }
 
     // Photo Attachment State & Logic
@@ -4827,8 +4853,11 @@
       }[selectedType];
 
       const width = parseFloat(widthInput.value).toFixed(1);
-      const arm = parseFloat(armInput.value).toFixed(1);
-      const printStr = printCheck.checked ? '포함' : '미포함';
+      const armVal = parseInt(armInput.value, 10);
+      const armStr = selectedType === 'fabric'
+        ? '기존동일'
+        : (armVal > 150 ? '1.5m 이상 (전화상담 후 견적)' : `${armVal}cm (${(armVal / 100).toFixed(1)}m)`);
+      const printStr = printCheck.checked ? '포함 (+6만~30만)' : '미포함';
       const priceText = calcPrice.textContent.trim();
 
       const photoNote = attachedPhotos.length > 0
@@ -4843,8 +4872,8 @@
 [대전 수경어닝 실시간 가견적 문의]
 - 어닝종류: ${typeText}${fabricNote ? `\n` + fabricNote : ''}
 - 전면폭: ${width}m
-- 돌출길이: ${arm}m
-- 상호인쇄: ${printStr}
+- 돌출길이: ${armStr}
+- 하단인쇄: ${printStr}
 - 예상견적: ${priceText}
 ${photoNote}
 현장 확인 후 정확한 방문 실측 및 견적 상담 요청드립니다.`;
