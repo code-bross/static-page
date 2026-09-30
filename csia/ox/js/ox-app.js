@@ -60,6 +60,13 @@ document.addEventListener('DOMContentLoaded', () => {
     cardModeBtn.addEventListener('click', () => switchMode('card'));
     listModeBtn.addEventListener('click', () => switchMode('list'));
     resetOxBtn.addEventListener('click', resetQuiz);
+    progressSpinner.addEventListener('input', () => {
+      const target = Number(progressSpinner.value);
+      if (!progressSpinner.value || !Number.isInteger(target) || target < 1 ||
+          target > filteredQuizzes.length || target === currentIndex + 1) return;
+      currentIndex = target - 1;
+      render();
+    });
     progressSpinner.addEventListener('change', () => {
       if (!filteredQuizzes.length) return;
       const target = Number(progressSpinner.value);
@@ -67,8 +74,11 @@ document.addEventListener('DOMContentLoaded', () => {
         progressSpinner.value = currentIndex + 1;
         return;
       }
-      currentIndex = Math.min(Math.max(target - 1, 0), filteredQuizzes.length - 1);
-      render();
+      const nextIndex = Math.min(Math.max(target - 1, 0), filteredQuizzes.length - 1);
+      if (nextIndex !== currentIndex) {
+        currentIndex = nextIndex;
+        render();
+      }
     });
     prevQuestionBtn.addEventListener('click', () => moveToQuestion(currentIndex - 1));
     nextQuestionBtn.addEventListener('click', () => moveToQuestion(currentIndex + 1));
@@ -135,13 +145,11 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         const options = inner.split('/').map(s => s.trim()).filter(Boolean);
         const currentAns = rawAnswers[ansIdx] || '';
-        let correctOpt = options.find(opt => {
-          const no = norm(opt);
-          const nc = norm(currentAns);
-          return nc.includes(no) || (no.length > 1 && nc === no);
-        });
+        let correctOpt = options.find(opt => norm(currentAns) === norm(opt) || norm(q.answer) === norm(opt));
         if (!correctOpt) {
-          correctOpt = options.find(opt => norm(q.answer).includes(norm(opt)));
+          correctOpt = options
+            .filter(opt => norm(currentAns).startsWith(norm(opt)))
+            .sort((a, b) => norm(b).length - norm(a).length)[0];
         }
         if (correctOpt) {
           const cIdx = choiceSlotCount++;
@@ -294,9 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const current = Array.isArray(revealedBlanks[q.id]) ? revealedBlanks[q.id] : [];
     if (!current.includes(index)) {
       revealedBlanks[q.id] = [...current, index];
-      userAnswers[q.id] = true;
       localStorage.setItem('csia_ox_revealed_blanks', JSON.stringify(revealedBlanks));
-      saveUserAnswers();
     }
   }
 
@@ -344,8 +350,10 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
     
-    const answeredCount = filteredQuizzes.filter(q => userAnswers.hasOwnProperty(q.id)).length;
-    const correctCount = filteredQuizzes.filter(q => userAnswers[q.id] === true).length;
+    const gradedQuizzes = filteredQuizzes.filter(q => q.type === 'OX' ||
+      getQuestionSlots(q).some(slot => slot.type === 'choice'));
+    const answeredCount = gradedQuizzes.filter(q => userAnswers.hasOwnProperty(q.id)).length;
+    const correctCount = gradedQuizzes.filter(q => userAnswers[q.id] === true).length;
     
     progressSpinner.disabled = false;
     progressSpinner.max = total;
@@ -501,9 +509,6 @@ document.addEventListener('DOMContentLoaded', () => {
         revealBtn.addEventListener('click', () => {
           const drawer = document.getElementById('answerDrawer');
           drawer.classList.toggle('hidden');
-          userAnswers[q.id] = true;
-          saveUserAnswers();
-          updateStats();
         });
       }
     }
@@ -605,6 +610,12 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
           <div class="question-text" style="font-size: 15px; margin-bottom: 12px;">${renderInteractiveQuestion(q)}</div>
           
+          ${q.type === 'OX' ? `
+            <div class="ox-buttons-group">
+              <button class="ox-btn ox-btn-o list-ox-btn ${userAnswers.hasOwnProperty(q.id) && q.oxAnswer === 'O' ? 'selected-o' : ''}" data-id="${q.id}" data-choice="O" type="button">O</button>
+              <button class="ox-btn ox-btn-x list-ox-btn ${userAnswers.hasOwnProperty(q.id) && q.oxAnswer === 'X' ? 'selected-x' : ''}" data-id="${q.id}" data-choice="X" type="button">X</button>
+            </div>
+          ` : ''}
           <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 8px;">
             <button class="reveal-ans-btn list-reveal-btn" data-id="${q.id}" style="padding: 9px 14px; font-size: 13px; flex: 1;">
               ${isAnsRevealed ? '▲ 정답 닫기' : '💡 정답 및 해설 보기'}
@@ -635,13 +646,17 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isHidden) {
           drawer.classList.remove('hidden');
           btn.textContent = '▲ 정답 닫기';
-          userAnswers[qid] = true;
         } else {
           drawer.classList.add('hidden');
           btn.textContent = '💡 정답 및 해설 보기';
         }
-        saveUserAnswers();
-        updateStats();
+      });
+    });
+
+    listView.querySelectorAll('.list-ox-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const quiz = filteredQuizzes.find(q => q.id === Number(btn.dataset.id));
+        if (quiz) handleOXClick(quiz, btn.dataset.choice);
       });
     });
 
