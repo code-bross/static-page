@@ -7,6 +7,9 @@
   <meta name="theme-color" content="#f4f1e8" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#171b1f" media="(prefers-color-scheme: dark)" />
   <link rel="icon" href="data:," />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700;800&family=Noto+Serif+KR:wght@700;900&display=swap" rel="stylesheet">
   <title>증권투자권유자문인력 금융상품분석 핵심자료</title>
   <style>
     :root {
@@ -356,28 +359,31 @@
     .private-fund p { margin: 0; color: var(--muted); font-size: .9rem; }
     .private-fund .key p { color: inherit; opacity: .8; }
     .quiz-list { display: grid; gap: 12px; }
-    .quiz-item { border: 1px solid var(--line); background: var(--white); }
-    .quiz-question {
+    .quiz-item { border: 1px solid var(--line); background: var(--white); padding: 22px; }
+    .quiz-title { margin: 0 0 16px; font-size: 1rem; line-height: 1.5; }
+    .quiz-title span { color: var(--red); margin-right: 6px; }
+    .quiz-options { display: grid; gap: 8px; }
+    .quiz-option {
       width: 100%;
-      border: 0;
-      padding: 20px;
-      display: grid;
-      grid-template-columns: 34px 1fr auto;
-      gap: 12px;
-      align-items: center;
+      border: 1px solid var(--line);
+      padding: 12px 14px;
       text-align: left;
       color: var(--ink);
-      background: transparent;
+      background: var(--paper-2);
       cursor: pointer;
-      font-weight: 900;
+      font-weight: 700;
     }
-    .quiz-question:hover, .quiz-question:focus-visible { background: var(--paper-2); outline: 2px solid var(--navy); outline-offset: -2px; }
-    .qno { color: var(--red); font: 700 1.2rem Georgia, serif; }
-    .toggle { color: var(--muted); font-size: .83rem; }
-    .quiz-answer { display: none; padding: 0 20px 20px 66px; }
-    .quiz-item.open .quiz-answer { display: block; }
-    .quiz-answer strong { color: var(--green); }
-    .quiz-answer p { margin: 5px 0 0; color: var(--muted); }
+    .quiz-option:hover, .quiz-option:focus-visible { border-color: var(--navy); outline: none; }
+    .quiz-option.selected { border-color: var(--navy); background: var(--navy-soft); }
+    .quiz-option.correct { border-color: var(--green); background: var(--green-soft); }
+    .quiz-option.wrong { border-color: var(--red); background: var(--red-soft); }
+    .quiz-explanation { display: none; margin: 14px 0 0; padding: 13px 15px; background: var(--paper-2); color: var(--muted); font-size: .88rem; }
+    .quiz-explanation.show { display: block; }
+    .quiz-actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 14px; }
+    .quiz-btn { border: 0; padding: 11px 17px; background: var(--navy); color: var(--paper); font-weight: 800; cursor: pointer; }
+    .quiz-btn.secondary { background: var(--white); color: var(--ink); border: 1px solid var(--line-strong); }
+    .quiz-score { display: none; margin-top: 12px; padding: 14px 16px; background: var(--green-soft); color: var(--ink); font-weight: 800; }
+    .quiz-score.show { display: block; }
     .cram {
       display: grid;
       grid-template-columns: 210px 1fr;
@@ -447,14 +453,14 @@
       .private-fund { grid-template-columns: 1fr; }
       .private-fund > div { border-right: 0; border-bottom: 1px solid var(--line); }
       .private-fund > div:last-child { border-bottom: 0; }
-      .quiz-question { grid-template-columns: 28px 1fr; }
-      .quiz-question .toggle { grid-column: 2; }
-      .quiz-answer { padding: 0 20px 20px 60px; }
+      .quiz-item { padding: 18px 15px; }
+      .quiz-option { padding: 11px 12px; }
       .cram { padding: 24px 20px; }
       footer { flex-direction: column; }
     }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   </style>
+  <link rel="stylesheet" href="unified-lesson.css">
 </head>
 <body>
   <main class="page">
@@ -609,21 +615,41 @@
     </section>
 
     <section class="section" id="quiz">
-      <div class="section-head"><div class="section-no">08</div><div><h2>3문제로 끝내는 복습</h2><p class="section-intro">문제를 먼저 풀고 ‘정답 보기’를 눌러 확인하세요.</p></div></div>
+      <div class="section-head"><div class="section-no">08</div><div><h2>3문제로 끝내는 복습</h2><p class="section-intro">보기를 선택한 뒤 한 번에 채점하세요. 채점 전에는 정답이 표시되지 않습니다.</p></div></div>
       <div class="quiz-list">
-        <article class="quiz-item">
-          <button class="quiz-question" type="button" aria-expanded="false"><span class="qno">Q1</span><span>다음 중 신용협동기구가 아닌 것은?</span><span class="toggle">정답 보기</span></button>
-          <div class="quiz-answer"><strong>정답: 저축은행</strong><p>신용협동기구는 ‘세신단’ — 신협, 새마을금고, 단위조합입니다.</p></div>
+        <article class="quiz-item" data-answer="3">
+          <h3 class="quiz-title"><span>Q1</span>다음 중 신용협동기구가 아닌 것은?</h3>
+          <div class="quiz-options">
+            <button class="quiz-option" type="button">① 신용협동조합</button>
+            <button class="quiz-option" type="button">② 새마을금고</button>
+            <button class="quiz-option" type="button">③ 농협 지역조합</button>
+            <button class="quiz-option" type="button">④ 상호저축은행</button>
+          </div>
+          <p class="quiz-explanation"><strong>정답: ④ 상호저축은행.</strong> 신용협동기구는 신협·새마을금고·단위조합인 ‘세신단’입니다.</p>
         </article>
-        <article class="quiz-item">
-          <button class="quiz-question" type="button" aria-expanded="false"><span class="qno">Q2</span><span>증권회사가 고객에게 금전 융자나 유가증권 대여를 하는 업무는?</span><span class="toggle">정답 보기</span></button>
-          <div class="quiz-answer"><strong>정답: 신용공여 업무</strong><p>금전 대출, 유가증권 대여, 증권담보대출이 포함됩니다.</p></div>
+        <article class="quiz-item" data-answer="3">
+          <h3 class="quiz-title"><span>Q2</span>증권회사가 고객에게 금전 융자나 유가증권 대여를 하는 업무는?</h3>
+          <div class="quiz-options">
+            <button class="quiz-option" type="button">① 위탁매매</button>
+            <button class="quiz-option" type="button">② 자기매매</button>
+            <button class="quiz-option" type="button">③ 인수·주선</button>
+            <button class="quiz-option" type="button">④ 신용공여</button>
+          </div>
+          <p class="quiz-explanation"><strong>정답: ④ 신용공여.</strong> 금전 대출, 유가증권 대여, 증권담보대출이 포함됩니다.</p>
         </article>
-        <article class="quiz-item">
-          <button class="quiz-question" type="button" aria-expanded="false"><span class="qno">Q3</span><span>투자신탁의 재산은 어디에 보관하는가?</span><span class="toggle">정답 보기</span></button>
-          <div class="quiz-answer"><strong>정답: 수탁회사(신탁업자)</strong><p>운용과 보관을 분리하며, 판매대금도 수탁회사로 직접 이체됩니다.</p></div>
+        <article class="quiz-item" data-answer="3">
+          <h3 class="quiz-title"><span>Q3</span>투자신탁의 재산을 보관·관리하는 주체는?</h3>
+          <div class="quiz-options">
+            <button class="quiz-option" type="button">① 집합투자업자</button>
+            <button class="quiz-option" type="button">② 판매회사</button>
+            <button class="quiz-option" type="button">③ 일반사무관리회사</button>
+            <button class="quiz-option" type="button">④ 수탁회사(신탁업자)</button>
+          </div>
+          <p class="quiz-explanation"><strong>정답: ④ 수탁회사.</strong> 운용과 보관을 분리하며 판매대금도 수탁회사로 직접 이체됩니다.</p>
         </article>
       </div>
+      <div class="quiz-actions"><button class="quiz-btn" id="grade-quiz" type="button">채점하기</button><button class="quiz-btn secondary" id="reset-quiz" type="button">다시 풀기</button></div>
+      <div class="quiz-score" id="quiz-score" role="status" aria-live="polite"></div>
     </section>
 
     <section class="cram" aria-labelledby="cram-title">
@@ -648,14 +674,49 @@
 
   <script>
     (function () {
-      var questions = document.querySelectorAll('.quiz-question');
-      questions.forEach(function (button) {
-        button.addEventListener('click', function () {
-          var item = button.closest('.quiz-item');
-          var isOpen = item.classList.toggle('open');
-          button.setAttribute('aria-expanded', String(isOpen));
-          button.querySelector('.toggle').textContent = isOpen ? '정답 닫기' : '정답 보기';
+      var questions = Array.prototype.slice.call(document.querySelectorAll('.quiz-item[data-answer]'));
+      var score = document.getElementById('quiz-score');
+      questions.forEach(function (question) {
+        question.querySelectorAll('.quiz-option').forEach(function (option, index) {
+          option.addEventListener('click', function () {
+            question.querySelectorAll('.quiz-option').forEach(function (item) {
+              item.classList.remove('selected', 'correct', 'wrong');
+            });
+            option.classList.add('selected');
+            question.dataset.choice = String(index);
+            question.querySelector('.quiz-explanation').classList.remove('show');
+            score.classList.remove('show');
+          });
         });
+      });
+      document.getElementById('grade-quiz').addEventListener('click', function () {
+        var answered = 0;
+        var correct = 0;
+        questions.forEach(function (question) {
+          var answer = Number(question.dataset.answer);
+          var options = question.querySelectorAll('.quiz-option');
+          options[answer].classList.add('correct');
+          question.querySelector('.quiz-explanation').classList.add('show');
+          if (question.dataset.choice === undefined) return;
+          answered++;
+          var choice = Number(question.dataset.choice);
+          if (choice === answer) correct++;
+          else options[choice].classList.add('wrong');
+        });
+        score.textContent = answered < questions.length
+          ? '아직 ' + (questions.length - answered) + '문제가 남았습니다. 현재 ' + answered + '문제 중 ' + correct + '문제 정답.'
+          : '총 ' + questions.length + '문제 중 ' + correct + '문제 정답입니다.';
+        score.classList.add('show');
+      });
+      document.getElementById('reset-quiz').addEventListener('click', function () {
+        questions.forEach(function (question) {
+          delete question.dataset.choice;
+          question.querySelectorAll('.quiz-option').forEach(function (option) {
+            option.classList.remove('selected', 'correct', 'wrong');
+          });
+          question.querySelector('.quiz-explanation').classList.remove('show');
+        });
+        score.classList.remove('show');
       });
     }());
   </script>

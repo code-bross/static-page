@@ -37,32 +37,90 @@
     .eyebrow::before { content: ""; width: 25px; height: 3px; background: var(--coral); }
     h1 { margin: 10px 0 4px; font: 700 29px/1.25 "Noto Serif KR", Georgia, serif; }
     .masthead p { margin: 0; color: var(--muted); font-size: 14px; }
-    .course-nav { position: sticky; top: 0; z-index: 5; border-bottom: 1px solid var(--line); background: rgba(243,247,246,.94); backdrop-filter: blur(12px); }
+    html { scroll-behavior: auto; scroll-padding-top: 90px; }
+    .course-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid var(--line);
+      background: rgba(243,247,246,.96);
+      box-shadow: 0 5px 18px rgba(24,49,56,.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transform: translateY(0);
+      transition: transform .24s ease, box-shadow .24s ease;
+      will-change: transform;
+    }
+    .course-nav.is-hidden {
+      transform: translateY(calc(-100% - 2px));
+      box-shadow: none;
+    }
     .tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; padding: 12px 0; }
     .tab {
       display: flex; align-items: center; gap: 12px; min-width: 0; min-height: 58px; padding: 9px 15px;
       border: 1px solid var(--line); background: var(--surface); color: var(--muted); text-align: left; cursor: pointer;
+      text-decoration: none;
       transition: background-color .18s ease, border-color .18s ease, color .18s ease;
     }
     .tab:hover { border-color: var(--teal); color: var(--ink); }
     .tab:focus-visible { outline: 3px solid var(--coral); outline-offset: 2px; }
-    .tab[aria-selected="true"] { border-color: var(--teal); background: var(--teal); color: #fff; }
     .tab-number { flex: 0 0 auto; font: 700 23px/1 "Noto Serif KR", Georgia, serif; color: var(--coral); }
-    .tab[aria-selected="true"] .tab-number { color: #bce8df; }
     .tab-label { min-width: 0; font-size: 15px; font-weight: 800; overflow-wrap: anywhere; }
-    main { padding: 20px 0 52px; }
-    .panel { min-width: 0; }
-    .panel[hidden] { display: none; }
-    .lesson-frame { display: block; width: 100%; min-height: 80vh; border: 0; background: var(--paper); }
+    main { padding: 28px 0 64px; }
+    .panel {
+      min-width: 0;
+      scroll-margin-top: 90px;
+      margin-bottom: 48px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      box-shadow: 0 14px 38px rgba(24,49,56,.08);
+    }
+    .panel:last-child { margin-bottom: 0; }
+    .subject-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 20px 24px;
+      border-bottom: 4px solid #f4a48f;
+      background: #173d45;
+      color: #fff;
+    }
+    .subject-heading div { min-width: 0; }
+    .subject-kicker { display: block; margin-bottom: 3px; color: #9fe4da; font-size: 12px; font-weight: 800; letter-spacing: .08em; }
+    .subject-heading h2 { margin: 0; color: #fff; font: 900 24px/1.3 "Noto Serif KR", Georgia, serif; }
+    .subject-heading p { margin: 4px 0 0; color: #d7e5e5; font-size: 13px; }
+    .subject-number {
+      flex: 0 0 auto;
+      color: #f4a48f;
+      font: 700 42px/1 "Noto Serif KR", Georgia, serif;
+    }
+    .lesson-frame,
+    .lesson-host {
+      display: block;
+      width: 100%;
+      min-height: 80vh;
+      border: 0;
+      background: var(--paper);
+      overflow: hidden;
+    }
+    .lesson-host { min-height: 0; }
     @media (max-width: 640px) {
-      .shell { width: min(100% - 24px, 1160px); }
+      html, body { width: 100%; max-width: 100%; overflow-x: clip; }
+      .shell { width: 100%; max-width: 100%; padding-left: 10px; padding-right: 10px; }
       .masthead { padding: 25px 0 19px; }
       h1 { font-size: 25px; }
       .tabs { gap: 5px; padding: 8px 0; }
       .tab { min-height: 52px; padding: 7px 8px; gap: 7px; }
       .tab-number { font-size: 19px; }
       .tab-label { font-size: 12px; }
-      main { padding-top: 10px; }
+      main { padding: 12px 0 32px; }
+      .panel { margin-bottom: 24px; border-left: 0; border-right: 0; box-shadow: none; }
+      .subject-heading { padding: 15px 14px; }
+      .subject-heading h2 { font-size: 20px; }
+      .subject-heading p { font-size: 12px; }
+      .subject-number { font-size: 32px; }
+      .panel, .lesson-frame, .lesson-host { min-width: 0; max-width: 100%; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
@@ -72,32 +130,2183 @@
 <body>
   <header class="masthead">
     <div class="shell">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+        <a href="../../index.html" style="color: var(--teal); text-decoration: none; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; gap: 4px;">
+          <span>←</span> CSIA CBT 메인 포털
+        </a>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <a href="../index.html" style="color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 700;">📋 강의 분석 요약 홈</a>
+          <span style="color: var(--line);">|</span>
+          <a href="../../summary/index.html" style="color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 700;">📚 전과목 요약집</a>
+          <span style="color: var(--line);">|</span>
+          <a href="../../ox/index.html" style="color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 700;">⚡ OX 퀴즈</a>
+          <span style="color: var(--line);">|</span>
+          <a href="../../checkpoint/index.html" style="color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 700;">✅ 체크포인트</a>
+        </div>
+      </div>
       <div class="eyebrow">2026 E-PASS · CSIA</div>
       <h1>증권투자권유자문인력 핵심 강의노트</h1>
       <p>과목별 핵심 개념과 강의 복습 자료</p>
     </div>
   </header>
-  <nav class="course-nav" aria-label="과목 선택">
-    <div class="shell tabs" role="tablist" aria-label="시험 과목">
-      <button class="tab" id="tab-course-1" type="button" role="tab" aria-selected="true" aria-controls="panel-course-1" tabindex="0" data-course="course-1"><span class="tab-number">01</span><span class="tab-label">1과목 · 경기분석</span></button>
-      <button class="tab" id="tab-course-2" type="button" role="tab" aria-selected="false" aria-controls="panel-course-2" tabindex="-1" data-course="course-2"><span class="tab-number">02</span><span class="tab-label">2과목 · 금융상품분석</span></button>
-      <button class="tab" id="tab-course-3" type="button" role="tab" aria-selected="false" aria-controls="panel-course-3" tabindex="-1" data-course="course-3"><span class="tab-number">03</span><span class="tab-label">3과목 · 법규</span></button>
+  <nav class="course-nav" aria-label="과목 바로가기">
+    <div class="shell tabs">
+      <a class="tab" href="#course-1"><span class="tab-number">01</span><span class="tab-label">1과목 · 경기분석</span></a>
+      <a class="tab" href="#course-2"><span class="tab-number">02</span><span class="tab-label">2과목 · 금융상품분석</span></a>
+      <a class="tab" href="#course-3"><span class="tab-number">03</span><span class="tab-label">3과목 · 법규</span></a>
     </div>
   </nav>
   <main class="shell">
-    <section class="panel" id="panel-course-1" role="tabpanel" aria-labelledby="tab-course-1">
-      <iframe class="lesson-frame" title="1과목 경기분석 강의노트" src="1과목-경기분석.html"></iframe>
+    <section class="panel" id="course-1" aria-labelledby="course-1-title">
+      <header class="subject-heading">
+        <div>
+          <span class="subject-kicker">SUBJECT 01</span>
+          <h2 id="course-1-title">1과목 · 경기분석</h2>
+          <p>경기순환, GDP, 물가, 통화지표와 계산문제 핵심 정리</p>
+        </div>
+        <span class="subject-number" aria-hidden="true">01</span>
+      </header>
+      <iframe class="lesson-frame" title="1과목 경기분석 강의노트" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;ko&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot; /&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, viewport-fit=cover&quot; /&gt;
+  &lt;meta name=&quot;color-scheme&quot; content=&quot;light dark&quot; /&gt;
+  &lt;link rel=&quot;icon&quot; href=&quot;data:,&quot; /&gt;
+  &lt;title&gt;증권투자권유자문인력 경기분석 핵심자료&lt;/title&gt;
+  &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;
+  &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;
+  &lt;link href=&quot;https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&amp;family=Nanum+Myeongjo:wght@700;800&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+  &lt;style&gt;
+    :root {
+      color-scheme: light dark;
+      --bg: #f4f7f8;
+      --paper: #ffffff;
+      --paper-soft: #edf2f3;
+      --ink: #12272b;
+      --muted: #52666a;
+      --line: #ccd8da;
+      --line-strong: #93a8ab;
+      --navy: #173d45;
+      --teal: #087b72;
+      --teal-soft: #d8efeb;
+      --coral: #d55b3e;
+      --coral-soft: #f8e3dd;
+      --gold: #a56a00;
+      --gold-soft: #f8edcf;
+      --good: #177c58;
+      --bad: #bd3e35;
+      --shadow: 0 18px 48px rgba(20, 54, 61, .09);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0d1719;
+        --paper: #142226;
+        --paper-soft: #1b2c30;
+        --ink: #edf5f4;
+        --muted: #b6c6c7;
+        --line: #31474c;
+        --line-strong: #597278;
+        --navy: #d6efed;
+        --teal: #62d3c3;
+        --teal-soft: #153f3d;
+        --coral: #ff987d;
+        --coral-soft: #492923;
+        --gold: #f1be59;
+        --gold-soft: #45391f;
+        --good: #65d7aa;
+        --bad: #ff9387;
+        --shadow: 0 18px 48px rgba(0, 0, 0, .25);
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: &quot;IBM Plex Sans KR&quot;, sans-serif;
+      line-height: 1.65;
+      word-break: keep-all;
+    }
+    a { color: inherit; }
+    button, input { font: inherit; }
+    button { -webkit-tap-highlight-color: transparent; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 64px 0 48px;
+      background: var(--navy);
+      color: var(--bg);
+      isolation: isolate;
+    }
+    @media (prefers-color-scheme: dark) {
+      .hero { background: #0e3439; color: #f5fbfa; }
+    }
+    .hero::before {
+      content: &quot;&quot;;
+      position: absolute;
+      inset: -20% -5% auto 46%;
+      height: 420px;
+      background: repeating-linear-gradient(115deg, transparent 0 31px, rgba(255,255,255,.07) 32px 33px);
+      transform: rotate(-4deg);
+      z-index: -1;
+    }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(280px, .65fr); gap: 54px; align-items: end; }
+    .kicker { display: flex; gap: 10px; align-items: center; font-weight: 700; color: #9fe4da; }
+    .kicker::before { content: &quot;&quot;; width: 34px; height: 3px; background: #f4a48f; }
+    h1 {
+      margin: 18px 0 18px;
+      max-width: 780px;
+      font-family: &quot;Nanum Myeongjo&quot;, serif;
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: 1.12;
+      letter-spacing: -.05em;
+    }
+    .hero-copy { max-width: 700px; margin: 0; font-size: 18px; color: #d7e5e5; }
+    .hero-meta { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 10px; }
+    .tag { padding: 8px 12px; border: 1px solid rgba(255,255,255,.28); background: rgba(255,255,255,.07); font-weight: 600; font-size: 14px; }
+    .lesson-card { border-top: 5px solid #f4a48f; background: #f5fbfa; color: #17373d; padding: 24px; box-shadow: var(--shadow); }
+    .lesson-card strong { display: block; font-family: &quot;Nanum Myeongjo&quot;, serif; font-size: 24px; margin-bottom: 12px; }
+    .lesson-card dl { margin: 0; display: grid; gap: 9px; }
+    .lesson-card div { display: flex; justify-content: space-between; gap: 18px; border-bottom: 1px solid #d5e2e2; padding-bottom: 8px; }
+    .lesson-card dt { color: #587074; }
+    .lesson-card dd { margin: 0; font-weight: 700; text-align: right; }
+    .video-link { display: inline-flex; align-items: center; gap: 9px; margin-top: 18px; font-weight: 700; color: #0a6c65; text-underline-offset: 4px; }
+    .video-link::after { content: &quot;↗&quot;; font-size: 18px; }
+    .jump {
+      position: sticky; top: 0; z-index: 20;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+    .jump .wrap { display: flex; gap: 4px; align-items: center; overflow-x: auto; scrollbar-width: none; padding-top: 8px; padding-bottom: 8px; }
+    .jump .wrap::-webkit-scrollbar { display: none; }
+    .jump a { flex: 0 0 auto; text-decoration: none; color: var(--muted); font-size: 14px; font-weight: 600; padding: 8px 11px; }
+    .jump a:hover, .jump a:focus-visible { background: var(--teal-soft); color: var(--teal); outline: none; }
+    main { padding: 48px 0 84px; }
+    section { scroll-margin-top: 72px; margin-bottom: 78px; }
+    .section-head { display: grid; grid-template-columns: 78px 1fr; gap: 18px; align-items: start; margin-bottom: 28px; }
+    .section-no { font-family: &quot;Nanum Myeongjo&quot;, serif; font-size: 52px; line-height: 1; color: var(--coral); border-top: 3px solid var(--coral); padding-top: 8px; }
+    h2 { font-family: &quot;Nanum Myeongjo&quot;, serif; font-size: clamp(28px, 4vw, 42px); line-height: 1.25; margin: 0 0 8px; letter-spacing: -.035em; }
+    .section-head p { margin: 0; color: var(--muted); max-width: 760px; }
+    .exam-mark { color: var(--coral); font-weight: 700; font-size: 14px; }
+    .definition {
+      background: var(--paper);
+      border-top: 4px solid var(--teal);
+      padding: 24px 28px;
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+    }
+    .definition p { font-family: &quot;Nanum Myeongjo&quot;, serif; font-size: clamp(21px, 3vw, 29px); line-height: 1.55; margin: 0; }
+    .definition em { color: var(--teal); font-style: normal; }
+    .indicator-row, .factor-grid, .formula-grid { display: grid; gap: 14px; }
+    .indicator-row { grid-template-columns: repeat(2, 1fr); }
+    .factor-grid { grid-template-columns: repeat(4, 1fr); }
+    .card { background: var(--paper); border: 1px solid var(--line); padding: 22px; }
+    .card h3 { margin: 0 0 8px; font-size: 19px; }
+    .card p { margin: 0; color: var(--muted); font-size: 15px; }
+    .factor-grid .card { position: relative; padding-top: 54px; min-height: 175px; }
+    .factor-num { position: absolute; top: 16px; left: 20px; font: 700 25px/1 &quot;Nanum Myeongjo&quot;, serif; color: var(--line-strong); }
+    .factor-grid .focus { background: var(--teal); color: white; border-color: var(--teal); }
+    .factor-grid .focus p, .factor-grid .focus .factor-num { color: #d8f6f2; }
+    .strip-note { margin-top: 14px; background: var(--coral-soft); padding: 16px 20px; display: flex; gap: 12px; align-items: flex-start; color: var(--ink); }
+    .strip-note strong { color: var(--coral); flex: 0 0 auto; }
+    .cycle {
+      margin-top: 28px; background: var(--paper); border: 1px solid var(--line); padding: 28px;
+    }
+    .cycle-graphic { display: grid; grid-template-columns: 90px 1fr 1fr 90px; align-items: center; gap: 0; margin: 28px 0 20px; }
+    .turn { text-align: center; font-weight: 700; position: relative; }
+    .turn .dot { display: block; width: 15px; height: 15px; margin: 8px auto; border-radius: 50%; background: var(--coral); }
+    .phase { height: 12px; position: relative; }
+    .phase::before { content: &quot;&quot;; position: absolute; height: 4px; left: 0; right: 0; top: 4px; background: var(--teal); }
+    .phase::after { content: &quot;&quot;; position: absolute; right: 0; top: 0; border-left: 8px solid var(--teal); border-top: 6px solid transparent; border-bottom: 6px solid transparent; }
+    .phase.down::before { background: var(--coral); }
+    .phase.down::after { border-left-color: var(--coral); }
+    .phase-labels { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; text-align: center; font-weight: 700; }
+    .terms { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 24px; }
+    .term { padding: 15px; background: var(--paper-soft); }
+    .term b { display: block; margin-bottom: 4px; }
+    .term span { color: var(--muted); font-size: 14px; }
+    .source-line { margin: 14px 0 0; color: var(--muted); font-size: 13px; }
+    .source-line a { color: var(--teal); text-underline-offset: 3px; }
+    .gdp-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: 22px; }
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+    .compare &gt; div { background: var(--paper); padding: 25px; }
+    .compare .big { font: 700 26px/1.2 &quot;Nanum Myeongjo&quot;, serif; color: var(--teal); }
+    .compare h3 { margin: 9px 0 6px; }
+    .compare p { margin: 0; color: var(--muted); }
+    .bars { background: var(--paper); border: 1px solid var(--line); padding: 26px; }
+    .bars h3 { margin-top: 0; }
+    .bar-row { display: grid; grid-template-columns: 92px 1fr 55px; gap: 12px; align-items: center; margin: 15px 0; }
+    .bar-row b { font-size: 14px; }
+    .bar-track { height: 13px; background: var(--paper-soft); }
+    .bar-fill { height: 100%; background: var(--teal); }
+    .bar-row:nth-of-type(3) .bar-fill { background: var(--coral); }
+    .bar-row:nth-of-type(4) .bar-fill { background: var(--gold); }
+    .bar-row:nth-of-type(5) .bar-fill { background: var(--line-strong); min-width: 4px; }
+    .bar-row span { text-align: right; font-weight: 700; }
+    .exam-callout { margin-top: 20px; padding: 18px 20px; border: 2px solid var(--coral); background: var(--paper); }
+    .exam-callout b { color: var(--coral); }
+    .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .price-card { background: var(--paper); border: 1px solid var(--line); padding: 24px; position: relative; overflow: hidden; }
+    .price-card::after { content: attr(data-key); position: absolute; right: -5px; top: -15px; font: 700 64px/1 &quot;Nanum Myeongjo&quot;, serif; color: var(--paper-soft); }
+    .price-card &gt; * { position: relative; z-index: 1; }
+    .price-card h3 { margin: 0 0 6px; font-size: 24px; }
+    .price-card .role { color: var(--teal); font-weight: 700; min-height: 52px; }
+    .price-card dl { margin: 20px 0 0; }
+    .price-card dt { color: var(--muted); font-size: 13px; }
+    .price-card dd { margin: 2px 0 12px; font-weight: 600; }
+    .flow { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 9px; margin-top: 18px; color: var(--muted); }
+    .flow b { color: var(--ink); background: var(--paper-soft); padding: 9px 12px; }
+    .calculator { margin-top: 20px; background: var(--navy); color: var(--bg); display: grid; grid-template-columns: 1fr 1fr; gap: 30px; padding: 28px; }
+    @media (prefers-color-scheme: dark) { .calculator { background: #0e3439; color: #f5fbfa; } }
+    .calculator h3 { margin: 0 0 8px; font-size: 23px; }
+    .calculator p { margin: 0; color: #cededd; }
+    .calc-fields { display: grid; grid-template-columns: 1fr auto 1fr auto; gap: 8px; align-items: end; }
+    label { display: block; font-size: 13px; color: #c6d7d5; }
+    input[type=&quot;number&quot;] { width: 100%; margin-top: 5px; border: 1px solid #789092; background: #f7fbfa; color: #17373d; padding: 10px; border-radius: 0; }
+    .operator { font-size: 21px; padding-bottom: 8px; }
+    .calc-result { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid #6d888a; padding-top: 12px; margin-top: 4px; }
+    .calc-result output { font: 700 28px/1 &quot;Nanum Myeongjo&quot;, serif; color: #9fe4da; }
+    .money-stack { display: grid; gap: 10px; }
+    .money-level { display: grid; grid-template-columns: 76px 1fr; align-items: stretch; }
+    .money-code { display: grid; place-items: center; font: 700 22px/1 &quot;Nanum Myeongjo&quot;, serif; color: white; background: var(--teal); }
+    .money-level:nth-child(2) .money-code { background: #17615f; }
+    .money-level:nth-child(3) .money-code { background: #284c58; }
+    .money-level:nth-child(4) .money-code { background: #343d50; }
+    .money-body { background: var(--paper); border: 1px solid var(--line); border-left: 0; padding: 15px 18px; }
+    .money-body b { display: block; }
+    .money-body span { color: var(--muted); font-size: 14px; }
+    .money-rule { padding: 18px; margin-top: 14px; background: var(--gold-soft); color: var(--ink); font-weight: 600; }
+    .formula-grid { grid-template-columns: repeat(3, 1fr); margin-top: 24px; }
+    .formula { background: var(--paper); border-top: 4px solid var(--teal); padding: 23px; }
+    .formula:nth-child(2) { border-color: var(--coral); }
+    .formula:nth-child(3) { border-color: var(--gold); }
+    .formula h3 { margin: 0 0 12px; }
+    .equation { font: 700 21px/1.45 &quot;Nanum Myeongjo&quot;, serif; min-height: 66px; }
+    .formula p { color: var(--muted); font-size: 14px; margin: 8px 0 0; }
+    .ec-calc .calc-fields { grid-template-columns: 1fr auto 1fr auto 1fr; }
+    .quiz-intro { display: flex; justify-content: space-between; align-items: end; gap: 16px; margin-bottom: 16px; }
+    .quiz-progress { color: var(--muted); font-size: 14px; }
+    .quiz-list { display: grid; gap: 14px; }
+    .question { background: var(--paper); border: 1px solid var(--line); padding: 24px; }
+    .question h3 { margin: 0 0 18px; font-size: 18px; }
+    .question h3 span { color: var(--coral); margin-right: 6px; }
+    .options { display: grid; gap: 8px; }
+    .option { width: 100%; text-align: left; border: 1px solid var(--line); background: var(--paper-soft); color: var(--ink); padding: 13px 15px; cursor: pointer; }
+    .option:hover, .option:focus-visible { border-color: var(--teal); outline: 2px solid transparent; }
+    .option.selected { border-color: var(--teal); background: var(--teal-soft); }
+    .option.correct,
+    .option.wrong {
+      position: relative;
+      padding-right: 88px;
+      font-weight: 700;
+    }
+    .option.correct {
+      border: 2px solid var(--good);
+      background: #bcebd7;
+      color: #103f30;
+      box-shadow: inset 5px 0 0 var(--good);
+    }
+    .option.wrong {
+      border: 2px solid var(--bad);
+      background: color-mix(in srgb, var(--bad) 18%, var(--paper));
+      box-shadow: inset 5px 0 0 var(--bad);
+    }
+    .option.correct::after,
+    .option.wrong::after {
+      position: absolute;
+      right: 11px;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 4px 8px;
+      border-radius: 999px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .option.correct::after { content: &quot;✓ 정답&quot;; background: var(--good); }
+    .option.wrong::after { content: &quot;✕ 오답&quot;; background: var(--bad); }
+    .explanation { display: none; margin: 14px 0 0; padding: 14px 16px; background: var(--paper-soft); color: var(--muted); }
+    .explanation.show { display: block; }
+    .quiz-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+    .btn { border: 0; background: var(--teal); color: white; padding: 12px 18px; font-weight: 700; cursor: pointer; }
+    .btn.secondary { background: var(--paper); color: var(--ink); border: 1px solid var(--line-strong); }
+    .score { display: none; background: var(--teal-soft); color: var(--ink); padding: 16px 18px; margin-top: 14px; font-weight: 700; }
+    .score.show { display: block; }
+    .memory-sheet { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .memory-sheet article { background: var(--paper); border: 1px solid var(--line); padding: 22px; }
+    .memory-sheet h3 { margin-top: 0; }
+    .memory-sheet ul { margin: 0; padding-left: 20px; }
+    .memory-sheet li + li { margin-top: 8px; }
+    footer { border-top: 1px solid var(--line); padding: 30px 0 48px; color: var(--muted); font-size: 14px; }
+    footer strong { color: var(--ink); }
+    .source-list { margin: 12px 0 0; padding-left: 20px; }
+    .source-list a { color: var(--teal); text-underline-offset: 3px; overflow-wrap: anywhere; }
+    @media (max-width: 850px) {
+      .hero-grid, .gdp-layout, .calculator { grid-template-columns: 1fr; }
+      .factor-grid, .terms { grid-template-columns: 1fr 1fr; }
+      .price-grid, .formula-grid { grid-template-columns: 1fr; }
+      .formula .equation { min-height: auto; }
+    }
+    @media (max-width: 600px) {
+      .wrap { width: min(100% - 28px, 1120px); }
+      .hero { padding: 42px 0 34px; }
+      .hero-grid { gap: 30px; }
+      h1 { font-size: 43px; }
+      .section-head { grid-template-columns: 48px 1fr; gap: 13px; }
+      .section-no { font-size: 35px; }
+      main { padding-top: 34px; }
+      section { margin-bottom: 58px; }
+      .indicator-row, .factor-grid, .terms, .memory-sheet { grid-template-columns: 1fr; }
+      .definition { padding: 20px; }
+      .cycle { padding: 19px 14px; }
+      .cycle-graphic { grid-template-columns: 62px 1fr 1fr 62px; font-size: 13px; }
+      .phase-labels { font-size: 14px; }
+      .compare { grid-template-columns: 1fr; }
+      .bar-row { grid-template-columns: 72px 1fr 48px; gap: 8px; }
+      .calculator { padding: 22px 18px; }
+      .jump .wrap { flex-wrap: wrap; overflow: visible; gap: 2px 4px; }
+      .jump a { padding: 6px 8px; font-size: 12px; }
+      .calc-fields, .ec-calc .calc-fields { grid-template-columns: 1fr; }
+      .calc-fields .operator { display: none; }
+      .calc-result { grid-column: 1; }
+      .money-level { grid-template-columns: 62px 1fr; }
+      .question { padding: 19px 16px; }
+      .option.correct, .option.wrong { padding-right: 80px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    @media print {
+      .jump, .calculator, .quiz-actions { display: none !important; }
+      body, .hero { background: white !important; color: black !important; }
+      .hero { padding: 24px 0; }
+      section { break-inside: avoid; margin-bottom: 34px; }
+      .card, .price-card, .formula, .question, .definition { box-shadow: none; }
+      .explanation { display: block; }
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header class=&quot;hero&quot;&gt;
+    &lt;div class=&quot;wrap hero-grid&quot;&gt;
+      &lt;div&gt;
+        &lt;div class=&quot;kicker&quot;&gt;1과목 · 경기분석 압축 노트&lt;/div&gt;
+        &lt;h1&gt;6문제,&lt;br&gt;틀리지 않게.&lt;/h1&gt;
+        &lt;p class=&quot;hero-copy&quot;&gt;경기순환부터 GDP·물가·통화까지, 52분 강의의 시험 포인트를 개념 → 공식 → 문제 순서로 다시 엮었습니다.&lt;/p&gt;
+        &lt;div class=&quot;hero-meta&quot;&gt;
+          &lt;span class=&quot;tag&quot;&gt;100문제 중 6문제&lt;/span&gt;
+          &lt;span class=&quot;tag&quot;&gt;이해 중심&lt;/span&gt;
+          &lt;span class=&quot;tag&quot;&gt;계산문제 2종&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;aside class=&quot;lesson-card&quot; aria-label=&quot;강의 정보&quot;&gt;
+        &lt;strong&gt;강의 정보&lt;/strong&gt;
+        &lt;dl&gt;
+          &lt;div&gt;&lt;dt&gt;강사&lt;/dt&gt;&lt;dd&gt;정성기 교수&lt;/dd&gt;&lt;/div&gt;
+          &lt;div&gt;&lt;dt&gt;채널&lt;/dt&gt;&lt;dd&gt;이패스TV&lt;/dd&gt;&lt;/div&gt;
+          &lt;div&gt;&lt;dt&gt;길이&lt;/dt&gt;&lt;dd&gt;52분 13초&lt;/dd&gt;&lt;/div&gt;
+          &lt;div&gt;&lt;dt&gt;업로드&lt;/dt&gt;&lt;dd&gt;2026. 3. 26.&lt;/dd&gt;&lt;/div&gt;
+        &lt;/dl&gt;
+        &lt;a class=&quot;video-link&quot; href=&quot;https://www.youtube.com/watch?v=UHgVVzi_HqU&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;원본 강의 보기&lt;/a&gt;
+      &lt;/aside&gt;
+    &lt;/div&gt;
+  &lt;/header&gt;
+
+  &lt;nav class=&quot;jump&quot; aria-label=&quot;핵심자료 목차&quot;&gt;
+    &lt;div class=&quot;wrap&quot;&gt;
+      &lt;a href=&quot;#cycle&quot;&gt;01 경기순환&lt;/a&gt;
+      &lt;a href=&quot;#gdp&quot;&gt;02 GDP&lt;/a&gt;
+      &lt;a href=&quot;#prices&quot;&gt;03 물가&lt;/a&gt;
+      &lt;a href=&quot;#money&quot;&gt;04 통화&lt;/a&gt;
+      &lt;a href=&quot;#formulas&quot;&gt;05 공식&lt;/a&gt;
+      &lt;a href=&quot;#quiz&quot;&gt;06 문제풀이&lt;/a&gt;
+      &lt;a href=&quot;#last&quot;&gt;막판 암기&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/nav&gt;
+
+  &lt;main class=&quot;wrap&quot;&gt;
+    &lt;section id=&quot;cycle&quot;&gt;
+      &lt;div class=&quot;section-head&quot;&gt;
+        &lt;div class=&quot;section-no&quot;&gt;01&lt;/div&gt;
+        &lt;div&gt;&lt;h2&gt;경기는 ‘총체적 활동 수준’이다&lt;/h2&gt;&lt;p&gt;생산·소비뿐 아니라 금융과 해외 부문까지, 여러 거시지표의 증감으로 경제 전체가 좋은지 나쁜지를 판단합니다.&lt;/p&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;definition&quot;&gt;&lt;p&gt;경기순환 = 총체적 경제활동이 &lt;em&gt;장기 성장추세&lt;/em&gt;를 중심으로 상승과 하강을 반복하는 현상&lt;/p&gt;&lt;/div&gt;
+      &lt;div class=&quot;indicator-row&quot;&gt;
+        &lt;article class=&quot;card&quot;&gt;&lt;h3&gt;개별 경제지표&lt;/h3&gt;&lt;p&gt;하나의 지표로 판단합니다. 대표적인 지표는 GDP입니다.&lt;/p&gt;&lt;/article&gt;
+        &lt;article class=&quot;card&quot;&gt;&lt;h3&gt;종합경기지표&lt;/h3&gt;&lt;p&gt;여러 지표를 묶습니다. 경기종합지수 CI와 경기확산지수 DI가 대표적입니다.&lt;/p&gt;&lt;/article&gt;
+      &lt;/div&gt;
+
+      &lt;h3 style=&quot;margin:32px 0 14px&quot;&gt;시계열 자료의 4가지 변동 요인 &lt;span class=&quot;exam-mark&quot;&gt;시험 핵심&lt;/span&gt;&lt;/h3&gt;
+      &lt;div class=&quot;factor-grid&quot;&gt;
+        &lt;article class=&quot;card&quot;&gt;&lt;span class=&quot;factor-num&quot;&gt;1&lt;/span&gt;&lt;h3&gt;추세변동&lt;/h3&gt;&lt;p&gt;인구 증가, 기술혁신, AI처럼 장기 방향을 만드는 움직임&lt;/p&gt;&lt;/article&gt;
+        &lt;article class=&quot;card focus&quot;&gt;&lt;span class=&quot;factor-num&quot;&gt;2&lt;/span&gt;&lt;h3&gt;순환변동&lt;/h3&gt;&lt;p&gt;추세를 중심으로 상승·하강을 반복. 경기분석에서 가장 중요&lt;/p&gt;&lt;/article&gt;
+        &lt;article class=&quot;card&quot;&gt;&lt;span class=&quot;factor-num&quot;&gt;3&lt;/span&gt;&lt;h3&gt;계절변동&lt;/h3&gt;&lt;p&gt;겨울 난방비, 여름 에어컨처럼 계절에 따라 반복되는 움직임&lt;/p&gt;&lt;/article&gt;
+        &lt;article class=&quot;card&quot;&gt;&lt;span class=&quot;factor-num&quot;&gt;4&lt;/span&gt;&lt;h3&gt;불규칙변동&lt;/h3&gt;&lt;p&gt;태풍, 팬데믹, 파업처럼 예측하기 어려운 일시적 사건&lt;/p&gt;&lt;/article&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;strip-note&quot;&gt;&lt;strong&gt;제거 규칙&lt;/strong&gt;&lt;span&gt;일반적인 경기분석은 계절·불규칙 변동을 제거하고 추세+순환을 봅니다. 고성장 국가는 추세도 제거하여 순환변동만 봅니다.&lt;/span&gt;&lt;/div&gt;
+
+      &lt;div class=&quot;cycle&quot;&gt;
+        &lt;h3&gt;한 사이클을 읽는 네 단어&lt;/h3&gt;
+        &lt;div class=&quot;cycle-graphic&quot; aria-label=&quot;저점에서 정점으로 확장하고 다시 저점으로 수축하는 경기순환&quot;&gt;
+          &lt;div class=&quot;turn&quot;&gt;저점&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+          &lt;div class=&quot;phase&quot;&gt;&lt;/div&gt;&lt;div class=&quot;phase down&quot;&gt;&lt;/div&gt;
+          &lt;div class=&quot;turn&quot;&gt;저점&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;phase-labels&quot;&gt;&lt;span&gt;확장국면 · 저점 → 정점&lt;/span&gt;&lt;span&gt;수축국면 · 정점 → 저점&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;terms&quot;&gt;
+          &lt;div class=&quot;term&quot;&gt;&lt;b&gt;순환주기&lt;/b&gt;&lt;span&gt;저점→다음 저점 또는 정점→다음 정점&lt;/span&gt;&lt;/div&gt;
+          &lt;div class=&quot;term&quot;&gt;&lt;b&gt;기준순환일&lt;/b&gt;&lt;span&gt;정점·저점의 구체적 연월&lt;/span&gt;&lt;/div&gt;
+          &lt;div class=&quot;term&quot;&gt;&lt;b&gt;순환진폭&lt;/b&gt;&lt;span&gt;정점과 저점의 높이 차이&lt;/span&gt;&lt;/div&gt;
+          &lt;div class=&quot;term&quot;&gt;&lt;b&gt;순환심도&lt;/b&gt;&lt;span&gt;순환진폭과 같은 말, 경기 변동의 강도&lt;/span&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;p class=&quot;source-line&quot;&gt;출처: &lt;a href=&quot;https://www.youtube.com/watch?v=UHgVVzi_HqU&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;이패스TV 「2026 증권투자권유자문인력 1과목 경기분석 무료강의」&lt;/a&gt;&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;gdp&quot;&gt;
+      &lt;div class=&quot;section-head&quot;&gt;
+        &lt;div class=&quot;section-no&quot;&gt;02&lt;/div&gt;
+        &lt;div&gt;&lt;h2&gt;GDP는 가장 적합하지만 느리다&lt;/h2&gt;&lt;p&gt;국내에서 새로 생산된 최종 재화·서비스의 시장가치 합계. 한국은행이 산출하며 분기·연도별로 발표됩니다.&lt;/p&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;gdp-layout&quot;&gt;
+        &lt;div class=&quot;compare&quot;&gt;
+          &lt;div&gt;&lt;span class=&quot;big&quot;&gt;현재 가격&lt;/span&gt;&lt;h3&gt;명목GDP&lt;/h3&gt;&lt;p&gt;당해 연도 가격으로 계산합니다.&lt;/p&gt;&lt;/div&gt;
+          &lt;div&gt;&lt;span class=&quot;big&quot;&gt;기준연도 가격&lt;/span&gt;&lt;h3&gt;실질GDP&lt;/h3&gt;&lt;p&gt;불변 가격으로 계산합니다.&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;bars&quot;&gt;
+          &lt;h3&gt;지출 측면 구성: C + I + G + NX&lt;/h3&gt;
+          &lt;div class=&quot;bar-row&quot;&gt;&lt;b&gt;C 민간소비&lt;/b&gt;&lt;div class=&quot;bar-track&quot;&gt;&lt;div class=&quot;bar-fill&quot; style=&quot;width:100%&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;span&gt;약 50%&lt;/span&gt;&lt;/div&gt;
+          &lt;div class=&quot;bar-row&quot;&gt;&lt;b&gt;I 투자&lt;/b&gt;&lt;div class=&quot;bar-track&quot;&gt;&lt;div class=&quot;bar-fill&quot; style=&quot;width:60%&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;span&gt;약 30%&lt;/span&gt;&lt;/div&gt;
+          &lt;div class=&quot;bar-row&quot;&gt;&lt;b&gt;G 정부지출&lt;/b&gt;&lt;div class=&quot;bar-track&quot;&gt;&lt;div class=&quot;bar-fill&quot; style=&quot;width:40%&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;span&gt;약 20%&lt;/span&gt;&lt;/div&gt;
+          &lt;div class=&quot;bar-row&quot;&gt;&lt;b&gt;NX 순수출&lt;/b&gt;&lt;div class=&quot;bar-track&quot;&gt;&lt;div class=&quot;bar-fill&quot; style=&quot;width:2%&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;span&gt;≈ 0&lt;/span&gt;&lt;/div&gt;
+          &lt;p class=&quot;source-line&quot;&gt;강의에서 제시한 대략적 구성비로, 정확한 연도별 비중이 아니라 시험 이해를 위한 근사치입니다.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;exam-callout&quot;&gt;&lt;b&gt;빈출 함정:&lt;/b&gt; GDP는 월별 발표가 아닙니다. 빠른 경기 신호는 통계청의 월별 산업활동지표가 보완합니다. 지출 비중이 크게 변하지 않는다는 강의 전제에서는 순수출의 +/−가 성장률 방향에 직접 영향을 줍니다.&lt;/div&gt;
+      &lt;p class=&quot;source-line&quot;&gt;출처: &lt;a href=&quot;https://www.youtube.com/watch?v=UHgVVzi_HqU&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;이패스TV 경기분석 강의&lt;/a&gt;&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;prices&quot;&gt;
+      &lt;div class=&quot;section-head&quot;&gt;
+        &lt;div class=&quot;section-no&quot;&gt;03&lt;/div&gt;
+        &lt;div&gt;&lt;h2&gt;물가지수 3종, 조사 대상부터 구분&lt;/h2&gt;&lt;p&gt;CPI는 가계, PPI는 기업의 거래가격, GDP 디플레이터는 국내에서 생산된 모든 최종생산물을 봅니다.&lt;/p&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;price-grid&quot;&gt;
+        &lt;article class=&quot;price-card&quot; data-key=&quot;C&quot;&gt;&lt;h3&gt;CPI&lt;/h3&gt;&lt;div class=&quot;role&quot;&gt;도시가계의 생계비·구매력 변동&lt;/div&gt;&lt;dl&gt;&lt;dt&gt;핵심 특징&lt;/dt&gt;&lt;dd&gt;임금 비중이 높아 임금 상승이 빠르게 반영&lt;/dd&gt;&lt;dt&gt;경기 민감도&lt;/dt&gt;&lt;dd&gt;생필품 중심이라 크게 민감하지 않음&lt;/dd&gt;&lt;dt&gt;품목 수&lt;/dt&gt;&lt;dd&gt;460개 내외 · 참고용 수치&lt;/dd&gt;&lt;/dl&gt;&lt;/article&gt;
+        &lt;article class=&quot;price-card&quot; data-key=&quot;P&quot;&gt;&lt;h3&gt;PPI&lt;/h3&gt;&lt;div class=&quot;role&quot;&gt;기업이 구입하는 재화·서비스 가격&lt;/div&gt;&lt;dl&gt;&lt;dt&gt;기준 가격&lt;/dt&gt;&lt;dd&gt;생산자 출하가격 = 공장도가격&lt;/dd&gt;&lt;dt&gt;역할&lt;/dt&gt;&lt;dd&gt;CPI 변동의 선행지표&lt;/dd&gt;&lt;dt&gt;품목 수&lt;/dt&gt;&lt;dd&gt;892개 · 강의상 참고용 수치&lt;/dd&gt;&lt;/dl&gt;&lt;/article&gt;
+        &lt;article class=&quot;price-card&quot; data-key=&quot;D&quot;&gt;&lt;h3&gt;GDP 디플레이터&lt;/h3&gt;&lt;div class=&quot;role&quot;&gt;국내 모든 최종생산물의 평균 가격&lt;/div&gt;&lt;dl&gt;&lt;dt&gt;핵심 특징&lt;/dt&gt;&lt;dd&gt;가장 포괄적인 물가지수&lt;/dd&gt;&lt;dt&gt;조사 방식&lt;/dt&gt;&lt;dd&gt;시장 표본조사 없이 GDP로 계산&lt;/dd&gt;&lt;dt&gt;판단&lt;/dt&gt;&lt;dd&gt;100 초과 상승 · 100 미만 하락&lt;/dd&gt;&lt;/dl&gt;&lt;/article&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;flow&quot; aria-label=&quot;생산자물가가 소비자물가에 선행하는 흐름&quot;&gt;&lt;b&gt;원가·출하가격 상승&lt;/b&gt;&lt;span&gt;→&lt;/span&gt;&lt;b&gt;PPI 상승&lt;/b&gt;&lt;span&gt;→&lt;/span&gt;&lt;b&gt;판매가격 반영&lt;/b&gt;&lt;span&gt;→&lt;/span&gt;&lt;b&gt;CPI 변동&lt;/b&gt;&lt;/div&gt;
+
+      &lt;div class=&quot;calculator&quot;&gt;
+        &lt;div&gt;&lt;h3&gt;GDP 디플레이터 계산기&lt;/h3&gt;&lt;p&gt;(명목GDP ÷ 실질GDP) × 100. 강의 예시 2,500과 1,500을 넣어두었습니다.&lt;/p&gt;&lt;/div&gt;
+        &lt;div class=&quot;calc-fields&quot;&gt;
+          &lt;label&gt;명목GDP&lt;input id=&quot;nominal&quot; type=&quot;number&quot; value=&quot;2500&quot; min=&quot;0&quot; step=&quot;any&quot; inputmode=&quot;decimal&quot;&gt;&lt;/label&gt;
+          &lt;span class=&quot;operator&quot;&gt;÷&lt;/span&gt;
+          &lt;label&gt;실질GDP&lt;input id=&quot;real&quot; type=&quot;number&quot; value=&quot;1500&quot; min=&quot;0&quot; step=&quot;any&quot; inputmode=&quot;decimal&quot;&gt;&lt;/label&gt;
+          &lt;span class=&quot;operator&quot;&gt;×100&lt;/span&gt;
+          &lt;div class=&quot;calc-result&quot;&gt;&lt;span&gt;디플레이터&lt;/span&gt;&lt;output id=&quot;deflator&quot;&gt;166.7&lt;/output&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;p class=&quot;source-line&quot;&gt;출처: &lt;a href=&quot;https://www.youtube.com/watch?v=UHgVVzi_HqU&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;이패스TV 경기분석 강의&lt;/a&gt;. 품목 수는 강의에서 참고용으로 제시된 값입니다.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;money&quot;&gt;
+      &lt;div class=&quot;section-head&quot;&gt;
+        &lt;div class=&quot;section-no&quot;&gt;04&lt;/div&gt;
+        &lt;div&gt;&lt;h2&gt;통화지표는 ‘누적’해서 읽는다&lt;/h2&gt;&lt;p&gt;현금화가 쉬운 순서로 M1 → M2 → LF → L. 다음 단계는 앞 단계의 모든 항목을 포함합니다.&lt;/p&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;money-stack&quot;&gt;
+        &lt;div class=&quot;money-level&quot;&gt;&lt;div class=&quot;money-code&quot;&gt;M1&lt;/div&gt;&lt;div class=&quot;money-body&quot;&gt;&lt;b&gt;협의통화 · 지금 바로 쓸 수 있는 돈&lt;/b&gt;&lt;span&gt;현금 + 요구불예금 + 수시입출식 저축성예금&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;money-level&quot;&gt;&lt;div class=&quot;money-code&quot;&gt;M2&lt;/div&gt;&lt;div class=&quot;money-body&quot;&gt;&lt;b&gt;광의통화 · 통화량 기준으로 가장 많이 사용&lt;/b&gt;&lt;span&gt;M1 + 만기 2년 미만 정기 예·적금&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;money-level&quot;&gt;&lt;div class=&quot;money-code&quot;&gt;LF&lt;/div&gt;&lt;div class=&quot;money-body&quot;&gt;&lt;b&gt;금융기관유동성&lt;/b&gt;&lt;span&gt;M2 + 만기 2년 이상 저축성예금 + 증권·보험 상품&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;money-level&quot;&gt;&lt;div class=&quot;money-code&quot;&gt;L&lt;/div&gt;&lt;div class=&quot;money-body&quot;&gt;&lt;b&gt;광의유동성 · 한 나라 전체 유동성&lt;/b&gt;&lt;span&gt;LF + 정부·기업 발행 채권&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;money-rule&quot;&gt;경계값은 ‘만기 2년’: 2년 미만은 M2, 2년 이상은 LF. 정부·기업 발행 채권은 L에서 추가됩니다.&lt;/div&gt;
+      &lt;div class=&quot;exam-callout&quot;&gt;&lt;b&gt;금리 방향:&lt;/b&gt; 경기 개선 → 투자 확대 → 자금수요 증가 → 금리 상승. 자본축적이 진행된 선진국은 투자처 감소 → 자본의 한계수익률 하락 → 자금수요 감소 → 금리 하락.&lt;/div&gt;
+      &lt;p class=&quot;source-line&quot;&gt;출처: &lt;a href=&quot;https://www.youtube.com/watch?v=UHgVVzi_HqU&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;이패스TV 경기분석 강의&lt;/a&gt;&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;formulas&quot;&gt;
+      &lt;div class=&quot;section-head&quot;&gt;
+        &lt;div class=&quot;section-no&quot;&gt;05&lt;/div&gt;
+        &lt;div&gt;&lt;h2&gt;시험장에 가져갈 공식 3개&lt;/h2&gt;&lt;p&gt;공식 자체보다 분모와 부호를 정확히 기억하세요. 통화유통속도는 ‘사후성’, EC방식은 V의 마이너스 부호가 함정입니다.&lt;/p&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;formula-grid&quot;&gt;
+        &lt;article class=&quot;formula&quot;&gt;&lt;h3&gt;GDP 디플레이터&lt;/h3&gt;&lt;div class=&quot;equation&quot;&gt;명목GDP ÷ 실질GDP × 100&lt;/div&gt;&lt;p&gt;명목과 실질의 차이를 통해 물가 변동분을 봅니다.&lt;/p&gt;&lt;/article&gt;
+        &lt;article class=&quot;formula&quot;&gt;&lt;h3&gt;통화유통속도 V&lt;/h3&gt;&lt;div class=&quot;equation&quot;&gt;명목GDP ÷ 통화량&lt;br&gt;&lt;small&gt;(주로 M2)&lt;/small&gt;&lt;/div&gt;&lt;p&gt;GDP 확정 뒤 계산하는 사후지표라 경기·인플레이션 예측에는 유용하지 않습니다. 강의에서는 한국의 장기 추세를 하락으로 설명합니다.&lt;/p&gt;&lt;/article&gt;
+        &lt;article class=&quot;formula&quot;&gt;&lt;h3&gt;EC방식&lt;/h3&gt;&lt;div class=&quot;equation&quot;&gt;Mg = Pg + Yg − Vg&lt;/div&gt;&lt;p&gt;목표 통화공급 증가율 = 물가 전망 + 실질성장률 − 유통속도 변화율&lt;/p&gt;&lt;/article&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;calculator ec-calc&quot;&gt;
+        &lt;div&gt;&lt;h3&gt;EC방식 계산기&lt;/h3&gt;&lt;p&gt;Vg가 −1%라면 ‘빼기 음수’가 되어 더해집니다. 강의 예시 결과는 8%입니다.&lt;/p&gt;&lt;/div&gt;
+        &lt;div class=&quot;calc-fields&quot;&gt;
+          &lt;label&gt;Pg 물가상승률&lt;input id=&quot;pg&quot; type=&quot;number&quot; value=&quot;3&quot; step=&quot;any&quot; inputmode=&quot;decimal&quot;&gt;&lt;/label&gt;
+          &lt;span class=&quot;operator&quot;&gt;+&lt;/span&gt;
+          &lt;label&gt;Yg 실질성장률&lt;input id=&quot;yg&quot; type=&quot;number&quot; value=&quot;4&quot; step=&quot;any&quot; inputmode=&quot;decimal&quot;&gt;&lt;/label&gt;
+          &lt;span class=&quot;operator&quot;&gt;−&lt;/span&gt;
+          &lt;label&gt;Vg 유통속도 변화율&lt;input id=&quot;vg&quot; type=&quot;number&quot; value=&quot;-1&quot; step=&quot;any&quot; inputmode=&quot;decimal&quot;&gt;&lt;/label&gt;
+          &lt;div class=&quot;calc-result&quot;&gt;&lt;span&gt;Mg 목표 증가율&lt;/span&gt;&lt;output id=&quot;mg&quot;&gt;8.0%&lt;/output&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;p class=&quot;source-line&quot;&gt;출처: &lt;a href=&quot;https://www.youtube.com/watch?v=UHgVVzi_HqU&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;이패스TV 경기분석 강의&lt;/a&gt;&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;quiz&quot;&gt;
+      &lt;div class=&quot;section-head&quot;&gt;
+        &lt;div class=&quot;section-no&quot;&gt;06&lt;/div&gt;
+        &lt;div&gt;&lt;h2&gt;강의 말미 복습 4문제&lt;/h2&gt;&lt;p&gt;보기를 선택한 뒤 채점하세요. 정답과 해설은 이 페이지를 새로 열면 초기화됩니다.&lt;/p&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;quiz-intro&quot;&gt;&lt;strong&gt;문항별 1개 선택&lt;/strong&gt;&lt;span class=&quot;quiz-progress&quot; id=&quot;progress&quot;&gt;0 / 4 선택&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;quiz-list&quot;&gt;
+        &lt;article class=&quot;question&quot; data-answer=&quot;3&quot;&gt;
+          &lt;h3&gt;&lt;span&gt;Q1.&lt;/span&gt;경기순환에 대한 설명으로 적절하지 않은 것은?&lt;/h3&gt;
+          &lt;div class=&quot;options&quot;&gt;
+            &lt;button class=&quot;option&quot; type=&quot;button&quot;&gt;① 장기 성장추세를 중심으로 상승·하강을 반복한다.&lt;/button&gt;
+            &lt;button class=&quot;option&quot; type=&quot;button&quot;&gt;② 정점·저점의 구체적 연월을 기준순환일이라 한다.&lt;/button&gt;
+            &lt;button class=&quot;option&quot; type=&quot;button&quot;&gt;③ 정점과 저점의 차이는 순환의 강도를 뜻한다.&lt;/button&gt;
+            &lt;button class=&quot;option&quot; type=&quot;button&quot;&gt;④ 시계열 분석에는 추세변동과 계절변동을 사용한다.&lt;/button&gt;
+          &lt;/div&gt;
+          &lt;p class=&quot;explanation&quot;&gt;&lt;b&gt;정답 ④.&lt;/b&gt; 계절·불규칙 변동은 제거하고 추세+순환변동을 사용합니다.&lt;/p&gt;
+        &lt;/article&gt;
+        &lt;article class=&quot;question&quot; data-answer=&quot;1&quot;&gt;
+          &lt;h3&gt;&lt;span&gt;Q2.&lt;/span&gt;물가지수에 대한 설명으로 적절하지 않은 것은?&lt;/h3&gt;
+          &lt;div class=&quot;options&quot;&gt;
+            &lt;button class=&quot;option&quot; type=&quot;button&quot;&gt;① CPI는 도시가계의 생계비·구매력을 측정한다.&lt;/button&gt;
+            &lt;button class=&quot;option&quot; type=&quot;button&quot;&gt;② CPI 조사품목 수요는 경기변동에 크게 민감하다.&lt;/button&gt;
+            &lt;button class=&quot;option&quot; type=&quot;button&quot;&gt;③ PPI는 생산자 출하가격을 기준으로 조사한다.&lt;/button&gt;
+            &lt;button class=&quot;option&quot; type=&quot;button&quot;&gt;④ GDP 디플레이터는 전체적인 물가 압력을 측정한다.&lt;/button&gt;
+          &lt;/div&gt;
+          &lt;p class=&quot;explanation&quot;&gt;&lt;b&gt;정답 ②.&lt;/b&gt; CPI는 생필품 중심이라 경기변동에 크게 민감하지 않습니다.&lt;/p&gt;
+        &lt;/article&gt;
+        &lt;article class=&quot;question&quot; data-answer=&quot;2&quot;&gt;
+          &lt;h3&gt;&lt;span&gt;Q3.&lt;/span&gt;LF에 포함되지 않는 것은?&lt;/h3&gt;
+          &lt;div class=&quot;options&quot;&gt;
+            &lt;button class=&quot;option&quot; type=&quot;button&quot;&gt;① 만기 2년 미만 예·적금&lt;/button&gt;
+            &lt;button class=&quot;option&quot; type=&quot;button&quot;&gt;② 수시입출식 저축성예금&lt;/button&gt;
+            &lt;button class=&quot;option&quot; type=&quot;button&quot;&gt;③ 정부 발행 채권&lt;/button&gt;
+            &lt;button class=&quot;option&quot; type=&quot;button&quot;&gt;④ 보험회사 보험계약준비금&lt;/button&gt;
+          &lt;/div&gt;
+          &lt;p class=&quot;explanation&quot;&gt;&lt;b&gt;정답 ③.&lt;/b&gt; 정부 발행 채권은 L에서 추가됩니다. M1·M2 항목은 누적되어 LF에도 포함됩니다.&lt;/p&gt;
+        &lt;/article&gt;
+        &lt;article class=&quot;question&quot; data-answer=&quot;2&quot;&gt;
+          &lt;h3&gt;&lt;span&gt;Q4.&lt;/span&gt;통화유통속도에 대한 설명으로 적절하지 않은 것은?&lt;/h3&gt;
+          &lt;div class=&quot;options&quot;&gt;
+            &lt;button class=&quot;option&quot; type=&quot;button&quot;&gt;① 명목GDP를 통화량으로 나누어 계산한다.&lt;/button&gt;
+            &lt;button class=&quot;option&quot; type=&quot;button&quot;&gt;② 한국에서는 장기적으로 하락 추세를 보인다.&lt;/button&gt;
+            &lt;button class=&quot;option&quot; type=&quot;button&quot;&gt;③ 경기변화와 인플레이션 예측에 유용하다.&lt;/button&gt;
+            &lt;button class=&quot;option&quot; type=&quot;button&quot;&gt;④ GDP 확정 후 계산할 수 있는 사후적 성격이 있다.&lt;/button&gt;
+          &lt;/div&gt;
+          &lt;p class=&quot;explanation&quot;&gt;&lt;b&gt;정답 ③.&lt;/b&gt; 사후성 때문에 경기변화·인플레이션 압력 예측에는 유용하지 않습니다.&lt;/p&gt;
+        &lt;/article&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;quiz-actions&quot;&gt;&lt;button class=&quot;btn&quot; id=&quot;grade&quot; type=&quot;button&quot;&gt;채점하기&lt;/button&gt;&lt;button class=&quot;btn secondary&quot; id=&quot;reset&quot; type=&quot;button&quot;&gt;다시 풀기&lt;/button&gt;&lt;/div&gt;
+      &lt;div class=&quot;score&quot; id=&quot;score&quot; role=&quot;status&quot; aria-live=&quot;polite&quot;&gt;&lt;/div&gt;
+      &lt;p class=&quot;source-line&quot;&gt;문항·정답·해설 출처: &lt;a href=&quot;https://www.youtube.com/watch?v=UHgVVzi_HqU&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;이패스TV 경기분석 강의의 말미 복습문제&lt;/a&gt;&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;last&quot;&gt;
+      &lt;div class=&quot;section-head&quot;&gt;
+        &lt;div class=&quot;section-no&quot;&gt;★&lt;/div&gt;
+        &lt;div&gt;&lt;h2&gt;시험 직전, 이것만 다시 보기&lt;/h2&gt;&lt;p&gt;헷갈리기 쉬운 반대말과 경계값을 한 화면에 모았습니다.&lt;/p&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;memory-sheet&quot;&gt;
+        &lt;article&gt;&lt;h3&gt;숫자·경계&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;GDP: 월별 X, 분기·연도별&lt;/li&gt;&lt;li&gt;M2 / LF 경계: 만기 2년&lt;/li&gt;&lt;li&gt;디플레이터 기준: 100&lt;/li&gt;&lt;li&gt;지출 구성: C 약 50 · I 약 30 · G 약 20 · NX 0 근처&lt;/li&gt;&lt;/ul&gt;&lt;/article&gt;
+        &lt;article&gt;&lt;h3&gt;함정·방향&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;시계열: 계절·불규칙 제거&lt;/li&gt;&lt;li&gt;PPI는 CPI에 선행&lt;/li&gt;&lt;li&gt;통화유통속도는 사후지표&lt;/li&gt;&lt;li&gt;경기와 금리는 같은 방향&lt;/li&gt;&lt;li&gt;EC방식: Vg가 음수면 결과는 더 커짐&lt;/li&gt;&lt;/ul&gt;&lt;/article&gt;
+      &lt;/div&gt;
+      &lt;p class=&quot;source-line&quot;&gt;출처: &lt;a href=&quot;https://www.youtube.com/watch?v=UHgVVzi_HqU&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;이패스TV 경기분석 강의&lt;/a&gt;. 비중과 품목 수는 강의에서 제시한 근사·참고값입니다.&lt;/p&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+
+  &lt;footer&gt;
+    &lt;div class=&quot;wrap&quot;&gt;
+      &lt;strong&gt;자료 출처&lt;/strong&gt;
+      &lt;ol class=&quot;source-list&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=UHgVVzi_HqU&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;2026 증권투자권유자문인력 1과목 경기분석 무료강의 · 이패스TV · 정성기 교수&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/@EPASSKOREA&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;이패스TV 채널&lt;/a&gt;&lt;/li&gt;
+      &lt;/ol&gt;
+    &lt;/div&gt;
+  &lt;/footer&gt;
+
+  &lt;script&gt;
+    (function () {
+      var nominal = document.getElementById('nominal');
+      var real = document.getElementById('real');
+      var deflator = document.getElementById('deflator');
+      function updateDeflator() {
+        var n = Number(nominal.value);
+        var r = Number(real.value);
+        deflator.textContent = r &gt; 0 &amp;&amp; Number.isFinite(n) ? ((n / r) * 100).toFixed(1) : '—';
+      }
+      nominal.addEventListener('input', updateDeflator);
+      real.addEventListener('input', updateDeflator);
+
+      var pg = document.getElementById('pg');
+      var yg = document.getElementById('yg');
+      var vg = document.getElementById('vg');
+      var mg = document.getElementById('mg');
+      function updateMg() {
+        var vals = [pg, yg, vg].map(function (el) { return Number(el.value); });
+        mg.textContent = vals.every(Number.isFinite) ? (vals[0] + vals[1] - vals[2]).toFixed(1) + '%' : '—';
+      }
+      [pg, yg, vg].forEach(function (el) { el.addEventListener('input', updateMg); });
+
+      var questions = Array.prototype.slice.call(document.querySelectorAll('.question'));
+      var progress = document.getElementById('progress');
+      var score = document.getElementById('score');
+      function updateProgress() {
+        var count = questions.filter(function (q) { return q.dataset.choice !== undefined; }).length;
+        progress.textContent = count + ' / ' + questions.length + ' 선택';
+      }
+      questions.forEach(function (q) {
+        var options = Array.prototype.slice.call(q.querySelectorAll('.option'));
+        options.forEach(function (option, index) {
+          option.addEventListener('click', function () {
+            options.forEach(function (o) { o.classList.remove('selected', 'correct', 'wrong'); });
+            option.classList.add('selected');
+            q.dataset.choice = String(index);
+            q.querySelector('.explanation').classList.remove('show');
+            score.classList.remove('show');
+            updateProgress();
+          });
+        });
+      });
+      document.getElementById('grade').addEventListener('click', function () {
+        var answered = 0;
+        var correct = 0;
+        questions.forEach(function (q) {
+          var options = q.querySelectorAll('.option');
+          var answer = Number(q.dataset.answer);
+          options[answer].classList.add('correct');
+          q.querySelector('.explanation').classList.add('show');
+          if (q.dataset.choice !== undefined) {
+            answered++;
+            var choice = Number(q.dataset.choice);
+            if (choice === answer) correct++;
+            else options[choice].classList.add('wrong');
+          }
+        });
+        score.textContent = answered &lt; questions.length
+          ? '아직 ' + (questions.length - answered) + '문제가 남았습니다. 현재 ' + answered + '문제 중 ' + correct + '문제 정답.'
+          : '총 ' + questions.length + '문제 중 ' + correct + '문제 정답 · ' + (correct === questions.length ? '핵심 개념을 정확히 잡았습니다.' : '해설에서 틀린 개념만 다시 확인하세요.');
+        score.classList.add('show');
+      });
+      document.getElementById('reset').addEventListener('click', function () {
+        questions.forEach(function (q) {
+          delete q.dataset.choice;
+          q.querySelectorAll('.option').forEach(function (o) { o.classList.remove('selected', 'correct', 'wrong'); });
+          q.querySelector('.explanation').classList.remove('show');
+        });
+        score.classList.remove('show');
+        updateProgress();
+      });
+    })();
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
     </section>
-    <section class="panel" id="panel-course-2" role="tabpanel" aria-labelledby="tab-course-2" hidden>
-      <iframe class="lesson-frame" title="2과목 금융상품분석 강의노트" src="2과목-금융상품분석.html"></iframe>
+    <section class="panel" id="course-2" aria-labelledby="course-2-title">
+      <header class="subject-heading">
+        <div>
+          <span class="subject-kicker">SUBJECT 02</span>
+          <h2 id="course-2-title">2과목 · 금융상품분석</h2>
+          <p>금융회사, 금융투자업, 증권회사 업무와 펀드 구조 정리</p>
+        </div>
+        <span class="subject-number" aria-hidden="true">02</span>
+      </header>
+      <iframe class="lesson-frame" title="2과목 금융상품분석 강의노트" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;ko&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot; /&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, viewport-fit=cover&quot; /&gt;
+  &lt;meta name=&quot;color-scheme&quot; content=&quot;light dark&quot; /&gt;
+  &lt;meta name=&quot;theme-color&quot; content=&quot;#f4f1e8&quot; media=&quot;(prefers-color-scheme: light)&quot; /&gt;
+  &lt;meta name=&quot;theme-color&quot; content=&quot;#171b1f&quot; media=&quot;(prefers-color-scheme: dark)&quot; /&gt;
+  &lt;link rel=&quot;icon&quot; href=&quot;data:,&quot; /&gt;
+  &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;
+  &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;
+  &lt;link href=&quot;https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700;800&amp;family=Noto+Serif+KR:wght@700;900&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+  &lt;title&gt;증권투자권유자문인력 금융상품분석 핵심자료&lt;/title&gt;
+  &lt;style&gt;
+    :root {
+      color-scheme: light dark;
+      --paper: #f4f1e8;
+      --paper-2: #e9e4d8;
+      --ink: #172129;
+      --muted: #526069;
+      --line: #b9b3a7;
+      --line-strong: #7b776e;
+      --navy: #173f5f;
+      --navy-soft: #dbe5eb;
+      --red: #a13c2d;
+      --red-soft: #efdcd4;
+      --green: #27614f;
+      --green-soft: #dbe8df;
+      --gold: #9b6a17;
+      --gold-soft: #eee2c6;
+      --white: #fffdf8;
+      --shadow: 0 18px 50px rgba(41, 35, 24, .09);
+      --radius: 10px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #171b1f;
+        --paper-2: #20262b;
+        --ink: #eef1ed;
+        --muted: #b2bdc4;
+        --line: #485159;
+        --line-strong: #7e8990;
+        --navy: #8fc2dc;
+        --navy-soft: #223847;
+        --red: #f09987;
+        --red-soft: #422b29;
+        --green: #86cbb3;
+        --green-soft: #243b34;
+        --gold: #e2bd6d;
+        --gold-soft: #423821;
+        --white: #1d2328;
+        --shadow: 0 18px 50px rgba(0, 0, 0, .22);
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background-color: var(--paper);
+      background-image:
+        linear-gradient(rgba(79, 84, 75, .055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(79, 84, 75, .055) 1px, transparent 1px);
+      background-size: 24px 24px;
+      font-family: &quot;Apple SD Gothic Neo&quot;, &quot;Noto Sans KR&quot;, &quot;Malgun Gothic&quot;, sans-serif;
+      line-height: 1.68;
+      overflow-wrap: anywhere;
+    }
+    button, a { font: inherit; }
+    a { color: inherit; }
+    .page {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 40px 0 80px;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.55fr) minmax(280px, .72fr);
+      border-top: 5px solid var(--ink);
+      border-bottom: 1px solid var(--line-strong);
+      padding: 30px 0 34px;
+      gap: 44px;
+      align-items: end;
+    }
+    .course-line {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 14px;
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: .92rem;
+    }
+    .course-line span + span::before { content: &quot;·&quot;; margin-right: 14px; color: var(--line-strong); }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 780px;
+      margin-bottom: 18px;
+      font-family: Georgia, &quot;Noto Serif KR&quot;, serif;
+      font-size: clamp(2.45rem, 6vw, 5rem);
+      line-height: 1.03;
+      letter-spacing: -.055em;
+      text-wrap: balance;
+    }
+    .dek {
+      max-width: 720px;
+      margin-bottom: 24px;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--muted);
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .primary-link, .ghost-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 44px;
+      padding: 9px 16px;
+      border: 1px solid var(--ink);
+      text-decoration: none;
+      font-weight: 800;
+    }
+    .primary-link { background: var(--ink); color: var(--paper); }
+    .ghost-link { background: transparent; color: var(--ink); }
+    .arrow { font-size: 1.25em; line-height: 1; }
+    .exam-card {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 24px;
+      box-shadow: 10px 10px 0 var(--red);
+    }
+    .exam-card .label { margin-bottom: 13px; font-size: .82rem; font-weight: 800; letter-spacing: .08em; }
+    .exam-metric { display: flex; align-items: baseline; gap: 10px; margin-bottom: 10px; }
+    .exam-metric strong { font-family: Georgia, serif; font-size: 3.7rem; line-height: 1; }
+    .exam-metric span { font-weight: 800; }
+    .exam-card p { margin: 0; opacity: .8; font-size: .88rem; }
+    .contents {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .contents a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .84rem;
+      font-weight: 700;
+      padding: 5px 9px;
+      border: 1px solid transparent;
+    }
+    .contents a:hover, .contents a:focus-visible { border-color: var(--line); color: var(--ink); outline: none; }
+    .strategy {
+      display: grid;
+      grid-template-columns: 175px 1fr;
+      gap: 28px;
+      align-items: start;
+      margin: 34px 0 66px;
+      padding: 25px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .strategy-label { font-weight: 900; color: var(--red); }
+    .strategy p { margin: 0; font-size: 1.04rem; font-weight: 700; }
+    .section {
+      scroll-margin-top: 22px;
+      margin: 0 0 76px;
+    }
+    .section-head {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 18px;
+      align-items: start;
+      margin-bottom: 28px;
+    }
+    .section-no {
+      font-family: Georgia, serif;
+      font-size: 2rem;
+      line-height: 1;
+      color: var(--red);
+      padding-top: 7px;
+      border-top: 3px solid currentColor;
+    }
+    h2 {
+      margin-bottom: 6px;
+      font-family: Georgia, &quot;Noto Serif KR&quot;, serif;
+      font-size: clamp(1.75rem, 4vw, 2.65rem);
+      line-height: 1.2;
+      letter-spacing: -.035em;
+    }
+    .section-intro { margin: 0; color: var(--muted); }
+    .company-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+    }
+    .sheet {
+      background: color-mix(in srgb, var(--white) 90%, transparent);
+      border: 1px solid var(--line);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+    .sheet h3, .rail-item h3, .biz-block h3, .fund-panel h3 {
+      margin-bottom: 13px;
+      font-size: 1.14rem;
+      line-height: 1.35;
+    }
+    .sheet p:last-child, .sheet ul:last-child { margin-bottom: 0; }
+    .subgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .subblock { border-top: 2px solid var(--navy); padding-top: 12px; }
+    .subblock strong { display: block; margin-bottom: 5px; }
+    ul.clean { list-style: none; padding: 0; margin: 0; }
+    ul.clean li { position: relative; padding-left: 17px; margin: 6px 0; }
+    ul.clean li::before { content: &quot;—&quot;; position: absolute; left: 0; color: var(--red); font-weight: 900; }
+    .memory {
+      background: var(--gold-soft);
+      border: 1px solid var(--gold);
+      margin-top: 18px;
+      padding: 18px;
+    }
+    .memory strong { color: var(--gold); }
+    .memory-code {
+      display: inline-block;
+      margin-right: 8px;
+      font-family: Georgia, serif;
+      font-size: 1.9rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .protection-list { display: grid; gap: 0; border-top: 1px solid var(--line); }
+    .protection-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+      align-items: center;
+    }
+    .status { font-weight: 900; white-space: nowrap; }
+    .yes { color: var(--green); }
+    .no { color: var(--red); }
+    .all { color: var(--navy); }
+    .license-rail {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      border: 1px solid var(--line);
+      background: var(--white);
+    }
+    .rail-item { min-width: 0; padding: 18px 16px; border-right: 1px solid var(--line); }
+    .rail-item:last-child { border-right: 0; }
+    .rail-index { display: block; margin-bottom: 28px; color: var(--red); font-family: Georgia, serif; font-size: 1.25rem; }
+    .rail-item p { margin: 0; color: var(--muted); font-size: .84rem; }
+    .permit-note {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      padding: 16px 20px;
+      border: 1px solid var(--line);
+      border-top: 0;
+      background: var(--navy-soft);
+      font-weight: 800;
+    }
+    .permit-note strong { color: var(--red); }
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--line-strong);
+      background: var(--white);
+    }
+    .compare &gt; article { padding: 28px; }
+    .compare &gt; article + article { border-left: 1px solid var(--line-strong); }
+    .compare-kicker { color: var(--muted); font-weight: 800; font-size: .84rem; }
+    .compare h3 { margin: 6px 0 18px; font: 700 2rem/1.15 Georgia, &quot;Noto Serif KR&quot;, serif; }
+    .ownership {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 18px 0;
+      padding: 14px;
+      background: var(--paper-2);
+      font-weight: 900;
+    }
+    .ownership .symbol { font-size: 1.5rem; color: var(--red); }
+    .roles { color: var(--muted); }
+    .biz-layout { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+    .biz-block { background: var(--white); padding: 24px; }
+    .biz-block .pill { display: inline-block; margin-bottom: 16px; padding: 3px 8px; background: var(--paper-2); color: var(--muted); font-size: .75rem; font-weight: 900; }
+    .trap {
+      margin-top: 16px;
+      padding: 17px 20px;
+      background: var(--red-soft);
+      border: 1px solid var(--red);
+      color: var(--ink);
+      font-weight: 800;
+    }
+    .finance-flow {
+      display: grid;
+      grid-template-columns: 1fr 120px 1fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+    .flow-panel { border-top: 4px solid var(--navy); padding: 20px 0 0; }
+    .flow-panel.indirect { border-color: var(--red); }
+    .flow-title { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+    .flow-title h3 { margin-bottom: 3px; font-size: 1.35rem; }
+    .flow-title span { color: var(--muted); font-size: .8rem; }
+    .flow-line { display: flex; align-items: center; gap: 9px; margin: 22px 0; }
+    .node { flex: 1; text-align: center; padding: 14px 8px; border: 1px solid var(--line); background: var(--white); font-weight: 900; }
+    .connector { color: var(--red); font-weight: 900; }
+    .versus { display: grid; place-items: center; font: italic 700 1.4rem Georgia, serif; color: var(--line-strong); }
+    .flow-panel p { margin: 0; color: var(--muted); }
+    .work-list { border-top: 2px solid var(--ink); }
+    .work-row {
+      display: grid;
+      grid-template-columns: 48px minmax(170px, .55fr) 132px 1fr;
+      align-items: center;
+      gap: 16px;
+      padding: 17px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .work-number { color: var(--red); font: 700 1.35rem Georgia, serif; }
+    .work-name { font-weight: 900; }
+    .tag { justify-self: start; padding: 3px 8px; border: 1px solid var(--line-strong); font-size: .76rem; font-weight: 900; }
+    .work-row p { margin: 0; color: var(--muted); }
+    .fund-principle {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 22px;
+      padding: 18px 20px;
+      background: var(--green-soft);
+      border: 1px solid var(--green);
+      text-align: center;
+      font-weight: 900;
+    }
+    .fund-principle .split { color: var(--green); font-size: 1.5rem; }
+    .fund-grid { display: grid; grid-template-columns: 1.45fr .55fr; gap: 18px; }
+    .fund-panel { position: relative; border: 1px solid var(--line); background: var(--white); padding: 26px; }
+    .ratio { position: absolute; right: 22px; top: 18px; color: var(--red); font: 700 2.6rem/1 Georgia, serif; }
+    .fund-panel h3 { padding-right: 76px; font-size: 1.35rem; }
+    .fund-flow { display: grid; grid-template-columns: 1fr auto 1fr; gap: 8px; align-items: center; margin: 20px 0; }
+    .fund-flow .node { padding: 11px 6px; font-size: .84rem; }
+    .fund-details { display: grid; gap: 8px; margin-top: 18px; }
+    .fund-detail { display: flex; justify-content: space-between; gap: 14px; padding-top: 8px; border-top: 1px solid var(--line); }
+    .fund-detail span { color: var(--muted); }
+    .private-fund {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: 180px 1fr 1fr;
+      border: 1px solid var(--line);
+      background: var(--white);
+    }
+    .private-fund &gt; div { padding: 20px; border-right: 1px solid var(--line); }
+    .private-fund &gt; div:last-child { border-right: 0; }
+    .private-fund .key { background: var(--ink); color: var(--paper); display: grid; align-content: center; }
+    .private-fund strong { display: block; margin-bottom: 6px; }
+    .private-fund p { margin: 0; color: var(--muted); font-size: .9rem; }
+    .private-fund .key p { color: inherit; opacity: .8; }
+    .quiz-list { display: grid; gap: 12px; }
+    .quiz-item { border: 1px solid var(--line); background: var(--white); padding: 22px; }
+    .quiz-title { margin: 0 0 16px; font-size: 1rem; line-height: 1.5; }
+    .quiz-title span { color: var(--red); margin-right: 6px; }
+    .quiz-options { display: grid; gap: 8px; }
+    .quiz-option {
+      width: 100%;
+      border: 1px solid var(--line);
+      padding: 12px 14px;
+      text-align: left;
+      color: var(--ink);
+      background: var(--paper-2);
+      cursor: pointer;
+      font-weight: 700;
+    }
+    .quiz-option:hover, .quiz-option:focus-visible { border-color: var(--navy); outline: none; }
+    .quiz-option.selected { border-color: var(--navy); background: var(--navy-soft); }
+    .quiz-option.correct { border-color: var(--green); background: var(--green-soft); }
+    .quiz-option.wrong { border-color: var(--red); background: var(--red-soft); }
+    .quiz-explanation { display: none; margin: 14px 0 0; padding: 13px 15px; background: var(--paper-2); color: var(--muted); font-size: .88rem; }
+    .quiz-explanation.show { display: block; }
+    .quiz-actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 14px; }
+    .quiz-btn { border: 0; padding: 11px 17px; background: var(--navy); color: var(--paper); font-weight: 800; cursor: pointer; }
+    .quiz-btn.secondary { background: var(--white); color: var(--ink); border: 1px solid var(--line-strong); }
+    .quiz-score { display: none; margin-top: 12px; padding: 14px 16px; background: var(--green-soft); color: var(--ink); font-weight: 800; }
+    .quiz-score.show { display: block; }
+    .cram {
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      gap: 28px;
+      padding: 30px;
+      background: var(--ink);
+      color: var(--paper);
+    }
+    .cram h2 { margin: 0; color: inherit; font-size: 2rem; }
+    .cram-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 26px; }
+    .cram-row { display: grid; grid-template-columns: minmax(100px, .7fr) 1.3fr; gap: 12px; padding: 10px 0; border-bottom: 1px solid color-mix(in srgb, var(--paper) 25%, transparent); }
+    .cram-row strong { color: var(--gold); }
+    .cram-row span { opacity: .9; }
+    footer {
+      margin-top: 46px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      color: var(--muted);
+      font-size: .82rem;
+    }
+    footer p { margin: 0; }
+    footer a { font-weight: 800; text-underline-offset: 3px; }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; align-items: start; }
+      .exam-card { max-width: 440px; }
+      .license-rail { grid-template-columns: repeat(3, 1fr); }
+      .rail-item:nth-child(3) { border-right: 0; }
+      .rail-item:nth-child(-n+3) { border-bottom: 1px solid var(--line); }
+      .work-row { grid-template-columns: 38px 1fr auto; }
+      .work-row p { grid-column: 2 / -1; }
+      .fund-grid { grid-template-columns: 1fr; }
+      .private-fund { grid-template-columns: 150px 1fr 1fr; }
+      .cram { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 680px) {
+      .page { width: min(100% - 26px, 1160px); padding-top: 22px; }
+      .hero { gap: 28px; padding-top: 22px; }
+      h1 { font-size: clamp(2.25rem, 12vw, 3.45rem); }
+      .course-line span + span::before { display: none; }
+      .course-line { display: grid; gap: 2px; }
+      .exam-card { margin-right: 8px; }
+      .strategy { grid-template-columns: 1fr; gap: 7px; }
+      .section { margin-bottom: 58px; }
+      .section-head { grid-template-columns: 48px 1fr; gap: 13px; }
+      .section-no { font-size: 1.45rem; }
+      .company-grid, .subgrid, .compare, .finance-flow, .cram-list { grid-template-columns: 1fr; }
+      .company-grid { gap: 12px; }
+      .sheet { padding: 20px; }
+      .license-rail { grid-template-columns: 1fr 1fr; }
+      .rail-item, .rail-item:nth-child(3) { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+      .rail-item:nth-child(even) { border-right: 0; }
+      .rail-item:nth-last-child(-n+2) { border-bottom: 0; }
+      .rail-index { margin-bottom: 12px; }
+      .permit-note { align-items: flex-start; }
+      .compare &gt; article + article { border-left: 0; border-top: 1px solid var(--line-strong); }
+      .biz-layout { grid-template-columns: 1fr; }
+      .finance-flow { gap: 22px; }
+      .versus { display: none; }
+      .work-row { grid-template-columns: 32px 1fr; gap: 8px 12px; }
+      .work-row .tag { grid-column: 2; }
+      .work-row p { grid-column: 2; }
+      .fund-principle { grid-template-columns: 1fr; gap: 4px; }
+      .fund-principle .split { transform: rotate(90deg); }
+      .private-fund { grid-template-columns: 1fr; }
+      .private-fund &gt; div { border-right: 0; border-bottom: 1px solid var(--line); }
+      .private-fund &gt; div:last-child { border-bottom: 0; }
+      .quiz-item { padding: 18px 15px; }
+      .quiz-option { padding: 11px 12px; }
+      .cram { padding: 24px 20px; }
+      footer { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  &lt;/style&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;unified-lesson.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;main class=&quot;page&quot;&gt;
+    &lt;section class=&quot;hero&quot; aria-labelledby=&quot;main-title&quot;&gt;
+      &lt;div&gt;
+        &lt;div class=&quot;course-line&quot;&gt;&lt;span&gt;2026 대비&lt;/span&gt;&lt;span&gt;2과목 · 금융상품분석&lt;/span&gt;&lt;span&gt;정성기 교수&lt;/span&gt;&lt;/div&gt;
+        &lt;h1 id=&quot;main-title&quot;&gt;금융상품분석&lt;br&gt;시험 핵심노트&lt;/h1&gt;
+        &lt;p class=&quot;dek&quot;&gt;금융회사 분류부터 증권회사 업무, 펀드 구조까지. 강의에서 강조한 구분 기준과 함정을 한 흐름으로 압축했습니다.&lt;/p&gt;
+        &lt;div class=&quot;hero-actions&quot;&gt;
+          &lt;a class=&quot;primary-link&quot; href=&quot;#companies&quot;&gt;핵심부터 보기 &lt;span class=&quot;arrow&quot; aria-hidden=&quot;true&quot;&gt;↓&lt;/span&gt;&lt;/a&gt;
+          &lt;a class=&quot;ghost-link&quot; href=&quot;https://www.youtube.com/watch?v=XFcNNI1VEnA&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;원본 강의 보기 &lt;span aria-hidden=&quot;true&quot;&gt;↗&lt;/span&gt;&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;aside class=&quot;exam-card&quot; aria-label=&quot;출제 비중&quot;&gt;
+        &lt;div class=&quot;label&quot;&gt;EXAM SNAPSHOT&lt;/div&gt;
+        &lt;div class=&quot;exam-metric&quot;&gt;&lt;strong&gt;약 7&lt;/strong&gt;&lt;span&gt;문제&lt;/span&gt;&lt;/div&gt;
+        &lt;p&gt;2과목 ‘금융상품분석 + 투자전략’ 총 13문제 중 금융상품 파트의 강의상 예상 비중&lt;/p&gt;
+      &lt;/aside&gt;
+    &lt;/section&gt;
+
+    &lt;nav class=&quot;contents&quot; aria-label=&quot;페이지 목차&quot;&gt;
+      &lt;a href=&quot;#companies&quot;&gt;01 금융회사&lt;/a&gt;&lt;a href=&quot;#licenses&quot;&gt;02 금융투자업&lt;/a&gt;&lt;a href=&quot;#trust&quot;&gt;03 신탁·일임&lt;/a&gt;&lt;a href=&quot;#bank-work&quot;&gt;04 은행업무&lt;/a&gt;&lt;a href=&quot;#finance&quot;&gt;05 직접·간접금융&lt;/a&gt;&lt;a href=&quot;#securities&quot;&gt;06 증권회사&lt;/a&gt;&lt;a href=&quot;#funds&quot;&gt;07 집합투자업&lt;/a&gt;&lt;a href=&quot;#quiz&quot;&gt;08 복습&lt;/a&gt;
+    &lt;/nav&gt;
+
+    &lt;aside class=&quot;strategy&quot;&gt;
+      &lt;div class=&quot;strategy-label&quot;&gt;강사의 학습 전략&lt;/div&gt;
+      &lt;p&gt;ELW·ELS 수익구조는 결론 중심으로, 세금·절세상품은 종류를 구분해 암기. 깊게 파고들기보다 시험에 나오는 구별 포인트를 정확히 잡는 편이 효율적입니다.&lt;/p&gt;
+    &lt;/aside&gt;
+
+    &lt;section class=&quot;section&quot; id=&quot;companies&quot;&gt;
+      &lt;div class=&quot;section-head&quot;&gt;&lt;div class=&quot;section-no&quot;&gt;01&lt;/div&gt;&lt;div&gt;&lt;h2&gt;금융회사는 어떻게 나뉘나&lt;/h2&gt;&lt;p class=&quot;section-intro&quot;&gt;법 적용과 보호 방식이 다르므로 이름이 비슷해도 같은 분류로 묶지 않습니다.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;company-grid&quot;&gt;
+        &lt;article class=&quot;sheet&quot;&gt;
+          &lt;h3&gt;은행&lt;/h3&gt;
+          &lt;div class=&quot;subgrid&quot;&gt;
+            &lt;div class=&quot;subblock&quot;&gt;&lt;strong&gt;일반은행 · 은행법&lt;/strong&gt;&lt;ul class=&quot;clean&quot;&gt;&lt;li&gt;시중은행: 우리·신한·국민 등&lt;/li&gt;&lt;li&gt;지방은행: 광주·대구·제주 등&lt;/li&gt;&lt;li&gt;외국은행 국내지점&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+            &lt;div class=&quot;subblock&quot;&gt;&lt;strong&gt;특수은행 · 개별 특별법&lt;/strong&gt;&lt;ul class=&quot;clean&quot;&gt;&lt;li&gt;산업·수출입·기업은행&lt;/li&gt;&lt;li&gt;NH농협·SH수협은행&lt;/li&gt;&lt;li&gt;예금 재원이 부족해 채권 발행·국가 조달 의존&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/article&gt;
+        &lt;article class=&quot;sheet&quot;&gt;
+          &lt;h3&gt;비은행 · 보호 방식&lt;/h3&gt;
+          &lt;div class=&quot;protection-list&quot;&gt;
+            &lt;div class=&quot;protection-row&quot;&gt;&lt;span&gt;저축은행 &lt;small&gt;제2금융권&lt;/small&gt;&lt;/span&gt;&lt;span class=&quot;status yes&quot;&gt;예금자보호 O&lt;/span&gt;&lt;/div&gt;
+            &lt;div class=&quot;protection-row&quot;&gt;&lt;span&gt;신용협동기구&lt;/span&gt;&lt;span class=&quot;status no&quot;&gt;예금자보호 X*&lt;/span&gt;&lt;/div&gt;
+            &lt;div class=&quot;protection-row&quot;&gt;&lt;span&gt;우체국예금 &lt;small&gt;국가 운영&lt;/small&gt;&lt;/span&gt;&lt;span class=&quot;status all&quot;&gt;전액 보장&lt;/span&gt;&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;p style=&quot;margin:12px 0 0;color:var(--muted);font-size:.8rem&quot;&gt;* 예금자보호법이 아니라 자체적으로 보장&lt;/p&gt;
+        &lt;/article&gt;
+        &lt;article class=&quot;sheet&quot;&gt;
+          &lt;h3&gt;보험회사&lt;/h3&gt;
+          &lt;ul class=&quot;clean&quot;&gt;&lt;li&gt;&lt;strong&gt;생명보험&lt;/strong&gt; — 사람의 생명&lt;/li&gt;&lt;li&gt;&lt;strong&gt;손해보험&lt;/strong&gt; — 재산상 손해&lt;/li&gt;&lt;li&gt;&lt;strong&gt;제3보험&lt;/strong&gt; — 질병·상해·간병&lt;/li&gt;&lt;/ul&gt;
+          &lt;div class=&quot;memory&quot;&gt;&lt;strong&gt;구별&lt;/strong&gt; 제3보험은 별도 회사를 세우는 업종이 아니라 생명보험사와 손해보험사가 모두 판매할 수 있습니다.&lt;/div&gt;
+        &lt;/article&gt;
+        &lt;article class=&quot;sheet&quot;&gt;
+          &lt;h3&gt;신용협동기구&lt;/h3&gt;
+          &lt;p&gt;&lt;span class=&quot;memory-code&quot;&gt;세신단&lt;/span&gt; 세 단어만 연결해서 기억하세요.&lt;/p&gt;
+          &lt;div class=&quot;memory&quot;&gt;&lt;strong&gt;세&lt;/strong&gt; 개: &lt;strong&gt;신&lt;/strong&gt;협 · 새마을금고 · &lt;strong&gt;단&lt;/strong&gt;위조합(농협 지역조합)&lt;/div&gt;
+          &lt;p style=&quot;margin:13px 0 0;color:var(--muted)&quot;&gt;저축은행과 우체국예금은 신용협동기구가 아닙니다.&lt;/p&gt;
+        &lt;/article&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section class=&quot;section&quot; id=&quot;licenses&quot;&gt;
+      &lt;div class=&quot;section-head&quot;&gt;&lt;div class=&quot;section-no&quot;&gt;02&lt;/div&gt;&lt;div&gt;&lt;h2&gt;금융투자업자 6개 업종&lt;/h2&gt;&lt;p class=&quot;section-intro&quot;&gt;‘누구의 이익을 위해 무엇을 하는가’로 역할을 연결하면 쉽습니다.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;license-rail&quot;&gt;
+        &lt;article class=&quot;rail-item&quot;&gt;&lt;span class=&quot;rail-index&quot;&gt;01&lt;/span&gt;&lt;h3&gt;투자매매업&lt;/h3&gt;&lt;p&gt;자기 이익을 위한 딜링&lt;/p&gt;&lt;/article&gt;
+        &lt;article class=&quot;rail-item&quot;&gt;&lt;span class=&quot;rail-index&quot;&gt;02&lt;/span&gt;&lt;h3&gt;투자중개업&lt;/h3&gt;&lt;p&gt;고객 이익을 위한 연결&lt;/p&gt;&lt;/article&gt;
+        &lt;article class=&quot;rail-item&quot;&gt;&lt;span class=&quot;rail-index&quot;&gt;03&lt;/span&gt;&lt;h3&gt;집합투자업&lt;/h3&gt;&lt;p&gt;펀드·자산운용사&lt;/p&gt;&lt;/article&gt;
+        &lt;article class=&quot;rail-item&quot;&gt;&lt;span class=&quot;rail-index&quot;&gt;04&lt;/span&gt;&lt;h3&gt;투자자문업&lt;/h3&gt;&lt;p&gt;투자 판단을 자문&lt;/p&gt;&lt;/article&gt;
+        &lt;article class=&quot;rail-item&quot;&gt;&lt;span class=&quot;rail-index&quot;&gt;05&lt;/span&gt;&lt;h3&gt;투자일임업&lt;/h3&gt;&lt;p&gt;판단을 맡아 운용&lt;/p&gt;&lt;/article&gt;
+        &lt;article class=&quot;rail-item&quot;&gt;&lt;span class=&quot;rail-index&quot;&gt;06&lt;/span&gt;&lt;h3&gt;신탁업&lt;/h3&gt;&lt;p&gt;재산을 이전받아 관리&lt;/p&gt;&lt;/article&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;permit-note&quot;&gt;&lt;span&gt;인가가 원칙&lt;/span&gt;&lt;span aria-hidden=&quot;true&quot;&gt;→&lt;/span&gt;&lt;span&gt;&lt;strong&gt;투자자문업·투자일임업&lt;/strong&gt;만 등록&lt;/span&gt;&lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section class=&quot;section&quot; id=&quot;trust&quot;&gt;
+      &lt;div class=&quot;section-head&quot;&gt;&lt;div class=&quot;section-no&quot;&gt;03&lt;/div&gt;&lt;div&gt;&lt;h2&gt;신탁 vs 투자일임&lt;/h2&gt;&lt;p class=&quot;section-intro&quot;&gt;핵심은 운용 방식이 아니라 재산의 소유권이 이동하는지입니다.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;compare&quot;&gt;
+        &lt;article&gt;
+          &lt;div class=&quot;compare-kicker&quot;&gt;INVESTMENT DISCRETION&lt;/div&gt;&lt;h3&gt;투자일임&lt;/h3&gt;
+          &lt;div class=&quot;ownership&quot;&gt;&lt;span class=&quot;symbol&quot; aria-hidden=&quot;true&quot;&gt;A&lt;/span&gt;&lt;span&gt;소유권 유지&lt;/span&gt;&lt;span class=&quot;symbol&quot; aria-hidden=&quot;true&quot;&gt;→ B&lt;/span&gt;&lt;/div&gt;
+          &lt;p&gt;A가 B에게 재산 운용을 맡기더라도 &lt;strong&gt;소유권은 A에게 그대로&lt;/strong&gt; 있습니다.&lt;/p&gt;
+        &lt;/article&gt;
+        &lt;article&gt;
+          &lt;div class=&quot;compare-kicker&quot;&gt;TRUST&lt;/div&gt;&lt;h3&gt;신탁&lt;/h3&gt;
+          &lt;div class=&quot;ownership&quot;&gt;&lt;span class=&quot;symbol&quot; aria-hidden=&quot;true&quot;&gt;A&lt;/span&gt;&lt;span&gt;소유권 이전&lt;/span&gt;&lt;span class=&quot;symbol&quot; aria-hidden=&quot;true&quot;&gt;→ B&lt;/span&gt;&lt;/div&gt;
+          &lt;p&gt;A(위탁자)가 B(수탁자)에게 소유권을 넘기고, B는 &lt;strong&gt;C(수익자)를 위해&lt;/strong&gt; 재산을 운용합니다.&lt;/p&gt;
+        &lt;/article&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section class=&quot;section&quot; id=&quot;bank-work&quot;&gt;
+      &lt;div class=&quot;section-head&quot;&gt;&lt;div class=&quot;section-no&quot;&gt;04&lt;/div&gt;&lt;div&gt;&lt;h2&gt;은행 업무 3분류&lt;/h2&gt;&lt;p class=&quot;section-intro&quot;&gt;별도 인허가가 필요한지, 은행의 본래 기능인지로 나눕니다.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;biz-layout&quot;&gt;
+        &lt;article class=&quot;biz-block&quot;&gt;&lt;span class=&quot;pill&quot;&gt;CORE&lt;/span&gt;&lt;h3&gt;고유업무&lt;/h3&gt;&lt;p&gt;예금(수신) · 대출(여신) · 지급결제(환)&lt;/p&gt;&lt;ul class=&quot;clean&quot;&gt;&lt;li&gt;채권 발행&lt;/li&gt;&lt;li&gt;어음 할인&lt;/li&gt;&lt;/ul&gt;&lt;/article&gt;
+        &lt;article class=&quot;biz-block&quot;&gt;&lt;span class=&quot;pill&quot;&gt;WITHOUT EXTRA LICENSE&lt;/span&gt;&lt;h3&gt;부수업무&lt;/h3&gt;&lt;p&gt;별도 인허가·등록 없이 가능한 업무&lt;/p&gt;&lt;ul class=&quot;clean&quot;&gt;&lt;li&gt;어음 인수&lt;/li&gt;&lt;/ul&gt;&lt;/article&gt;
+        &lt;article class=&quot;biz-block&quot;&gt;&lt;span class=&quot;pill&quot;&gt;SEPARATE LICENSE&lt;/span&gt;&lt;h3&gt;겸영업무&lt;/h3&gt;&lt;p&gt;해당 업종의 인가·허가·등록이 필요한 업무&lt;/p&gt;&lt;ul class=&quot;clean&quot;&gt;&lt;li&gt;카드 발급&lt;/li&gt;&lt;li&gt;보험대리점 · RP&lt;/li&gt;&lt;/ul&gt;&lt;/article&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;trap&quot;&gt;&lt;strong&gt;함정 포인트:&lt;/strong&gt; 어음 &lt;u&gt;할인&lt;/u&gt;은 고유업무, 어음 &lt;u&gt;인수&lt;/u&gt;는 부수업무입니다.&lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section class=&quot;section&quot; id=&quot;finance&quot;&gt;
+      &lt;div class=&quot;section-head&quot;&gt;&lt;div class=&quot;section-no&quot;&gt;05&lt;/div&gt;&lt;div&gt;&lt;h2&gt;직접금융 vs 간접금융&lt;/h2&gt;&lt;p class=&quot;section-intro&quot;&gt;중간 기관이 단순히 연결하는지, 거래의 책임 주체가 되는지 확인합니다.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;finance-flow&quot;&gt;
+        &lt;article class=&quot;flow-panel&quot;&gt;
+          &lt;div class=&quot;flow-title&quot;&gt;&lt;h3&gt;직접금융&lt;/h3&gt;&lt;span&gt;주식·채권&lt;/span&gt;&lt;/div&gt;
+          &lt;div class=&quot;flow-line&quot;&gt;&lt;div class=&quot;node&quot;&gt;기업&lt;/div&gt;&lt;span class=&quot;connector&quot;&gt;↔&lt;/span&gt;&lt;div class=&quot;node&quot;&gt;투자자&lt;/div&gt;&lt;/div&gt;
+          &lt;p&gt;증권사는 중간 인수기관으로 연결하지만, 책임은 자금수요자와 공급자 당사자에게 있습니다.&lt;/p&gt;
+        &lt;/article&gt;
+        &lt;div class=&quot;versus&quot; aria-hidden=&quot;true&quot;&gt;VS&lt;/div&gt;
+        &lt;article class=&quot;flow-panel indirect&quot;&gt;
+          &lt;div class=&quot;flow-title&quot;&gt;&lt;h3&gt;간접금융&lt;/h3&gt;&lt;span&gt;예금·대출&lt;/span&gt;&lt;/div&gt;
+          &lt;div class=&quot;flow-line&quot;&gt;&lt;div class=&quot;node&quot;&gt;예금자&lt;/div&gt;&lt;span class=&quot;connector&quot;&gt;→&lt;/span&gt;&lt;div class=&quot;node&quot;&gt;은행&lt;/div&gt;&lt;span class=&quot;connector&quot;&gt;→&lt;/span&gt;&lt;div class=&quot;node&quot;&gt;대출자&lt;/div&gt;&lt;/div&gt;
+          &lt;p&gt;은행이 책임 주체로 참여합니다. 예금자는 대출자가 아니라 은행에만 권리를 가집니다.&lt;/p&gt;
+        &lt;/article&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section class=&quot;section&quot; id=&quot;securities&quot;&gt;
+      &lt;div class=&quot;section-head&quot;&gt;&lt;div class=&quot;section-no&quot;&gt;06&lt;/div&gt;&lt;div&gt;&lt;h2&gt;증권회사 6대 업무&lt;/h2&gt;&lt;p class=&quot;section-intro&quot;&gt;업무 이름과 자본시장법상 업종 분류를 한 줄로 묶어 암기합니다.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;work-list&quot;&gt;
+        &lt;div class=&quot;work-row&quot;&gt;&lt;span class=&quot;work-number&quot;&gt;01&lt;/span&gt;&lt;span class=&quot;work-name&quot;&gt;위탁매매&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;투자중개업&lt;/span&gt;&lt;p&gt;고객 주문 체결과 수수료 수취. 증권사의 주 수입원.&lt;/p&gt;&lt;/div&gt;
+        &lt;div class=&quot;work-row&quot;&gt;&lt;span class=&quot;work-number&quot;&gt;02&lt;/span&gt;&lt;span class=&quot;work-name&quot;&gt;자기매매 · 딜링&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;투자매매업&lt;/span&gt;&lt;p&gt;자기 명의·자기 계산으로 자기 이익을 추구.&lt;/p&gt;&lt;/div&gt;
+        &lt;div class=&quot;work-row&quot;&gt;&lt;span class=&quot;work-number&quot;&gt;03&lt;/span&gt;&lt;span class=&quot;work-name&quot;&gt;인수·주선&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;투자매매업&lt;/span&gt;&lt;p&gt;신규 발행 증권을 매출 목적으로 취득. 전액인수·잔액인수·모집주선.&lt;/p&gt;&lt;/div&gt;
+        &lt;div class=&quot;work-row&quot;&gt;&lt;span class=&quot;work-number&quot;&gt;04&lt;/span&gt;&lt;span class=&quot;work-name&quot;&gt;펀드판매&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;투자중개업&lt;/span&gt;&lt;p&gt;고객 편의를 위한 중개. &lt;strong&gt;집합투자업으로 혼동하지 않기.&lt;/strong&gt;&lt;/p&gt;&lt;/div&gt;
+        &lt;div class=&quot;work-row&quot;&gt;&lt;span class=&quot;work-number&quot;&gt;05&lt;/span&gt;&lt;span class=&quot;work-name&quot;&gt;자산관리&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;자문·일임&lt;/span&gt;&lt;p&gt;랩어카운트, CMA, ISA 등.&lt;/p&gt;&lt;/div&gt;
+        &lt;div class=&quot;work-row&quot;&gt;&lt;span class=&quot;work-number&quot;&gt;06&lt;/span&gt;&lt;span class=&quot;work-name&quot;&gt;신용공여&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;대출&lt;/span&gt;&lt;p&gt;금전 융자, 유가증권 대여, 증권담보대출.&lt;/p&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section class=&quot;section&quot; id=&quot;funds&quot;&gt;
+      &lt;div class=&quot;section-head&quot;&gt;&lt;div class=&quot;section-no&quot;&gt;07&lt;/div&gt;&lt;div&gt;&lt;h2&gt;집합투자업 · 펀드 구조&lt;/h2&gt;&lt;p class=&quot;section-intro&quot;&gt;2명 이상에게서 모은 자금을 운용하며, 운용과 보관을 분리해 상호 견제합니다.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;fund-principle&quot;&gt;&lt;span&gt;운용 · 집합투자업자&lt;/span&gt;&lt;span class=&quot;split&quot; aria-hidden=&quot;true&quot;&gt;≠&lt;/span&gt;&lt;span&gt;보관·감시 · 신탁업자&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;fund-grid&quot;&gt;
+        &lt;article class=&quot;fund-panel&quot;&gt;
+          &lt;span class=&quot;ratio&quot;&gt;95%+&lt;/span&gt;&lt;h3&gt;신탁형 · 투자신탁&lt;/h3&gt;
+          &lt;div class=&quot;fund-flow&quot;&gt;&lt;div class=&quot;node&quot;&gt;집합투자업자&lt;br&gt;&lt;small&gt;위탁자&lt;/small&gt;&lt;/div&gt;&lt;span class=&quot;connector&quot;&gt;계약 ↔&lt;/span&gt;&lt;div class=&quot;node&quot;&gt;수탁회사&lt;br&gt;&lt;small&gt;신탁업자·은행&lt;/small&gt;&lt;/div&gt;&lt;/div&gt;
+          &lt;p&gt;판매대금은 집합투자업자 통장이 아니라 &lt;strong&gt;수탁회사로 직접 이체&lt;/strong&gt;됩니다.&lt;/p&gt;
+          &lt;div class=&quot;fund-details&quot;&gt;&lt;div class=&quot;fund-detail&quot;&gt;&lt;span&gt;투자자에게 발행&lt;/span&gt;&lt;strong&gt;수익증권&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;fund-detail&quot;&gt;&lt;span&gt;투자자 지위&lt;/span&gt;&lt;strong&gt;수익자&lt;/strong&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;/article&gt;
+        &lt;article class=&quot;fund-panel&quot;&gt;
+          &lt;span class=&quot;ratio&quot;&gt;~5%&lt;/span&gt;&lt;h3&gt;회사형 · 투자회사&lt;/h3&gt;
+          &lt;p&gt;뮤추얼펀드. 임직원이 없는 &lt;strong&gt;페이퍼컴퍼니&lt;/strong&gt;로 주식회사 형태입니다.&lt;/p&gt;
+          &lt;div class=&quot;fund-details&quot;&gt;&lt;div class=&quot;fund-detail&quot;&gt;&lt;span&gt;핵심 지원사&lt;/span&gt;&lt;strong&gt;일반사무관리회사&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;fund-detail&quot;&gt;&lt;span&gt;투자자에게 발행&lt;/span&gt;&lt;strong&gt;주식&lt;/strong&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;/article&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;private-fund&quot;&gt;
+        &lt;div class=&quot;key&quot;&gt;&lt;strong&gt;사모펀드&lt;/strong&gt;&lt;p&gt;3호펀드 · 투자자 50명 미만&lt;/p&gt;&lt;/div&gt;
+        &lt;div&gt;&lt;strong&gt;일반사모&lt;/strong&gt;&lt;p&gt;전문투자자 + 일반투자자(3억 원 이상 투자)&lt;/p&gt;&lt;/div&gt;
+        &lt;div&gt;&lt;strong&gt;기관전용사모&lt;/strong&gt;&lt;p&gt;기관투자자 및 이에 준하는 자만 참여&lt;/p&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section class=&quot;section&quot; id=&quot;quiz&quot;&gt;
+      &lt;div class=&quot;section-head&quot;&gt;&lt;div class=&quot;section-no&quot;&gt;08&lt;/div&gt;&lt;div&gt;&lt;h2&gt;3문제로 끝내는 복습&lt;/h2&gt;&lt;p class=&quot;section-intro&quot;&gt;보기를 선택한 뒤 한 번에 채점하세요. 채점 전에는 정답이 표시되지 않습니다.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;quiz-list&quot;&gt;
+        &lt;article class=&quot;quiz-item&quot; data-answer=&quot;3&quot;&gt;
+          &lt;h3 class=&quot;quiz-title&quot;&gt;&lt;span&gt;Q1&lt;/span&gt;다음 중 신용협동기구가 아닌 것은?&lt;/h3&gt;
+          &lt;div class=&quot;quiz-options&quot;&gt;
+            &lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;① 신용협동조합&lt;/button&gt;
+            &lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;② 새마을금고&lt;/button&gt;
+            &lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;③ 농협 지역조합&lt;/button&gt;
+            &lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;④ 상호저축은행&lt;/button&gt;
+          &lt;/div&gt;
+          &lt;p class=&quot;quiz-explanation&quot;&gt;&lt;strong&gt;정답: ④ 상호저축은행.&lt;/strong&gt; 신용협동기구는 신협·새마을금고·단위조합인 ‘세신단’입니다.&lt;/p&gt;
+        &lt;/article&gt;
+        &lt;article class=&quot;quiz-item&quot; data-answer=&quot;3&quot;&gt;
+          &lt;h3 class=&quot;quiz-title&quot;&gt;&lt;span&gt;Q2&lt;/span&gt;증권회사가 고객에게 금전 융자나 유가증권 대여를 하는 업무는?&lt;/h3&gt;
+          &lt;div class=&quot;quiz-options&quot;&gt;
+            &lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;① 위탁매매&lt;/button&gt;
+            &lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;② 자기매매&lt;/button&gt;
+            &lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;③ 인수·주선&lt;/button&gt;
+            &lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;④ 신용공여&lt;/button&gt;
+          &lt;/div&gt;
+          &lt;p class=&quot;quiz-explanation&quot;&gt;&lt;strong&gt;정답: ④ 신용공여.&lt;/strong&gt; 금전 대출, 유가증권 대여, 증권담보대출이 포함됩니다.&lt;/p&gt;
+        &lt;/article&gt;
+        &lt;article class=&quot;quiz-item&quot; data-answer=&quot;3&quot;&gt;
+          &lt;h3 class=&quot;quiz-title&quot;&gt;&lt;span&gt;Q3&lt;/span&gt;투자신탁의 재산을 보관·관리하는 주체는?&lt;/h3&gt;
+          &lt;div class=&quot;quiz-options&quot;&gt;
+            &lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;① 집합투자업자&lt;/button&gt;
+            &lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;② 판매회사&lt;/button&gt;
+            &lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;③ 일반사무관리회사&lt;/button&gt;
+            &lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;④ 수탁회사(신탁업자)&lt;/button&gt;
+          &lt;/div&gt;
+          &lt;p class=&quot;quiz-explanation&quot;&gt;&lt;strong&gt;정답: ④ 수탁회사.&lt;/strong&gt; 운용과 보관을 분리하며 판매대금도 수탁회사로 직접 이체됩니다.&lt;/p&gt;
+        &lt;/article&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;quiz-actions&quot;&gt;&lt;button class=&quot;quiz-btn&quot; id=&quot;grade-quiz&quot; type=&quot;button&quot;&gt;채점하기&lt;/button&gt;&lt;button class=&quot;quiz-btn secondary&quot; id=&quot;reset-quiz&quot; type=&quot;button&quot;&gt;다시 풀기&lt;/button&gt;&lt;/div&gt;
+      &lt;div class=&quot;quiz-score&quot; id=&quot;quiz-score&quot; role=&quot;status&quot; aria-live=&quot;polite&quot;&gt;&lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section class=&quot;cram&quot; aria-labelledby=&quot;cram-title&quot;&gt;
+      &lt;h2 id=&quot;cram-title&quot;&gt;시험 직전&lt;br&gt;암기표&lt;/h2&gt;
+      &lt;div class=&quot;cram-list&quot;&gt;
+        &lt;div class=&quot;cram-row&quot;&gt;&lt;strong&gt;세신단&lt;/strong&gt;&lt;span&gt;신협 · 새마을금고 · 단위조합&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;cram-row&quot;&gt;&lt;strong&gt;등록 2개&lt;/strong&gt;&lt;span&gt;투자자문업 · 투자일임업&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;cram-row&quot;&gt;&lt;strong&gt;일임&lt;/strong&gt;&lt;span&gt;소유권은 맡긴 사람에게 유지&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;cram-row&quot;&gt;&lt;strong&gt;신탁&lt;/strong&gt;&lt;span&gt;소유권이 수탁자에게 이전&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;cram-row&quot;&gt;&lt;strong&gt;어음 할인&lt;/strong&gt;&lt;span&gt;은행 고유업무&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;cram-row&quot;&gt;&lt;strong&gt;어음 인수&lt;/strong&gt;&lt;span&gt;은행 부수업무&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;cram-row&quot;&gt;&lt;strong&gt;펀드 판매&lt;/strong&gt;&lt;span&gt;투자중개업&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;cram-row&quot;&gt;&lt;strong&gt;투자신탁&lt;/strong&gt;&lt;span&gt;수익증권 · 수익자 · 수탁회사&lt;/span&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;footer&gt;
+      &lt;p&gt;강의 내용을 시험 대비용으로 재구성한 학습 노트입니다.&lt;/p&gt;
+      &lt;p&gt;출처: &lt;a href=&quot;https://www.youtube.com/watch?v=XFcNNI1VEnA&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;이패스TV · 정성기 교수 원본 강의 ↗&lt;/a&gt;&lt;/p&gt;
+    &lt;/footer&gt;
+  &lt;/main&gt;
+
+  &lt;script&gt;
+    (function () {
+      var questions = Array.prototype.slice.call(document.querySelectorAll('.quiz-item[data-answer]'));
+      var score = document.getElementById('quiz-score');
+      questions.forEach(function (question) {
+        question.querySelectorAll('.quiz-option').forEach(function (option, index) {
+          option.addEventListener('click', function () {
+            question.querySelectorAll('.quiz-option').forEach(function (item) {
+              item.classList.remove('selected', 'correct', 'wrong');
+            });
+            option.classList.add('selected');
+            question.dataset.choice = String(index);
+            question.querySelector('.quiz-explanation').classList.remove('show');
+            score.classList.remove('show');
+          });
+        });
+      });
+      document.getElementById('grade-quiz').addEventListener('click', function () {
+        var answered = 0;
+        var correct = 0;
+        questions.forEach(function (question) {
+          var answer = Number(question.dataset.answer);
+          var options = question.querySelectorAll('.quiz-option');
+          options[answer].classList.add('correct');
+          question.querySelector('.quiz-explanation').classList.add('show');
+          if (question.dataset.choice === undefined) return;
+          answered++;
+          var choice = Number(question.dataset.choice);
+          if (choice === answer) correct++;
+          else options[choice].classList.add('wrong');
+        });
+        score.textContent = answered &lt; questions.length
+          ? '아직 ' + (questions.length - answered) + '문제가 남았습니다. 현재 ' + answered + '문제 중 ' + correct + '문제 정답.'
+          : '총 ' + questions.length + '문제 중 ' + correct + '문제 정답입니다.';
+        score.classList.add('show');
+      });
+      document.getElementById('reset-quiz').addEventListener('click', function () {
+        questions.forEach(function (question) {
+          delete question.dataset.choice;
+          question.querySelectorAll('.quiz-option').forEach(function (option) {
+            option.classList.remove('selected', 'correct', 'wrong');
+          });
+          question.querySelector('.quiz-explanation').classList.remove('show');
+        });
+        score.classList.remove('show');
+      });
+    }());
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
     </section>
-    <section class="panel" id="panel-course-3" role="tabpanel" aria-labelledby="tab-course-3" hidden>
-      <iframe class="lesson-frame" title="3과목 법규 강의노트" src="3과목-법규.html"></iframe>
+    <section class="panel" id="course-3" aria-labelledby="course-3-title">
+      <header class="subject-heading">
+        <div>
+          <span class="subject-kicker">SUBJECT 03</span>
+          <h2 id="course-3-title">3과목 · 법규</h2>
+          <p>금융투자상품, 금융투자업, 적용배제와 투자자 분류 정리</p>
+        </div>
+        <span class="subject-number" aria-hidden="true">03</span>
+      </header>
+      <iframe class="lesson-frame" title="3과목 법규 강의노트" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;ko&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot; /&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, viewport-fit=cover&quot; /&gt;
+  &lt;meta name=&quot;color-scheme&quot; content=&quot;light dark&quot; /&gt;
+  &lt;link rel=&quot;icon&quot; href=&quot;data:,&quot; /&gt;
+  &lt;title&gt;증권투자권유자문인력 법규 핵심자료&lt;/title&gt;
+  &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;
+  &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;
+  &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&amp;family=Noto+Serif+KR:wght@700;900&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+  &lt;style&gt;
+    :root{
+      color-scheme:light dark;
+      --paper:#f4f1e9;
+      --surface:#fffdf8;
+      --surface-2:#ece8dc;
+      --ink:#142337;
+      --muted:#526070;
+      --line:#cbc6b8;
+      --navy:#173d61;
+      --navy-soft:#dbe7f0;
+      --red:#b53a2e;
+      --red-soft:#f3ddd8;
+      --gold:#a66c09;
+      --gold-soft:#f3e6c6;
+      --green:#2d6652;
+      --green-soft:#dcebe4;
+      --shadow:0 12px 32px rgba(33,42,50,.10);
+    }
+    @media (prefers-color-scheme:dark){
+      :root{
+        --paper:#11171e;
+        --surface:#17212b;
+        --surface-2:#202c37;
+        --ink:#f4f1e8;
+        --muted:#b8c2cb;
+        --line:#3a4651;
+        --navy:#8dbfe2;
+        --navy-soft:#20394b;
+        --red:#f08f80;
+        --red-soft:#4b2928;
+        --gold:#e6bd69;
+        --gold-soft:#493a1f;
+        --green:#8fc6ad;
+        --green-soft:#223d34;
+        --shadow:0 14px 36px rgba(0,0,0,.30);
+      }
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:72px}
+    body{
+      margin:0;
+      background:var(--paper);
+      color:var(--ink);
+      font-family:&quot;Noto Sans KR&quot;,-apple-system,BlinkMacSystemFont,sans-serif;
+      line-height:1.65;
+      word-break:keep-all;
+      overflow-wrap:break-word;
+      -webkit-tap-highlight-color:transparent;
+      overflow-x:hidden;
+    }
+    a{color:inherit}
+    button{font:inherit}
+
+    /* Top Utility Navigation */
+    .top-bar{
+      background:var(--surface);
+      border-bottom:1px solid var(--line);
+      font-size:.82rem;
+      padding:8px 0;
+      position:relative;
+      z-index:25;
+    }
+    .top-bar-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .top-back-link{
+      display:inline-flex;
+      align-items:center;
+      gap:5px;
+      font-weight:800;
+      color:var(--navy);
+      text-decoration:none;
+      padding:4px 8px;
+      border-radius:4px;
+    }
+    .top-back-link:hover{background:var(--surface-2)}
+    .top-nav-tabs{
+      display:flex;
+      align-items:center;
+      gap:6px;
+      overflow-x:auto;
+      scrollbar-width:none;
+      max-width:100%;
+    }
+    .top-nav-tabs::-webkit-scrollbar{display:none}
+    .top-tab{
+      white-space:nowrap;
+      text-decoration:none;
+      padding:4px 9px;
+      border-radius:4px;
+      font-weight:700;
+      color:var(--muted);
+      border:1px solid transparent;
+    }
+    .top-tab:hover{color:var(--ink);background:var(--surface-2)}
+    .top-tab.active{
+      background:var(--navy-soft);
+      color:var(--navy);
+      border-color:var(--line);
+    }
+    .top-tab.portal{
+      color:var(--red);
+      font-weight:800;
+    }
+
+    .wrap{width:min(1120px,calc(100% - 36px));margin:0 auto}
+    .hero{padding:clamp(28px,6vw,84px) 0 34px;border-bottom:1px solid var(--line)}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(270px,.55fr);gap:40px;align-items:end}
+    .course-line{display:flex;gap:8px 12px;align-items:center;flex-wrap:wrap;margin-bottom:14px;color:var(--muted);font-size:.86rem;font-weight:700}
+    .course-line .tag{background:var(--navy);color:var(--surface);padding:4px 9px;border-radius:4px;font-size:.8rem}
+    @media (prefers-color-scheme:dark){.course-line .tag{color:#10202d}}
+    h1{font-family:&quot;Noto Serif KR&quot;,serif;font-size:clamp(1.85rem,5.5vw,4.5rem);line-height:1.15;letter-spacing:-.045em;margin:0;max-width:820px}
+    h1 em{font-style:normal;color:var(--red)}
+    .dek{max-width:700px;font-size:clamp(.95rem,1.8vw,1.18rem);color:var(--muted);margin:18px 0 0;line-height:1.68}
+    .source-card{background:var(--ink);color:var(--paper);padding:22px;border-radius:8px;box-shadow:var(--shadow)}
+    @media (prefers-color-scheme:dark){.source-card{background:#e8edf0;color:#162431}}
+    .source-card strong{font-size:1.05rem;display:block;margin-bottom:6px}
+    .source-card p{margin:0 0 16px;font-size:.88rem;opacity:.82;line-height:1.5}
+    .watch{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--red);color:white;text-decoration:none;padding:11px 16px;border-radius:6px;font-weight:800;font-size:.9rem;min-height:44px;transition:opacity .15s}
+    .watch:hover,.watch:active{opacity:.9}
+    .watch svg{width:18px;height:18px;fill:currentColor;flex-shrink:0}
+
+    /* Study Map Sticky Navigation */
+    .study-nav{
+      padding:10px 0;
+      border-bottom:1px solid var(--line);
+      background:color-mix(in srgb,var(--paper) 94%,transparent);
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+    }
+    .nav-inner{
+      display:flex;
+      gap:8px;
+      overflow-x:auto;
+      scrollbar-width:none;
+      -webkit-overflow-scrolling:touch;
+      padding:4px 0;
+    }
+    .nav-inner::-webkit-scrollbar{display:none}
+    .nav-inner a{
+      white-space:nowrap;
+      flex-shrink:0;
+      text-decoration:none;
+      border:1px solid var(--line);
+      background:var(--surface);
+      border-radius:999px;
+      padding:7px 13px;
+      font-size:.82rem;
+      font-weight:700;
+      color:var(--muted);
+      min-height:36px;
+      display:inline-flex;
+      align-items:center;
+      transition:all .15s ease;
+    }
+    .nav-inner a:hover,.nav-inner a:focus-visible,.nav-inner a:active{
+      border-color:var(--navy);
+      color:var(--navy);
+      background:var(--navy-soft);
+      outline:none;
+    }
+
+    .layout{display:grid;grid-template-columns:210px minmax(0,1fr);gap:48px;padding:40px 0 80px}
+    .rail{position:sticky;top:76px;align-self:start}
+    .rail h2{font-size:.75rem;letter-spacing:.14em;margin:0 0 14px;text-transform:uppercase;color:var(--muted)}
+    .rail ol{margin:0;padding:0;list-style:none;counter-reset:rail}
+    .rail li{counter-increment:rail;border-top:1px solid var(--line)}
+    .rail a{display:grid;grid-template-columns:25px 1fr;gap:6px;padding:11px 0;text-decoration:none;font-size:.84rem;font-weight:700;color:var(--muted)}
+    .rail a:before{content:counter(rail,decimal-leading-zero);color:var(--red);font-size:.72rem;padding-top:2px}
+    .rail a:hover{color:var(--ink)}
+    article{min-width:0}
+    section{padding:48px 0;border-top:1px solid var(--line);scroll-margin-top:72px}
+    section:first-child{border-top:0;padding-top:0}
+    .section-head{display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:start;margin-bottom:24px}
+    .section-no{font-family:&quot;Noto Serif KR&quot;,serif;font-weight:900;font-size:1.85rem;color:var(--red);line-height:1}
+    h2{font-family:&quot;Noto Serif KR&quot;,serif;font-size:clamp(1.45rem,3.5vw,2.25rem);line-height:1.22;letter-spacing:-.035em;margin:0}
+    .section-head p{grid-column:2;margin:6px 0 0;color:var(--muted);font-size:.92rem}
+    .priority{display:inline-block;margin-left:6px;font-family:&quot;Noto Sans KR&quot;,sans-serif;font-size:.72rem;letter-spacing:.02em;vertical-align:middle;background:var(--red-soft);color:var(--red);padding:3px 8px;border-radius:4px;font-weight:800}
+    
+    .lead-box{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px 20px;margin-bottom:20px;box-shadow:var(--shadow)}
+    .lead-box p{margin:0;font-size:.92rem}
+    .lead-box strong{color:var(--red)}
+    .low-priority{border:1px dashed var(--line);background:var(--surface-2);padding:16px 18px;border-radius:6px;color:var(--muted);font-size:.9rem}
+    .low-priority summary{cursor:pointer;color:var(--ink);font-weight:800}
+    .low-priority ul{margin:12px 0 0;padding-left:18px}
+    
+    .flow{display:grid;grid-template-columns:1fr 48px 1fr 48px 1fr;align-items:stretch;margin:22px 0;gap:0}
+    .flow-card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px 16px;min-height:165px;display:flex;flex-direction:column;justify-content:space-between}
+    .flow-card .q{font-size:.78rem;color:var(--muted);font-weight:800;margin-bottom:12px}
+    .flow-card strong{font-family:&quot;Noto Serif KR&quot;,serif;font-size:1.22rem;line-height:1.25}
+    .flow-card small{color:var(--muted);display:block;margin-top:8px;font-size:.82rem}
+    .arrow{display:grid;place-items:center;color:var(--red);font-size:1.6rem;font-weight:800}
+    
+    .trap{background:var(--red-soft);padding:18px 20px;border-left:5px solid var(--red);border-radius:0 6px 6px 0;margin:20px 0}
+    .trap .label{font-size:.76rem;font-weight:900;color:var(--red);letter-spacing:.08em;display:block}
+    .trap p{font-family:&quot;Noto Serif KR&quot;,serif;font-size:clamp(1.05rem,2.5vw,1.25rem);font-weight:700;margin:4px 0 0;line-height:1.45}
+    
+    .mnemonic{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0}
+    .memory-card{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:6px;padding:18px;box-shadow:var(--shadow);min-height:120px}
+    .memory-card .num{color:var(--gold);font-weight:900;font-size:.78rem}
+    .memory-card h3{margin:4px 0 6px;font-size:1.02rem}
+    .memory-card p{font-size:.84rem;color:var(--muted);margin:0;line-height:1.5}
+    
+    .matrix{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line);margin-top:20px}
+    .matrix article{padding:18px;background:var(--surface);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .matrix h3{margin:0 0 6px;font-size:.98rem;color:var(--navy)}
+    .matrix p{margin:0;font-size:.88rem;color:var(--muted);line-height:1.55}
+    
+    .business-list{display:grid;gap:10px;margin:20px 0}
+    .business{display:grid;grid-template-columns:150px 1fr;gap:20px;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:16px 18px}
+    .business h3{margin:0;font-size:.98rem;color:var(--navy)}
+    .business p{margin:0;color:var(--muted);font-size:.88rem;line-height:1.55}
+    .business .except{color:var(--ink);font-weight:700}
+    .business.hot{border-color:var(--red);background:color-mix(in srgb,var(--surface) 96%,var(--red-soft))}
+    .business.hot h3{color:var(--red)}
+    
+    .definition{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
+    .def{padding:18px;background:var(--navy-soft);border-radius:6px}
+    .def .term{font-weight:900;color:var(--navy);font-size:1.02rem}
+    .def p{margin:6px 0 0;font-size:.88rem}
+    
+    /* Responsive Table Wrap */
+    .table-scroll-wrap{
+      width:100%;
+      overflow-x:auto;
+      -webkit-overflow-scrolling:touch;
+      margin:20px 0;
+      border:1px solid var(--line);
+      border-radius:6px;
+      background:var(--surface);
+    }
+    .compare{width:100%;min-width:440px;border-collapse:collapse;margin:0}
+    .compare th,.compare td{border-bottom:1px solid var(--line);border-right:1px solid var(--line);padding:13px 15px;text-align:left;vertical-align:middle;font-size:.86rem}
+    .compare th:last-child,.compare td:last-child{border-right:none}
+    .compare tr:last-child td{border-bottom:none}
+    .compare th{background:var(--surface-2);font-weight:800;color:var(--ink);white-space:nowrap}
+    .compare td:first-child{font-weight:800;background:color-mix(in srgb,var(--surface-2) 40%,var(--surface));width:28%}
+    
+    .switch-diagram{display:grid;grid-template-columns:1fr 50px 1fr;align-items:center;margin:20px 0;gap:4px}
+    .switch-card{padding:20px;background:var(--surface);border:1px solid var(--line);border-radius:6px}
+    .switch-card strong{display:block;font-family:&quot;Noto Serif KR&quot;,serif;font-size:1.15rem;margin-bottom:6px}
+    .switch-card p{margin:0;color:var(--muted);font-size:.88rem}
+    .switch-arrow{text-align:center;font-weight:900;color:var(--red);font-size:1.4rem}
+    
+    .formula{background:var(--green-soft);padding:18px 20px;margin:20px 0;border-radius:6px;border-left:4px solid var(--green)}
+    .formula strong{color:var(--green);font-size:.82rem;text-transform:uppercase;letter-spacing:.05em}
+    .formula p{margin:6px 0 0;font-size:1.02rem;font-weight:700}
+    
+    .requirements{display:grid;grid-template-columns:1fr 40px 1fr;gap:10px;align-items:stretch;margin:20px 0}
+    .req{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px}
+    .req .label{font-size:.74rem;color:var(--muted);font-weight:800}
+    .req h3{margin:5px 0 8px;font-size:1.05rem;color:var(--navy)}
+    .req p,.req ul{margin:0;color:var(--muted);font-size:.88rem;padding-left:16px}
+    .plus{display:grid;place-items:center;color:var(--red);font-size:1.6rem;font-weight:900}
+    .term-chip{display:inline-block;padding:5px 10px;background:var(--gold-soft);color:var(--gold);font-size:.78rem;font-weight:900;border-radius:4px;margin-top:10px}
+    
+    /* Quiz Section */
+    .quiz{display:grid;gap:10px}
+    .quiz-item{border:1px solid var(--line);background:var(--surface);border-radius:6px;padding:20px}
+    .quiz-title{margin:0 0 15px;font-size:1rem;line-height:1.5}
+    .quiz-title span{color:var(--red);margin-right:6px}
+    .quiz-options{display:grid;gap:8px}
+    .quiz-option{
+      width:100%;
+      min-height:46px;
+      padding:11px 13px;
+      border:1px solid var(--line);
+      background:var(--surface-2);
+      color:var(--ink);
+      text-align:left;
+      cursor:pointer;
+      font-weight:700;
+    }
+    .quiz-option:hover,.quiz-option:focus-visible{border-color:var(--navy);outline:none}
+    .quiz-option.selected{border-color:var(--navy);background:var(--navy-soft)}
+    .quiz-option.correct{border-color:var(--green);background:var(--green-soft)}
+    .quiz-option.wrong{border-color:var(--red);background:var(--red-soft)}
+    .quiz-explanation{display:none;margin:13px 0 0;padding:13px 14px;background:var(--surface-2);color:var(--muted);font-size:.87rem}
+    .quiz-explanation.show{display:block}
+    .quiz-explanation strong{color:var(--navy)}
+    .quiz-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
+    .quiz-btn{border:0;padding:11px 17px;background:var(--navy);color:var(--paper);font-weight:800;cursor:pointer}
+    .quiz-btn.secondary{background:var(--surface);color:var(--ink);border:1px solid var(--line)}
+    .quiz-score{display:none;margin-top:12px;padding:14px 16px;background:var(--green-soft);color:var(--ink);font-weight:800}
+    .quiz-score.show{display:block}
+    
+    /* Cheat Sheet */
+    .cheat{background:var(--ink);color:var(--paper);padding:24px;border-radius:8px;margin-top:30px}
+    @media (prefers-color-scheme:dark){.cheat{background:#e7ecef;color:#12202d}}
+    .cheat h3{font-family:&quot;Noto Serif KR&quot;,serif;font-size:1.25rem;margin:0 0 16px}
+    .cheat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 20px}
+    .cheat-grid &gt; div{
+      display:grid;
+      grid-template-columns:85px minmax(0,1fr);
+      gap:10px;
+      border-top:1px solid color-mix(in srgb,currentColor 25%,transparent);
+      padding-top:10px;
+      font-size:.86rem;
+      align-items:start;
+      min-width:0;
+    }
+    .cheat-grid &gt; div b{color:var(--red);font-weight:800;white-space:nowrap}
+    .cheat-grid &gt; div span{opacity:.92;min-width:0;overflow-wrap:anywhere}
+
+    .footer{border-top:1px solid var(--line);padding:28px 0 48px;color:var(--muted);font-size:.82rem}
+    .footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}
+    .footer p{margin:0;max-width:670px;line-height:1.6}
+    .footer a{color:var(--navy);font-weight:800}
+
+    /* Floating Back-to-Top Button */
+    .btn-top{
+      position:fixed;
+      bottom:24px;
+      right:20px;
+      width:44px;
+      height:44px;
+      border-radius:50%;
+      background:var(--navy);
+      color:#fff;
+      border:0;
+      box-shadow:0 4px 14px rgba(0,0,0,.25);
+      cursor:pointer;
+      display:grid;
+      place-items:center;
+      font-size:1.1rem;
+      z-index:90;
+      opacity:0;
+      visibility:hidden;
+      transition:opacity .2s, visibility .2s, transform .2s;
+    }
+    .btn-top.visible{opacity:1;visibility:visible}
+    .btn-top:active{transform:scale(.92)}
+
+    /* Mobile &amp; Tablet Optimizations */
+    @media(max-width:860px){
+      .hero-grid{grid-template-columns:1fr;gap:24px}
+      .source-card{max-width:100%}
+      .layout{grid-template-columns:1fr;padding:30px 0 60px}
+      .rail{display:none}
+      .flow{grid-template-columns:1fr;gap:8px}
+      .arrow{height:32px;transform:rotate(90deg)}
+    }
+    @media(max-width:620px){
+      html,body{width:100%;max-width:100%;overflow-x:clip}
+      body{word-break:normal}
+      .wrap{
+        width:100%;
+        max-width:100%;
+        padding-left:16px;
+        padding-right:16px;
+      }
+      .top-bar{padding:7px 0}
+      .top-bar-inner{display:block;padding-left:12px;padding-right:12px}
+      .top-back-link{display:none}
+      .top-nav-tabs{
+        width:100%;
+        display:flex;
+        gap:4px;
+        overflow-x:auto;
+        overscroll-behavior-x:contain;
+        scroll-snap-type:x proximity;
+        padding-bottom:2px;
+      }
+      .top-tab{
+        flex:0 0 auto;
+        min-width:max-content;
+        padding:7px 11px;
+        text-align:center;
+        font-size:.68rem;
+        border-color:var(--line);
+        background:var(--surface);
+        scroll-snap-align:start;
+      }
+      .hero{padding-top:24px;padding-bottom:24px}
+      .hero-grid,.hero-grid&gt;*,.layout,.layout&gt;*,main,article,section{min-width:0;max-width:100%}
+      h1{font-size:clamp(1.78rem,9vw,2.35rem);line-height:1.2;letter-spacing:-.035em}
+      .dek{font-size:.92rem;line-height:1.62;margin-top:14px}
+      .course-line{gap:5px 8px;font-size:.76rem;margin-bottom:12px}
+      .course-line .tag{font-size:.72rem}
+      .source-card{width:100%;padding:18px}
+      .watch{width:100%}
+      .study-nav{padding:8px 0}
+      .study-nav .wrap{padding-right:0}
+      .nav-inner a{font-size:.78rem;padding:6px 11px;min-height:34px}
+      .layout{padding-top:24px;padding-bottom:48px}
+      .section-head{grid-template-columns:38px 1fr;gap:10px}
+      .section-no{font-size:1.45rem}
+      h2{font-size:clamp(1.3rem,6vw,1.7rem);overflow-wrap:anywhere}
+      .section-head p{grid-column:1/-1;margin-top:4px}
+      section{padding:34px 0}
+      section h3{overflow-wrap:anywhere}
+      .lead-box,.low-priority,.trap,.formula,.def,.req,.switch-card,.memory-card,.business{
+        max-width:100%;
+        padding:16px;
+      }
+      .flow-card{min-height:0;padding:16px}
+      .flow-card strong{font-size:1.08rem}
+      .trap p{font-size:1.02rem}
+      .mnemonic,.matrix,.definition{grid-template-columns:1fr}
+      .matrix{border-left:0;border-top:0}
+      .matrix article{border:1px solid var(--line);border-radius:6px;margin-bottom:8px}
+      .business{grid-template-columns:1fr;gap:6px}
+      .switch-diagram{grid-template-columns:1fr;gap:6px}
+      .switch-arrow{height:30px;transform:rotate(90deg)}
+      .requirements{grid-template-columns:1fr;gap:6px}
+      .plus{height:28px;transform:none}
+      .table-scroll-wrap{overflow:visible;border:0;background:transparent}
+      .compare{display:block;min-width:0;width:100%;background:transparent}
+      .compare thead{display:none}
+      .compare tbody,.compare tr,.compare td{display:block;width:100%}
+      .compare tr{
+        margin-bottom:10px;
+        border:1px solid var(--line);
+        border-radius:6px;
+        overflow:hidden;
+        background:var(--surface);
+      }
+      .compare td{
+        border:0;
+        border-bottom:1px solid var(--line);
+        padding:11px 13px 11px 42%;
+        position:relative;
+        min-height:44px;
+        font-size:.82rem;
+      }
+      .compare td:last-child{border-bottom:0}
+      .compare td::before{
+        position:absolute;
+        left:12px;
+        top:11px;
+        width:36%;
+        color:var(--muted);
+        font-size:.72rem;
+        font-weight:800;
+      }
+      .compare td:nth-child(1)::before{content:&quot;비교 항목&quot;}
+      .compare td:nth-child(2)::before{content:&quot;일반 중개업&quot;}
+      .compare td:nth-child(3)::before{content:&quot;온라인소액&quot;}
+      .compare td:first-child{
+        width:100%;
+        padding-left:42%;
+        background:var(--surface-2);
+      }
+      .quiz-item{padding:16px 14px}
+      .quiz-option{padding:10px 11px;font-size:.86rem}
+      .cheat{padding:18px 16px}
+      .cheat-grid{grid-template-columns:1fr;gap:6px}
+      .cheat-grid &gt; div{
+        grid-template-columns:1fr;
+        gap:3px;
+        padding:10px 0 2px;
+        font-size:.82rem;
+      }
+      .cheat-grid &gt; div b{white-space:normal}
+      .footer-inner{flex-direction:column;gap:12px}
+      .btn-top{right:12px;bottom:max(14px,env(safe-area-inset-bottom));width:42px;height:42px}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+    }
+  &lt;/style&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;unified-lesson.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class=&quot;top-bar&quot;&gt;
+    &lt;div class=&quot;wrap top-bar-inner&quot;&gt;
+      &lt;a href=&quot;../index.html&quot; class=&quot;top-back-link&quot;&gt;
+        &lt;span&gt;←&lt;/span&gt; 2026 강의 홈
+      &lt;/a&gt;
+      &lt;div class=&quot;top-nav-tabs&quot;&gt;
+        &lt;a href=&quot;1과목-경기분석.html&quot; class=&quot;top-tab&quot;&gt;1과목 경기분석&lt;/a&gt;
+        &lt;a href=&quot;2과목-금융상품분석.html&quot; class=&quot;top-tab&quot;&gt;2과목 금융상품&lt;/a&gt;
+        &lt;a href=&quot;3과목-법규.html&quot; class=&quot;top-tab active&quot; aria-current=&quot;page&quot;&gt;3과목 법규&lt;/a&gt;
+        &lt;a href=&quot;../../index.html&quot; class=&quot;top-tab portal&quot;&gt;CBT 홈&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;header class=&quot;hero&quot; style=&quot;background:#173d45 !important;color:#fff !important&quot;&gt;
+    &lt;div class=&quot;wrap hero-grid&quot;&gt;
+      &lt;div&gt;
+        &lt;div class=&quot;course-line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;3과목 · 법규&lt;/span&gt;&lt;span&gt;2026 증권투자권유자문인력&lt;/span&gt;&lt;span&gt;정성기 교수&lt;/span&gt;&lt;/div&gt;
+        &lt;h1 style=&quot;color:#fff !important;opacity:1 !important;font-weight:900 !important&quot;&gt;법규의 경계를&lt;br&gt;&lt;em style=&quot;color:#fff !important&quot;&gt;두 갈래&lt;/em&gt;로 잡는다&lt;/h1&gt;
+        &lt;p class=&quot;dek&quot; style=&quot;color:#eef8f7 !important;opacity:1 !important;font-weight:600 !important&quot;&gt;상품은 ‘원금손실’과 ‘추가 지급의무’로, 투자자는 ‘전환 가능성’과 ‘장외파생 목적’으로 구분합니다. 강의에서 반복한 함정과 적용배제를 시험 답안 구조로 압축했습니다.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;aside class=&quot;source-card&quot; aria-label=&quot;원본 강의&quot;&gt;
+        &lt;strong&gt;원본 강의 · 3과목 법규&lt;/strong&gt;
+        &lt;p&gt;이패스TV · 정성기 교수&lt;br&gt;자본시장법 총칙부터 투자자 분류까지&lt;/p&gt;
+        &lt;a class=&quot;watch&quot; href=&quot;https://www.youtube.com/watch?v=2Go8DzVNdx0&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;
+          &lt;svg viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M21.6 7.2a2.8 2.8 0 0 0-2-2C17.8 4.7 12 4.7 12 4.7s-5.8 0-7.6.5a2.8 2.8 0 0 0-2 2A29 29 0 0 0 2 12a29 29 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.8.5 7.6.5 7.6.5s5.8 0 7.6-.5a2.8 2.8 0 0 0 2-2A29 29 0 0 0 22 12a29 29 0 0 0-.4-4.8ZM10 15.2V8.8l5.5 3.2-5.5 3.2Z&quot;/&gt;&lt;/svg&gt;
+          강의 보기
+        &lt;/a&gt;
+      &lt;/aside&gt;
+    &lt;/div&gt;
+  &lt;/header&gt;
+
+  &lt;nav class=&quot;study-nav&quot; aria-label=&quot;핵심 섹션 바로가기&quot;&gt;
+    &lt;div class=&quot;wrap nav-inner&quot;&gt;
+      &lt;a href=&quot;#background&quot;&gt;법 제정 배경&lt;/a&gt;&lt;a href=&quot;#products&quot;&gt;금융투자상품&lt;/a&gt;&lt;a href=&quot;#securities&quot;&gt;증권 6종&lt;/a&gt;&lt;a href=&quot;#business&quot;&gt;금융투자업&lt;/a&gt;&lt;a href=&quot;#crowd&quot;&gt;온라인소액중개&lt;/a&gt;&lt;a href=&quot;#investors&quot;&gt;투자자 분류&lt;/a&gt;&lt;a href=&quot;#quiz&quot;&gt;확인문제&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/nav&gt;
+
+  &lt;div class=&quot;wrap layout&quot;&gt;
+    &lt;aside class=&quot;rail&quot; aria-label=&quot;목차&quot;&gt;
+      &lt;h2&gt;Study map&lt;/h2&gt;
+      &lt;ol&gt;&lt;li&gt;&lt;a href=&quot;#background&quot;&gt;법 제정 배경&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#products&quot;&gt;금융투자상품&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#securities&quot;&gt;증권 분류&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#business&quot;&gt;금융투자업 6종&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#crowd&quot;&gt;온라인소액중개&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#investors&quot;&gt;투자자 분류&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#quiz&quot;&gt;최종 점검&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+    &lt;/aside&gt;
+
+    &lt;main&gt;&lt;article&gt;
+      &lt;section id=&quot;background&quot;&gt;
+        &lt;div class=&quot;section-head&quot;&gt;&lt;span class=&quot;section-no&quot;&gt;01&lt;/span&gt;&lt;h2&gt;자본시장법 제정 배경&lt;/h2&gt;&lt;p&gt;맥락만 잡고, 암기 시간은 뒤의 적용배제와 투자자 분류에 배분합니다.&lt;/p&gt;&lt;/div&gt;
+        &lt;details class=&quot;low-priority&quot;&gt;
+          &lt;summary&gt;참고용 — 강의에서 출제 비중이 낮다고 짚은 영역&lt;/summary&gt;
+          &lt;ul&gt;
+            &lt;li&gt;&lt;b&gt;열거주의 → 포괄주의:&lt;/b&gt; 법에 하나씩 나열하는 방식에서 벗어나 새로운 금융상품에 대응.&lt;/li&gt;
+            &lt;li&gt;&lt;b&gt;기관별 규제 → 기능별 규제:&lt;/b&gt; 기관 이름보다 매매·중개 등 수행 기능을 기준으로 같은 규율 적용.&lt;/li&gt;
+            &lt;li&gt;&lt;b&gt;증권선물위원회:&lt;/b&gt; 금융위원회 산하에서 불공정거래 조사, 기업회계 기준·감리를 담당.&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/details&gt;
+      &lt;/section&gt;
+
+      &lt;section id=&quot;products&quot;&gt;
+        &lt;div class=&quot;section-head&quot;&gt;&lt;span class=&quot;section-no&quot;&gt;02&lt;/span&gt;&lt;h2&gt;금융투자상품 구분 &lt;span class=&quot;priority&quot;&gt;빈출 함정&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;두 질문을 순서대로 적용하면 예금·증권·파생상품의 경계가 선명해집니다.&lt;/p&gt;&lt;/div&gt;
+        &lt;div class=&quot;flow&quot; role=&quot;img&quot; aria-label=&quot;원금손실 가능성과 추가 지급의무에 따른 상품 구분&quot;&gt;
+          &lt;div class=&quot;flow-card&quot;&gt;&lt;div class=&quot;q&quot;&gt;Q1. 원금손실 가능성이 있는가?&lt;/div&gt;&lt;strong&gt;없다&lt;br&gt;비금융투자상품&lt;/strong&gt;&lt;small&gt;대표 예: 은행예금&lt;/small&gt;&lt;/div&gt;
+          &lt;div class=&quot;arrow&quot; aria-hidden=&quot;true&quot;&gt;→&lt;/div&gt;
+          &lt;div class=&quot;flow-card&quot;&gt;&lt;div class=&quot;q&quot;&gt;Q2. 추가 지급의무가 있는가?&lt;/div&gt;&lt;strong&gt;없다&lt;br&gt;증권&lt;/strong&gt;&lt;small&gt;손실 범위가 원금까지&lt;/small&gt;&lt;/div&gt;
+          &lt;div class=&quot;arrow&quot; aria-hidden=&quot;true&quot;&gt;→&lt;/div&gt;
+          &lt;div class=&quot;flow-card&quot;&gt;&lt;div class=&quot;q&quot;&gt;원금을 넘는 손실이 가능한가?&lt;/div&gt;&lt;strong&gt;있다&lt;br&gt;파생상품&lt;/strong&gt;&lt;small&gt;추가로 돈을 낼 수 있음&lt;/small&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;lead-box&quot;&gt;&lt;p&gt;&lt;strong&gt;판단 3요건&lt;/strong&gt;은 ① 투자성(원금손실 가능성) ② 영리 목적(소비 목적 제외) ③ 실물이 아닌 권리의 취득입니다.&lt;/p&gt;&lt;/div&gt;
+        &lt;div class=&quot;trap&quot;&gt;&lt;span class=&quot;label&quot;&gt;시험 함정&lt;/span&gt;&lt;p&gt;ELS·DLS는 이름에 ‘파생’이 들어가도 파생상품이 아니라 &lt;u&gt;파생결합증권&lt;/u&gt;이다.&lt;/p&gt;&lt;/div&gt;
+        &lt;h3&gt;금융투자상품에서 빠지는 3종&lt;/h3&gt;
+        &lt;div class=&quot;mnemonic&quot;&gt;
+          &lt;article class=&quot;memory-card&quot;&gt;&lt;span class=&quot;num&quot;&gt;01&lt;/span&gt;&lt;h3&gt;CD&lt;/h3&gt;&lt;p&gt;양도성예금증서&lt;/p&gt;&lt;/article&gt;
+          &lt;article class=&quot;memory-card&quot;&gt;&lt;span class=&quot;num&quot;&gt;02&lt;/span&gt;&lt;h3&gt;관리신탁의 수익권&lt;/h3&gt;&lt;p&gt;관리형 신탁은 현상유지 성격&lt;/p&gt;&lt;/article&gt;
+          &lt;article class=&quot;memory-card&quot;&gt;&lt;span class=&quot;num&quot;&gt;03&lt;/span&gt;&lt;h3&gt;주식매수선택권&lt;/h3&gt;&lt;p&gt;양도 불가·유통성 없음&lt;/p&gt;&lt;/article&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;section id=&quot;securities&quot;&gt;
+        &lt;div class=&quot;section-head&quot;&gt;&lt;span class=&quot;section-no&quot;&gt;03&lt;/span&gt;&lt;h2&gt;증권 6종 짝짓기&lt;/h2&gt;&lt;p&gt;분류명과 대표 사례를 한 덩어리로 묶어 기억합니다.&lt;/p&gt;&lt;/div&gt;
+        &lt;div class=&quot;matrix&quot;&gt;
+          &lt;article&gt;&lt;h3&gt;지분증권&lt;/h3&gt;&lt;p&gt;출자지분, 신주인수권. 유한책임이 기준이며 무한책임 조합원 지분은 제외.&lt;/p&gt;&lt;/article&gt;
+          &lt;article&gt;&lt;h3&gt;채무증권&lt;/h3&gt;&lt;p&gt;국채·지방채·특수채. 사적 금전채권은 유통할 수 없어 증권이 아님.&lt;/p&gt;&lt;/article&gt;
+          &lt;article&gt;&lt;h3&gt;수익증권&lt;/h3&gt;&lt;p&gt;투자신탁의 수익권. ETF도 수익증권의 일종.&lt;/p&gt;&lt;/article&gt;
+          &lt;article&gt;&lt;h3&gt;투자계약증권&lt;/h3&gt;&lt;p&gt;타인과 공동사업을 하고 이익을 배분받는 무정형 증권.&lt;/p&gt;&lt;/article&gt;
+          &lt;article&gt;&lt;h3&gt;파생결합증권&lt;/h3&gt;&lt;p&gt;외생적 지수에 연계. ELS·DLS·ELW를 함께 기억.&lt;/p&gt;&lt;/article&gt;
+          &lt;article&gt;&lt;h3&gt;증권예탁증권&lt;/h3&gt;&lt;p&gt;DR. 국내·해외 모두 포함.&lt;/p&gt;&lt;/article&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;section id=&quot;business&quot;&gt;
+        &lt;div class=&quot;section-head&quot;&gt;&lt;span class=&quot;section-no&quot;&gt;04&lt;/span&gt;&lt;h2&gt;금융투자업 6종과 적용배제 &lt;span class=&quot;priority&quot;&gt;최우선&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;강의가 강조한 핵심은 업의 정의보다 ‘어떤 경우 법 적용에서 빠지는가’입니다.&lt;/p&gt;&lt;/div&gt;
+        &lt;div class=&quot;definition&quot;&gt;
+          &lt;div class=&quot;def&quot;&gt;&lt;span class=&quot;term&quot;&gt;투자매매업&lt;/span&gt;&lt;p&gt;&lt;b&gt;자기 계산.&lt;/b&gt; 이익과 손실을 회사가 책임집니다.&lt;/p&gt;&lt;/div&gt;
+          &lt;div class=&quot;def&quot;&gt;&lt;span class=&quot;term&quot;&gt;투자중개업&lt;/span&gt;&lt;p&gt;&lt;b&gt;타인 계산.&lt;/b&gt; 회사는 중개 수수료를 받습니다.&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;business-list&quot;&gt;
+          &lt;article class=&quot;business hot&quot;&gt;&lt;h3&gt;투자매매업&lt;/h3&gt;&lt;p&gt;&lt;span class=&quot;except&quot;&gt;적용배제:&lt;/span&gt; 국가·한국은행 등의 공익 목적 거래 / 직접 상대방과 거래 / 증권 발행. 단, &lt;b&gt;투자신탁 수익증권·파생결합증권 발행은 매매업&lt;/b&gt;에 해당.&lt;/p&gt;&lt;/article&gt;
+          &lt;article class=&quot;business hot&quot;&gt;&lt;h3&gt;투자중개업&lt;/h3&gt;&lt;p&gt;&lt;span class=&quot;except&quot;&gt;적용배제:&lt;/span&gt; 투자권유대행인. 실제 기능은 중개지만 개인은 인가받을 수 없어 적용에서 배제됩니다.&lt;/p&gt;&lt;/article&gt;
+          &lt;article class=&quot;business&quot;&gt;&lt;h3&gt;집합투자업&lt;/h3&gt;&lt;p&gt;펀드를 운용하는 자산운용사. &lt;span class=&quot;except&quot;&gt;적용배제:&lt;/span&gt; 종합금융투자회사의 CMA 계좌.&lt;/p&gt;&lt;/article&gt;
+          &lt;article class=&quot;business&quot;&gt;&lt;h3&gt;투자자문업&lt;/h3&gt;&lt;p&gt;&lt;span class=&quot;except&quot;&gt;등록 불필요:&lt;/span&gt; 불특정 다수에게 간행물·방송으로 조언하는 유사투자자문업(신고)과 역외투자자문업.&lt;/p&gt;&lt;/article&gt;
+          &lt;article class=&quot;business&quot;&gt;&lt;h3&gt;투자일임업&lt;/h3&gt;&lt;p&gt;고객의 투자판단을 위임받아 운용하는 업.&lt;/p&gt;&lt;/article&gt;
+          &lt;article class=&quot;business&quot;&gt;&lt;h3&gt;신탁업&lt;/h3&gt;&lt;p&gt;신탁재산을 이전받아 관리·운용하는 업.&lt;/p&gt;&lt;/article&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;section id=&quot;crowd&quot;&gt;
+        &lt;div class=&quot;section-head&quot;&gt;&lt;span class=&quot;section-no&quot;&gt;05&lt;/span&gt;&lt;h2&gt;온라인소액투자중개업&lt;/h2&gt;&lt;p&gt;증권형 크라우드펀딩은 일반 투자중개업과 인가 방식이 다릅니다.&lt;/p&gt;&lt;/div&gt;
+        &lt;div class=&quot;table-scroll-wrap&quot;&gt;
+          &lt;table class=&quot;compare&quot;&gt;
+            &lt;thead&gt;&lt;tr&gt;&lt;th&gt;비교 항목&lt;/th&gt;&lt;th&gt;일반 투자중개업&lt;/th&gt;&lt;th&gt;온라인소액투자중개업&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+            &lt;tbody&gt;
+              &lt;tr&gt;&lt;td&gt;진입 방식&lt;/td&gt;&lt;td&gt;인가&lt;/td&gt;&lt;td&gt;&lt;b&gt;등록&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;
+              &lt;tr&gt;&lt;td&gt;자기자본 요건&lt;/td&gt;&lt;td&gt;&lt;b&gt;인가단위별 5억~30억원&lt;/b&gt;&lt;br&gt;&lt;small&gt;증권 투자중개업: 30억원&lt;/small&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;5억원&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;
+              &lt;tr&gt;&lt;td&gt;투자자 제한&lt;/td&gt;&lt;td&gt;—&lt;/td&gt;&lt;td&gt;발행인 요청 시 합리적·명확한 기준으로 투자자 범위 제한 가능&lt;/td&gt;&lt;/tr&gt;
+            &lt;/tbody&gt;
+          &lt;/table&gt;
+        &lt;/div&gt;
+        &lt;p style=&quot;margin:8px 0 0;color:var(--muted);font-size:.78rem&quot;&gt;법적 근거: &lt;a href=&quot;https://www.law.go.kr/법령/자본시장과금융투자업에관한법률/제12조&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;자본시장법 제12조&lt;/a&gt; 및 &lt;a href=&quot;https://www.law.go.kr/법령별표서식/(자본시장과금융투자업에관한법률시행령,별표1)&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;시행령 별표 1&lt;/a&gt;&lt;/p&gt;
+        &lt;div class=&quot;formula&quot;&gt;&lt;strong&gt;한 줄 암기&lt;/strong&gt;&lt;p&gt;온라인소액투자중개업 = 인가가 아니라 등록 + 자기자본 5억원&lt;/p&gt;&lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;section id=&quot;investors&quot;&gt;
+        &lt;div class=&quot;section-head&quot;&gt;&lt;span class=&quot;section-no&quot;&gt;06&lt;/span&gt;&lt;h2&gt;투자자 분류와 전환&lt;/h2&gt;&lt;p&gt;전문투자자에게는 적합성·적정성·설명의무 등을 포함한 6대 판매원칙이 적용되지 않습니다.&lt;/p&gt;&lt;/div&gt;
+        &lt;div class=&quot;switch-diagram&quot;&gt;
+          &lt;div class=&quot;switch-card&quot;&gt;&lt;strong&gt;절대적 전문투자자&lt;/strong&gt;&lt;p&gt;국가 등. 일반투자자로 전환할 수 없습니다.&lt;/p&gt;&lt;/div&gt;
+          &lt;div class=&quot;switch-arrow&quot;&gt;↔&lt;/div&gt;
+          &lt;div class=&quot;switch-card&quot;&gt;&lt;strong&gt;상대적 전문투자자&lt;/strong&gt;&lt;p&gt;주권상장법인·지방자치단체 등. 본인이 원하면 일반투자자로 전환 가능.&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;lead-box&quot;&gt;&lt;p&gt;&lt;strong&gt;전환 절차:&lt;/strong&gt; 서면으로 금융투자업자에게 통지하고 동의를 받습니다. 강의 기준으로 자본시장법은 서면이 원칙이며 구두는 효력이 없습니다.&lt;/p&gt;&lt;/div&gt;
+        &lt;div class=&quot;trap&quot;&gt;&lt;span class=&quot;label&quot;&gt;장외파생상품의 이중적 지위&lt;/span&gt;&lt;p&gt;상대적 전문투자자라도 장외파생상품을 거래할 때는 일반투자자로 취급한다.&lt;/p&gt;&lt;/div&gt;
+        &lt;ul&gt;
+          &lt;li&gt;일반투자자는 장외파생상품을 &lt;b&gt;위험회피 목적&lt;/b&gt;으로만 거래할 수 있습니다.&lt;/li&gt;
+          &lt;li&gt;투자 목적으로 거래하려면 서면 통지로 전문투자자 전환이 필요합니다.&lt;/li&gt;
+        &lt;/ul&gt;
+
+        &lt;h3 style=&quot;margin-top:38px&quot;&gt;자발적 전문투자자 — 개인&lt;/h3&gt;
+        &lt;div class=&quot;requirements&quot;&gt;
+          &lt;div class=&quot;req&quot;&gt;&lt;span class=&quot;label&quot;&gt;필수&lt;/span&gt;&lt;h3&gt;투자경험 요건&lt;/h3&gt;&lt;p&gt;최근 5년 중 1년 이상, 금융위 고시 상품 잔고 5천만원 이상&lt;/p&gt;&lt;/div&gt;
+          &lt;div class=&quot;plus&quot;&gt;+&lt;/div&gt;
+          &lt;div class=&quot;req&quot;&gt;&lt;span class=&quot;label&quot;&gt;아래 중 하나&lt;/span&gt;&lt;h3&gt;소득 · 자산 · 전문성&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;연소득 1억원 또는 배우자 합산 1.5억원&lt;/li&gt;&lt;li&gt;순자산 5억원&lt;/li&gt;&lt;li&gt;변호사·세무사 등 전문직 1년 이상 종사&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;span class=&quot;term-chip&quot;&gt;지정 후 2년간 전문투자자 지위 유지&lt;/span&gt;
+      &lt;/section&gt;
+
+      &lt;section id=&quot;quiz&quot;&gt;
+        &lt;div class=&quot;section-head&quot;&gt;&lt;span class=&quot;section-no&quot;&gt;07&lt;/span&gt;&lt;h2&gt;6문제로 최종 점검&lt;/h2&gt;&lt;p&gt;각 문제의 보기를 선택한 뒤 한 번에 채점하세요. 채점 전에는 정답이 보이지 않습니다.&lt;/p&gt;&lt;/div&gt;
+        &lt;div class=&quot;quiz&quot;&gt;
+          &lt;div class=&quot;quiz-item&quot; data-answer=&quot;2&quot;&gt;
+            &lt;h3 class=&quot;quiz-title&quot;&gt;&lt;span&gt;Q1&lt;/span&gt;ELS·DLS의 자본시장법상 분류는?&lt;/h3&gt;
+            &lt;div class=&quot;quiz-options&quot;&gt;&lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;① 채무증권&lt;/button&gt;&lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;② 지분증권&lt;/button&gt;&lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;③ 파생결합증권&lt;/button&gt;&lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;④ 파생상품&lt;/button&gt;&lt;/div&gt;
+            &lt;p class=&quot;quiz-explanation&quot;&gt;&lt;strong&gt;정답: ③ 파생결합증권.&lt;/strong&gt; 이름에 ‘파생’이 있지만 법적 분류는 증권입니다.&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;quiz-item&quot; data-answer=&quot;1&quot;&gt;
+            &lt;h3 class=&quot;quiz-title&quot;&gt;&lt;span&gt;Q2&lt;/span&gt;증권과 파생상품을 가르는 결정적 기준은?&lt;/h3&gt;
+            &lt;div class=&quot;quiz-options&quot;&gt;&lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;① 원금손실 가능성&lt;/button&gt;&lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;② 원금초과손실 가능성&lt;/button&gt;&lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;③ 만기 존재 여부&lt;/button&gt;&lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;④ 유통시장 존재 여부&lt;/button&gt;&lt;/div&gt;
+            &lt;p class=&quot;quiz-explanation&quot;&gt;&lt;strong&gt;정답: ② 원금초과손실 가능성.&lt;/strong&gt; 증권은 손실이 원금까지지만 파생상품은 추가 지급의무가 발생할 수 있습니다.&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;quiz-item&quot; data-answer=&quot;0&quot;&gt;
+            &lt;h3 class=&quot;quiz-title&quot;&gt;&lt;span&gt;Q3&lt;/span&gt;금융투자상품에서 제외되는 항목으로만 묶인 것은?&lt;/h3&gt;
+            &lt;div class=&quot;quiz-options&quot;&gt;&lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;① CD·관리신탁 수익권·주식매수선택권&lt;/button&gt;&lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;② CP·투자신탁 수익권·신주인수권&lt;/button&gt;&lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;③ CD·ELS·주식매수선택권&lt;/button&gt;&lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;④ 국채·관리신탁 수익권·스톡옵션&lt;/button&gt;&lt;/div&gt;
+            &lt;p class=&quot;quiz-explanation&quot;&gt;&lt;strong&gt;정답: ①.&lt;/strong&gt; CD, 관리신탁 수익권, 주식매수선택권을 한 묶음으로 암기합니다.&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;quiz-item&quot; data-answer=&quot;1&quot;&gt;
+            &lt;h3 class=&quot;quiz-title&quot;&gt;&lt;span&gt;Q4&lt;/span&gt;투자권유대행인에게 적용이 배제되는 금융투자업은?&lt;/h3&gt;
+            &lt;div class=&quot;quiz-options&quot;&gt;&lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;① 투자매매업&lt;/button&gt;&lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;② 투자중개업&lt;/button&gt;&lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;③ 투자자문업&lt;/button&gt;&lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;④ 투자일임업&lt;/button&gt;&lt;/div&gt;
+            &lt;p class=&quot;quiz-explanation&quot;&gt;&lt;strong&gt;정답: ② 투자중개업.&lt;/strong&gt; 기능상 중개를 하지만 개인은 인가받을 수 없어 적용이 배제됩니다.&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;quiz-item&quot; data-answer=&quot;1&quot;&gt;
+            &lt;h3 class=&quot;quiz-title&quot;&gt;&lt;span&gt;Q5&lt;/span&gt;온라인소액투자중개업의 진입 방식은?&lt;/h3&gt;
+            &lt;div class=&quot;quiz-options&quot;&gt;&lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;① 인가&lt;/button&gt;&lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;② 등록&lt;/button&gt;&lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;③ 허가&lt;/button&gt;&lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;④ 신고&lt;/button&gt;&lt;/div&gt;
+            &lt;p class=&quot;quiz-explanation&quot;&gt;&lt;strong&gt;정답: ② 등록.&lt;/strong&gt; 자기자본 요건은 5억원입니다.&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;quiz-item&quot; data-answer=&quot;0&quot;&gt;
+            &lt;h3 class=&quot;quiz-title&quot;&gt;&lt;span&gt;Q6&lt;/span&gt;개인이 자발적 전문투자자가 되기 위한 필수 요건은?&lt;/h3&gt;
+            &lt;div class=&quot;quiz-options&quot;&gt;&lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;① 투자경험 요건&lt;/button&gt;&lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;② 연소득 1억원&lt;/button&gt;&lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;③ 순자산 5억원&lt;/button&gt;&lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;④ 전문직 1년 이상 종사&lt;/button&gt;&lt;/div&gt;
+            &lt;p class=&quot;quiz-explanation&quot;&gt;&lt;strong&gt;정답: ① 투자경험 요건.&lt;/strong&gt; 최근 5년 중 1년 이상, 금융위 고시 상품 잔고 5천만원 이상이 필수입니다.&lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;quiz-actions&quot;&gt;&lt;button class=&quot;quiz-btn&quot; id=&quot;grade-quiz&quot; type=&quot;button&quot;&gt;채점하기&lt;/button&gt;&lt;button class=&quot;quiz-btn secondary&quot; id=&quot;reset-quiz&quot; type=&quot;button&quot;&gt;다시 풀기&lt;/button&gt;&lt;/div&gt;
+        &lt;div class=&quot;quiz-score&quot; id=&quot;quiz-score&quot; role=&quot;status&quot; aria-live=&quot;polite&quot;&gt;&lt;/div&gt;
+        &lt;aside class=&quot;cheat&quot;&gt;
+          &lt;h3&gt;시험장 앞 60초 암기표&lt;/h3&gt;
+          &lt;div class=&quot;cheat-grid&quot;&gt;
+            &lt;div&gt;&lt;b&gt;상품 경계&lt;/b&gt;&lt;span&gt;원금손실 → 투자상품 / 초과손실 → 파생&lt;/span&gt;&lt;/div&gt;
+            &lt;div&gt;&lt;b&gt;파생 함정&lt;/b&gt;&lt;span&gt;ELS·DLS·ELW = 파생결합증권&lt;/span&gt;&lt;/div&gt;
+            &lt;div&gt;&lt;b&gt;제외 3종&lt;/b&gt;&lt;span&gt;CD · 관리신탁 수익권 · 스톡옵션&lt;/span&gt;&lt;/div&gt;
+            &lt;div&gt;&lt;b&gt;중개 배제&lt;/b&gt;&lt;span&gt;투자권유대행인&lt;/span&gt;&lt;/div&gt;
+            &lt;div&gt;&lt;b&gt;온라인소액&lt;/b&gt;&lt;span&gt;등록 · 자기자본 5억원&lt;/span&gt;&lt;/div&gt;
+            &lt;div&gt;&lt;b&gt;개인 전문&lt;/b&gt;&lt;span&gt;투자경험 필수 + 선택요건 하나&lt;/span&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/aside&gt;
+      &lt;/section&gt;
+    &lt;/article&gt;&lt;/main&gt;
+  &lt;/div&gt;
+
+  &lt;footer class=&quot;footer&quot;&gt;
+    &lt;div class=&quot;wrap footer-inner&quot;&gt;
+      &lt;p&gt;2026년 이패스TV 정성기 교수의 「증권투자권유자문인력 3과목 법규」 강의 내용을 학습 순서에 맞춰 재구성했습니다. 강의에서 출제 비중이 낮다고 언급한 내용은 참고용으로 구분했습니다.&lt;/p&gt;
+      &lt;p&gt;출처: &lt;a href=&quot;https://www.youtube.com/watch?v=2Go8DzVNdx0&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;원본 강의&lt;/a&gt; · &lt;a href=&quot;https://www.youtube.com/@EPASSKOREA&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;이패스TV&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/footer&gt;
+
+  &lt;button class=&quot;btn-top&quot; id=&quot;btnTop&quot; title=&quot;맨 위로&quot; aria-label=&quot;맨 위로 가기&quot;&gt;↑&lt;/button&gt;
+
+  &lt;script&gt;
+    (function(){
+      var questions=Array.prototype.slice.call(document.querySelectorAll('.quiz-item[data-answer]'));
+      var score=document.getElementById('quiz-score');
+      questions.forEach(function(question){
+        question.querySelectorAll('.quiz-option').forEach(function(option,index){
+          option.addEventListener('click',function(){
+            question.querySelectorAll('.quiz-option').forEach(function(item){
+              item.classList.remove('selected','correct','wrong');
+            });
+            option.classList.add('selected');
+            question.dataset.choice=String(index);
+            question.querySelector('.quiz-explanation').classList.remove('show');
+            score.classList.remove('show');
+          });
+        });
+      });
+      document.getElementById('grade-quiz').addEventListener('click',function(){
+        var answered=0;
+        var correct=0;
+        questions.forEach(function(question){
+          var answer=Number(question.dataset.answer);
+          var options=question.querySelectorAll('.quiz-option');
+          options[answer].classList.add('correct');
+          question.querySelector('.quiz-explanation').classList.add('show');
+          if(question.dataset.choice===undefined)return;
+          answered++;
+          var choice=Number(question.dataset.choice);
+          if(choice===answer)correct++;
+          else options[choice].classList.add('wrong');
+        });
+        score.textContent=answered&lt;questions.length
+          ?'아직 '+(questions.length-answered)+'문제가 남았습니다. 현재 '+answered+'문제 중 '+correct+'문제 정답.'
+          :'총 '+questions.length+'문제 중 '+correct+'문제 정답입니다.';
+        score.classList.add('show');
+      });
+      document.getElementById('reset-quiz').addEventListener('click',function(){
+        questions.forEach(function(question){
+          delete question.dataset.choice;
+          question.querySelectorAll('.quiz-option').forEach(function(option){
+            option.classList.remove('selected','correct','wrong');
+          });
+          question.querySelector('.quiz-explanation').classList.remove('show');
+        });
+        score.classList.remove('show');
+      });
+
+      var btnTop = document.getElementById('btnTop');
+      if (btnTop) {
+        window.addEventListener('scroll', function() {
+          if (window.scrollY &gt; 300) {
+            btnTop.classList.add('visible');
+          } else {
+            btnTop.classList.remove('visible');
+          }
+        }, { passive: true });
+
+        btnTop.addEventListener('click', function() {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    })();
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;"></iframe>
     </section>
   </main>
   <script>
     (() => {
-      const tabs = [...document.querySelectorAll('[role="tab"]')];
       const frames = [...document.querySelectorAll('.lesson-frame')];
       const lessonTheme = `
         :root {
@@ -111,69 +2320,85 @@
           --shadow: 0 12px 32px rgba(24,49,56,.08); --radius: 4px;
         }
         body { color: #183138 !important; background-color: #f3f7f6 !important; font-family: "IBM Plex Sans KR", "Apple SD Gothic Neo", sans-serif !important; }
+        .page > .hero { background: #173d45 !important; }
+        .page > .hero h1 { color: #fff !important; opacity: 1 !important; font-weight: 900 !important; }
+        .page > .hero .dek { color: #eef8f7 !important; opacity: 1 !important; font-weight: 600 !important; }
+        .hero > .hero-grid h1, .hero > .hero-grid h1 em { color: #fff !important; opacity: 1 !important; font-weight: 900 !important; }
+        .hero > .hero-grid .dek { color: #eef8f7 !important; opacity: 1 !important; font-weight: 600 !important; }
         h1, h2, h3, .section-no, .section-number { font-family: "Noto Serif KR", Georgia, serif !important; letter-spacing: 0 !important; }
+        html { scroll-behavior: auto !important; }
+        .top-bar { display: none !important; }
+        .jump, .study-nav, .rail { position: static !important; }
       `;
 
-      function fitFrame(frame) {
-        try {
-          const doc = frame.contentDocument;
-          if (!doc) return;
-          if (!doc.getElementById('shared-course-theme')) {
-            const style = doc.createElement('style');
-            style.id = 'shared-course-theme';
-            style.textContent = lessonTheme;
-            doc.head.append(style);
-          }
-          if (!doc.getElementById('shared-course-fonts')) {
-            const fonts = doc.createElement('link');
-            fonts.id = 'shared-course-fonts';
-            fonts.rel = 'stylesheet';
-            fonts.href = 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700;800&family=Noto+Serif+KR:wght@700;900&display=swap';
-            doc.head.append(fonts);
-          }
-          const resize = () => {
-            frame.style.height = `${Math.max(doc.documentElement.scrollHeight, doc.body.scrollHeight)}px`;
-          };
-          resize();
-          if (window.ResizeObserver && !frame._resizeObserver) {
-            frame._resizeObserver = new ResizeObserver(resize);
-            frame._resizeObserver.observe(doc.documentElement);
-            frame._resizeObserver.observe(doc.body);
-          }
-        } catch (error) {
-          frame.style.height = '85vh';
-        }
-      }
+      function mountLesson(frame) {
+        const source = frame.getAttribute('srcdoc');
+        if (!source) return;
 
-      function selectCourse(course, updateHash = true) {
-        const selectedTab = tabs.find(tab => tab.dataset.course === course) || tabs[0];
-        tabs.forEach(tab => {
-          const selected = tab === selectedTab;
-          tab.setAttribute('aria-selected', String(selected));
-          tab.tabIndex = selected ? 0 : -1;
-          document.getElementById(tab.getAttribute('aria-controls')).hidden = !selected;
+        const parsed = new DOMParser().parseFromString(source, 'text/html');
+        const host = document.createElement('div');
+        host.className = 'lesson-host';
+        host.setAttribute('role', 'document');
+        host.setAttribute('aria-label', frame.title);
+        const root = host.attachShadow({ mode: 'open' });
+
+        parsed.head.querySelectorAll('style, link[rel="stylesheet"]').forEach(node => {
+          root.append(node.cloneNode(true));
         });
-        if (updateHash) history.replaceState(null, '', `#${selectedTab.dataset.course}`);
-        fitFrame(document.querySelector(`#panel-${selectedTab.dataset.course} .lesson-frame`));
-      }
 
-      tabs.forEach((tab, index) => {
-        tab.addEventListener('click', () => selectCourse(tab.dataset.course));
-        tab.addEventListener('keydown', event => {
-          let nextIndex;
-          if (event.key === 'ArrowRight') nextIndex = (index + 1) % tabs.length;
-          else if (event.key === 'ArrowLeft') nextIndex = (index - 1 + tabs.length) % tabs.length;
-          else if (event.key === 'Home') nextIndex = 0;
-          else if (event.key === 'End') nextIndex = tabs.length - 1;
-          else return;
+        const sharedStyle = document.createElement('style');
+        sharedStyle.textContent = lessonTheme;
+        root.append(sharedStyle);
+
+        const scripts = [...parsed.body.querySelectorAll('script')].map(script => script.textContent);
+        parsed.body.querySelectorAll('script').forEach(script => script.remove());
+        const lessonBody = parsed.body.cloneNode(true);
+        root.append(lessonBody);
+        frame.replaceWith(host);
+
+        root.addEventListener('click', event => {
+          const link = event.target.closest('a[href^="#"]');
+          if (!link) return;
+          const target = root.getElementById(link.getAttribute('href').slice(1));
+          if (!target) return;
           event.preventDefault();
-          tabs[nextIndex].focus();
-          selectCourse(tabs[nextIndex].dataset.course);
+          target.scrollIntoView({ block: 'start' });
         });
-      });
-      frames.forEach(frame => frame.addEventListener('load', () => fitFrame(frame)));
-      window.addEventListener('hashchange', () => selectCourse(location.hash.slice(1), false));
-      selectCourse(location.hash.slice(1), false);
+
+        scripts.forEach(code => {
+          try {
+            Function('document', 'window', code)(root, window);
+          } catch (error) {
+            console.error(`강의 스크립트 초기화 실패: ${frame.title}`, error);
+          }
+        });
+      }
+
+      frames.forEach(mountLesson);
+
+      const courseNav = document.querySelector('.course-nav');
+      let previousScrollY = window.scrollY;
+      let scrollTicking = false;
+
+      function updateCourseNav() {
+        const currentScrollY = Math.max(window.scrollY, 0);
+        const delta = currentScrollY - previousScrollY;
+
+        if (currentScrollY < 80 || delta < -4) {
+          courseNav.classList.remove('is-hidden');
+        } else if (delta > 4) {
+          courseNav.classList.add('is-hidden');
+        }
+
+        previousScrollY = currentScrollY;
+        scrollTicking = false;
+      }
+
+      window.addEventListener('scroll', () => {
+        if (scrollTicking) return;
+        scrollTicking = true;
+        requestAnimationFrame(updateCourseNav);
+      }, { passive: true });
     })();
   </script>
 </body>

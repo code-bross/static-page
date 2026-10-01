@@ -230,8 +230,38 @@
     .option { width: 100%; text-align: left; border: 1px solid var(--line); background: var(--paper-soft); color: var(--ink); padding: 13px 15px; cursor: pointer; }
     .option:hover, .option:focus-visible { border-color: var(--teal); outline: 2px solid transparent; }
     .option.selected { border-color: var(--teal); background: var(--teal-soft); }
-    .option.correct { border-color: var(--good); background: color-mix(in srgb, var(--good) 12%, var(--paper)); }
-    .option.wrong { border-color: var(--bad); background: color-mix(in srgb, var(--bad) 12%, var(--paper)); }
+    .option.correct,
+    .option.wrong {
+      position: relative;
+      padding-right: 88px;
+      font-weight: 700;
+    }
+    .option.correct {
+      border: 2px solid var(--good);
+      background: #bcebd7;
+      color: #103f30;
+      box-shadow: inset 5px 0 0 var(--good);
+    }
+    .option.wrong {
+      border: 2px solid var(--bad);
+      background: color-mix(in srgb, var(--bad) 18%, var(--paper));
+      box-shadow: inset 5px 0 0 var(--bad);
+    }
+    .option.correct::after,
+    .option.wrong::after {
+      position: absolute;
+      right: 11px;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 4px 8px;
+      border-radius: 999px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .option.correct::after { content: "✓ 정답"; background: var(--good); }
+    .option.wrong::after { content: "✕ 오답"; background: var(--bad); }
     .explanation { display: none; margin: 14px 0 0; padding: 14px 16px; background: var(--paper-soft); color: var(--muted); }
     .explanation.show { display: block; }
     .quiz-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
@@ -278,6 +308,7 @@
       .calc-result { grid-column: 1; }
       .money-level { grid-template-columns: 62px 1fr; }
       .question { padding: 19px 16px; }
+      .option.correct, .option.wrong { padding-right: 80px; }
     }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
     @media print {
@@ -580,13 +611,13 @@
         questions.forEach(function (q) {
           var options = q.querySelectorAll('.option');
           var answer = Number(q.dataset.answer);
+          options[answer].classList.add('correct');
+          q.querySelector('.explanation').classList.add('show');
           if (q.dataset.choice !== undefined) {
             answered++;
             var choice = Number(q.dataset.choice);
-            options[answer].classList.add('correct');
             if (choice === answer) correct++;
             else options[choice].classList.add('wrong');
-            q.querySelector('.explanation').classList.add('show');
           }
         });
         score.textContent = answered < questions.length
