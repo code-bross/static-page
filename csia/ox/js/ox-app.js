@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let bookmarks = JSON.parse(localStorage.getItem('csia_ox_bookmarks') || '[]');
   let revealedBlanks = JSON.parse(localStorage.getItem('csia_ox_revealed_blanks') || '{}');
   let userChoices = JSON.parse(localStorage.getItem('csia_ox_choices') || '{}');
+  const savedQuestionId = Number(localStorage.getItem('csia_ox_current_question'));
+  let shouldRestorePosition = true;
   
   // DOM Elements
   const subjectFilter = document.getElementById('subjectFilter');
@@ -197,7 +199,10 @@ document.addEventListener('DOMContentLoaded', () => {
       return true;
     });
     
-    currentIndex = 0;
+    currentIndex = shouldRestorePosition
+      ? Math.max(filteredQuizzes.findIndex(q => q.id === savedQuestionId), 0)
+      : 0;
+    shouldRestorePosition = false;
     render();
   }
 
@@ -373,6 +378,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function render() {
+    if (filteredQuizzes[currentIndex]) {
+      localStorage.setItem('csia_ox_current_question', filteredQuizzes[currentIndex].id);
+    }
     updateStats();
     if (currentMode === 'card') {
       renderCardView();
