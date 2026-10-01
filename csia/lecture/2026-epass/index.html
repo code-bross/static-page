@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f3f7f6" />
+  <link rel="icon" href="data:," />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700;800&family=Noto+Serif+KR:wght@700;900&display=swap" rel="stylesheet" />
+  <title>증권투자권유자문인력 · 2026 핵심 강의노트</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f3f7f6;
+      --surface: #fff;
+      --ink: #183138;
+      --muted: #5c7073;
+      --line: #cbd8d8;
+      --teal: #087b72;
+      --teal-soft: #dcefeb;
+      --coral: #c75a43;
+      --gold: #99630c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background-color: var(--paper);
+      background-image: linear-gradient(135deg, rgba(8,123,114,.045), transparent 38%), repeating-linear-gradient(0deg, transparent 0 31px, rgba(24,49,56,.025) 32px);
+      font-family: "IBM Plex Sans KR", "Apple SD Gothic Neo", sans-serif;
+      line-height: 1.55;
+    }
+    .shell { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+    .masthead { padding: 34px 0 25px; border-bottom: 1px solid var(--line); }
+    .eyebrow { display: flex; align-items: center; gap: 10px; color: var(--teal); font-size: 13px; font-weight: 800; }
+    .eyebrow::before { content: ""; width: 25px; height: 3px; background: var(--coral); }
+    h1 { margin: 10px 0 4px; font: 700 29px/1.25 "Noto Serif KR", Georgia, serif; }
+    .masthead p { margin: 0; color: var(--muted); font-size: 14px; }
+    .course-nav { position: sticky; top: 0; z-index: 5; border-bottom: 1px solid var(--line); background: rgba(243,247,246,.94); backdrop-filter: blur(12px); }
+    .tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; padding: 12px 0; }
+    .tab {
+      display: flex; align-items: center; gap: 12px; min-width: 0; min-height: 58px; padding: 9px 15px;
+      border: 1px solid var(--line); background: var(--surface); color: var(--muted); text-align: left; cursor: pointer;
+      transition: background-color .18s ease, border-color .18s ease, color .18s ease;
+    }
+    .tab:hover { border-color: var(--teal); color: var(--ink); }
+    .tab:focus-visible { outline: 3px solid var(--coral); outline-offset: 2px; }
+    .tab[aria-selected="true"] { border-color: var(--teal); background: var(--teal); color: #fff; }
+    .tab-number { flex: 0 0 auto; font: 700 23px/1 "Noto Serif KR", Georgia, serif; color: var(--coral); }
+    .tab[aria-selected="true"] .tab-number { color: #bce8df; }
+    .tab-label { min-width: 0; font-size: 15px; font-weight: 800; overflow-wrap: anywhere; }
+    main { padding: 20px 0 52px; }
+    .panel { min-width: 0; }
+    .panel[hidden] { display: none; }
+    .lesson-frame { display: block; width: 100%; min-height: 80vh; border: 0; background: var(--paper); }
+    @media (max-width: 640px) {
+      .shell { width: min(100% - 24px, 1160px); }
+      .masthead { padding: 25px 0 19px; }
+      h1 { font-size: 25px; }
+      .tabs { gap: 5px; padding: 8px 0; }
+      .tab { min-height: 52px; padding: 7px 8px; gap: 7px; }
+      .tab-number { font-size: 19px; }
+      .tab-label { font-size: 12px; }
+      main { padding-top: 10px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="shell">
+      <div class="eyebrow">2026 E-PASS · CSIA</div>
+      <h1>증권투자권유자문인력 핵심 강의노트</h1>
+      <p>과목별 핵심 개념과 강의 복습 자료</p>
+    </div>
+  </header>
+  <nav class="course-nav" aria-label="과목 선택">
+    <div class="shell tabs" role="tablist" aria-label="시험 과목">
+      <button class="tab" id="tab-course-1" type="button" role="tab" aria-selected="true" aria-controls="panel-course-1" tabindex="0" data-course="course-1"><span class="tab-number">01</span><span class="tab-label">1과목 · 경기분석</span></button>
+      <button class="tab" id="tab-course-2" type="button" role="tab" aria-selected="false" aria-controls="panel-course-2" tabindex="-1" data-course="course-2"><span class="tab-number">02</span><span class="tab-label">2과목 · 금융상품분석</span></button>
+      <button class="tab" id="tab-course-3" type="button" role="tab" aria-selected="false" aria-controls="panel-course-3" tabindex="-1" data-course="course-3"><span class="tab-number">03</span><span class="tab-label">3과목 · 법규</span></button>
+    </div>
+  </nav>
+  <main class="shell">
+    <section class="panel" id="panel-course-1" role="tabpanel" aria-labelledby="tab-course-1">
+      <iframe class="lesson-frame" title="1과목 경기분석 강의노트" src="1과목-경기분석.html"></iframe>
+    </section>
+    <section class="panel" id="panel-course-2" role="tabpanel" aria-labelledby="tab-course-2" hidden>
+      <iframe class="lesson-frame" title="2과목 금융상품분석 강의노트" src="2과목-금융상품분석.html"></iframe>
+    </section>
+    <section class="panel" id="panel-course-3" role="tabpanel" aria-labelledby="tab-course-3" hidden>
+      <iframe class="lesson-frame" title="3과목 법규 강의노트" src="3과목-법규.html"></iframe>
+    </section>
+  </main>
+  <script>
+    (() => {
+      const tabs = [...document.querySelectorAll('[role="tab"]')];
+      const frames = [...document.querySelectorAll('.lesson-frame')];
+      const lessonTheme = `
+        :root {
+          color-scheme: light !important;
+          --bg: #f3f7f6; --paper: #f3f7f6; --paper-soft: #e8f0ef; --paper-2: #e8f0ef;
+          --surface: #fff; --white: #fff; --ink: #183138; --muted: #5c7073;
+          --line: #cbd8d8; --line-strong: #91a8a9; --navy: #174a54; --navy-soft: #dcefeb;
+          --teal: #087b72; --teal-soft: #dcefeb; --coral: #c75a43; --red: #c75a43;
+          --coral-soft: #f5e5df; --red-soft: #f5e5df; --gold: #99630c; --gold-soft: #f5edda;
+          --green: #286b53; --green-soft: #e0eee8; --good: #286b53; --bad: #b84035;
+          --shadow: 0 12px 32px rgba(24,49,56,.08); --radius: 4px;
+        }
+        body { color: #183138 !important; background-color: #f3f7f6 !important; font-family: "IBM Plex Sans KR", "Apple SD Gothic Neo", sans-serif !important; }
+        h1, h2, h3, .section-no, .section-number { font-family: "Noto Serif KR", Georgia, serif !important; letter-spacing: 0 !important; }
+      `;
+
+      function fitFrame(frame) {
+        try {
+          const doc = frame.contentDocument;
+          if (!doc) return;
+          if (!doc.getElementById('shared-course-theme')) {
+            const style = doc.createElement('style');
+            style.id = 'shared-course-theme';
+            style.textContent = lessonTheme;
+            doc.head.append(style);
+          }
+          if (!doc.getElementById('shared-course-fonts')) {
+            const fonts = doc.createElement('link');
+            fonts.id = 'shared-course-fonts';
+            fonts.rel = 'stylesheet';
+            fonts.href = 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700;800&family=Noto+Serif+KR:wght@700;900&display=swap';
+            doc.head.append(fonts);
+          }
+          const resize = () => {
+            frame.style.height = `${Math.max(doc.documentElement.scrollHeight, doc.body.scrollHeight)}px`;
+          };
+          resize();
+          if (window.ResizeObserver && !frame._resizeObserver) {
+            frame._resizeObserver = new ResizeObserver(resize);
+            frame._resizeObserver.observe(doc.documentElement);
+            frame._resizeObserver.observe(doc.body);
+          }
+        } catch (error) {
+          frame.style.height = '85vh';
+        }
+      }
+
+      function selectCourse(course, updateHash = true) {
+        const selectedTab = tabs.find(tab => tab.dataset.course === course) || tabs[0];
+        tabs.forEach(tab => {
+          const selected = tab === selectedTab;
+          tab.setAttribute('aria-selected', String(selected));
+          tab.tabIndex = selected ? 0 : -1;
+          document.getElementById(tab.getAttribute('aria-controls')).hidden = !selected;
+        });
+        if (updateHash) history.replaceState(null, '', `#${selectedTab.dataset.course}`);
+        fitFrame(document.querySelector(`#panel-${selectedTab.dataset.course} .lesson-frame`));
+      }
+
+      tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => selectCourse(tab.dataset.course));
+        tab.addEventListener('keydown', event => {
+          let nextIndex;
+          if (event.key === 'ArrowRight') nextIndex = (index + 1) % tabs.length;
+          else if (event.key === 'ArrowLeft') nextIndex = (index - 1 + tabs.length) % tabs.length;
+          else if (event.key === 'Home') nextIndex = 0;
+          else if (event.key === 'End') nextIndex = tabs.length - 1;
+          else return;
+          event.preventDefault();
+          tabs[nextIndex].focus();
+          selectCourse(tabs[nextIndex].dataset.course);
+        });
+      });
+      frames.forEach(frame => frame.addEventListener('load', () => fitFrame(frame)));
+      window.addEventListener('hashchange', () => selectCourse(location.hash.slice(1), false));
+      selectCourse(location.hash.slice(1), false);
+    })();
+  </script>
+</body>
+</html>

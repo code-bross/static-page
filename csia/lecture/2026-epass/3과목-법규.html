@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="data:," />
+  <title>증권투자권유자문인력 법규 핵심자료</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&family=Noto+Serif+KR:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      color-scheme:light dark;
+      --paper:#f4f1e9;
+      --surface:#fffdf8;
+      --surface-2:#ece8dc;
+      --ink:#142337;
+      --muted:#526070;
+      --line:#cbc6b8;
+      --navy:#173d61;
+      --navy-soft:#dbe7f0;
+      --red:#b53a2e;
+      --red-soft:#f3ddd8;
+      --gold:#a66c09;
+      --gold-soft:#f3e6c6;
+      --green:#2d6652;
+      --green-soft:#dcebe4;
+      --shadow:0 12px 32px rgba(33,42,50,.10);
+    }
+    @media (prefers-color-scheme:dark){
+      :root{
+        --paper:#11171e;
+        --surface:#17212b;
+        --surface-2:#202c37;
+        --ink:#f4f1e8;
+        --muted:#b8c2cb;
+        --line:#3a4651;
+        --navy:#8dbfe2;
+        --navy-soft:#20394b;
+        --red:#f08f80;
+        --red-soft:#4b2928;
+        --gold:#e6bd69;
+        --gold-soft:#493a1f;
+        --green:#8fc6ad;
+        --green-soft:#223d34;
+        --shadow:0 14px 36px rgba(0,0,0,.30);
+      }
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:22px}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:"Noto Sans KR",sans-serif;line-height:1.65}
+    a{color:inherit}
+    button{font:inherit}
+    .wrap{width:min(1120px,calc(100% - 36px));margin:0 auto}
+    .hero{padding:clamp(48px,8vw,96px) 0 38px;border-bottom:1px solid var(--line)}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(270px,.55fr);gap:48px;align-items:end}
+    .course-line{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:18px;color:var(--muted);font-size:.88rem;font-weight:700}
+    .course-line .tag{background:var(--navy);color:var(--surface);padding:5px 10px;border-radius:4px}
+    @media (prefers-color-scheme:dark){.course-line .tag{color:#10202d}}
+    h1{font-family:"Noto Serif KR",serif;font-size:clamp(2.55rem,6vw,5.8rem);line-height:1.04;letter-spacing:-.055em;margin:0;max-width:820px}
+    h1 em{font-style:normal;color:var(--red)}
+    .dek{max-width:700px;font-size:clamp(1rem,2vw,1.22rem);color:var(--muted);margin:24px 0 0;line-height:1.7}
+    .source-card{background:var(--ink);color:var(--paper);padding:22px;border-radius:6px;box-shadow:var(--shadow)}
+    @media (prefers-color-scheme:dark){.source-card{background:#e8edf0;color:#162431}}
+    .source-card strong{font-size:1.08rem;display:block;margin-bottom:7px}
+    .source-card p{margin:0 0 18px;font-size:.9rem;opacity:.78}
+    .watch{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:white;text-decoration:none;padding:10px 14px;border-radius:4px;font-weight:800;font-size:.92rem}
+    .watch svg{width:17px;height:17px;fill:currentColor}
+    .study-nav{padding:18px 0;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--paper) 92%,transparent);position:sticky;top:0;z-index:10;backdrop-filter:blur(10px)}
+    .nav-inner{display:flex;gap:8px;flex-wrap:wrap}
+    .nav-inner a{text-decoration:none;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 12px;font-size:.82rem;font-weight:700;color:var(--muted)}
+    .nav-inner a:hover,.nav-inner a:focus-visible{border-color:var(--navy);color:var(--navy);outline:none}
+    .layout{display:grid;grid-template-columns:210px minmax(0,1fr);gap:50px;padding:50px 0 90px}
+    .rail{position:sticky;top:94px;align-self:start}
+    .rail h2{font-size:.75rem;letter-spacing:.14em;margin:0 0 15px;text-transform:uppercase;color:var(--muted)}
+    .rail ol{margin:0;padding:0;list-style:none;counter-reset:rail}
+    .rail li{counter-increment:rail;border-top:1px solid var(--line)}
+    .rail a{display:grid;grid-template-columns:25px 1fr;gap:6px;padding:11px 0;text-decoration:none;font-size:.84rem;font-weight:700;color:var(--muted)}
+    .rail a:before{content:counter(rail,decimal-leading-zero);color:var(--red);font-size:.72rem;padding-top:2px}
+    .rail a:hover{color:var(--ink)}
+    article{min-width:0}
+    section{padding:58px 0;border-top:1px solid var(--line)}
+    section:first-child{border-top:0;padding-top:0}
+    .section-head{display:grid;grid-template-columns:70px 1fr;gap:16px;align-items:start;margin-bottom:28px}
+    .section-no{font-family:"Noto Serif KR",serif;font-weight:900;font-size:2.1rem;color:var(--red);line-height:1}
+    h2{font-family:"Noto Serif KR",serif;font-size:clamp(1.65rem,4vw,2.45rem);line-height:1.18;letter-spacing:-.035em;margin:0}
+    .section-head p{grid-column:2;margin:7px 0 0;color:var(--muted)}
+    .priority{display:inline-block;margin-left:8px;font-family:"Noto Sans KR";font-size:.72rem;letter-spacing:.02em;vertical-align:middle;background:var(--red-soft);color:var(--red);padding:3px 8px;border-radius:3px}
+    .lead-box{background:var(--surface);border:1px solid var(--line);padding:22px 24px;margin-bottom:24px;box-shadow:var(--shadow)}
+    .lead-box p{margin:0}
+    .lead-box strong{color:var(--red)}
+    .low-priority{border:1px dashed var(--line);background:var(--surface-2);padding:18px 20px;border-radius:5px;color:var(--muted)}
+    .low-priority summary{cursor:pointer;color:var(--ink);font-weight:800}
+    .low-priority ul{margin:14px 0 0;padding-left:20px}
+    .flow{display:grid;grid-template-columns:1fr 52px 1fr 52px 1fr;align-items:stretch;margin:26px 0}
+    .flow-card{background:var(--surface);border:1px solid var(--line);padding:22px 18px;min-height:178px;display:flex;flex-direction:column;justify-content:space-between}
+    .flow-card .q{font-size:.8rem;color:var(--muted);font-weight:700;margin-bottom:16px}
+    .flow-card strong{font-family:"Noto Serif KR",serif;font-size:1.35rem;line-height:1.25}
+    .flow-card small{color:var(--muted);display:block;margin-top:9px}
+    .arrow{display:grid;place-items:center;color:var(--muted);font-size:1.8rem}
+    .trap{background:var(--red-soft);padding:22px 24px;border-left:5px solid var(--red);margin:24px 0}
+    .trap .label{font-size:.78rem;font-weight:900;color:var(--red);letter-spacing:.08em}
+    .trap p{font-family:"Noto Serif KR",serif;font-size:1.3rem;font-weight:700;margin:4px 0 0;line-height:1.45}
+    .mnemonic{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:24px 0}
+    .memory-card{background:var(--surface);border-top:4px solid var(--gold);padding:20px;box-shadow:var(--shadow);min-height:140px}
+    .memory-card .num{color:var(--gold);font-weight:900;font-size:.8rem}
+    .memory-card h3{margin:5px 0 7px;font-size:1.05rem}
+    .memory-card p{font-size:.86rem;color:var(--muted);margin:0}
+    .matrix{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line);margin-top:24px}
+    .matrix article{padding:20px;background:var(--surface);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .matrix h3{margin:0 0 7px;font-size:1rem;color:var(--navy)}
+    .matrix p{margin:0;font-size:.9rem;color:var(--muted)}
+    .business-list{display:grid;gap:12px;margin:24px 0}
+    .business{display:grid;grid-template-columns:165px 1fr;gap:24px;background:var(--surface);border:1px solid var(--line);padding:20px 22px}
+    .business h3{margin:0;font-size:1rem;color:var(--navy)}
+    .business p{margin:0;color:var(--muted);font-size:.92rem}
+    .business .except{color:var(--ink);font-weight:700}
+    .business.hot{border-color:var(--red)}
+    .business.hot h3{color:var(--red)}
+    .definition{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:24px 0}
+    .def{padding:22px;background:var(--navy-soft)}
+    .def .term{font-weight:900;color:var(--navy);font-size:1.1rem}
+    .def p{margin:8px 0 0;font-size:.92rem}
+    .compare{width:100%;border-collapse:collapse;background:var(--surface);margin:24px 0}
+    .compare th,.compare td{border:1px solid var(--line);padding:14px 16px;text-align:left;vertical-align:top}
+    .compare th{background:var(--surface-2);font-size:.83rem}
+    .compare td:first-child{font-weight:800;width:26%}
+    .switch-diagram{display:grid;grid-template-columns:1fr 54px 1fr;align-items:center;margin:24px 0}
+    .switch-card{padding:24px;background:var(--surface);border:1px solid var(--line)}
+    .switch-card strong{display:block;font-family:"Noto Serif KR",serif;font-size:1.25rem;margin-bottom:7px}
+    .switch-card p{margin:0;color:var(--muted);font-size:.9rem}
+    .switch-arrow{text-align:center;font-weight:900;color:var(--red)}
+    .formula{background:var(--green-soft);padding:22px 24px;margin:24px 0}
+    .formula strong{color:var(--green)}
+    .formula p{margin:7px 0 0;font-size:1.05rem;font-weight:700}
+    .requirements{display:grid;grid-template-columns:1fr 42px 1fr;gap:12px;align-items:stretch;margin:24px 0}
+    .req{background:var(--surface);border:1px solid var(--line);padding:20px}
+    .req .label{font-size:.76rem;color:var(--muted);font-weight:800}
+    .req h3{margin:6px 0 10px;font-size:1.12rem;color:var(--navy)}
+    .req p,.req ul{margin:0;color:var(--muted);font-size:.9rem;padding-left:18px}
+    .plus{display:grid;place-items:center;color:var(--red);font-size:1.8rem;font-weight:900}
+    .term-chip{display:inline-block;padding:4px 9px;background:var(--gold-soft);color:var(--gold);font-size:.78rem;font-weight:900;border-radius:3px;margin-top:12px}
+    .quiz{display:grid;gap:12px}
+    .quiz-item{border:1px solid var(--line);background:var(--surface)}
+    .quiz-q{width:100%;display:grid;grid-template-columns:42px 1fr 24px;gap:10px;align-items:center;text-align:left;padding:18px 20px;border:0;background:none;color:var(--ink);cursor:pointer}
+    .quiz-q:hover{background:var(--surface-2)}
+    .quiz-q .qn{color:var(--red);font-weight:900}
+    .quiz-q .qt{font-weight:800}
+    .quiz-q .toggle{font-size:1.35rem;color:var(--muted);transition:transform .2s}
+    .quiz-q[aria-expanded="true"] .toggle{transform:rotate(45deg)}
+    .answer{display:none;padding:0 20px 20px 72px}
+    .answer.open{display:block}
+    .answer strong{color:var(--navy)}
+    .answer p{margin:4px 0 0;color:var(--muted);font-size:.91rem}
+    .cheat{background:var(--ink);color:var(--paper);padding:28px;margin-top:34px}
+    @media (prefers-color-scheme:dark){.cheat{background:#e7ecef;color:#12202d}}
+    .cheat h3{font-family:"Noto Serif KR";font-size:1.35rem;margin:0 0 18px}
+    .cheat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 24px}
+    .cheat div{display:flex;gap:10px;border-top:1px solid color-mix(in srgb,currentColor 30%,transparent);padding-top:10px;font-size:.88rem}
+    .cheat b{color:var(--red);min-width:72px}
+    .footer{border-top:1px solid var(--line);padding:30px 0 52px;color:var(--muted);font-size:.82rem}
+    .footer-inner{display:flex;justify-content:space-between;gap:24px;align-items:flex-start}
+    .footer p{margin:0;max-width:670px}
+    .footer a{color:var(--navy);font-weight:800}
+    @media(max-width:860px){
+      .hero-grid{grid-template-columns:1fr}.source-card{max-width:480px}.layout{grid-template-columns:1fr}.rail{display:none}.flow{grid-template-columns:1fr}.arrow{height:40px;transform:rotate(90deg)}
+    }
+    @media(max-width:620px){
+      .wrap{width:min(100% - 24px,1120px)}.hero{padding-top:42px}.hero-grid{gap:28px}.study-nav{position:static}.nav-inner a{font-size:.76rem;padding:6px 10px}.layout{padding-top:35px}.section-head{grid-template-columns:48px 1fr}.section-no{font-size:1.55rem}.section-head p{grid-column:1/-1}.mnemonic,.matrix,.definition,.cheat-grid{grid-template-columns:1fr}.business{grid-template-columns:1fr;gap:8px}.compare,.compare tbody,.compare tr,.compare th,.compare td{display:block}.compare thead{display:none}.compare tr{border-bottom:8px solid var(--paper)}.compare td{border-bottom:0}.compare td:first-child{width:100%;background:var(--surface-2)}.switch-diagram,.requirements{grid-template-columns:1fr}.switch-arrow,.plus{height:34px;transform:rotate(90deg)}.answer{padding-left:20px}.footer-inner{flex-direction:column}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.quiz-q .toggle{transition:none}}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="course-line"><span class="tag">3과목 · 법규</span><span>2026 증권투자권유자문인력</span><span>정성기 교수</span></div>
+        <h1>법규의 경계를<br><em>두 갈래</em>로 잡는다</h1>
+        <p class="dek">상품은 ‘원금손실’과 ‘추가 지급의무’로, 투자자는 ‘전환 가능성’과 ‘장외파생 목적’으로 구분합니다. 강의에서 반복한 함정과 적용배제를 시험 답안 구조로 압축했습니다.</p>
+      </div>
+      <aside class="source-card" aria-label="원본 강의">
+        <strong>원본 강의 · 3과목 법규</strong>
+        <p>이패스TV · 정성기 교수<br>자본시장법 총칙부터 투자자 분류까지</p>
+        <a class="watch" href="https://www.youtube.com/watch?v=2Go8DzVNdx0" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.8 4.7 12 4.7 12 4.7s-5.8 0-7.6.5a2.8 2.8 0 0 0-2 2A29 29 0 0 0 2 12a29 29 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.8.5 7.6.5 7.6.5s5.8 0 7.6-.5a2.8 2.8 0 0 0 2-2A29 29 0 0 0 22 12a29 29 0 0 0-.4-4.8ZM10 15.2V8.8l5.5 3.2-5.5 3.2Z"/></svg>
+          강의 보기
+        </a>
+      </aside>
+    </div>
+  </header>
+
+  <nav class="study-nav" aria-label="핵심 섹션 바로가기">
+    <div class="wrap nav-inner">
+      <a href="#background">법 제정 배경</a><a href="#products">금융투자상품</a><a href="#securities">증권 6종</a><a href="#business">금융투자업</a><a href="#crowd">온라인소액중개</a><a href="#investors">투자자 분류</a><a href="#quiz">확인문제</a>
+    </div>
+  </nav>
+
+  <div class="wrap layout">
+    <aside class="rail" aria-label="목차">
+      <h2>Study map</h2>
+      <ol><li><a href="#background">법 제정 배경</a></li><li><a href="#products">금융투자상품</a></li><li><a href="#securities">증권 분류</a></li><li><a href="#business">금융투자업 6종</a></li><li><a href="#crowd">온라인소액중개</a></li><li><a href="#investors">투자자 분류</a></li><li><a href="#quiz">최종 점검</a></li></ol>
+    </aside>
+
+    <main><article>
+      <section id="background">
+        <div class="section-head"><span class="section-no">01</span><h2>자본시장법 제정 배경</h2><p>맥락만 잡고, 암기 시간은 뒤의 적용배제와 투자자 분류에 배분합니다.</p></div>
+        <details class="low-priority">
+          <summary>참고용 — 강의에서 출제 비중이 낮다고 짚은 영역</summary>
+          <ul>
+            <li><b>열거주의 → 포괄주의:</b> 법에 하나씩 나열하는 방식에서 벗어나 새로운 금융상품에 대응.</li>
+            <li><b>기관별 규제 → 기능별 규제:</b> 기관 이름보다 매매·중개 등 수행 기능을 기준으로 같은 규율 적용.</li>
+            <li><b>증권선물위원회:</b> 금융위원회 산하에서 불공정거래 조사, 기업회계 기준·감리를 담당.</li>
+          </ul>
+        </details>
+      </section>
+
+      <section id="products">
+        <div class="section-head"><span class="section-no">02</span><h2>금융투자상품 구분 <span class="priority">빈출 함정</span></h2><p>두 질문을 순서대로 적용하면 예금·증권·파생상품의 경계가 선명해집니다.</p></div>
+        <div class="flow" role="img" aria-label="원금손실 가능성과 추가 지급의무에 따른 상품 구분">
+          <div class="flow-card"><div class="q">Q1. 원금손실 가능성이 있는가?</div><strong>없다<br>비금융투자상품</strong><small>대표 예: 은행예금</small></div>
+          <div class="arrow" aria-hidden="true">→</div>
+          <div class="flow-card"><div class="q">Q2. 추가 지급의무가 있는가?</div><strong>없다<br>증권</strong><small>손실 범위가 원금까지</small></div>
+          <div class="arrow" aria-hidden="true">→</div>
+          <div class="flow-card"><div class="q">원금을 넘는 손실이 가능한가?</div><strong>있다<br>파생상품</strong><small>추가로 돈을 낼 수 있음</small></div>
+        </div>
+        <div class="lead-box"><p><strong>판단 3요건</strong>은 ① 투자성(원금손실 가능성) ② 영리 목적(소비 목적 제외) ③ 실물이 아닌 권리의 취득입니다.</p></div>
+        <div class="trap"><span class="label">시험 함정</span><p>ELS·DLS는 이름에 ‘파생’이 들어가도 파생상품이 아니라 <u>파생결합증권</u>이다.</p></div>
+        <h3>금융투자상품에서 빠지는 3종</h3>
+        <div class="mnemonic">
+          <article class="memory-card"><span class="num">01</span><h3>CD</h3><p>양도성예금증서</p></article>
+          <article class="memory-card"><span class="num">02</span><h3>관리신탁의 수익권</h3><p>관리형 신탁은 현상유지 성격</p></article>
+          <article class="memory-card"><span class="num">03</span><h3>주식매수선택권</h3><p>양도 불가·유통성 없음</p></article>
+        </div>
+      </section>
+
+      <section id="securities">
+        <div class="section-head"><span class="section-no">03</span><h2>증권 6종 짝짓기</h2><p>분류명과 대표 사례를 한 덩어리로 묶어 기억합니다.</p></div>
+        <div class="matrix">
+          <article><h3>지분증권</h3><p>출자지분, 신주인수권. 유한책임이 기준이며 무한책임 조합원 지분은 제외.</p></article>
+          <article><h3>채무증권</h3><p>국채·지방채·특수채. 사적 금전채권은 유통할 수 없어 증권이 아님.</p></article>
+          <article><h3>수익증권</h3><p>투자신탁의 수익권. ETF도 수익증권의 일종.</p></article>
+          <article><h3>투자계약증권</h3><p>타인과 공동사업을 하고 이익을 배분받는 무정형 증권.</p></article>
+          <article><h3>파생결합증권</h3><p>외생적 지수에 연계. ELS·DLS·ELW를 함께 기억.</p></article>
+          <article><h3>증권예탁증권</h3><p>DR. 국내·해외 모두 포함.</p></article>
+        </div>
+      </section>
+
+      <section id="business">
+        <div class="section-head"><span class="section-no">04</span><h2>금융투자업 6종과 적용배제 <span class="priority">최우선</span></h2><p>강의가 강조한 핵심은 업의 정의보다 ‘어떤 경우 법 적용에서 빠지는가’입니다.</p></div>
+        <div class="definition">
+          <div class="def"><span class="term">투자매매업</span><p><b>자기 계산.</b> 이익과 손실을 회사가 책임집니다.</p></div>
+          <div class="def"><span class="term">투자중개업</span><p><b>타인 계산.</b> 회사는 중개 수수료를 받습니다.</p></div>
+        </div>
+        <div class="business-list">
+          <article class="business hot"><h3>투자매매업</h3><p><span class="except">적용배제:</span> 국가·한국은행 등의 공익 목적 거래 / 직접 상대방과 거래 / 증권 발행. 단, <b>투자신탁 수익증권·파생결합증권 발행은 매매업</b>에 해당.</p></article>
+          <article class="business hot"><h3>투자중개업</h3><p><span class="except">적용배제:</span> 투자권유대행인. 실제 기능은 중개지만 개인은 인가받을 수 없어 적용에서 배제됩니다.</p></article>
+          <article class="business"><h3>집합투자업</h3><p>펀드를 운용하는 자산운용사. <span class="except">적용배제:</span> 종합금융투자회사의 CMA 계좌.</p></article>
+          <article class="business"><h3>투자자문업</h3><p><span class="except">등록 불필요:</span> 불특정 다수에게 간행물·방송으로 조언하는 유사투자자문업(신고)과 역외투자자문업.</p></article>
+          <article class="business"><h3>투자일임업</h3><p>고객의 투자판단을 위임받아 운용하는 업.</p></article>
+          <article class="business"><h3>신탁업</h3><p>신탁재산을 이전받아 관리·운용하는 업.</p></article>
+        </div>
+      </section>
+
+      <section id="crowd">
+        <div class="section-head"><span class="section-no">05</span><h2>온라인소액투자중개업</h2><p>증권형 크라우드펀딩은 일반 투자중개업과 인가 방식이 다릅니다.</p></div>
+        <table class="compare">
+          <thead><tr><th>비교 항목</th><th>일반 투자중개업</th><th>온라인소액투자중개업</th></tr></thead>
+          <tbody>
+            <tr><td>진입 방식</td><td>인가</td><td><b>등록</b></td></tr>
+            <tr><td>자기자본 요건</td><td>강의 핵심 범위에서 별도 수치 제시 없음</td><td><b>5억원</b></td></tr>
+            <tr><td>투자자 제한</td><td>—</td><td>발행인 요청 시 합리적·명확한 기준으로 투자자 범위 제한 가능</td></tr>
+          </tbody>
+        </table>
+        <div class="formula"><strong>한 줄 암기</strong><p>온라인소액투자중개업 = 인가가 아니라 등록 + 자기자본 5억원</p></div>
+      </section>
+
+      <section id="investors">
+        <div class="section-head"><span class="section-no">06</span><h2>투자자 분류와 전환</h2><p>전문투자자에게는 적합성·적정성·설명의무 등을 포함한 6대 판매원칙이 적용되지 않습니다.</p></div>
+        <div class="switch-diagram">
+          <div class="switch-card"><strong>절대적 전문투자자</strong><p>국가 등. 일반투자자로 전환할 수 없습니다.</p></div>
+          <div class="switch-arrow">↔</div>
+          <div class="switch-card"><strong>상대적 전문투자자</strong><p>주권상장법인·지방자치단체 등. 본인이 원하면 일반투자자로 전환 가능.</p></div>
+        </div>
+        <div class="lead-box"><p><strong>전환 절차:</strong> 서면으로 금융투자업자에게 통지하고 동의를 받습니다. 강의 기준으로 자본시장법은 서면이 원칙이며 구두는 효력이 없습니다.</p></div>
+        <div class="trap"><span class="label">장외파생상품의 이중적 지위</span><p>상대적 전문투자자라도 장외파생상품을 거래할 때는 일반투자자로 취급한다.</p></div>
+        <ul>
+          <li>일반투자자는 장외파생상품을 <b>위험회피 목적</b>으로만 거래할 수 있습니다.</li>
+          <li>투자 목적으로 거래하려면 서면 통지로 전문투자자 전환이 필요합니다.</li>
+        </ul>
+
+        <h3 style="margin-top:38px">자발적 전문투자자 — 개인</h3>
+        <div class="requirements">
+          <div class="req"><span class="label">필수</span><h3>투자경험 요건</h3><p>최근 5년 중 1년 이상, 금융위 고시 상품 잔고 5천만원 이상</p></div>
+          <div class="plus">+</div>
+          <div class="req"><span class="label">아래 중 하나</span><h3>소득 · 자산 · 전문성</h3><ul><li>연소득 1억원 또는 배우자 합산 1.5억원</li><li>순자산 5억원</li><li>변호사·세무사 등 전문직 1년 이상 종사</li></ul></div>
+        </div>
+        <span class="term-chip">지정 후 2년간 전문투자자 지위 유지</span>
+      </section>
+
+      <section id="quiz">
+        <div class="section-head"><span class="section-no">07</span><h2>6문제로 최종 점검</h2><p>문제를 먼저 답한 뒤 열어 보세요. 정답과 이유가 함께 표시됩니다.</p></div>
+        <div class="quiz">
+          <div class="quiz-item"><button class="quiz-q" aria-expanded="false"><span class="qn">Q1</span><span class="qt">ELS·DLS는 증권인가, 파생상품인가?</span><span class="toggle">+</span></button><div class="answer"><strong>정답: 파생결합증권</strong><p>이름에 ‘파생’이 있지만 법적 분류는 증권입니다.</p></div></div>
+          <div class="quiz-item"><button class="quiz-q" aria-expanded="false"><span class="qn">Q2</span><span class="qt">증권과 파생상품을 가르는 결정적 기준은?</span><span class="toggle">+</span></button><div class="answer"><strong>정답: 원금초과손실 가능성, 즉 추가 지급의무</strong><p>증권은 손실이 원금까지, 파생상품은 원금보다 더 잃을 수 있습니다.</p></div></div>
+          <div class="quiz-item"><button class="quiz-q" aria-expanded="false"><span class="qn">Q3</span><span class="qt">금융투자상품에서 제외되는 3종은?</span><span class="toggle">+</span></button><div class="answer"><strong>정답: CD, 관리신탁 수익권, 주식매수선택권</strong><p>세 항목을 한 묶음으로 암기합니다.</p></div></div>
+          <div class="quiz-item"><button class="quiz-q" aria-expanded="false"><span class="qn">Q4</span><span class="qt">투자권유대행인은 어떤 업의 적용이 배제되는가?</span><span class="toggle">+</span></button><div class="answer"><strong>정답: 투자중개업</strong><p>기능상 중개를 하지만 개인은 인가받을 수 없어 적용이 배제됩니다.</p></div></div>
+          <div class="quiz-item"><button class="quiz-q" aria-expanded="false"><span class="qn">Q5</span><span class="qt">온라인소액투자중개업은 인가인가 등록인가?</span><span class="toggle">+</span></button><div class="answer"><strong>정답: 등록</strong><p>자기자본 요건은 5억원입니다.</p></div></div>
+          <div class="quiz-item"><button class="quiz-q" aria-expanded="false"><span class="qn">Q6</span><span class="qt">개인이 자발적 전문투자자가 되기 위한 필수 요건은?</span><span class="toggle">+</span></button><div class="answer"><strong>정답: 투자경험 요건</strong><p>최근 5년 중 1년 이상, 금융위 고시 상품 잔고 5천만원 이상이 필수입니다.</p></div></div>
+        </div>
+        <aside class="cheat">
+          <h3>시험장 앞 60초 암기표</h3>
+          <div class="cheat-grid">
+            <div><b>상품 경계</b><span>원금손실 → 투자상품 / 초과손실 → 파생</span></div>
+            <div><b>파생 함정</b><span>ELS·DLS·ELW = 파생결합증권</span></div>
+            <div><b>제외 3종</b><span>CD · 관리신탁 수익권 · 스톡옵션</span></div>
+            <div><b>중개 배제</b><span>투자권유대행인</span></div>
+            <div><b>온라인소액</b><span>등록 · 자기자본 5억원</span></div>
+            <div><b>개인 전문</b><span>투자경험 필수 + 선택요건 하나</span></div>
+          </div>
+        </aside>
+      </section>
+    </article></main>
+  </div>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <p>2026년 이패스TV 정성기 교수의 「증권투자권유자문인력 3과목 법규」 강의 내용을 학습 순서에 맞춰 재구성했습니다. 강의에서 출제 비중이 낮다고 언급한 내용은 참고용으로 구분했습니다.</p>
+      <p>출처: <a href="https://www.youtube.com/watch?v=2Go8DzVNdx0" target="_blank" rel="noopener noreferrer">원본 강의</a> · <a href="https://www.youtube.com/@EPASSKOREA" target="_blank" rel="noopener noreferrer">이패스TV</a></p>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var buttons=document.querySelectorAll('.quiz-q');
+      buttons.forEach(function(button){
+        button.addEventListener('click',function(){
+          var open=button.getAttribute('aria-expanded')==='true';
+          button.setAttribute('aria-expanded',String(!open));
+          button.nextElementSibling.classList.toggle('open',!open);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

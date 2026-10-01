@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="data:," />
+  <title>증권투자권유자문인력 경기분석 핵심자료</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Nanum+Myeongjo:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f4f7f8;
+      --paper: #ffffff;
+      --paper-soft: #edf2f3;
+      --ink: #12272b;
+      --muted: #52666a;
+      --line: #ccd8da;
+      --line-strong: #93a8ab;
+      --navy: #173d45;
+      --teal: #087b72;
+      --teal-soft: #d8efeb;
+      --coral: #d55b3e;
+      --coral-soft: #f8e3dd;
+      --gold: #a56a00;
+      --gold-soft: #f8edcf;
+      --good: #177c58;
+      --bad: #bd3e35;
+      --shadow: 0 18px 48px rgba(20, 54, 61, .09);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0d1719;
+        --paper: #142226;
+        --paper-soft: #1b2c30;
+        --ink: #edf5f4;
+        --muted: #b6c6c7;
+        --line: #31474c;
+        --line-strong: #597278;
+        --navy: #d6efed;
+        --teal: #62d3c3;
+        --teal-soft: #153f3d;
+        --coral: #ff987d;
+        --coral-soft: #492923;
+        --gold: #f1be59;
+        --gold-soft: #45391f;
+        --good: #65d7aa;
+        --bad: #ff9387;
+        --shadow: 0 18px 48px rgba(0, 0, 0, .25);
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "IBM Plex Sans KR", sans-serif;
+      line-height: 1.65;
+      word-break: keep-all;
+    }
+    a { color: inherit; }
+    button, input { font: inherit; }
+    button { -webkit-tap-highlight-color: transparent; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 64px 0 48px;
+      background: var(--navy);
+      color: var(--bg);
+      isolation: isolate;
+    }
+    @media (prefers-color-scheme: dark) {
+      .hero { background: #0e3439; color: #f5fbfa; }
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -20% -5% auto 46%;
+      height: 420px;
+      background: repeating-linear-gradient(115deg, transparent 0 31px, rgba(255,255,255,.07) 32px 33px);
+      transform: rotate(-4deg);
+      z-index: -1;
+    }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(280px, .65fr); gap: 54px; align-items: end; }
+    .kicker { display: flex; gap: 10px; align-items: center; font-weight: 700; color: #9fe4da; }
+    .kicker::before { content: ""; width: 34px; height: 3px; background: #f4a48f; }
+    h1 {
+      margin: 18px 0 18px;
+      max-width: 780px;
+      font-family: "Nanum Myeongjo", serif;
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: 1.12;
+      letter-spacing: -.05em;
+    }
+    .hero-copy { max-width: 700px; margin: 0; font-size: 18px; color: #d7e5e5; }
+    .hero-meta { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 10px; }
+    .tag { padding: 8px 12px; border: 1px solid rgba(255,255,255,.28); background: rgba(255,255,255,.07); font-weight: 600; font-size: 14px; }
+    .lesson-card { border-top: 5px solid #f4a48f; background: #f5fbfa; color: #17373d; padding: 24px; box-shadow: var(--shadow); }
+    .lesson-card strong { display: block; font-family: "Nanum Myeongjo", serif; font-size: 24px; margin-bottom: 12px; }
+    .lesson-card dl { margin: 0; display: grid; gap: 9px; }
+    .lesson-card div { display: flex; justify-content: space-between; gap: 18px; border-bottom: 1px solid #d5e2e2; padding-bottom: 8px; }
+    .lesson-card dt { color: #587074; }
+    .lesson-card dd { margin: 0; font-weight: 700; text-align: right; }
+    .video-link { display: inline-flex; align-items: center; gap: 9px; margin-top: 18px; font-weight: 700; color: #0a6c65; text-underline-offset: 4px; }
+    .video-link::after { content: "↗"; font-size: 18px; }
+    .jump {
+      position: sticky; top: 0; z-index: 20;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+    .jump .wrap { display: flex; gap: 4px; align-items: center; overflow-x: auto; scrollbar-width: none; padding-top: 8px; padding-bottom: 8px; }
+    .jump .wrap::-webkit-scrollbar { display: none; }
+    .jump a { flex: 0 0 auto; text-decoration: none; color: var(--muted); font-size: 14px; font-weight: 600; padding: 8px 11px; }
+    .jump a:hover, .jump a:focus-visible { background: var(--teal-soft); color: var(--teal); outline: none; }
+    main { padding: 48px 0 84px; }
+    section { scroll-margin-top: 72px; margin-bottom: 78px; }
+    .section-head { display: grid; grid-template-columns: 78px 1fr; gap: 18px; align-items: start; margin-bottom: 28px; }
+    .section-no { font-family: "Nanum Myeongjo", serif; font-size: 52px; line-height: 1; color: var(--coral); border-top: 3px solid var(--coral); padding-top: 8px; }
+    h2 { font-family: "Nanum Myeongjo", serif; font-size: clamp(28px, 4vw, 42px); line-height: 1.25; margin: 0 0 8px; letter-spacing: -.035em; }
+    .section-head p { margin: 0; color: var(--muted); max-width: 760px; }
+    .exam-mark { color: var(--coral); font-weight: 700; font-size: 14px; }
+    .definition {
+      background: var(--paper);
+      border-top: 4px solid var(--teal);
+      padding: 24px 28px;
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+    }
+    .definition p { font-family: "Nanum Myeongjo", serif; font-size: clamp(21px, 3vw, 29px); line-height: 1.55; margin: 0; }
+    .definition em { color: var(--teal); font-style: normal; }
+    .indicator-row, .factor-grid, .formula-grid { display: grid; gap: 14px; }
+    .indicator-row { grid-template-columns: repeat(2, 1fr); }
+    .factor-grid { grid-template-columns: repeat(4, 1fr); }
+    .card { background: var(--paper); border: 1px solid var(--line); padding: 22px; }
+    .card h3 { margin: 0 0 8px; font-size: 19px; }
+    .card p { margin: 0; color: var(--muted); font-size: 15px; }
+    .factor-grid .card { position: relative; padding-top: 54px; min-height: 175px; }
+    .factor-num { position: absolute; top: 16px; left: 20px; font: 700 25px/1 "Nanum Myeongjo", serif; color: var(--line-strong); }
+    .factor-grid .focus { background: var(--teal); color: white; border-color: var(--teal); }
+    .factor-grid .focus p, .factor-grid .focus .factor-num { color: #d8f6f2; }
+    .strip-note { margin-top: 14px; background: var(--coral-soft); padding: 16px 20px; display: flex; gap: 12px; align-items: flex-start; color: var(--ink); }
+    .strip-note strong { color: var(--coral); flex: 0 0 auto; }
+    .cycle {
+      margin-top: 28px; background: var(--paper); border: 1px solid var(--line); padding: 28px;
+    }
+    .cycle-graphic { display: grid; grid-template-columns: 90px 1fr 1fr 90px; align-items: center; gap: 0; margin: 28px 0 20px; }
+    .turn { text-align: center; font-weight: 700; position: relative; }
+    .turn .dot { display: block; width: 15px; height: 15px; margin: 8px auto; border-radius: 50%; background: var(--coral); }
+    .phase { height: 12px; position: relative; }
+    .phase::before { content: ""; position: absolute; height: 4px; left: 0; right: 0; top: 4px; background: var(--teal); }
+    .phase::after { content: ""; position: absolute; right: 0; top: 0; border-left: 8px solid var(--teal); border-top: 6px solid transparent; border-bottom: 6px solid transparent; }
+    .phase.down::before { background: var(--coral); }
+    .phase.down::after { border-left-color: var(--coral); }
+    .phase-labels { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; text-align: center; font-weight: 700; }
+    .terms { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 24px; }
+    .term { padding: 15px; background: var(--paper-soft); }
+    .term b { display: block; margin-bottom: 4px; }
+    .term span { color: var(--muted); font-size: 14px; }
+    .source-line { margin: 14px 0 0; color: var(--muted); font-size: 13px; }
+    .source-line a { color: var(--teal); text-underline-offset: 3px; }
+    .gdp-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: 22px; }
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+    .compare > div { background: var(--paper); padding: 25px; }
+    .compare .big { font: 700 26px/1.2 "Nanum Myeongjo", serif; color: var(--teal); }
+    .compare h3 { margin: 9px 0 6px; }
+    .compare p { margin: 0; color: var(--muted); }
+    .bars { background: var(--paper); border: 1px solid var(--line); padding: 26px; }
+    .bars h3 { margin-top: 0; }
+    .bar-row { display: grid; grid-template-columns: 92px 1fr 55px; gap: 12px; align-items: center; margin: 15px 0; }
+    .bar-row b { font-size: 14px; }
+    .bar-track { height: 13px; background: var(--paper-soft); }
+    .bar-fill { height: 100%; background: var(--teal); }
+    .bar-row:nth-of-type(3) .bar-fill { background: var(--coral); }
+    .bar-row:nth-of-type(4) .bar-fill { background: var(--gold); }
+    .bar-row:nth-of-type(5) .bar-fill { background: var(--line-strong); min-width: 4px; }
+    .bar-row span { text-align: right; font-weight: 700; }
+    .exam-callout { margin-top: 20px; padding: 18px 20px; border: 2px solid var(--coral); background: var(--paper); }
+    .exam-callout b { color: var(--coral); }
+    .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .price-card { background: var(--paper); border: 1px solid var(--line); padding: 24px; position: relative; overflow: hidden; }
+    .price-card::after { content: attr(data-key); position: absolute; right: -5px; top: -15px; font: 700 64px/1 "Nanum Myeongjo", serif; color: var(--paper-soft); }
+    .price-card > * { position: relative; z-index: 1; }
+    .price-card h3 { margin: 0 0 6px; font-size: 24px; }
+    .price-card .role { color: var(--teal); font-weight: 700; min-height: 52px; }
+    .price-card dl { margin: 20px 0 0; }
+    .price-card dt { color: var(--muted); font-size: 13px; }
+    .price-card dd { margin: 2px 0 12px; font-weight: 600; }
+    .flow { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 9px; margin-top: 18px; color: var(--muted); }
+    .flow b { color: var(--ink); background: var(--paper-soft); padding: 9px 12px; }
+    .calculator { margin-top: 20px; background: var(--navy); color: var(--bg); display: grid; grid-template-columns: 1fr 1fr; gap: 30px; padding: 28px; }
+    @media (prefers-color-scheme: dark) { .calculator { background: #0e3439; color: #f5fbfa; } }
+    .calculator h3 { margin: 0 0 8px; font-size: 23px; }
+    .calculator p { margin: 0; color: #cededd; }
+    .calc-fields { display: grid; grid-template-columns: 1fr auto 1fr auto; gap: 8px; align-items: end; }
+    label { display: block; font-size: 13px; color: #c6d7d5; }
+    input[type="number"] { width: 100%; margin-top: 5px; border: 1px solid #789092; background: #f7fbfa; color: #17373d; padding: 10px; border-radius: 0; }
+    .operator { font-size: 21px; padding-bottom: 8px; }
+    .calc-result { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid #6d888a; padding-top: 12px; margin-top: 4px; }
+    .calc-result output { font: 700 28px/1 "Nanum Myeongjo", serif; color: #9fe4da; }
+    .money-stack { display: grid; gap: 10px; }
+    .money-level { display: grid; grid-template-columns: 76px 1fr; align-items: stretch; }
+    .money-code { display: grid; place-items: center; font: 700 22px/1 "Nanum Myeongjo", serif; color: white; background: var(--teal); }
+    .money-level:nth-child(2) .money-code { background: #17615f; }
+    .money-level:nth-child(3) .money-code { background: #284c58; }
+    .money-level:nth-child(4) .money-code { background: #343d50; }
+    .money-body { background: var(--paper); border: 1px solid var(--line); border-left: 0; padding: 15px 18px; }
+    .money-body b { display: block; }
+    .money-body span { color: var(--muted); font-size: 14px; }
+    .money-rule { padding: 18px; margin-top: 14px; background: var(--gold-soft); color: var(--ink); font-weight: 600; }
+    .formula-grid { grid-template-columns: repeat(3, 1fr); margin-top: 24px; }
+    .formula { background: var(--paper); border-top: 4px solid var(--teal); padding: 23px; }
+    .formula:nth-child(2) { border-color: var(--coral); }
+    .formula:nth-child(3) { border-color: var(--gold); }
+    .formula h3 { margin: 0 0 12px; }
+    .equation { font: 700 21px/1.45 "Nanum Myeongjo", serif; min-height: 66px; }
+    .formula p { color: var(--muted); font-size: 14px; margin: 8px 0 0; }
+    .ec-calc .calc-fields { grid-template-columns: 1fr auto 1fr auto 1fr; }
+    .quiz-intro { display: flex; justify-content: space-between; align-items: end; gap: 16px; margin-bottom: 16px; }
+    .quiz-progress { color: var(--muted); font-size: 14px; }
+    .quiz-list { display: grid; gap: 14px; }
+    .question { background: var(--paper); border: 1px solid var(--line); padding: 24px; }
+    .question h3 { margin: 0 0 18px; font-size: 18px; }
+    .question h3 span { color: var(--coral); margin-right: 6px; }
+    .options { display: grid; gap: 8px; }
+    .option { width: 100%; text-align: left; border: 1px solid var(--line); background: var(--paper-soft); color: var(--ink); padding: 13px 15px; cursor: pointer; }
+    .option:hover, .option:focus-visible { border-color: var(--teal); outline: 2px solid transparent; }
+    .option.selected { border-color: var(--teal); background: var(--teal-soft); }
+    .option.correct { border-color: var(--good); background: color-mix(in srgb, var(--good) 12%, var(--paper)); }
+    .option.wrong { border-color: var(--bad); background: color-mix(in srgb, var(--bad) 12%, var(--paper)); }
+    .explanation { display: none; margin: 14px 0 0; padding: 14px 16px; background: var(--paper-soft); color: var(--muted); }
+    .explanation.show { display: block; }
+    .quiz-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+    .btn { border: 0; background: var(--teal); color: white; padding: 12px 18px; font-weight: 700; cursor: pointer; }
+    .btn.secondary { background: var(--paper); color: var(--ink); border: 1px solid var(--line-strong); }
+    .score { display: none; background: var(--teal-soft); color: var(--ink); padding: 16px 18px; margin-top: 14px; font-weight: 700; }
+    .score.show { display: block; }
+    .memory-sheet { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .memory-sheet article { background: var(--paper); border: 1px solid var(--line); padding: 22px; }
+    .memory-sheet h3 { margin-top: 0; }
+    .memory-sheet ul { margin: 0; padding-left: 20px; }
+    .memory-sheet li + li { margin-top: 8px; }
+    footer { border-top: 1px solid var(--line); padding: 30px 0 48px; color: var(--muted); font-size: 14px; }
+    footer strong { color: var(--ink); }
+    .source-list { margin: 12px 0 0; padding-left: 20px; }
+    .source-list a { color: var(--teal); text-underline-offset: 3px; overflow-wrap: anywhere; }
+    @media (max-width: 850px) {
+      .hero-grid, .gdp-layout, .calculator { grid-template-columns: 1fr; }
+      .factor-grid, .terms { grid-template-columns: 1fr 1fr; }
+      .price-grid, .formula-grid { grid-template-columns: 1fr; }
+      .formula .equation { min-height: auto; }
+    }
+    @media (max-width: 600px) {
+      .wrap { width: min(100% - 28px, 1120px); }
+      .hero { padding: 42px 0 34px; }
+      .hero-grid { gap: 30px; }
+      h1 { font-size: 43px; }
+      .section-head { grid-template-columns: 48px 1fr; gap: 13px; }
+      .section-no { font-size: 35px; }
+      main { padding-top: 34px; }
+      section { margin-bottom: 58px; }
+      .indicator-row, .factor-grid, .terms, .memory-sheet { grid-template-columns: 1fr; }
+      .definition { padding: 20px; }
+      .cycle { padding: 19px 14px; }
+      .cycle-graphic { grid-template-columns: 62px 1fr 1fr 62px; font-size: 13px; }
+      .phase-labels { font-size: 14px; }
+      .compare { grid-template-columns: 1fr; }
+      .bar-row { grid-template-columns: 72px 1fr 48px; gap: 8px; }
+      .calculator { padding: 22px 18px; }
+      .jump .wrap { flex-wrap: wrap; overflow: visible; gap: 2px 4px; }
+      .jump a { padding: 6px 8px; font-size: 12px; }
+      .calc-fields, .ec-calc .calc-fields { grid-template-columns: 1fr; }
+      .calc-fields .operator { display: none; }
+      .calc-result { grid-column: 1; }
+      .money-level { grid-template-columns: 62px 1fr; }
+      .question { padding: 19px 16px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    @media print {
+      .jump, .calculator, .quiz-actions { display: none !important; }
+      body, .hero { background: white !important; color: black !important; }
+      .hero { padding: 24px 0; }
+      section { break-inside: avoid; margin-bottom: 34px; }
+      .card, .price-card, .formula, .question, .definition { box-shadow: none; }
+      .explanation { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="kicker">1과목 · 경기분석 압축 노트</div>
+        <h1>6문제,<br>틀리지 않게.</h1>
+        <p class="hero-copy">경기순환부터 GDP·물가·통화까지, 52분 강의의 시험 포인트를 개념 → 공식 → 문제 순서로 다시 엮었습니다.</p>
+        <div class="hero-meta">
+          <span class="tag">100문제 중 6문제</span>
+          <span class="tag">이해 중심</span>
+          <span class="tag">계산문제 2종</span>
+        </div>
+      </div>
+      <aside class="lesson-card" aria-label="강의 정보">
+        <strong>강의 정보</strong>
+        <dl>
+          <div><dt>강사</dt><dd>정성기 교수</dd></div>
+          <div><dt>채널</dt><dd>이패스TV</dd></div>
+          <div><dt>길이</dt><dd>52분 13초</dd></div>
+          <div><dt>업로드</dt><dd>2026. 3. 26.</dd></div>
+        </dl>
+        <a class="video-link" href="https://www.youtube.com/watch?v=UHgVVzi_HqU" target="_blank" rel="noopener noreferrer">원본 강의 보기</a>
+      </aside>
+    </div>
+  </header>
+
+  <nav class="jump" aria-label="핵심자료 목차">
+    <div class="wrap">
+      <a href="#cycle">01 경기순환</a>
+      <a href="#gdp">02 GDP</a>
+      <a href="#prices">03 물가</a>
+      <a href="#money">04 통화</a>
+      <a href="#formulas">05 공식</a>
+      <a href="#quiz">06 문제풀이</a>
+      <a href="#last">막판 암기</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <section id="cycle">
+      <div class="section-head">
+        <div class="section-no">01</div>
+        <div><h2>경기는 ‘총체적 활동 수준’이다</h2><p>생산·소비뿐 아니라 금융과 해외 부문까지, 여러 거시지표의 증감으로 경제 전체가 좋은지 나쁜지를 판단합니다.</p></div>
+      </div>
+      <div class="definition"><p>경기순환 = 총체적 경제활동이 <em>장기 성장추세</em>를 중심으로 상승과 하강을 반복하는 현상</p></div>
+      <div class="indicator-row">
+        <article class="card"><h3>개별 경제지표</h3><p>하나의 지표로 판단합니다. 대표적인 지표는 GDP입니다.</p></article>
+        <article class="card"><h3>종합경기지표</h3><p>여러 지표를 묶습니다. 경기종합지수 CI와 경기확산지수 DI가 대표적입니다.</p></article>
+      </div>
+
+      <h3 style="margin:32px 0 14px">시계열 자료의 4가지 변동 요인 <span class="exam-mark">시험 핵심</span></h3>
+      <div class="factor-grid">
+        <article class="card"><span class="factor-num">1</span><h3>추세변동</h3><p>인구 증가, 기술혁신, AI처럼 장기 방향을 만드는 움직임</p></article>
+        <article class="card focus"><span class="factor-num">2</span><h3>순환변동</h3><p>추세를 중심으로 상승·하강을 반복. 경기분석에서 가장 중요</p></article>
+        <article class="card"><span class="factor-num">3</span><h3>계절변동</h3><p>겨울 난방비, 여름 에어컨처럼 계절에 따라 반복되는 움직임</p></article>
+        <article class="card"><span class="factor-num">4</span><h3>불규칙변동</h3><p>태풍, 팬데믹, 파업처럼 예측하기 어려운 일시적 사건</p></article>
+      </div>
+      <div class="strip-note"><strong>제거 규칙</strong><span>일반적인 경기분석은 계절·불규칙 변동을 제거하고 추세+순환을 봅니다. 고성장 국가는 추세도 제거하여 순환변동만 봅니다.</span></div>
+
+      <div class="cycle">
+        <h3>한 사이클을 읽는 네 단어</h3>
+        <div class="cycle-graphic" aria-label="저점에서 정점으로 확장하고 다시 저점으로 수축하는 경기순환">
+          <div class="turn">저점<span class="dot"></span></div>
+          <div class="phase"></div><div class="phase down"></div>
+          <div class="turn">저점<span class="dot"></span></div>
+        </div>
+        <div class="phase-labels"><span>확장국면 · 저점 → 정점</span><span>수축국면 · 정점 → 저점</span></div>
+        <div class="terms">
+          <div class="term"><b>순환주기</b><span>저점→다음 저점 또는 정점→다음 정점</span></div>
+          <div class="term"><b>기준순환일</b><span>정점·저점의 구체적 연월</span></div>
+          <div class="term"><b>순환진폭</b><span>정점과 저점의 높이 차이</span></div>
+          <div class="term"><b>순환심도</b><span>순환진폭과 같은 말, 경기 변동의 강도</span></div>
+        </div>
+      </div>
+      <p class="source-line">출처: <a href="https://www.youtube.com/watch?v=UHgVVzi_HqU" target="_blank" rel="noopener noreferrer">이패스TV 「2026 증권투자권유자문인력 1과목 경기분석 무료강의」</a></p>
+    </section>
+
+    <section id="gdp">
+      <div class="section-head">
+        <div class="section-no">02</div>
+        <div><h2>GDP는 가장 적합하지만 느리다</h2><p>국내에서 새로 생산된 최종 재화·서비스의 시장가치 합계. 한국은행이 산출하며 분기·연도별로 발표됩니다.</p></div>
+      </div>
+      <div class="gdp-layout">
+        <div class="compare">
+          <div><span class="big">현재 가격</span><h3>명목GDP</h3><p>당해 연도 가격으로 계산합니다.</p></div>
+          <div><span class="big">기준연도 가격</span><h3>실질GDP</h3><p>불변 가격으로 계산합니다.</p></div>
+        </div>
+        <div class="bars">
+          <h3>지출 측면 구성: C + I + G + NX</h3>
+          <div class="bar-row"><b>C 민간소비</b><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span>약 50%</span></div>
+          <div class="bar-row"><b>I 투자</b><div class="bar-track"><div class="bar-fill" style="width:60%"></div></div><span>약 30%</span></div>
+          <div class="bar-row"><b>G 정부지출</b><div class="bar-track"><div class="bar-fill" style="width:40%"></div></div><span>약 20%</span></div>
+          <div class="bar-row"><b>NX 순수출</b><div class="bar-track"><div class="bar-fill" style="width:2%"></div></div><span>≈ 0</span></div>
+          <p class="source-line">강의에서 제시한 대략적 구성비로, 정확한 연도별 비중이 아니라 시험 이해를 위한 근사치입니다.</p>
+        </div>
+      </div>
+      <div class="exam-callout"><b>빈출 함정:</b> GDP는 월별 발표가 아닙니다. 빠른 경기 신호는 통계청의 월별 산업활동지표가 보완합니다. 지출 비중이 크게 변하지 않는다는 강의 전제에서는 순수출의 +/−가 성장률 방향에 직접 영향을 줍니다.</div>
+      <p class="source-line">출처: <a href="https://www.youtube.com/watch?v=UHgVVzi_HqU" target="_blank" rel="noopener noreferrer">이패스TV 경기분석 강의</a></p>
+    </section>
+
+    <section id="prices">
+      <div class="section-head">
+        <div class="section-no">03</div>
+        <div><h2>물가지수 3종, 조사 대상부터 구분</h2><p>CPI는 가계, PPI는 기업의 거래가격, GDP 디플레이터는 국내에서 생산된 모든 최종생산물을 봅니다.</p></div>
+      </div>
+      <div class="price-grid">
+        <article class="price-card" data-key="C"><h3>CPI</h3><div class="role">도시가계의 생계비·구매력 변동</div><dl><dt>핵심 특징</dt><dd>임금 비중이 높아 임금 상승이 빠르게 반영</dd><dt>경기 민감도</dt><dd>생필품 중심이라 크게 민감하지 않음</dd><dt>품목 수</dt><dd>460개 내외 · 참고용 수치</dd></dl></article>
+        <article class="price-card" data-key="P"><h3>PPI</h3><div class="role">기업이 구입하는 재화·서비스 가격</div><dl><dt>기준 가격</dt><dd>생산자 출하가격 = 공장도가격</dd><dt>역할</dt><dd>CPI 변동의 선행지표</dd><dt>품목 수</dt><dd>892개 · 강의상 참고용 수치</dd></dl></article>
+        <article class="price-card" data-key="D"><h3>GDP 디플레이터</h3><div class="role">국내 모든 최종생산물의 평균 가격</div><dl><dt>핵심 특징</dt><dd>가장 포괄적인 물가지수</dd><dt>조사 방식</dt><dd>시장 표본조사 없이 GDP로 계산</dd><dt>판단</dt><dd>100 초과 상승 · 100 미만 하락</dd></dl></article>
+      </div>
+      <div class="flow" aria-label="생산자물가가 소비자물가에 선행하는 흐름"><b>원가·출하가격 상승</b><span>→</span><b>PPI 상승</b><span>→</span><b>판매가격 반영</b><span>→</span><b>CPI 변동</b></div>
+
+      <div class="calculator">
+        <div><h3>GDP 디플레이터 계산기</h3><p>(명목GDP ÷ 실질GDP) × 100. 강의 예시 2,500과 1,500을 넣어두었습니다.</p></div>
+        <div class="calc-fields">
+          <label>명목GDP<input id="nominal" type="number" value="2500" min="0" step="any" inputmode="decimal"></label>
+          <span class="operator">÷</span>
+          <label>실질GDP<input id="real" type="number" value="1500" min="0" step="any" inputmode="decimal"></label>
+          <span class="operator">×100</span>
+          <div class="calc-result"><span>디플레이터</span><output id="deflator">166.7</output></div>
+        </div>
+      </div>
+      <p class="source-line">출처: <a href="https://www.youtube.com/watch?v=UHgVVzi_HqU" target="_blank" rel="noopener noreferrer">이패스TV 경기분석 강의</a>. 품목 수는 강의에서 참고용으로 제시된 값입니다.</p>
+    </section>
+
+    <section id="money">
+      <div class="section-head">
+        <div class="section-no">04</div>
+        <div><h2>통화지표는 ‘누적’해서 읽는다</h2><p>현금화가 쉬운 순서로 M1 → M2 → LF → L. 다음 단계는 앞 단계의 모든 항목을 포함합니다.</p></div>
+      </div>
+      <div class="money-stack">
+        <div class="money-level"><div class="money-code">M1</div><div class="money-body"><b>협의통화 · 지금 바로 쓸 수 있는 돈</b><span>현금 + 요구불예금 + 수시입출식 저축성예금</span></div></div>
+        <div class="money-level"><div class="money-code">M2</div><div class="money-body"><b>광의통화 · 통화량 기준으로 가장 많이 사용</b><span>M1 + 만기 2년 미만 정기 예·적금</span></div></div>
+        <div class="money-level"><div class="money-code">LF</div><div class="money-body"><b>금융기관유동성</b><span>M2 + 만기 2년 이상 저축성예금 + 증권·보험 상품</span></div></div>
+        <div class="money-level"><div class="money-code">L</div><div class="money-body"><b>광의유동성 · 한 나라 전체 유동성</b><span>LF + 정부·기업 발행 채권</span></div></div>
+      </div>
+      <div class="money-rule">경계값은 ‘만기 2년’: 2년 미만은 M2, 2년 이상은 LF. 정부·기업 발행 채권은 L에서 추가됩니다.</div>
+      <div class="exam-callout"><b>금리 방향:</b> 경기 개선 → 투자 확대 → 자금수요 증가 → 금리 상승. 자본축적이 진행된 선진국은 투자처 감소 → 자본의 한계수익률 하락 → 자금수요 감소 → 금리 하락.</div>
+      <p class="source-line">출처: <a href="https://www.youtube.com/watch?v=UHgVVzi_HqU" target="_blank" rel="noopener noreferrer">이패스TV 경기분석 강의</a></p>
+    </section>
+
+    <section id="formulas">
+      <div class="section-head">
+        <div class="section-no">05</div>
+        <div><h2>시험장에 가져갈 공식 3개</h2><p>공식 자체보다 분모와 부호를 정확히 기억하세요. 통화유통속도는 ‘사후성’, EC방식은 V의 마이너스 부호가 함정입니다.</p></div>
+      </div>
+      <div class="formula-grid">
+        <article class="formula"><h3>GDP 디플레이터</h3><div class="equation">명목GDP ÷ 실질GDP × 100</div><p>명목과 실질의 차이를 통해 물가 변동분을 봅니다.</p></article>
+        <article class="formula"><h3>통화유통속도 V</h3><div class="equation">명목GDP ÷ 통화량<br><small>(주로 M2)</small></div><p>GDP 확정 뒤 계산하는 사후지표라 경기·인플레이션 예측에는 유용하지 않습니다. 강의에서는 한국의 장기 추세를 하락으로 설명합니다.</p></article>
+        <article class="formula"><h3>EC방식</h3><div class="equation">Mg = Pg + Yg − Vg</div><p>목표 통화공급 증가율 = 물가 전망 + 실질성장률 − 유통속도 변화율</p></article>
+      </div>
+      <div class="calculator ec-calc">
+        <div><h3>EC방식 계산기</h3><p>Vg가 −1%라면 ‘빼기 음수’가 되어 더해집니다. 강의 예시 결과는 8%입니다.</p></div>
+        <div class="calc-fields">
+          <label>Pg 물가상승률<input id="pg" type="number" value="3" step="any" inputmode="decimal"></label>
+          <span class="operator">+</span>
+          <label>Yg 실질성장률<input id="yg" type="number" value="4" step="any" inputmode="decimal"></label>
+          <span class="operator">−</span>
+          <label>Vg 유통속도 변화율<input id="vg" type="number" value="-1" step="any" inputmode="decimal"></label>
+          <div class="calc-result"><span>Mg 목표 증가율</span><output id="mg">8.0%</output></div>
+        </div>
+      </div>
+      <p class="source-line">출처: <a href="https://www.youtube.com/watch?v=UHgVVzi_HqU" target="_blank" rel="noopener noreferrer">이패스TV 경기분석 강의</a></p>
+    </section>
+
+    <section id="quiz">
+      <div class="section-head">
+        <div class="section-no">06</div>
+        <div><h2>강의 말미 복습 4문제</h2><p>보기를 선택한 뒤 채점하세요. 정답과 해설은 이 페이지를 새로 열면 초기화됩니다.</p></div>
+      </div>
+      <div class="quiz-intro"><strong>문항별 1개 선택</strong><span class="quiz-progress" id="progress">0 / 4 선택</span></div>
+      <div class="quiz-list">
+        <article class="question" data-answer="3">
+          <h3><span>Q1.</span>경기순환에 대한 설명으로 적절하지 않은 것은?</h3>
+          <div class="options">
+            <button class="option" type="button">① 장기 성장추세를 중심으로 상승·하강을 반복한다.</button>
+            <button class="option" type="button">② 정점·저점의 구체적 연월을 기준순환일이라 한다.</button>
+            <button class="option" type="button">③ 정점과 저점의 차이는 순환의 강도를 뜻한다.</button>
+            <button class="option" type="button">④ 시계열 분석에는 추세변동과 계절변동을 사용한다.</button>
+          </div>
+          <p class="explanation"><b>정답 ④.</b> 계절·불규칙 변동은 제거하고 추세+순환변동을 사용합니다.</p>
+        </article>
+        <article class="question" data-answer="1">
+          <h3><span>Q2.</span>물가지수에 대한 설명으로 적절하지 않은 것은?</h3>
+          <div class="options">
+            <button class="option" type="button">① CPI는 도시가계의 생계비·구매력을 측정한다.</button>
+            <button class="option" type="button">② CPI 조사품목 수요는 경기변동에 크게 민감하다.</button>
+            <button class="option" type="button">③ PPI는 생산자 출하가격을 기준으로 조사한다.</button>
+            <button class="option" type="button">④ GDP 디플레이터는 전체적인 물가 압력을 측정한다.</button>
+          </div>
+          <p class="explanation"><b>정답 ②.</b> CPI는 생필품 중심이라 경기변동에 크게 민감하지 않습니다.</p>
+        </article>
+        <article class="question" data-answer="2">
+          <h3><span>Q3.</span>LF에 포함되지 않는 것은?</h3>
+          <div class="options">
+            <button class="option" type="button">① 만기 2년 미만 예·적금</button>
+            <button class="option" type="button">② 수시입출식 저축성예금</button>
+            <button class="option" type="button">③ 정부 발행 채권</button>
+            <button class="option" type="button">④ 보험회사 보험계약준비금</button>
+          </div>
+          <p class="explanation"><b>정답 ③.</b> 정부 발행 채권은 L에서 추가됩니다. M1·M2 항목은 누적되어 LF에도 포함됩니다.</p>
+        </article>
+        <article class="question" data-answer="2">
+          <h3><span>Q4.</span>통화유통속도에 대한 설명으로 적절하지 않은 것은?</h3>
+          <div class="options">
+            <button class="option" type="button">① 명목GDP를 통화량으로 나누어 계산한다.</button>
+            <button class="option" type="button">② 한국에서는 장기적으로 하락 추세를 보인다.</button>
+            <button class="option" type="button">③ 경기변화와 인플레이션 예측에 유용하다.</button>
+            <button class="option" type="button">④ GDP 확정 후 계산할 수 있는 사후적 성격이 있다.</button>
+          </div>
+          <p class="explanation"><b>정답 ③.</b> 사후성 때문에 경기변화·인플레이션 압력 예측에는 유용하지 않습니다.</p>
+        </article>
+      </div>
+      <div class="quiz-actions"><button class="btn" id="grade" type="button">채점하기</button><button class="btn secondary" id="reset" type="button">다시 풀기</button></div>
+      <div class="score" id="score" role="status" aria-live="polite"></div>
+      <p class="source-line">문항·정답·해설 출처: <a href="https://www.youtube.com/watch?v=UHgVVzi_HqU" target="_blank" rel="noopener noreferrer">이패스TV 경기분석 강의의 말미 복습문제</a></p>
+    </section>
+
+    <section id="last">
+      <div class="section-head">
+        <div class="section-no">★</div>
+        <div><h2>시험 직전, 이것만 다시 보기</h2><p>헷갈리기 쉬운 반대말과 경계값을 한 화면에 모았습니다.</p></div>
+      </div>
+      <div class="memory-sheet">
+        <article><h3>숫자·경계</h3><ul><li>GDP: 월별 X, 분기·연도별</li><li>M2 / LF 경계: 만기 2년</li><li>디플레이터 기준: 100</li><li>지출 구성: C 약 50 · I 약 30 · G 약 20 · NX 0 근처</li></ul></article>
+        <article><h3>함정·방향</h3><ul><li>시계열: 계절·불규칙 제거</li><li>PPI는 CPI에 선행</li><li>통화유통속도는 사후지표</li><li>경기와 금리는 같은 방향</li><li>EC방식: Vg가 음수면 결과는 더 커짐</li></ul></article>
+      </div>
+      <p class="source-line">출처: <a href="https://www.youtube.com/watch?v=UHgVVzi_HqU" target="_blank" rel="noopener noreferrer">이패스TV 경기분석 강의</a>. 비중과 품목 수는 강의에서 제시한 근사·참고값입니다.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <strong>자료 출처</strong>
+      <ol class="source-list">
+        <li><a href="https://www.youtube.com/watch?v=UHgVVzi_HqU" target="_blank" rel="noopener noreferrer">2026 증권투자권유자문인력 1과목 경기분석 무료강의 · 이패스TV · 정성기 교수</a></li>
+        <li><a href="https://www.youtube.com/@EPASSKOREA" target="_blank" rel="noopener noreferrer">이패스TV 채널</a></li>
+      </ol>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var nominal = document.getElementById('nominal');
+      var real = document.getElementById('real');
+      var deflator = document.getElementById('deflator');
+      function updateDeflator() {
+        var n = Number(nominal.value);
+        var r = Number(real.value);
+        deflator.textContent = r > 0 && Number.isFinite(n) ? ((n / r) * 100).toFixed(1) : '—';
+      }
+      nominal.addEventListener('input', updateDeflator);
+      real.addEventListener('input', updateDeflator);
+
+      var pg = document.getElementById('pg');
+      var yg = document.getElementById('yg');
+      var vg = document.getElementById('vg');
+      var mg = document.getElementById('mg');
+      function updateMg() {
+        var vals = [pg, yg, vg].map(function (el) { return Number(el.value); });
+        mg.textContent = vals.every(Number.isFinite) ? (vals[0] + vals[1] - vals[2]).toFixed(1) + '%' : '—';
+      }
+      [pg, yg, vg].forEach(function (el) { el.addEventListener('input', updateMg); });
+
+      var questions = Array.prototype.slice.call(document.querySelectorAll('.question'));
+      var progress = document.getElementById('progress');
+      var score = document.getElementById('score');
+      function updateProgress() {
+        var count = questions.filter(function (q) { return q.dataset.choice !== undefined; }).length;
+        progress.textContent = count + ' / ' + questions.length + ' 선택';
+      }
+      questions.forEach(function (q) {
+        var options = Array.prototype.slice.call(q.querySelectorAll('.option'));
+        options.forEach(function (option, index) {
+          option.addEventListener('click', function () {
+            options.forEach(function (o) { o.classList.remove('selected', 'correct', 'wrong'); });
+            option.classList.add('selected');
+            q.dataset.choice = String(index);
+            q.querySelector('.explanation').classList.remove('show');
+            score.classList.remove('show');
+            updateProgress();
+          });
+        });
+      });
+      document.getElementById('grade').addEventListener('click', function () {
+        var answered = 0;
+        var correct = 0;
+        questions.forEach(function (q) {
+          var options = q.querySelectorAll('.option');
+          var answer = Number(q.dataset.answer);
+          if (q.dataset.choice !== undefined) {
+            answered++;
+            var choice = Number(q.dataset.choice);
+            options[answer].classList.add('correct');
+            if (choice === answer) correct++;
+            else options[choice].classList.add('wrong');
+            q.querySelector('.explanation').classList.add('show');
+          }
+        });
+        score.textContent = answered < questions.length
+          ? '아직 ' + (questions.length - answered) + '문제가 남았습니다. 현재 ' + answered + '문제 중 ' + correct + '문제 정답.'
+          : '총 ' + questions.length + '문제 중 ' + correct + '문제 정답 · ' + (correct === questions.length ? '핵심 개념을 정확히 잡았습니다.' : '해설에서 틀린 개념만 다시 확인하세요.');
+        score.classList.add('show');
+      });
+      document.getElementById('reset').addEventListener('click', function () {
+        questions.forEach(function (q) {
+          delete q.dataset.choice;
+          q.querySelectorAll('.option').forEach(function (o) { o.classList.remove('selected', 'correct', 'wrong'); });
+          q.querySelector('.explanation').classList.remove('show');
+        });
+        score.classList.remove('show');
+        updateProgress();
+      });
+    })();
+  </script>
+</body>
+</html>
