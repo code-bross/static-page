@@ -351,8 +351,6 @@
     .exam-callout b { color: var(--coral); }
     .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
     .price-card { background: var(--paper); border: 1px solid var(--line); padding: 24px; position: relative; overflow: hidden; }
-    .price-card::after { content: attr(data-key); position: absolute; right: -5px; top: -15px; font: 700 64px/1 &quot;Nanum Myeongjo&quot;, serif; color: var(--paper-soft); }
-    .price-card &gt; * { position: relative; z-index: 1; }
     .price-card h3 { margin: 0 0 6px; font-size: 24px; }
     .price-card .role { color: var(--teal); font-weight: 700; min-height: 52px; }
     .price-card dl { margin: 20px 0 0; }
@@ -521,6 +519,7 @@
       &lt;a href=&quot;#gdp&quot;&gt;02 GDP&lt;/a&gt;
       &lt;a href=&quot;#prices&quot;&gt;03 물가&lt;/a&gt;
       &lt;a href=&quot;#money&quot;&gt;04 통화&lt;/a&gt;
+      &lt;a href=&quot;#supplement&quot;&gt;추가 핵심&lt;/a&gt;
       &lt;a href=&quot;#formulas&quot;&gt;05 공식&lt;/a&gt;
       &lt;a href=&quot;#quiz&quot;&gt;06 문제풀이&lt;/a&gt;
       &lt;a href=&quot;#last&quot;&gt;막판 암기&lt;/a&gt;
@@ -595,9 +594,9 @@
         &lt;div&gt;&lt;h2&gt;물가지수 3종, 조사 대상부터 구분&lt;/h2&gt;&lt;p&gt;CPI는 가계, PPI는 기업의 거래가격, GDP 디플레이터는 국내에서 생산된 모든 최종생산물을 봅니다.&lt;/p&gt;&lt;/div&gt;
       &lt;/div&gt;
       &lt;div class=&quot;price-grid&quot;&gt;
-        &lt;article class=&quot;price-card&quot; data-key=&quot;C&quot;&gt;&lt;h3&gt;CPI&lt;/h3&gt;&lt;div class=&quot;role&quot;&gt;도시가계의 생계비·구매력 변동&lt;/div&gt;&lt;dl&gt;&lt;dt&gt;핵심 특징&lt;/dt&gt;&lt;dd&gt;임금 비중이 높아 임금 상승이 빠르게 반영&lt;/dd&gt;&lt;dt&gt;경기 민감도&lt;/dt&gt;&lt;dd&gt;생필품 중심이라 크게 민감하지 않음&lt;/dd&gt;&lt;dt&gt;품목 수&lt;/dt&gt;&lt;dd&gt;460개 내외 · 참고용 수치&lt;/dd&gt;&lt;/dl&gt;&lt;/article&gt;
-        &lt;article class=&quot;price-card&quot; data-key=&quot;P&quot;&gt;&lt;h3&gt;PPI&lt;/h3&gt;&lt;div class=&quot;role&quot;&gt;기업이 구입하는 재화·서비스 가격&lt;/div&gt;&lt;dl&gt;&lt;dt&gt;기준 가격&lt;/dt&gt;&lt;dd&gt;생산자 출하가격 = 공장도가격&lt;/dd&gt;&lt;dt&gt;역할&lt;/dt&gt;&lt;dd&gt;CPI 변동의 선행지표&lt;/dd&gt;&lt;dt&gt;품목 수&lt;/dt&gt;&lt;dd&gt;892개 · 강의상 참고용 수치&lt;/dd&gt;&lt;/dl&gt;&lt;/article&gt;
-        &lt;article class=&quot;price-card&quot; data-key=&quot;D&quot;&gt;&lt;h3&gt;GDP 디플레이터&lt;/h3&gt;&lt;div class=&quot;role&quot;&gt;국내 모든 최종생산물의 평균 가격&lt;/div&gt;&lt;dl&gt;&lt;dt&gt;핵심 특징&lt;/dt&gt;&lt;dd&gt;가장 포괄적인 물가지수&lt;/dd&gt;&lt;dt&gt;조사 방식&lt;/dt&gt;&lt;dd&gt;시장 표본조사 없이 GDP로 계산&lt;/dd&gt;&lt;dt&gt;판단&lt;/dt&gt;&lt;dd&gt;100 초과 상승 · 100 미만 하락&lt;/dd&gt;&lt;/dl&gt;&lt;/article&gt;
+        &lt;article class=&quot;price-card&quot;&gt;&lt;h3&gt;CPI&lt;/h3&gt;&lt;div class=&quot;role&quot;&gt;도시가계의 생계비·구매력 변동&lt;/div&gt;&lt;dl&gt;&lt;dt&gt;핵심 특징&lt;/dt&gt;&lt;dd&gt;임금 비중이 높아 임금 상승이 빠르게 반영&lt;/dd&gt;&lt;dt&gt;경기 민감도&lt;/dt&gt;&lt;dd&gt;생필품 중심이라 크게 민감하지 않음&lt;/dd&gt;&lt;dt&gt;품목 수&lt;/dt&gt;&lt;dd&gt;460개 내외 · 참고용 수치&lt;/dd&gt;&lt;/dl&gt;&lt;/article&gt;
+        &lt;article class=&quot;price-card&quot;&gt;&lt;h3&gt;PPI&lt;/h3&gt;&lt;div class=&quot;role&quot;&gt;기업이 구입하는 재화·서비스 가격&lt;/div&gt;&lt;dl&gt;&lt;dt&gt;기준 가격&lt;/dt&gt;&lt;dd&gt;생산자 출하가격 = 공장도가격&lt;/dd&gt;&lt;dt&gt;역할&lt;/dt&gt;&lt;dd&gt;CPI 변동의 선행지표&lt;/dd&gt;&lt;dt&gt;품목 수&lt;/dt&gt;&lt;dd&gt;892개 · 강의상 참고용 수치&lt;/dd&gt;&lt;/dl&gt;&lt;/article&gt;
+        &lt;article class=&quot;price-card&quot;&gt;&lt;h3&gt;GDP 디플레이터&lt;/h3&gt;&lt;div class=&quot;role&quot;&gt;국내 모든 최종생산물의 평균 가격&lt;/div&gt;&lt;dl&gt;&lt;dt&gt;핵심 특징&lt;/dt&gt;&lt;dd&gt;가장 포괄적인 물가지수&lt;/dd&gt;&lt;dt&gt;조사 방식&lt;/dt&gt;&lt;dd&gt;시장 표본조사 없이 GDP로 계산&lt;/dd&gt;&lt;dt&gt;판단&lt;/dt&gt;&lt;dd&gt;100 초과 상승 · 100 미만 하락&lt;/dd&gt;&lt;/dl&gt;&lt;/article&gt;
       &lt;/div&gt;
       &lt;div class=&quot;flow&quot; aria-label=&quot;생산자물가가 소비자물가에 선행하는 흐름&quot;&gt;&lt;b&gt;원가·출하가격 상승&lt;/b&gt;&lt;span&gt;→&lt;/span&gt;&lt;b&gt;PPI 상승&lt;/b&gt;&lt;span&gt;→&lt;/span&gt;&lt;b&gt;판매가격 반영&lt;/b&gt;&lt;span&gt;→&lt;/span&gt;&lt;b&gt;CPI 변동&lt;/b&gt;&lt;/div&gt;
 
@@ -630,6 +629,41 @@
       &lt;p class=&quot;source-line&quot;&gt;출처: &lt;a href=&quot;https://www.youtube.com/watch?v=UHgVVzi_HqU&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;이패스TV 경기분석 강의&lt;/a&gt;&lt;/p&gt;
     &lt;/section&gt;
 
+    &lt;section id=&quot;supplement&quot;&gt;
+      &lt;div class=&quot;section-head&quot;&gt;
+        &lt;div class=&quot;section-no&quot;&gt;+&lt;/div&gt;
+        &lt;div&gt;&lt;h2&gt;누락 없이 보는 추가 빈출 개념&lt;/h2&gt;&lt;p&gt;경기종합지수 분류, 물가지수 산식, 경제학파와 통화량의 주가 경로를 보완했습니다.&lt;/p&gt;&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;h3 style=&quot;margin:0 0 14px&quot;&gt;경기종합지수 3분류 &lt;span class=&quot;exam-mark&quot;&gt;분류 암기&lt;/span&gt;&lt;/h3&gt;
+      &lt;div class=&quot;price-grid&quot;&gt;
+        &lt;article class=&quot;price-card&quot;&gt;&lt;h3&gt;선행지표&lt;/h3&gt;&lt;div class=&quot;role&quot;&gt;미래 경기보다 먼저 움직임&lt;/div&gt;&lt;p&gt;KOSPI, 장단기금리차, 경제심리지수(ESI), 건설수주액, 재고순환지표&lt;/p&gt;&lt;/article&gt;
+        &lt;article class=&quot;price-card&quot;&gt;&lt;h3&gt;동행지표&lt;/h3&gt;&lt;div class=&quot;role&quot;&gt;현재 경기와 함께 움직임&lt;/div&gt;&lt;p&gt;광공업·서비스업 생산지수, 소매판매액지수, 내수출하지수&lt;/p&gt;&lt;/article&gt;
+        &lt;article class=&quot;price-card&quot;&gt;&lt;h3&gt;후행지표&lt;/h3&gt;&lt;div class=&quot;role&quot;&gt;경기 변화 뒤에 움직임&lt;/div&gt;&lt;p&gt;CPI 변화율, CP유통수익률, 생산자제품재고지수, 취업자수&lt;/p&gt;&lt;/article&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;exam-callout&quot;&gt;&lt;b&gt;빈출 구별:&lt;/b&gt; KOSPI·장단기금리차·ESI는 선행, 광공업생산지수는 동행, CPI 변화율·CP유통수익률은 후행입니다.&lt;/div&gt;
+
+      &lt;h3 style=&quot;margin:34px 0 14px&quot;&gt;물가지수 산식의 차이&lt;/h3&gt;
+      &lt;div class=&quot;indicator-row&quot;&gt;
+        &lt;article class=&quot;card&quot;&gt;&lt;h3&gt;CPI · 라스파이레스&lt;/h3&gt;&lt;p&gt;기준시점 수량을 가중치로 고정해 가계 소비재 가격을 측정합니다.&lt;/p&gt;&lt;/article&gt;
+        &lt;article class=&quot;card&quot;&gt;&lt;h3&gt;GDP 디플레이터 · 파셰&lt;/h3&gt;&lt;p&gt;비교시점 수량을 가중치로 사용하며 국내 최종생산물을 가장 포괄적으로 반영합니다.&lt;/p&gt;&lt;/article&gt;
+      &lt;/div&gt;
+
+      &lt;h3 style=&quot;margin:34px 0 14px&quot;&gt;4대 경제학파 경기변동론&lt;/h3&gt;
+      &lt;div class=&quot;factor-grid&quot;&gt;
+        &lt;article class=&quot;card&quot;&gt;&lt;span class=&quot;factor-num&quot;&gt;K&lt;/span&gt;&lt;h3&gt;케인즈학파&lt;/h3&gt;&lt;p&gt;동물적 감각에 따른 투자 불안과 가격경직성을 중시하며 재정정책을 지지합니다.&lt;/p&gt;&lt;/article&gt;
+        &lt;article class=&quot;card&quot;&gt;&lt;span class=&quot;factor-num&quot;&gt;M&lt;/span&gt;&lt;h3&gt;통화주의&lt;/h3&gt;&lt;p&gt;자의적 통화공급이 경기교란을 만든다고 보고 일정한 k% 준칙을 강조합니다.&lt;/p&gt;&lt;/article&gt;
+        &lt;article class=&quot;card&quot;&gt;&lt;span class=&quot;factor-num&quot;&gt;NC&lt;/span&gt;&lt;h3&gt;새고전학파&lt;/h3&gt;&lt;p&gt;합리적 기대, 시장청산과 기술충격 중심의 실물경기변동론을 강조합니다.&lt;/p&gt;&lt;/article&gt;
+        &lt;article class=&quot;card&quot;&gt;&lt;span class=&quot;factor-num&quot;&gt;NK&lt;/span&gt;&lt;h3&gt;새케인즈학파&lt;/h3&gt;&lt;p&gt;메뉴비용 등 미시적 근거로 가격경직성을 설명하고 정책의 유효성을 인정합니다.&lt;/p&gt;&lt;/article&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;formula-grid&quot;&gt;
+        &lt;article class=&quot;formula&quot;&gt;&lt;h3&gt;피셔 교환방정식&lt;/h3&gt;&lt;div class=&quot;equation&quot;&gt;M × V = P × Y&lt;/div&gt;&lt;p&gt;통화량 × 유통속도 = 물가 × 실질GDP = 명목GDP. V는 사후적으로 계산됩니다.&lt;/p&gt;&lt;/article&gt;
+        &lt;article class=&quot;formula&quot;&gt;&lt;h3&gt;통화량과 주가&lt;/h3&gt;&lt;div class=&quot;equation&quot;&gt;단기 + / 중장기 − 가능&lt;/div&gt;&lt;p&gt;단기에는 유동성효과로 금리가 내려 주가에 긍정적이지만, 이후 소득·피셔효과로 명목금리가 오르면 주가에 부정적일 수 있습니다.&lt;/p&gt;&lt;/article&gt;
+        &lt;article class=&quot;formula&quot;&gt;&lt;h3&gt;경기순환 비대칭&lt;/h3&gt;&lt;div class=&quot;equation&quot;&gt;확장기 ＞ 수축기&lt;/div&gt;&lt;p&gt;국내 경기순환은 일반적으로 확장국면이 수축국면보다 긴 비대칭성을 보입니다.&lt;/p&gt;&lt;/article&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
     &lt;section id=&quot;formulas&quot;&gt;
       &lt;div class=&quot;section-head&quot;&gt;
         &lt;div class=&quot;section-no&quot;&gt;05&lt;/div&gt;
@@ -651,6 +685,7 @@
           &lt;div class=&quot;calc-result&quot;&gt;&lt;span&gt;Mg 목표 증가율&lt;/span&gt;&lt;output id=&quot;mg&quot;&gt;8.0%&lt;/output&gt;&lt;/div&gt;
         &lt;/div&gt;
       &lt;/div&gt;
+      &lt;div class=&quot;exam-callout&quot;&gt;&lt;b&gt;부호 예시:&lt;/b&gt; 실질성장률 4% + 물가상승률 3% − 유통속도 변화율(−2%) = &lt;strong&gt;9%&lt;/strong&gt;. ‘빼기 음수’는 더하기가 됩니다.&lt;/div&gt;
       &lt;p class=&quot;source-line&quot;&gt;출처: &lt;a href=&quot;https://www.youtube.com/watch?v=UHgVVzi_HqU&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;이패스TV 경기분석 강의&lt;/a&gt;&lt;/p&gt;
     &lt;/section&gt;
 
@@ -1301,7 +1336,7 @@
     &lt;/section&gt;
 
     &lt;nav class=&quot;contents&quot; aria-label=&quot;페이지 목차&quot;&gt;
-      &lt;a href=&quot;#companies&quot;&gt;01 금융회사&lt;/a&gt;&lt;a href=&quot;#licenses&quot;&gt;02 금융투자업&lt;/a&gt;&lt;a href=&quot;#trust&quot;&gt;03 신탁·일임&lt;/a&gt;&lt;a href=&quot;#bank-work&quot;&gt;04 은행업무&lt;/a&gt;&lt;a href=&quot;#finance&quot;&gt;05 직접·간접금융&lt;/a&gt;&lt;a href=&quot;#securities&quot;&gt;06 증권회사&lt;/a&gt;&lt;a href=&quot;#funds&quot;&gt;07 집합투자업&lt;/a&gt;&lt;a href=&quot;#quiz&quot;&gt;08 복습&lt;/a&gt;
+      &lt;a href=&quot;#companies&quot;&gt;01 금융회사&lt;/a&gt;&lt;a href=&quot;#licenses&quot;&gt;02 금융투자업&lt;/a&gt;&lt;a href=&quot;#trust&quot;&gt;03 신탁·일임&lt;/a&gt;&lt;a href=&quot;#bank-work&quot;&gt;04 은행업무&lt;/a&gt;&lt;a href=&quot;#finance&quot;&gt;05 직접·간접금융&lt;/a&gt;&lt;a href=&quot;#securities&quot;&gt;06 증권회사&lt;/a&gt;&lt;a href=&quot;#funds&quot;&gt;07 집합투자업&lt;/a&gt;&lt;a href=&quot;#protection&quot;&gt;08 예금보호&lt;/a&gt;&lt;a href=&quot;#quiz&quot;&gt;09 복습&lt;/a&gt;
     &lt;/nav&gt;
 
     &lt;aside class=&quot;strategy&quot;&gt;
@@ -1326,7 +1361,7 @@
             &lt;div class=&quot;protection-row&quot;&gt;&lt;span&gt;신용협동기구&lt;/span&gt;&lt;span class=&quot;status no&quot;&gt;예금자보호 X*&lt;/span&gt;&lt;/div&gt;
             &lt;div class=&quot;protection-row&quot;&gt;&lt;span&gt;우체국예금 &lt;small&gt;국가 운영&lt;/small&gt;&lt;/span&gt;&lt;span class=&quot;status all&quot;&gt;전액 보장&lt;/span&gt;&lt;/div&gt;
           &lt;/div&gt;
-          &lt;p style=&quot;margin:12px 0 0;color:var(--muted);font-size:.8rem&quot;&gt;* 예금자보호법이 아니라 자체적으로 보장&lt;/p&gt;
+          &lt;p style=&quot;margin:12px 0 0;color:var(--muted);font-size:.8rem&quot;&gt;* 예금자보호법이 아니라 신협·새마을금고·단위조합별 자체 예금보호기금으로 보장&lt;/p&gt;
         &lt;/article&gt;
         &lt;article class=&quot;sheet&quot;&gt;
           &lt;h3&gt;보험회사&lt;/h3&gt;
@@ -1389,7 +1424,7 @@
           &lt;div class=&quot;flow-line&quot;&gt;&lt;div class=&quot;node&quot;&gt;기업&lt;/div&gt;&lt;span class=&quot;connector&quot;&gt;↔&lt;/span&gt;&lt;div class=&quot;node&quot;&gt;투자자&lt;/div&gt;&lt;/div&gt;
           &lt;p&gt;증권사는 중간 인수기관으로 연결하지만, 책임은 자금수요자와 공급자 당사자에게 있습니다.&lt;/p&gt;
         &lt;/article&gt;
-        &lt;div class=&quot;versus&quot; aria-hidden=&quot;true&quot;&gt;VS&lt;/div&gt;
+        &lt;div class=&quot;versus&quot; aria-hidden=&quot;true&quot;&gt;versus&lt;/div&gt;
         &lt;article class=&quot;flow-panel indirect&quot;&gt;
           &lt;div class=&quot;flow-title&quot;&gt;&lt;h3&gt;간접금융&lt;/h3&gt;&lt;span&gt;예금·대출&lt;/span&gt;&lt;/div&gt;
           &lt;div class=&quot;flow-line&quot;&gt;&lt;div class=&quot;node&quot;&gt;예금자&lt;/div&gt;&lt;span class=&quot;connector&quot;&gt;→&lt;/span&gt;&lt;div class=&quot;node&quot;&gt;은행&lt;/div&gt;&lt;span class=&quot;connector&quot;&gt;→&lt;/span&gt;&lt;div class=&quot;node&quot;&gt;대출자&lt;/div&gt;&lt;/div&gt;
@@ -1433,8 +1468,44 @@
       &lt;/div&gt;
     &lt;/section&gt;
 
+    &lt;section class=&quot;section&quot; id=&quot;protection&quot;&gt;
+      &lt;div class=&quot;section-head&quot;&gt;&lt;div class=&quot;section-no&quot;&gt;08&lt;/div&gt;&lt;div&gt;&lt;h2&gt;예금자보호 · 단기금융상품&lt;/h2&gt;&lt;p class=&quot;section-intro&quot;&gt;판매 장소가 아니라 상품의 법적 성격으로 보호 여부를 판단합니다. 보호한도는 2026년 기준 1인당 금융회사별 원금과 이자를 합해 1억원입니다.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+
+      &lt;div class=&quot;trap&quot;&gt;&lt;strong&gt;단골 함정:&lt;/strong&gt; 은행 창구에서 가입했더라도 펀드·ELS·CD·RP는 예금자보호 대상이 아닙니다. ‘은행이 팔았다’가 아니라 ‘예금성 상품인가’를 확인하세요.&lt;/div&gt;
+
+      &lt;div class=&quot;compare&quot; style=&quot;margin-top:18px&quot;&gt;
+        &lt;article&gt;
+          &lt;div class=&quot;compare-kicker&quot;&gt;CERTIFICATE OF DEPOSIT&lt;/div&gt;&lt;h3&gt;CD · 양도성예금증서&lt;/h3&gt;
+          &lt;div class=&quot;ownership&quot;&gt;&lt;span&gt;무기명 할인식 · 중도해지 불가&lt;/span&gt;&lt;/div&gt;
+          &lt;p&gt;&lt;strong&gt;예금자보호 제외.&lt;/strong&gt; 만기 후 별도 이자가 붙지 않습니다.&lt;/p&gt;
+        &lt;/article&gt;
+        &lt;article&gt;
+          &lt;div class=&quot;compare-kicker&quot;&gt;COVER BILL&lt;/div&gt;&lt;h3&gt;표지어음&lt;/h3&gt;
+          &lt;div class=&quot;ownership&quot;&gt;&lt;span&gt;무기명 할인식 · 중도해지 불가&lt;/span&gt;&lt;/div&gt;
+          &lt;p&gt;&lt;strong&gt;예금자보호 대상.&lt;/strong&gt; 2026년 기준 보호한도는 원금과 이자를 합해 1억원입니다.&lt;/p&gt;
+        &lt;/article&gt;
+      &lt;/div&gt;
+
+      &lt;h3 style=&quot;margin:30px 0 14px&quot;&gt;상품별 보호 여부&lt;/h3&gt;
+      &lt;div class=&quot;company-grid&quot;&gt;
+        &lt;article class=&quot;sheet&quot;&gt;&lt;h3&gt;은행&lt;/h3&gt;&lt;ul class=&quot;clean&quot;&gt;&lt;li&gt;&lt;strong class=&quot;yes&quot;&gt;보호:&lt;/strong&gt; 보통예금, 정기예·적금, MMDA, ELD&lt;/li&gt;&lt;li&gt;&lt;strong class=&quot;no&quot;&gt;비보호:&lt;/strong&gt; CD, RP, 펀드·ELS&lt;/li&gt;&lt;/ul&gt;&lt;/article&gt;
+        &lt;article class=&quot;sheet&quot;&gt;&lt;h3&gt;증권회사&lt;/h3&gt;&lt;ul class=&quot;clean&quot;&gt;&lt;li&gt;&lt;strong class=&quot;yes&quot;&gt;보호:&lt;/strong&gt; 위탁자예수금&lt;/li&gt;&lt;li&gt;&lt;strong class=&quot;no&quot;&gt;비보호:&lt;/strong&gt; ELS·ELW·DLS, RP, MMF, 주식·채권&lt;/li&gt;&lt;/ul&gt;&lt;/article&gt;
+        &lt;article class=&quot;sheet&quot;&gt;&lt;h3&gt;종금·상호금융&lt;/h3&gt;&lt;ul class=&quot;clean&quot;&gt;&lt;li&gt;&lt;strong class=&quot;yes&quot;&gt;보호:&lt;/strong&gt; 표지어음, 종금사형 CMA, 저축은행 예·적금&lt;/li&gt;&lt;li&gt;&lt;strong class=&quot;no&quot;&gt;비보호:&lt;/strong&gt; CP, 증권사 발행어음&lt;/li&gt;&lt;/ul&gt;&lt;/article&gt;
+        &lt;article class=&quot;sheet&quot;&gt;&lt;h3&gt;투신·신탁&lt;/h3&gt;&lt;ul class=&quot;clean&quot;&gt;&lt;li&gt;&lt;strong class=&quot;yes&quot;&gt;보호:&lt;/strong&gt; 원리금보장형 퇴직연금 상품&lt;/li&gt;&lt;li&gt;&lt;strong class=&quot;no&quot;&gt;비보호:&lt;/strong&gt; 펀드, 뮤추얼펀드, 일반 금전신탁, ELF&lt;/li&gt;&lt;/ul&gt;&lt;/article&gt;
+      &lt;/div&gt;
+
+      &lt;h3 style=&quot;margin:30px 0 14px&quot;&gt;CMA 4종&lt;/h3&gt;
+      &lt;div class=&quot;company-grid&quot;&gt;
+        &lt;article class=&quot;sheet&quot;&gt;&lt;h3&gt;RP형&lt;/h3&gt;&lt;p&gt;환매조건부채권에 투자합니다.&lt;/p&gt;&lt;/article&gt;
+        &lt;article class=&quot;sheet&quot;&gt;&lt;h3&gt;MMF형&lt;/h3&gt;&lt;p&gt;단기금융집합투자기구인 MMF에 투자합니다.&lt;/p&gt;&lt;/article&gt;
+        &lt;article class=&quot;sheet&quot;&gt;&lt;h3&gt;MMW형&lt;/h3&gt;&lt;p&gt;한국증권금융 예수금 등에 운용합니다.&lt;/p&gt;&lt;/article&gt;
+        &lt;article class=&quot;sheet&quot;&gt;&lt;h3&gt;발행어음형&lt;/h3&gt;&lt;p&gt;초대형 투자은행의 자체신용으로 발행한 어음에 운용합니다.&lt;/p&gt;&lt;/article&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;memory&quot;&gt;&lt;strong&gt;2026 기준 보정&lt;/strong&gt; 기존 분석 페이지의 5천만원 표기는 과거 기준입니다. 현재 예금보호한도는 1억원입니다.&lt;/div&gt;
+    &lt;/section&gt;
+
     &lt;section class=&quot;section&quot; id=&quot;quiz&quot;&gt;
-      &lt;div class=&quot;section-head&quot;&gt;&lt;div class=&quot;section-no&quot;&gt;08&lt;/div&gt;&lt;div&gt;&lt;h2&gt;3문제로 끝내는 복습&lt;/h2&gt;&lt;p class=&quot;section-intro&quot;&gt;보기를 선택한 뒤 한 번에 채점하세요. 채점 전에는 정답이 표시되지 않습니다.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;section-head&quot;&gt;&lt;div class=&quot;section-no&quot;&gt;09&lt;/div&gt;&lt;div&gt;&lt;h2&gt;4문제로 끝내는 복습&lt;/h2&gt;&lt;p class=&quot;section-intro&quot;&gt;보기를 선택한 뒤 한 번에 채점하세요. 채점 전에는 정답이 표시되지 않습니다.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
       &lt;div class=&quot;quiz-list&quot;&gt;
         &lt;article class=&quot;quiz-item&quot; data-answer=&quot;3&quot;&gt;
           &lt;h3 class=&quot;quiz-title&quot;&gt;&lt;span&gt;Q1&lt;/span&gt;다음 중 신용협동기구가 아닌 것은?&lt;/h3&gt;
@@ -1466,6 +1537,16 @@
           &lt;/div&gt;
           &lt;p class=&quot;quiz-explanation&quot;&gt;&lt;strong&gt;정답: ④ 수탁회사.&lt;/strong&gt; 운용과 보관을 분리하며 판매대금도 수탁회사로 직접 이체됩니다.&lt;/p&gt;
         &lt;/article&gt;
+        &lt;article class=&quot;quiz-item&quot; data-answer=&quot;1&quot;&gt;
+          &lt;h3 class=&quot;quiz-title&quot;&gt;&lt;span&gt;Q4&lt;/span&gt;예금자보호 대상 상품은?&lt;/h3&gt;
+          &lt;div class=&quot;quiz-options&quot;&gt;
+            &lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;① 양도성예금증서(CD)&lt;/button&gt;
+            &lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;② 표지어음&lt;/button&gt;
+            &lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;③ 주가연계증권(ELS)&lt;/button&gt;
+            &lt;button class=&quot;quiz-option&quot; type=&quot;button&quot;&gt;④ 증권사 RP&lt;/button&gt;
+          &lt;/div&gt;
+          &lt;p class=&quot;quiz-explanation&quot;&gt;&lt;strong&gt;정답: ② 표지어음.&lt;/strong&gt; CD·ELS·증권사 RP는 비보호 상품이며, 보호한도는 2026년 기준 1억원입니다.&lt;/p&gt;
+        &lt;/article&gt;
       &lt;/div&gt;
       &lt;div class=&quot;quiz-actions&quot;&gt;&lt;button class=&quot;quiz-btn&quot; id=&quot;grade-quiz&quot; type=&quot;button&quot;&gt;채점하기&lt;/button&gt;&lt;button class=&quot;quiz-btn secondary&quot; id=&quot;reset-quiz&quot; type=&quot;button&quot;&gt;다시 풀기&lt;/button&gt;&lt;/div&gt;
       &lt;div class=&quot;quiz-score&quot; id=&quot;quiz-score&quot; role=&quot;status&quot; aria-live=&quot;polite&quot;&gt;&lt;/div&gt;
@@ -1482,6 +1563,10 @@
         &lt;div class=&quot;cram-row&quot;&gt;&lt;strong&gt;어음 인수&lt;/strong&gt;&lt;span&gt;은행 부수업무&lt;/span&gt;&lt;/div&gt;
         &lt;div class=&quot;cram-row&quot;&gt;&lt;strong&gt;펀드 판매&lt;/strong&gt;&lt;span&gt;투자중개업&lt;/span&gt;&lt;/div&gt;
         &lt;div class=&quot;cram-row&quot;&gt;&lt;strong&gt;투자신탁&lt;/strong&gt;&lt;span&gt;수익증권 · 수익자 · 수탁회사&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;cram-row&quot;&gt;&lt;strong&gt;CD / 표지어음&lt;/strong&gt;&lt;span&gt;CD 비보호 · 표지어음 보호&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;cram-row&quot;&gt;&lt;strong&gt;보호한도&lt;/strong&gt;&lt;span&gt;2026년 기준 금융회사별 1인당 1억원&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;cram-row&quot;&gt;&lt;strong&gt;판매창구 함정&lt;/strong&gt;&lt;span&gt;은행 판매 펀드·ELS도 비보호&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;cram-row&quot;&gt;&lt;strong&gt;CMA 4종&lt;/strong&gt;&lt;span&gt;RP · MMF · MMW · 발행어음형&lt;/span&gt;&lt;/div&gt;
       &lt;/div&gt;
     &lt;/section&gt;
 
@@ -2009,6 +2094,9 @@
       .compare td:nth-child(1)::before{content:&quot;비교 항목&quot;}
       .compare td:nth-child(2)::before{content:&quot;일반 중개업&quot;}
       .compare td:nth-child(3)::before{content:&quot;온라인소액&quot;}
+      .compare.shareholder-table td:nth-child(1)::before{content:&quot;결의&quot;}
+      .compare.shareholder-table td:nth-child(2)::before{content:&quot;정족수&quot;}
+      .compare.shareholder-table td:nth-child(3)::before{content:&quot;대표 사항&quot;}
       .compare td:first-child{
         width:100%;
         padding-left:42%;
@@ -2069,14 +2157,14 @@
 
   &lt;nav class=&quot;study-nav&quot; aria-label=&quot;핵심 섹션 바로가기&quot;&gt;
     &lt;div class=&quot;wrap nav-inner&quot;&gt;
-      &lt;a href=&quot;#background&quot;&gt;법 제정 배경&lt;/a&gt;&lt;a href=&quot;#products&quot;&gt;금융투자상품&lt;/a&gt;&lt;a href=&quot;#securities&quot;&gt;증권 6종&lt;/a&gt;&lt;a href=&quot;#business&quot;&gt;금융투자업&lt;/a&gt;&lt;a href=&quot;#crowd&quot;&gt;온라인소액중개&lt;/a&gt;&lt;a href=&quot;#investors&quot;&gt;투자자 분류&lt;/a&gt;&lt;a href=&quot;#quiz&quot;&gt;확인문제&lt;/a&gt;
+      &lt;a href=&quot;#background&quot;&gt;법 제정 배경&lt;/a&gt;&lt;a href=&quot;#products&quot;&gt;금융투자상품&lt;/a&gt;&lt;a href=&quot;#securities&quot;&gt;증권 6종&lt;/a&gt;&lt;a href=&quot;#business&quot;&gt;금융투자업&lt;/a&gt;&lt;a href=&quot;#crowd&quot;&gt;온라인소액중개&lt;/a&gt;&lt;a href=&quot;#investors&quot;&gt;투자자 분류&lt;/a&gt;&lt;a href=&quot;#consumer&quot;&gt;금소법&lt;/a&gt;&lt;a href=&quot;#market-rules&quot;&gt;불공정거래·상법&lt;/a&gt;&lt;a href=&quot;#quiz&quot;&gt;확인문제&lt;/a&gt;
     &lt;/div&gt;
   &lt;/nav&gt;
 
   &lt;div class=&quot;wrap layout&quot;&gt;
     &lt;aside class=&quot;rail&quot; aria-label=&quot;목차&quot;&gt;
       &lt;h2&gt;Study map&lt;/h2&gt;
-      &lt;ol&gt;&lt;li&gt;&lt;a href=&quot;#background&quot;&gt;법 제정 배경&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#products&quot;&gt;금융투자상품&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#securities&quot;&gt;증권 분류&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#business&quot;&gt;금융투자업 6종&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#crowd&quot;&gt;온라인소액중개&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#investors&quot;&gt;투자자 분류&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#quiz&quot;&gt;최종 점검&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+      &lt;ol&gt;&lt;li&gt;&lt;a href=&quot;#background&quot;&gt;법 제정 배경&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#products&quot;&gt;금융투자상품&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#securities&quot;&gt;증권 분류&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#business&quot;&gt;금융투자업 6종&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#crowd&quot;&gt;온라인소액중개&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#investors&quot;&gt;투자자 분류&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#consumer&quot;&gt;금소법&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#market-rules&quot;&gt;불공정거래·상법&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#quiz&quot;&gt;최종 점검&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
     &lt;/aside&gt;
 
     &lt;main&gt;&lt;article&gt;
@@ -2137,6 +2225,7 @@
           &lt;article class=&quot;business&quot;&gt;&lt;h3&gt;투자일임업&lt;/h3&gt;&lt;p&gt;고객의 투자판단을 위임받아 운용하는 업.&lt;/p&gt;&lt;/article&gt;
           &lt;article class=&quot;business&quot;&gt;&lt;h3&gt;신탁업&lt;/h3&gt;&lt;p&gt;신탁재산을 이전받아 관리·운용하는 업.&lt;/p&gt;&lt;/article&gt;
         &lt;/div&gt;
+        &lt;div class=&quot;lead-box&quot; style=&quot;margin-top:20px&quot;&gt;&lt;p&gt;&lt;strong&gt;인가 4개:&lt;/strong&gt; 투자매매업·투자중개업·집합투자업·신탁업 / &lt;strong&gt;등록 2개:&lt;/strong&gt; 투자자문업·투자일임업. 일임은 소유권이 고객에게 유지되고, 신탁은 수탁자에게 이전됩니다.&lt;/p&gt;&lt;/div&gt;
       &lt;/section&gt;
 
       &lt;section id=&quot;crowd&quot;&gt;
@@ -2178,8 +2267,40 @@
         &lt;span class=&quot;term-chip&quot;&gt;지정 후 2년간 전문투자자 지위 유지&lt;/span&gt;
       &lt;/section&gt;
 
+      &lt;section id=&quot;consumer&quot;&gt;
+        &lt;div class=&quot;section-head&quot;&gt;&lt;span class=&quot;section-no&quot;&gt;07&lt;/span&gt;&lt;h2&gt;금융소비자보호법 핵심 원칙 &lt;span class=&quot;priority&quot;&gt;빈출&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;권유가 있었는지와 소비자가 먼저 거래를 요청했는지를 구분하면 적합성·적정성 원칙이 선명해집니다.&lt;/p&gt;&lt;/div&gt;
+        &lt;div class=&quot;definition&quot;&gt;
+          &lt;div class=&quot;def&quot;&gt;&lt;span class=&quot;term&quot;&gt;적합성 원칙&lt;/span&gt;&lt;p&gt;&lt;b&gt;투자권유가 있을 때&lt;/b&gt; 고객의 성향·경험·재산상황을 파악하고 부적합한 상품을 권유하지 않습니다.&lt;/p&gt;&lt;/div&gt;
+          &lt;div class=&quot;def&quot;&gt;&lt;span class=&quot;term&quot;&gt;적정성 원칙&lt;/span&gt;&lt;p&gt;&lt;b&gt;고객이 자발적으로 거래할 때도&lt;/b&gt; 고위험상품이면 정보를 확인하고 부적정 사실을 알려야 합니다.&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;trap&quot;&gt;&lt;span class=&quot;label&quot;&gt;설명의무 함정&lt;/span&gt;&lt;p&gt;설명의무 위반 손해배상에서는 금융상품판매업자 등이 고의·과실이 없음을 입증해야 한다.&lt;/p&gt;&lt;/div&gt;
+
+        &lt;h3 style=&quot;margin-top:30px&quot;&gt;소비자 권리 숫자 암기&lt;/h3&gt;
+        &lt;div class=&quot;matrix&quot;&gt;
+          &lt;article&gt;&lt;h3&gt;청약철회권&lt;/h3&gt;&lt;p&gt;투자성 상품 7일 / 대출성 상품 14일&lt;/p&gt;&lt;/article&gt;
+          &lt;article&gt;&lt;h3&gt;위법계약해지권&lt;/h3&gt;&lt;p&gt;위반 사실을 안 날부터 1년, 계약체결일부터 5년 이내&lt;/p&gt;&lt;/article&gt;
+          &lt;article&gt;&lt;h3&gt;자료열람요구권&lt;/h3&gt;&lt;p&gt;요구받은 날부터 8일 이내 열람 제공&lt;/p&gt;&lt;/article&gt;
+          &lt;article&gt;&lt;h3&gt;소액분쟁조정&lt;/h3&gt;&lt;p&gt;2천만원 이하 분쟁은 조정 중 금융회사의 소송 제기를 제한&lt;/p&gt;&lt;/article&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;section id=&quot;market-rules&quot;&gt;
+        &lt;div class=&quot;section-head&quot;&gt;&lt;span class=&quot;section-no&quot;&gt;08&lt;/span&gt;&lt;h2&gt;단기매매차익 · 주주총회 결의&lt;/h2&gt;&lt;p&gt;불공정거래의 6개월 기준과 상법상 결의 정족수를 함께 암기합니다.&lt;/p&gt;&lt;/div&gt;
+        &lt;div class=&quot;trap&quot;&gt;&lt;span class=&quot;label&quot;&gt;단기매매차익 반환&lt;/span&gt;&lt;p&gt;상장법인의 임원·직원 또는 주요주주가 6개월 이내에 자사주 등을 매수 후 매도하거나 매도 후 매수해 얻은 이익은 원칙적으로 회사에 반환합니다. 미공개정보를 이용하지 않았다는 사정만으로 반환의무가 없어지는 것은 아닙니다.&lt;/p&gt;&lt;/div&gt;
+        &lt;div class=&quot;table-scroll-wrap&quot;&gt;
+          &lt;table class=&quot;compare shareholder-table&quot;&gt;
+            &lt;thead&gt;&lt;tr&gt;&lt;th&gt;결의&lt;/th&gt;&lt;th&gt;정족수&lt;/th&gt;&lt;th&gt;대표 사항&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+            &lt;tbody&gt;
+              &lt;tr&gt;&lt;td&gt;보통결의&lt;/td&gt;&lt;td&gt;출석 의결권 과반수 + 발행주식총수 1/4 이상&lt;/td&gt;&lt;td&gt;재무제표 승인, 이사 선임, 배당 등&lt;/td&gt;&lt;/tr&gt;
+              &lt;tr&gt;&lt;td&gt;특별결의&lt;/td&gt;&lt;td&gt;&lt;b&gt;출석 의결권 2/3 이상 + 발행주식총수 1/3 이상&lt;/b&gt;&lt;/td&gt;&lt;td&gt;정관 변경, 감자, 이사 해임, 영업양도, 합병·분할&lt;/td&gt;&lt;/tr&gt;
+            &lt;/tbody&gt;
+          &lt;/table&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;formula&quot;&gt;&lt;strong&gt;숫자 한 줄 암기&lt;/strong&gt;&lt;p&gt;단기매매차익 6개월 / 특별결의 출석 2/3 + 발행총수 1/3&lt;/p&gt;&lt;/div&gt;
+      &lt;/section&gt;
+
       &lt;section id=&quot;quiz&quot;&gt;
-        &lt;div class=&quot;section-head&quot;&gt;&lt;span class=&quot;section-no&quot;&gt;07&lt;/span&gt;&lt;h2&gt;6문제로 최종 점검&lt;/h2&gt;&lt;p&gt;각 문제의 보기를 선택한 뒤 한 번에 채점하세요. 채점 전에는 정답이 보이지 않습니다.&lt;/p&gt;&lt;/div&gt;
+        &lt;div class=&quot;section-head&quot;&gt;&lt;span class=&quot;section-no&quot;&gt;09&lt;/span&gt;&lt;h2&gt;6문제로 최종 점검&lt;/h2&gt;&lt;p&gt;각 문제의 보기를 선택한 뒤 한 번에 채점하세요. 채점 전에는 정답이 보이지 않습니다.&lt;/p&gt;&lt;/div&gt;
         &lt;div class=&quot;quiz&quot;&gt;
           &lt;div class=&quot;quiz-item&quot; data-answer=&quot;2&quot;&gt;
             &lt;h3 class=&quot;quiz-title&quot;&gt;&lt;span&gt;Q1&lt;/span&gt;ELS·DLS의 자본시장법상 분류는?&lt;/h3&gt;
@@ -2223,6 +2344,9 @@
             &lt;div&gt;&lt;b&gt;중개 배제&lt;/b&gt;&lt;span&gt;투자권유대행인&lt;/span&gt;&lt;/div&gt;
             &lt;div&gt;&lt;b&gt;온라인소액&lt;/b&gt;&lt;span&gt;등록 · 자기자본 5억원&lt;/span&gt;&lt;/div&gt;
             &lt;div&gt;&lt;b&gt;개인 전문&lt;/b&gt;&lt;span&gt;투자경험 필수 + 선택요건 하나&lt;/span&gt;&lt;/div&gt;
+            &lt;div&gt;&lt;b&gt;금소법 기간&lt;/b&gt;&lt;span&gt;청약 7·14일 / 위법계약 1·5년 / 열람 8일&lt;/span&gt;&lt;/div&gt;
+            &lt;div&gt;&lt;b&gt;단기매매&lt;/b&gt;&lt;span&gt;6개월 이내 차익은 원칙적으로 회사에 반환&lt;/span&gt;&lt;/div&gt;
+            &lt;div&gt;&lt;b&gt;특별결의&lt;/b&gt;&lt;span&gt;출석 2/3 + 발행주식총수 1/3&lt;/span&gt;&lt;/div&gt;
           &lt;/div&gt;
         &lt;/aside&gt;
       &lt;/section&gt;

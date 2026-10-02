@@ -183,8 +183,6 @@
     .exam-callout b { color: var(--coral); }
     .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
     .price-card { background: var(--paper); border: 1px solid var(--line); padding: 24px; position: relative; overflow: hidden; }
-    .price-card::after { content: attr(data-key); position: absolute; right: -5px; top: -15px; font: 700 64px/1 "Nanum Myeongjo", serif; color: var(--paper-soft); }
-    .price-card > * { position: relative; z-index: 1; }
     .price-card h3 { margin: 0 0 6px; font-size: 24px; }
     .price-card .role { color: var(--teal); font-weight: 700; min-height: 52px; }
     .price-card dl { margin: 20px 0 0; }
@@ -353,6 +351,7 @@
       <a href="#gdp">02 GDP</a>
       <a href="#prices">03 물가</a>
       <a href="#money">04 통화</a>
+      <a href="#supplement">추가 핵심</a>
       <a href="#formulas">05 공식</a>
       <a href="#quiz">06 문제풀이</a>
       <a href="#last">막판 암기</a>
@@ -427,9 +426,9 @@
         <div><h2>물가지수 3종, 조사 대상부터 구분</h2><p>CPI는 가계, PPI는 기업의 거래가격, GDP 디플레이터는 국내에서 생산된 모든 최종생산물을 봅니다.</p></div>
       </div>
       <div class="price-grid">
-        <article class="price-card" data-key="C"><h3>CPI</h3><div class="role">도시가계의 생계비·구매력 변동</div><dl><dt>핵심 특징</dt><dd>임금 비중이 높아 임금 상승이 빠르게 반영</dd><dt>경기 민감도</dt><dd>생필품 중심이라 크게 민감하지 않음</dd><dt>품목 수</dt><dd>460개 내외 · 참고용 수치</dd></dl></article>
-        <article class="price-card" data-key="P"><h3>PPI</h3><div class="role">기업이 구입하는 재화·서비스 가격</div><dl><dt>기준 가격</dt><dd>생산자 출하가격 = 공장도가격</dd><dt>역할</dt><dd>CPI 변동의 선행지표</dd><dt>품목 수</dt><dd>892개 · 강의상 참고용 수치</dd></dl></article>
-        <article class="price-card" data-key="D"><h3>GDP 디플레이터</h3><div class="role">국내 모든 최종생산물의 평균 가격</div><dl><dt>핵심 특징</dt><dd>가장 포괄적인 물가지수</dd><dt>조사 방식</dt><dd>시장 표본조사 없이 GDP로 계산</dd><dt>판단</dt><dd>100 초과 상승 · 100 미만 하락</dd></dl></article>
+        <article class="price-card"><h3>CPI</h3><div class="role">도시가계의 생계비·구매력 변동</div><dl><dt>핵심 특징</dt><dd>임금 비중이 높아 임금 상승이 빠르게 반영</dd><dt>경기 민감도</dt><dd>생필품 중심이라 크게 민감하지 않음</dd><dt>품목 수</dt><dd>460개 내외 · 참고용 수치</dd></dl></article>
+        <article class="price-card"><h3>PPI</h3><div class="role">기업이 구입하는 재화·서비스 가격</div><dl><dt>기준 가격</dt><dd>생산자 출하가격 = 공장도가격</dd><dt>역할</dt><dd>CPI 변동의 선행지표</dd><dt>품목 수</dt><dd>892개 · 강의상 참고용 수치</dd></dl></article>
+        <article class="price-card"><h3>GDP 디플레이터</h3><div class="role">국내 모든 최종생산물의 평균 가격</div><dl><dt>핵심 특징</dt><dd>가장 포괄적인 물가지수</dd><dt>조사 방식</dt><dd>시장 표본조사 없이 GDP로 계산</dd><dt>판단</dt><dd>100 초과 상승 · 100 미만 하락</dd></dl></article>
       </div>
       <div class="flow" aria-label="생산자물가가 소비자물가에 선행하는 흐름"><b>원가·출하가격 상승</b><span>→</span><b>PPI 상승</b><span>→</span><b>판매가격 반영</b><span>→</span><b>CPI 변동</b></div>
 
@@ -462,6 +461,41 @@
       <p class="source-line">출처: <a href="https://www.youtube.com/watch?v=UHgVVzi_HqU" target="_blank" rel="noopener noreferrer">이패스TV 경기분석 강의</a></p>
     </section>
 
+    <section id="supplement">
+      <div class="section-head">
+        <div class="section-no">+</div>
+        <div><h2>누락 없이 보는 추가 빈출 개념</h2><p>경기종합지수 분류, 물가지수 산식, 경제학파와 통화량의 주가 경로를 보완했습니다.</p></div>
+      </div>
+
+      <h3 style="margin:0 0 14px">경기종합지수 3분류 <span class="exam-mark">분류 암기</span></h3>
+      <div class="price-grid">
+        <article class="price-card"><h3>선행지표</h3><div class="role">미래 경기보다 먼저 움직임</div><p>KOSPI, 장단기금리차, 경제심리지수(ESI), 건설수주액, 재고순환지표</p></article>
+        <article class="price-card"><h3>동행지표</h3><div class="role">현재 경기와 함께 움직임</div><p>광공업·서비스업 생산지수, 소매판매액지수, 내수출하지수</p></article>
+        <article class="price-card"><h3>후행지표</h3><div class="role">경기 변화 뒤에 움직임</div><p>CPI 변화율, CP유통수익률, 생산자제품재고지수, 취업자수</p></article>
+      </div>
+      <div class="exam-callout"><b>빈출 구별:</b> KOSPI·장단기금리차·ESI는 선행, 광공업생산지수는 동행, CPI 변화율·CP유통수익률은 후행입니다.</div>
+
+      <h3 style="margin:34px 0 14px">물가지수 산식의 차이</h3>
+      <div class="indicator-row">
+        <article class="card"><h3>CPI · 라스파이레스</h3><p>기준시점 수량을 가중치로 고정해 가계 소비재 가격을 측정합니다.</p></article>
+        <article class="card"><h3>GDP 디플레이터 · 파셰</h3><p>비교시점 수량을 가중치로 사용하며 국내 최종생산물을 가장 포괄적으로 반영합니다.</p></article>
+      </div>
+
+      <h3 style="margin:34px 0 14px">4대 경제학파 경기변동론</h3>
+      <div class="factor-grid">
+        <article class="card"><span class="factor-num">K</span><h3>케인즈학파</h3><p>동물적 감각에 따른 투자 불안과 가격경직성을 중시하며 재정정책을 지지합니다.</p></article>
+        <article class="card"><span class="factor-num">M</span><h3>통화주의</h3><p>자의적 통화공급이 경기교란을 만든다고 보고 일정한 k% 준칙을 강조합니다.</p></article>
+        <article class="card"><span class="factor-num">NC</span><h3>새고전학파</h3><p>합리적 기대, 시장청산과 기술충격 중심의 실물경기변동론을 강조합니다.</p></article>
+        <article class="card"><span class="factor-num">NK</span><h3>새케인즈학파</h3><p>메뉴비용 등 미시적 근거로 가격경직성을 설명하고 정책의 유효성을 인정합니다.</p></article>
+      </div>
+
+      <div class="formula-grid">
+        <article class="formula"><h3>피셔 교환방정식</h3><div class="equation">M × V = P × Y</div><p>통화량 × 유통속도 = 물가 × 실질GDP = 명목GDP. V는 사후적으로 계산됩니다.</p></article>
+        <article class="formula"><h3>통화량과 주가</h3><div class="equation">단기 + / 중장기 − 가능</div><p>단기에는 유동성효과로 금리가 내려 주가에 긍정적이지만, 이후 소득·피셔효과로 명목금리가 오르면 주가에 부정적일 수 있습니다.</p></article>
+        <article class="formula"><h3>경기순환 비대칭</h3><div class="equation">확장기 ＞ 수축기</div><p>국내 경기순환은 일반적으로 확장국면이 수축국면보다 긴 비대칭성을 보입니다.</p></article>
+      </div>
+    </section>
+
     <section id="formulas">
       <div class="section-head">
         <div class="section-no">05</div>
@@ -483,6 +517,7 @@
           <div class="calc-result"><span>Mg 목표 증가율</span><output id="mg">8.0%</output></div>
         </div>
       </div>
+      <div class="exam-callout"><b>부호 예시:</b> 실질성장률 4% + 물가상승률 3% − 유통속도 변화율(−2%) = <strong>9%</strong>. ‘빼기 음수’는 더하기가 됩니다.</div>
       <p class="source-line">출처: <a href="https://www.youtube.com/watch?v=UHgVVzi_HqU" target="_blank" rel="noopener noreferrer">이패스TV 경기분석 강의</a></p>
     </section>
 

@@ -455,6 +455,9 @@
       .compare td:nth-child(1)::before{content:"비교 항목"}
       .compare td:nth-child(2)::before{content:"일반 중개업"}
       .compare td:nth-child(3)::before{content:"온라인소액"}
+      .compare.shareholder-table td:nth-child(1)::before{content:"결의"}
+      .compare.shareholder-table td:nth-child(2)::before{content:"정족수"}
+      .compare.shareholder-table td:nth-child(3)::before{content:"대표 사항"}
       .compare td:first-child{
         width:100%;
         padding-left:42%;
@@ -515,14 +518,14 @@
 
   <nav class="study-nav" aria-label="핵심 섹션 바로가기">
     <div class="wrap nav-inner">
-      <a href="#background">법 제정 배경</a><a href="#products">금융투자상품</a><a href="#securities">증권 6종</a><a href="#business">금융투자업</a><a href="#crowd">온라인소액중개</a><a href="#investors">투자자 분류</a><a href="#quiz">확인문제</a>
+      <a href="#background">법 제정 배경</a><a href="#products">금융투자상품</a><a href="#securities">증권 6종</a><a href="#business">금융투자업</a><a href="#crowd">온라인소액중개</a><a href="#investors">투자자 분류</a><a href="#consumer">금소법</a><a href="#market-rules">불공정거래·상법</a><a href="#quiz">확인문제</a>
     </div>
   </nav>
 
   <div class="wrap layout">
     <aside class="rail" aria-label="목차">
       <h2>Study map</h2>
-      <ol><li><a href="#background">법 제정 배경</a></li><li><a href="#products">금융투자상품</a></li><li><a href="#securities">증권 분류</a></li><li><a href="#business">금융투자업 6종</a></li><li><a href="#crowd">온라인소액중개</a></li><li><a href="#investors">투자자 분류</a></li><li><a href="#quiz">최종 점검</a></li></ol>
+      <ol><li><a href="#background">법 제정 배경</a></li><li><a href="#products">금융투자상품</a></li><li><a href="#securities">증권 분류</a></li><li><a href="#business">금융투자업 6종</a></li><li><a href="#crowd">온라인소액중개</a></li><li><a href="#investors">투자자 분류</a></li><li><a href="#consumer">금소법</a></li><li><a href="#market-rules">불공정거래·상법</a></li><li><a href="#quiz">최종 점검</a></li></ol>
     </aside>
 
     <main><article>
@@ -583,6 +586,7 @@
           <article class="business"><h3>투자일임업</h3><p>고객의 투자판단을 위임받아 운용하는 업.</p></article>
           <article class="business"><h3>신탁업</h3><p>신탁재산을 이전받아 관리·운용하는 업.</p></article>
         </div>
+        <div class="lead-box" style="margin-top:20px"><p><strong>인가 4개:</strong> 투자매매업·투자중개업·집합투자업·신탁업 / <strong>등록 2개:</strong> 투자자문업·투자일임업. 일임은 소유권이 고객에게 유지되고, 신탁은 수탁자에게 이전됩니다.</p></div>
       </section>
 
       <section id="crowd">
@@ -624,8 +628,40 @@
         <span class="term-chip">지정 후 2년간 전문투자자 지위 유지</span>
       </section>
 
+      <section id="consumer">
+        <div class="section-head"><span class="section-no">07</span><h2>금융소비자보호법 핵심 원칙 <span class="priority">빈출</span></h2><p>권유가 있었는지와 소비자가 먼저 거래를 요청했는지를 구분하면 적합성·적정성 원칙이 선명해집니다.</p></div>
+        <div class="definition">
+          <div class="def"><span class="term">적합성 원칙</span><p><b>투자권유가 있을 때</b> 고객의 성향·경험·재산상황을 파악하고 부적합한 상품을 권유하지 않습니다.</p></div>
+          <div class="def"><span class="term">적정성 원칙</span><p><b>고객이 자발적으로 거래할 때도</b> 고위험상품이면 정보를 확인하고 부적정 사실을 알려야 합니다.</p></div>
+        </div>
+        <div class="trap"><span class="label">설명의무 함정</span><p>설명의무 위반 손해배상에서는 금융상품판매업자 등이 고의·과실이 없음을 입증해야 한다.</p></div>
+
+        <h3 style="margin-top:30px">소비자 권리 숫자 암기</h3>
+        <div class="matrix">
+          <article><h3>청약철회권</h3><p>투자성 상품 7일 / 대출성 상품 14일</p></article>
+          <article><h3>위법계약해지권</h3><p>위반 사실을 안 날부터 1년, 계약체결일부터 5년 이내</p></article>
+          <article><h3>자료열람요구권</h3><p>요구받은 날부터 8일 이내 열람 제공</p></article>
+          <article><h3>소액분쟁조정</h3><p>2천만원 이하 분쟁은 조정 중 금융회사의 소송 제기를 제한</p></article>
+        </div>
+      </section>
+
+      <section id="market-rules">
+        <div class="section-head"><span class="section-no">08</span><h2>단기매매차익 · 주주총회 결의</h2><p>불공정거래의 6개월 기준과 상법상 결의 정족수를 함께 암기합니다.</p></div>
+        <div class="trap"><span class="label">단기매매차익 반환</span><p>상장법인의 임원·직원 또는 주요주주가 6개월 이내에 자사주 등을 매수 후 매도하거나 매도 후 매수해 얻은 이익은 원칙적으로 회사에 반환합니다. 미공개정보를 이용하지 않았다는 사정만으로 반환의무가 없어지는 것은 아닙니다.</p></div>
+        <div class="table-scroll-wrap">
+          <table class="compare shareholder-table">
+            <thead><tr><th>결의</th><th>정족수</th><th>대표 사항</th></tr></thead>
+            <tbody>
+              <tr><td>보통결의</td><td>출석 의결권 과반수 + 발행주식총수 1/4 이상</td><td>재무제표 승인, 이사 선임, 배당 등</td></tr>
+              <tr><td>특별결의</td><td><b>출석 의결권 2/3 이상 + 발행주식총수 1/3 이상</b></td><td>정관 변경, 감자, 이사 해임, 영업양도, 합병·분할</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="formula"><strong>숫자 한 줄 암기</strong><p>단기매매차익 6개월 / 특별결의 출석 2/3 + 발행총수 1/3</p></div>
+      </section>
+
       <section id="quiz">
-        <div class="section-head"><span class="section-no">07</span><h2>6문제로 최종 점검</h2><p>각 문제의 보기를 선택한 뒤 한 번에 채점하세요. 채점 전에는 정답이 보이지 않습니다.</p></div>
+        <div class="section-head"><span class="section-no">09</span><h2>6문제로 최종 점검</h2><p>각 문제의 보기를 선택한 뒤 한 번에 채점하세요. 채점 전에는 정답이 보이지 않습니다.</p></div>
         <div class="quiz">
           <div class="quiz-item" data-answer="2">
             <h3 class="quiz-title"><span>Q1</span>ELS·DLS의 자본시장법상 분류는?</h3>
@@ -669,6 +705,9 @@
             <div><b>중개 배제</b><span>투자권유대행인</span></div>
             <div><b>온라인소액</b><span>등록 · 자기자본 5억원</span></div>
             <div><b>개인 전문</b><span>투자경험 필수 + 선택요건 하나</span></div>
+            <div><b>금소법 기간</b><span>청약 7·14일 / 위법계약 1·5년 / 열람 8일</span></div>
+            <div><b>단기매매</b><span>6개월 이내 차익은 원칙적으로 회사에 반환</span></div>
+            <div><b>특별결의</b><span>출석 2/3 + 발행주식총수 1/3</span></div>
           </div>
         </aside>
       </section>
