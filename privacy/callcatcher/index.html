@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="CallCatcher 개인정보 처리방침 및 Privacy Policy">
+  <title>CallCatcher 개인정보 처리방침 | Privacy Policy</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --background: #f8fafc;
+      --surface: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --line: #dbe2ec;
+      --primary: #4f46e5;
+      --primary-soft: #e0e7ff;
+      --notice: #ecfeff;
+      --notice-line: #0e7490;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    header {
+      padding: 64px 24px 48px;
+      color: #ffffff;
+      background: linear-gradient(135deg, #312e81, #4f46e5);
+    }
+
+    header div, main, footer {
+      width: min(920px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      line-height: 1.15;
+      letter-spacing: -0.04em;
+    }
+
+    header p { margin: 6px 0; color: #e0e7ff; }
+
+    main { padding: 36px 0 72px; }
+
+    nav, section, .notice {
+      margin-bottom: 20px;
+      padding: clamp(22px, 4vw, 36px);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--surface);
+    }
+
+    nav ol {
+      columns: 2;
+      margin: 16px 0 0;
+      padding-left: 24px;
+    }
+
+    nav a, a { color: var(--primary); }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: 1.45rem;
+      line-height: 1.35;
+      letter-spacing: -0.025em;
+    }
+
+    h3 { margin: 28px 0 10px; font-size: 1.1rem; }
+    p, ul, ol { margin-top: 10px; margin-bottom: 10px; }
+    ul, ol { padding-left: 24px; }
+
+    table {
+      width: 100%;
+      margin: 16px 0;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+
+    th, td {
+      padding: 13px 14px;
+      border: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th { background: var(--primary-soft); }
+
+    .table-wrap { overflow-x: auto; }
+
+    .notice {
+      border-left: 5px solid var(--notice-line);
+      background: var(--notice);
+    }
+
+    .en {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px dashed var(--line);
+      color: var(--muted);
+    }
+
+    .label {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      color: #312e81;
+      background: var(--primary-soft);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    footer {
+      padding: 0 0 48px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 680px) {
+      nav ol { columns: 1; }
+      th, td { min-width: 150px; }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color-scheme: dark;
+        --background: #0b1020;
+        --surface: #0f172a;
+        --text: #e2e8f0;
+        --muted: #a8b4c5;
+        --line: #334155;
+        --primary: #a5b4fc;
+        --primary-soft: #312e81;
+        --notice: #102a31;
+        --notice-line: #67e8f9;
+      }
+      th { color: #e0e7ff; }
+      .label { color: #e0e7ff; }
+    }
+
+    @media print {
+      header { padding: 32px 0; }
+      main { width: 100%; padding: 20px 0; }
+      nav { display: none; }
+      section, .notice { break-inside: avoid; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <!--
+    참고용 초안이며 법률 자문이 아닙니다.
+    실제 공개 전 서비스 운영 현황과 최신 법령을 기준으로 법률 전문가의 검토를 받으세요.
+  -->
+  <header>
+    <div>
+      <h1>개인정보 처리방침</h1>
+      <p><strong>CallCatcher Privacy Policy</strong></p>
+      <p>시행일 / Effective date: 2026-10-02</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="notice">
+      <strong>핵심 안내</strong>
+      <p>CallCatcher는 자동응답 기능에 필요한 전화번호, 통화·문자 내역 및 템플릿을 원칙적으로 이용자의 기기에 저장합니다. 전화번호, 문자 내용 및 템플릿 이름은 Firebase 분석 이벤트로 전송하지 않습니다.</p>
+      <p class="en"><strong>Summary.</strong> CallCatcher primarily stores phone numbers, call/message history, and reply templates on the user's device. Phone numbers, message content, and template names are not sent as Firebase Analytics event parameters.</p>
+    </div>
+
+    <nav aria-label="목차">
+      <strong>목차 / Contents</strong>
+      <ol>
+        <li><a href="#purpose">처리 목적</a></li>
+        <li><a href="#items">처리 항목</a></li>
+        <li><a href="#retention">보유 기간</a></li>
+        <li><a href="#third-parties">제3자 제공</a></li>
+        <li><a href="#processors">처리위탁·국외이전</a></li>
+        <li><a href="#deletion">파기 절차</a></li>
+        <li><a href="#rights">이용자 권리</a></li>
+        <li><a href="#children">아동의 개인정보</a></li>
+        <li><a href="#security">안전성 확보조치</a></li>
+        <li><a href="#tracking">자동 수집 장치</a></li>
+        <li><a href="#contact">문의처</a></li>
+        <li><a href="#changes">방침 변경</a></li>
+      </ol>
+    </nav>
+
+    <section id="purpose">
+      <span class="label">1</span>
+      <h2>개인정보의 처리 목적 / Purposes of Processing</h2>
+      <ul>
+        <li>연락처에 저장되지 않은 번호의 전화 수신 여부 확인</li>
+        <li>설정된 시간대와 템플릿에 따른 SMS 자동응답</li>
+        <li>전화 수신 및 자동 문자 발송 내역 표시</li>
+        <li>동일 번호에 대한 24시간 내 중복 응답 방지</li>
+        <li>앱 이용 현황 분석, 오류 진단 및 성능 개선</li>
+      </ul>
+      <div class="en">
+        <ul>
+          <li>Identify calls from numbers not saved in the user's contacts.</li>
+          <li>Send scheduled automatic SMS replies using the selected template.</li>
+          <li>Display incoming-call and automatic-message history.</li>
+          <li>Prevent repeated replies to the same number within 24 hours.</li>
+          <li>Analyze app usage, diagnose crashes, and improve performance.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="items">
+      <span class="label">2</span>
+      <h2>처리하는 개인정보 항목 / Categories of Data</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>구분 / Category</th>
+              <th>항목 / Data</th>
+              <th>처리 방식 / Handling</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>전화 및 연락처</td>
+              <td>수신 전화번호, 전화 상태, 통화 기록, 연락처 저장 여부</td>
+              <td>자동응답 판단 및 내역 표시를 위해 기기에서 처리</td>
+            </tr>
+            <tr>
+              <td>문자</td>
+              <td>자동응답 문구, 템플릿 이름, 발송 대상 번호와 발송 시각</td>
+              <td>기기에 저장하고 이동통신망을 통해 SMS 발송</td>
+            </tr>
+            <tr>
+              <td>설정</td>
+              <td>자동응답 활성화 여부, 응답 시간대, 선택 템플릿</td>
+              <td>기기에 저장</td>
+            </tr>
+            <tr>
+              <td>진단 및 이용정보</td>
+              <td>화면 조회, 기능 사용 이벤트, 권한 허용 결과, 앱 성능 추적값, 충돌 정보, 기기·앱 식별정보</td>
+              <td>Google Firebase를 통해 자동 수집될 수 있음</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>CallCatcher는 Firebase 분석 이벤트에 전화번호, 문자 내용 또는 템플릿 이름을 포함하지 않습니다.</p>
+      <div class="en">
+        <p>Data processed includes incoming phone numbers, phone state, call-log and contact-match information, reply templates, SMS destination and send time, app settings, feature-use events, permission results, performance traces, crash diagnostics, and device/app identifiers. Phone numbers, message content, and template names are not included in Firebase Analytics event parameters.</p>
+      </div>
+    </section>
+
+    <section id="retention">
+      <span class="label">3</span>
+      <h2>보유 및 이용기간 / Retention</h2>
+      <ul>
+        <li><strong>기기 내 데이터:</strong> 이용자가 앱 데이터 또는 개별 항목을 삭제하거나 앱을 제거할 때까지 보관됩니다.</li>
+        <li><strong>중복 응답 방지 기록:</strong> 기능 수행에 필요한 기간 동안 기기에 저장되며, 앱 데이터 삭제 또는 앱 제거 시 삭제됩니다.</li>
+        <li><strong>Firebase 데이터:</strong> Google의 Firebase 보관 정책 및 운영자가 Firebase Console에서 설정한 기간에 따라 보관됩니다.</li>
+        <li><strong>법령상 보존:</strong> 관련 법령에서 별도 보존을 요구하는 경우 해당 기간 동안 보관할 수 있습니다.</li>
+      </ul>
+      <div class="en">
+        <p>On-device data remains until the user deletes individual data, clears app storage, or uninstalls the app. Firebase data is retained according to Google's Firebase retention policies and the retention period configured by the operator. Data may be retained longer where required by applicable law.</p>
+      </div>
+    </section>
+
+    <section id="third-parties">
+      <span class="label">4</span>
+      <h2>개인정보의 제3자 제공 / Sharing with Third Parties</h2>
+      <p>운영자는 이용자의 개인정보를 판매하지 않습니다. 다음 기능 수행 과정에서는 필요한 정보가 외부로 전달될 수 있습니다.</p>
+      <ul>
+        <li><strong>SMS 수신자 및 이동통신사:</strong> 이용자가 설정한 자동응답 문구와 수신 전화번호가 문자 발송을 위해 전달됩니다.</li>
+        <li><strong>법적 요구:</strong> 법령에 근거하거나 적법한 절차에 따른 요청이 있는 경우 관련 기관에 제공될 수 있습니다.</li>
+      </ul>
+      <div class="en">
+        <p>The operator does not sell personal data. The selected reply text and destination phone number are transmitted to the SMS recipient and telecommunications providers to deliver the message. Data may also be disclosed when required by law or valid legal process.</p>
+      </div>
+    </section>
+
+    <section id="processors">
+      <span class="label">5</span>
+      <h2>처리위탁 및 국외이전 / Processors and International Transfers</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>수탁자 / Processor</th>
+              <th>목적 / Purpose</th>
+              <th>이전 항목 / Data</th>
+              <th>이전 국가·시점 / Destination &amp; Timing</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Google LLC (Firebase Analytics, Performance Monitoring, Crashlytics)</td>
+              <td>이용 분석, 성능 측정, 충돌 진단</td>
+              <td>이벤트, 권한 결과, 성능·충돌 정보, 기기·앱 식별정보</td>
+              <td>미국을 포함한 Google의 글로벌 서버, 앱 이용 및 오류 발생 시 네트워크 전송</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Google의 개인정보 처리에 관한 자세한 내용은 <a href="https://policies.google.com/privacy" rel="noopener noreferrer">Google 개인정보처리방침</a> 및 <a href="https://firebase.google.com/support/privacy" rel="noopener noreferrer">Firebase 개인정보 및 보안 문서</a>에서 확인할 수 있습니다.</p>
+      <div class="en">
+        <p>Google LLC processes analytics events, permission results, performance data, crash diagnostics, and device/app identifiers through Firebase Analytics, Performance Monitoring, and Crashlytics. Data may be transferred when the app is used or an error occurs to Google's globally operated infrastructure, including servers in the United States. See the linked Google and Firebase privacy documentation for details.</p>
+      </div>
+    </section>
+
+    <section id="deletion">
+      <span class="label">6</span>
+      <h2>개인정보의 파기 / Deletion</h2>
+      <p>보유 목적이 달성되거나 보유기간이 종료된 개인정보는 지체 없이 삭제합니다. 이용자는 앱에서 템플릿을 삭제할 수 있으며, Android 설정에서 앱 저장공간을 삭제하거나 앱을 제거하여 기기 내 데이터를 삭제할 수 있습니다. 전자적 파일은 복구가 어렵도록 삭제합니다.</p>
+      <div class="en">
+        <p>Data is deleted without undue delay when its purpose or retention period ends. Users can delete templates in the app and remove on-device data by clearing app storage in Android settings or uninstalling the app. Electronic records are deleted using methods intended to prevent ordinary recovery.</p>
+      </div>
+    </section>
+
+    <section id="rights">
+      <span class="label">7</span>
+      <h2>이용자와 법정대리인의 권리 / User and Guardian Rights</h2>
+      <p>이용자 또는 법정대리인은 개인정보의 열람, 정정, 삭제, 처리정지, 동의 철회를 요청할 수 있습니다. 기기 내 데이터는 앱 또는 Android 설정에서 직접 관리할 수 있으며, 그 밖의 요청은 아래 문의처로 접수할 수 있습니다. 본인 또는 정당한 대리인 확인이 필요한 경우 최소한의 확인 절차를 요청할 수 있습니다.</p>
+      <div class="en">
+        <p>Users and legal guardians may request access, correction, deletion, restriction, or withdrawal of consent. On-device data can be managed through the app or Android settings. Other requests may be submitted to the contact below, and reasonable identity or authority verification may be required.</p>
+      </div>
+    </section>
+
+    <section id="children">
+      <span class="label">8</span>
+      <h2>만 14세 미만 아동의 개인정보 / Children's Privacy</h2>
+      <p>CallCatcher는 만 14세 미만 아동이 사용할 수 있는 서비스입니다. 만 14세 미만 아동의 개인정보를 동의에 근거하여 처리해야 하는 경우 법정대리인의 동의를 받으며, 동의 확인에 필요한 최소한의 정보만 처리합니다. 법정대리인은 아동의 개인정보에 대한 열람, 정정, 삭제 및 처리정지를 요청할 수 있습니다.</p>
+      <p>법정대리인의 동의가 필요한 상황에서 동의가 확인되지 않은 경우, 해당 아동은 자동응답 기능을 사용하지 않아야 합니다. 보호자는 SMS 요금과 전화번호·문자 처리 방식을 확인하고 아동의 앱 사용을 지도해 주세요.</p>
+      <div class="en">
+        <p>CallCatcher may be used by children under 14. Where consent is the legal basis for processing a child's personal data, consent from a legal guardian is required and only the minimum information necessary to verify that consent will be processed. Guardians may request access, correction, deletion, or restriction of a child's data. A child must not use automatic replies where required guardian consent has not been verified. Guardians should supervise use and review SMS charges and phone-number/message handling.</p>
+      </div>
+    </section>
+
+    <section id="security">
+      <span class="label">9</span>
+      <h2>개인정보의 안전성 확보조치 / Security Measures</h2>
+      <ul>
+        <li>전화번호, 문자 내용 및 템플릿 이름을 분석 이벤트에서 제외</li>
+        <li>핵심 기능 데이터를 원칙적으로 앱 전용 저장공간에 보관</li>
+        <li>필요한 Android 런타임 권한을 이용자에게 요청</li>
+        <li>서비스 계정과 배포 자격증명에 대한 접근 제한</li>
+        <li>Firebase를 통한 오류·성능 모니터링 및 보안 업데이트 적용</li>
+      </ul>
+      <div class="en">
+        <p>Measures include excluding phone numbers, message content, and template names from analytics events; using app-private storage for core data; requesting Android runtime permissions; restricting deployment credentials; and monitoring reliability and applying security updates.</p>
+      </div>
+    </section>
+
+    <section id="tracking">
+      <span class="label">10</span>
+      <h2>자동 수집 장치 및 행태정보 / Automatic Collection and Analytics</h2>
+      <p>앱은 웹 쿠키를 사용하지 않습니다. 다만 Firebase SDK가 앱 인스턴스 식별자, 기기·앱 정보, 이용 이벤트, 성능 및 충돌 정보를 자동으로 수집할 수 있습니다. 이는 맞춤형 광고 제공이 아니라 앱 이용 분석과 안정성 개선을 위한 것입니다.</p>
+      <p>이용자는 Android의 개인정보 보호 및 광고 설정을 조정하거나 앱을 제거할 수 있습니다. 일부 진단 수집을 제한하면 앱 품질 개선에 필요한 정보가 줄어들 수 있습니다.</p>
+      <div class="en">
+        <p>The app does not use web cookies. Firebase SDKs may automatically collect app-instance identifiers, device/app information, usage events, performance metrics, and crash diagnostics for analytics and reliability—not to provide personalized advertising. Users may adjust applicable Android privacy and advertising settings or uninstall the app.</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <span class="label">11</span>
+      <h2>개인정보 보호 문의처 / Privacy Contact</h2>
+      <ul>
+        <li><strong>운영자 / Operator:</strong> CallCatcher</li>
+        <li><strong>담당부서 / Responsible team:</strong> CallCatcher 운영팀</li>
+        <li><strong>이메일 / Email:</strong> <a href="mailto:code.zer0ad@gmail.com">code.zer0ad@gmail.com</a></li>
+      </ul>
+      <p>개인정보 보호책임자의 성명과 사업장 주소는 지정 또는 확정 후 이 방침에 추가됩니다.</p>
+      <div class="en">
+        <p>The name of the designated privacy officer and the operator's business address will be added when formally designated or confirmed.</p>
+      </div>
+    </section>
+
+    <section id="remedies">
+      <span class="label">12</span>
+      <h2>권익침해 구제방법 / Complaints and Remedies</h2>
+      <p>국내 이용자는 개인정보 침해에 관한 상담 또는 구제를 위해 다음 기관에 문의할 수 있습니다.</p>
+      <ul>
+        <li>개인정보침해신고센터: 국번 없이 118, <a href="https://privacy.kisa.or.kr" rel="noopener noreferrer">privacy.kisa.or.kr</a></li>
+        <li>개인정보분쟁조정위원회: 1833-6972, <a href="https://www.kopico.go.kr" rel="noopener noreferrer">kopico.go.kr</a></li>
+        <li>경찰청: 국번 없이 182, <a href="https://ecrm.police.go.kr" rel="noopener noreferrer">ecrm.police.go.kr</a></li>
+      </ul>
+      <div class="en">
+        <p>Users may also contact the competent privacy or consumer-protection authority in their country. Korean users may contact the organizations listed above for counseling and dispute resolution.</p>
+      </div>
+    </section>
+
+    <section id="changes">
+      <span class="label">13</span>
+      <h2>처리방침의 변경 / Changes to This Policy</h2>
+      <p>이 방침의 내용이 변경되는 경우 앱 배포 페이지 또는 별도 공지 수단을 통해 시행 전에 안내합니다. 이용자의 권리에 중대한 영향을 미치는 변경은 합리적인 기간을 두고 알립니다.</p>
+      <ul>
+        <li>공고일 / Notice date: 2026-10-02</li>
+        <li>시행일 / Effective date: 2026-10-02</li>
+      </ul>
+      <div class="en">
+        <p>Changes will be announced through the app's distribution page or another appropriate notice channel before they take effect. Material changes affecting user rights will be announced with reasonable advance notice.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 CallCatcher. This page does not load external fonts, cookies, analytics, or scripts.</p>
+  </footer>
+</body>
+</html>
