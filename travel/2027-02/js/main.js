@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Current active destination ID & selected day
-  let currentDestination = isPrintPreview ? previewDestination : 'rome';
+  let currentDestination = isPrintPreview ? previewDestination : 'finland_paris_asiana';
   let currentDay = 1;
   let customHeadcount = 4; // Default group size (4인 가족)
 
@@ -195,7 +195,36 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
           </div>
 
-          <div class="flight-routes-grid">
+          <div class="flight-routes-grid ${data.flight.segments ? 'multi-segment' : ''}">
+            ${data.flight.segments ? data.flight.segments.map((seg, idx) => `
+              <div class="route-box">
+                <div class="route-box-header">
+                  <span class="route-label outbound">구간 0${idx + 1} · ${seg.flightNo || '교통'} (${seg.date})</span>
+                  <span class="route-airline-tag">${seg.airline}</span>
+                </div>
+                <div class="timeline-row">
+                  <div class="time-city">
+                    <div class="time">${seg.depTime}</div>
+                    <div class="airport">${seg.depAirport}</div>
+                  </div>
+                  <div class="flight-path">
+                    <span class="flight-duration">${seg.duration}</span>
+                    <div class="path-line-container">
+                      <span class="dot"></span>
+                      <span class="line"><span class="plane-icon">✈</span></span>
+                      <span class="dot"></span>
+                    </div>
+                  </div>
+                  <div class="time-city">
+                    <div class="time">${seg.arrTime}</div>
+                    <div class="airport">${seg.arrAirport}</div>
+                  </div>
+                </div>
+                <div class="flight-notes">
+                  <span>💡 ${seg.note}</span>
+                </div>
+              </div>
+            `).join('') : `
             <!-- Outbound Flight -->
             <div class="route-box">
               <span class="route-label outbound">🛫 가는 편${data.flight.outbound.flightNo ? ` (${data.flight.outbound.flightNo})` : ' (편명 예약 시 확인)'} - ${data.dates.departure}</span>
@@ -247,9 +276,63 @@ document.addEventListener('DOMContentLoaded', () => {
                 <span>💡 ${data.flight.inbound.note || '현지 출발일과 한국 도착일은 다를 수 있습니다. 전자항공권의 현지 출발 날짜·시각에 맞춰 공항 이동과 출국 수속 시간을 확보하세요.'}</span>
               </div>
             </div>
+            `}
           </div>
         </div>
       </section>
+
+      ${data.estimateInfo ? `
+        <!-- Official PDF Estimate Breakdown Card -->
+        <section style="margin-bottom: 36px;">
+          <div class="estimate-doc-card">
+            <div class="estimate-doc-header">
+              <div class="estimate-agency-badge">
+                <span class="agency-icon">📑</span>
+                <div>
+                  <div class="agency-title">${data.estimateInfo.agency} 실견적서 요약 & 비교 분석</div>
+                  <div class="agency-date">견적 발행일: ${data.estimateInfo.issuedDate} · 참조 원본: ${data.estimateInfo.pdfFile}</div>
+                </div>
+              </div>
+              <div class="estimate-price-summary">
+                <span class="estimate-badge-label">웹투어 패키지 실견적</span>
+                <span class="estimate-badge-price">${formatKRW(data.estimateInfo.packagePriceTotal)}</span>
+                <span class="estimate-badge-per">(1인당 ${formatKRW(data.estimateInfo.packagePricePerPerson)} / 4인)</span>
+              </div>
+            </div>
+
+            <div class="estimate-body-grid">
+              <div class="estimate-info-column">
+                <div class="estimate-block-title">🏦 결제 및 입금 계좌 안내</div>
+                <div class="estimate-bank-info">
+                  <strong>${data.estimateInfo.account}</strong>
+                  <div style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 6px; line-height: 1.4;">
+                    • ${data.estimateInfo.deposit}<br>
+                    • ${data.estimateInfo.airDeposit}<br>
+                    • ${data.estimateInfo.balanceDeadline}
+                  </div>
+                </div>
+                ${data.estimateInfo.highlight ? `
+                  <div class="estimate-compare-note">
+                    <div style="font-weight: 700; margin-bottom: 4px;">💡 견적 핵심 포인트:</div>
+                    <div>${data.estimateInfo.highlight}</div>
+                  </div>
+                ` : ''}
+              </div>
+
+              <div class="estimate-details-column">
+                <div class="estimate-block-title">✅ 견적서 포함 내역</div>
+                <ul class="estimate-checklist included">
+                  ${(data.estimateInfo.included || []).map(inc => `<li><span>✔</span> ${inc}</li>`).join('')}
+                </ul>
+                <div class="estimate-block-title" style="margin-top: 14px;">❌ 견적서 불포함 내역</div>
+                <ul class="estimate-checklist excluded">
+                  ${(data.estimateInfo.excluded || []).map(exc => `<li><span>✕</span> ${exc}</li>`).join('')}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      ` : ''}
 
       <!-- Budget Dashboard & Live Calculator Split -->
       <section style="margin-bottom: 40px;">
@@ -472,7 +555,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <img src="${act.image}" alt="${act.imageCaption || act.title}" loading="lazy" onerror="this.alt='사진을 불러오지 못했습니다';">
                 <div class="gallery-caption-overlay">
                   <span class="gallery-caption-tag">${act.tag}</span>
-                  <span class="gallery-caption-title">${act.title}${act.imageCaption ? ' · 참고 사진' : ''}</span>
+                  <span class="gallery-caption-title">${act.title}${act.rating ? ` · ★ ${act.rating}` : ''}</span>
                 </div>
               </div>
             `).join('')}
@@ -496,9 +579,29 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="activity-header">
                 <span class="activity-time">⏰ ${act.time}</span>
                 <span class="activity-tag">${act.tag}</span>
+                ${act.rating ? `<span class="act-rating-badge">★ ${act.rating}</span>` : ''}
+                ${act.isSeniorFriendly ? `<span class="senior-friendly-tag">🌿 시니어 안심 동선</span>` : ''}
               </div>
               <div class="activity-title">${act.title}</div>
               <div class="activity-desc">${act.desc}</div>
+              ${act.signatureMenu ? `
+                <div class="act-menu-box">
+                  <span class="menu-label">🍽️ 대표 추천 메뉴:</span> <span>${act.signatureMenu}</span>
+                </div>
+              ` : ''}
+              ${act.seniorNote ? `
+                <div class="act-senior-note">
+                  <span class="senior-label">👵 시니어 케어 가이드:</span> <span>${act.seniorNote}</span>
+                </div>
+              ` : ''}
+              ${act.mapUrl ? `
+                <div class="act-map-action">
+                  <a href="${act.mapUrl}" target="_blank" rel="noopener noreferrer" class="act-map-link">
+                    <span class="map-icon">📍</span>
+                    <span>Google 지도에서 위치 및 길찾기 보기 ↗</span>
+                  </a>
+                </div>
+              ` : ''}
             </div>
           </div>
         `).join('')}

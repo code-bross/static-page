@@ -1392,3 +1392,292 @@ body {
     padding: 16px;
   }
 }
+
+/* ==========================================================================
+   ENHANCEMENTS: Multi-segment Flight, WebTour Estimate Card, Google Maps & Senior Notes
+   ========================================================================== */
+
+/* Multi-segment Flight Grid */
+.flight-routes-grid.multi-segment {
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: 16px;
+}
+
+.route-box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.route-airline-tag {
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(2, 132, 199, 0.12);
+  color: var(--accent-blue);
+  border: 1px solid rgba(2, 132, 199, 0.25);
+}
+
+/* Official WebTour PDF Estimate Card */
+.estimate-doc-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--border-glow);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  box-shadow: var(--shadow-lg), 0 0 20px rgba(217, 119, 6, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.estimate-doc-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-gold), var(--accent-emerald), var(--accent-blue));
+}
+
+.estimate-doc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 18px;
+  margin-bottom: 20px;
+}
+
+.estimate-agency-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.agency-icon {
+  font-size: 2rem;
+  background: rgba(217, 119, 6, 0.12);
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.agency-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.agency-date {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.estimate-price-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background: rgba(217, 119, 6, 0.08);
+  border: 1px solid var(--border-glow);
+  padding: 10px 18px;
+  border-radius: var(--radius-md);
+}
+
+.estimate-badge-label {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+}
+
+.estimate-badge-price {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.estimate-badge-per {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.estimate-body-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 820px) {
+  .estimate-body-grid {
+    grid-template-columns: 1fr;
+  }
+  .estimate-price-summary {
+    align-items: flex-start;
+    width: 100%;
+  }
+}
+
+.estimate-block-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.estimate-bank-info {
+  background: var(--bg-card-solid);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  color: var(--accent-gold);
+  letter-spacing: 0.02em;
+  margin-bottom: 14px;
+}
+
+.estimate-compare-note {
+  background: rgba(2, 132, 199, 0.08);
+  border-left: 3px solid var(--accent-blue);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 12px 14px;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.estimate-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.estimate-checklist li {
+  font-size: 0.85rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.estimate-checklist.included li span {
+  color: var(--accent-emerald);
+  font-weight: 800;
+}
+
+.estimate-checklist.excluded li span {
+  color: var(--accent-terracotta);
+  font-weight: 800;
+}
+
+/* Rating Badge */
+.act-rating-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: rgba(217, 119, 6, 0.15);
+  color: var(--accent-gold);
+  border: 1px solid rgba(217, 119, 6, 0.35);
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+/* Senior Friendly Tag */
+.senior-friendly-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--accent-emerald);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+/* Signature Menu Box */
+.act-menu-box {
+  background: rgba(16, 185, 129, 0.07);
+  border-left: 3px solid var(--accent-emerald);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 10px 14px;
+  margin-top: 10px;
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.act-menu-box .menu-label {
+  font-weight: 700;
+  color: var(--accent-emerald);
+  margin-right: 6px;
+}
+
+/* Senior Care Note Box */
+.act-senior-note {
+  background: rgba(217, 119, 6, 0.08);
+  border-left: 3px solid var(--accent-gold);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 10px 14px;
+  margin-top: 8px;
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.act-senior-note .senior-label {
+  font-weight: 700;
+  color: var(--accent-gold);
+  margin-right: 6px;
+}
+
+/* Google Map Action Button */
+.act-map-action {
+  margin-top: 12px;
+}
+
+.act-map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  background: rgba(2, 132, 199, 0.1);
+  color: var(--accent-blue);
+  border: 1px solid rgba(2, 132, 199, 0.3);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.act-map-link:hover {
+  background: var(--accent-blue);
+  color: #FFFFFF;
+  border-color: var(--accent-blue);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+  transform: translateY(-2px);
+}
+
+.act-map-link .map-icon {
+  font-size: 0.95rem;
+}
+
