@@ -1,0 +1,979 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="data:," />
+  <title>증권투자권유자문인력 1주 완성 개념정리</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap');
+    :root {
+      color-scheme: light dark;
+      --bg: #f4f7f6;
+      --paper: #ffffff;
+      --paper2: #edf3f1;
+      --ink: #102b2c;
+      --ink-secondary: #244647;
+      --muted: #425e5e;
+      --line: #cad8d5;
+      --line-strong: #9ab4b0;
+      
+      --accent: #c53822;
+      --accent-soft: #fdf2ef;
+      --accent-border: #f7cfc7;
+      
+      --teal: #0d5b5e;
+      --teal-light: #167a7d;
+      --teal2: #dceceb;
+      
+      --gold: #945803;
+      --gold-soft: #fef8eb;
+      --gold-border: #f4dcb0;
+      
+      --good: #1a6f4e;
+      --good-soft: #e5f5ed;
+      
+      --shadow: 0 16px 42px rgba(13,55,56,.08);
+      --shadow-sm: 0 2px 8px rgba(13,55,56,.05);
+
+      --day-head-bg: linear-gradient(135deg, #0d5b5e 0%, #154c4e 100%);
+      --day-head-text: #ffffff;
+      --day-head-label: #a2ece7;
+      --day-head-p: #d9efed;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0c191a;
+        --paper: #132425;
+        --paper2: #182e2f;
+        --ink: #edf7f5;
+        --ink-secondary: #cde0dd;
+        --muted: #95b3af;
+        --line: #264344;
+        --line-strong: #3b6364;
+
+        --accent: #ff8570;
+        --accent-soft: #2e1a16;
+        --accent-border: #5a2c24;
+
+        --teal: #78cbc7;
+        --teal-light: #97deda;
+        --teal2: #173b3b;
+
+        --gold: #f5c46b;
+        --gold-soft: #2b2210;
+        --gold-border: #574119;
+
+        --good: #79c79c;
+        --good-soft: #173626;
+
+        --shadow: 0 18px 50px rgba(0,0,0,.35);
+        --shadow-sm: 0 4px 12px rgba(0,0,0,.25);
+
+        --day-head-bg: linear-gradient(135deg, #123334 0%, #0d2526 100%);
+        --day-head-text: #f0faf9;
+        --day-head-label: #78cbc7;
+        --day-head-p: #adc3c0;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.68;
+      word-break: keep-all;
+    }
+    button, a { font: inherit; }
+    a { color: var(--teal); }
+
+    /* Top Navigation */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: color-mix(in srgb, var(--paper) 92%, transparent);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      padding: 10px 0;
+    }
+    .top-nav-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--teal2);
+      color: var(--teal);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .nav-link {
+      font-size: 0.85rem;
+      font-weight: 650;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 5px 10px;
+      border-radius: 6px;
+      transition: all 0.15s ease;
+    }
+    .nav-link:hover {
+      color: var(--ink);
+      background: var(--paper2);
+    }
+
+    /* Hero */
+    .hero {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 36px 22px 24px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.07fr .93fr;
+      gap: 26px;
+      align-items: stretch;
+    }
+    .hero-copy {
+      background: var(--paper);
+      padding: 44px;
+      border-radius: 30px 8px 30px 8px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border: 1px solid var(--line);
+    }
+    .eyebrow {
+      color: var(--accent);
+      font-size: .84rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+    }
+    .hero h1 {
+      font-family: 'Gowun Dodum', sans-serif;
+      font-size: clamp(2.35rem, 5vw, 4.4rem);
+      line-height: 1.1;
+      letter-spacing: -.05em;
+      margin: 12px 0 18px;
+      max-width: 9ch;
+      color: var(--ink);
+    }
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 620px;
+      margin: 0;
+      line-height: 1.65;
+    }
+    .hero-visual {
+      min-height: 400px;
+      border-radius: 8px 30px 8px 30px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+    }
+    .hero-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-note {
+      position: absolute;
+      right: 18px;
+      bottom: 18px;
+      background: rgba(12, 43, 44, 0.92);
+      color: #ffffff;
+      padding: 14px 18px;
+      border-radius: 12px;
+      max-width: 320px;
+      font-size: .9rem;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 20px rgba(0,0,0,.3);
+    }
+    .hero-note strong { color: #ffb19e; margin-right: 4px; }
+
+    /* Exam Strip */
+    .exam-strip {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 22px 28px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .stat {
+      background: var(--paper);
+      padding: 18px 20px;
+      border-top: 4px solid var(--teal);
+      border-radius: 0 0 8px 8px;
+      min-height: 108px;
+      border-left: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      box-shadow: var(--shadow-sm);
+    }
+    .stat b {
+      font-size: 1.45rem;
+      display: block;
+      color: var(--ink);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .stat span {
+      font-size: .86rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* Main Layout */
+    .layout {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 22px 72px;
+      display: grid;
+      grid-template-columns: 245px 1fr;
+      gap: 24px;
+    }
+
+    /* Sidebar */
+    .side {
+      position: sticky;
+      top: 60px;
+      align-self: start;
+      background: var(--paper);
+      padding: 16px;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+    }
+    .side h2 {
+      font-size: .88rem;
+      margin: 4px 8px 12px;
+      color: var(--muted);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .day-btn {
+      border: 0;
+      background: transparent;
+      color: var(--ink);
+      width: 100%;
+      text-align: left;
+      padding: 11px 12px;
+      border-radius: 9px;
+      cursor: pointer;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      transition: all .15s ease;
+      border-left: 3px solid transparent;
+    }
+    .day-btn:hover {
+      background: var(--paper2);
+      color: var(--ink);
+    }
+    .day-btn.active {
+      background: var(--teal2);
+      color: var(--teal);
+      font-weight: 800;
+      border-left-color: var(--teal);
+    }
+    .day-num {
+      font-variant-numeric: tabular-nums;
+      font-weight: 800;
+      min-width: 24px;
+      opacity: 0.85;
+    }
+    .side .mock {
+      display: block;
+      margin: 14px 4px 4px;
+      padding: 12px 14px;
+      text-decoration: none;
+      background: var(--accent);
+      color: #ffffff !important;
+      border-radius: 10px;
+      font-weight: 800;
+      text-align: center;
+      font-size: .9rem;
+      transition: opacity .15s ease;
+    }
+    .side .mock:hover {
+      opacity: 0.92;
+    }
+
+    /* Main Content Area */
+    .content { min-width: 0; }
+    .overview {
+      background: var(--paper);
+      padding: 32px;
+      border-radius: 8px 26px 8px 26px;
+      margin-bottom: 20px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    .overview h2 {
+      font-family: 'Gowun Dodum', sans-serif;
+      font-size: 1.9rem;
+      margin: 0 0 10px;
+      color: var(--ink);
+    }
+    .overview p {
+      color: var(--muted);
+      margin: 0 0 20px;
+      font-size: 1rem;
+    }
+    .plan {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+    }
+    .plan button {
+      border: 1px solid var(--line);
+      background: var(--bg);
+      color: var(--ink);
+      padding: 12px 6px;
+      border-radius: 8px;
+      cursor: pointer;
+      min-height: 88px;
+      transition: all .15s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .plan button:hover {
+      background: var(--paper2);
+      border-color: var(--line-strong);
+    }
+    .plan button b {
+      font-size: 1.15rem;
+      display: block;
+      line-height: 1.2;
+    }
+    .plan button span {
+      font-size: .72rem;
+      color: var(--muted);
+      margin-top: 5px;
+      display: block;
+    }
+    .plan button.current {
+      background: #0d5b5e;
+      color: #ffffff;
+      border-color: #0d5b5e;
+      box-shadow: 0 4px 14px rgba(13,91,94,.25);
+    }
+    .plan button.current span {
+      color: #cce9e6;
+    }
+    @media (prefers-color-scheme: dark) {
+      .plan button.current {
+        background: #174243;
+        color: #edf7f5;
+        border-color: #78cbc7;
+      }
+      .plan button.current span {
+        color: #a2ece7;
+      }
+    }
+
+    /* Day Article */
+    .day { display: none; }
+    .day.active { display: block; }
+    
+    .day-head {
+      padding: 36px 38px;
+      background: var(--day-head-bg);
+      color: var(--day-head-text);
+      border-radius: 26px 8px 0 0;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-bottom: 2px solid var(--teal);
+    }
+    .day-head:after {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border: 38px solid rgba(255,255,255,.07);
+      border-radius: 50%;
+      right: -45px;
+      top: -64px;
+    }
+    .day-head .label {
+      font-size: .83rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      color: var(--day-head-label);
+    }
+    .day-head h2 {
+      font-family: 'Gowun Dodum', sans-serif;
+      font-size: clamp(2rem, 4vw, 2.9rem);
+      line-height: 1.18;
+      margin: 8px 0;
+      color: var(--day-head-text);
+    }
+    .day-head p {
+      margin: 0;
+      max-width: 680px;
+      color: var(--day-head-p);
+      font-size: 1.02rem;
+    }
+    .day-meta {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+    .day-meta span {
+      background: rgba(255,255,255,.12);
+      color: var(--day-head-text);
+      padding: 5px 11px;
+      border-radius: 6px;
+      font-size: .82rem;
+      font-weight: 600;
+      border: 1px solid rgba(255,255,255,.15);
+    }
+
+    .sheet {
+      background: var(--paper);
+      padding: 36px;
+      border-radius: 0 0 8px 26px;
+      margin-bottom: 22px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+      border-top: 0;
+    }
+
+    .section {
+      padding: 26px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .section:first-child { padding-top: 0; }
+    .section:last-child { border-bottom: 0; padding-bottom: 0; }
+    .section h3 {
+      font-family: 'Gowun Dodum', sans-serif;
+      font-size: 1.6rem;
+      margin: 0 0 14px;
+      color: var(--ink);
+    }
+    .section h4 {
+      margin: 20px 0 8px;
+      color: var(--teal);
+      font-size: 1.15rem;
+    }
+    .section p {
+      margin: 8px 0;
+      line-height: 1.7;
+    }
+    .lead {
+      font-size: 1.05rem;
+      color: var(--ink-secondary);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin: 16px 0;
+    }
+    .card {
+      background: var(--paper2);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+    }
+    .card h4 {
+      margin: 0 0 8px;
+      color: var(--ink);
+      font-size: 1.05rem;
+    }
+    .card p {
+      color: var(--muted);
+      margin: 0;
+      font-size: .94rem;
+      line-height: 1.65;
+    }
+    .card strong { color: var(--accent); }
+
+    .flow {
+      display: flex;
+      align-items: stretch;
+      gap: 8px;
+      margin: 18px 0;
+      overflow-x: auto;
+    }
+    .step {
+      flex: 1;
+      background: var(--teal2);
+      color: var(--ink);
+      padding: 14px 10px;
+      text-align: center;
+      border-radius: 8px;
+      font-weight: 750;
+      font-size: .92rem;
+      border: 1px solid color-mix(in srgb, var(--teal) 25%, transparent);
+    }
+    .arrow {
+      align-self: center;
+      color: var(--accent);
+      font-weight: 900;
+      font-size: 1.1rem;
+    }
+
+    /* Callout & Memory Containers */
+    .callout {
+      background: var(--accent-soft);
+      padding: 18px 22px;
+      border-radius: 8px;
+      margin: 18px 0;
+      border: 1px solid var(--accent-border);
+      border-left: 5px solid var(--accent);
+      color: var(--ink);
+      line-height: 1.7;
+    }
+    .callout b {
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .memory {
+      background: var(--gold-soft);
+      padding: 18px 22px;
+      border-radius: 8px;
+      margin: 18px 0;
+      border: 1px solid var(--gold-border);
+      border-left: 5px solid var(--gold);
+      color: var(--ink);
+      line-height: 1.7;
+    }
+    .memory strong {
+      color: var(--gold);
+      font-weight: 800;
+    }
+
+    .compare {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: .92rem;
+    }
+    .compare th, .compare td {
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.6;
+    }
+    .compare th {
+      background: var(--paper2);
+      color: var(--teal);
+      font-weight: 800;
+    }
+    .compare tr:last-child td { border-bottom: none; }
+
+    .formula {
+      font-family: 'Gowun Dodum', sans-serif;
+      font-size: 1.25rem;
+      background: var(--paper2);
+      border: 1px dashed var(--teal);
+      border-radius: 8px;
+      padding: 16px 20px;
+      text-align: center;
+      margin: 14px 0;
+      color: var(--ink);
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--teal2);
+      color: var(--teal);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: .78rem;
+      font-weight: 800;
+      border: 1px solid color-mix(in srgb, var(--teal) 25%, transparent);
+    }
+    .hot {
+      color: var(--accent);
+      font-weight: 800;
+    }
+    .bullets {
+      padding-left: 1.3em;
+      margin: 10px 0;
+    }
+    .bullets li { margin: 8px 0; }
+
+    .number-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 14px 0;
+    }
+    .number {
+      background: var(--paper2);
+      padding: 16px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+    }
+    .number b {
+      display: block;
+      font-size: 1.35rem;
+      color: var(--accent);
+      font-weight: 850;
+      margin-bottom: 4px;
+    }
+
+    details {
+      background: var(--paper2);
+      border-radius: 10px;
+      margin: 10px 0;
+      border: 1px solid var(--line);
+    }
+    summary {
+      padding: 15px 18px;
+      cursor: pointer;
+      font-weight: 750;
+      color: var(--ink);
+    }
+    details > div {
+      padding: 0 18px 16px;
+      color: var(--ink-secondary);
+      line-height: 1.65;
+    }
+
+    /* High Contrast Check Card */
+    .check {
+      margin-top: 28px;
+      background: #112829;
+      color: #f1f8f7;
+      padding: 26px 24px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+    }
+    @media (prefers-color-scheme: dark) {
+      .check {
+        background: #0d1e1f;
+        border-color: #244141;
+      }
+    }
+    .check h3 {
+      color: #a2ece7;
+      font-family: 'Gowun Dodum', sans-serif;
+      margin: 0 0 14px;
+      font-size: 1.4rem;
+    }
+    .check details {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 10px;
+      margin: 9px 0;
+    }
+    .check summary {
+      color: #ffffff;
+      padding: 14px 18px;
+      cursor: pointer;
+      font-weight: 750;
+    }
+    .check details > div {
+      padding: 0 18px 16px;
+      color: #c9e3e0;
+      line-height: 1.65;
+    }
+
+    .sources {
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px dashed var(--line);
+      font-size: .84rem;
+      color: var(--muted);
+    }
+    .sources a {
+      margin-right: 12px;
+      color: var(--teal);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .next {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .next button, .next a {
+      border: 0;
+      background: #0d5b5e;
+      color: #ffffff !important;
+      padding: 12px 22px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 800;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      transition: opacity .15s ease;
+    }
+    .next button:hover, .next a:hover { opacity: 0.92; }
+    .next button.secondary {
+      background: var(--paper2);
+      color: var(--ink) !important;
+      border: 1px solid var(--line);
+    }
+    @media (prefers-color-scheme: dark) {
+      .next button:not(.secondary) {
+        background: #1d4d4e;
+        color: #edf7f5 !important;
+        border: 1px solid #78cbc7;
+      }
+    }
+
+    .roadmap {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .road {
+      padding: 20px;
+      background: var(--paper2);
+      border-radius: 12px;
+      border: 1px solid var(--line);
+    }
+    .road b { color: var(--accent); display: block; margin-bottom: 6px; }
+
+    .bottom-note {
+      max-width: 1180px;
+      margin: 0 auto 60px;
+      padding: 0 22px;
+      color: var(--muted);
+      font-size: .88rem;
+    }
+    .bottom-note p {
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
+      margin: 0;
+    }
+
+    @media (max-width: 850px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-copy { padding: 30px; }
+      .hero-visual { min-height: 280px; }
+      .exam-strip { grid-template-columns: repeat(2, 1fr); }
+      .layout { display: block; }
+      .side {
+        position: static;
+        margin-bottom: 18px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+      }
+      .side h2 { grid-column: 1 / -1; }
+      .day-btn { font-size: .84rem; padding: 10px 8px; border-left: 0; border-bottom: 3px solid transparent; }
+      .day-btn.active { border-left-color: transparent; border-bottom-color: var(--teal); }
+      .side .mock { grid-column: 1 / -1; }
+      .plan { grid-template-columns: repeat(4, 1fr); }
+      .plan button { min-height: 72px; }
+      .cards, .roadmap { grid-template-columns: 1fr; }
+      .sheet, .overview { padding: 24px; }
+      .day-head { padding: 26px 24px; }
+      .flow { flex-direction: column; }
+      .arrow { transform: rotate(90deg); text-align: center; }
+      .number-grid { grid-template-columns: repeat(2, 1fr); }
+      .compare { display: block; }
+      .compare thead { display: none; }
+      .compare tbody, .compare tr, .compare td { display: block; }
+      .compare tr { border-bottom: 1px solid var(--line); padding: 10px 0; }
+      .compare td { border: 0; padding: 6px 8px; }
+      .compare td:before { content: attr(data-label); font-weight: 800; color: var(--teal); display: block; font-size: .78rem; margin-bottom: 3px; }
+      .next { flex-direction: column; }
+    }
+
+    @media (max-width: 460px) {
+      .hero { padding-top: 20px; }
+      .hero h1 { font-size: 2.35rem; }
+      .exam-strip { grid-template-columns: 1fr 1fr; }
+      .stat { padding: 14px; min-height: 98px; }
+      .side { grid-template-columns: repeat(2, 1fr); }
+      .plan { grid-template-columns: repeat(3, 1fr); }
+      .number-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="top-nav">
+    <div class="top-nav-inner">
+      <a href="../index.html" class="nav-brand">
+        <span>🎓</span>
+        <span>CSIA CBT</span>
+        <span class="nav-badge">1주 완성</span>
+      </a>
+      <nav class="nav-links">
+        <a href="../index.html" class="nav-link">← 모의고사 CBT</a>
+        <a href="../lecture/index.html" class="nav-link">강의 포털</a>
+        <a href="../summary/index.html" class="nav-link">핵심 요약집</a>
+        <a href="../ox/index.html" class="nav-link">OX 퀴즈</a>
+      </nav>
+    </div>
+  </header>
+
+  <header class="hero">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow">비전공자 · 7일 학습 루트</div>
+        <h1>퀴즈 전에, 개념부터 잡습니다</h1>
+        <p>외울 것과 이해할 것을 먼저 나누고, 하루 한 덩어리씩 읽으세요. 문제는 개념이 연결된 뒤에 풀어도 늦지 않습니다.</p>
+      </div>
+      <div class="hero-visual">
+        <img src="images/hero.webp" alt="증권투자권유자문인력 1주 완성 개념정리" />
+        <div class="hero-note"><strong>원칙</strong> 깊게 파지 말고, 빈출 구분과 숫자를 정확히. 계산은 선별해서 풉니다.</div>
+      </div>
+    </div>
+  </header>
+
+  <section class="exam-strip" aria-label="시험 구조">
+    <div class="stat"><b>100문항</b><span>3과목 · 4지선다</span></div>
+    <div class="stat"><b>120분</b><span>문항당 평균 72초</span></div>
+    <div class="stat"><b>70점</b><span>전체 정답률 70% 이상</span></div>
+    <div class="stat"><b>과목별 50%</b><span>한 과목도 과락이면 불합격</span></div>
+  </section>
+
+  <main class="layout">
+    <nav class="side" aria-label="일차별 학습 목차">
+      <h2>개념 학습 목차</h2>
+      <button class="day-btn active" data-day="1"><span class="day-num">01</span><span class="txt">분석·채권 22</span></button>
+      <button class="day-btn" data-day="2"><span class="day-num">02</span><span class="txt">증권시장 13+</span></button>
+      <button class="day-btn" data-day="3"><span class="day-num">03</span><span class="txt">회사법·세제 15</span></button>
+      <button class="day-btn" data-day="4"><span class="day-num">04</span><span class="txt">자본시장법 20</span></button>
+      <button class="day-btn" data-day="5"><span class="day-num">05</span><span class="txt">상품·권유 18</span></button>
+      <button class="day-btn" data-day="6"><span class="day-num">06</span><span class="txt">직무윤리 12</span></button>
+      <a class="mock" href="../index.html">D7 실전 모의고사 100문항 →</a>
+    </nav>
+
+    <div class="content">
+      <section class="overview">
+        <h2>먼저 전체 지도를 보세요</h2>
+        <p>1~2일차는 1과목의 구조 이해, 3~6일차는 3·2과목의 암기 득점에 집중합니다. 아래 날짜를 누르면 해당 개념장으로 이동합니다.</p>
+        <div class="plan">
+          <button class="current" data-day="1"><b>D1</b><span>분석·채권 22</span></button>
+          <button data-day="2"><b>D2</b><span>시장 13+</span></button>
+          <button data-day="3"><b>D3</b><span>규정·회사·세제 15</span></button>
+          <button data-day="4"><b>D4</b><span>법규 20</span></button>
+          <button data-day="5"><b>D5</b><span>상품 18</span></button>
+          <button data-day="6"><b>D6</b><span>윤리 12</span></button>
+          <button data-url="../index.html"><b>D7</b><span>실전 100문항</span></button>
+        </div>
+      </section>
+
+      <!-- Dynamically mounted from one-week-data.js -->
+      <div id="daysContainer"></div>
+    </div>
+  </main>
+
+  <footer class="bottom-note">
+    <p>시험 구조와 모의고사 링크는 <a href="../index.html">CBT 메인 포털</a>에서 다시 확인할 수 있습니다.</p>
+  </footer>
+
+  <script src="one-week-data.js"></script>
+  <script>
+    (function(){
+      var daysData = window.ONE_WEEK_DATA || [];
+      var container = document.getElementById('daysContainer');
+
+      function renderDays() {
+        if (!container || !daysData.length) return;
+        container.innerHTML = daysData.map(function(d){
+          return '<article class="day ' + (d.day === 1 ? 'active' : '') + '" id="' + d.id + '">' +
+            '<header class="day-head">' +
+              '<div class="label">' + d.label + '</div>' +
+              '<h2>' + d.title + '</h2>' +
+              '<p>' + d.description + '</p>' +
+              '<div class="day-meta">' +
+                d.tags.map(function(t){ return '<span>' + t + '</span>'; }).join('') +
+              '</div>' +
+            '</header>' +
+            '<div class="sheet">' +
+              d.sheetHtml +
+            '</div>' +
+          '</article>';
+        }).join('');
+      }
+
+      renderDays();
+
+      function showDay(n){
+        document.querySelectorAll('.day').forEach(function(el){
+          el.classList.toggle('active', el.id === 'day-' + n);
+        });
+        document.querySelectorAll('.day-btn[data-day]').forEach(function(el){
+          el.classList.toggle('active', el.getAttribute('data-day') === String(n));
+        });
+        document.querySelectorAll('.plan button[data-day]').forEach(function(el){
+          el.classList.toggle('current', el.getAttribute('data-day') === String(n));
+        });
+        var target = document.querySelector('.content');
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+
+      document.addEventListener('click', function(e){
+        var dayBtn = e.target.closest('[data-day]');
+        if (dayBtn) {
+          e.preventDefault();
+          showDay(dayBtn.getAttribute('data-day'));
+          return;
+        }
+
+        var nextBtn = e.target.closest('[data-next]');
+        if (nextBtn) {
+          e.preventDefault();
+          showDay(nextBtn.getAttribute('data-next'));
+          return;
+        }
+
+        var urlBtn = e.target.closest('[data-url]');
+        if (urlBtn) {
+          e.preventDefault();
+          window.location.href = urlBtn.getAttribute('data-url');
+          return;
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

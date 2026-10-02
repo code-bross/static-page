@@ -1,0 +1,1583 @@
+/**
+ * 해커스금융 37강 핵심자료 강의 데이터
+ * 자동 분리 생성 파일: lectures-data.js
+ */
+window.HACKERS_LECTURES = [
+  {
+    "id": "VCdajY6ZGaA",
+    "group": "유가증권시장·코스닥시장",
+    "groupIndex": 0,
+    "index": 1,
+    "label": "이론정리 ①",
+    "title": "증권투자권유자문인력 이론정리 : 유가증권시장·코스닥시장①ㅣ해커스금융 송영욱",
+    "teacher": "송영욱",
+    "nature": "이론정리",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=VCdajY6ZGaA",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">1. 청산·결제제도</h2><h3 class=\"subheading\">청산과 결제의 개념</h3><ul><li><strong>청산</strong>: 결제를 <strong>보증</strong>하는 절차</li><li><strong>결제</strong>: 대금을 이행하고 매매를 <strong>종결</strong>시키는 것</li></ul><h3 class=\"subheading\">우리나라 결제 방법 3원칙</h3><ol><li><strong>실물결제 원칙</strong> — 증권과 대금을 실질적으로 수수(실제로 주고받음)</li><li><strong>차감결제</strong> — 회원별·종목별로 매수·매도를 차감하여 <strong>잔량(순차이)만 수수</strong></li><li><strong>집중결제</strong> — 매매 당사자 간 직접 결제가 아니라 <strong>KRX(한국거래소)</strong> 라는 결제 기구에서 집중적으로 결제</li></ol><h3 class=\"subheading\">장내시장의 결제보증과 신용위험 제거</h3><ul><li>유가증권시장·코스닥시장·코넥스시장 = <strong>장내시장</strong> (KRX 내에서 이루어지는 거래)</li><li>장내시장에서는 <strong>거래소가 결제 이행을 보증</strong> → <strong>신용위험(거래상대방 위험)이 없음</strong></li><li>어느 한쪽이 결제를 안 해도 거래소가 상대방에게 무조건 갚아줌</li><li>결제 재원: <strong>손해배상공동기금</strong>(몇 천억 규모 적립), <strong>결제적립금</strong></li></ul><h3 class=\"subheading\">거래증거금제도 (증권시장에도 도입)</h3><ul><li>원래 파생상품시장의 특징적 제도 → 증권시장에도 도입됨</li><li>증권사(회원)가 거래소에 납부하는 <strong>거래증거금</strong>: <strong>순위험증거금</strong> + <strong>변동증거금</strong></li><li>목적: <strong>결제불이행 위험 최소화</strong>, 결제 재원 충당 확대</li><li>참고 구분: <strong>위탁증거금</strong>은 고객(위탁자)이 증권사(회원)에게 납부하는 것</li></ul><hr><h2 class=\"section-heading\">2. 시장감시제도</h2><ul><li>거래소(KRX) 내에 <strong>시장감시위원회</strong> 설치</li><li>주요 업무: <strong>불공정행위 조사·심리</strong>, <strong>회원 감리</strong></li><li>목적: 시장에서 불공정행위가 일어나지 않도록 감시</li></ul><hr><h2 class=\"section-heading\">3. 분쟁조정 (거래소 vs 금감원 비교 — 핵심)</h2><h3 class=\"subheading\">거래소 분쟁조정</h3><ol><li>분쟁조정 신청서 접수</li><li>분쟁조정위원회에서 <strong>합의 권고</strong></li><li>접수로부터 <strong>30일 이내</strong> 합의가 안 되면 → <strong>분쟁조정위원회 회부</strong></li><li>위원회는 회부 후 <strong>30일 이내</strong>에 <strong>조정안 작성·확정</strong></li><li>양 당사자가 수락하면 <strong>민법상 화해</strong>와 같은 효과 (강제력 없음)</li></ol><h3 class=\"subheading\">금감원 분쟁조정위원회 (차이점 2가지)</h3><ol><li>기간이 <strong>30일이 아니라 60일</strong> (조정치로부터 60일 이내 조정안 작성)</li><li>수락 시 <strong>민법상 화해가 아니라 재판상 화해</strong>와 같은 효력 → <strong>강제집행 가능</strong></li></ol><ul><li>→ 민원인들은 <strong>거래소보다 금감원을 더 선호</strong> (강제력 때문)</li></ul><hr><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th>구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\">우리나라 결제 3원칙</td><td data-label=\"핵심 내용\">실물결제(실질 수수) · 차감결제(순차이만 수수) · 집중결제(KRX 집중)</td></tr><tr><td data-label=\"구분\">청산 vs 결제</td><td data-label=\"핵심 내용\">청산=결제 <strong>보증</strong> 절차 / 결제=대금 이행 + 매매 <strong>종결</strong></td></tr><tr><td data-label=\"구분\">장내시장 신용위험</td><td data-label=\"핵심 내용\">거래소가 결제보증 → <strong>신용위험 없음</strong>. 재원: 손해배상공동기금·결제적립금</td></tr><tr><td data-label=\"구분\">거래증거금</td><td data-label=\"핵심 내용\">회원(증권사)→거래소 납부. <strong>순위험증거금 + 변동증거금</strong> (증권시장 도입)</td></tr><tr><td data-label=\"구분\">위탁증거금</td><td data-label=\"핵심 내용\">고객→증권사(회원) 납부 (파생상품시장 제도와 동일한 용어)</td></tr><tr><td data-label=\"구분\">시장감시위원회</td><td data-label=\"핵심 내용\">KRX 내 설치. 불공정행위 조사·심리, 회원 감리</td></tr><tr><td data-label=\"구분\">거래소 분쟁조정</td><td data-label=\"핵심 내용\">합의권고 → 접수 30일 미합의 → 위원회 회부 → 30일 내 조정안. 수락 시 <strong>민법상 화해</strong></td></tr><tr><td data-label=\"구분\">금감원 분쟁조정</td><td data-label=\"핵심 내용\"><strong>60일</strong>, 수락 시 <strong>재판상 화해</strong> (강제집행 가능) → 민원인 선호</td></tr></tbody></table></div><hr>",
+    "quiz": [
+      {
+        "q": "우리나라 주식 결제의 3원칙은?",
+        "a": "<strong>실물결제·차감결제·집중결제</strong>",
+        "e": "실물결제는 증권·대금의 실질 수수, 차감결제는 매수·매도 차감 후 잔량만 수수, 집중결제는 KRX에서 집중 결제."
+      },
+      {
+        "q": "장내시장에서 신용위험(거래상대방 위험)이 없는 이유는?",
+        "a": "<strong>거래소가 결제 이행을 보증</strong>하기 때문",
+        "e": "한쪽이 불이행해도 거래소가 무조건 갚아줌. 재원은 손해배상공동기금·결제적립금."
+      },
+      {
+        "q": "거래증거금은 누가 누구에게 납부하는가?",
+        "a": "<strong>회원(증권사)이 거래소(KRX)에 납부</strong>",
+        "e": "순위험증거금·변동증거금으로 구성, 결제불이행 위험 최소화 목적. 위탁증거금은 고객이 증권사에 납부하는 것."
+      },
+      {
+        "q": "거래소 분쟁조정에서 조정안을 양 당사자가 수락하면 어떤 효력이 있는가?",
+        "a": "<strong>민법상 화해</strong>",
+        "e": "강제력 없음. 금감원 조정안은 재판상 화해 효력(강제집행 가능)."
+      },
+      {
+        "q": "금감원 분쟁조정위원회와 거래소 분쟁조정의 차이 2가지는?",
+        "a": "<strong>기간(60일 vs 30일)</strong> 과 <strong>수락 시 효력(재판상 화해 vs 민법상 화해)</strong>",
+        "e": "재판상 화해는 강제집행이 가능하므로 민원인들이 금감원을 더 선호."
+      }
+    ]
+  },
+  {
+    "id": "RgU3mjlE2G8",
+    "group": "유가증권시장·코스닥시장",
+    "groupIndex": 0,
+    "index": 2,
+    "label": "이론정리 ②",
+    "title": "증권투자권유자문인력 이론정리 : 유가증권시장·코스닥시장②ㅣ해커스금융 송영욱",
+    "teacher": "송영욱",
+    "nature": "이론정리",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=RgU3mjlE2G8",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">1. 이연결제제도 (의미 정도만)</h2><ul><li><strong>이연 = 결제를 늦춤(연기)</strong></li><li>결제 시안까지 미납된 증권이 있으면, 다음 날 이후로 이어(이연)한 뒤 연기한 날 결제할 증권과 <strong>차감</strong>하여 결제를 종결하는 제도</li><li>강사: \"의미만 아시면 됩니다. 중요하지 않습니다\"</li></ul><hr><h2 class=\"section-heading\">2. 결제리스크 관리제도</h2><h3 class=\"subheading\">결제이행 재원 3가지 (암기)</h3><ol><li><strong>손해배상공동기금</strong></li><li><strong>결제적립금</strong></li><li><strong>회원보증금</strong></li></ol><ul><li>KRX가 거래상대방이 이행하든 안 하든 무조건 결제를 이행하는데, 그 재원을 위 3가지로 충당</li></ul><h3 class=\"subheading\">결제불이행시 예방 제도</h3><ul><li>결제이행 파악·관리, 결제이행 보증을 위한 <strong>유동성 공급</strong> 확보</li><li>결제가 곤란하다고 인정되는 경우 <strong>현금 또는 유동성 있는 종목의 증권으로 결제</strong>할 수 있도록 특례 마련</li></ul><h3 class=\"subheading\">결제불이행시 처리 방법 (상식적, 순서 이해)</h3><ol><li><strong>지급정지</strong> (지급 정지하거나 채무인수 안 해줌)</li><li><strong>일괄청산</strong> — 이미 납부할 것이 있으면 <strong>상계조치</strong>하여 결제</li><li><strong>구상권 행사</strong> — 결제불이행 회원에게 청구</li></ol><ul><li>구상권 예: B가 1억원 결제를 안 해서 KRX가 대신 결제했으면, KRX가 B의 회원인 X증권사에게 \"네가 1억 내라\"고 청구, X증권사는 다시 B에게 청구. 이렇게 대신 낸 돈을 되돌려 받는 권리가 <strong>구상권</strong></li></ul><hr><h2 class=\"section-heading\">3. 증권시장의 거래증거금제도 (강사 \"체크\")</h2><h3 class=\"subheading\">도입 배경</h3><ul><li>원래 파생상품시장의 제도였는데 <strong>가격제한폭이 15% → 30%로 확대</strong>되면서 결제위험이 불안해져 증권시장에도 도입</li><li>증권사가 거래소에 일정 부분 증거금을 더 내게 하는 제도</li></ul><h3 class=\"subheading\">부과 대상 종목</h3><ul><li><strong>상장주식</strong> + <strong>증권상품(ELW·ETN·ETF)</strong> 로 한정</li><li>(보통결제: T+2일, 이일결제: 다음날, 당일결제: 당일 — 상장주식·증권상품은 대부분 <strong>보통결제</strong> 방식)</li></ul><h3 class=\"subheading\">산출 방법</h3><ul><li>증권회사의 <strong>자기계좌·위탁계좌 그룹별로 순위험증거금과 변동증거금을 산출하여 합산</strong></li><li><strong>순위험증거금</strong>: 향후 발생할 수 있는 <strong>잠재적 손실</strong>에 대비한 증거금</li><li><strong>변동증거금</strong>: <strong>당일 손익</strong>을 반영한 증거금</li></ul><hr><h2 class=\"section-heading\">4. 시장감시위원회 (거래소 내)</h2><ul><li>거래소 내에 <strong>시장감시위원회</strong> 설치</li><li>업무: <strong>불공정거래 예방 활동, 시장감시, 이상거래 심리, 회원 감리, 분쟁조정</strong></li></ul><hr><h2 class=\"section-heading\">5. 거래소의 분쟁조정 (제일 중요 파트)</h2><h3 class=\"subheading\">절차 (숫자 암기!)</h3><ol><li>분쟁조정 접수</li><li>접수일로부터 <strong>30일 이내</strong>에 <strong>시장감시위원회</strong>에 회부 (합의 권고 후에도 합의 안 되면)</li><li>회부 후 <strong>30일 이내</strong>에 <strong>조정심의·조정결정</strong></li><li>조정결정 <strong>통지받은 때부터 15일 이내</strong>에 양 당사자가 <strong>수락 여부 표시</strong></li><li>수락하면 <strong>민법상 화해</strong>와 같은 효력</li></ol><h3 class=\"subheading\">거래소 분쟁조정의 특징</h3><ul><li><strong>간편하고 신속한</strong> 분쟁 해결 가능 (법원 대비 2~3개월 내 종결)</li></ul><hr><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th>구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\">결제이행 재원 3가지</td><td data-label=\"핵심 내용\">손해배상공동기금 · 결제적립금 · 회원보증금</td></tr><tr><td data-label=\"구분\">결제불이행 처리</td><td data-label=\"핵심 내용\">지급정지 → 일괄청산(상계) → 구상권 행사 (대신 낸 돈 되돌려받기)</td></tr><tr><td data-label=\"구분\">거래증거금 대상</td><td data-label=\"핵심 내용\">상장주식 + 증권상품(<strong>ELW·ETN·ETF</strong>)</td></tr><tr><td data-label=\"구분\">거래증거금 산출</td><td data-label=\"핵심 내용\">자기·위탁계좌 그룹별 <strong>순위험증거금 + 변동증거금</strong> 합산</td></tr><tr><td data-label=\"구분\">순위험 vs 변동</td><td data-label=\"핵심 내용\">순위험=<strong>잠재적 손실 대비</strong> / 변동=<strong>당일 손익 반영</strong></td></tr><tr><td data-label=\"구분\">시장감시위원회</td><td data-label=\"핵심 내용\">KRX 내 설치. 불공정거래 예방·이상거래 심리·회원감리·분쟁조정</td></tr><tr><td data-label=\"구분\">거래소 분쟁조정 기간</td><td data-label=\"핵심 내용\">접수 후 <strong>30일</strong> 이내 회부 → <strong>30일</strong> 내 조정결정 → 통지 후 <strong>15일</strong> 내 수락 여부</td></tr><tr><td data-label=\"구분\">수락 효력</td><td data-label=\"핵심 내용\"><strong>민법상 화해</strong> (강제력 없음)</td></tr></tbody></table></div><hr>",
+    "quiz": [
+      {
+        "q": "결제이행 재원 3가지는?",
+        "a": "<strong>손해배상공동기금·결제적립금·회원보증금</strong>",
+        "e": "KRX가 상대방 이행 여부와 무관하게 결제를 이행하는데 그 재원을 이 3가지로 충당."
+      },
+      {
+        "q": "구상권이란?",
+        "a": "<strong>대신 결제해준 돈을 결제불이행 회원(고객)에게 되돌려 청구하는 권리</strong>",
+        "e": "KRX가 X증권사의 고객 B를 대신해 결제했으면 KRX→X증권사→B 순서로 구상권 행사."
+      },
+      {
+        "q": "증권시장 거래증거금의 부과 대상 종목은?",
+        "a": "<strong>상장주식 + 증권상품(ELW·ETN·ETF)</strong>",
+        "e": "파생상품시장 제도였으나 가격제한폭 확대(15%→30%)로 증권시장에 도입."
+      },
+      {
+        "q": "순위험증거금과 변동증거금의 차이는?",
+        "a": "순위험=<strong>잠재적 손실 대비</strong>, 변동=<strong>당일 손익 반영</strong>",
+        "e": "두 가지를 합산해 거래증거금 산출(자기·위탁계좌 그룹별)."
+      },
+      {
+        "q": "거래소 분쟁조정에서 조정결정을 통지받은 당사자는 언제까지 수락 여부를 표시해야 하는가?",
+        "a": "<strong>통지받은 때부터 15일 이내</strong>",
+        "e": "수락하면 민법상 화해 효력. 절차는 접수→30일 내 회부→30일 내 조정결정."
+      }
+    ]
+  },
+  {
+    "id": "BH--kowOXAA",
+    "group": "유가증권시장·코스닥시장",
+    "groupIndex": 0,
+    "index": 3,
+    "label": "이론정리 ③",
+    "title": "증권투자권유자문인력 이론정리 : 유가증권시장·코스닥시장③ㅣ해커스금융 송영욱",
+    "teacher": "송영욱",
+    "nature": "이론정리 (실전 예상문제 풀이 6문항 중심)",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=BH--kowOXAA",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">1. 한국거래소 (예상문제 1번)</h2><ul><li><strong>허가주의</strong> 채택 (O)</li><li>조직 형태: <strong>상법상 주식회사</strong> (× 함정: \"민법상 비영리 사단법인\"은 틀림)</li><li>원칙적으로 <strong>거래소 회원이 아닌 자는 거래소 시장에서 매매거래 불가</strong> — 회원의 대부분은 증권사</li><li>거래소가 개설하는 주식 관련 시장 <strong>4개</strong> (= 장내시장): <strong>유가증권시장·코스닥시장·코넥스시장·파생상품시장</strong></li></ul><hr><h2 class=\"section-heading\">2. 상장제도 (예상문제 2·3번)</h2><h3 class=\"subheading\">추가상장 vs 재상장 vs 신규상장</h3><ul><li><strong>추가상장</strong>: 기상장 법인이 <strong>유상·무상증자</strong> 등으로 새로 발행한 주권을 상장하는 것</li><li><strong>재상장</strong>: 상장폐지된 기업이 재상장하는 경우 — <strong>상장예비심사를 생략할 수 없음</strong> (신규상장에 준하는 절차 필수)</li><li><strong>공모상장</strong>: 상장예비심사를 거친 후 공모 절차 진행</li><li>상장폐지된 법인의 <strong>재상장 신청 기간: 폐지일로부터 5년 이내</strong></li></ul><h3 class=\"subheading\">공모상장 절차 순서</h3><ol><li><strong>주권 상장예비심사 신청서 제출</strong></li><li><strong>심사 결과 통지</strong></li><li>금융위에 <strong>증권신고서 제출</strong> (→ 투자설명서 제출)</li><li><strong>주권 신규상장 신청서 제출</strong></li><li>상장 승인 → 수요예측 → 청약·배정·납입 → 상장</li></ol><hr><h2 class=\"section-heading\">3. 상장폐지제도 (예상문제 4번)</h2><ul><li><strong>직권</strong>에 의한 상장폐지뿐 아니라 <strong>신청</strong>에 의한 상장폐지(자진 상장폐지)도 가능 (× 함정: \"직권에 의해서만 한다\"는 틀림)</li><li>간섭받기 싫은 대주주가 비상장으로 가려는 경우 등, 좋은 회사가 신청하기도 함</li><li><strong>관리종목 지정</strong>: 상장폐지 우려를 <strong>사전에 예고하는 단계</strong> (지정되면 주가 폭락 유의)</li><li>상장폐지 결정 후 <strong>7일간의 정리매매</strong> (투자자에게 최종 매매 기회 제공 — 이 시점 주가는 이미 폭락 상태)</li><li>상장폐지 해당 전, 해당 법인에 <strong>사전에 상장폐지 우려 예고 가능</strong></li></ul><hr><h2 class=\"section-heading\">4. 코스닥 변경상장 vs 추가상장 vs 재상장 (예상문제 5번)</h2><ul><li><strong>상호·액면금액 변경</strong> → <strong>변경상장</strong> (코스닥 시장에서 매매할 수 있도록 변경상장 필요)</li><li><strong>유상증자로 신주 발행</strong> → <strong>추가상장</strong></li><li><strong>분할·분할합병으로 새로운 법인 설립</strong> → <strong>재상장</strong> (× 함정: 변경·추가상장이 아님)</li></ul><hr><h2 class=\"section-heading\">5. 기업공시제도의 의의 (예상문제 6번)</h2><ul><li>투자자에게 <strong>투자 판단에 필요한 정보 제공</strong></li><li><strong>내부자거래 등 불공정거래 방지</strong></li><li>증권시장에 <strong>공정한 거래 실현</strong></li><li>× 함정: \"기업 정보를 공개하는 것은 기업의 <strong>자율적 의사</strong>에 따르므로 의무가 아니다\"는 <strong>틀림</strong> — 공시는 <strong>의무</strong>임 (상장법인의 경우)</li></ul><hr><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th>구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\">한국거래소</td><td data-label=\"핵심 내용\">허가주의 / <strong>상법상 주식회사</strong>(비영리 사단법인 X) / 회원이 아니면 매매 불가</td></tr><tr><td data-label=\"구분\">거래소 개설 시장 4개</td><td data-label=\"핵심 내용\">유가증권시장 · 코스닥시장 · 코넥스시장 · 파생상품시장</td></tr><tr><td data-label=\"구분\">추가상장</td><td data-label=\"핵심 내용\">유상·무상증자로 새로 발행한 주권 상장</td></tr><tr><td data-label=\"구분\">재상장</td><td data-label=\"핵심 내용\">상장예비심사 <strong>생략 불가</strong>, 폐지일로부터 <strong>5년 이내</strong> 신청</td></tr><tr><td data-label=\"구분\">공모상장 순서</td><td data-label=\"핵심 내용\">예비심사 신청 → 결과 통지 → 증권신고서 → 신규상장 신청 → 승인</td></tr><tr><td data-label=\"구분\">상장폐지</td><td data-label=\"핵심 내용\">직권 <strong>+ 신청(자진)</strong> 가능 / 관리종목 지정=폐지 우려 예고 / <strong>정리매매 7일</strong></td></tr><tr><td data-label=\"구분\">코스닥 변경상장</td><td data-label=\"핵심 내용\">상호·액면금액 변경 → 변경상장 / 유상증자 신주 → 추가상장 / 분할신설법인 → <strong>재상장</strong></td></tr><tr><td data-label=\"구분\">공시제도 의의</td><td data-label=\"핵심 내용\">투자정보 제공 · 불공정거래 방지 · 공정거래 실현 / <strong>공시는 의무</strong></td></tr></tbody></table></div><hr>",
+    "quiz": [
+      {
+        "q": "한국거래소의 조직 형태는?",
+        "a": "<strong>상법상 주식회사</strong>",
+        "e": "\"민법상 비영리 사단법인\" 지문은 틀림. 허가주의 채택, 비회원은 시장 매매 불가."
+      },
+      {
+        "q": "상장폐지된 기업이 재상장할 때 상장예비심사를 생략할 수 있는가?",
+        "a": "<strong>불가</strong>",
+        "e": "신규상장에 준하는 절차를 거쳐야 함. 재상장 신청 기간은 폐지일로부터 5년 이내."
+      },
+      {
+        "q": "공모상장에서 증권신고서를 제출하는 시점은?",
+        "a": "<strong>상장예비심사 결과 통지 후</strong>",
+        "e": "예비심사 신청→결과 통지→증권신고서(금융위)→투자설명서→신규상장 신청서→상장 승인."
+      },
+      {
+        "q": "코스닥 상장법인의 분할로 새로운 법인이 설립된 경우 필요한 상장은?",
+        "a": "<strong>재상장</strong>",
+        "e": "상호 변경은 변경상장, 유상증자 신주는 추가상장. 분할 신설은 재상장."
+      },
+      {
+        "q": "상장폐지 시 투자자에게 부여되는 최종 매매 기회는?",
+        "a": "<strong>7일간의 정리매매</strong>",
+        "e": "관리종목 지정은 상장폐지 우려의 사전 예고 단계. 상장폐지는 직권뿐 아니라 신청(자진)도 가능."
+      },
+      {
+        "q": "기업공시제도의 목적이 아닌 것은?",
+        "a": "<strong>기업의 자율적 의사에 따른 공개</strong>",
+        "e": "공시는 의무임. 투자 판단 정보 제공, 내부자거래 등 불공정거래 방지, 공정한 거래 실현이 목적."
+      }
+    ]
+  },
+  {
+    "id": "qUJBuvvFjE0",
+    "group": "유가증권시장·코스닥시장",
+    "groupIndex": 0,
+    "index": 4,
+    "label": "기본서 핵심정리",
+    "title": "[해커스금융] 증권투자권유자문인력 기본서 핵심정리 - 유가증권시장/코스닥시장",
+    "teacher": "자막에서 강사명 확인 불가 (해커스금융 강사)",
+    "nature": "이론정리 (기본서 핵심정리 — 공시제도 + 매매거래제도)",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=qUJBuvvFjE0",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">1. 공시제도의 분류</h2><h3 class=\"subheading\">발행시장 공시 3가지 (암기 — 이것만 알면 나머지는 유통시장 공시)</h3><ol><li><strong>증권신고서 등 신고서</strong></li><li><strong>투자설명서</strong></li><li><strong>발행실적보고서</strong></li></ol><ul><li>→ \"다음 중 유통시장 공시가 아닌 것은\" / \"발행시장 공시가 아닌 것은\" 형태의 짝짓기 문제로 빈출</li></ul><h3 class=\"subheading\">유통시장 공시</h3><ul><li><strong>정기공시</strong>: 사업보고서·반기보고서·분기보고서 (정기적으로 공시하는 의무공시)</li><li><strong>수시공시</strong>: 필요할 때 수시로 — <strong>주요사항보고서</strong>(회사에 나쁜 일·주주가 알아야 할 중대사항 발생 시 의무, 예: 부도·증자·감자·영업양수도·합병·분할·주식의 포괄적 교환), <strong>기타공시</strong>(합병보고서·자사주 취득보고서·주식매수선택권 부여 신고 등), <strong>지분공시</strong>(5% 이상 대량보유 시 5% 룰 보고)</li></ul><h3 class=\"subheading\">조회공시·자율공시·공정공시 (강사 \"특별히 기억\" 파트)</h3><ul><li><strong>조회공시</strong>: 풍문·보도(부도설, 실적 설 등)의 사실 여부를 해당 법인에 직접 물어보는 공시</li><li><strong>오전</strong> 조회공시 요청 → <strong>오후까지</strong> 답변 의무</li><li><strong>오후</strong> 조회공시 요청 → <strong>다음날 오전까지</strong> 답변 의무</li><li><strong>자율공시</strong>: 회사가 투자자에게 알릴 필요가 있는 주요경영사항을 <strong>자율적으로</strong> 공시 (보통 회사 입장에서 좋은 소식·자랑 성격, 실적 개선·좋은 계약 등)</li><li><strong>공정공시</strong>: IR·설명회 전에 참석하지 못한 일반 투자자도 공평하게 정보를 알 수 있도록 하는 공시 — <strong>정보 비대칭 방지</strong> 목적</li><li>예: 증권사 애널리스트 50명을 모아 IR을 하면, 그 설명회 <strong>개시 시작 전</strong>까지 공시해야 함 (보도자료 배포 시에는 배포 전까지)</li></ul><h3 class=\"subheading\">공정공시 의무 적용의 예외 3가지 (밑줄)</h3><ol><li><strong>보도 목적의 언론 취재에 응해</strong> 언론사에 정보를 제공한 경우 (공시할 시간적 여유 없음)</li><li><strong>변호사 등 명시적인 비밀유지의무</strong>가 있는 자에게 정보를 제공한 경우</li><li><strong>금융위 허가를 받은 신용평가기관</strong>이나 <strong>외국 신용평가기관</strong>에게 정보를 제공한 경우</li></ol><hr><h2 class=\"section-heading\">2. 불성실공시</h2><h3 class=\"subheading\">불성실공시의 유형 3가지</h3><ol><li><strong>공시 불이행</strong> — 공시 의무가 있는데 하지 않은 경우</li><li><strong>공시 번복</strong> — 한 번 했다가 다시 고치는 경우</li><li><strong>공시 변경</strong> — A라고 했다가 B라고 하는 등 왔다갔다 하는 경우</li></ol><h3 class=\"subheading\">불성실공시 시 제재</h3><ul><li><strong>불성실공시법인으로 지정·공표</strong></li><li><strong>매매거래정지</strong>, <strong>벌점 부과</strong>, <strong>제재금 부과</strong></li><li>개선계획서 제출 요구, 공시담당책임자 교육, <strong>관리종목 지정</strong>, <strong>상장폐지</strong>, 임원 교체 등</li><li>(계속되면 벌점 누적으로 관리종목·상장폐지까지 가능)</li></ul><hr><h2 class=\"section-heading\">3. 매매거래제도</h2><h3 class=\"subheading\">위탁증거금</h3><ul><li>결제 이행을 담보하기 위한 증거금. 일반적으로 매수대금의 <strong>25~40%</strong> 수준 징수 (종목별 차이 있음)</li><li>증권사가 자율적으로 정하되, 거래소가 <strong>최저한도</strong>를 정할 수 있음</li><li>예: 100만원어치 주식을 40만원만 있으면 살 수 있고, 나머지 60만원은 결제일(T+2)에 납부. 못 갚으면 다음날 <strong>반대매매</strong>로 청산</li></ul><h3 class=\"subheading\">위탁증거금 100% 징수하는 경우 3가지 (강사 강조)</h3><ol><li><strong>상장주식수 5만주 미만</strong>인 종목의 <strong>매도 주문</strong></li><li><strong>투자경고종목·투자위험종목</strong>의 <strong>매수 주문</strong> (단기과열종목 분류 중 투자경고·투자위험 종목)</li><li><strong>미수동결계좌</strong></li></ol><ul><li><strong>매수대금 미납</strong> → 다음 매매거래일부터 <strong>30일간</strong> 미수 불가</li><li><strong>매도증권 미납</strong> → 다음 매매거래일부터 <strong>90일간</strong> 미수 불가</li></ul><h3 class=\"subheading\">대용증권 (현금 대신 증거금으로 사용 가능한 증권)</h3><ul><li><strong>상장증권, DR(증권예탁증권), ETF, ETN, 상장채무증권, 수익증권, 비상장 벤처기업펀드</strong></li></ul><h3 class=\"subheading\">매매거래일·거래시간·수량단위</h3><ul><li>매매거래일: <strong>월요일~금요일</strong> (국경일 제외)</li><li><strong>휴장일</strong>: 국경일, 토요일, <strong>근로자의 날(5/1)</strong>, <strong>12월 31일</strong>(연말 시장 결산)</li><li>매매거래시간: <strong>9:00 ~ 15:30</strong> / 호가 주문은 <strong>7:30부터</strong> 가능 / 15:30 이후 <strong>시간외 종가거래</strong> 가능</li><li>매매수량단위: <strong>1주 단위</strong> (예외: <strong>ELW는 10주 단위</strong>)</li></ul><h3 class=\"subheading\">호가가격단위 (가격틱)</h3><ul><li><strong>유가증권시장: 7단계</strong> — 1원·5원·10원·50원·100원·500원·1,000원</li><li>주가 구간별: 1,000원 미만→1원 / 5,000원 미만→5원 / 1만원 미만→10원 / 5만원 미만→50원 / 10만원 미만→100원 / 50만원 미만→500원 / 50만원 초과→1,000원</li><li><strong>코스닥시장·코넥스시장: 5단계</strong> — 1원·5원·10원·50원·100원 (유가증권의 상위 2단계 없음)</li></ul><h3 class=\"subheading\">주문의 종류 (핵심 5가지)</h3><ol><li><strong>지정가</strong>: 종목·수량·가격을 모두 지정 (예: A주식 10주 1만원에 매수)</li><li><strong>시장가</strong>: 종목·수량은 지정, <strong>가격은 지정하지 않음</strong> — 나오는 주문대로 가격에 상관없이 계속 체결</li><li><strong>조건부지정가</strong>: 장중에는 지정가로 있다가 <strong>장 마감 10분 전(종가단일가 시간)</strong>부터 <strong>시장가로 변경</strong> — 무조건 종가에 체결</li><li><strong>최유리지정가</strong>: 가격을 지정하지 않고 시스템이 <strong>가장 유리한 가격</strong>으로 체결 (매수자는 가장 낮은 매도호가)</li><li><strong>최우선지정가</strong>: <strong>체결 가능성 최고</strong> — 매수자는 같은 방향에서 가장 높은 가격, 매도자는 가장 낮은 가격으로 주문</li></ol><ul><li>참고: 목표가 주문, 경쟁대량매매는 출제 비중 낮음</li></ul><h3 class=\"subheading\">주문 조건 (IOC / FOK)</h3><ul><li><strong>IOC (일부 충족 조건)</strong>: 즉시 체결 가능한 수량만 체결하고 <strong>미체결 나머지는 취소</strong> (예: 100주 중 70주만 체결 가능 → 70주 체결, 30주 취소)</li><li><strong>FOK (전부 충족 조건)</strong>: <strong>전량 체결 가능해야만 체결</strong>, 한 주도 미체결이면 <strong>전부 취소</strong> (100주 중 99주만 체결 가능 → 전량 취소)</li></ul><h3 class=\"subheading\">가격제한폭</h3><ul><li>원칙: 전일종가 기준 <strong>±30%</strong> (예: 전일 1만원 → 13,000원까지 주문 가능, 7,000원 미만 불가)</li><li><strong>적용 제외 4가지</strong> (중요): <strong>정리매매 종목, 주식워런트증권(ELW), 신주인수권증서, 신주인수권증권</strong> — 가격제한 없이 하루에 60~70%도 움직일 수 있음</li><li><strong>확대 적용</strong>: <strong>레버리지 ETF</strong> — 배율(1.5배·2배)만큼 가격제한폭도 확대 적용</li></ul><hr><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th>구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\">발행시장 공시 3종</td><td data-label=\"핵심 내용\">증권신고서 · 투자설명서 · 발행실적보고서 (나머지는 전부 유통시장)</td></tr><tr><td data-label=\"구분\">조회공시 답변 기한</td><td data-label=\"핵심 내용\">오전 조회→<strong>오후까지</strong> / 오후 조회→<strong>다음날 오전까지</strong></td></tr><tr><td data-label=\"구분\">자율공시</td><td data-label=\"핵심 내용\">회사 자율 (좋은 소식·자랑 성격)</td></tr><tr><td data-label=\"구분\">공정공시</td><td data-label=\"핵심 내용\">IR 등 <strong>설명회 개시 전</strong>까지 공시, 정보 비대칭 방지 / 예외 3종(언론취재·비밀유지의무자·신용평가기관)</td></tr><tr><td data-label=\"구분\">불성실공시 3유형</td><td data-label=\"핵심 내용\">공시 불이행 · 공시 번복 · 공시 변경</td></tr><tr><td data-label=\"구분\">불성실공시 제재</td><td data-label=\"핵심 내용\">법인 지정·공표 · 매매거래정지 · 벌점 · 제재금 · 관리종목 지정 · 상장폐지</td></tr><tr><td data-label=\"구분\">위탁증거금 100% 3종</td><td data-label=\"핵심 내용\">5만주 미만 매도주문 · 투자경고/투자위험 종목 매수주문 · 미수동결계좌(매수대금 미납→30일, 매도증권 미납→90일)</td></tr><tr><td data-label=\"구분\">대용증권</td><td data-label=\"핵심 내용\">상장증권 · DR · ETF · ETN · 상장채무증권 · 수익증권 · 비상장 벤처기업펀드</td></tr><tr><td data-label=\"구분\">휴장일</td><td data-label=\"핵심 내용\">국경일 · 토요일 · 근로자의날(5/1) · <strong>12/31</strong></td></tr><tr><td data-label=\"구분\">거래시간</td><td data-label=\"핵심 내용\">9:00~15:30 (호가주문 7:30~, 15:30 이후 시간외종가거래)</td></tr><tr><td data-label=\"구분\">수량단위</td><td data-label=\"핵심 내용\">1주 (예외: ELW 10주)</td></tr><tr><td data-label=\"구분\">호가단위</td><td data-label=\"핵심 내용\">유가증권 7단계 / 코스닥·코넥스 5단계</td></tr><tr><td data-label=\"구분\">주문 5종</td><td data-label=\"핵심 내용\">지정가 · 시장가 · 조건부지정가(장마감 10분전 시장가 전환) · 최유리지정가 · 최우선지정가</td></tr><tr><td data-label=\"구분\">IOC / FOK</td><td data-label=\"핵심 내용\">IOC=일부 체결+나머지 취소 / FOK=전량 체결 아니면 전부 취소</td></tr><tr><td data-label=\"구분\">가격제한폭</td><td data-label=\"핵심 내용\">±30% / 제외 4종(정리매매·ELW·신주인수권증서·신주인수권증권) / 레버리지ETF 확대 적용</td></tr></tbody></table></div><hr>",
+    "quiz": [
+      {
+        "q": "발행시장 공시 3가지는?",
+        "a": "<strong>증권신고서 · 투자설명서 · 발행실적보고서</strong>",
+        "e": "이 3가지만 알면 나머지는 전부 유통시장 공시로 판단. \"유통시장 공시가 아닌 것은\" 지문형 빈출."
+      },
+      {
+        "q": "오후에 조회공시를 요청하면 언제까지 답변해야 하는가?",
+        "a": "<strong>다음날 오전까지</strong>",
+        "e": "오전 조회→오후까지 답변. 조회공시는 풍문·보도의 사실 여부를 회사에 직접 확인하는 공시."
+      },
+      {
+        "q": "위탁증거금을 100% 징수해야 하는 경우 3가지는?",
+        "a": "<strong>상장주식수 5만주 미만의 매도주문, 투자경고·투자위험종목의 매수주문, 미수동결계좌</strong>",
+        "e": "미수동결은 매수대금 미납→30일, 매도증권 미납→90일 미수 불가."
+      },
+      {
+        "q": "유가증권시장과 코스닥시장의 호가가격단위 차이는?",
+        "a": "<strong>유가증권 7단계, 코스닥·코넥스 5단계</strong>",
+        "e": "코스닥·코넥스는 1원·5원·10원·50원·100원 5개만 있음."
+      },
+      {
+        "q": "조건부지정가 주문의 특징은?",
+        "a": "<strong>장중에는 지정가, 장 마감 10분 전부터 시장가로 변경</strong>되어 종가에 무조건 체결",
+        "e": "지정한 가격에 체결 안 돼도 종가단일가 시간에 시장가로 전환되어 종가 체결."
+      },
+      {
+        "q": "가격제한폭이 적용되지 않는 경우는?",
+        "a": "<strong>정리매매 종목, 주식워런트증권(ELW), 신주인수권증서, 신주인수권증권</strong>",
+        "e": "원칙은 ±30%, 레버리지 ETF는 배율만큼 확대 적용."
+      }
+    ]
+  },
+  {
+    "id": "HtC2Pw3qpb0",
+    "group": "유가증권시장·코스닥시장",
+    "groupIndex": 0,
+    "index": 5,
+    "label": "최종핵심 문제풀이 ①",
+    "title": "증권투자권유자문인력 최종핵심 문제풀이🔑'유가증권시장①'ㅣ해커스 송영욱ㅣ증권투자자문인력 은행취업 금융자격증",
+    "teacher": "송영욱",
+    "nature": "문제풀이 (2과목 총 20문항 중 유가증권시장에서 8문항 — 비중 가장 큼)",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=HtC2Pw3qpb0",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">1. 증권시장 기초 (문제 1·2)</h2><h3 class=\"subheading\">발행시장 vs 유통시장</h3><ul><li>증권시장은 <strong>발행시장</strong>과 <strong>유통시장</strong>으로 구분</li><li>발행시장: 기업 입장에서 <strong>자금조달</strong>의 시장 / 투자자 입장에서 <strong>신규 발행 증권에 대한 최초 투자</strong> 시장</li><li>유통시장: 발행된 증권의 <strong>매매·유통</strong> 시장</li><li>둘은 <strong>상호의존적·보완적 관계</strong></li></ul><h3 class=\"subheading\">증권 vs 파생상품 / 직접금융 vs 간접금융</h3><ul><li>증권 = <strong>추가 지급의무를 부담하지 않는</strong> 금융투자상품 / 파생상품 = 추가 지급의무 부담 가능</li><li>증권시장 = 증권사를 거쳐 연결되지만 <strong>직접금융</strong> 방식 (× 함정: \"간접금융\"은 틀림)</li><li>직접금융: 투자자 <strong>명의</strong>로 회사에 자금 공급 (주식·채권 매수)</li><li>간접금융: 저축자가 은행에 예금하고 은행 <strong>명의</strong>로 대출 → 은행을 끼고 간접 연결</li></ul><h3 class=\"subheading\">공모 vs 사모 — 모집 vs 매출</h3><ul><li><strong>모집</strong>: <strong>50인 이상</strong>의 투자자에게 <strong>새로 발행되는</strong> 증권의 취득청약 <strong>권유</strong></li><li><strong>매출</strong>: <strong>50인 이상</strong>의 투자자에게 <strong>이미 발행된</strong> 증권의 매도청약 <strong>권유</strong></li><li><strong>모집의 주체 = 증권의 발행인</strong> / <strong>매출의 주체 = 증권의 보유자</strong> (뒤바뀐 지문이 함정)</li><li>50인 산정 시 제외자: <strong>전문가</strong>(전문투자자)와 <strong>발행인의 연고자</strong>(최대주주·특수관계인·임원·우리사주조합)</li></ul><hr><h2 class=\"section-heading\">2. 발행 형태 — 직접발행 vs 간접발행 (문제 3)</h2><ul><li><strong>직접발행</strong>: 발행사가 발행사무·발행위험 모두 부담</li><li><strong>간접발행</strong> (시험 빈출) 3가지:</li></ul><ol><li><strong>모집주선</strong>: 발행사무만 부담</li><li><strong>잔액인수</strong>: 발행사무 + 발행위험 부담, <strong>미판매분만 인수</strong></li><li><strong>총액인수</strong>: 발행사무 + 발행위험 부담, <strong>처음부터 전량 인수</strong> (우리나라 대부분이 총액인수)</li></ol><ul><li>인수수수료율: <strong>모집주선 &lt; 잔액인수 &lt; 총액인수</strong> (× 함정: \"인수수수료율이 낮다는 것이 장점\"은 총액인수에는 틀림)</li><li>용어: 발행주체 = 발행인 = 발행회사, 발행사무·위험을 맡는 증권사 = <strong>발행기관 = 인수기관</strong></li></ul><hr><h2 class=\"section-heading\">3. 상장 준비단계 vs 추진단계 (문제 4)</h2><ul><li><strong>상장 준비단계</strong> (거래소 관여 전): <strong>외부감사인 지정</strong>, <strong>명의개서대행 계약 체결</strong>, <strong>이사회·주주총회 결의</strong></li><li><strong>상장 추진단계</strong> (거래소 관여 후): <strong>상장예비심사 청구서 제출</strong>, 증권신고서 제출, 희망가격 설정, IR, 청약·납입 등</li></ul><hr><h2 class=\"section-heading\">4. 유상증자 (문제 5)</h2><ul><li><strong>유상증자 = 주식 발행으로 자기 자본 증가</strong></li><li>배정 방식 4가지: <strong>주주배정</strong>(가장 일반적) · <strong>주주우선공모</strong> · <strong>제3자배정</strong>(구조조정·특별한 기술 등) · <strong>일반공모</strong> (+ 직접공모는 출제 비중 낮음)</li><li>주주우선공모에서 청약 미달분 발생 → <strong>일반공모</strong>로 처리 (× 함정: \"이사회 결의로 전문투자자 대상 제3자배정으로 해결\"은 틀림)</li><li><strong>2권 상장법인의 일반공모는 이사회 결의로 가능</strong> (주주총회 특별결의 아님)</li></ul><hr><h2 class=\"section-heading\">5. 주권상장법인의 혜택 (문제 6)</h2><ul><li><strong>우리사주조합 우선배정</strong>: 공모주식 총수의 <strong>20%</strong>까지</li><li><strong>유가증권시장 = 의무</strong>, <strong>코스닥시장 = 자유</strong>(할 수도 안 할 수도 있음)</li><li><strong>발행주식 총수의 2분의 1까지 의결권 없거나 제한되는 주식 발행 가능</strong></li><li>상장법인은 <strong>이사회 결의</strong>로 <strong>금전 분기배당</strong> 가능</li><li><strong>액면미달 발행</strong>: 일반 회사 = 주총 특별결의 + <strong>법원 인가</strong> / 주권상장법인 = 법원 인가 없이 <strong>주총 특별결의만</strong>으로 가능 (× 함정: \"이사회 결의만으로 가능\"은 틀림)</li></ul><hr><h2 class=\"section-heading\">6. 상장 방식과 요건 (문제 7·8·9)</h2><h3 class=\"subheading\">상장 원칙·방식</h3><ul><li><strong>전부상장 원칙</strong> (주권의 전부 상장), <strong>신청주의</strong> 상장 원칙, 주권상장 <strong>유예</strong> 가능</li><li>상장 방식 5가지: <strong>신규상장 · 변경상장 · 추가상장 · 재상장 · 우회상장</strong></li><li>변경상장 = 주권의 종목·상호 등 변경 시 / 추가상장 = 주식 발행으로 주식수 변경 시</li><li><strong>우회상장</strong> = 주권상장법인과 비상장법인의 합병 등으로 주권비상장법인의 지분증권이 상장되는 것 (× 함정: 변경상장으로 오인)</li><li>재상장 3가지: 일반재상장·분할재상장·합병재상장 → <strong>유가증권시장은 3가지 모두, 코스닥시장은 합병·분할재상장만</strong> 가능</li></ul><h3 class=\"subheading\">규모·분산 요건 (숫자 암기)</h3><ul><li><strong>자기자본 300억원 이상</strong>, <strong>상장주식수 100만주 이상</strong></li><li><strong>일반주주수 700명 이상</strong> (× 함정: 500명), <strong>일반주주 지분 25% 이상</strong> 또는 <strong>500만주 이상</strong></li></ul><h3 class=\"subheading\">경영성과·안정성 요건</h3><ul><li>최근 <strong>매출액 1,000억원 이상</strong>이거나 <strong>시가총액 2,000억원 이상</strong></li><li>최근 2개년 이익 50억원 이상 + 시가총액 1,000억원 이상 시 충족</li><li><strong>설립 후 3년 이상 경과</strong> + 계속 영업활동 (코스닥시장은 3년 요건 없음)</li><li>감사 의견: <strong>최근 사업연도는 적정</strong>, 최근 3개년도는 <strong>적정 또는 한정</strong> (× 함정: \"최근 3년 연속 적정\"은 틀림)</li></ul><hr><h2 class=\"section-heading\">7. 매매거래정지·상장폐지·관리종목 (문제 10·11)</h2><h3 class=\"subheading\">매매거래정지 사유 (거리가 먼 것 = 변경상장 사유)</h3><ul><li>조회공시 답변 기한 미준수, 시장 감시 필요 시, 풍문·보도 관련 거래량 급변</li><li><strong>변경상장 사유는 정지 사유 아님</strong> (주로 안 좋은 내용·긴급한 내용이 정지 사유)</li></ul><h3 class=\"subheading\">관리종목 지정 vs 상장폐지 (핵심: \"2년 연속\" = 상장폐지)</h3><ul><li><strong>2년 연속 매출액 50억원 미만</strong> → <strong>상장폐지</strong> (1회는 관리종목 지정)</li><li><strong>2년 연속 자본잠식 50% 이상</strong> → 상장폐지 (× 함정: \"자본잠식 30% 미만\"은 틀림)</li><li><strong>2년 연속 감사보고서 의견 한정</strong> → 상장폐지 사유</li><li><strong>2년 연속 일반주주 200인 미만</strong> → 상장폐지 사유</li><li>거래량: 반기 월평균 거래량이 유동주식수 <strong>1% 미달</strong> → 관리종목 지정 / <strong>반기 연속</strong> 미달 → 상장폐지 (\"2년 연속\"이 아님)</li><li>공시서류: <strong>분기·반기 사업보고서 2회 연속 미제출</strong> → 상장폐지 (1회는 관리종목)</li></ul><hr><h2 class=\"section-heading\">8. 공시제도 — 발행시장 vs 유통시장 (문제 12·13·14)</h2><ul><li><strong>발행시장 공시 3종</strong>: <strong>증권신고서 · 투자설명서 · 발행실적보고서</strong> (나머지는 전부 유통시장)</li><li><strong>주요경영사항 공시</strong>: 수시로 발생하는 경영정보 중 투자판단에 중요한 사실을 <strong>적시</strong> 공시하는 의무공시 (대부분 안 좋은 내용: 영업정지·증자·감자·횡령·배임·합병·부도 등)</li><li><strong>당일공시 사항 = 사유 발생 당일 18:00부터 다음날 7:30까지</strong> 공시 (× 함정: \"사유 발생 당일 18:00 이내\"는 틀림)</li><li><strong>공정공시</strong>: 미공개 중요정보를 특정인에게 선별 제공 시 <strong>실시 전에</strong> 모든 투자자에게 공시</li><li><strong>보도 목적의 언론 취재 응대</strong>는 <strong>공정공시 의무 적용 제외</strong> (미리 공시할 시간적 여유가 없고, 보도 시점에 모든 사람에게 공개되므로)</li></ul><hr><h2 class=\"section-heading\">9. 불성실공시법인과 위탁증거금 (문제 15·16)</h2><ul><li>불성실공시 = 공시 불이행·번복·변경. <strong>개선계획서 요구는 한국금융투자협회가 아니라 한국거래소</strong> (× 함정)</li><li>거래소는 <strong>공시위반 제재금 부과</strong>, 매매거래정지, 지정 사실·벌점 공표 가능</li><li><strong>위탁증거금 100% 징수</strong> 3가지: <strong>상장주식수 5만주 미만 종목의 매도주문</strong> (× 함정: \"50%\"는 틀림), <strong>투자경고·투자위험종목의 매수주문</strong> (투자주의종목은 제외), <strong>미수동결계좌</strong></li><li><strong>대용증권</strong> = 현금에 갈음해 위탁증거금으로 사용 가능한 <strong>거래소가 지정</strong>한 증권. 회원은 거래소가 공표한 사정비율 내에서 징수 비율 자율 결정</li></ul><hr><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th>구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\">증권시장</td><td data-label=\"핵심 내용\"><strong>직접금융</strong> 방식 / 발행시장(자금조달·최초투자)+유통시장(매매유통), 상호의존·보완</td></tr><tr><td data-label=\"구분\">모집 vs 매출</td><td data-label=\"핵심 내용\">모집=<strong>신규</strong> 증권 취득청약 권유(주체=<strong>발행인</strong>) / 매출=<strong>기발행</strong> 증권 매도청약 권유(주체=<strong>보유자</strong>)</td></tr><tr><td data-label=\"구분\">간접발행 3종</td><td data-label=\"핵심 내용\">모집주선(사무만) · 잔액인수(미판매분 인수) · 총액인수(전량 인수, 국내 주류)</td></tr><tr><td data-label=\"구분\">상장 단계</td><td data-label=\"핵심 내용\">준비단계(외부감사인·명의개서대행·이사회/주총 결의) → 추진단계(예비심사 청구서 제출~)</td></tr><tr><td data-label=\"구분\">유상증자 배정</td><td data-label=\"핵심 내용\">주주배정(가장 일반적) · 주주우선공모(미달분→일반공모) · 제3자배정 · 일반공모(2권상장은 이사회 결의)</td></tr><tr><td data-label=\"구분\">상장법인 혜택</td><td data-label=\"핵심 내용\">우리사주 20% 우선배정(유가=<strong>의무</strong>/코스닥=<strong>자유</strong>) · 의결권제한주식 1/2까지 · 분기배당 이사회 결의 · 액면미달=<strong>주총 특별결의만</strong>(법원 인가 불필요)</td></tr><tr><td data-label=\"구분\">상장 방식 5종</td><td data-label=\"핵심 내용\">신규 · 변경 · 추가 · 재상장 · 우회상장(합병 등으로 비상장법인 지분증권 상장)</td></tr><tr><td data-label=\"구분\">상장 요건</td><td data-label=\"핵심 내용\">자기자본 <strong>300억</strong>↑ · 상장주식수 <strong>100만주</strong>↑ · 일반주주 <strong>700명</strong>↑ · 지분 <strong>25%</strong>↑ 또는 500만주↑</td></tr><tr><td data-label=\"구분\">경영성과 요건</td><td data-label=\"핵심 내용\">매출 <strong>1,000억</strong>↑ 또는 시가총액 <strong>2,000억</strong>↑ · 설립 3년↑(코스닥 무) · 최근 감사 <strong>적정</strong>, 3개년 적정 또는 한정</td></tr><tr><td data-label=\"구분\">관리종목→상장폐지</td><td data-label=\"핵심 내용\">2년 연속 매출 50억↓ · 자본잠식 50%↑ · 감사 한정 · 일반주주 200인↓ · (반기 연속 거래량 1%↓도 폐지)</td></tr><tr><td data-label=\"구분\">당일공시</td><td data-label=\"핵심 내용\">사유 발생 <strong>당일 18:00 ~ 다음날 7:30</strong></td></tr><tr><td data-label=\"구분\">공정공시 예외</td><td data-label=\"핵심 내용\">언론 취재 응대 (제공 전 공시 불가능, 보도 시점에 전면 공개)</td></tr><tr><td data-label=\"구분\">위탁증거금 100%</td><td data-label=\"핵심 내용\">5만주 미만 매도주문 · 투자경고/투자위험 매수주문 · 미수동결계좌</td></tr></tbody></table></div><hr>",
+    "quiz": [
+      {
+        "q": "모집과 매출의 차이는?",
+        "a": "모집=<strong>새로 발행되는</strong> 증권의 취득청약 권유(<strong>발행인</strong>이 주체), 매출=<strong>이미 발행된</strong> 증권의 매도청약 권유(<strong>보유자</strong>가 주체)",
+        "e": "주체 뒤바뀐 지문이 함정. 50인 산정 시 전문투자자·연고자는 제외."
+      },
+      {
+        "q": "총액인수와 잔액인수의 차이는?",
+        "a": "잔액인수=미판매분만 인수, 총액인수=<strong>전량 인수</strong>",
+        "e": "인수수수료율은 모집주선&lt;잔액인수&lt;총액인수. 우리나라 대부분은 총액인수 방식."
+      },
+      {
+        "q": "상장 준비단계에 해당하는 것은?",
+        "a": "<strong>외부감사인 지정·명의개서대행 계약 체결·이사회(주주총회) 결의</strong>",
+        "e": "상장예비심사 청구서 제출부터는 거래소가 관여하는 추진단계."
+      },
+      {
+        "q": "주주우선공모에서 청약 미달분이 발생하면?",
+        "a": "<strong>일반공모</strong>",
+        "e": "\"이사회 결의로 전문투자자 대상 제3자배정\"은 틀린 지문."
+      },
+      {
+        "q": "일반주주수와 자기자본의 상장 요건 숫자는?",
+        "a": "<strong>일반주주 700명 이상, 자기자본 300억원 이상</strong>",
+        "e": "500명 함정 주의. 일반주주 지분 25% 이상 또는 500만주 이상."
+      },
+      {
+        "q": "상장폐지 사유로 가장 거리가 먼 것은?",
+        "a": "<strong>변경상장 사유</strong>",
+        "e": "이는 매매거래정지 사유 문제. \"2년 연속\"이 붙는 것(매출 50억↓·자본잠식 50%↑·감사 한정·일반주주 200인↓)이 상장폐지 사유."
+      }
+    ]
+  },
+  {
+    "id": "F6JuDDxLikY",
+    "group": "유가증권시장·코스닥시장",
+    "groupIndex": 0,
+    "index": 6,
+    "label": "최종핵심 문제풀이 ②",
+    "title": "증권투자권유자문인력 최종핵심 문제풀이 '유가증권시장②'✨ 합격을 원하신 다면 꼭 보세요! ┃ 해커스금융 송영욱 교수님",
+    "teacher": "송영욱",
+    "nature": "문제풀이 ('유가증권시장①'편의 1~16번에 이어 17~31번 풀이)",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=F6JuDDxLikY",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">1. 시간외시장과 매매수량·호가단위 (문제 17·18)</h2><h3 class=\"subheading\">장전·장후 시간외시장의 시간 차이 (× 함정)</h3><ul><li><strong>장개시전 시간외시장</strong>: 호가접수시간 = 매매거래시간 (<strong>8:00~9:00</strong>, 같음)</li><li><strong>장종료후 시간외시장</strong>: 호가접수시간은 <strong>15:30~18:00</strong>이나 매매거래시간은 <strong>15:40~18:00</strong> → <strong>10분 차이</strong></li><li>15:30~15:40은 호가만 접수되고 매매(체결)는 안 됨</li><li>정규시장: 호가 주문은 <strong>8:30부터</strong> 가능하나 <strong>체결은 9:00부터</strong></li></ul><h3 class=\"subheading\">매매수량단위·호가가격단위</h3><ul><li>매매수량단위 <strong>1주</strong> (예외: <strong>ELW는 10주</strong> — 주가가 5원·10원짜리도 있어 금액이 너무 작기 때문. 과거 유가증권시장도 10주→1주로 변경됨)</li><li>호가가격단위: <strong>유가증권시장 7단계</strong>(1·5·10·50·100·500·1,000원), <strong>코스닥시장 5단계</strong>(100원까지)</li><li>암기 팁: \"<strong>공 세 개</strong>만 뛰면 호가가격단위\" — 1,000원 미만→1원, 5,000원 미만→5원, 1만원 미만→10원, 5만원 미만→50원, 10만원 미만→100원, 50만원 미만→500원, 50만원 이상→1,000원</li><li>주가 35,000원 → 5만원 미만이므로 <strong>50원</strong> (× 함정: 100원)</li></ul><hr><h2 class=\"section-heading\">2. 가격제한폭과 호가 종류 (문제 19·20)</h2><h3 class=\"subheading\">가격제한폭 ±30%</h3><ul><li>적용 대상: 주식·DR·ETF뿐 아니라 <strong>ETN·수익증권에도 적용</strong> (× 함정: \"ETN·수익증권에는 적용되지 않는다\"는 틀림)</li><li><strong>적용 제외 4종</strong>: <strong>정리매매 종목 · 주식워런트증권(ELW) · 신주인수권증서 · 신주인수권증권</strong></li><li><strong>레버리지 ETF</strong>: 배율만큼 가격제한폭 <strong>확대</strong> 적용</li></ul><h3 class=\"subheading\">호가(주문) 종류 — 시험 빈출 5종</h3><ul><li><strong>지정가</strong>: 가장 일반적. 종목·수량·가격 지정 (투자자가 원하는 <strong>최소한의 가격 수준</strong> 지정)</li><li><strong>시장가</strong>: 종목·수량은 지정, <strong>가격은 지정하지 않음</strong> — 시장에 나와 있는 대로 무조건 매수·매도</li><li><strong>조건부지정가</strong>: 장중에는 지정가, <strong>장 마감 10분 전(15:20)부터 시장가로 전환</strong></li><li>× 함정: \"주문 접수 시 <strong>상대방의 최우선호가</strong> 가격으로 지정되는 주문\"은 <strong>최유리지정가</strong>이지 최우선지정가가 아님</li><li><strong>선물옵션 최종거래일</strong>에는 프로그램매매를 위한 조건부지정가 호가 제출 <strong>금지</strong> (3:20에 선물이 종료되므로 3:20~3:30 조건부지정가 제출 불가)</li></ul><hr><h2 class=\"section-heading\">3. 단일가매매와 시간우선 원칙 예외 (문제 21·22)</h2><h3 class=\"subheading\">단일가매매 vs 접속매매(복수가매매)</h3><ul><li>일반 거래 = <strong>복수가매매 = 접속매매</strong>(여러 가격, 경쟁매매)</li><li>단일가매매 = 일정 시간 접수한 호가를 <strong>하나의 가격으로 집중 체결</strong> (예외적 거래)</li><li>단일가매매 대상·시간:</li><li><strong>장개시 최초가격(시가)</strong>: 30분 호가 접수 (8:30~9:00)</li><li><strong>시장 임시정지 후 재개시 최초가격</strong>: <strong>10분</strong> 호가 접수 (× 함정: 30분이 아님. 장 시작과 정리매매만 30분)</li><li><strong>CB 등 매매거래정지 후 재개시</strong>: 10분</li><li><strong>장종료시 가격(종가)</strong>: 10분 (15:20~15:30)</li><li><strong>정리매매·단기과열종목</strong>: <strong>30분 단위</strong> 단일가매매</li><li>단일가매매 체결: <strong>합치가격</strong>으로 체결우선순위에 따라 체결</li></ul><h3 class=\"subheading\">시간우선 원칙의 예외 — 동시호가 간주</h3><ul><li><strong>시가결정 시 상·하한가</strong>로 결정 → 동시호가로 간주, <strong>시간우선 원칙 배제</strong></li><li><strong>VI(변동성완화장치) 발동 시</strong>, <strong>전산장애·풍문 등으로 거래 중단 후 재개 시</strong>도 동시호가</li><li><strong>종가결정 시에는 해당되지 않음</strong> — 종가는 상한가여도 시간우선 원칙 적용 (× 함정)</li><li>함께 암기: 체결우선 원칙, <strong>위탁자우선원칙·수량우선원칙·접수우선원칙</strong></li></ul><hr><h2 class=\"section-heading\">4. 매매체결 특례 — 신규상장·정리매매·시간외 (문제 23·24·25)</h2><h3 class=\"subheading\">평가가격과 신규상장 종목의 호가 범위</h3><ul><li><strong>평가가격</strong>: 최초가격 결정을 위해 제출할 수 있는 호가 범위의 <strong>기준</strong>이 되는 가격</li><li><strong>신규상장 종목</strong>: 최초가격 결정을 위한 호가 범위 = 평가가격의 <strong>90~200%</strong> (일반 종목은 전일종가 ±30% = 70~130%)</li><li><strong>따상</strong> = 공모가 2배 + 상한가 = 최대 <strong>160% 수익</strong></li></ul><h3 class=\"subheading\">정리매매</h3><ul><li>상장폐지 확정 종목을 상장폐지 전 <strong>7일간</strong> 매매하게 해 환금 기회 부여</li><li><strong>30분 단위 단일가매매</strong>, <strong>가격제한폭 적용 배제</strong> (× 함정: \"정규시장 매매거래시간에 접속매매\"는 틀림)</li></ul><h3 class=\"subheading\">시간외시장 구분</h3><div class=\"table-wrap\"><table><thead><tr><th>구분</th><th>시간외 종가매매</th><th>시간외 단일가매매</th></tr></thead><tbody><tr><td data-label=\"구분\">체결 가격</td><td data-label=\"시간외 종가매매\"><strong>종가</strong>로만 거래</td><td data-label=\"시간외 단일가매매\">종가 기준 ±10% 범위에서 거래</td></tr><tr><td data-label=\"구분\">장전</td><td data-label=\"시간외 종가매매\">8:30~8:40 (전일종가)</td><td data-label=\"시간외 단일가매매\">—</td></tr><tr><td data-label=\"구분\">장후</td><td data-label=\"시간외 종가매매\">15:30~15:40 (당일종가)</td><td data-label=\"시간외 단일가매매\">—</td></tr><tr><td data-label=\"구분\">우선원칙</td><td data-label=\"시간외 종가매매\">가격 고정 → <strong>시간우선만</strong> 적용</td><td data-label=\"시간외 단일가매매\">—</td></tr></tbody></table></div><ul><li>시간외 종가매매의 <strong>총 30분</strong>: 장전 8:30~8:40 + 장후 15:40~16:00 (자막 기준)</li><li>\"가격 변동 범위 당일종가 ±10%\"는 시간외 <strong>단일가</strong>매매의 얘기 (× 함정)</li></ul><h3 class=\"subheading\">장중 대량·바스켓매매</h3><ul><li>회원이 신청하여 매매를 성립시키는 제도</li><li>체결가격 = <strong>당일 최고·최저가 범위 내</strong>에서 결정 (× 함정: \"호가접수 직전 형성된 가격\"은 틀림)</li><li>규모 요건: 매매수량단위의 <strong>5,000배 이상</strong> 또는 수량×가격 <strong>1억원 이상</strong></li><li>매매 체결 전까지 <strong>정정·취소 가능</strong></li></ul><hr><h2 class=\"section-heading\">5. 서킷브레이커스 vs 사이드카 (문제 26·27)</h2><h3 class=\"subheading\">서킷브레이커스 (CB) — 시험 단골</h3><ul><li>발동 효과: <strong>모든 종목</strong> 및 주식관련 선물옵션 거래 <strong>20분간 중단</strong> (× 함정: 30분이 아님)</li><li>발동 요건: 지수(코스피·코스닥 지수, 현물 기준)가 <strong>전일종가 대비 8%·15%·20% 이상 하락하여 1분간 지속</strong></li><li><strong>1일 1회만</strong> 발동 가능</li><li><strong>장종료 40분 전(14:50) 이후</strong>에는 발동 안 함</li><li><strong>20% 이상 하락</strong> 시에는 아예 <strong>장 종료</strong></li><li>발동 해제: 매매거래 정지 후 <strong>20분 경과</strong> → 매매 재개</li></ul><h3 class=\"subheading\">사이드카 (CB와 구분)</h3><ul><li>발동 기준: <strong>선물 가격</strong>(코스피200 선물 가격) 기준</li><li><strong>상·하 모두</strong> 적용 (CB는 하락 시에만)</li><li>해제: <strong>프로그램매매 호가 제출 5분 정지</strong> 후 재개 (CB는 시장 전체 20분)</li><li><strong>단기과열종목 지정</strong> → <strong>3일간 30분 단위 단일가매매</strong>로 체결</li></ul><h3 class=\"subheading\">신용·경고 관련 조치</h3><ul><li><strong>투자경고·투자위험종목</strong> 지정 → <strong>신용거래 제한 + 위탁증거금 100% 징수</strong> (+ 매매거래정지)</li></ul><hr><h2 class=\"section-heading\">6. 공정한 주가형성과 공매도·자기주식 (문제 28)</h2><ul><li>공정한 주가형성을 위한 제도: <strong>공매도 제한 · 자기주식 매매 제한 · 호가정보 공개</strong></li><li><strong>위탁증거금 제한</strong>은 결제이행 담보이지 공정한 주가형성과는 거리가 멈 (× 함정)</li><li><strong>무차익공매도 불허, 차익공매도만 허용</strong></li><li>자기주식 취득: 취득수량 한도 제한 없음(<strong>이익금 범위 내</strong>면 가능), 이사회 결의상 공시 후 <strong>익일부터 3개월 이내</strong>에 취득</li></ul><hr><h2 class=\"section-heading\">7. 배당락·권리락 (문제 29)</h2><ul><li><strong>배당락</strong> = 배당받을 권리 소멸 / <strong>권리락</strong> = 신주 받을 권리 소멸 (지문 뒤바뀜 주의)</li><li>12월 결산법인: <strong>12/31 휴장</strong> → 주주확정 실제 기준일은 <strong>12월 30일</strong></li><li>T+2 결제로 <strong>12월 28일까지 매수</strong>해야 12월 30일 주주 확정 (× 함정: \"12월 29일까지\")</li><li>배당락 <strong>기준가격 조정</strong> = <strong>주식배당의 경우에만</strong> 적용 (현금배당은 적용 안 됨)</li></ul><hr><h2 class=\"section-heading\">8. 청산·결제와 거래증거금 (문제 30·31)</h2><ul><li><strong>청산</strong>: 거래소가 <strong>중앙거래당사자(CCP)</strong> 로서 매도·매수자 간 채권채무를 <strong>차감</strong> 확정하고 결제 이행까지 <strong>보증</strong>하는 일련의 절차</li><li><strong>결제</strong>: 청산으로 확정된 CCP와 회원 간 채무를 증권 인도·대금지급으로 이행해 매매를 <strong>종결</strong></li><li>우리나라 결제 원칙: <strong>실물결제·차감결제·집중결제</strong> (× 함정: 현금결제·전량결제)</li><li>결제이행 재원: <strong>손해배상공동기금·결제적립금·거래소 자산·회원보증금</strong></li><li><strong>거래증거금 부과 대상</strong>: 상장주식·ELW·ETF (가격제한폭 15%→30% 확대가 도입 배경, <strong>순위험증거금 + 변동증거금</strong>)</li><li><strong>RP(환매조건부채권)</strong> 등 위험 적은 채권·국채는 부과 안 함 (× 함정)</li><li>위탁증거금 = 고객이 증권사에 납부 / 거래증거금 = 회원(증권사)이 거래소에 납부</li></ul><hr><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th>구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\">장후 시간외</td><td data-label=\"핵심 내용\">접수 15:30~18:00 / 체결 15:40~18:00 (10분 차이)</td></tr><tr><td data-label=\"구분\">호가단위</td><td data-label=\"핵심 내용\">유가 7단계 / 코스닥 5단계 (35,000원→<strong>50원</strong>)</td></tr><tr><td data-label=\"구분\">가격제한폭</td><td data-label=\"핵심 내용\">±30% (ETN·수익증권도 적용) / 제외 4종(정리매매·ELW·신주인수권증서·신주인수권증권) / 레버리지ETF 확대</td></tr><tr><td data-label=\"구분\">단일가 시간</td><td data-label=\"핵심 내용\">장개시 30분 / 임시정지 재개·CB재개·종가 10분 / 정리매매·단기과열 30분</td></tr><tr><td data-label=\"구분\">시간우선 예외</td><td data-label=\"핵심 내용\">시가 상·하한가→동시호가 / VI·거래중단재개도 / <strong>종가 제외</strong></td></tr><tr><td data-label=\"구분\">신규상장 호가범위</td><td data-label=\"핵심 내용\">평가가격 <strong>90~200%</strong> (일반 70~130%) / 따상=160%</td></tr><tr><td data-label=\"구분\">시간외 종가</td><td data-label=\"핵심 내용\">장전 8:30~8:40(전일종가) · 장후 15:30~15:40(당일종가), 시간우선만</td></tr><tr><td data-label=\"구분\">CB</td><td data-label=\"핵심 내용\">8%·15%·20% 하락 1분 지속 → <strong>20분 중단</strong> / 1일 1회 / 14:50 이후 불가 / 20%↓는 장 종료</td></tr><tr><td data-label=\"구분\">사이드카</td><td data-label=\"핵심 내용\">선물 기준 · 상하 모두 · 프로그램매매 호가제출 5분 정지</td></tr><tr><td data-label=\"구분\">경고·위험종목</td><td data-label=\"핵심 내용\">신용거래 제한 + 위탁증거금 100% 징수</td></tr><tr><td data-label=\"구분\">공매도</td><td data-label=\"핵심 내용\">무차익 불허, 차익만 허용 / 자기주식 3개월 이내 취득</td></tr><tr><td data-label=\"구분\">배당락</td><td data-label=\"핵심 내용\">12월 기준일=<strong>12/30</strong>, 매수는 <strong>12/28까지</strong> / 기준가격 조정은 주식배당만</td></tr><tr><td data-label=\"구분\">청산·결제</td><td data-label=\"핵심 내용\">실물·차감·집중 / 재원 4종 / CCP 보증</td></tr><tr><td data-label=\"구분\">거래증거금</td><td data-label=\"핵심 내용\">상장주식·ELW·ETF (RP 등 저위험 채권 제외)</td></tr></tbody></table></div><hr>",
+    "quiz": [
+      {
+        "q": "장종료후 시간외시장에서 호가 접수와 매매 체결 시간의 차이는?",
+        "a": "<strong>접수는 15:30부터, 체결은 15:40부터</strong> (10분간은 접수만)",
+        "e": "장개시전 시간외(8:00~9:00)는 접수=체결 시간이 같다."
+      },
+      {
+        "q": "가격제한폭이 적용되지 않는 4종은?",
+        "a": "<strong>정리매매 종목·ELW·신주인수권증서·신주인수권증권</strong>",
+        "e": "주식·DR·ETF·ETN·수익증권에는 모두 적용. 레버리지 ETF는 배율만큼 확대."
+      },
+      {
+        "q": "단일가매매 호가 접수 시간이 10분인 경우는?",
+        "a": "<strong>시장 임시정지 후 재개·CB 후 재개·종가 결정</strong>",
+        "e": "장개시(시가)·정리매매·단기과열종목만 30분."
+      },
+      {
+        "q": "시간우선 원칙이 배제되는 경우(동시호가)는?",
+        "a": "<strong>시가결정 시 상·하한가, VI 발동, 전산장애·풍문 등 거래중단 후 재개</strong>",
+        "e": "종가결정 시에는 상한가여도 시간우선 원칙 적용됨."
+      },
+      {
+        "q": "서킷브레이커스 발동 요건과 효과는?",
+        "a": "지수 <strong>8%·15%·20% 이상 하락 1분 지속</strong> → <strong>20분간 거래 중단</strong>",
+        "e": "1일 1회, 14:50 이후 불가, 20% 하락 시 장 종료. 사이드카는 선물 기준·상하 모두·5분간 프로그램매매 호가정지."
+      },
+      {
+        "q": "배당락과 권리락의 차이는?",
+        "a": "배당락=<strong>배당</strong> 권리 소멸, 권리락=<strong>신주</strong> 권리 소멸",
+        "e": "12월 결산법인은 12/31 휴장이므로 12/28까지 매수 → 12/30 주주 확정. 기준가격 조정은 주식배당에만."
+      }
+    ]
+  },
+  {
+    "id": "Jq3Y9wzmUis",
+    "group": "자본시장법",
+    "groupIndex": 1,
+    "index": 1,
+    "label": "기출문제 풀이 ①",
+    "title": "[증권투자권유자문인력 기출] 기출문제 풀이 '자본시장법 ①'ㅣ해커스 투자권유자문인력",
+    "teacher": "자막에서 강사명 확인 불가 (해커스 투자권유자문인력)",
+    "nature": "기출풀이 (문제 1~3번 풀이)",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=Jq3Y9wzmUis",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">1. 자본시장법 제정의 특징 (문제 1)</h2><h3 class=\"subheading\">열거주의 → 포괄주의 (× 함정: \"열거주의 채택\"은 틀림)</h3><ul><li>예전: <strong>열거주의</strong> — 법에서 열거한 상품만 판매 가능 (10가지 정도 정해놓고 그 상품만)</li><li>지금: <strong>포괄주의</strong> — 법에서 <strong>금지하지 않으면 다 판매 가능</strong> (신상품 대응)</li></ul><h3 class=\"subheading\">기관별 규제 → 기능별 규제</h3><ul><li>예전: 은행법·증권거래법·보험법 따로 (기관별 규제)</li><li>지금: <strong>기능이 같으면 같은 법으로 규제</strong> (예: 은행도 펀드 판매 → 자본시장법)</li></ul><h3 class=\"subheading\">업무 범위 확대 + 투자자 보호 강화</h3><ul><li>업무 범위: <strong>확대</strong> (은행도 펀드·방카슈랑스 판매)</li><li>투자자 보호: <strong>강화</strong> (금융상품이 많아지고 복잡해져서 설명의무·적합성 등 강화)</li><li>→ 정답: 1번 (열거주의 채택이 틀린 지문)</li></ul><hr><h2 class=\"section-heading\">2. 금융투자상품의 요건과 손해배상 산정 (문제 2)</h2><h3 class=\"subheading\">금융투자상품 요건 3가지 (가장 중요한 것은 3번째)</h3><ol><li>이익을 얻거나 <strong>손실을 회피할 목적</strong> (투자 목적이 반드시 있어야)</li><li>권리 취득 (실물이 아닌 권리)</li><li><strong>투자성 = 원금손실 가능성</strong> (법적 표현: \"<strong>투자금액이 회수금액을 초과하게 될 위험</strong>\")</li></ol><ul><li>투자금액 &gt; 회수금액 = 원금을 까먹을 수 있다는 뜻</li></ul><h3 class=\"subheading\">손해배상금 산정 방식 (계산 문제)</h3><ul><li>손해배상금 = <strong>투자금액 − 회수금액</strong></li><li><strong>투자금액 산정 시 판매수수료는 제외(뺌)</strong> (× 함정: \"포함해야 된다\"는 틀림)</li><li><strong>회수금액 산정 시 환매수수료와 세금은 포함(더함)</strong> (회수금액에 환매수수료·세금 합산)</li><li>예: 1억원 투자(판매수수료 100만원) → 투자금액 9,900만원 / 회수 7,000만원(환매수수료 200만 + 세금 100만) → 회수금액 7,300만원 → <strong>손해배상금 = 2,600만원</strong></li><li>→ 정답: 3번</li></ul><hr><h2 class=\"section-heading\">3. 금융투자상품의 분류 (문제 3)</h2><h3 class=\"subheading\">증권 vs 파생상품의 구분 기준</h3><ul><li>원금손실 가능 여부에 따라: 금융투자상품(원금손실 가능) vs 비금융투자상품</li><li>금융투자상품 내부 구분:</li><li><strong>증권</strong> = <strong>추가 지급의무가 없음</strong> (원금까지만 깨짐 — 1억 투자해도 1억까지만 손실)</li><li><strong>파생상품</strong> = <strong>추가 지급의무가 있음</strong> (원금초과손실 가능 — 1억 투자해서 3억 깨질 수 있음)</li></ul><h3 class=\"subheading\">증권 6가지 (암기)</h3><ol><li><strong>채무증권</strong> (보통 채권)</li><li><strong>지분증권</strong></li><li><strong>수익증권</strong></li><li><strong>파생결합증권</strong> (ELS·DLS — 파생상품이 아니라 <strong>증권</strong>에 속함!)</li><li><strong>투자계약증권</strong></li><li><strong>증권예탁증권</strong> (DR)</li></ol><h3 class=\"subheading\">파생상품</h3><ul><li><strong>장내파생상품</strong>: 선물·옵션 (대표적)</li><li><strong>장외파생상품</strong>: 선도·스왑 (대표적)</li></ul><h3 class=\"subheading\">금융투자상품에서 제외되는 3가지 (암기)</h3><ol><li><strong>CD</strong> (양도성예금증서)</li><li><strong>관리신탁의 수익권</strong> (현상유지 성격)</li><li><strong>주식매수선택권(스톡옵션)</strong></li></ol><ul><li>→ 요건상으로는 해당하지만 법에서 제외. 원금손실 가능성이 극히 낮아 설명의무·적합성을 적용하지 않아도 됨</li><li>→ 정답: 1번</li></ul><hr><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th>구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\">자본시장법 특징</td><td data-label=\"핵심 내용\"><strong>포괄주의</strong>(금지하지 않으면 다 가능) · <strong>기능별 규제</strong> · 업무범위 확대 · 투자자 보호 강화</td></tr><tr><td data-label=\"구분\">금융투자상품 요건</td><td data-label=\"핵심 내용\">목적(이익/손실회피) · 권리 취득 · <strong>투자성=원금손실 가능성</strong>(투자금액이 회수금액을 초과할 위험)</td></tr><tr><td data-label=\"구분\">손해배상 산정</td><td data-label=\"핵심 내용\">투자금액−회수금액 / 투자금액 산정 시 <strong>판매수수료 제외</strong> / 회수금액 산정 시 <strong>환매수수료·세금 포함</strong></td></tr><tr><td data-label=\"구분\">증권 vs 파생</td><td data-label=\"핵심 내용\">증권=<strong>추가 지급의무 없음</strong>(원금까지 손실) / 파생=추가 지급의무 있음(초과손실 가능)</td></tr><tr><td data-label=\"구분\">증권 6종</td><td data-label=\"핵심 내용\">채무 · 지분 · 수익 · <strong>파생결합</strong> · 투자계약 · 증권예탁(DR)</td></tr><tr><td data-label=\"구분\">파생상품</td><td data-label=\"핵심 내용\">장내: 선물·옵션 / 장외: 선도·스왑</td></tr><tr><td data-label=\"구분\">제외 3종</td><td data-label=\"핵심 내용\"><strong>CD · 관리신탁 수익권 · 스톡옵션</strong></td></tr></tbody></table></div><hr>",
+    "quiz": [
+      {
+        "q": "자본시장법 제정 이전과 비교해 바뀐 나열 방식은?",
+        "a": "<strong>열거주의 → 포괄주의</strong>",
+        "e": "법에서 금지하지 않는 상품은 모두 판매 가능. 기관별 규제 → 기능별 규제로도 바뀜."
+      },
+      {
+        "q": "손해배상금을 산정할 때 투자금액은 어떻게 정하는가?",
+        "a": "투자금액에서 <strong>판매수수료는 제외</strong>",
+        "e": "회수금액 산정 시에는 환매수수료와 세금을 포함. 예: 1억 투자−판매수수료 100만=9,900만원."
+      },
+      {
+        "q": "증권과 파생상품의 구분 기준은?",
+        "a": "<strong>추가 지급의무</strong>(=원금초과손실 가능성) 유무",
+        "e": "증권은 원금까지만 손실, 파생상품은 원금을 초과해 손실 가능."
+      },
+      {
+        "q": "파생결합증권은 증권인가 파생상품인가?",
+        "a": "<strong>증권</strong>",
+        "e": "ELS·DLS가 대표적. 이름에 '파생'이 들어가지만 원금은 초과손실되지 않으므로 증권 분류."
+      },
+      {
+        "q": "금융투자상품에서 제외되는 3가지는?",
+        "a": "<strong>CD · 관리신탁 수익권 · 스톡옵션</strong>",
+        "e": "원금손실 가능성이 극히 낮아 설명의무·적합성 적용 제외."
+      }
+    ]
+  },
+  {
+    "id": "ACJ0yD8f-zw",
+    "group": "자본시장법",
+    "groupIndex": 1,
+    "index": 2,
+    "label": "2탄",
+    "title": "[증권투자권유자문인력 자격증 요약] 기출문제 풀이 '자본시장법 2탄'ㅣ해커스 송영욱",
+    "teacher": "송영욱",
+    "nature": "기출풀이 (자본시장법 1탄의 문제 1~3번에 이어 문제 4~6번 풀이)",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=ACJ0yD8f-zw",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">1. 증권 6종의 의의 (문제 4)</h2><h3 class=\"subheading\">증권 6가지와 쉬운 이해</h3><ol><li><strong>채무증권</strong> = 채권 (국가 발행→국채, 회사 발행→회사채, 법적 명칭)</li><li><strong>지분증권</strong> = 주식 (회사의 지분)</li><li><strong>수익증권</strong> = 펀드 (펀드의 법적 명칭)</li><li><strong>파생결합증권</strong> = ELS·DLS·ELW 등 외생적 지수 연계 증권</li><li><strong>투자계약증권</strong> = 조합 형태의 소규모 펀드 (타인과의 공동사업, 이익 배분)</li><li><strong>증권예탁증권</strong> = <strong>DR</strong> (외국회사 주식의 예탁 증서, 주식과 동일한 가치)</li></ol><h3 class=\"subheading\">DR의 이해</h3><ul><li>외국회사(예: 미국 K회사)가 한국에서 상장하는 경우: 실제 주식은 미국에 두고, 주식 증서만 <strong>한국예탁결제원</strong>에 맡김</li><li>이 증서가 주식과 <strong>동일한 가치</strong>를 가짐 → 매매할 때마다 주식을 주고받을 필요가 없음</li></ul><h3 class=\"subheading\">파생결합증권 해당 여부 (× 함정)</h3><ul><li><strong>ETF는 파생결합증권이 아님</strong> — 끝자리 F는 Fund(펀드) = <strong>수익증권</strong>에 해당 → 정답 4번</li><li>(참고: ELS·DLS·ELW는 파생결합증권, ETF는 수익증권)</li></ul><hr><h2 class=\"section-heading\">2. 파생상품의 개념 — 선물·선도·옵션·스왑 (문제 5)</h2><h3 class=\"subheading\">키워드 암기법 (강사 팁)</h3><ul><li>\"<strong>인도</strong>\"라는 말이 들어가면 → <strong>선물 / 선도</strong></li><li>선물 = <strong>장내</strong>에서 기초자산의 매매대금·이자 등을 <strong>장래 특정 시점에 인도할 것을 약정</strong>하는 계약</li><li>선도 = 개념은 선물과 <strong>똑같음</strong>, 차이는 <strong>장외</strong>에서 거래된다는 것뿐</li><li>\"<strong>권리</strong>\"라는 말이 들어가면 → <strong>옵션</strong></li><li>옵션 = 기초자산에 의해 산출된 금전 등을 거래시킬 수 있는 <strong>권리를 부여</strong>하는 것을 약정하는 계약</li><li>(× 함정: \"기초자산에 의해 산출된 금전 등을 거래시킬 수 있는 권리를 부여...\"는 파생결합증권이 아니라 <strong>옵션</strong>의 설명 → 정답 3번)</li><li>\"<strong>교환</strong>\"이라는 말이 들어가면 → <strong>스왑</strong></li><li>스왑 = 기초자산에 의해 산출된 금전을 <strong>일정 기간 교환할 것을 약정</strong>하는 계약</li></ul><hr><h2 class=\"section-heading\">3. 금융투자업 6종 (문제 6)</h2><h3 class=\"subheading\">금융투자업 6종</h3><ol><li><strong>투자매매업</strong></li><li><strong>투자중개업</strong></li><li><strong>집합투자업</strong></li><li><strong>신탁업</strong></li><li><strong>투자자문업</strong></li><li><strong>투자일임업</strong></li></ol><ul><li>(+ 종합금융투자업·온라인소액투자중개업을 더하면 8종)</li></ul><h3 class=\"subheading\">핵심 구분: 자기 계산 vs 타인 계산</h3><ul><li><strong>투자매매업 = 자기 계산</strong> (지문: \"누구의 명의로 하든지 자기의 계산으로\")</li><li>증권사 <strong>자기 돈</strong>으로 매매 → 손익은 <strong>증권사 귀속</strong> (예: A증권사가 자기 돈 100억으로 삼성전자 주식 매매, 이익 10억도 A증권사 몫)</li><li><strong>투자중개업 = 타인 계산</strong> (지문: \"타인에게...\" 또는 \"위탁자\")</li><li>고객(위탁자) 돈으로 매매 → 손익은 <strong>고객 귀속</strong>, 증권사는 수수료만</li></ul><h3 class=\"subheading\">나머지 4종의 의의</h3><ul><li><strong>집합투자업</strong>: <strong>2인 이상의 투자자</strong>로부터 자금을 모아 투자하는 것을 영업으로 (펀드 운용)</li><li><strong>신탁업</strong>: 신탁을 영업으로 (시험 비중 낮음)</li><li><strong>투자자문업</strong>: 기업 가치 판단 등을 위한 <strong>자문</strong>을 영업으로</li><li><strong>투자일임업</strong>: 고객으로부터 투자자산을 <strong>일임받아 운용</strong>하는 것을 영업으로</li><li>→ 정답: 1번 (투자매매업)</li></ul><hr><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th>구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\">증권 6종</td><td data-label=\"핵심 내용\">채무(채권) · 지분(주식) · 수익(펀드) · <strong>파생결합</strong>(ELS·DLS·ELW) · 투자계약(조합) · 증권예탁(DR)</td></tr><tr><td data-label=\"구분\">ETF</td><td data-label=\"핵심 내용\"><strong>수익증권</strong> (파생결합증권 아님)</td></tr><tr><td data-label=\"구분\">DR</td><td data-label=\"핵심 내용\">외국회사가 국내 상장 시 실물은 본국에, 증서만 예탁결제원에 — 주식과 동일 가치</td></tr><tr><td data-label=\"구분\">파생 키워드</td><td data-label=\"핵심 내용\">인도=<strong>선물/선도</strong>(장내/장외) · 권리=<strong>옵션</strong> · 교환=<strong>스왑</strong></td></tr><tr><td data-label=\"구분\">투자매매업</td><td data-label=\"핵심 내용\"><strong>자기 계산</strong> (증권사 돈으로 매매, 손익 증권사 귀속)</td></tr><tr><td data-label=\"구분\">투자중개업</td><td data-label=\"핵심 내용\"><strong>타인 계산</strong> (고객 돈으로 매매, 손익 고객 귀속)</td></tr><tr><td data-label=\"구분\">집합투자업</td><td data-label=\"핵심 내용\">2인 이상 자금 모아 투자 (펀드)</td></tr><tr><td data-label=\"구분\">투자일임업</td><td data-label=\"핵심 내용\">고객 자산 일임받아 운용 / 투자자문업은 가치판단 자문</td></tr></tbody></table></div><hr>",
+    "quiz": [
+      {
+        "q": "ETF는 증권 6종 중 무엇에 해당하는가?",
+        "a": "<strong>수익증권</strong>",
+        "e": "끝자리 F=펀드. ELS·DLS·ELW는 파생결합증권이지만 ETF는 수익증권이므로 파생결합증권이 아님."
+      },
+      {
+        "q": "선물과 선도의 차이는?",
+        "a": "<strong>장내 vs 장외</strong>",
+        "e": "개념은 동일(장래 특정 시점에 인도 약정). \"인도\" 키워드는 선물·선도, \"권리\"는 옵션, \"교환\"은 스왑."
+      },
+      {
+        "q": "\"기초자산에 의해 산출된 금전 등을 거래시킬 수 있는 권리를 부여하는 것을 약정하는 계약\"은?",
+        "a": "<strong>옵션</strong>",
+        "e": "파생결합증권이 아님에 주의."
+      },
+      {
+        "q": "\"누구의 명의로 하든지 자기의 계산으로\" 금융투자상품의 매매 등을 영업으로 하는 업은?",
+        "a": "<strong>투자매매업</strong>",
+        "e": "타인의 계산이면 투자중개업. 자기 돈으로 사서 손익이 증권사 귀속이면 매매업."
+      },
+      {
+        "q": "증권예탁증권(DR)이란?",
+        "a": "외국회사 주식의 <strong>예탁 증서</strong>, 주식과 동일한 가치",
+        "e": "외국회사가 국내 상장할 때 실물은 본국에 두고 증서만 예탁결제원에 맡긴 것."
+      }
+    ]
+  },
+  {
+    "id": "3RzQ1tAp7M0",
+    "group": "자본시장법",
+    "groupIndex": 1,
+    "index": 3,
+    "label": "3탄",
+    "title": "[증권투자권유자문인력 독학 시험] 기출문제 풀이🙌 '자본시장법 3탄'ㅣ해커스 송영욱",
+    "teacher": "송영욱",
+    "nature": "기출풀이",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=3RzQ1tAp7M0",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">1. 온라인소액투자중개업의 등록 요건 (증권형 크라우드펀딩)</h2><ul><li><strong>등록 요건 중 핵심 숫자: 자기자본 5억원 이상</strong> — 일반 투자중개업보다 요건이 훨씬 낮지만, 이것과 혼동하면 안 되는 함정 지문(3억원 등)이 자주 나옴.</li><li>다른 요건: ① 상법상 주식회사 또는 영업소 설치 외국 온라인투자중개업자 ② 사업계획의 타당성·건전성 ③ 투자자 보호 가능 + 업무 수행에 충분한 인력·전산·물적 장비.</li><li><strong>온라인소액투자중개업 = 등록 대상 / 일반 투자중개업 = 인가 대상</strong> — 인가 대상 일반 투자중개업의 자기자본 요건은 온라인소액투자중개업보다 훨씬 더 높게 강화되어 있음.</li></ul><h2 class=\"section-heading\">2. 온라인소액투자중개업자의 영업행위 규제 — 허용되는 청약권유 행위 4가지</h2><ul><li>청약권유는 원칙적으로 제한되며, 다음 <strong>4가지만 허용</strong>:</li></ul><ol><li>투자광고를 <strong>자신의 홈페이지에 게시</strong>하는 행위</li><li>발행인의 발언(게재 내용)을 자신의 홈페이지에 게시하는 행위</li><li>자신의 홈페이지를 통한 투자자 회원의 모집·관리 행위</li><li>발행인이 게재한 내용을 <strong>특정 투자자에게 전송</strong>하는 행위</li></ol><ul><li>이 4가지 이외의 청약권유는 불가.</li></ul><h2 class=\"section-heading\">3. 전문투자자 3분류 (투자자 구분 — 압도적 출제)</h2><ul><li>자본시장법은 투자자를 <strong>일반투자자 vs 전문투자자</strong>로 구분하고 <strong>차등 보호</strong> (일반투자자를 더 많이 보호). 차별이 아닌 차등 보호.</li><li><strong>절대적 전문투자자</strong>: 국가·정부·금융기관 등 — 어떤 경우에도 일반투자자로 전환 불가.</li><li><strong>상대적 전문투자자</strong>: 주권상장법인, 지방자치단체, 기금관리운영법인, 공익사업법인 — 본인이 신청하면 일반투자자로 전환 가능 (일반투자자 수준의 보호 — 적합성·적정성·설명의무 적용 — 를 받고 싶을 때).</li><li><strong>자발적 전문투자자</strong>: 원래 일반투자자인데 스스로 전문투자자 지위를 신청하는 경우 (전문투자형 사모펀드 가입 목적 등).</li><li>개인의 자발적 전문투자자 요건 (<strong>2019.12.5 개정 반영</strong>):</li><li><strong>공통: 금융투자상품 잔고 5,000만원 이상</strong> (종전 5억원에서 하향)</li><li>＋ 다음 중 하나: ① 연소득 <strong>1억원</strong> 이상 (부부합산 1.5억원, 부동산 임대소득 제외) ② 순자산 <strong>5억원</strong> 이상 (종전 10억원에서 하향) ③ 변호사·회계사 등 <strong>전문성 요건</strong>.</li><li>교재·문제집에 개정 전 수치(5억/10억)로 적힌 것은 개정 법 미반영이므로 틀림.</li><li>일반투자자에게만 적용되는 보호: <strong>적합성 원칙·적정성 원칙·설명의무</strong> — 전문투자자에게는 적용되지 않음.</li></ul><h2 class=\"section-heading\">4. 인가 대상 vs 등록 대상 금융투자업</h2><ul><li><strong>인가 대상 4가지</strong>: 투자매매업, 투자중개업, 집합투자업, 신탁업 — 금융위원회 인가 필요, 투자자 보호가 강해 요건이 까다로움.</li><li><strong>등록 대상 4가지</strong>: 투자자문업, 투자일임업, <strong>온라인소액투자중개업</strong>, <strong>전문사모집합투자업</strong> — \"전문\"이 붙으면 등록.</li><li>암기 포인트: 투자중개업은 인가 대상이지만 <strong>온라인소액투자중개업은 등록 대상</strong>, 신탁업은 인가 대상이지만 <strong>전문사모집합투자업은 등록 대상</strong> (집합투자업은 인가 대상).</li><li>인가 요건 중 핵심:</li><li><strong>자기자본 요건: 5억원과 대통령령으로 정하는 금액 중 큰 금액 이상</strong> (\"작은 금액\"이 아닌 \"큰 금액\" — 함정).</li><li><strong>최소 전문인력: 투자권유자문인력 5인 이상</strong> (인가 기준).</li></ul><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th>구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\">온라인소액투자중개업</td><td data-label=\"핵심 내용\"><strong>등록 대상</strong>, 자기자본 <strong>5억원</strong> 이상</td></tr><tr><td data-label=\"구분\">청약권유 허용 행위</td><td data-label=\"핵심 내용\">자사 홈페이지 게시, 발행인 게재내용 홈페이지 게시, 홈페이지 통한 회원 모집·관리, 특정 투자자에게 전송 — 4가지만</td></tr><tr><td data-label=\"구분\">절대적 전문투자자</td><td data-label=\"핵심 내용\">국가·금융기관 등, <strong>일반투자자로 전환 불가</strong></td></tr><tr><td data-label=\"구분\">상대적 전문투자자</td><td data-label=\"핵심 내용\">주권상장법인·지자체·기금운영법인·공익사업법인, 신청 시 전환 가능</td></tr><tr><td data-label=\"구분\">자발적 전문투자자(개인)</td><td data-label=\"핵심 내용\">잔고 5천만원＋(연소득 1억 or 순자산 5억 or 전문성) — 2019.12.5 개정</td></tr><tr><td data-label=\"구분\">차등보호 내용</td><td data-label=\"핵심 내용\">적합성·적정성 원칙, 설명의무는 일반투자자에게만</td></tr><tr><td data-label=\"구분\">인가 대상 4종</td><td data-label=\"핵심 내용\">투자매매·투자중개·집합투자·신탁업</td></tr><tr><td data-label=\"구분\">등록 대상 4종</td><td data-label=\"핵심 내용\">투자자문·투자일임·온라인소액투자중개·전문사모집합투자업</td></tr><tr><td data-label=\"구분\">인가 자기자본 요건</td><td data-label=\"핵심 내용\">5억원과 대통령령 금액 중 <strong>큰</strong> 금액 이상</td></tr><tr><td data-label=\"구분\">인가 전문인력 요건</td><td data-label=\"핵심 내용\">투자권유자문인력 <strong>5인</strong> 이상</td></tr></tbody></table></div>",
+    "quiz": [
+      {
+        "q": "온라인소액투자중개업의 등록 요건과 거리가 먼 것은?",
+        "a": "\"자기자본 3억원 이상일 것\"",
+        "e": "<strong>5억원 이상</strong>이 맞으며, 3억원은 함정 수치."
+      },
+      {
+        "q": "절대적 전문투자자에 해당하지 않는 자는?",
+        "a": "주권상장법인(상대적)",
+        "e": "절대적은 국가·정부·금융기관 등으로 전환 불가, 주권상장법인·지자체 등은 상대적."
+      },
+      {
+        "q": "인가 대상 금융투자업이 아닌 것은?",
+        "a": "투자일임업",
+        "e": "인가는 매매·중개·집합·신탁, 자문·일임·온라인소액·전문사모는 등록 대상."
+      },
+      {
+        "q": "개정 법 기준 개인 자발적 전문투자자의 잔고 요건은?",
+        "a": "금융투자상품 잔고 <strong>5,000만원</strong> 이상",
+        "e": "2019.12.5 개정으로 5억원→5,000만원, 순자산 10억→5억원으로 하향."
+      },
+      {
+        "q": "온라인소액투자중개업자의 영업행위 규제상 허용되는 청약권유 행위가 아닌 것은?",
+        "a": "홈페이지 이외의 수단(광고성 이메일 등) 통한 청약권유",
+        "e": "허용 4가지(자사 홈페이지 게시·회원 모집관리·특정 투자자 전송 등) 이외는 불가."
+      }
+    ]
+  },
+  {
+    "id": "hLEe7Eh2zIM",
+    "group": "자본시장법",
+    "groupIndex": 1,
+    "index": 4,
+    "label": "4탄",
+    "title": "[증권투자권유자문인력 핵심 후기] 기출문제 풀이🙌 '자본시장법 4탄'ㅣ해커스 송영욱",
+    "teacher": "송영욱",
+    "nature": "기출풀이",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=hLEe7Eh2zIM",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">1. 금융투자업의 등록 (투자자문업·투자일임업)</h2><ul><li>금융투자업자가 <strong>투자자문업·투자일임업</strong>을 하려면 금융위원회에 <strong>등록</strong>해야 함 (인가 아님 — \"인가\"라는 말 자체가 함정).</li><li><strong>임원의 요건</strong>은 인가 대상 금융투자업의 임원 요건과 동일.</li><li><strong>금융투자전문인력 요건</strong> — 인가(5인 이상)와 가장 큰 차이점:</li><li>투자자문업: <strong>1인</strong> 이상</li><li>투자일임업: <strong>2인</strong> 이상</li><li>두 가지 모두 하는 경우: <strong>3인</strong> 이상</li><li>\"3인 이상\"이 투자자문업 요건이라는 지문은 틀림.</li></ul><h2 class=\"section-heading\">2. 금융투자업자의 건전성 규제</h2><ul><li>건전성 규제의 취지: 금융기관의 <strong>재무구조 건전성</strong> 확보 — 고객이 맡긴 돈을 언제든 돌려줄 수 있어야 하므로.</li><li><strong>자산건전성 분류 5단계</strong>: 정상 → 요주의 → 고정 → 회수의문 → 추정손실.</li><li><strong>대손충당금 적립비율</strong>: 고정 분류 자산은 <strong>20%</strong> (요주의 2%, 회수의문 75%, 추정손실 100%).</li><li><strong>순자본비율</strong>은 <strong>최소 일별</strong>로 산정해야 함.</li><li><strong>적기시정조치</strong> — 순자본비율에 따라 조치 강도가 달라짐:</li><li>100% 미만: <strong>경영개선권고</strong></li><li>50% 미만: <strong>경영개선요구</strong></li><li>0% 미만: <strong>경영개선명령</strong></li><li>\"50% 이상 100% 미만이면 경영개선명령\"이라는 지문은 틀림 (이 구간은 권고).</li><li>순자본 산정 원칙: 자산·부채는 <strong>연결재무제표상 장부가액</strong> 기재 / 영업용순자본 감산 항목은 원칙적으로 <strong>위험액을 산정하지 않음</strong>.</li><li><strong>총위험액 = 시장위험 + 신용위험 + 운영위험</strong>의 합.</li></ul><h2 class=\"section-heading\">3. 대주주 거래 제한 (대주주·계열사 거래 규제 3가지)</h2><ul><li><strong>① 대주주가 발행한 증권 소유 금지</strong>: 금융투자업자는 대주주 또는 특수관계인이 발행한 증권을 <strong>소유할 수 없는 것이 원칙</strong> (대주주가 주가 부양 등으로 부당 이익을 취하는 것을 원천 차단).</li><li><strong>② 계열회사 발행 증권 소유 한도</strong>: 계열회사가 발행한 주식·채권은 취득 가능하지만 <strong>8%를 초과하여 소유 불가</strong>. 8%까지 소유하더라도 <strong>전원(전원의 찬성)</strong> 을 받아야 가능.</li><li>\"자기자본의 3%를 초과하여 소유할 수 없다\"는 지문은 틀림 — <strong>8%</strong>가 정답.</li><li><strong>③ 신용공여 금지</strong>: 금융투자업자 또는 대주주는 대주주·특수관계인에게 신용공여(대출)를 하는 것도, 받는 것도 <strong>금지</strong> (쌍방 금지).</li><li><strong>④ 부당한 영향력 행사</strong>: 대주주가 통상적 거래조건과 다른 조건으로 자신 또는 제3자와의 거래를 요구하는 행위 금지.</li><li>대주주의 부당한 영향력 행사 혐의가 인정되면 금융투자업자·대주주에게 <strong>자료 제출 요구</strong> 가능.</li></ul><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th>구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\">등록 전문인력</td><td data-label=\"핵심 내용\">투자자문업 <strong>1인</strong> 이상, 투자일임업 <strong>2인</strong> 이상, 둘 다 하면 <strong>3인</strong> 이상</td></tr><tr><td data-label=\"구분\">자산건전성 분류</td><td data-label=\"핵심 내용\">정상·요주의·고정·회수의문·추정손실 5단계</td></tr><tr><td data-label=\"구분\">대손충당금</td><td data-label=\"핵심 내용\">요주의 2%, <strong>고정 20%</strong>, 회수의문 75%, 추정손실 100%</td></tr><tr><td data-label=\"구분\">순자본비율 산정 주기</td><td data-label=\"핵심 내용\">최소 <strong>일별</strong></td></tr><tr><td data-label=\"구분\">적기시정조치</td><td data-label=\"핵심 내용\">100% 미만 권고 / 50% 미만 요구 / 0% 미만 명령</td></tr><tr><td data-label=\"구분\">대주주 발행 증권</td><td data-label=\"핵심 내용\">소유 <strong>금지</strong> (원칙)</td></tr><tr><td data-label=\"구분\">계열회사 발행 증권</td><td data-label=\"핵심 내용\"><strong>8%</strong> 초과 소유 불가, 소유 시 전원 찬성 필요</td></tr><tr><td data-label=\"구분\">신용공여</td><td data-label=\"핵심 내용\">대주주·특수관계인에게 하는 것·받는 것 모두 금지</td></tr><tr><td data-label=\"구분\">순자본 산정</td><td data-label=\"핵심 내용\">장부가액 기재, 영업용순자본 감산항목은 위험액 미산정</td></tr><tr><td data-label=\"구분\">총위험액</td><td data-label=\"핵심 내용\">시장위험＋신용위험＋운영위험</td></tr></tbody></table></div>",
+    "quiz": [
+      {
+        "q": "금융투자업의 등록에 대한 설명으로 틀린 것은?",
+        "a": "\"투자자문업의 경우 금융투자전문인력 3인 이상이어야 한다\"",
+        "e": "자문업 1인, 일임업 2인, 둘 다 3인 이상이 맞음."
+      },
+      {
+        "q": "금융투자업자의 건전성 규제에 대한 설명으로 잘못된 것은?",
+        "a": "\"순자본비율이 50% 이상 100% 미만인 경우 경영개선명령을 한다\"",
+        "e": "이 구간은 <strong>경영개선권고</strong>이며, 명령은 0% 미만."
+      },
+      {
+        "q": "금융투자업자의 대주주 거래 제한에 대한 설명으로 잘못된 것은?",
+        "a": "\"계열사가 발행한 주식·채권을 자기자본의 3%를 초과해 소유할 수 없다\"",
+        "e": "한도는 <strong>8%</strong> (자기자본 기준 아님)."
+      },
+      {
+        "q": "고정으로 분류된 자산의 대손충당금 적립비율은?",
+        "a": "<strong>20%</strong>",
+        "e": "정상(충당금 적립) → 요주의 2% → 고정 20% → 회수의문 75% → 추정손실 100%."
+      },
+      {
+        "q": "대주주의 부당한 영향력 행사가 의심될 때 금융당국이 할 수 있는 조치는?",
+        "a": "금융투자업자·대주주에게 <strong>필요한 자료 제출 요구</strong>",
+        "e": "부당한 압력·횡포를 막기 위한 수단."
+      }
+    ]
+  },
+  {
+    "id": "aW-frndpWak",
+    "group": "자본시장법",
+    "groupIndex": 1,
+    "index": 5,
+    "label": "5탄",
+    "title": "[증권투자권유자문인력 강의 인강] 기출문제 풀이🙌 '자본시장법 5탄'ㅣ해커스 송영욱",
+    "teacher": "송영욱",
+    "nature": "기출풀이",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=aW-frndpWak",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">1. 금융투자업자의 공통 영업행위 규칙 — 업무위탁 규제</h2><ul><li>금융투자업자가 아닌 자는 <strong>금융투자·증권·파생·선물</strong> 등의 명칭을 상호에 사용할 수 없고, 투자정보 제공 등을 내세우며 영업할 수 없음.</li><li>금융투자업자는 <strong>자신의 명의를 대여</strong>하여 타인에게 금융투자업을 영위하게 해서는 안 됨.</li><li><strong>업무위탁 규제의 3단계 구분</strong> (핵심 암기):</li><li><strong>금융투자 겸영 업무 등 부수업무</strong>: 제3자에게 <strong>전부 또는 일부 위탁 가능</strong>.</li><li><strong>본질적 업무</strong>: 위탁 가능하나, 수탁회사가 해당 업무에 대한 <strong>인가·등록을 받은 자</strong>여야 함.</li><li><strong>핵심 업무</strong>: 위탁 <strong>불가</strong> — \"전산관리·조사분석 업무는 제외하고 전부 재위탁 가능\"이라는 지문은 틀림. 원칙적으로 재위탁 금지이나 전산·조사분석 등 일부는 <strong>위탁자 동의</strong>를 받으면 재위탁 예외 가능.</li></ul><h2 class=\"section-heading\">2. 투자매매업자·투자중개업자의 최선집행의무</h2><ul><li><strong>최선집행의무 적용 대상</strong>: 위험상품인 <strong>주권(주식)</strong> — 채무증권·파생결합증권·투자계약증권은 주식보다 덜 위험하므로 적용 없음.</li><li>증권사는 최선집행 기준을 <strong>3개월마다 점검</strong>해야 함.</li><li>고객이 최선집행 기준과 다른 <strong>별도 지시</strong>를 하면 고객의 의사에 따라 집행 (고객 지시 우선).</li></ul><h2 class=\"section-heading\">3. 자기계약 금지 원칙과 예외</h2><ul><li>투자매매업자·투자중개업자(증권사)가 <strong>자기계약을 하는 것은 원칙적으로 금지</strong> — 증권사 직원이 증권사와 고객을 쌍방 대리하는 경우.</li><li><strong>예외 (허용되는 경우)</strong>:</li></ul><ol><li>증권시장 또는 파생상품시장을 통한 매매 (공개시장이라 불공정 염려 없음)</li><li><strong>다자간매매체결회사</strong>를 통한 매매</li><li>자기가 판매한 <strong>집합투자증권의 환매</strong> (자기가 판 펀드를 되사는 것은 자기계약으로 보지 않음)</li><li>투자자 보호 우려가 없고 <strong>금융위원회</strong>가 정하여 고시하는 경우 (\"금융투자협회\"가 고시한다는 지문은 틀림).</li></ol><h2 class=\"section-heading\">4. 불건전 영업행위 (시행령 — 고빈출)</h2><ul><li><strong>고객 주문 전 선행매매 금지</strong> (프론트러닝).</li><li>조사분석자료 공표 <strong>24시간 경과 전 스캘핑 금지</strong>.</li><li>투자자에게 해당 투자매매업자·투자중개업자가 발행한 <strong>자기주식의 매매 권유 금지</strong>.</li></ul><h2 class=\"section-heading\">5. 투자매매업자·투자중개업자의 신용공여 규제 (증권사 대출 규제)</h2><ul><li>신용공여 = <strong>대출</strong>이라고 이해하면 됨.</li><li>구체적 기준·방법 등은 <strong>금융위원회 규정</strong>으로 정함.</li><li>신용공여는 증권사의 고유업무는 아니지만 <strong>증권과 관련된 경우 예외적으로 허용</strong>.</li><li><strong>증권 인수일로부터 3개월 이내에 투자자에게 그 증권을 매수하게 하기 위한 신용공여는 금지</strong> (묻지마 매수 유도 차단).</li><li><strong>증권회사의 총 신용공여 한도: 자기자본 범위 내</strong> (자기자본을 초과할 수 없음).</li><li><strong>신용공여 담보비율: 140% 이상</strong>.</li><li>행정조치(금융위) vs 형사처벌: 금융위는 회사·임직원에 대해 행정조치는 할 수 있으나 <strong>형사처벌은 할 수 없음</strong>.</li></ul><h2 class=\"section-heading\">6. 투자자예탁금의 별도예치</h2><ul><li>투자자예탁금은 고유재산과 <strong>구분하여 증권금융회사에 예치하거나 신탁회사에 신탁</strong> — \"타결제지원회사에 예탁\"이라는 지문은 틀림 (타결제지원회사는 증권 예탁용).</li><li>누구든지 투자자예탁금을 <strong>상계·압류할 수 없음</strong>.</li><li>금융투자업자의 <strong>인가 취소</strong> 시 투자자예탁금은 <strong>우선지급 사유</strong>에 해당.</li><li>안정적 운용: 정부가 지급보증한 채무증권뿐 아니라 <strong>금융기관이 지급보증한 채무증권도 매수 가능</strong> (\"매수할 수 없다\"는 지문은 틀림).</li></ul><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th>구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\">업무위탁</td><td data-label=\"핵심 내용\">부수업무 전부·일부 가능 / 본질적 업무(수탁자 인가·등록자만) / <strong>핵심 업무 위탁 불가</strong></td></tr><tr><td data-label=\"구분\">최선집행의무 대상</td><td data-label=\"핵심 내용\"><strong>주권</strong>(위험상품). 3개월마다 점검, 고객 지시 우선</td></tr><tr><td data-label=\"구분\">자기계약 금지 예외</td><td data-label=\"핵심 내용\">시장 경유 매매, 다자간매매체결회사, 자기판매 펀드 환매, <strong>금융위</strong> 고시 경우</td></tr><tr><td data-label=\"구분\">불건전 영업행위</td><td data-label=\"핵심 내용\">선행매매 금지, 조사분석 공표 24시간 전 스캘핑 금지, 자기주식 매매 권유 금지</td></tr><tr><td data-label=\"구분\">신용공여 한도</td><td data-label=\"핵심 내용\"><strong>자기자본 범위 내</strong>, 담보비율 <strong>140%</strong> 이상</td></tr><tr><td data-label=\"구분\">신용공여 금지</td><td data-label=\"핵심 내용\">인수일로부터 <strong>3개월 이내</strong> 증권 매수 목적 신용공여</td></tr><tr><td data-label=\"구분\">투자자예탁금</td><td data-label=\"핵심 내용\">증권금융회사 예치 또는 신탁, <strong>상계·압류 불가</strong>, 인가취소 시 우선지급</td></tr><tr><td data-label=\"구분\">예탁금 운용</td><td data-label=\"핵심 내용\">정부보증뿐 아니라 <strong>금융기관 지급보증 채무증권도 매수 가능</strong></td></tr></tbody></table></div>",
+    "quiz": [
+      {
+        "q": "업무위탁 규제에 대한 설명으로 틀린 것은?",
+        "a": "\"전산관리·조사분석 업무를 제외하고는 모두 재위탁할 수 있다\"",
+        "e": "<strong>핵심 업무는 위탁 불가</strong>가 원칙이며, 전산·조사분석은 위탁자 동의 시 예외적으로 재위탁 가능."
+      },
+      {
+        "q": "최선집행의무가 적용되는 금융투자상품은?",
+        "a": "<strong>주권(주식)</strong>",
+        "e": "위험상품인 주권에만 적용, 채무증권·파생결합증권 등은 제외."
+      },
+      {
+        "q": "자기계약 금지 원칙의 예외에 해당하지 않는 것은?",
+        "a": "\"투자자 보호 우려가 없어 금융투자협회가 정하여 고시하는 경우\"",
+        "e": "<strong>금융위원회</strong>가 고시하는 경우여야 함."
+      },
+      {
+        "q": "신용공여 규제에 대한 설명으로 틀린 것은?",
+        "a": "\"증권 인수일로부터 3개월 이내 투자자에게 그 증권을 매수하게 하는 신용공여는 허용된다\"",
+        "e": "<strong>금지</strong>됨."
+      },
+      {
+        "q": "투자자예탁금의 별도예치에 대한 설명으로 잘못된 것은?",
+        "a": "\"타결제지원회사에 예탁해야 한다\"",
+        "e": "<strong>증권금융회사에 예치 또는 신탁회사에 신탁</strong>해야 함."
+      }
+    ]
+  },
+  {
+    "id": "9gqvV-rRGg0",
+    "group": "자본시장법",
+    "groupIndex": 1,
+    "index": 6,
+    "label": "자본시장 관련 법규 ①",
+    "title": "증권투자권유자문인력 문제풀이 :자본시장 관련 법규 ①ㅣ해커스금융 송영욱",
+    "teacher": "송영욱",
+    "nature": "문제풀이",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=9gqvV-rRGg0",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">1. 자본시장법 제정 의의 (제정 배경 — 출제 빈도 낮음)</h2><ul><li><strong>열거주의 → 포괄주의</strong>: 과거에는 법에서 열거한 것만 허용 → 지금은 <strong>안 되는 것만 정하고 나머지는 모두 허용</strong>.</li><li><strong>기관별 규제 → 기능별 규제</strong>: 은행·증권·보험 등 기관이 아니라 매매·중개 등 <strong>기능</strong>을 기준으로 동일 규율.</li><li>업무범위 확대(겸영 허용, 투자권유대행인 제도 도입), 투자자 보호 강화.</li><li>\"열거주의 규제체제 도입\"이라는 지문은 틀림.</li></ul><h2 class=\"section-heading\">2. 금융투자상품의 정의 3요건</h2><ol><li><strong>이익을 얻거나 손실을 회피할 목적</strong> (영리 목적, 소비 목적 제외)</li><li><strong>현재 또는 장래 특정 시점에 금전 등을 지급하기로 약정</strong>함으로써 취득하는 <strong>권리</strong> (실물이 아닌 권리)</li><li><strong>원금손실 가능성</strong> = <strong>투자성</strong></li></ol><h2 class=\"section-heading\">3. 손해배상액 추정 — 투자금액·회수금액 산정 (고빈출 실수 포인트)</h2><ul><li>손해액 추정 = <strong>투자금액 − 회수금액</strong>.</li><li><strong>투자금액 산정 시 판매수수료는 제외</strong>: 1억원 투자, 선취수수료 1%(100만원) → 투자금액은 <strong>9,900만원</strong>.</li><li><strong>회수금액 산정 시 환매수수료는 포함</strong>: 7,000만원 환매, 환매수수료 1%(70만원) → 회수금액은 <strong>7,070만원</strong>.</li><li>\"판매수수료는 투자금액 산정 시 포함해야 한다\"는 지문은 틀림 (제외가 정답).</li></ul><h2 class=\"section-heading\">4. 금융투자상품의 분류 — 증권 vs 파생상품</h2><ul><li><strong>구분 기준: 원금초과손실 가능성 = 추가 지급의무</strong> 유무.</li><li><strong>증권</strong>: 원금까지만 손실 (추가로 낼 돈 없음 → <strong>추가 지급의무 없음</strong>).</li><li><strong>파생상품</strong>: 원금을 초과해 손실 가능 (추가로 더 내야 할 수 있음 → <strong>추가 지급의무 있음</strong>).</li><li><strong>증권 6종</strong> (암기): 채무증권 · 지분증권 · 수익증권 · 파생결합증권 · 증권예탁증권(DR) · 투자계약증권.</li><li><strong>파생상품</strong>: 장내파생상품(선물·옵션) / 장외파생상품(선도·스왑).</li><li><strong>파생결합증권(ELS·DLS·ELW)은 파생상품이 아니라 증권</strong> — '파생'이라는 말이 들어가도 증권 6종 중 하나 (빈출 함정).</li><li>주식매수선택권(스톡옵션)은 금융투자상품이 아님 (아래 제외 3종).</li></ul><h2 class=\"section-heading\">5. 금융투자상품에서 제외되는 3종 (무조건 암기)</h2><ol><li><strong>원화표시 CD</strong>(양도성예금증서)</li><li><strong>관리형(관리신탁)의 수익권</strong></li><li><strong>주식매수선택권</strong>(스톡옵션)</li></ol><ul><li>요건은 갖췄으나 법에서 명시적으로 제외.</li></ul><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th>구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\">제정 의의</td><td data-label=\"핵심 내용\">열거주의→<strong>포괄주의</strong>, 기관별→<strong>기능별</strong> 규제</td></tr><tr><td data-label=\"구분\">금융투자상품 3요건</td><td data-label=\"핵심 내용\">영리 목적, 권리 취득, <strong>투자성</strong>(원금손실 가능성)</td></tr><tr><td data-label=\"구분\">투자금액 산정</td><td data-label=\"핵심 내용\"><strong>판매수수료 제외</strong> (1억−1% → 9,900만원)</td></tr><tr><td data-label=\"구분\">회수금액 산정</td><td data-label=\"핵심 내용\"><strong>환매수수료 포함</strong> (7,000만＋1% → 7,070만원)</td></tr><tr><td data-label=\"구분\">손해액 추정</td><td data-label=\"핵심 내용\">투자금액 − 회수금액</td></tr><tr><td data-label=\"구분\">증권 vs 파생상품</td><td data-label=\"핵심 내용\"><strong>원금초과손실 가능성</strong>(추가 지급의무) 유무</td></tr><tr><td data-label=\"구분\">증권 6종</td><td data-label=\"핵심 내용\">채무·지분·수익·<strong>파생결합</strong>·증권예탁·투자계약</td></tr><tr><td data-label=\"구분\">ELS·DLS·ELW</td><td data-label=\"핵심 내용\">파생결합<strong>증권</strong> (증권임)</td></tr><tr><td data-label=\"구분\">제외 3종</td><td data-label=\"핵심 내용\">CD, 관리신탁 수익권, 스톡옵션</td></tr></tbody></table></div>",
+    "quiz": [
+      {
+        "q": "자본시장법 제정 의의와 거리가 먼 것은?",
+        "a": "\"열거주의 규제체제 도입\"",
+        "e": "<strong>포괄주의</strong> 도입이 맞음."
+      },
+      {
+        "q": "금융투자상품에 대한 설명으로 잘못된 것은?",
+        "a": "\"판매수수료는 투자금액 산정 시 포함해야 한다\"",
+        "e": "판매수수료는 <strong>제외</strong>, 환매수수료는 회수금액 산정 시 <strong>포함</strong>."
+      },
+      {
+        "q": "금융투자상품의 분류에 대한 설명으로 옳은 것은?",
+        "a": "\"증권은 추가 지급의무가 없는 금융투자상품이다\"",
+        "e": "증권은 원금까지만 손실, 파생상품은 원금초과손실(추가 지급의무) 가능."
+      },
+      {
+        "q": "파생결합증권에 대한 설명으로 틀린 것은?",
+        "a": "\"파생결합증권은 파생상품에 속한다\"",
+        "e": "'파생'이 들어가도 <strong>증권 6종</strong> 중 하나."
+      },
+      {
+        "q": "금융투자상품에 해당하지 않는 것은?",
+        "a": "<strong>주식매수선택권</strong>",
+        "e": "CD·관리신탁 수익권·스톡옵션은 명시적 제외 3종."
+      }
+    ]
+  },
+  {
+    "id": "4lGENu4H-i8",
+    "group": "자본시장법",
+    "groupIndex": 1,
+    "index": 7,
+    "label": "자본시장 관련 법규 ②",
+    "title": "증권투자권유자문인력 문제풀이 :자본시장 관련 법규 ②ㅣ해커스금융 송영욱",
+    "teacher": "송영욱",
+    "nature": "문제풀이",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=4lGENu4H-i8",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">1. 증권 6종의 개념 정리 (짝짓기형 출제)</h2><ul><li><strong>채무증권</strong>: 채권 — 국가 발행 시 국채, 회사 발행 시 회사채.</li><li><strong>지분증권</strong>: 주식(주권) — 그냥 주식이라고 생각.</li><li><strong>수익증권</strong>: 펀드(투자신탁의 수익권).</li><li><strong>파생결합증권</strong>: ELS·DLS·ELW·ETN 등 '이(伊)'자로 시작하는 상품들.</li><li><strong>ETF는 파생결합증권이 아님</strong> — 펀드 거래이므로 <strong>수익증권</strong>에 가까움 (빈출 함정).</li><li><strong>증권예탁증권</strong>: DR (EDR·GDR·KDR 등).</li><li><strong>투자계약증권</strong>: 타인과의 공동사업 투자, 타인이 운영하고 발생한 수익을 투자자가 받는 계약 증권 — <strong>무정형 증권</strong>.</li></ul><h2 class=\"section-heading\">2. 파생결합증권의 종류 5가지와 제외 대상</h2><ul><li><strong>① 주가연계 파생결합증권</strong>: ELS.</li><li><strong>② 이자율연계 파생결합증권</strong>: DLS — '파생결합증권'이라는 말과 달리 <strong>채무증권에 속함</strong> (정답 함정).</li><li><strong>③ 신용연계 파생결합증권</strong>: CLN(Credit Linked Note).</li><li><strong>④ 재해연계 파생결합증권</strong>: CAT본드(Catastrophe Bond).</li><li><strong>⑤ 기타 파생결합증권</strong>.</li><li>\"재해연계 파생상품\" 같은 표현으로 나오면 제외 대상 지문에 주의 — '재해연계 파생결합증권(증권)'은 포함.</li></ul><h2 class=\"section-heading\">3. 파생상품의 개념 (용어 짝짓기)</h2><ul><li><strong>선물</strong>: 특정 기초자산에 대해 장래 특정 시점에 특정 가격으로 <strong>인도할 것을 약정</strong> — 장내 시장에서 거래.</li><li><strong>선도</strong>: 선물과 내용이 동일하나 <strong>장외 시장</strong>에서 거래.</li><li><strong>옵션</strong>: 특정 기초자산에 대해 장래 특정 시점에 특정 가격으로 <strong>권리를 부여</strong>하는 계약 (사거나 팔 수 있는 권리).</li><li><strong>스왑</strong>: 일정 기간 동안 <strong>교환</strong>할 것을 약정하는 계약.</li><li>키워드 암기: <strong>인도 = 선물/선도, 권리 부여 = 옵션, 교환 = 스왑</strong>.</li></ul><h2 class=\"section-heading\">4. 금융투자업 6종 (개념 정의 문제 — 최빈출)</h2><ul><li><strong>투자매매업</strong>: 누구의 명의로 하든지 <strong>자기의 계산</strong>으로 금융투자상품의 매매 등을 영업으로 하는 것 — 자기 돈으로 거래, 손익이 자기에게 귀속.</li><li><strong>투자중개업</strong>: 누구의 명의로 하든지 <strong>타인의 계산</strong>으로 매매의 중개 등을 영업으로 하는 것 — 고객 돈으로 거래, 손익은 고객에게.</li><li><strong>집합투자업</strong>: 2인 이상 투자자로부터 자산을 <strong>집합</strong>하여 운용 (투자자를 구별하지 않음).</li><li><strong>투자자문업</strong>: 금융투자상품의 가치·투자판단에 대한 자문을 영업으로.</li><li><strong>투자일임업</strong>: 투자자로부터 투자판단의 전부·일부를 일임받아 <strong>투자자별로 구분하여</strong> 운용 (집합투자와 대비 — 구분 운용).</li><li><strong>신탁업</strong>: 신탁을 영업으로 하는 금융투자업.</li></ul><h2 class=\"section-heading\">5. 투자매매업의 적용 배제 사유</h2><ul><li><strong>자기가 증권을 발행하는 경우</strong>: 투자매매업으로 보지 않음 — 상장법인이 유상증자할 때마다 인가를 받아야 한다면 말이 안 되므로.</li><li><strong>투자매매업자를 상대방으로 하거나 투자중개업자를 통하여 금융투자상품을 매매하는 경우</strong>: 적용 배제 — \"투자매매업으로 본다\"는 지문은 틀림.</li><li>적용 배제에 해당하면 금융위 <strong>인가 없이</strong> 투자매매와 같은 행위 가능.</li></ul><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th>구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\">ETF</td><td data-label=\"핵심 내용\">파생결합증권 아님 → <strong>수익증권</strong> 계열</td></tr><tr><td data-label=\"구분\">이자율연계 파생결합증권</td><td data-label=\"핵심 내용\"><strong>채무증권</strong>에 속함 (함정)</td></tr><tr><td data-label=\"구분\">신용연계 / 재해연계</td><td data-label=\"핵심 내용\"><strong>CLN</strong> / <strong>CAT본드</strong></td></tr><tr><td data-label=\"구분\">인도</td><td data-label=\"핵심 내용\"><strong>선물(장내)·선도(장외)</strong></td></tr><tr><td data-label=\"구분\">권리 부여</td><td data-label=\"핵심 내용\"><strong>옵션</strong></td></tr><tr><td data-label=\"구분\">교환</td><td data-label=\"핵심 내용\"><strong>스왑</strong></td></tr><tr><td data-label=\"구분\">투자매매업</td><td data-label=\"핵심 내용\"><strong>자기</strong>의 계산</td></tr><tr><td data-label=\"구분\">투자중개업</td><td data-label=\"핵심 내용\"><strong>타인</strong>의 계산</td></tr><tr><td data-label=\"구분\">집합투자 vs 일임</td><td data-label=\"핵심 내용\">구별 없이 집합 운용 vs <strong>투자자별 구분</strong> 운용</td></tr><tr><td data-label=\"구분\">투자매매업 적용배제</td><td data-label=\"핵심 내용\">자기증권 발행, 투자매매업자 상대방·투자중개업자 경유 매매</td></tr></tbody></table></div>",
+    "quiz": [
+      {
+        "q": "파생결합증권에 해당하지 않는 것은?",
+        "a": "<strong>ETF</strong>",
+        "e": "ELS·ELW는 파생결합증권, ETF는 수익증권 계열."
+      },
+      {
+        "q": "파생결합증권에서 제외되는 것은?",
+        "a": "<strong>이자율연계 파생결합증권</strong>",
+        "e": "파생결합이라는 이름과 달리 <strong>채무증권</strong>에 속함."
+      },
+      {
+        "q": "파생상품에 대한 설명으로 잘못된 것은?",
+        "a": "\"파생결합증권은 기초자산에 의해 산출된 금전 등을 거래할 수 있는 권리를 부여하는 것을 약정하는 계약이다\"",
+        "e": "<strong>권리 부여 = 옵션</strong>이며, 파생결합증권은 증권이지 파생상품이 아님."
+      },
+      {
+        "q": "투자매매업·투자중개업의 개념으로 옳은 것은?",
+        "a": "매매업은 <strong>자기의 계산</strong>, 중개업은 <strong>타인의 계산</strong>",
+        "e": "'자기/타인의 계산' 키워드가 정오를 가름."
+      },
+      {
+        "q": "투자매매업에 대한 설명으로 잘못된 것은?",
+        "a": "\"투자매매업자를 상대방으로 하거나 투자중개업자를 통하여 매매하는 경우 투자매매업으로 본다\"",
+        "e": "<strong>적용 배제</strong> 사유이므로 투자매매업으로 보지 않음."
+      }
+    ]
+  },
+  {
+    "id": "wKuy0LnwIpM",
+    "group": "자본시장법",
+    "groupIndex": 1,
+    "index": 8,
+    "label": "자본시장 관련 법규 ③",
+    "title": "증권투자권유자문인력 문제풀이 :자본시장 관련 법규 ③ㅣ해커스금융 송영욱",
+    "teacher": "송영욱",
+    "nature": "문제풀이",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=wKuy0LnwIpM",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">1. 투자중개업의 적용 배제 사유 (4가지)</h2><ul><li><strong>투자권유대행인</strong>: 투자권유를 대행하는 경우 투자중개업으로 보지 않음 — 별도 인가 없이 가능.</li><li><strong>거래소</strong>: 증권시장·파생상품시장을 개설·운용하는 경우 투자중개업으로 보지 않음.</li><li>\"누구의 명의로 하든지 <strong>자기의 계산</strong>으로 할 것을 요한다\"는 지문은 틀림 — 투자중개업은 <strong>타인의 계산</strong>.</li></ul><h2 class=\"section-heading\">2. 투자자문업의 적용 배제 사유 4가지 (모두 해당 문제 — 빈출)</h2><ol><li><strong>불특정 다수인</strong>을 대상으로 발행·송신되고 불특정 다수인이 수시로 구입·수신할 수 있는 <strong>간행물·출판물·통신물·방송</strong> 등을 통해 조언하는 경우.</li><li><strong>역외투자자문업</strong> (국내 적용 제외에 해당하는 역외 영업).</li><li><strong>따로 대가 없이</strong> 다른 영업에 <strong>부수하여</strong> 금융상품의 가치·투자판단에 관한 자문에 응한 경우 — '따로 대가 없이' 키워드.</li><li><strong>외국투자자문업자</strong>가 국외에서 한국투자공사법에 따라 설립된 기금 및 그 기금을 운영하는 법인을 상대로 투자권유·투자광고 없이 투자자문업을 하는 경우.</li></ol><h2 class=\"section-heading\">3. 전문투자자 3분류 (투자자 구분 — 반복 출제)</h2><ul><li><strong>절대적 전문투자자</strong>: 어떤 경우에도 전문투자자 — 은행, 집합투자기구, 외국정부 등.</li><li><strong>상대적 전문투자자</strong> 4가지 (암기): <strong>주권상장법인 · 지방자치단체 · 기금관리운영법인 · 공익사업법인</strong> — 본인 신청 시 일반투자자로 전환 가능.</li><li><strong>주권상장법인이 장외파생상품 거래 시</strong>: 별도 의사표시 없으면 <strong>일반투자자로 대우</strong> (이중적 지위).</li><li><strong>자발적 전문투자자</strong>: 원래 일반투자자인 자가 스스로 전문투자자 지위 신청.</li><li>차등 보호: 일반투자자에게는 <strong>적합성·적정성 원칙 + 설명의무</strong> 필수, 전문투자자에게는 적용 안 됨.</li></ul><h2 class=\"section-heading\">4. 인가 대상 vs 등록 대상 금융투자업</h2><ul><li><strong>인가 대상 4종</strong>: 투자매매업·투자중개업·집합투자업·<strong>신탁업</strong> — 금융위 인가.</li><li><strong>등록 대상 4종</strong>: <strong>투자자문업·투자일임업</strong>·온라인소액투자중개업·전문사모집합투자업 — 금융위 등록.</li><li>인가 요건: 자기자본은 <strong>5억원과 대통령령 금액 중 큰 금액 이상</strong> / 전문인력 <strong>투자권유자문인력 5인 이상</strong>.</li><li>등록 전문인력: 투자자문업 <strong>1인</strong> 이상 · 투자일임업 <strong>2인</strong> 이상 · 둘 다 <strong>3인</strong> 이상.</li></ul><h2 class=\"section-heading\">5. 온라인소액투자중개업의 등록 요건과 영업행위 규제</h2><ul><li>등록 요건: 상법상 주식회사 또는 영업소 설치 외국 온라인투자중개업자, <strong>자기자본 5억원 이상</strong> (\"3억원 이상\" 지문은 틀림), 사업계획 타당성·건전성, 투자자 보호 가능 인력·전산·물적 장비.</li><li><strong>허용되는 청약권유 행위 4가지</strong> 외에는 불가 (자사 홈페이지 게시, 발행인 게재내용 홈페이지 게시, 홈페이지를 통한 회원 모집·관리, 특정 투자자에게 전송).</li><li><strong>투자광고는 개설된 인터넷 홈페이지에서만 가능</strong> — 홈페이지 이외 수단 통한 광고 금지.</li><li>발행인 요청 시 <strong>투자자 자격 등을 제한할 수 있음</strong>.</li></ul><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th>구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\">투자중개업 적용배제</td><td data-label=\"핵심 내용\">투자권유대행인, 거래소의 시장 개설·운용</td></tr><tr><td data-label=\"구분\">투자자문업 적용배제 4</td><td data-label=\"핵심 내용\">불특정다수 간행물 조언, 역외투자자문업, <strong>무대가 부수자문</strong>, 외국투자자문업자</td></tr><tr><td data-label=\"구분\">투자중개업 정의</td><td data-label=\"핵심 내용\"><strong>타인</strong>의 계산 (자기의 계산 아님)</td></tr><tr><td data-label=\"구분\">상대적 전문투자자 4</td><td data-label=\"핵심 내용\">주권상장법인·지자체·기금운영법인·공익사업법인</td></tr><tr><td data-label=\"구분\">장외파생상품 거래 시</td><td data-label=\"핵심 내용\">상대적 전문투자자도 <strong>일반투자자</strong>로 대우</td></tr><tr><td data-label=\"구분\">인가 4종</td><td data-label=\"핵심 내용\">매매·중개·집합·신탁업</td></tr><tr><td data-label=\"구분\">등록 4종</td><td data-label=\"핵심 내용\">자문·일임·온라인소액·전문사모</td></tr><tr><td data-label=\"구분\">등록 전문인력</td><td data-label=\"핵심 내용\">1인(자문) / 2인(일임) / 3인(둘 다)</td></tr><tr><td data-label=\"구분\">온라인소액 등록</td><td data-label=\"핵심 내용\">자기자본 <strong>5억원</strong> 이상, 광고는 <strong>개설된 홈페이지</strong>에서만</td></tr></tbody></table></div>",
+    "quiz": [
+      {
+        "q": "투자중개업에 대한 설명으로 잘못된 것은?",
+        "a": "\"누구의 명의로 하든지 자기의 계산으로 할 것을 요한다\"",
+        "e": "투자중개업은 <strong>타인의 계산</strong>."
+      },
+      {
+        "q": "투자자문업의 적용 배제 사유에 해당하는 것을 모두 고르면?",
+        "a": "4가지 모두",
+        "e": "불특정다수 간행물 조언·역외투자자문업·무대가 부수자문·외국투자자문업자 모두 등록 없이 가능."
+      },
+      {
+        "q": "절대적 전문투자자에 해당하지 않는 자는?",
+        "a": "<strong>지방자치단체</strong>",
+        "e": "은행·집합투자기구·외국정부는 절대적, 지자체는 <strong>상대적</strong> 전문투자자."
+      },
+      {
+        "q": "인가 대상 금융투자업이 아닌 것은?",
+        "a": "<strong>투자일임업</strong>",
+        "e": "자문업·일임업은 등록 대상."
+      },
+      {
+        "q": "온라인소액투자중개업의 등록 요건과 거리가 먼 것은?",
+        "a": "\"3억원 이상의 자기자본이 있을 것\"",
+        "e": "<strong>5억원 이상</strong>이 맞음."
+      },
+      {
+        "q": "온라인소액투자중개업자의 투자광고에 대한 설명으로 옳은 것은?",
+        "a": "\"개설된 인터넷 홈페이지에서만 투자광고가 가능하다\"",
+        "e": "홈페이지 이외 수단 통한 광고는 금지."
+      }
+    ]
+  },
+  {
+    "id": "-ox83fdyMJ8",
+    "group": "코넥스·K-OTC시장",
+    "groupIndex": 2,
+    "index": 1,
+    "label": "이론정리 ①",
+    "title": "증권투자권유자문인력 이론 정리! [코넥스시장, K-OTC시장①]ㅣ해커스금융 송영욱",
+    "teacher": "송영욱",
+    "nature": "이론정리",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=-ox83fdyMJ8",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">1. 우리나라 증권시장의 구조 (전제)</h2><ul><li><strong>장내시장 4가지</strong>: 유가증권시장(코스피) · 코스닥시장 · <strong>코넥스시장</strong> · 파생상품시장 — 한국거래소(KRX) 주관.</li><li><strong>장외시장의 대표</strong>: <strong>K-OTC시장</strong> — <strong>금융투자협회</strong> 주관 (한국거래소가 아님).</li><li>코넥스·K-OTC는 거래가 활성화되어 있지 않아 투명화·활성화를 위한 제도가 계속 만들어지는 중.</li></ul><h2 class=\"section-heading\">2. 코넥스시장의 특징 (유가증권·코스닥과 다른 점 중심)</h2><ul><li><strong>지정투자자 제도</strong>: 코넥스 특례상장(기술기업부·크라우드펀딩기업부 등) 시 <strong>지정투자자의 동의를 얻도록</strong> 함. 지정투자자는 거래소가 지정한 기관투자자(일반적으로 증권사·금융투자회사).</li><li><strong>지정자문인 제도</strong>: 유가증권·코스닥의 상장적격성은 <strong>한국거래소</strong>가 심사하지만, 코넥스의 상장적격성은 <strong>지정자문인(증권사)</strong> 이 판단 — 시험 최고 빈출 대비 포인트.</li><li><strong>기업설명회(IR) 개최 의무</strong>: 개최하지 않으면 상장폐지까지 가능 (유가증권·코스닥에는 없는 제도).</li><li><strong>가격제한폭</strong>: 유가증권·코스닥은 ±<strong>30%</strong>, 코넥스는 ±<strong>15%</strong>.</li><li><strong>동시호가 제도</strong>: 시간우선원칙의 예외 — 코넥스에는 원래 없었으나 <strong>최근 도입</strong>.</li><li><strong>LP(유동성공급자) 제도</strong>: 거래 부진 시 증권사가 호가를 받쳐주는 제도 도입.</li><li><strong>경매매 제도</strong>: 매도자는 1인, 매수자가 <strong>복수</strong>인 경우 경매매 방식으로 매매 가능.</li><li>코넥스시장은 <strong>초기 중소·벤처기업의 성장 지원</strong> 목적 — <strong>중소기업만 상장 가능</strong> (대기업·대형사는 코넥스 상장 요청 불가).</li></ul><h2 class=\"section-heading\">3. K-OTC시장의 특징 (장외시장)</h2><ul><li><strong>주관: 금융투자협회</strong> (장내시장의 한국거래소와 대비).</li><li><strong>상장이 아닌 등록·지정</strong>이라는 용어 사용:</li><li><strong>등록</strong>: 비상장주권이 K-OTC 등록을 요청해 거래 요건을 부여받는 것.</li><li><strong>지정</strong>: 협회가 신청 없이 K-OTC에서 거래될 수 있도록 지정한 것.</li><li><strong>신규등록 요건</strong> (상장 요건 대비 완화):</li><li><strong>전액 자본잠식 상태가 아닐 것</strong> — 50%·90% 자본잠식 회사도 등록 가능.</li><li><strong>매출액 5억원 이상</strong>.</li><li><strong>매매방식: 상대매매(1:1 거래)</strong> — 장내시장의 개별경쟁매매와 대비.</li><li><strong>불성실공시 유형</strong>: 유가증권·코스닥은 3가지(공시불이행·공시번복·<strong>공시변경</strong>)이나, K-OTC는 <strong>공시변경 제외</strong> → <strong>공시불이행·공시번복 2가지만</strong>.</li><li><strong>투자유의사항 공시</strong>: K-OTC시장에만 있는 공시 — 소규모·무명 회사가 많아 투자 위험 고지 목적.</li></ul><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th>구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\">장내시장 4</td><td data-label=\"핵심 내용\">유가증권·코스닥·<strong>코넥스</strong>·파생상품 (KRX 주관)</td></tr><tr><td data-label=\"구분\">K-OTC 주관</td><td data-label=\"핵심 내용\"><strong>금융투자협회</strong> (장외시장)</td></tr><tr><td data-label=\"구분\">지정투자자 제도</td><td data-label=\"핵심 내용\">특례상장 시 <strong>지정투자자 동의</strong> 필요 (코넥스만)</td></tr><tr><td data-label=\"구분\">지정자문인 제도</td><td data-label=\"핵심 내용\">코넥스 <strong>상장적격성 판단 주체</strong> (유가·코스닥은 거래소)</td></tr><tr><td data-label=\"구분\">코넥스 기업설명회</td><td data-label=\"핵심 내용\"><strong>개최 의무</strong>, 미개최 시 상장폐지 가능</td></tr><tr><td data-label=\"구분\">가격제한폭</td><td data-label=\"핵심 내용\">유가·코스닥 ±30% vs 코넥스 ±<strong>15%</strong></td></tr><tr><td data-label=\"구분\">동시호가·LP·경매매</td><td data-label=\"핵심 내용\">코넥스에 <strong>신규 도입</strong>된 제도들</td></tr><tr><td data-label=\"구분\">코넥스 상장 대상</td><td data-label=\"핵심 내용\"><strong>중소기업만</strong> 가능</td></tr><tr><td data-label=\"구분\">K-OTC 용어</td><td data-label=\"핵심 내용\">상장이 아닌 <strong>등록·지정</strong></td></tr><tr><td data-label=\"구분\">K-OTC 등록 요건</td><td data-label=\"핵심 내용\">전액자본잠식만 아니면 됨, 매출 <strong>5억원</strong> 이상</td></tr><tr><td data-label=\"구분\">K-OTC 매매방식</td><td data-label=\"핵심 내용\"><strong>상대매매</strong>(1:1)</td></tr><tr><td data-label=\"구분\">K-OTC 불성실공시</td><td data-label=\"핵심 내용\">공시불이행·공시번복 <strong>2가지만</strong> (공시변경 제외)</td></tr><tr><td data-label=\"구분\">K-OTC 특유 공시</td><td data-label=\"핵심 내용\"><strong>투자유의사항 공시</strong></td></tr></tbody></table></div>",
+    "quiz": [
+      {
+        "q": "코넥스시장의 상장적격성을 판단하는 주체는?",
+        "a": "<strong>지정자문인(증권사)</strong>",
+        "e": "유가증권·코스닥은 한국거래소가 판단."
+      },
+      {
+        "q": "코넥스시장의 가격제한폭은?",
+        "a": "±<strong>15%</strong>",
+        "e": "유가증권·코스닥의 ±30%와 대비."
+      },
+      {
+        "q": "코넥스시장의 특례상장 시 필요한 것은?",
+        "a": "<strong>지정투자자의 동의</strong>",
+        "e": "기술기업부·크라우드펀딩기업부 특례상장에 적용."
+      },
+      {
+        "q": "K-OTC시장을 주관하는 기관은?",
+        "a": "<strong>금융투자협회</strong>",
+        "e": "장내시장은 한국거래소, K-OTC는 금융투자협회."
+      },
+      {
+        "q": "K-OTC시장의 신규등록 요건으로 옳은 것은?",
+        "a": "\"전액 자본잠식 상태가 아닐 것\"",
+        "e": "50% 잠식도 등록 가능, 매출 5억원 이상."
+      },
+      {
+        "q": "K-OTC시장의 불성실공시 유형에 해당하지 않는 것은?",
+        "a": "<strong>공시변경</strong>",
+        "e": "K-OTC는 공시불이행·공시번복 2가지만 불성실공시."
+      }
+    ]
+  },
+  {
+    "id": "lu1RYdDU-E0",
+    "group": "코넥스·K-OTC시장",
+    "groupIndex": 2,
+    "index": 2,
+    "label": "이론정리 ②",
+    "title": "증권투자권유자문인력 이론 정리! [코넥스시장, K-OTC시장②]ㅣ해커스금융 송영욱",
+    "teacher": "송영욱",
+    "nature": "이론정리",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=lu1RYdDU-E0",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">1. 코넥스시장의 상장 제도 — 지정투자자·지정자문인</h2><ul><li><strong>지정기관투자자 제도</strong>: 특례상장으로 상장하는 경우 반드시 지정기관투자자를 지정하고 <strong>동의를 얻어야</strong> 상장 가능.</li><li>지정기관투자자의 요건: 해당 회사에 <strong>6개월 이상 투자</strong>, 금액은 <strong>30억원 이상 또는 지분 10% 이상</strong> 투자한 투자자.</li><li><strong>지정자문인 제도</strong>: 코넥스 상장적격성을 <strong>지정자문인(증권사)</strong> 이 심사·판단. 지정자문인은 상장 자문·지도, <strong>유동성 공급(LP)</strong> 역할도 수행.</li><li>그 외 완화 사항: 회계기준·지배구조 준수 의무 완화, <strong>보호예수 의무 면제·수수료 면제</strong>.</li></ul><h2 class=\"section-heading\">2. 코넥스시장의 상장 요건 (외형 요건 — 박스 암기)</h2><ol><li><strong>중소기업</strong>일 것.</li><li>주권(주식)의 <strong>양도 제한이 없을</strong> 것.</li><li><strong>감사의견 적정</strong>일 것.</li><li><strong>지정자문인과 선임 계약</strong>을 체결할 것.</li><li><strong>액면가액</strong>이 <strong>100원·200원·500원·1,000원·2,500원·5,000원</strong> 중 하나일 것 — <strong>무액면주 발행 불가</strong> (유가증권·코스닥은 무액면 가능).</li></ol><h2 class=\"section-heading\">3. 코넥스 특례상장 제도</h2><ul><li>일반 상장은 지정자문인이 필수이나, <strong>특례상장(기술기업부·크라우드펀딩기업부 등)은 지정자문인 없이도 상장 가능</strong>.</li><li>다만 상장한 날로부터 <strong>1년 이내</strong>에는 지정자문인 선임 계약을 체결해야 함.</li><li>특례상장 기업은 상장 후 <strong>6개월 경과</strong>하면 <strong>코스닥시장으로 이전상장</strong> 가능.</li></ul><h2 class=\"section-heading\">4. 코넥스시장의 상장폐지 요건</h2><ul><li><strong>지정자문인 미선임</strong>: 특례상장 기업이 상장일로부터 1년 이내 지정자문인을 선임하지 않으면 상장폐지.</li><li><strong>자본 전액잠식</strong>: 자본이 전액 잠식된 경우 상장폐지 — <strong>50% 잠식은 상장폐지 사유가 아님</strong>.</li><li><strong>기업설명회 미개최</strong>: <strong>2반기 연속</strong> 또는 <strong>3년 내 4회 이상</strong> 미개최 시 상장폐지 (유가증권·코스닥에는 없는 사유).</li><li>감사보고서 부적정·의견거절·범위제한으로 인한 한정, 분산요건 미달, 공시서류 미제출, 포괄적 주식교환 등.</li></ul><h2 class=\"section-heading\">5. 코넥스시장의 공시제도와 매매제도</h2><ul><li>공시: 의무공시·조회공시·자율공시 체계는 다른 시장과 유사, <strong>기업설명회 개최 의무</strong>가 특이점. 불성실공시 유형은 유가증권·코스닥(3가지)과 달리 <strong>2가지</strong>.</li><li><strong>매매수량 단위: 1주</strong> (유가증권시장과 동일).</li><li><strong>호가 종류</strong>: 유가증권시장은 지정가·시장가·조건부지정가·최유리지정가·최우선지정가 등 다양하나, 코넥스는 <strong>지정가·시장가 2가지만</strong> 가능.</li><li><strong>가격제한폭: ±15%</strong> (장외 대량매매는 30%).</li><li><strong>동시호가 제도 도입</strong> (시간우선원칙의 예외), <strong>LP(유동성공급) 제도</strong>는 지정자문인을 통해 운용.</li><li><strong>경매매 제도</strong>: 매도 1인 vs 매수 복수인 경우에 한해 허용.</li><li><strong>투자자유의사항 고지</strong>: 코넥스시장 투자 시 일반투자자에게 시장의 특성·투자위험을 <strong>개인별로 고지</strong> 의무 — 면제 대상: 전문투자자, 창업투자회사(창투사), 엔젤투자자 등.</li></ul><h2 class=\"section-heading\">6. K-OTC시장 — 등록·지정 제도</h2><ul><li><strong>등록</strong>: 비상장주권이 K-OTC 등록을 요청해 거래 요건을 부여받는 것.</li><li><strong>지정</strong>: 협회가 신청 없이 K-OTC 거래가 가능하도록 지정한 것.</li><li><strong>신규등록 요건</strong> (암기): ① <strong>전액 자본잠식 상태가 아닐 것</strong> (50% 잠식 가능) ② <strong>매출액 5억원 이상</strong> (크라우드펀딩 기업은 3억원, 크라우드펀딩 금액 2억원 이상 기준) ③ 감사의견 적정 ④ 통일규격 증권 발행 또는 전자등록 ⑤ 명의개서대행 계약 체결 ⑥ 주식 양도 제한 없을 것.</li><li><strong>신규지정 추가 요건</strong> (신규등록 요건 ＋ 2가지): ① 최근 사업연도 사업보고서를 금융위에 제출·공시하고 있을 것 ② 해당 주권에 <strong>공모 실적이 있거나 K-OTC 지정 동의서</strong>를 제출했을 것.</li></ul><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th>구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\">지정기관투자자 요건</td><td data-label=\"핵심 내용\"><strong>6개월</strong> 이상 투자, <strong>30억원</strong> 이상 또는 <strong>10%</strong> 이상</td></tr><tr><td data-label=\"구분\">지정자문인</td><td data-label=\"핵심 내용\">상장적격성 심사, 상장 자문·지도, <strong>유동성 공급</strong></td></tr><tr><td data-label=\"구분\">코넥스 상장 요건</td><td data-label=\"핵심 내용\">중소기업, 양도제한 없음, 감사의견 적정, 지정자문인 선임계약, 액면 <strong>6종</strong>(무액면 불가)</td></tr><tr><td data-label=\"구분\">액면가액 6종</td><td data-label=\"핵심 내용\">100·200·500·1,000·2,500·5,000원</td></tr><tr><td data-label=\"구분\">특례상장</td><td data-label=\"핵심 내용\">지정자문인 없이 가능 → 상장 후 <strong>1년 이내</strong> 선임, <strong>6개월</strong> 후 코스닥 이전상장</td></tr><tr><td data-label=\"구분\">상장폐지</td><td data-label=\"핵심 내용\">지정자문인 미선임, <strong>전액</strong>자본잠식, 기업설명회 <strong>2반기 연속 or 3년 내 4회</strong> 미개최</td></tr><tr><td data-label=\"구분\">호가 종류</td><td data-label=\"핵심 내용\"><strong>지정가·시장가만</strong></td></tr><tr><td data-label=\"구분\">가격제한폭</td><td data-label=\"핵심 내용\">±<strong>15%</strong> (장외대량매매 30%)</td></tr><tr><td data-label=\"구분\">경매매</td><td data-label=\"핵심 내용\">매도 1인·매수 복수인 경우 허용</td></tr><tr><td data-label=\"구분\">투자자유의사항 고지</td><td data-label=\"핵심 내용\">개인별 고지 의무, 전문투자자·창투사·엔젤투자자는 면제</td></tr><tr><td data-label=\"구분\">K-OTC 신규등록</td><td data-label=\"핵심 내용\">전액잠식만 아니면 됨, 매출 <strong>5억원</strong> 이상</td></tr><tr><td data-label=\"구분\">신규지정 추가</td><td data-label=\"핵심 내용\">사업보고서 공시 ＋ 공모실적 or 지정 동의서</td></tr></tbody></table></div>",
+    "quiz": [
+      {
+        "q": "코넥스 특례상장 시 지정기관투자자의 요건이 아닌 것은?",
+        "a": "\"1개월 이상 투자\"",
+        "e": "<strong>6개월 이상</strong> 투자 + 30억원 이상 또는 10% 이상 보유가 요건."
+      },
+      {
+        "q": "코넥스시장 상장 요건으로 틀린 것은?",
+        "a": "\"무액면주 발행이 가능하다\"",
+        "e": "액면가액 6종 중 하나여야 하며 <strong>무액면 불가</strong>."
+      },
+      {
+        "q": "특례상장 기업에 대한 설명으로 옳은 것은?",
+        "a": "\"상장 후 6개월이 경과하면 코스닥시장으로 이전상장이 가능하다\"",
+        "e": "지정자문인 없이 상장 가능하나 1년 이내 선임 계약 필수."
+      },
+      {
+        "q": "코넥스시장의 상장폐지 사유에 해당하지 않는 것은?",
+        "a": "\"자본 50% 잠식\"",
+        "e": "<strong>전액</strong> 자본잠식이 사유이며 50% 잠식은 아님."
+      },
+      {
+        "q": "코넥스시장에서 가능한 호가의 종류는?",
+        "a": "<strong>지정가·시장가</strong>",
+        "e": "2가지만 가능, 조건부지정가 등은 불가."
+      },
+      {
+        "q": "K-OTC 신규지정 요건으로 신규등록 요건에 추가되는 것은?",
+        "a": "\"사업보고서 공시 ＋ 공모실적 또는 지정 동의서\"",
+        "e": "신규지정은 등록 요건 외 2가지가 추가."
+      }
+    ]
+  },
+  {
+    "id": "CByEXQyGoOk",
+    "group": "코넥스·K-OTC시장",
+    "groupIndex": 2,
+    "index": 3,
+    "label": "이론정리 ③",
+    "title": "증권투자권유자문인력 이론 정리! [코넥스시장, K-OTC시장③]ㅣ해커스금융 송영욱",
+    "teacher": "송영욱",
+    "nature": "이론정리",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=CByEXQyGoOk",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>K-OTC 매매 방식</strong></td><td data-label=\"핵심 내용\"><strong>상대매매(1대1)</strong> — 다른 시장은 접속매매·개별경쟁매매</td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>K-OTC 위탁증거금·가격제한폭</strong></td><td data-label=\"핵심 내용\">증권사 <strong>자율</strong>, <strong>±30%</strong> (코스닥과 동일)</td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>증권거래세</strong></td><td data-label=\"핵심 내용\"><strong>매도 시에만</strong> 부과, 결제 시 <strong>예탁결제원</strong>에서 징수</td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>양도소득세 비과세</strong></td><td data-label=\"핵심 내용\"><strong>소액주주 + 장내거래</strong> → 비과세. 대주주·장외거래(소액주주 포함) → 과세</td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>발행 공시 서류</strong></td><td data-label=\"핵심 내용\"><strong>10억 이상: 증권신고서 / 10억 미만: 소액공모공시서류 / 소액투자자 매출: 소액매출공시서류</strong></td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>불성실공시 3유형(코넥스·K-OTC)</strong></td><td data-label=\"핵심 내용\"><strong>공시불이행·공시번복·허위공시</strong> (공시변경 없음)</td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>투자유의사항 공시 사유</strong></td><td data-label=\"핵심 내용\">매출액 <strong>5억 미만</strong>, 최근 2년간 불성실공시 지정 <strong>4회 이상</strong>, 소액주주 분산 기준 미달</td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>지정·등록 해제</strong></td><td data-label=\"핵심 내용\">상장폐지 = <strong>지정·등록 해제</strong>. 직권해제(등록·지정법인 모두 가능), 신청해제(등록법인만)</td></tr></tbody></table></div>",
+    "quiz": [
+      {
+        "q": "다음 중 K-OTC시장에 대한 설명으로 적절하지 않은 것은?",
+        "a": "<strong>4번 — \"K-OTC시장 등록·지정법인의 소액주주가 K-OTC시장을 통해 주권을 양도하는 경우 모두 양도소득세가 비과세된다\"</strong>",
+        "e": "소액주주가 <strong>장외</strong>에서 거래하면 과세되므로, \"모두 비과세\"는 틀림. 장내거래 시에만 비과세"
+      },
+      {
+        "q": "다음 중 코넥스시장의 불성실공시 지정 사유에 해당하는 것은?",
+        "a": "<strong>2번이 답이 아님(제외)</strong> — 공시내용을 변경하여 공시하는 경우(<strong>공시변경</strong>)는 코넥스시장의 불성실공시 사유에 <strong>해당하지 않음</strong>. 해당되는 것은 공시불이행·공시번복",
+        "e": ""
+      },
+      {
+        "q": "다음 중 코넥스시장과 코스닥시장의 매매거래 제도 중 다른 것은?",
+        "a": "<strong>3번 — 가격제한폭</strong>",
+        "e": "코넥스 <strong>±15%</strong>, 코스닥 <strong>±30%</strong>. 매매수량단위·호가가격단위·매매체결방식은 동일"
+      }
+    ]
+  },
+  {
+    "id": "_tWNcSVvSPM",
+    "group": "코넥스·K-OTC시장",
+    "groupIndex": 2,
+    "index": 4,
+    "label": "시장 개요",
+    "title": "증권투자권유자문인력 기본서 이론정리ㅣ'코넥스·K-OTC시장의 개요'ㅣ해커스 송영욱",
+    "teacher": "송영욱",
+    "nature": "이론정리",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=_tWNcSVvSPM",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>장내·장외 최대 차이</strong></td><td data-label=\"핵심 내용\">장내: <strong>신용위험 없음</strong>(KRX가 결제 이행) / 장외: 신용위험 존재</td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>코넥스 지정자문인</strong></td><td data-label=\"핵심 내용\">상장적격성 심사를 <strong>증권사(지정자문인)</strong>가 수행 (코스피·코스닥은 KRX)</td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>코넥스 호가·가격제한폭</strong></td><td data-label=\"핵심 내용\">호가 <strong>2종(시장가·지정가)</strong>, 가격제한폭 <strong>±15%</strong></td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>코넥스 기본예탁금</strong></td><td data-label=\"핵심 내용\"><strong>3,000만원 이상</strong>, 소액투자전용계좌는 <strong>1인 1계좌·연간 3,000만원 한도</strong></td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>코넥스 상장 요건</strong></td><td data-label=\"핵심 내용\"><strong>액면주만 가능</strong>(무액면 불가), <strong>지정자문인 선임계약 필수</strong></td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>코넥스 특례상장</strong></td><td data-label=\"핵심 내용\"><strong>기술평가기업·크라우드펀딩 기업</strong>만 지정자문인 없이 상장 가능. 계약 후 <strong>6개월 이내 코스닥 이전상장 가능</strong></td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>코넥스 상장폐지 특유 사유</strong></td><td data-label=\"핵심 내용\">특례상장기업의 <strong>지정자문인 미선임</strong>, <strong>기업설명회 미개최(반기 연속 또는 3년 내 4회 이상)</strong></td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>코넥스 불성실공시</strong></td><td data-label=\"핵심 내용\"><strong>공시불이행·공시번복</strong>만 해당 — <strong>공시변경 제외</strong></td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>코넥스 경매매매</strong></td><td data-label=\"핵심 내용\"><strong>매도 단수·매수 복수</strong>인 경우에 한해 실시</td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>K-OTC 운영</strong></td><td data-label=\"핵심 내용\"><strong>한국금융투자협회</strong> 운영의 <strong>장외시장</strong></td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>K-OTC 등록·지정</strong></td><td data-label=\"핵심 내용\">기업 신청 = <strong>등록</strong>, 협회 직권 자격 부여 = <strong>지정</strong></td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>K-OTC 등록 요건</strong></td><td data-label=\"핵심 내용\"><strong>자본전액잠식 아님 + 매출액 5억 이상 + 감사 의견 적정</strong></td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>K-OTC 매매제도 차이</strong></td><td data-label=\"핵심 내용\"><strong>상대매매</strong>, <strong>위탁증거금 100%</strong>, 호가수량단위 <strong>7단계</strong>, 가격제한폭 <strong>±30%</strong></td></tr></tbody></table></div>",
+    "quiz": [
+      {
+        "q": "장내시장과 장외시장의 가장 큰 차이는?",
+        "a": "<strong>신용위험(결제불이행 위험) 유무</strong>",
+        "e": "장내시장은 KRX가 결제를 이행해주어 신용위험이 없지만, 장외시장은 결제보증 장치가 없어 결제불이행 시 대금을 못 받을 수 있다"
+      },
+      {
+        "q": "코넥스시장에 상장할 수 있는 것은?",
+        "a": "<strong>액면주식</strong>",
+        "e": "코넥스시장은 액면가(100·200·500·1,000·2,500·5,000원 중 하나) 주식만 상장 가능하고 무액면주식은 불가"
+      },
+      {
+        "q": "코넥스시장 특례상장 기업의 코스닥 이전상장 가능 시점은?",
+        "a": "<strong>지정자문인 계약 체결 후 6개월 이내부터</strong>",
+        "e": "특례상장 기업(기술평가·크라우드펀딩)은 지정자문인 없이 상장 후, 일정 사업연도 이내에 지정자문인 계약을 체결하고 6개월 경과 후 코스닥 이전상장 가능"
+      },
+      {
+        "q": "K-OTC시장 신규등록 요건이 아닌 것은?",
+        "a": "매출액 <strong>10억원 이상</strong> 등 과도한 재무요건",
+        "e": "자본전액잠식만 아니면 되고, 매출액은 최근 사업연도 <strong>5억원 이상</strong>이면 충분. 감사 의견 적정이 필요"
+      },
+      {
+        "q": "K-OTC시장의 매매거래 제도로 옳은 것은?",
+        "a": "<strong>상대매매 방식, 위탁증거금 100%</strong>",
+        "e": "유가증권·코스닥과 달리 상대매매(1대1)만 가능하고, 위탁증거금은 전부 내야 함"
+      }
+    ]
+  },
+  {
+    "id": "CDlIe_9TmmY",
+    "group": "기본적분석",
+    "groupIndex": 3,
+    "index": 1,
+    "label": "기본서 핵심정리 (1)",
+    "title": "[증권투자권유자문인력] 해커스 기본서 핵심정리 - 기본적분석(1)",
+    "teacher": "민영기",
+    "nature": "이론정리",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=CDlIe_9TmmY",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>기본적분석 목표</strong></td><td data-label=\"핵심 내용\"><strong>내재가치(본질가치·적정가치)</strong> 파악. 원인의 <strong>원인 규명</strong>에 관심</td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>기술적분석 목표</strong></td><td data-label=\"핵심 내용\"><strong>과거 가격·거래량 차트</strong>로 미래 방향 예측. 원인은 무관심</td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>분석 체계</strong></td><td data-label=\"핵심 내용\">일반적 방식 = <strong>탑다운(하향식)</strong>: 경제 → 산업 → 기업</td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>계산문제 빈출</strong></td><td data-label=\"핵심 내용\"><strong>기본적분석 + 채권시장</strong>이 계산문제 최대 출제처</td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>통화량 3효과</strong></td><td data-label=\"핵심 내용\"><strong>유동성 효과(단기, 금리↓)</strong> / <strong>소득 효과(장기, 금리↑)</strong> / <strong>피셔 효과(장기, 인플레이션 예상으로 금리↑)</strong></td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>통화량-주가</strong></td><td data-label=\"핵심 내용\"><strong>단기: 긍정적</strong> (금리 하락) / <strong>장기: 부정적 가능</strong> (금리 상승 요인)</td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>한국은행 관리지표</strong></td><td data-label=\"핵심 내용\"><strong>M2</strong>. 만기 2년 이상 금융상품은 제외</td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>M1 구성</strong></td><td data-label=\"핵심 내용\">현금통화 + 요구불예금 + 수시입출식 저축성예금(<strong>MMDA</strong>)</td></tr></tbody></table></div>",
+    "quiz": [
+      {
+        "q": "기본적분석과 기술적분석의 차이로 옳은 것은?",
+        "a": "<strong>기본적분석은 내재가치를 파악하는 것이 목표이고, 기술적분석은 과거 가격·거래량의 패턴을 찾아 미래 방향을 예측한다</strong>",
+        "e": "\"과거 주가의 체계적 패턴을 찾는다\"는 기술적분석 설명이고, \"내재가치를 찾아낸다\"는 기본적분석 설명"
+      },
+      {
+        "q": "투자분석의 일반적인 접근 방식은?",
+        "a": "<strong>탑다운(하향식) 방식 — 경제분석 → 산업분석 → 기업분석</strong>",
+        "e": "큰 쪽에서 작은 쪽으로 분석하는 것이 일반적이며 교재도 이 방식을 따른다"
+      },
+      {
+        "q": "통화량 증가가 이자율에 미치는 효과로 옳은 것은?",
+        "a": "<strong>단기적으로는 유동성 효과로 이자율이 하락하지만, 장기적으로는 소득 효과와 피셔 효과로 이자율이 상승할 수 있다</strong>",
+        "e": "유동성 효과=단기·금리하락, 소득 효과·피셔 효과=장기·금리상승"
+      },
+      {
+        "q": "한국은행이 관리통화지표로 사용하는 것은?",
+        "a": "<strong>M2(광의통화)</strong>",
+        "e": "M1은 협의통화, M2가 관리지표. M2에서 만기 2년 이상 금융상품은 제외"
+      }
+    ]
+  },
+  {
+    "id": "44fpeBTOVMw",
+    "group": "기본적분석",
+    "groupIndex": 3,
+    "index": 2,
+    "label": "기본서 핵심정리 (2)",
+    "title": "[증권투자권유자문인력] 해커스 기본서 핵심정리 - 기본적분석(2)",
+    "teacher": "민영기",
+    "nature": "이론정리",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=44fpeBTOVMw",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>금리-주가</strong></td><td data-label=\"핵심 내용\"><strong>역의 관계</strong>: 금리 상승 → 자금조달·설비투자 축소 → <strong>주가 하락</strong></td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>물가-주가</strong></td><td data-label=\"핵심 내용\"><strong>완만한 상승 = 긍정적</strong>(기업 수익성 개선) / <strong>급격한 상승 = 부정적</strong> / <strong>스태그플레이션 = 부정적</strong></td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>인플레이션 헤지</strong></td><td data-label=\"핵심 내용\">주식 보유로 물가상승 피해 방지 가능 — 자산재평가·무상증자 논리</td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>환율-주가</strong></td><td data-label=\"핵심 내용\"><strong>환율 상승(원화 절하) = 수출기업 채산성 개선 = 주가 상승</strong>. 환율 하락 = 주가 하락</td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>원자재 가격-주가</strong></td><td data-label=\"핵심 내용\">원자재 가격 상승 → <strong>주가 하락</strong> (교과서 기준)</td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>외국인투자자</strong></td><td data-label=\"핵심 내용\"><strong>주가 + 환율 함께 판단</strong>. 주가 상승보다 환율 상승이 크면 투자 안 함, 주가 하락보다 환율 하락이 크면 투자함</td></tr></tbody></table></div>",
+    "quiz": [
+      {
+        "q": "금리와 주가의 관계로 옳은 것은?",
+        "a": "<strong>금리와 주가는 역의 관계</strong>",
+        "e": "금리 상승 시 자금조달·설비투자가 축소되어 주가가 하락하고, 금리 하락 시 주가가 상승한다"
+      },
+      {
+        "q": "물가와 주가의 관계로 틀린 것은?",
+        "a": "<strong>\"물가가 완만한 상승세를 보이면 주가에 부정적인 영향을 준다\"</strong>",
+        "e": "완만한 물가 상승은 기업 수익성 개선으로 주가에 긍정적이다. 급격한 물가 상승과 스태그플레이션이 부정적"
+      },
+      {
+        "q": "환율이 상승할 때 주가에 미치는 영향으로 옳은 것은?",
+        "a": "<strong>수출기업의 채산성이 좋아져 주가가 상승한다</strong>",
+        "e": "환율 상승 = 원화 절하 = 수출 증가·수입 감소 = 수출기업 수익성 향상"
+      },
+      {
+        "q": "외국인투자자의 투자 판단 기준으로 옳은 것은?",
+        "a": "<strong>주가가 오르더라도 환율 상승폭이 더 크면 투자하지 않는다</strong>",
+        "e": "외국인은 주가와 환율을 함께 보며, 환차손이 주가차익을 잠식하면 투자하지 않는다"
+      },
+      {
+        "q": "스태그플레이션이 주가에 미치는 영향은?",
+        "a": "<strong>부정적</strong>",
+        "e": "비용인상 인플레이션 + 경기침체의 동시 발생으로 기업 수지가 악화된다"
+      }
+    ]
+  },
+  {
+    "id": "OOw5JzQs6mM",
+    "group": "기본적분석",
+    "groupIndex": 3,
+    "index": 3,
+    "label": "핵심 문제풀이 ①",
+    "title": "증권투자권유자문인력 핵심 문제풀이 [기본적분석 ①]ㅣ해커스금융 민영기",
+    "teacher": "민영기",
+    "nature": "문제풀이",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=OOw5JzQs6mM",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>분석 공통 전제</strong></td><td data-label=\"핵심 내용\">시장은 <strong>비효율적</strong>이며 분석으로 <strong>초과이익</strong> 획득 가능</td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>기본적분석</strong></td><td data-label=\"핵심 내용\">목표 = <strong>종목 선정</strong>, 핵심 = <strong>내재가치</strong>, 도구 = <strong>재무제표</strong>, 원인의 <strong>원인 규명</strong></td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>기술적분석</strong></td><td data-label=\"핵심 내용\">목표 = <strong>마켓 타이밍</strong>, 핵심 = <strong>과거 가격 추세</strong>, 도구 = <strong>차트</strong>, 원인 무관심</td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>투자분석 체계</strong></td><td data-label=\"핵심 내용\"><strong>경제 → 산업 → 기업</strong> = <strong>탑다운(하향식)</strong></td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>유동성 효과</strong></td><td data-label=\"핵심 내용\">통화량 증가 → <strong>단기적</strong>으로 이자율 <strong>하락</strong></td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>소득 효과</strong></td><td data-label=\"핵심 내용\">이자율 하락 → 화폐수요 증가 → 이자율 <strong>상승</strong></td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>피셔 효과</strong></td><td data-label=\"핵심 내용\"><strong>인플레이션 예상</strong>으로 이자율 <strong>상승</strong></td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>재무상태표 작성기준</strong></td><td data-label=\"핵심 내용\">자산+<strong>부채+자본</strong>, 유동성 배열법(1년 기준), <strong>상계 금지(총액주의)</strong></td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>재무비율 한계</strong></td><td data-label=\"핵심 내용\"><strong>과거 정보</strong>, 결산기 상이 시 비교 곤란, 유량/저량 <strong>시간적 갭</strong>, 회계기준 상이 시 비교 곤란</td></tr></tbody></table></div>",
+    "quiz": [
+      {
+        "q": "기본적분석과 기술적분석에 대한 설명으로 옳은 것은?",
+        "a": "<strong>두 분석 모두 시장이 비효율적이라는 가정하에 분석을 통해 초과이익을 얻으려는 투자전략이다</strong>",
+        "e": "\"과거 주가의 체계적 패턴\"은 기술적분석, \"내재가치 발견\"은 기본적분석의 설명이므로 해당 지문들은 오답"
+      },
+      {
+        "q": "피셔 효과에 대한 설명으로 옳은 것은?",
+        "a": "<strong>인플레이션이 발생할 것으로 예상되어 금리가 다시 올라가는 현상</strong>",
+        "e": "화폐수요 증가로 이자율이 오르는 것은 소득 효과이지 피셔 효과가 아니다"
+      },
+      {
+        "q": "경제지표와 주가의 관계로 잘못된 것은?",
+        "a": "<strong>\"물가가 완만한 상승세를 보이면 주가에 부정적인 영향을 주어 하락한다\"</strong>",
+        "e": "완만한 물가 상승은 기업 수익성 개선으로 주가에 긍정적"
+      },
+      {
+        "q": "재무상태표 작성기준으로 잘못된 것은?",
+        "a": "<strong>\"재무상태표는 자산 및 부채로 구성된다\"</strong>",
+        "e": "자산·부채와 함께 <strong>자본</strong>도 구성 요소이며, 차변=자산, 대변=부채+자본"
+      },
+      {
+        "q": "재무비율의 한계로 옳지 않은 것은?",
+        "a": "<strong>\"결산기가 다른 기업과의 비교가 용이하다\"</strong>",
+        "e": "결산기가 다른 기업은 직접 비교하기 어려우며, 유량/저량 간 시간적 갭과 회계기준 차이도 한계"
+      }
+    ]
+  },
+  {
+    "id": "jXaOArSlgIQ",
+    "group": "기본적분석",
+    "groupIndex": 3,
+    "index": 4,
+    "label": "고득점 문제풀이 ②",
+    "title": "증권투자권유자문인력 고득점 문제풀이 [기본적분석 ②]ㅣ해커스금융 민영기",
+    "teacher": "민영기",
+    "nature": "문제풀이",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=jXaOArSlgIQ",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>재무비율 4종</strong></td><td data-label=\"핵심 내용\"><strong>수익성=이익률 / 안정성=비율 / 활동성=회전율 / 성장성=증가율</strong></td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>활동성 회전율 산식</strong></td><td data-label=\"핵심 내용\"><strong>분자는 항상 매출액</strong></td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>ROI</strong></td><td data-label=\"핵심 내용\"><strong>당기순이익 / 총자본(총자산)</strong></td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>ROE</strong></td><td data-label=\"핵심 내용\"><strong>당기순이익 / 자기자본</strong> (가장 중요)</td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>듀퐁 분해</strong></td><td data-label=\"핵심 내용\"><strong>ROE = 매출액순이익률 × 총자산회전율 × 재무레버리지</strong> (레버리지 제외하면 ROI)</td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>유동비율</strong></td><td data-label=\"핵심 내용\"><strong>유동자산 / 유동부채</strong> — 단기채무 지급능력(유동성) 측정</td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>배당성향·유보율</strong></td><td data-label=\"핵심 내용\"><strong>유보율 + 배당성향 = 1</strong> (유보율 = 1 − 배당성향)</td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>EPS·BPS</strong></td><td data-label=\"핵심 내용\"><strong>EPS = 주당순이익</strong>, <strong>BPS = 주당장부가치</strong></td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>PER</strong></td><td data-label=\"핵심 내용\"><strong>주가 / EPS</strong> (자본회수기간 개념). <strong>적자 기업에는 사용 불가</strong></td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>PBR</strong></td><td data-label=\"핵심 내용\"><strong>주가 / BPS</strong></td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>가치주 판단</strong></td><td data-label=\"핵심 내용\"><strong>저PER·저PBR = 가치주(저평가)</strong></td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>배당수익률</strong></td><td data-label=\"핵심 내용\"><strong>주당 현금배당금 / 주가</strong></td></tr></tbody></table></div>",
+    "quiz": [
+      {
+        "q": "기업의 수익 창출 능력을 측정하는 지표는?",
+        "a": "<strong>수익성 비율(각종 이익률)</strong>",
+        "e": "\"무슨무슨 이익률\" 형태가 수익성 비율이며, 자기자본이익률·총자본이익률·매출액영업이익률 등이 해당"
+      },
+      {
+        "q": "총자본이익률(ROI)이 전년에 비해 크게 향상된 이유로 거리가 먼 것은?",
+        "a": "<strong>\"전년에 비하여 총자본이 크게 증가했다\"</strong>",
+        "e": "분모(총자본)가 커지면 이익률은 떨어지므로, 향상되었다면 총자본은 감소했어야 한다"
+      },
+      {
+        "q": "ROE를 듀퐁 방식으로 분해하면?",
+        "a": "<strong>매출액순이익률 × 총자산회전율 × 재무레버리지</strong>",
+        "e": "재무레버리지를 제외하면 ROI(총자본이익률)가 됨"
+      },
+      {
+        "q": "기업의 단기채무 지급능력을 측정하는 대표적 비율은?",
+        "a": "<strong>유동비율(유동자산 / 유동부채)</strong>",
+        "e": ""
+      },
+      {
+        "q": "활동성 비율에 해당하지 않는 지표는?",
+        "a": "<strong>이자보상비율</strong>",
+        "e": "\"회전율\" 형태가 활동성 비율이고, 이자보상비율은 \"비율\" 형태의 안정성 비율"
+      },
+      {
+        "q": "PER에 대한 설명으로 잘못된 것은?",
+        "a": "<strong>\"주당순이익이 증가하거나 주가가 높다면 PER이 올라간다\"</strong>",
+        "e": "EPS(분모)가 증가하면 PER은 하락해야 하므로 \"감소하거나\"로 바꿔야 맞음. 적자인 경우 PER 사용 불가"
+      }
+    ]
+  },
+  {
+    "id": "5fwraXat-nA",
+    "group": "기본적분석",
+    "groupIndex": 3,
+    "index": 5,
+    "label": "무료 문제풀이 ③",
+    "title": "증권투자권유자문인력 무료 문제풀이 [기본적분석 ③]ㅣ해커스금융 민영기",
+    "teacher": "민영기",
+    "nature": "문제풀이",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=5fwraXat-nA",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>제로성장모형</strong></td><td data-label=\"핵심 내용\">주가 = <strong>배당금 / k</strong> (k = 무위험이자율 + 위험프리미엄)</td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>정률성장모형</strong></td><td data-label=\"핵심 내용\">주가 = <strong>D₀(1+g) / (k − g)</strong>. 교재명 = <strong>항상성장모형 = 고든모형</strong></td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>성장률 g</strong></td><td data-label=\"핵심 내용\"><strong>g = 유보율 × ROE</strong>. 유보율 = <strong>1 − 배당성향</strong></td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>k 트릭</strong></td><td data-label=\"핵심 내용\">k를 <strong>무위험이자율 + 베타×(시장수익률 − 무위험이자율)</strong>로 찢어서 출제</td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>모형 유추 관계</strong></td><td data-label=\"핵심 내용\"><strong>배당금↑→주가↑ / 요구수익률↑→주가↓ / 성장률↑→주가↑</strong>(분모 마이너스이므로)</td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>기대수익률</strong></td><td data-label=\"핵심 내용\"><strong>기대수익률 = 배당수익률 + 성장률</strong></td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>기대 PER</strong></td><td data-label=\"핵심 내용\"><strong>기대배당성향 / (k − g)</strong></td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>PBR 관계식</strong></td><td data-label=\"핵심 내용\"><strong>PBR = ROE × PER</strong></td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>EV/EBITDA</strong></td><td data-label=\"핵심 내용\"><strong>기업가치(EV, 주주+채권자 가치) / EBITDA</strong>(이자·세금·감가상각비 차감 전 이익)</td></tr></tbody></table></div>",
+    "quiz": [
+      {
+        "q": "주당배당금 300원, 배당이 증가하지 않을 것으로 예상, 무위험이자율 4%, 위험프리미엄 5%일 때 주식의 가치는?",
+        "a": "<strong>300 / 0.09 = 3,333.33원</strong> (제로성장모형)",
+        "e": "배당금 / 요구수익률, 요구수익률 = 4% + 5% = 9%"
+      },
+      {
+        "q": "현재 배당금 1,000원, 배당성장률 12%, 요구수익률 16%일 때 현재주가는?",
+        "a": "<strong>28,000원</strong>",
+        "e": "1,000×1.12 / (0.16−0.12) = 1,120 / 0.04"
+      },
+      {
+        "q": "배당성향 40%, ROE 10%, 주가 20,000원, 주당배당 1,000원일 때 기대수익률은?",
+        "a": "<strong>11%</strong>",
+        "e": "배당수익률 5% + 성장률(유보율 60% × ROE 10% = 6%) = 11%"
+      },
+      {
+        "q": "기대배당성향 45%, 요구수익률 11%, 기대성장률 6%일 때 기대 PER은?",
+        "a": "<strong>9</strong>",
+        "e": "0.45 / (0.11−0.06) = 9"
+      },
+      {
+        "q": "주가수익비율(PER)과 자기자본이익률(ROE)의 곱으로 표현되는 것은?",
+        "a": "<strong>PBR(주가장부가치비율)</strong>",
+        "e": "PBR = ROE × PER"
+      },
+      {
+        "q": "EV/EBITDA에서 EV와 EBITDA의 의미로 옳은 것은?",
+        "a": "<strong>EV = 기업의 전체 가치(주주가치+채권자가치), EBITDA = 이자·세금·감가상각비 차감 전 이익</strong>",
+        "e": "기업의 내재가치와 전체 기업가치를 비교하는 지표"
+      }
+    ]
+  },
+  {
+    "id": "saB8j2gjpW4",
+    "group": "경기분석",
+    "groupIndex": 4,
+    "index": 1,
+    "label": "이론정리 1탄",
+    "title": "[증권투자권유자문인력] \"경기분석\" 이론 정리 1탄 기본서 무료강의ㅣ해커스민영기",
+    "teacher": "민영기",
+    "nature": "이론정리",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=saB8j2gjpW4",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>경기의 정의</strong></td><td data-label=\"핵심 내용\"><strong>국민경제 활동의 총체적 수준</strong></td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>경기변동 4요소</strong></td><td data-label=\"핵심 내용\"><strong>추세변동(장기) · 순환변동(사이클) · 계절변동 · 불규칙변동(무작위)</strong></td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>분석 시 제거 요소</strong></td><td data-label=\"핵심 내용\"><strong>계절변동 + 불규칙변동</strong> 제거, <strong>추세 + 순환</strong> 결합 분석이 일반적</td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>대표 경기지표</strong></td><td data-label=\"핵심 내용\"><strong>GDP</strong> = 일정 기간 생산된 재화·서비스의 <strong>부가가치 합계</strong></td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>정점·저점</strong></td><td data-label=\"핵심 내용\">정점 = <strong>peak</strong>(경기 최고), 저점 = <strong>trough</strong>(경기 최저)</td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>순환진폭·순환심도</strong></td><td data-label=\"핵심 내용\"><strong>정점과 저점의 차이</strong> (두 용어는 같은 의미)</td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>순환주기</strong></td><td data-label=\"핵심 내용\"><strong>정점→다음 정점</strong> (또는 저점→다음 저점)까지의 기간</td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>기준순환일</strong></td><td data-label=\"핵심 내용\">정점·저점이 발생한 <strong>구체적 시점</strong>(터닝 포인트)</td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>2분법</strong></td><td data-label=\"핵심 내용\"><strong>수축국면</strong>(정점→저점) / <strong>확장국면</strong>(저점→정점) — <strong>최근 주로 사용</strong></td></tr></tbody></table></div><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th style=\"width:28%\">구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\"><strong>4분법</strong></td><td data-label=\"핵심 내용\"><strong>회복 → 호황 → 후퇴 → 불황</strong> — 전통적 방식</td></tr></tbody></table></div>",
+    "quiz": [
+      {
+        "q": "경기의 정의로 옳은 것은?",
+        "a": "<strong>국민경제 활동의 총체적 수준</strong>",
+        "e": "경제 전체가 얼마나 활발한지를 나타내는 총체적 개념"
+      },
+      {
+        "q": "경기변동의 구성 요소가 아닌 것은?",
+        "a": "<strong>구조변동</strong> 등 4요소 외 항목",
+        "e": "4요소는 추세변동·순환변동·계절변동·불규칙변동"
+      },
+      {
+        "q": "경기분석 시 일반적으로 제거하는 변동 요소는?",
+        "a": "<strong>계절변동과 불규칙변동</strong>",
+        "e": "규칙·패턴 발견을 위해 우연적·계절적 요소를 제거하고 추세변동+순환변동 위주로 분석"
+      },
+      {
+        "q": "순환진폭(순환심도)의 의미는?",
+        "a": "<strong>정점과 저점 간의 차이</strong>",
+        "e": "순환의 강도를 나타내며, 진폭과 심도는 같은 의미"
+      },
+      {
+        "q": "최근 경기순환 분석에서 주로 이용되는 방법은?",
+        "a": "<strong>2분법(수축국면·확장국면)</strong>",
+        "e": "회복·호황·후퇴·불황의 4분법보다 구분이 명확한 2분법을 최근에 더 많이 사용"
+      },
+      {
+        "q": "기준순환일의 의미는?",
+        "a": "<strong>정점 또는 저점이 발생한 구체적 시점</strong>",
+        "e": "확장국면↔수축국면이 바뀌는 터닝 포인트"
+      }
+    ]
+  },
+  {
+    "id": "-5rpyKrc484",
+    "group": "경기분석",
+    "groupIndex": 4,
+    "index": 2,
+    "label": "물가지수 2탄",
+    "title": "[증권투자권유자문인력] 경기분석 이론 정리 2탄_대표적 물가지수ㅣ해커스민영기",
+    "teacher": "민영기",
+    "nature": "이론정리",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=-5rpyKrc484",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">1. 대표적 물가지수 3종</h2><ul><li><strong>CPI (소비자물가지수)</strong>: 최종 소비재와 서비스의 물가 추이를 측정하는 지수</li><li>조사 대상: 대표 품목 <strong>481개</strong>를 뽑아 지속적으로 관찰 (숫자 암기 필요 없음 — \"대표적인 것만 뽑는다\"는 개념만)</li><li>특징: <strong>임금 비중이 상대적으로 높다</strong> (임금은 노동력의 가격이라 다른 재화 가격보다 변동이 적음) → <strong>경기 변동에 크게 민감하지 않다</strong></li><li>공식 없음, 특징만 숙지</li><li><strong>PPI (생산자물가지수)</strong>: 국내시장 1차 거래 단계에서 기업 간 거래되는 최종재·원자재·중간재 및 일부 서비스 가격을 조사</li><li>특징: 전반적인 상품의 <strong>수급 동향</strong>을 반영하는 물가지수</li><li>공식 없음, 특징만 숙지</li><li><strong>GDP 디플레이터 (GDP Deflator)</strong>: 유일하게 <strong>공식 암기 필수</strong></li><li>공식: <strong>GDP 디플레이터 = 명목GDP ÷ 실질GDP</strong></li><li>의미: <strong>국민경제 전체의 물가 수준(물가 압력)을 측정</strong>하는 종합 물가지수 — 모든 상품과 서비스의 가격을 종합 고려</li><li>해석: 디플레이터에서 1을 빼면 물가상승률 (예: 명목 1,200원 ÷ 실질 1,000원 = 1.2 → 물가상승률 <strong>20%</strong>)</li></ul><h2 class=\"section-heading\">2. 명목GDP vs 실질GDP (디플레이터의 기반 개념)</h2><ul><li><strong>명목GDP</strong>: 해당 연도의 가격 × 해당 연도 생산량 (가격 상승분이 그대로 반영됨)</li><li><strong>실질GDP</strong>: <strong>기준년도</strong>의 가격 × 해당 연도 생산량 (물가 변동을 제거)</li><li>예: 빵 10개, 2000년 가격 100원 → GDP 1,000원. 2001년 가격 120원으로 오르고 생산량 10개 동일 → 명목GDP 1,200원, 실질GDP 1,000원 → 성장이 아니라 <strong>물가 상승(인플레이션)</strong></li><li>디플레이터 = 1,200 ÷ 1,000 = 1.2 → 0.2(20%)가 물가 압력</li></ul><h2 class=\"section-heading\">3. 통화량 (통화지표 4분류)</h2><ul><li>유동성 기준: <strong>즉각적으로 현금화·지급결제 가능 여부</strong>에 따라 화폐 범위를 나눔</li><li><strong>M1 (협의통화)</strong>: 현금통화 + <strong>요구불예금</strong> + <strong>수시입출식 저축성예금</strong></li><li>요구불예금: 언제든 찾을 수 있어 유동성이 강함</li><li>수시입출식 저축성예금의 대표상품 = <strong>MMDA</strong> (M1 포함 명시)</li><li><strong>M2 (광의통화)</strong>: M1 + 나머지 금융상품 (CD, MMF 등 시장성 상품 전부)</li><li><strong>단, 만기가 2년 이상인 금융상품은 제외</strong></li><li>한국은행의 <strong>통화지표 관리 대상 기준 = M2</strong></li><li><strong>Lf (금융기관 유동성)</strong> / <strong>L (광의유동성)</strong>: 너무 광범위해 시험 중요도 낮음, 참고용</li><li>주의: MMF는 대부분 M1에 포함되지 않음 (2005.11 이후 일정 환매제도가 적용된 법인 MMF 제외, 2007.3.22 이후 미래가격제 도입된 개인 MMF 제외) — MMDA가 M1 포함되는 대표 상품</li></ul><hr><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th>구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\">물가지수 3종</td><td data-label=\"핵심 내용\"><strong>CPI</strong> (소비자물가지수), <strong>PPI</strong> (생산자물가지수), <strong>GDP 디플레이터</strong></td></tr><tr><td data-label=\"구분\">CPI 특징</td><td data-label=\"핵심 내용\">대표 품목 선별 조사, <strong>임금 비중 높음</strong>, <strong>경기 변동 민감도 낮음</strong>, 공식 없음</td></tr><tr><td data-label=\"구분\">PPI 특징</td><td data-label=\"핵심 내용\">기업 간 1차 거래 단계 조사, <strong>수급 동향 반영</strong>, 공식 없음</td></tr><tr><td data-label=\"구분\">GDP 디플레이터 공식</td><td data-label=\"핵심 내용\"><strong>명목GDP ÷ 실질GDP</strong> — 국민경제 전체 물가 압력 측정</td></tr><tr><td data-label=\"구분\">실질GDP</td><td data-label=\"핵심 내용\"><strong>기준년도 가격</strong> × 해당 연도 생산량</td></tr><tr><td data-label=\"구분\">M1 (협의통화)</td><td data-label=\"핵심 내용\">현금통화 + <strong>요구불예금</strong> + <strong>수시입출식 저축성예금</strong>(대표: <strong>MMDA</strong>)</td></tr><tr><td data-label=\"구분\">M2 (광의통화)</td><td data-label=\"핵심 내용\">M1 + 기타 금융상품. 단 <strong>만기 2년 이상 상품 제외</strong></td></tr><tr><td data-label=\"구분\">한국은행 관리 기준 지표</td><td data-label=\"핵심 내용\"><strong>M2</strong></td></tr></tbody></table></div>",
+    "quiz": [
+      {
+        "q": "GDP 디플레이터의 공식과 의미는?",
+        "a": "<strong>명목GDP ÷ 실질GDP</strong>",
+        "e": "국민경제 전체의 물가 수준(물가 압력)을 종합적으로 측정하는 지수"
+      },
+      {
+        "q": "소비자물가지수(CPI)의 특징으로 옳은 것은?",
+        "a": "<strong>임금이 차지하는 비중이 상대적으로 높고 경기 변동에 크게 민감하지 않다</strong>",
+        "e": "임금은 노동력의 가격이라 가격 변동이 작기 때문"
+      },
+      {
+        "q": "생산자물가지수(PPI)가 반영하는 동향은?",
+        "a": "<strong>전반적인 상품의 수급 동향</strong>",
+        "e": "기업 간 1차 거래 단계 가격을 조사"
+      },
+      {
+        "q": "M1(협의통화)에 포함되는 것은?",
+        "a": "현금통화, <strong>요구불예금</strong>, <strong>수시입출식 저축성예금(MMDA)</strong>",
+        "e": "즉시 인출 가능해 유동성이 강한 것만"
+      },
+      {
+        "q": "M2에서 제외되는 금융상품의 기준은?",
+        "a": "<strong>만기가 2년 이상인 금융상품</strong>",
+        "e": "유동성이 낮은 장기 상품은 M2에서 제외"
+      },
+      {
+        "q": "한국은행이 통화지표 관리 기준으로 사용하는 지표는?",
+        "a": "<strong>M2</strong>",
+        "e": ""
+      }
+    ]
+  },
+  {
+    "id": "r-UaF2w8K4w",
+    "group": "경기분석",
+    "groupIndex": 4,
+    "index": 3,
+    "label": "통화유통속도 3탄",
+    "title": "[증권투자권유자문인력 강의] 통화유통속도 이론 정리 3탄ㅣ해커스민영기",
+    "teacher": "민영기",
+    "nature": "이론정리",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=r-UaF2w8K4w",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">1. 통화유통속도 (화폐유통속도)</h2><ul><li>정의: 한 단위의 화폐가 일정 기간 동안 <strong>몇 번 거래를 수행했는가</strong> 하는 회전율 (velocity)</li><li>공식: <strong>V = PY ÷ M = 명목GDP ÷ 통화량</strong></li><li>P = 물가 수준, Y = 거래량 → P × Y = <strong>명목GDP</strong></li><li>예: 명목GDP 1만원, 풀린 돈이 천원뿐이라면 → 돈이 <strong>10번</strong> 돌아야 하므로 유통속도 = 10</li><li>시험 포인트: 공식은 이해 위주 (박스 암기 수준), 뒤의 적정 통화량 공식이 진짜 암기 대상</li></ul><h2 class=\"section-heading\">2. 적정 통화량 증가율 공식 (암기 필수)</h2><ul><li>공식: <strong>Mg = Pg + Yg − Vg</strong></li><li>Mg = 통화량 증가율</li><li>Pg = GDP 디플레이터 상승률 (물가상승률)</li><li>Yg = 실질GDP 증가율 (경제성장률)</li><li>Vg = 통화유통속도 변화율</li><li>배경 개념: 통화량을 <strong>너무 많이</strong> 늘리면 물가 상승(국민 도탄), <strong>너무 적게</strong> 늘리면 거래 방해로 디플레이션·불황</li><li>전제: 경제 규모가 커지면 유통속도는 관습적으로 잘 안 바뀌므로(고정 가정), 경제성장만큼 통화량을 늘려야 적정</li><li>암기 팁: 물가상승 + 성장률 더하고, 유통속도 변화는 빼기</li></ul><h2 class=\"section-heading\">3. 경기변동의 원인 — 학파 매칭 (함정 빈출)</h2><div class=\"table-wrap\"><table><thead><tr><th>원인</th><th>학자</th><th>핵심 키워드</th></tr></thead><tbody><tr><td data-label=\"원인\"><strong>수요 측면 충격</strong></td><td data-label=\"학자\"><strong>케인스</strong></td><td data-label=\"핵심 키워드\">민간 기업의 <strong>투자지출 변화</strong>, 기업가의 <strong>동물적 감각(animal spirits)</strong> · 불안정한 투자심리</td></tr><tr><td data-label=\"원인\"><strong>화폐 충격</strong></td><td data-label=\"학자\"><strong>밀턴 프리드만</strong> (통화주의자)</td><td data-label=\"핵심 키워드\">통화당국(중앙은행)의 <strong>자의적인 통화량 조절</strong> 때문에 경기순환 발생</td></tr><tr><td data-label=\"원인\"><strong>기대 착오</strong> (불완전 정보)</td><td data-label=\"학자\"><strong>루카스</strong> (합리적 기대학파)</td><td data-label=\"핵심 키워드\">불완전한 정보 상황에서 <strong>경제주체들의 기대 오류</strong>(판단 착오)가 경기변동 촉발</td></tr><tr><td data-label=\"원인\"><strong>공급 측면 충격</strong></td><td data-label=\"학자\"><strong>슘페터</strong></td><td data-label=\"핵심 키워드\">기술·혁신·생산성 변화가 생활을 바꾸고 경기 사이클을 변동 (스마트폰 사례)</td></tr></tbody></table></div><ul><li>출제 패턴: 지문으로 학자-원인을 뒤섞어 맞느냐 틀리냐를 묻는 형태. 경제학사 깊게가 아니라 <strong>\"누가—무슨 원인\"</strong> 찰 붙이기 수준</li></ul><h2 class=\"section-heading\">4. 경기변동의 3대 특징</h2><ul><li><strong>지속성</strong>: 경기 상승·하강이 상당 기간 이어지고, 반전시키는 요인이 무엇인가의 문제</li><li><strong>변동성</strong>: 언제 오르다 꺾여서 반대로 전환되는가 (전환 시점의 문제)</li><li><strong>공행성</strong>: 생산·고용·투자·소비 등 경제지표들이 <strong>같은 방향으로 함께 움직이는</strong> 성격</li></ul><h3 class=\"subheading\">지속성을 설명하는 3가지 견해</h3><ol><li><strong>유발투자</strong>의 역할 강조 — 케인스 학파</li><li><strong>가격·임금 경직성</strong> — 가격이 쉽게 안 바뀌니까 변동이 지속</li><li><strong>자본재 투자의 건설기간</strong> — 자본재 건설에 기간이 길어 효과가 지연</li></ol><h2 class=\"section-heading\">5. 우리나라 경기순환의 특성</h2><ul><li><strong>전 기간을 통해 가장 큰 영향을 미치는 요인 = 건설투자</strong> (체크)</li><li><strong>해외 부문이 영향을 많이 미쳤다</strong></li><li>통화(정책)는 대체로 <strong>경기를 안정시키는 방향</strong>으로 운영되었다고 평가</li><li>우리나라의 농업생산은 총생산에서 차지하는 비중이 꾸준히 감소 → 경기순환에 미치는 영향은 <strong>미미</strong></li><li>측정 방법 3종:</li><li><strong>순환심도 = 순환진폭</strong>: 경기변동을 잘 반영하는 변수를 골라 확장기·수축기의 변동폭 계산</li><li><strong>변동성 = 표준편차</strong>: 경기변수의 증가율 표준편차로 측정</li><li><strong>공행성</strong>: <strong>경기 전환점과 시차 분석</strong>을 통해 측정 (변수들이 안정적 관계로 같은 방향 움직임)</li></ul><hr><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th>구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\">통화유통속도 공식</td><td data-label=\"핵심 내용\"><strong>V = 명목GDP ÷ 통화량</strong></td></tr><tr><td data-label=\"구분\">적정 통화량 증가율</td><td data-label=\"핵심 내용\"><strong>Mg = Pg + Yg − Vg</strong> (물가상승률 + 실질GDP증가율 − 유통속도변화율)</td></tr><tr><td data-label=\"구분\">수요 충격</td><td data-label=\"핵심 내용\"><strong>케인스</strong> — 동물적 감각(불안정한 투자심리)</td></tr><tr><td data-label=\"구분\">화폐 충격</td><td data-label=\"핵심 내용\"><strong>밀턴 프리드만</strong> (통화주의자) — 통화당국의 자의적 통화조절</td></tr><tr><td data-label=\"구분\">기대 착오</td><td data-label=\"핵심 내용\"><strong>루카스</strong> (합리적 기대학파) — 불완전 정보 속 판단 오류</td></tr><tr><td data-label=\"구분\">공급 충격</td><td data-label=\"핵심 내용\"><strong>슘페터</strong> — 기술·혁신·생산성 변화</td></tr><tr><td data-label=\"구분\">경기변동 3대 특징</td><td data-label=\"핵심 내용\"><strong>지속성 · 변동성 · 공행성</strong></td></tr><tr><td data-label=\"구분\">지속성 설명 3견해</td><td data-label=\"핵심 내용\"><strong>유발투자</strong> / <strong>가격·임금 경직성</strong> / <strong>자본재 건설기간</strong></td></tr><tr><td data-label=\"구분\">우리나라 최대 영향 요인</td><td data-label=\"핵심 내용\"><strong>건설투자</strong></td></tr><tr><td data-label=\"구분\">공행성 측정 방법</td><td data-label=\"핵심 내용\"><strong>경기 전환점과 시차 분석</strong></td></tr></tbody></table></div>",
+    "quiz": [
+      {
+        "q": "통화유통속도(V)의 공식은?",
+        "a": "<strong>V = 명목GDP ÷ 통화량</strong>",
+        "e": "화폐 1단위가 몇 번 거래를 수행했는가의 회전율"
+      },
+      {
+        "q": "적정 통화량 증가율을 구하는 공식은?",
+        "a": "<strong>Mg = Pg + Yg − Vg</strong>",
+        "e": "물가상승률(GDP디플레이터 상승률) + 실질GDP 증가율 − 유통속도 변화율"
+      },
+      {
+        "q": "\"통화당국의 자의적인 통화량 조절이 경기순환의 원인이다\"라고 주장한 학자는?",
+        "a": "<strong>밀턴 프리드만(통화주의자)</strong>",
+        "e": "화폐 충격 이론"
+      },
+      {
+        "q": "\"동물적 감각(animal spirits)\"이라는 말이 나오면 어떤 학자의 어떤 원인이론인가?",
+        "a": "<strong>케인스, 수요 측면의 충격</strong>",
+        "e": "기업가의 불안정한 투자심리에 따른 투자지출 변화"
+      },
+      {
+        "q": "경기변동에서 생산·고용·투자 등 경제지표가 같은 방향으로 함께 움직이는 성격을 무엇이라 하는가?",
+        "a": "<strong>공행성</strong>",
+        "e": "경기 전환점과 시차 분석으로 측정"
+      },
+      {
+        "q": "우리나라 경기순환에 전 기간을 통해 가장 큰 영향을 미치는 요인은?",
+        "a": "<strong>건설투자</strong>",
+        "e": ""
+      }
+    ]
+  },
+  {
+    "id": "fmq8ANCLMuw",
+    "group": "경기분석",
+    "groupIndex": 4,
+    "index": 4,
+    "label": "경기분석 ③",
+    "title": "증권투자권유자문인력 '경기분석③' 자격증 취득 전 기본기를 탄탄하게 하고싶다면 꼭 보세요!ㅣ해커스금융 민영기",
+    "teacher": "민영기",
+    "nature": "이론정리",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=fmq8ANCLMuw",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">1. 경기예측 3방법 (분류 자체가 출제)</h2><ol><li><strong>경기지표</strong>를 이용하는 방법 — 경기확산지수(DI), 경기종합지수(CI)</li><li><strong>설문조사(서베이법)</strong> — 기업경기실사지수(BSI), 소비자태도지수(CSI)</li><li><strong>경제모형</strong> — 시계열 모형, 거시경제계량모형 (교재에 설명 없이 \"이런 게 있다\" 소개 수준이므로 내용 공부 불필요)</li></ol><h2 class=\"section-heading\">2. 경기확산지수 (DI) vs 경기종합지수 (CI)</h2><div class=\"table-wrap\"><table><thead><tr><th>구분</th><th>DI (경기확산지수)</th><th>CI (경기종합지수)</th></tr></thead><tbody><tr><td data-label=\"구분\">측정 대상</td><td data-label=\"DI (경기확산지수)\">경제지표들의 <strong>변화 방향만</strong> 종합</td><td data-label=\"CI (경기종합지수)\">경기에 민감하게 반응하는 대표 시계열들을 종합</td></tr><tr><td data-label=\"구분\">해석 기준</td><td data-label=\"DI (경기확산지수)\"><strong>50을 기준</strong> (50 이상 상승 / 50 이하 하강 / 50은 전환점)</td><td data-label=\"CI (경기종합지수)\"><strong>+/− 표기</strong> (플러스면 확장·상승, 마이너스면 수축·하강)</td></tr><tr><td data-label=\"구분\">알 수 있는 것</td><td data-label=\"DI (경기확산지수)\">경기 국면 판단, <strong>전환점</strong> 식별</td><td data-label=\"CI (경기종합지수)\">방향·국면·전환점 + <strong>속도·진폭</strong>까지</td></tr><tr><td data-label=\"구분\">한계</td><td data-label=\"DI (경기확산지수)\"><strong>진폭·속도 측정 불가</strong> (방향 위주)</td><td data-label=\"CI (경기종합지수)\">—</td></tr><tr><td data-label=\"구분\">활용도</td><td data-label=\"DI (경기확산지수)\">범용성 낮음, 공신력 있는 기관 발표 중단</td><td data-label=\"CI (경기종합지수)\">DI보다 훨씬 활용도 높음</td></tr></tbody></table></div><h2 class=\"section-heading\">3. 경기종합지수의 구성 — 선행·동행·후행 지수 (선다형 빈출)</h2><ul><li><strong>선행지수</strong> (경기보다 먼저 움직이는 지표): <strong>소비자 기대지수</strong>, <strong>건설 수주액</strong>(주문 먼저 받아야 하므로), <strong>코스피지수</strong>, <strong>장단기 금리 스프레드</strong></li><li><strong>동행지수</strong> (현재 경기와 같이 움직이는 지표): <strong>광공업 생산지수</strong>, <strong>건설기성액</strong>, <strong>실질 수입액</strong></li><li>현재 경기 동향 파악에는 <strong>동행종합지수</strong>를 분석</li><li>지수 레벨 자체로는 순환 과정 파악이 어려우므로 <strong>추세변동을 제거한 순환변동치</strong>를 작성해 경기 국면·전환점 판단에 활용</li><li><strong>후행지수</strong> (경기보다 늦게 움직이는 지표): <strong>소비재 수입액</strong>(돈 벌어야 소비하므로), <strong>회사채 유통수익률</strong>(경기가 꺾인 뒤 기업이 돈을 빌리려 금리를 높이기 때문)</li><li>참고: 경기변동의 4원계열(추세변동·순환변동·불규칙변동·계절변동) 중 <strong>추세변동 제거 후 순환변동치</strong>로 분석</li></ul><h2 class=\"section-heading\">4. 설문조사(서베이법) 3지수</h2><ul><li><strong>BSI (기업경기실사지수)</strong>: 기업체에 설문 → 긍정/부정 응답 수 집계</li><li><strong>CSI (소비자태도지수)</strong>: 소비자에게 설문 → 낙관/비관 응답 수 집계</li><li>공통 해석: <strong>0~200의 값</strong>, <strong>100을 기준</strong>으로 판단</li><li>100 이상 = 긍정 응답이 많음 → <strong>상승·확장 국면</strong></li><li>100 이하 = 부정 응답이 많음 → <strong>하강·수축 국면</strong></li><li>100 = <strong>경기 전환점</strong></li><li><strong>ESI (경제심리지수)</strong>: 별도 설문이 아니라 <strong>BSI와 CSI를 합성·조정</strong>해 만든 비교적 최근 지표</li><li>100 상회 = 기업+소비자를 포함한 민간 경제심리가 <strong>과거 평균보다 좋음</strong></li></ul><hr><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th>구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\">경기예측 3방법</td><td data-label=\"핵심 내용\"><strong>경기지표 / 설문조사(서베이법) / 경제모형</strong></td></tr><tr><td data-label=\"구분\">DI 해석</td><td data-label=\"핵심 내용\"><strong>50 기준</strong> — 50 이상 상승, 50 이하 하강, 50은 전환점. <strong>진폭·속도 측정 불가</strong></td></tr><tr><td data-label=\"구분\">CI 해석</td><td data-label=\"핵심 내용\"><strong>+/− 표기</strong> — 방향·국면·전환점·속도·진폭 모두 파악 가능</td></tr><tr><td data-label=\"구분\">선행지수</td><td data-label=\"핵심 내용\"><strong>소비자 기대지수, 건설 수주액, 코스피지수, 장단기 금리 스프레드</strong></td></tr><tr><td data-label=\"구분\">동행지수</td><td data-label=\"핵심 내용\"><strong>광공업 생산지수, 건설기성액, 실질 수입액</strong> (현재 경기 판단용)</td></tr><tr><td data-label=\"구분\">후행지수</td><td data-label=\"핵심 내용\"><strong>소비재 수입액, 회사채 유통수익률</strong></td></tr><tr><td data-label=\"구분\">BSI·CSI 해석</td><td data-label=\"핵심 내용\"><strong>0~200, 100 기준</strong> — 100 이상 긍정/확장, 100 이하 부정/수축</td></tr><tr><td data-label=\"구분\">ESI</td><td data-label=\"핵심 내용\">BSI + CSI <strong>합성</strong> 지표 (별도 설문 아님)</td></tr></tbody></table></div>",
+    "quiz": [
+      {
+        "q": "경기예측의 3가지 방법은?",
+        "a": "<strong>경기지표 이용, 설문조사(서베이법), 경제모형</strong>",
+        "e": "경제모형은 시계열 모형과 거시경제계량모형이 있으나 교재 소개 수준"
+      },
+      {
+        "q": "경기확산지수(DI)의 해석 기준으로 옳은 것은?",
+        "a": "<strong>50을 기준으로 50 이상이면 상승, 50 이하이면 하강</strong>",
+        "e": "DI는 변화 방향만 종합하므로 진폭·속도는 측정 불가"
+      },
+      {
+        "q": "경기종합지수(CI)와 DI의 차이로 옳은 것은?",
+        "a": "<strong>CI는 경기변동의 속도·진폭까지 파악 가능해 DI보다 활용도가 높다</strong>",
+        "e": "CI는 +/− 표기로 속도(기울기)·진폭까지 분석"
+      },
+      {
+        "q": "선행지수에 속하는 것은?",
+        "a": "<strong>소비자 기대지수, 건설 수주액, 코스피지수, 장단기 금리 스프레드</strong>",
+        "e": "경기보다 먼저 움직이는 지표들"
+      },
+      {
+        "q": "회사채 유통수익률이 후행지수인 이유는?",
+        "a": "<strong>경기가 꺾인 뒤 기업이 자금 조달을 위해 금리를 높이기 때문</strong>",
+        "e": "경기를 따라 늦게 움직임"
+      },
+      {
+        "q": "BSI가 120이면 경기를 어떻게 판단하는가?",
+        "a": "<strong>긍정적 응답이 많아 확장(상승) 국면</strong>",
+        "e": "100을 기준으로 이상이면 긍정, 이하이면 부정"
+      }
+    ]
+  },
+  {
+    "id": "uvlFYTlb5Mk",
+    "group": "경기분석",
+    "groupIndex": 4,
+    "index": 5,
+    "label": "최종핵심 문제풀이 ①",
+    "title": "증권투자권유자문인력 최종핵심 문제풀이 '경기분석①' 금융권 취업을 원한다면 보세요!┃ 해커스금융 민영기 교수님",
+    "teacher": "민영기",
+    "nature": "문제풀이 (기본문제 전체 풀이, 출제예상문제 중 중요도 ★3개 전수 + 선별 풀이)",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=uvlFYTlb5Mk",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">1. 경기순환 기본 용어</h2><ul><li>경기순환 구분: <strong>이분법</strong>(수축국면/확장국면), <strong>4분법</strong>(후퇴·불황·회복·호황)</li><li><strong>기준순환일</strong>: 정점 또는 저점의 시점 — 확장→수축, 수축→확장으로 바뀌는 <strong>터닝포인트의 날짜</strong></li><li><strong>순환진폭</strong>(순환심도): 정점과 저점 간의 차이</li><li><strong>주기</strong>: 원래 상태로 돌아올 때까지 — <strong>저점에서 다음 저점까지</strong> (저점→다음 정점 아님!)</li><li><strong>성장순환</strong>: 장기 성장 추세선(추세선)을 중심으로 나타나는 경기의 기복</li><li>시계열의 4요인: <strong>추세변동</strong>(인구증가·기술진보 등 장기적, 직선/곡선)·<strong>순환변동</strong>(비즈니스 사이클, 정점·저점·진폭·주기)·<strong>계절변동</strong>(1년 주기)·<strong>불규칙변동</strong>(천재지변·노사분쟁 등)</li><li>후행지수 예시: <strong>도시가계 소비지출</strong>, <strong>회사채 유통수익률</strong> (선행이 아님 — 선다 함정)</li></ul><h2 class=\"section-heading\">2. 국민소득계정과 국내총생산(GDP)</h2><ul><li><strong>지출국민소득 구성</strong>: <strong>민간소비 + 투자 + 정부지출(정부소비) + 순수출(수출−수입)</strong> — 정부소비는 포함(제외가 아님!)</li><li>국민소득계정은 <strong>한국은행</strong>이 분기별·연도별로 추계, 총체적 실물경제 흐름을 나타내는 대표적 거시경제지표</li><li>GDP 정의: 일정 기간 동안 생산된 재화·서비스의 <strong>부가가치 합계</strong> = <strong>최종 생산물의 시장가치</strong></li></ul><h2 class=\"section-heading\">3. 산업활동 관련 경제지표</h2><ul><li>자료의 대부분은 <strong>통계청</strong>이 추계 (한국은행 아님) — 월별·분기별·연도별 작성</li><li>종류: 산업생산, 생산자재고, 제조업 평균가동률, 기계수주, 국내건설수주, 건축허가면적, 실업률 등</li><li>성격: <strong>국민계정의 보조지표</strong>, 단기 경제 흐름 파악에 유용, 선행성을 갖는 지표(예: <strong>건축허가면적</strong>)는 경제전망의 중요 정보</li></ul><h2 class=\"section-heading\">4. 대표적 물가지수 (압도적 빈출)</h2><ul><li><strong>CPI (소비자물가지수)</strong>: 도시가계의 평균 생계비·구매력 변동 측정, <strong>임금 비중이 상대적으로 높음</strong>, 체감·장바구니 물가와는 괴리</li><li><strong>PPI (생산자물가지수)</strong>: 상품 및 상품 성격의 일부 서비스 가격을 조사 → 전반적인 상품의 <strong>수급동향 반영</strong></li><li><strong>GDP 디플레이터</strong>: <strong>명목GDP ÷ 실질GDP × 100</strong> — 한 국가 전체의 <strong>물가압력(전체 물가 수준)</strong> 측정, 계산형 문제 가능 (분자 명목·분모 실질, 거꾸로 주의)</li></ul><h2 class=\"section-heading\">5. 통화지표와 통화유통속도</h2><ul><li>통화량 변화의 효과: <strong>단기적으로는 실물 부분</strong>에, <strong>장기적으로는 시차를 두고 물가</strong>(전반적 물가 수준)에 영향 (순서 뒤바뀐 지문 함정)</li><li>상대적 파급효과의 크기는 경제구조·경기상황에 따라 <strong>다르게</strong> 나타남 (일률적 아님)</li><li><strong>M1 = 현금통화 + 요구불예금 + 수시입출식 저축성예금</strong>(MMDA) — \"요구불예금까지만\"은 틀린 지문</li><li><strong>M2</strong> = M1 + 시장성 금융상품 전반, 단 <strong>만기 2년 이상 제외</strong></li><li><strong>통화유통속도(V) = 명목GDP ÷ 통화량</strong> — <strong>사후적으로만 추계 가능</strong> (사전적 추계 불가), <strong>우리나라 장기 하락 추세</strong></li><li>적정 통화량 증가율: <strong>Mg = Pg(GDP 디플레이터 상승률) + Yg(실질GDP 증가율) − Vg(유통속도 변화율)</strong></li></ul><h2 class=\"section-heading\">6. 금리</h2><ul><li>금리 = <strong>자본의 한계수익률</strong>(자본의 한계효율) = 현재소득과 미래소득의 교환비율, 장기 명목성장률과 자금시장 수급 상황을 반영해 결정</li><li><strong>대표적 시장금리</strong>: <strong>콜금리</strong>(초단기·단기금리 대표), <strong>CD(양도성예금증서) 유통수익률</strong>, <strong>국고채 수익률</strong></li><li>경제 선진화·자본축적 진행 → 자본의 한계수익률 <strong>하락</strong> → 실질금리 하향 추세 (상승이 아님)</li><li><strong>캐리 트레이드</strong>: 저금리 국가 → 고금리 국가로 자금 이동, 되돌아오면 캐리 트레이드 청산</li></ul><h2 class=\"section-heading\">7. 경기변동 원인과 특징 — 학파 짝맞추기 (압도적 빈출)</h2><div class=\"table-wrap\"><table><thead><tr><th>원인</th><th>학자</th><th>키워드</th></tr></thead><tbody><tr><td data-label=\"원인\"><strong>수요 측면 충격</strong></td><td data-label=\"학자\"><strong>케인스</strong></td><td data-label=\"키워드\">민간기업 투자지출 변화, <strong>동물적 감각</strong>(animal spirits), <strong>임금·가격 경직성</strong></td></tr><tr><td data-label=\"원인\"><strong>화폐적 충격</strong></td><td data-label=\"학자\"><strong>프리드만</strong></td><td data-label=\"키워드\">통화당국의 <strong>자의적인 통화량 조절</strong> (money shock)</td></tr><tr><td data-label=\"원인\"><strong>합리적 기대의 판단 오류</strong></td><td data-label=\"학자\"><strong>루카스</strong></td><td data-label=\"키워드\"><strong>불완전한 정보</strong> 상황에서의 경제주체 기대 착오</td></tr><tr><td data-label=\"원인\"><strong>공급 측면 충격</strong></td><td data-label=\"학자\"><strong>슘페터</strong></td><td data-label=\"키워드\">생산요소의 <strong>새로운 결합</strong>, 기술혁신, 생산성 향상</td></tr></tbody></table></div><ul><li>경기변동의 3대 특징: <strong>지속성 · 변동성 · 공행성</strong></li><li>공행성: 경제변수들이 안정적 관계를 가지고 일정한 방향으로 함께 움직이는 특성</li><li>지속성 설명 3견해: <strong>유발투자</strong>(케인즈), <strong>임금·가격 경직성</strong>, <strong>자본재 투자 건설기간</strong></li><li><strong>실물적 균형경기변동이론</strong>: 기술진보·생산성 향상을 강조, 경기변동의 <strong>지속성</strong>을 잘 설명</li></ul><h2 class=\"section-heading\">8. 우리나라 경기순환의 특징</h2><ul><li><strong>전 기간 가장 큰 영향 요인 = 건설투자</strong> (해외 부분은 두 번째 의미)</li><li><strong>해외 부분</strong>의 영향이 크다</li><li>통화(정책)는 대체로 경기를 <strong>안정시키는</strong> 방향으로 운용되어 왔다 (변동시키는 방향이 아님)</li><li><strong>농업생산</strong>은 총생산에서 차지하는 비중이 꾸준히 <strong>감소</strong> (영향 미미)</li></ul><h2 class=\"section-heading\">9. 케인즈 학파의 경기변동이론</h2><ul><li>경기변동 = 기업가의 <strong>투자심리(동물적 감각, animal spirits)</strong> 와 소비자의 내구소비재 지출의 <strong>불안정성</strong>(안정적이 아님!)</li><li><strong>승수효과</strong>(독립투자·내구재소비 증가 → 추가 생산·소득 증가) + <strong>가속도 원리</strong>(생산 변동 → 투자 변동 유발)를 결합해 경기순환 설명</li><li>\"승수효과\", \"가속도 원리\", \"animal spirits\"라는 말이 나오면 무조건 케인즈</li></ul><hr><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th>구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\">기준순환일</td><td data-label=\"핵심 내용\"><strong>정점·저점의 시점</strong>(터닝포인트의 날짜)</td></tr><tr><td data-label=\"구분\">순환진폭</td><td data-label=\"핵심 내용\"><strong>정점과 저점 간의 차이</strong></td></tr><tr><td data-label=\"구분\">주기</td><td data-label=\"핵심 내용\"><strong>저점 → 다음 저점</strong>까지</td></tr><tr><td data-label=\"구분\">GDP 구성</td><td data-label=\"핵심 내용\"><strong>민간소비 + 투자 + 정부지출 + 순수출</strong>(수출−수입)</td></tr><tr><td data-label=\"구분\">GDP 추계 기관</td><td data-label=\"핵심 내용\"><strong>한국은행</strong>(분기별·연도별)</td></tr><tr><td data-label=\"구분\">산업활동지표 추계 기관</td><td data-label=\"핵심 내용\"><strong>통계청</strong>(월별·분기별·연도별)</td></tr><tr><td data-label=\"구분\">GDP 디플레이터</td><td data-label=\"핵심 내용\"><strong>명목GDP ÷ 실질GDP × 100</strong>, 전체 물가압력 측정</td></tr><tr><td data-label=\"구분\">M1</td><td data-label=\"핵심 내용\">현금통화 + <strong>요구불예금 + 수시입출식저축성예금</strong>(MMDA)</td></tr><tr><td data-label=\"구분\">통화효과 순서</td><td data-label=\"핵심 내용\"><strong>단기→실물, 장기→물가</strong> (시차 있음)</td></tr><tr><td data-label=\"구분\">통화유통속도</td><td data-label=\"핵심 내용\"><strong>명목GDP ÷ 통화량</strong>, <strong>사후적 추계만 가능</strong>, 장기 하락 추세</td></tr><tr><td data-label=\"구분\">대표 시장금리</td><td data-label=\"핵심 내용\"><strong>콜금리, CD 유통수익률, 국고채 수익률</strong></td></tr><tr><td data-label=\"구분\">케인스</td><td data-label=\"핵심 내용\"><strong>수요충격 · 동물적 감각 · 임금가격경직성 · 승수효과+가속도 원리</strong></td></tr><tr><td data-label=\"구분\">프리드만</td><td data-label=\"핵심 내용\"><strong>화폐적 충격</strong>(자의적 통화량 조절)</td></tr><tr><td data-label=\"구분\">루카스</td><td data-label=\"핵심 내용\"><strong>불완전 정보·합리적 기대의 판단 오류</strong></td></tr><tr><td data-label=\"구분\">슘페터</td><td data-label=\"핵심 내용\"><strong>공급충격</strong>(새로운 결합·기술혁신·생산성 향상)</td></tr><tr><td data-label=\"구분\">우리나라 최대 영향</td><td data-label=\"핵심 내용\"><strong>건설투자</strong></td></tr></tbody></table></div>",
+    "quiz": [
+      {
+        "q": "도시가계 소비지출과 회사채 유통수익률은 어느 지수에 속하는가?",
+        "a": "<strong>후행종합지수</strong>",
+        "e": "경기보다 늦게 움직이므로 선행지수가 아님"
+      },
+      {
+        "q": "기준순환일이란 무엇인가?",
+        "a": "<strong>정점 또는 저점의 시점</strong>",
+        "e": "확장↔수축이 바뀌는 터닝포인트의 날짜"
+      },
+      {
+        "q": "GDP(지출국민소득)의 구성 요소는?",
+        "a": "<strong>민간소비 + 투자 + 정부지출(정부소비) + 순수출</strong>",
+        "e": "정부소비는 제외가 아니라 포함"
+      },
+      {
+        "q": "GDP 디플레이터의 공식과 측정 대상은?",
+        "a": "<strong>명목GDP ÷ 실질GDP × 100</strong>, 국가 전체의 <strong>물가압력</strong> 측정",
+        "e": "분자는 명목, 분모는 실질"
+      },
+      {
+        "q": "통화유통속도의 추계와 추세에 대한 설명으로 옳은 것은?",
+        "a": "<strong>사후적으로만 추계 가능하고, 우리나라의 경우 장기 하락 추세</strong>",
+        "e": "사전적 추계는 불가"
+      },
+      {
+        "q": "\"불완전한 정보 상황에서 경제주체들의 합리적 기대가 판단 오류를 일으켜 경기가 변동한다\"는 학자는?",
+        "a": "<strong>루카스</strong>",
+        "e": "기술·생산성 혁신을 강조한 것은 슘페터, 수요충격은 케인스, 화폐충격은 프리드만"
+      }
+    ]
+  },
+  {
+    "id": "bbIh6UfsA3c",
+    "group": "직무윤리",
+    "groupIndex": 5,
+    "index": 1,
+    "label": "기본서 이론정리",
+    "title": "증권투자권유자문인력 기본서 이론정리ㅣ'직무윤리''📝ㅣ해커스 송영욱 증권투자권유자문인력 독학 시험일정 금융권취업",
+    "teacher": "송영욱",
+    "nature": "이론정리",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=bbIh6UfsA3c",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">1. 직무윤리 기본 이해</h2><ul><li><strong>도덕적 딜레마</strong>: 맡긴 칼을 (약속은 지키되 살인 도구로 쓸 사람에게) 돌려줘야 할지 말지처럼 어느 쪽을 선택해도 문제가 있는 상황 — 판단 기준이 되는 <strong>윤리 기준</strong>이 필요한 이유</li><li><strong>법과 윤리</strong>: 법은 <strong>윤리의 최소한</strong>. 윤리 위반 = 도덕적 비난에 그침 / 법 위반 = 법적 처벌. 자율적 준수 vs 강제·처벌로 구분</li><li><strong>기업윤리</strong>(거시적 — 경영 전반에 걸친 윤리강령) vs <strong>직무윤리</strong>(미시적 — 임직원이 지켜야 할 행동강령)</li><li><strong>윤리경영 시대 6가지 근거</strong>: ① 환경 변화(고도화 사회), ② 거래비용(위험비용까지 포함 관리), ③ 가치 있는 생존, ④ <strong>신종자본</strong>(무형자본 — 직무윤리를 잘 지키는 회사가 단단하고 신뢰받음), ⑤ 인프라 구축(자유로운 공정경쟁의 조건), ⑥ <strong>사회적 비용 감소</strong>(윤리적 행동이 비용 절감)</li></ul><h2 class=\"section-heading\">2. 직무윤리 기초 사상과 동향 (학자·기구 짝맞추기)</h2><ul><li><strong>칼뱅</strong>과 <strong>베버</strong>: 직무윤리를 강조한 사상적 배경의 인물</li><li><strong>국제 동향</strong>:</li><li><strong>OECD</strong>: 국제 공통의 <strong>기업윤리강령</strong> 제정·시행</li><li><strong>TI(국제투명성기구)</strong>: 매년 <strong>부패인식지수</strong> 발표 → 국가별 부패 정도 측정</li><li>영국 BITC의 <strong>CR 인덱스</strong> (사회적 책임 평가)</li><li><strong>국내 동향</strong>:</li><li><strong>부패방지법</strong>, <strong>공직자윤리강령</strong></li><li><strong>청탁금지법(김영란법)</strong>: <strong>대가성 입증 없어도 금품 수수만으로 처벌</strong> — 기존 뇌물죄보다 강화</li><li>윤리경영 측정 지표: 산업정책연구원 <strong>KOBEX</strong>, 전경련 <strong>FKI-X</strong>, 서강대 <strong>SOFAX</strong>, <strong>CSR 인덱스</strong></li></ul><h2 class=\"section-heading\">3. 직무윤리의 적용대상과 성격</h2><ul><li>적용대상: <strong>금융투자업에 종사하는 모든 사람</strong> — 직접·간접 여부, 계약관계·고용관계 유무, <strong>보수 유무와 관계없이</strong> 실제로 금융투자업 업무를 수행하는 자</li><li><strong>잠재적 고객</strong>에 대해서도 직무윤리 준수</li><li>성격: 기본적으로 <strong>자율규제</strong>가 원칙이지만, <strong>법에 의한 타율규제도 병행</strong></li><li>직무윤리의 핵심 명제: <strong>\"자신과 상대방의 이해가 상충하는 상황에서는 상대방의 입장에서 자신에 대한 상대방의 신뢰를 저버리지 않는 행동을 선택하라\"</strong> = 고객우선 원칙의 풀어쓰기</li></ul><h2 class=\"section-heading\">4. 금융투자업에서 직무윤리가 중요한 이유 4가지 (압도적 빈출)</h2><ol><li><strong>이해상충 가능성</strong>: 증권사 수익(수수료) vs 고객 비용(수수료 부담)이 충돌 — 과도한 수수료 추구는 고객 보호 약화</li><li><strong>투자성 상품 특성</strong>: <strong>원금손실 가능성</strong> 있는 상품을 다루므로 선량한 관리 의무가 더 중요</li><li><strong>금융소비자의 질적 변화</strong>: 과거 정확한 정보제공 요구 → 현재는 소비자 권리 강화(보호 강도 상승)</li><li><strong>안전장치</strong>: 직무윤리를 잘 지키면 부당한 처벌을 받지 않고 자기 방어 수단이 됨</li></ol><h2 class=\"section-heading\">5. 직무윤리 기본원칙 2개</h2><ol><li><strong>신의성실의 원칙</strong>: 과거에는 윤리적 의무였으나 <strong>법의 강제 규정이 되면서 윤리적 의무인 동시에 법적 의무</strong>가 됨 — 이 \"이중성\"이 중요 포인트</li><li><strong>고객우선의 원칙</strong>: 우선순위 = <strong>고객 &gt; 회사 &gt; 임직원</strong>, 고객 간에는 <strong>상호 순위 없음</strong></li></ol><ul><li>기본원칙을 근거로 법제화된 것: <strong>이해상충 방지의무</strong>, 금융소비자 보호, 본인·회사·사회에 대한 의무 (뒷부분은 다음 강의)</li></ul><h2 class=\"section-heading\">6. 이해상충 방지 의무 (자본시장법 — 압도적 출제)</h2><ul><li>상징 규정: <strong>정당한 사유 없이 투자자의 이익을 해하면서 자신의 이익(또는 제3자의 이익)을 얻어서는 안 된다</strong></li><li>대표 사례: <strong>과당매매</strong>(매매를 과하게 많이 해서 고객에게 세금·수수료 부담을 늘리고 증권사는 수수료 수익 증대)</li><li>이해상충 방지책 7항목:</li></ul><ol><li><strong>인가·등록 시부터 이해상충 방지체계 의무화</strong> (인가·등록 요건 자체에 포함 — 나중에 갖추는 게 아님)</li><li><strong>이해상충 발생 가능성 파악·관리 의무</strong> (자본시장법 44조 1항)</li><li><strong>고지 및 저감 후 거래 의무</strong>: 발생 가능성을 고객에게 알리고, 문제없는 수준으로 낮춘 뒤 거래</li><li><strong>회피의무</strong>: 낮추기 곤란하면 <strong>그 거래 자체를 하지 마라</strong></li><li><strong>정보교류 차단 의무(차이니스 월)</strong>: 고객정보의 정보제공 제한, <strong>종사자 겸직 금지</strong>, 공간·설비 공동이용 차단</li><li><strong>조사분석자료 작성대상 및 제공 제한</strong>: 자기(금융투자업자)가 발행한 증권에 대한 리포트 <strong>공표 금지</strong> (유리한 것만 쓸 가능성)</li><li><strong>자기거래 금지 원칙</strong>: 업자가 본인 명의로 고객과 거래하면서 동시에 고객을 대리(중개)하는 것 — 혼자 다 하는 것과 같아 금지</li></ol><ul><li><strong>자기거래 예외 3가지</strong> (원칙 금지지만 허용):</li></ul><ol><li>투자중개업자가 <strong>증권시장·파생상품시장·다자간매매체결회사</strong> 등 <strong>공개시장</strong>을 통해 위탁 매매를 체결하는 경우</li><li>투자매매·투자중개업자가 <strong>자기가 판매하는 집합투자증권(펀드)을 매수</strong>하는 경우</li><li><strong>금융위원회가 정해 고시</strong>하는 경우</li></ol><hr><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th>구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\">법과 윤리</td><td data-label=\"핵심 내용\">법은 <strong>윤리의 최소한</strong>. 윤리 위반 = 도덕적 비난, 법 위반 = 처벌</td></tr><tr><td data-label=\"구분\">기초 사상</td><td data-label=\"핵심 내용\"><strong>칼뱅, 베버</strong></td></tr><tr><td data-label=\"구분\">TI(국제투명성기구)</td><td data-label=\"핵심 내용\"><strong>부패인식지수</strong> 발표</td></tr><tr><td data-label=\"구분\">청탁금지법(김영란법)</td><td data-label=\"핵심 내용\"><strong>대가성 입증 없어도 금품 수수만으로 처벌</strong></td></tr><tr><td data-label=\"구분\">윤리경영 지표</td><td data-label=\"핵심 내용\"><strong>KOBEX</strong>(산업정책연구원), <strong>FKI-X</strong>(전경련), <strong>SOFAX</strong>(서강대), <strong>CSR 인덱스</strong></td></tr><tr><td data-label=\"구분\">적용대상</td><td data-label=\"핵심 내용\">금융투자업 종사자 <strong>전부</strong>(보수 유무 무관), <strong>잠재적 고객</strong> 포함</td></tr><tr><td data-label=\"구분\">중요 이유 4</td><td data-label=\"핵심 내용\"><strong>이해상충 가능성 / 투자성(원금손실) / 금융소비자 질적 변화 / 안전장치</strong></td></tr><tr><td data-label=\"구분\">기본원칙 2</td><td data-label=\"핵심 내용\"><strong>신의성실의 원칙</strong>(윤리+법적 의무), <strong>고객우선 원칙</strong>(고객&gt;회사&gt;임직원)</td></tr><tr><td data-label=\"구분\">이해상충 상징 규정</td><td data-label=\"핵심 내용\">정당한 사유 없이 투자자 이익 해하며 자신·제3자 이익 취득 금지</td></tr><tr><td data-label=\"구분\">대표 사례</td><td data-label=\"핵심 내용\"><strong>과당매매</strong></td></tr><tr><td data-label=\"구분\">방지체계</td><td data-label=\"핵심 내용\"><strong>인가·등록 시부터</strong> 의무화</td></tr><tr><td data-label=\"구분\">7개 방지책</td><td data-label=\"핵심 내용\">파악·관리 / <strong>고지 및 저감 후 거래</strong> / <strong>회피</strong> / <strong>정보교류 차단(차이니스 월)</strong> / 조사분석자료 제한 / <strong>자기거래 금지</strong></td></tr><tr><td data-label=\"구분\">자기거래 예외 3</td><td data-label=\"핵심 내용\"><strong>공개시장</strong>(증권·파생·다자간) 위탁체결 / 자기 판매 <strong>펀드 매수</strong> / <strong>금융위 고시</strong></td></tr></tbody></table></div>",
+    "quiz": [
+      {
+        "q": "금융투자업에서 직무윤리가 특히 강조되는 이유 4가지는?",
+        "a": "<strong>이해상충 가능성, 투자성(원금손실 가능성) 상품 특성, 금융소비자의 질적 변화, 안전장치(직원 보호)</strong>",
+        "e": "수수료 구조상 이해상충이 빈번하고 투자성 상품은 고객 손실 위험이 크기 때문"
+      },
+      {
+        "q": "신의성실의 원칙에서 중요한 변화는?",
+        "a": "<strong>윤리적 의무였던 것이 법의 강제 규정이 되면서 법적 의무도 되었다는 점</strong>",
+        "e": "윤리이자 법의 이중적 성격"
+      },
+      {
+        "q": "직무윤리의 적용대상에 포함되지 않는 자는?",
+        "a": "해당 없음 — <strong>보수 유무·계약 유무와 무관하게 실제로 업무 수행하는 종사자 전부</strong>, 잠재적 고객에 대해서도 준수",
+        "e": "적용 범위가 넓은 것이 포인트"
+      },
+      {
+        "q": "이해상충 방지책 중 '회피의무'란 무엇인가?",
+        "a": "<strong>이해상충 가능성을 낮추기 곤란하다고 판단될 때 그 거래 자체를 하지 않아야 할 의무</strong>",
+        "e": "고지·저감이 먼저, 그것도 안 되면 회피"
+      },
+      {
+        "q": "자기거래가 원칙적으로 금지되나 예외적으로 허용되는 3가지는?",
+        "a": "<strong>공개시장(증권시장·파생상품시장·다자간매매체결회사)을 통한 위탁 매매 체결, 자기 판매 펀드 매수, 금융위 고시</strong>",
+        "e": "혼자 다 하는 거래는 금지이나 공개시장 경유는 공정성 확보로 허용"
+      },
+      {
+        "q": "TI(국제투명성기구)가 매년 발표하는 것은?",
+        "a": "<strong>부패인식지수</strong>",
+        "e": "국가별 부패 정도를 측정·평가하는 지표"
+      }
+    ]
+  },
+  {
+    "id": "tERxaKD9q28",
+    "group": "직무윤리",
+    "groupIndex": 5,
+    "index": 2,
+    "label": "최종핵심 분쟁예방 (1)",
+    "title": "증권투자권유자문인력 최종핵심 문제풀이 '직무윤리 · 투자자분쟁예방 (1)' ┃ 해커스금융 송영욱 교수님",
+    "teacher": "송영욱",
+    "nature": "문제풀이 (직무윤리 편, 3과목 30문제 중 **직무윤리가 12문제**로 최대 비중)",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=tERxaKD9q28",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">1. 직무윤리의 중요성과 적용대상 (1·3번 문제)</h2><ul><li><strong>직무윤리 중요성 강조 이유 4가지</strong>: ① 투자성(원금손실 가능성), ② 금융소비자의 질적 변화(적극적 소비자 보호), ③ <strong>이해상충 가능성</strong>, ④ 정보비대칭성 문제</li><li>틀린 지문 패턴: \"이해상충 가능성 및 정보비대칭성 문제가 점점 <strong>축소</strong>되고 있다\" → 축소되는 게 아님</li><li><strong>적용대상</strong>: <strong>투자권유대행인도 적용 대상</strong>. 투자 관련 업무 종사자라면 <strong>위임·고용관계 유무, 보수 유무와 관계없이</strong> 준수. <strong>계약관계 없는 잠재적 고객</strong>에 대해서도 준수 (이것까지 요구하는 게 아니다 — 틀린 지문)</li><li>기본원칙 2가지: <strong>고객우선의 원칙</strong>, <strong>신의성실의 원칙</strong> — 이 두 원칙을 법제화한 것이 <strong>금융소비자 보호 의무</strong>(금융소비자보호법)와 <strong>이해상충 방지의무</strong>(자본시장법)</li></ul><h2 class=\"section-heading\">2. 금융소비자보호법 — 적용범위 (5번 문제)</h2><ul><li><strong>금융소비자보호법의 보호대상 상품 = \"금융상품\"</strong> (금융투자상품이 아님!)</li><li>2021년 3월 제정·시행되면서 보호 범위가 <strong>금융투자상품 → 금융상품으로 확대</strong></li><li>금융상품 = <strong>금융투자상품</strong>(증권 + 파생상품) + <strong>비금융투자상품</strong>(보험·대출·예금 등)</li><li>금융투자업 종사자는 <strong>금융회사나 주주의 이익보다 금융소비자의 이익을 우선</strong> 보호 (고객우선 원칙)</li><li>신의성실의 원칙 = <strong>윤리적 의무이자 법적 의무</strong></li></ul><h2 class=\"section-heading\">3. 금융소비자 보호의 4단계 (6번 문제)</h2><ul><li>과거 2단계 → 현재 <strong>4단계</strong>로 세분화:</li></ul><ol><li><strong>상품 개발 단계</strong>: 개발 시부터 소비자 보호되도록 관련 부서 협의·모니터링</li><li><strong>상품 판매 이전 단계</strong>: 직원 교육 정기 실시, 필요시 자격증 취득</li><li><strong>상품 판매 단계</strong>: <strong>6대 판매원칙 규제</strong>, <strong>불공정영업행위 금지</strong>, <strong>계약서류 제공 의무</strong></li><li><strong>상품 판매 이후 단계</strong>: 처리결과 보고 의무, <strong>해피콜</strong>, 미스터리쇼핑, 소송중지제도, 자료열람요구권</li></ol><ul><li>출제 패턴: 특정 단계의 내용에 다른 단계의 것을 섞어 \"거리가 먼 것\"을 고르게 함 (예: <strong>해피콜</strong>은 판매 이후 단계이지 판매 단계가 아님)</li></ul><h2 class=\"section-heading\">4. 본인·회사·사회에 대한 윤리 (7·8·9번 문제)</h2><ul><li><strong>본인에 대한 윤리</strong>: 법규준수의무, 자기혁신, <strong>품위유지 의무</strong>, 공공성·독립성 유지, 사적이익 추구 금지</li><li>\"공정한 자유로운 시장경제 질서 존중·유지\"는 <strong>사회에 대한 윤리</strong>이지 본인이 아님</li><li><strong>회사에 대한 윤리</strong>: 상호존중, 공용재산의 사적 이용·수익 금지, <strong>경영진의 책임</strong>(윤리적 책임뿐 아니라 <strong>법적 책임·사용자 책임</strong>도 있음!), 대외활동 준수사항, 정보보호의무, 고용계약 종료 후 의무</li><li>대외활동: 사견 표명 가능하나, <strong>회사의 공식 의견과 다르면 사견임을 명백히 표현</strong></li><li>사전 승인 받았더라도 이해상충 확대 시 <strong>중단 요구 가능</strong></li><li>특정 정보가 비밀정보인지 불명확 → <strong>준법감시인의 사전 확인</strong> (사후 아님)</li><li><strong>사회에 대한 윤리</strong>: 시장질서 존중</li><li><strong>자본시장법 174조~178조 = 불공정거래(내부자거래) 규제</strong></li><li><strong>순수 내부자</strong>(임원·대주주 등) + <strong>준내부자(둔내부자)</strong>(외부자지만 미공개 중요정보 취득자, 예: 제휴 과정에서 정보를 알게 된 타사 사장) 모두 규제</li><li><strong>시장질서 교란행위 규제</strong>: 1차 정보수령자를 넘어 <strong>다차(2·3·4차) 정보수령자</strong>, 미공개 중요정보를 <strong>전달한 자</strong>까지 제재 대상으로 확대하는 별도 규정</li><li>불공정거래 규제는 <strong>목적성</strong>(목적)이 있어야 처벌 가능</li></ul><h2 class=\"section-heading\">5. 비밀정보 보호 (10번 문제)</h2><ul><li><strong>미공개 정보도 비밀정보에 해당</strong> (기록 형태·유무와 무관 — \"해당되지 않는다\"는 틀린 지문)</li><li>비밀정보 제공: <strong>필요성이 인정되는 경우 사전승인 절차</strong> 거침</li><li>제공자는 권한 없는 자에게 전달되지 않도록 <strong>성실한 주의의무</strong></li><li>제공받는 자: <strong>목적 외 사용 및 타인 사용 금지</strong></li></ul><h2 class=\"section-heading\">6. 정보교류 차단 의무(차이니스 월) (11번 문제)</h2><ul><li>자본시장법상 금융투자업자의 의무, 내용은 <strong>내부통제기준</strong>에 규정</li><li>겸영업무·부수업무 영위 시 미공개 중요정보 등에 대한 <strong>내부 정보교류 차단장치</strong> 구축</li><li>계열회사·제3자에게 정보 제공 시에도 차단 장치 구축</li><li><strong>상시 정보교류를 허용하는 임원을 지정해야 함</strong> (지정하면 안 된다는 것은 틀린 지문 — 통제하려면 한 사람은 전체를 알아야 하므로)</li><li>방법: <strong>물리적 분리 + 비밀정보 접근권한 통제</strong></li><li>차단 대상: <strong>미공개 중요정보</strong>, 투자자의 매매·소유 현황 정보, 이해상충 우려 정보</li></ul><h2 class=\"section-heading\">7. 이해상충 방지체계 (12번 문제 — 항상 출제)</h2><ul><li><strong>의무적</strong>으로 마련해야 함 (자율 아님), <strong>인가·등록 시부터</strong> 의무</li><li>이해상충 발생 가능성은 <strong>내부통제기준</strong>에 따라 파악·평가·관리 (표준투자권유준칙 아님!)</li><li><strong>고지 의무 + 저감 후 거래 의무</strong>: 투자자에게 알리고 문제없는 수준으로 낮춘 후 거래</li><li>낮추기 곤란하면 <strong>회피의무</strong> (거래 자체를 하지 않음 — 투자자 승낙 얻어 거래하는 게 아님)</li></ul><hr><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th>구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\">3과목 출제 비중</td><td data-label=\"핵심 내용\">30문제 중 <strong>직무윤리 12문제</strong> (최다)</td></tr><tr><td data-label=\"구분\">적용대상</td><td data-label=\"핵심 내용\"><strong>투자권유대행인 포함</strong>, 계약·보수 무관, <strong>잠재적 고객 포함</strong></td></tr><tr><td data-label=\"구분\">기본원칙 법제화</td><td data-label=\"핵심 내용\">고객우선·신의성실 → <strong>금융소비자보호법</strong>(금융소비자 보호) + <strong>자본시장법</strong>(이해상충 방지)</td></tr><tr><td data-label=\"구분\">보호대상 상품</td><td data-label=\"핵심 내용\"><strong>금융상품</strong>(금융투자상품 아님). 2021.3 확대 — <strong>보험·대출·예금</strong> 포함</td></tr><tr><td data-label=\"구분\">보호 4단계</td><td data-label=\"핵심 내용\"><strong>개발 / 판매 이전 / 판매 / 판매 이후</strong> (해피콜·미스터리쇼핑·소송중지·자료열람요구권 = 판매 이후)</td></tr><tr><td data-label=\"구분\">본인 윤리</td><td data-label=\"핵심 내용\"><strong>법규준수 · 자기혁신 · 품위유지</strong> · 공공성독립성 · 사적이익금지</td></tr><tr><td data-label=\"구분\">경영진 책임</td><td data-label=\"핵심 내용\"><strong>법적 책임(사용자 책임)</strong>도 있음</td></tr><tr><td data-label=\"구분\">준내부자(둔내부자)</td><td data-label=\"핵심 내용\">외부자이나 <strong>미공개 중요정보</strong>를 취득한 자</td></tr><tr><td data-label=\"구분\">시장질서 교란행위 규제</td><td data-label=\"핵심 내용\"><strong>다차(2·3·4차) 정보수령자</strong>, 정보 <strong>전달자</strong>까지 제재 대상 확대</td></tr><tr><td data-label=\"구분\">정보교류 차단</td><td data-label=\"핵심 내용\"><strong>내부통제기준</strong> 규정, <strong>상시 정보교류 허용 임원 지정</strong>, 물리적 분리+접근권한 통제</td></tr><tr><td data-label=\"구분\">이해상충 방지체계</td><td data-label=\"핵심 내용\"><strong>의무적</strong>, <strong>인가·등록 시부터</strong>, <strong>내부통제기준</strong> 관리, <strong>회피의무</strong></td></tr></tbody></table></div>",
+    "quiz": [
+      {
+        "q": "금융소비자보호법에서 보호대상이 되는 상품의 정의는?",
+        "a": "<strong>금융상품</strong>",
+        "e": "2021년 3월 제정·시행으로 금융투자상품에서 금융상품(보험·대출·예금 등 비금융투자상품 포함)으로 확대"
+      },
+      {
+        "q": "해피콜 서비스는 금융소비자 보호의 어느 단계에 속하는가?",
+        "a": "<strong>상품 판매 이후 단계</strong>",
+        "e": "상품 판매 단계가 아니라 판매 이후 단계 — 6대 판매원칙·계약서류 제공 의무는 판매 단계"
+      },
+      {
+        "q": "직무윤리 적용대상에 대한 설명으로 틀린 것은?",
+        "a": "<strong>\"계약관계가 없는 잠재적 고객까지 준수해야 하는 것은 아니다\"</strong>",
+        "e": "잠재적 고객에 대해서도 준수해야 함. 투자권유대행인도 적용 대상"
+      },
+      {
+        "q": "시장질서 교란행위 규제의 제재 대상 범위에 대한 설명으로 옳은 것은?",
+        "a": "<strong>내부자·준내부자·1차 정보수령자를 넘어 다차(2·3·4차) 정보수령자와 미공개 중요정보 전달자까지 제재 대상으로 확대</strong>",
+        "e": "자본시장법 174~178조는 불공정거래(내부자거래) 규제"
+      },
+      {
+        "q": "정보교류 차단 의무(차이니스 월)에 대한 설명으로 적절하지 않은 것은?",
+        "a": "<strong>\"상시 정보교류를 허용하는 임원을 지정해서는 안 된다\"</strong>",
+        "e": "지정해야 하며, 내용은 내부통제기준에 규정, 계열사·제3자 제공 시에도 차단장치 구축"
+      },
+      {
+        "q": "이해상충 발생 가능성을 낮추기 곤란한 경우의 조치는?",
+        "a": "<strong>회피의무 — 그 거래 자체를 하지 않는다</strong>",
+        "e": "투자자 승낙을 얻어 거래하는 것이 아님"
+      }
+    ]
+  },
+  {
+    "id": "KGiCMBTPveY",
+    "group": "채권시장",
+    "groupIndex": 6,
+    "index": 1,
+    "label": "기본서 이론정리",
+    "title": "증권투자권유자문인력 기본서 이론정리ㅣ'채권시장''📝ㅣ해커스 민영기 증권투자자문인력 증권투자권유자문인력시험일정",
+    "teacher": "민영기",
+    "nature": "이론정리",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=KGiCMBTPveY",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">1. 채권의 정의와 기본적 특성</h2><ul><li><strong>발행자격의 법적 제한</strong>: 아무나 발행할 수 없음 (일정 요건 필요)</li><li><strong>이자 지급을 약속한 증권</strong></li><li><strong>기한부 증권</strong>: 만기가 정해져 있음 (예외: 영구채는 시험에 안 나옴, 참고만)</li><li><strong>장기증권</strong>: 채권은 1년을 초과하는 것이 일반적인 투자채권 (주식은 기한 없음, 채권은 장기 투자)</li></ul><h2 class=\"section-heading\">2. 채권가격의 기본 요소 (용어 전체 숙지, 3개는 핵심)</h2><ul><li><strong>액면가</strong>: 채권 권면에 인쇄된 만기 상환 금액. 언급 없으면 회사채 액면 = <strong>만원</strong>(주식 액면 5천원과 구분!)</li><li>발행일·만기·<strong>만기기간</strong>(발행일→만기 전체)·<strong>경과기간</strong>(발행 후 지난 기간)·<strong>잔존기간</strong>(남은 기간)</li><li><strong>이자지급기간</strong>: 이자 지급 주기 (3개월·6개월·1년 등)</li><li><strong>핵심 3요소</strong>: <strong>표면이율</strong>, <strong>만기수익률</strong>, <strong>단가</strong></li><li><strong>표면이율</strong>(액면이자율·쿠폰금리·쿠폰레이트): 권면에 기재된 이율, <strong>발행 시 결정되어 만기까지 변하지 않음</strong>(고정금리 채권이 기본, <strong>FRN</strong>(변동금리채)은 예외). 쿠폰의 어원 = 옛날 이자교환증(종이조각)을 떼어 이자를 받던 데서</li><li><strong>만기수익률(YTM)</strong>: 채권을 현재가치로 바꿀 때 쓰는 <strong>할인율</strong> = <strong>시장수익률 = 유통수익률 = 채권수익률 = 시장금리</strong>(상황에 따라 부르는 이름만 다르고 실체는 같음)</li><li>정의: 채권에서 미래에 발생하는 현금흐름(이자+액면)의 현재가치 합을 채권 가격과 일치시키는 할인율</li><li>채권의 <strong>현재가치를 결정할 때는 표면이율이 아니라 만기수익률</strong>을 사용</li><li>개념 구분: 이자율 = 현재돈→미래돈, 할인율 = 미래가치→현재가치</li><li>시장금리가 변하면 만기수익률이 변하고 채권가격도 따라서 변동</li><li><strong>단가</strong>: 채권 매매가격, 채권 액면 <strong>만원 기준</strong>으로 산정</li></ul><h2 class=\"section-heading\">3. 이자·원금 지급방식에 따른 3대 기본 채권 (압도적 빈출)</h2><div class=\"table-wrap\"><table><thead><tr><th>채권</th><th>이자 지급</th><th>만기 상환</th></tr></thead><tbody><tr><td data-label=\"채권\"><strong>이표채</strong>(쿠폰채)</td><td data-label=\"이자 지급\"><strong>중간에 이자 받음</strong> (이자표 붙어 있음)</td><td data-label=\"만기 상환\">액면가</td></tr><tr><td data-label=\"채권\"><strong>할인채</strong></td><td data-label=\"이자 지급\">중간 이자 없음 — <strong>이자를 미리 할인해 싸게 발행</strong></td><td data-label=\"만기 상환\">액면가 → <strong>초기 구입비용이 가장 쌈</strong></td></tr><tr><td data-label=\"채권\"><strong>복리채</strong></td><td data-label=\"이자 지급\">중간 이자 없이 <strong>누적</strong></td><td data-label=\"만기 상환\">액면 + 누적(복리)이자 한꺼번에 → <strong>만기 때 받는 돈이 가장 많음</strong></td></tr></tbody></table></div><ul><li>단리채는 참고용(중요도 낮음). \"중간에 이자를 받는 채권은 이표채 하나뿐\"임을 기억</li></ul><h2 class=\"section-heading\">4. 채권의 종류</h2><ul><li><strong>발행주체별</strong>: 국채·지방채·금융채·회사채 등 (사채 = <strong>회사채</strong>의 약자, 사채업자 아님!)</li><li><strong>보증여부</strong>: 보증채·<strong>무보증채</strong>(우리나라 회사채는 거의 100%)·담보부사채</li><li><strong>우리나라 회사채 = 무보증사채 → 위험하므로 2개 이상의 복수 신용평가 필수</strong></li><li><strong>ABS(자산유동화증권)</strong>: 자산이 담보라 1곳만 받으면 됨</li><li>신용평가를 받는 채권 = <strong>크레딧물</strong>(위험채권), 신용평가를 안 받는 채권(국채·통안채 등) = <strong>무위험채권</strong>(무위험자산)</li><li><strong>신용 스프레드 = 회사채 수익률 − 무위험채권 수익률</strong></li><li><strong>만기별</strong>: 단기·중기·장기 (한·미 기준 다름, 외울 필요 없음)</li><li><strong>금리변동채권(FRN)</strong>: 일정 기간마다 정해진 <strong>기준금리에 연동된 표면금리</strong>로 이자 지급 — 표면금리가 고정 아님. 변형: 역변동금리채권, 양기준금리 변동채권, 디지털 옵션 금리변동채권</li></ul><h2 class=\"section-heading\">5. 발행시장 (Primary Market)</h2><ul><li><strong>발행기관 3종</strong>: 주관회사·인수회사·청약회사 (구분)</li><li><strong>사모발행 vs 공모발행</strong>: 사모 = <strong>50인 미만</strong>의 특정 소수 투자자에게 사적 교섭으로 발행 / 공모 = <strong>불특정 다수(50인 이상)</strong>에게 발행 (50인 미만/이상 기준 암기)</li><li><strong>공모발행 = 직접발행 + 간접발행</strong>:</li><li>직접발행: <strong>매출발행</strong>(발행조건 미리 정해두고 일정 기간 개별적으로 매도) / <strong>공모입찰발행</strong>(입찰 결과를 기준으로 발행조건 결정)</li><li>간접발행: <strong>위탁발행 · 잔액인수 · 총액인수</strong> (위·잔·총)</li><li>공모입찰발행 3방식:</li><li><strong>복수가격 경매방식</strong>(컨벤셔널 방식): 응찰자가 제시한 수익률을 낮은 순으로 배열해 발행예정액까지 순차 낙찰 → 복수가격</li><li><strong>단일가격 경매방식</strong>(더치 방식): 낙찰된 수익률 중 가장 높은 수익률을 일정하게 적용해 단일 가격으로 발행</li><li><strong>차등가격 경매방식</strong>: <strong>우리나라 국채 발행에 사용</strong></li><li><strong>총액인수</strong>: 인수회사(증권회사)가 발행채권 총액을 모두 인수 후 자기 책임 하에 모집·매출</li><li>판매 실패 시 인수회사가 손해 → <strong>수수료가 가장 높음</strong>, 발행회사 입장에서는 가장 안전</li><li><strong>우리나라 회사채의 대부분은 총액인수 방식으로 발행</strong></li></ul><h2 class=\"section-heading\">6. 유통시장 (Secondary Market)</h2><ul><li><strong>장내시장 vs 장외시장</strong>:</li><li>장내: <strong>상장채권</strong>만 거래, 규격화, <strong>집단경쟁매매</strong></li><li>장외: <strong>상대매매</strong>(일대일), 상장채권·<strong>비상장채권 모두</strong> 거래</li><li><strong>국채전문유통시장(IDM, Inter-Dealer Market)</strong>: 국채딜러(국채 도매상 = <strong>금융회사</strong>, 개인 아님)가 거래소 시장에서 경쟁매매. 일반 투자자는 개인 자격 참여 불가, 위탁으로만 가능</li><li><strong>일반채권매매시장</strong>: 소매채권과 일반채권이 동시에 거래됨에 따른 유동성 분산·가격발견 기능 저하 해소를 위해 만듦 (정도만)</li><li>장외거래: <strong>대고객 상대매매</strong>(증권회사 통해) vs <strong>채권딜러 간 장외거래</strong>(<strong>IDB</strong>, Inter-Dealer Broker 통해). 결제방법은 <strong>익일결제(D+1)</strong> 가 보편적</li><li><strong>K-본드 시장</strong>: 개요 정도만</li></ul><hr><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th>구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\">채권 특성</td><td data-label=\"핵심 내용\">발행자격 <strong>법적 제한</strong>, 이자 지급 약속, <strong>기한부 증권</strong>, 장기증권</td></tr><tr><td data-label=\"구분\">액면가</td><td data-label=\"핵심 내용\">언급 없으면 회사채 액면 = <strong>만원</strong>(주식 액면 5천원)</td></tr><tr><td data-label=\"구분\">표면이율</td><td data-label=\"핵심 내용\"><strong>만기까지 변하지 않음</strong>(쿠폰금리)</td></tr><tr><td data-label=\"구분\">만기수익률</td><td data-label=\"핵심 내용\"><strong>시장수익률 = 유통수익률 = 채권수익률 = 시장금리</strong>, 채권 <strong>현재가치 결정 시 사용</strong></td></tr><tr><td data-label=\"구분\">3대 기본 채권</td><td data-label=\"핵심 내용\"><strong>이표채</strong>(중간 이자) / <strong>할인채</strong>(싸게 발행, 초기비용 최소) / <strong>복리채</strong>(누적, 만기수령 최대)</td></tr><tr><td data-label=\"구분\">복수 신용평가</td><td data-label=\"핵심 내용\"><strong>우리나라 회사채는 무보증 → 2곳 이상</strong>, ABS는 1곳</td></tr><tr><td data-label=\"구분\">신용 스프레드</td><td data-label=\"핵심 내용\"><strong>회사채 수익률 − 무위험채권 수익률</strong></td></tr><tr><td data-label=\"구분\">사모 vs 공모</td><td data-label=\"핵심 내용\"><strong>50인 미만</strong> vs <strong>50인 이상</strong>(불특정 다수)</td></tr><tr><td data-label=\"구분\">공모입찰 3방식</td><td data-label=\"핵심 내용\"><strong>복수가격</strong>(컨벤셔널) / <strong>단일가격</strong>(더치) / <strong>차등가격</strong>(<strong>우리나라 국채</strong>)</td></tr><tr><td data-label=\"구분\">총액인수</td><td data-label=\"핵심 내용\">인수사가 전부 인수 → <strong>수수료 최고</strong>, 발행사에 가장 안전, <strong>우리나라 회사채 대부분</strong></td></tr><tr><td data-label=\"구분\">IDM</td><td data-label=\"핵심 내용\"><strong>국채전문유통시장</strong>, 국채딜러 = <strong>금융회사</strong>(도매상)</td></tr><tr><td data-label=\"구분\">장외시장</td><td data-label=\"핵심 내용\"><strong>상대매매</strong>, 상장+비상장 모두 거래, <strong>D+1 결제</strong></td></tr></tbody></table></div>",
+    "quiz": [
+      {
+        "q": "표면이율과 만기수익률의 차이로 옳은 것은?",
+        "a": "<strong>표면이율은 발행 시 결정되어 만기까지 변하지 않고, 만기수익률은 시장금리에 따라 변하며 채권의 현재가치를 결정할 때 사용한다</strong>",
+        "e": "만기수익률 = 시장수익률 = 유통수익률 = 채권수익률 = 시장금리"
+      },
+      {
+        "q": "이표채·할인채·복리채를 이자 지급 방식 기준으로 구분하면?",
+        "a": "<strong>이표채는 중간에 이자를 받고, 할인채는 이자를 미리 할인해 싸게 발행하며, 복리채는 이자를 누적해 만기 때 한꺼번에 받는다</strong>",
+        "e": "초기 구입비용이 가장 싼 것은 할인채, 만기 때 가장 많이 받는 것은 복리채"
+      },
+      {
+        "q": "우리나라 회사채 발행 시 신용평가를 어떻게 받아야 하는가?",
+        "a": "<strong>2개 이상의 복수 신용평가</strong>",
+        "e": "우리나라 회사채는 거의 100% 무보증사채이므로. ABS는 담보가 있어 1곳"
+      },
+      {
+        "q": "사모발행과 공모발행의 구분 기준은?",
+        "a": "<strong>50인 미만</strong>(사모, 특정 소수) vs <strong>50인 이상</strong>(공모, 불특정 다수)",
+        "e": "사모는 사적 교섭을 통해 발행"
+      },
+      {
+        "q": "우리나라 국채 발행에 사용되는 공모입찰 방식은?",
+        "a": "<strong>차등가격 경매방식</strong>",
+        "e": "복수가격(컨벤셔널), 단일가격(더치) 방식과 구분"
+      },
+      {
+        "q": "총액인수 방식의 특징으로 옳은 것은?",
+        "a": "<strong>인수회사(증권회사)가 발행채권 총액을 모두 인수해 자기 책임 하에 모집·매출하므로 수수료가 가장 높고, 우리나라 회사채의 대부분이 이 방식으로 발행된다</strong>",
+        "e": "판매 실패 시 손해는 인수회사가 부담"
+      }
+    ]
+  },
+  {
+    "id": "rQiMO9zEhLo",
+    "group": "채권시장",
+    "groupIndex": 6,
+    "index": 2,
+    "label": "최종핵심 문제풀이 (2)",
+    "title": "증권투자권유대행인 최종핵심 문제풀이 '채권시장 (2)' 금융권 취업을 원한다면 보세요!┃ 해커스금융 민영기 교수님",
+    "teacher": "민영기",
+    "nature": "문제풀이 (채권시장 ②, 기본문제 + 출제예상 ★3개)",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=rQiMO9zEhLo",
+    "badge": "증권투자권유대행인 강의 · 채권시장 공통",
+    "content": "<h2 class=\"section-heading\">1. 채권 투자전략 — 적극적 vs 소극적</h2><div class=\"table-wrap\"><table><thead><tr><th>구분</th><th>적극적 투자전략</th><th>소극적 투자전략</th></tr></thead><tbody><tr><td data-label=\"구분\">시장관</td><td data-label=\"적극적 투자전략\">시장의 <strong>비효율성</strong> 전제</td><td data-label=\"소극적 투자전략\">시장의 <strong>효율성</strong> 전제</td></tr><tr><td data-label=\"구분\">목표</td><td data-label=\"적극적 투자전략\"><strong>초과수익</strong> 추구</td><td data-label=\"소극적 투자전략\">수익률 변동위험 <strong>극소화</strong>, 방어적(당초 목표 달성)</td></tr><tr><td data-label=\"구분\">종류</td><td data-label=\"적극적 투자전략\">수익률 예측 전략, 채권 교체 전략, <strong>수익률 곡선 타기 전략</strong>, <strong>나비형(바벨형)</strong> 투자전략</td><td data-label=\"소극적 투자전략\">만기보유 전략, <strong>인덱스 전략</strong>, 현금흐름 일치 전략, <strong>사다리형 만기운용</strong> 전략, 바벨형(나비형) 만기운용 전략, <strong>면역전략</strong></td></tr></tbody></table></div><ul><li><strong>나비형(바벨형)</strong>은 양쪽에 다 등장: <strong>미래 금리를 적극 예측해 대응하면 적극적</strong>, 기계적으로 하면 소극적 (전제가 갈림)</li><li><strong>면역전략</strong>: <strong>목표 투자기간과 포트폴리오 듀레이션을 일치</strong>시키는 전략 (\"잔존만기와 일치\"는 틀린 지문)</li><li><strong>인덱스 전략</strong>: 구성 종목 수가 적을수록 <strong>추적오차 증가</strong> (감소 아님)</li></ul><h2 class=\"section-heading\">2. 금리 전망별 투자전략 (금리 상승 예상 시)</h2><ul><li>전제: <strong>금리가 오르면 채권가격은 떨어진다</strong> (반대로 움직임)</li><li>① <strong>고정금리채 → 변동금리채로 교체</strong> (변동금리채는 금리에 연동돼 더 높은 이자 수령) — 거꾸로가 정답 함정</li><li>② <strong>듀레이션을 낮게</strong> (작은 채권으로 교체) — 금리 민감도를 줄여야 가격 하락폭이 작아짐</li><li><strong>듀레이션</strong>: 금리에 대한 채권가격 민감도. 듀레이션을 작게 = <strong>잔존만기 짧게</strong>(장기채 매도·단기채 매수) + <strong>표면이율 크게</strong>(중간 이자를 많이 받는)</li><li>③ <strong>장기채 매도 + 단기채 매수</strong></li><li>④ 사다리형은 금리와 무관하게 꾸준한 현금유입 추구 — 금리 대응 전략 아님</li><li>금리 <strong>하락</strong>(채권가격 상승) 예상 시는 정반대: <strong>듀레이션 크게</strong> → <strong>장기채 비중 높임</strong>, 표면이율 낮은 채권 비중 높임, 금리선물 <strong>매수</strong>(매도 아님)</li><li>금리 하락 시 할인채 비중 확대가 유리 (중간 이자 없이 듀레이션이 큼)</li></ul><h2 class=\"section-heading\">3. 수익률 곡선 타기 전략</h2><ul><li>조건: 수익률곡선이 <strong>우상향</strong>하고 <strong>투자기간 동안 모양이 변하지 않을</strong> 경우 사용</li><li><strong>롤링 효과</strong>(장기채 효과): 10년짜리 사서 1년 보유 후 9년짜리로 팔아 자본이득</li><li><strong>숄더 효과</strong>(단기채 효과): 5년짜리 사서 금리 떨어지면 1년 보유 후 팔아 수익 — <strong>만기가 짧을수록 수익률 하락폭이 큼</strong></li><li><strong>바벨형(나비형)</strong>: 장기채+단기채만 보유하고 중기채 매도 — 수익률 곡선 타기 전략이 아님!</li></ul><h2 class=\"section-heading\">4. 소극적 투자전략 각론</h2><ul><li><strong>만기보유 전략</strong>: 매입 후 만기까지 보유</li><li><strong>현금흐름 일치 전략</strong>: 채권 현금수입이 부채상환 흐름과 <strong>일치하거나 상회</strong>(들어오는 돈이 나가는 돈보다 많아야)하도록 포트폴리오 구성</li><li><strong>사다리형 만기운용 전략</strong>: <strong>각 잔존기간별 보유량을 동일하게 유지</strong>, 일정 기간마다 현금흐름(유동성) 확보, 만기 도래 자금을 장기 자산에 재투자 → <strong>수익률 평준화</strong></li></ul><h2 class=\"section-heading\">5. 말킬의 채권가격 정리 (Malkiel's Theorems) — 압도적 빈출</h2><ol><li><strong>채권가격과 채권수익률은 반대로</strong>(반비례 관계로) 움직임</li><li>만기 일정 시, <strong>수익률 하락으로 인한 가격상승폭 &gt; 같은 폭 수익률 상승으로 인한 가격하락폭</strong> (<strong>볼록성</strong> — \"상승폭이 작다\"는 틀린 지문)</li><li>만기에 따른 채권가격 변동폭은 만기가 증가할수록 커지나 그 증가는 <strong>체감</strong></li><li><strong>장기채가 단기채보다</strong> 일정한 수익률 변동에 대한 <strong>가격변동폭이 큼</strong> (듀레이션이 크다는 의미)</li></ol><h2 class=\"section-heading\">6. 채권투자 위험의 구분</h2><ul><li><strong>가격변동위험</strong>: 금리 상승 시 채권가격 하락</li><li><strong>신용위험(디폴트 리스크)</strong>: 발행사가 정해진 원리금을 지급하지 못하는 위험 — 가격변동위험이 아님!</li></ul><h2 class=\"section-heading\">7. 주식관련 사채 3종 — CB / EB / BW (구분 문제 빈출)</h2><div class=\"table-wrap\"><table><thead><tr><th>구분</th><th>전환사채(CB)</th><th>교환사채(EB)</th><th>신주인수권부사채(BW)</th></tr></thead><tbody><tr><td data-label=\"구분\">교환 대상</td><td data-label=\"전환사채(CB)\"><strong>발행회사의 주식</strong>으로 전환</td><td data-label=\"교환사채(EB)\"><strong>발행회사가 보유한 타회사 주식</strong>으로 교환</td><td data-label=\"신주인수권부사채(BW)\">신주 인수</td></tr><tr><td data-label=\"구분\">권리 행사 시 현금</td><td data-label=\"전환사채(CB)\">추가 자금 <strong>불필요</strong>(주식과 교환)</td><td data-label=\"교환사채(EB)\">신규 자금 지출 <strong>없음</strong></td><td data-label=\"신주인수권부사채(BW)\"><strong>신주인수금 납입 → 회사로 현금 유입</strong></td></tr><tr><td data-label=\"구분\">권리 분리</td><td data-label=\"전환사채(CB)\">채권에서 떼어낼 수 없음 (권리 행사 시 채권 소멸)</td><td data-label=\"교환사채(EB)\">—</td><td data-label=\"신주인수권부사채(BW)\">권리는 <strong>워런트</strong>로 분리 가능, 행사 후에도 <strong>채권 존속</strong>(소멸 안 함)</td></tr></tbody></table></div><ul><li><strong>패리티</strong>는 전환사채의 지표 (교환사채 투자지표 아님!)</li><li><strong>패리티 가격</strong> = 전환사채의 <strong>주식 콜옵션 가치</strong>. 패리티 가격 = 전환가격의 주가를 만원 단위로 표시 × 100</li><li>전환사채 = <strong>채권 + 주식 콜옵션</strong> 결합</li><li><strong>비분리형 BW</strong>: <strong>발행·거래 시에는 떼서 거래 불가</strong>, 그러나 <strong>권리 행사 시에는 분리 행사</strong> (\"일반적으로 행사 불가\"는 틀린 지문)</li></ul><h2 class=\"section-heading\">8. ABS(자산유동화증권)</h2><ul><li>발행주체: 자산보유자가 아니라 <strong>SPC(유동화전문회사·특수목적회사, SBV/SPV)</strong></li><li>방식: 기초자산의 현금흐름을 투자자에게 그대로 이전 = <strong>패스스루</strong></li><li>기초자산: <strong>주택저당채권(모기지)</strong> — 덩치가 커서 <strong>MBS</strong>로 따로 다룸, 자동차할부금·신용카드 채권 등도 가능</li><li><strong>부외화(off-balance) 효과</strong> → 자기자본 관리 강화 수단 (부채·자본 조달 없이 현금 동원)</li></ul><h2 class=\"section-heading\">9. 조건부 자본증권(CoCo) vs 신종자본증권</h2><ul><li><strong>조건부 자본증권</strong>: 특정 상황에 처하면 채권이 <strong>자본으로 전환되거나 소각</strong>됨. <strong>바젤III상 자본으로 인정</strong>(BIS 비율 계산에 기여). 일반 채권보다 <strong>높은 금리 + 높은 위험</strong>. <strong>후순위채가 아님</strong>(틀린 지문 주의)</li><li><strong>신종자본증권</strong>: <strong>자본의 성격이 강한 채권</strong>(부채 아님) — 후순위성·만기연장성·이자지급 임의성이 클수록 자본성 높아짐. <strong>하이브리드 채권과 동일 개념</strong>, 코코본드와 유사</li></ul><h2 class=\"section-heading\">10. 채권 매매단가 계산형 (출제예상 ★3)</h2><ul><li>복리채: 만기 시 한 번만 현금흐름 → <strong>매매단가 = 만기상환금액 ÷ [(1+r)^정수년 × (1+r×잔여일/365)]</strong></li><li>예: 12,150 ÷ [(1.1)² × (1+0.1×73/365)] = 9,841</li><li>단리채(1년 만기, 표면금리 5%, 액면 만원): 만기 수령 = 10,500원 → <strong>10,500 ÷ [1+0.07×201/365]</strong> (채권수익률 7% 할인)</li></ul><hr><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th>구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\">적극적 전략</td><td data-label=\"핵심 내용\">시장 <strong>비효율</strong> 전제, <strong>초과수익</strong> — 수익률예측·채권교체·수익률곡선타기·<strong>나비형(바벨형)</strong></td></tr><tr><td data-label=\"구분\">소극적 전략</td><td data-label=\"핵심 내용\">시장 <strong>효율</strong> 전제, 위험 극소화 — 만기보유·인덱스·현금흐름일치·<strong>사다리형</strong>·면역전략</td></tr><tr><td data-label=\"구분\">면역전략</td><td data-label=\"핵심 내용\"><strong>투자기간 = 포트폴리오 듀레이션</strong> 일치</td></tr><tr><td data-label=\"구분\">금리 상승 시</td><td data-label=\"핵심 내용\"><strong>변동금리채</strong>로 교체, <strong>듀레이션↓</strong>(장기채 매도·단기채 매수, 표면이율↑)</td></tr><tr><td data-label=\"구분\">듀레이션</td><td data-label=\"핵심 내용\">금리 대비 채권가격 <strong>민감도</strong>. <strong>만기 길수록·표면이율 낮을수록</strong> 커짐</td></tr><tr><td data-label=\"구분\">롤링 효과</td><td data-label=\"핵심 내용\">장기채 효과 (10년→1년 보유 후 9년으로 매도)</td></tr><tr><td data-label=\"구분\">숄더 효과</td><td data-label=\"핵심 내용\">단기채 효과 (<strong>만기 짧을수록</strong> 수익률 하락폭 큼)</td></tr><tr><td data-label=\"구분\">말킬 정리</td><td data-label=\"핵심 내용\">가격↔수익률 <strong>반대</strong>, 하락 시 <strong>상승폭 &gt; 상승 시 하락폭</strong>(볼록성), 장기채 변동폭 큼</td></tr><tr><td data-label=\"구분\">가격변동위험 vs 신용위험</td><td data-label=\"핵심 내용\">금리↑→가격↓ = 가격변동위험 / 원리금 미지급 = <strong>신용위험(디폴트)</strong></td></tr><tr><td data-label=\"구분\">패리티</td><td data-label=\"핵심 내용\"><strong>전환사채</strong> 지표 (교환사채 아님). 패리티 가격 = 전환가격 주가(만원 단위)×100</td></tr><tr><td data-label=\"구분\">현금 유입되는 권리</td><td data-label=\"핵심 내용\"><strong>신주인수권부사채(BW)</strong> — 신주인수금 납입</td></tr><tr><td data-label=\"구분\">ABS</td><td data-label=\"핵심 내용\">발행주체 = <strong>SPC</strong>, 현금흐름 이전 = <strong>패스스루</strong>, <strong>MBS</strong>는 모기지 유동화, 부외화 효과</td></tr><tr><td data-label=\"구분\">조건부 자본증권</td><td data-label=\"핵심 내용\">특정 상황 <strong>자본 전환·소각</strong>, <strong>바젤III 자본 인정</strong>, 고금리·고위험</td></tr></tbody></table></div>",
+    "quiz": [
+      {
+        "q": "면역전략이란 무엇인가?",
+        "a": "<strong>목표 투자기간과 채권 포트폴리오의 듀레이션을 일치시키는 전략</strong>",
+        "e": "잔존만기와 일치시키는 것이 아님"
+      },
+      {
+        "q": "금리 상승이 예상될 때 취할 전략으로 옳은 것은?",
+        "a": "<strong>장기채 매도·단기채 매수, 듀레이션을 낮게, 고정금리채를 변동금리채로 교체</strong>",
+        "e": "금리가 오르면 채권가격이 떨어지므로 민감도(듀레이션)를 줄여야 함"
+      },
+      {
+        "q": "말킬의 채권가격 정리 중 옳지 않은 것은?",
+        "a": "<strong>\"수익률 하락으로 인한 가격상승폭이 수익률 상승으로 인한 가격하락폭보다 작다\"</strong>",
+        "e": "볼록성으로 인해 하락 시 상승폭이 더 크다"
+      },
+      {
+        "q": "패리티에 대한 설명으로 옳지 않은 것은?",
+        "a": "<strong>\"패리티는 교환사채의 투자지표이다\"</strong>",
+        "e": "패리티는 전환사채의 주식 콜옵션 가치를 나타내는 지표"
+      },
+      {
+        "q": "ABS(자산유동화증권)에 대한 설명으로 옳지 않은 것은?",
+        "a": "<strong>\"자산유동화증권을 발행하는 주체는 자산보유자이다\"</strong>",
+        "e": "SPC(유동화전문회사)가 발행하며, 패스스루 방식으로 부외화 효과를 거둠"
+      },
+      {
+        "q": "신종자본증권과 조건부 자본증권에 대한 설명으로 옳지 않은 것은?",
+        "a": "<strong>\"신종자본증권은 부채의 성격이 강한 채권이다\"</strong>",
+        "e": "자본의 성격이 강한 채권이며, 조건부 자본증권은 바젤III상 자본으로 인정되고 후순위채가 아님"
+      }
+    ]
+  },
+  {
+    "id": "BG_iRheu0PQ",
+    "group": "채권시장",
+    "groupIndex": 6,
+    "index": 3,
+    "label": "채권만기수익률",
+    "title": "[해커스 금융]민영기교수님의 증권투자권유자문인력 문제풀이_채권만기수익률",
+    "teacher": "민영기",
+    "nature": "문제풀이",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=BG_iRheu0PQ",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">1. 만기수익률(YTM)의 정의</h2><ul><li><strong>만기수익률</strong> = 채권에서 앞으로 얻을 <strong>미래 현금흐름의 현재가치 합계가 현재 채권 가격과 같아지게 만드는 할인율(이자율)</strong></li><li>단순히 표면금리(이자 지급률)가 아니라, 매매 가격을 반영한 <strong>실질 수익률</strong></li></ul><h2 class=\"section-heading\">2. 단기(만기 1년 이하) 채권 만기수익률 계산</h2><ul><li>강의의 문제: 만기 1년 남은 회사채가 <strong>105,000원</strong>에 매매되고 있음. 액면금액 100,000원, 표면금리 10%, 이자 연 1회 지급</li><li>1년 후 받는 돈 = 액면 100,000원 + 이자 10,000원 = <strong>110,000원</strong></li><li>만기수익률 = (110,000 ÷ 105,000) − 1 = <strong>4.76%</strong></li><li>계산 포인트: <strong>(만기 때 받는 총액 ÷ 현재 매수가격) − 1</strong></li></ul><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th>구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\">만기수익률 정의</td><td data-label=\"핵심 내용\">미래 현금흐름의 현재가치를 채권 가격과 같게 만드는 할인율</td></tr><tr><td data-label=\"구분\">1년 만기 계산식</td><td data-label=\"핵심 내용\">(만기 수령 총액 ÷ 현재 매매가격) − 1</td></tr><tr><td data-label=\"구분\">문제의 수치</td><td data-label=\"핵심 내용\">110,000 ÷ 105,000 − 1 = 약 4.76%</td></tr><tr><td data-label=\"구분\">함정</td><td data-label=\"핵심 내용\">표면금리(10%) ≠ 만기수익률. 매매가격이 액면보다 높으면(할증) 만기수익률은 표면금리보다 낮아짐</td></tr></tbody></table></div>",
+    "quiz": [
+      {
+        "q": "만기가 1년 남은 회사채가 105,000원에 거래되고 있다. 액면 100,000원, 표면금리 10%(연 1회 지급)일 때 만기수익률은?",
+        "a": "약 4.76%",
+        "e": "1년 후 수령액 110,000원을 현재가격 105,000원으로 나눈 뒤 1을 빼면 (110,000÷105,000)−1 = 4.76%이다."
+      },
+      {
+        "q": "만기수익률의 정확한 정의로 옳은 것은?",
+        "a": "채권의 미래 현금흐름 현재가치 합계가 현재 채권 가격과 같아지게 만드는 이자율",
+        "e": "단순 이자지급률이 아니라 가격을 반영한 실질 수익률이다."
+      },
+      {
+        "q": "액면 100,000원·표면금리 10% 채권을 105,000원에 매수했다. 만기수익률이 표면금리보다 낮은 이유는?",
+        "a": "할증으로 매수했기 때문",
+        "e": "현재가격(105,000원)이 액면보다 높으므로 이자 10,000원을 더한 110,000원을 받아도 수익률은 10%보다 낮다."
+      }
+    ]
+  },
+  {
+    "id": "KZcXLysyuF0",
+    "group": "채권시장",
+    "groupIndex": 6,
+    "index": 4,
+    "label": "골든크로스 vs 데드크로스",
+    "title": "[해커스 금융] 민영기 교수님의 증권투자권유자문인력 문제풀이_골든크로스vs데드크로스",
+    "teacher": "민영기",
+    "nature": "문제풀이",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=KZcXLysyuF0",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">1. 골든크로스 vs 데드크로스</h2><ul><li><strong>골든크로스</strong>: <strong>단기 이동평균선이 장기 이동평균선을 상향 돌파</strong>하여 올라가는 현상 → <strong>매수신호(매입 신호)</strong></li><li><strong>데드크로스</strong>: <strong>단기 이동평균선이 장기 이동평균선을 하향 돌파</strong>하여 내려가는 현상 → <strong>매도신호(매각 신호)</strong></li><li>강의의 함정 지적: \"주가가 이평선을 돌파해서 나오는 매매신호\"라는 표현에 흔들리지 말 것 — 지문상 크로스는 <strong>이평선 간의 돌파</strong>다. 골든크로스 = 매수, 데드크로스 = 매도라는 1:1 매칭을 정확히 암기</li></ul><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th>구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\">골든크로스</td><td data-label=\"핵심 내용\">단기 이평선 ↑ 장기 이평선을 상향 돌파 → <strong>매수신호</strong></td></tr><tr><td data-label=\"구분\">데드크로스</td><td data-label=\"핵심 내용\">단기 이평선 ↓ 장기 이평선을 하향 돌파 → <strong>매도신호</strong></td></tr><tr><td data-label=\"구분\">크로스 주체</td><td data-label=\"핵심 내용\">주가-이평선이 아니라 <strong>단기 이평선 vs 장기 이평선</strong> 간의 돌파</td></tr></tbody></table></div>",
+    "quiz": [
+      {
+        "q": "단기 이동평균선이 장기 이동평균선을 상향 돌파하는 현상과 그 매매신호는?",
+        "a": "골든크로스, 매수신호",
+        "e": "단기가 장기를 뚫고 올라가면 상승 추세 진입 신호로 매입한다."
+      },
+      {
+        "q": "단기 이동평균선이 장기 이동평균선을 하향 돌파하는 현상과 그 매매신호는?",
+        "a": "데드크로스, 매도신호",
+        "e": "단기가 장기를 뚫고 내려가면 하락 추세 신호로 매각한다."
+      },
+      {
+        "q": "골든크로스는 매수신호, 데드크로스는 매도신호가 되는 근거는?",
+        "a": "단기 이평선이 장기 이평선을 돌파할 때 시장의 추세 전환이 확인되기 때문",
+        "e": "기술적 분석에서 이평선 간 돌파는 추세 전환의 매매 타이밍 신호로 본다."
+      }
+    ]
+  },
+  {
+    "id": "iWinnHya8Tw",
+    "group": "기타",
+    "groupIndex": 7,
+    "index": 1,
+    "label": "주식회사 관련법",
+    "title": "증권투자권유자문인력 기본서 이론정리ㅣ'주식회사 관련법' 📝ㅣ해커스 송영욱 금융권취업",
+    "teacher": "송영욱",
+    "nature": "이론정리",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=iWinnHya8Tw",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">1. 주식회사의 개념과 3원칙</h2><ul><li>주식회사는 <strong>사원이 유한책임</strong>을 지는 회사. 시험에서 유한회사와의 차이: 주식회사는 <strong>감사 선임이 강제</strong>(유한회사는 임의), <strong>주식 발행이 필수</strong>(유한회사는 주식 발행 불요)</li><li><strong>자본 3원칙</strong> (암기):</li></ul><ol><li><strong>자본확정의 원칙</strong> — 설립 시 발행 주식 총수와 자본금을 확정(예: 1만 주 × 1만원 = 자본금 1억)</li><li><strong>자본유지의 원칙</strong> — 확정된 자본금이 깨지지 않고 계속 유지되어야 함</li><li><strong>자본불변의 원칙</strong> — 자본금은 임의로 변경·감소시켜서는 안 됨</li></ol><h2 class=\"section-heading\">2. 주식회사 설립절차 (4단계 순서 암기)</h2><ol><li><strong>발기인조합 결성</strong> — 발기인은 <strong>1주 이상</strong> 인수해야 자격. 조합의 업무 결정은 <strong>과반수</strong> 원칙, 단 <strong>정관 작성과 설립 시 발행주식 결정은 발기인 전원 동의</strong></li><li><strong>정관 작성</strong> — <strong>절대적 기재사항 8가지</strong>: ① 목적 ② 상호 ③ 회사가 발행할 주식의 총수 ④ 액면주식 발행 시 1주 금액 ⑤ 회사 설립 시 발행하는 주식의 총수 ⑥ 본점소재지 ⑦ 공고방법 ⑧ 발기인의 성명·주민등록번호 (하나라도 빠지면 정관 작성 부적법)</li><li><strong>실체 구성</strong> — 자본금 + 사원 + 기관(이사·감사 등)</li><li><strong>설립등기</strong> — 실체구성 종료 후 <strong>2주 이내</strong>. 등기함으로써 비로소 주식회사 성립</li></ol><ul><li>설립 방법: <strong>발기설립</strong>(발기인이 전 주식을 인수) vs <strong>모집설립</strong>(일부는 일반 모집)</li><li>발기인의 책임: <strong>자본충실 책임 + 손해배상 책임</strong>. 이사·감사는 제3자에게 손해를 입히면 <strong>연대 배상책임</strong>(주주 전원 동의로 면제 가능)</li></ul><h2 class=\"section-heading\">3. 주주의 권한: 자익권 vs 공익권</h2><ul><li><strong>자익권</strong> = 자기만 이득이 되는 개인적 권리 (이익배당청구권, 잔여재산분배청구권, 신주인수권, 주식양도권 등)</li><li><strong>공익권</strong> = 다른 주주에게도 이익이 되는 권리 → 다시 두 가지로 나눔</li><li><strong>단독주주권</strong> = 1인 단독으로 행사 가능 (의결권, 장부·서류 열람청구권, 주총소집에 대한 총회검사인선임청구권 등)</li><li><strong>소수주주권</strong> = 일정 지분(보통 <strong>1~3%</strong>, <strong>6개월 이상 보유</strong> 요건)을 모아야 행사 가능. 시험에 자주 나오는 목록: 주총 <strong>소집청구권</strong>, 업무·재산상태 <strong>검사청구권</strong>, 회계장부 <strong>열람청구권</strong>, <strong>위법행위 유지청구권</strong>, <strong>대표소송제기권</strong>, 총회 <strong>검사인선임청구권</strong>, 이사 <strong>해임청구권</strong>, <strong>집중투표청구권</strong>, <strong>해산판결청구권</strong></li><li>대표소송제기권은 <strong>1% 이상</strong> 지분으로 행사 (상장법인은 0.5% 등 더 낮은 특례)</li><li>함정: <strong>주주제안권은 소수주주권</strong> (1인 단독 안 됨)</li></ul><h2 class=\"section-heading\">4. 주식의 양도·담보</h2><ul><li><strong>주식양도 자유의 원칙</strong>: <strong>법률 또는 정관에 의하지 않고는</strong> 주식양도를 제한하지 못한다</li><li>법률에 의한 제한 2가지 — 둘 다 <strong>회사에 대항하지 못함</strong>(회사에 대한 효력 없음):</li></ul><ol><li><strong>신주인수권(권리주)의 양도</strong></li><li><strong>주권 발행 전의 주식 양도</strong></li></ol><ul><li>정관에 의한 제한: <strong>이사회의 승인</strong>을 얻도록 정관에 규정 가능</li><li>양도 방법: 당사자 합의 + <strong>주권 교부</strong>(효력발생요건). 주주명부에 <strong>명의개서</strong>(기재)해야 회사에 대항 가능</li><li>주식 담보 = <strong>질권</strong> 설정. <strong>등록질</strong>(주주명부에 질권자 등록) vs <strong>약식질</strong>(주권만 교부)</li></ul><h2 class=\"section-heading\">5. 주식의 소각·병합·분할 / 주식매수선택권 / 포괄적 교환·이전</h2><ul><li>주식 <strong>소각 3방법</strong>: ① 자본감소에 의한 소각 ② 자기주식 소각 ③ 상환주식 소각</li><li><strong>주식의 분할</strong>은 <strong>주주총회 특별결의</strong> 필요 (예: 5,000원 1주 → 500원 10주)</li><li><strong>주식매수선택권(스톡옵션)</strong> 요건: ① <strong>정관에 규정</strong> + ② <strong>주총 특별결의</strong>; 행사요건: 부여 주총 결의일로부터 <strong>2년 이상 재임</strong>; 행사가액은 <strong>액면가와 시세 중 높은 금액 이상</strong></li><li><strong>주식의 포괄적 교환</strong> = A사가 B사 주식을 100% 취득 → <strong>모자회사 관계</strong>(2개 회사 → 1개 그룹)</li><li><strong>주식의 포괄적 이전</strong> = 기존 회사가 자산 100% 출자로 신생 완전자회사 설립 (1개 회사 → 2개 회사)</li></ul><h2 class=\"section-heading\">6. 주주총회: 보통결의·특별결의·특수결의</h2><ul><li><strong>보통결의</strong> = 출석주주 <strong>과반수</strong> + 발행주식총수 <strong>1/4 이상</strong> (이사·감사 <strong>선임</strong>, 이사 보수 등)</li><li><strong>특별결의</strong> = 출석주주 의결권 <strong>2/3 이상</strong> + 발행주식총수 <strong>1/3 이상</strong> (이사·감사 <strong>해임</strong>, 주식병합·분할, 자본감소, 주식 포괄적 교환·이전 등)</li><li><strong>특수결의</strong> = <strong>의결권 없는 주주까지 포함한 전 주주 동의</strong> (이사의 책임면제, 조직변경 단 2가지)</li><li>함정 쌍둥이: 이사 선임은 보통결의지만 <strong>해임은 특별결의</strong></li><li>소집권자: 원칙적으로 <strong>이사회</strong>, 소수주주·감사·법원도 가능</li><li>의결권 행사 제한: <strong>특별 이해관계자</strong>, <strong>자기주식</strong>, <strong>자회사가 보유한 모회사 주식</strong>, 감사 선임 시 <strong>3% 초과 지분</strong></li><li>불통일행사(일부는 찬성·일부는 반대), 서면투표·전자투표 모두 가능</li><li>결의 하자 소송: <strong>취소의 소</strong>(결의일로부터 <strong>1개월</strong> 이내), 무효확인의 소·부존재확인의 소(제소기간 제한 없음), 부당결의취소·변경의 소. 판결은 <strong>대세적 효력 + 소급효</strong></li></ul><h2 class=\"section-heading\">7. 이사·감사·감사위원회</h2><ul><li>이사는 <strong>주총에서 보통결의로 선임</strong>(주총의 전속권한). 이사 수 <strong>3인 이상</strong>(자본금 10억 미만은 1~2인 가능), 임기 <strong>3년 초과 불가</strong>(연임 가능)</li><li><strong>사외이사 강제</strong>: 상장회사는 이사 총수의 <strong>1/4 이상</strong>, 자산총액 <strong>2조원 이상</strong> 상장회사는 <strong>3인 이상 + 과반수</strong></li><li><strong>집중투표제</strong>: 발행주식총수 <strong>3% 이상</strong> 지분 주주가 주총 7일 전까지 서면·전자문서로 청구. 정관으로 배제 가능</li><li>감사: 감사의 <strong>법정 대체기관은 감사위원회</strong> (감사 또는 감사위원회 둘 중 하나만). 자산총액 <strong>2조원 이상 대형 상장회사</strong>는 감사위원회 <strong>의무</strong>, 3인 이상 이사로 구성하고 <strong>사외이사 2/3 이상</strong></li></ul><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th>구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\">자본 3원칙</td><td data-label=\"핵심 내용\">확정·유지·불변</td></tr><tr><td data-label=\"구분\">설립 4단계</td><td data-label=\"핵심 내용\">발기인조합 결성 → 정관 작성 → 실체 구성 → 설립등기(2주 이내)</td></tr><tr><td data-label=\"구분\">정관 절대적기재사항</td><td data-label=\"핵심 내용\">목적·상호·발행주식총수·1주금액·설립시발행주식수·본점소재지·공고방법·발기인 성명·주민번호 (8가지)</td></tr><tr><td data-label=\"구분\">소수주주권</td><td data-label=\"핵심 내용\">소집청구·검사청구·열람청구·위법행위유지·대표소송(1%)·검사인선임·이사해임청구·집중투표·해산판결</td></tr><tr><td data-label=\"구분\">보통결의</td><td data-label=\"핵심 내용\">출석 과반 + 발행주식총수 1/4 이상 (이사 선임)</td></tr><tr><td data-label=\"구분\">특별결의</td><td data-label=\"핵심 내용\">출석 의결권 2/3 + 발행주식총수 1/3 이상 (이사 해임)</td></tr><tr><td data-label=\"구분\">특수결의</td><td data-label=\"핵심 내용\">전 주주 동의 (이사의 책임면제·조직변경)</td></tr><tr><td data-label=\"구분\">주식매수선택권</td><td data-label=\"핵심 내용\">정관 규정 + 주총 특별결의, 2년 이상 재임 후 행사</td></tr></tbody></table></div>",
+    "quiz": [
+      {
+        "q": "주식회사 설립절차의 4단계를 순서대로 쓰시오.",
+        "a": "발기인조합 결성 → 정관 작성 → 실체 구성 → 설립등기",
+        "e": "설립등기는 실체구성 종료 후 2주 이내에 하며, 등기로 비로소 주식회사가 성립한다."
+      },
+      {
+        "q": "정관의 절대적 기재사항이 아닌 것은? (목적/상호/본점소재지/이사의 성명)",
+        "a": "이사의 성명",
+        "e": "절대적 기재사항 8가지는 목적, 상호, 회사가 발행할 주식의 총수, 1주 금액, 설립 시 발행주식 총수, 본점소재지, 공고방법, 발기인의 성명·주민등록번호이다."
+      },
+      {
+        "q": "소수주주권에 해당하는 것은? (이익배당청구권/대표소송제기권/신주인수권/주식양도권)",
+        "a": "대표소송제기권",
+        "e": "일정 지분(상법상 1%)을 모아야 행사 가능하므로 소수주주권이며, 나머지는 자익권이다."
+      },
+      {
+        "q": "이사·감사 선임과 해임의 결의 요건을 구분하시오.",
+        "a": "선임은 주총 보통결의, 해임은 주총 특별결의",
+        "e": "자주 나오는 함정 쌍둥이로, 이사 선임은 출석주주 과반수+발행주식총수 1/4 이상, 해임은 출석주주 의결권 2/3 이상+발행주식총수 1/3 이상이다."
+      },
+      {
+        "q": "자산총액 2조원 이상 대형 상장회사의 감사는 어떤 형태인가?",
+        "a": "감사위원회 의무 설치",
+        "e": "감사위원회는 감사의 법정 대체기관으로 둘 중 하나만 둘 수 있으며, 대형 상장회사는 감사위원회를 의무적으로 설치해야 한다."
+      }
+    ]
+  },
+  {
+    "id": "omV_cgY-P4Y",
+    "group": "기타",
+    "groupIndex": 7,
+    "index": 2,
+    "label": "투자전략 (2)",
+    "title": "증권투자권유자문인력 최종핵심 문제풀이 '투자전략(2)' 지금 바로 단기합격을 원한다면 꼭 보세요!ㅣ해커스금융 민영기",
+    "teacher": "민영기",
+    "nature": "문제풀이",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=omV_cgY-P4Y",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">1. 마코위츠 분산투자효과 (체계적 위험 vs 비체계적 위험)</h2><ul><li><strong>분산투자효과(포트폴리오 효과)</strong>: 종목 수를 늘릴수록 총위험이 줄어든다. 그러나 0까지 줄지 않고 일정 수준에 수렴하는데, 그 수렴점이 <strong>체계적 위험(시장위험)</strong> 이다</li><li><strong>체계적 위험</strong> = 분산투자로 제거 불가(분산 불능 위험). 시장의 본래 특성에 의해 야기</li><li><strong>비체계적 위험</strong> = 기업 고유 특성에 의한 위험으로 분산투자하면 <strong>제거 가능</strong></li><li>종목 수 증가 → 총위험은 <strong>각 종목 간 공분산의 평균값</strong>(≈ 체계적 위험)에 근접. 개별 종목이 포트폴리오에 미치는 영향은 종목 수 증가에 따라 감소</li><li>함정 지문: \"구성 종목 수를 증가시켜도 줄어들지 않는 위험\"은 비체계적이 아니라 <strong>체계적 위험</strong></li></ul><h2 class=\"section-heading\">2. 블랙-리터만 자산배분 모델</h2><ul><li>핵심 아이디어: ① <strong>시장 포트폴리오에 내재된 균형 기대수익률</strong> + ② <strong>투자자의 시장 전망</strong>, 두 정보를 결합해 최적 포트폴리오를 구하는 자산배분 모델</li><li>균형 기대수익률은 시장 전체 자산들을 <strong>시가총액 비율대로 편입한 시장 포트폴리오</strong>에서 도출 (구하기 쉬워 객관적 기준 역할)</li><li>장점: 평균-분산 모델의 <strong>극단적 자산배분 비중 문제</strong>를 해결, 투자자의 장기 전망을 반영해 비중 조정 가능(유연성)</li><li>함정: \"투자자의 기대수익률\"을 별도 입력하는 모델이 <strong>아님</strong> — 필요한 입력은 위 두 가지뿐</li></ul><h2 class=\"section-heading\">3. 기대수익률 측정법 4가지</h2><ol><li><strong>추세분석법</strong> — 과거 추세가 앞으로도 계속된다고 가정</li><li><strong>시나리오분석법</strong> — 경제 시나리오(호황·보통·불황)에 확률과 기대수익률을 부여해 <strong>가중평균</strong> (가장 시험 빈출, 계산문제로 나옴)</li><li><strong>펀더멘털분석법</strong> — 펀더멘털 기반 분석</li><li><strong>시장공통예측치사용법</strong> — 시장의 공통 예측치 사용</li></ol><ul><li>시나리오분석 계산 예: 호황(30%)·보통(40%)·불황(30%), A주식 기대수익률 각 20%·10%·-7% → 0.3×20 + 0.4×10 + 0.3×(-7) = <strong>11.5%</strong></li></ul><h2 class=\"section-heading\">4. 지배원리: 효율적 포트폴리오 vs 최적 포트폴리오</h2><ul><li><strong>평균-분산 기준(지배원리)</strong>: 기대수익이 동일하면 <strong>위험이 작은 것</strong> 선택, 위험이 동일하면 <strong>기대수익이 큰 것</strong> 선택. 지배당하는 쪽은 투자 후보에서 제외</li><li>지배원리로 선별된 포트폴리오들을 연결한 선 = <strong>효율적 프론티어(효율적 전선)</strong>, 그 위의 점 = <strong>효율적 포트폴리오</strong></li><li><strong>최적 포트폴리오</strong> ≠ 효율적 포트폴리오. 효율적 프론티어와 <strong>무차별곡선(투자자 효용함수)</strong> 이 만나는 접점이 최적 포트폴리오</li><li><strong>위험회피형(보수적) 투자자</strong>는 가장 위험이 낮은 효율적 증권을 선택</li></ul><h2 class=\"section-heading\">5. 투자자 유형별 효용함수</h2><ul><li><strong>위험회피형</strong>: <strong>오목(concave)</strong> 한 효용함수, 한계효용 체감</li><li><strong>위험중립형</strong>: <strong>직선</strong> (시험에 정답으로 거의 안 나옴)</li><li><strong>위험선호형</strong>: <strong>볼록(convex)</strong> 한 효용함수, 한계효용 체증</li><li>모든 투자자는 기대수익은 높을수록, 위험은 낮을수록 선호 (공통 전제)</li></ul><h2 class=\"section-heading\">6. 전략적 자산배분(SAA) vs 전술적 자산배분(TAA)</h2><ul><li><strong>전략적(SAA)</strong>: 시장은 <strong>효율적</strong>이라 가정 → <strong>소극적·장기·투자정책</strong> → 목표수익률 = <strong>시장평균수익률</strong></li><li><strong>전술적(TAA)</strong>: 시장은 <strong>비효율적</strong>이라 가정 → <strong>적극적·동적·중단기</strong> → 목표수익률 = <strong>초과수익</strong>. 수단: <strong>가격착오 활용, 과잉반응 이용, 역투자전략</strong>(쌀 때 사서 저평가 매수·고평가 매도)</li><li>SAA 실행방법 4가지: ① <strong>시장가치 접근법</strong> ② <strong>위험-수익 최적화 방법</strong> ③ <strong>투자자별 특수상황 고려 방법</strong> ④ <strong>다른 기관투자자 모방 방법</strong></li><li>함정: <strong>포뮬러플랜은 TAA의 실행방법</strong>이지 SAA가 아님</li></ul><h2 class=\"section-heading\">7. 벤치마크</h2><ul><li>펀드 운용 성과 측정의 <strong>기준</strong>. 가장 중요한 시험 포인트: <strong>운용 이전에 사전에 설정</strong>되어야 한다 (사후에 설정 불가)</li><li>펀드매니저가 추적 가능해야 하고, 펀드 특성을 잘 표현하며, 여러 지수를 조합해 만들 수도 있음. 의사소통 수단·가이드라인 역할</li></ul><h2 class=\"section-heading\">8. ESG 투자</h2><ul><li><strong>ESG</strong> = Environment(환경) + Social(사회) + Governance(지배구조). 환경·사회·지배구조가 건전한 기업에 투자하는 <strong>책임투자 = 지속가능투자</strong>(우리나라 표현: 책임투자)</li><li>핵심 특징: 재무제표 등 <strong>기존 재무정보에 포함되지 않는 비재무정보</strong>가 주된 평가 대상</li><li><strong>2006년 유엔 PRI</strong>(책임투자원칙) — 유엔 후원으로 조직된 기관투자자 네트워크, 최초의 ESG 이니셔티브</li><li><strong>2014년 GSI</strong>(글로벌지속가능투자연합)가 ESG 투자방식을 <strong>7개 범주</strong>로 정의 → <strong>7개 중 하나 이상</strong>의 기준을 적용하는 펀드가 <strong>책임투자펀드</strong>(함정: \"2개 이상\"이 아님)</li><li><strong>ESG 워싱</strong>(세탁): ESG를 가장한 마케팅 활동에 대한 주의 필요</li></ul><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th>구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\">제거 불가 위험</td><td data-label=\"핵심 내용\">체계적 위험(시장위험) = 분산 불능, 공분산 평균값에 수렴</td></tr><tr><td data-label=\"구분\">제거 가능 위험</td><td data-label=\"핵심 내용\">비체계적 위험(기업고유위험)</td></tr><tr><td data-label=\"구분\">블랙-리터만 입력 2</td><td data-label=\"핵심 내용\">시장 포트폴리오의 균형 기대수익률 + 투자자의 시장 전망</td></tr><tr><td data-label=\"구분\">기대수익률 측정 4법</td><td data-label=\"핵심 내용\">추세분석·시나리오분석·펀더멘털분석·시장공통예측치사용</td></tr><tr><td data-label=\"구분\">지배원리</td><td data-label=\"핵심 내용\">수익 동일→위험 작은 것, 위험 동일→수익 큰 것</td></tr><tr><td data-label=\"구분\">최적 포트폴리오</td><td data-label=\"핵심 내용\">효율적 프론티어 × 무차별곡선(효용함수)의 접점</td></tr><tr><td data-label=\"구분\">위험회피형</td><td data-label=\"핵심 내용\">오목 효용함수 / 위험중립 직선 / 위험선호 볼록</td></tr><tr><td data-label=\"구분\">SAA vs TAA</td><td data-label=\"핵심 내용\">효율·소극·장기·시장평균 vs 비효율·적극·단기·초과수익</td></tr><tr><td data-label=\"구분\">벤치마크</td><td data-label=\"핵심 내용\">운용 이전 사전 설정 (사후 설정 불가)</td></tr><tr><td data-label=\"구분\">ESG</td><td data-label=\"핵심 내용\">비재무정보, PRI(2006), GSI 7개 범주 중 1개 이상 → 책임투자펀드</td></tr></tbody></table></div>",
+    "quiz": [
+      {
+        "q": "구성 종목 수를 늘려도 줄어들지 않는 위험과 줄어드는 위험은?",
+        "a": "체계적 위험(시장위험)은 줄어들지 않고, 비체계적 위험(기업고유위험)이 줄어든다",
+        "e": "분산투자해도 시장 본래의 특성에서 오는 체계적 위험은 제거할 수 없으며, 총위험은 공분산의 평균값 수준에 수렴한다."
+      },
+      {
+        "q": "블랙-리터만 자산배분 모델에 반영되는 두 정보는?",
+        "a": "시장 포트폴리오에 내재된 균형 기대수익률과 투자자의 시장 전망",
+        "e": "평균-분산 모델의 극단적 자산배분 비중 문제를 해결하며, 투자자의 기대수익률 자체를 별도 입력하는 모델이 아니다."
+      },
+      {
+        "q": "시나리오분석법으로 기대수익률을 구하는 방법은?",
+        "a": "각 시나리오의 확률 × 기대수익률을 모두 합한 가중평균",
+        "e": "예) 0.3×20% + 0.4×10% + 0.3×(-7%) = 11.5%."
+      },
+      {
+        "q": "최적 포트폴리오와 효율적 포트폴리오의 관계는?",
+        "a": "지배원리로 선별한 효율적 포트폴리오들의 선(효율적 프론티어)과 투자자의 무차별곡선이 만나는 접점이 최적 포트폴리오이다",
+        "e": "효율적 포트폴리오는 객관적 기준, 최적은 투자자 성향(위험회피도)을 반영한 최종 선택이다."
+      },
+      {
+        "q": "전략적 자산배분과 전술적 자산배분의 시장 가정·성격·목표수익률은?",
+        "a": "전략적은 시장 효율 가정·소극적·장기·시장평균수익률 목표, 전술적은 시장 비효율 가정·적극적·중단기·초과수익 목표",
+        "e": "포뮬러플랜은 전술적 자산배분의 실행방법이므로 전략적 지문으로 나오면 오답이다."
+      },
+      {
+        "q": "GSI가 정의한 책임투자펀드의 기준은?",
+        "a": "7개 투자방식 범주 중 하나 이상을 적용하는 펀드",
+        "e": "2개 이상이 아니며, 책임투자는 지속가능투자라고도 하고 기존 재무정보에 포함되지 않는 비재무정보를 평가한다."
+      }
+    ]
+  },
+  {
+    "id": "90j3n6KP3uI",
+    "group": "기타",
+    "groupIndex": 7,
+    "index": 3,
+    "label": "기본서 핵심정리",
+    "title": "[해커스금융] 증권투자권유자문인력 기본서 핵심정리",
+    "teacher": "미표기 (영상 제목·자막에 강사명 없음)",
+    "nature": "이론정리",
+    "depth": "full",
+    "video": "https://www.youtube.com/watch?v=90j3n6KP3uI",
+    "badge": "",
+    "content": "<h2 class=\"section-heading\">1. 기본적 분석 vs 기술적 분석</h2><ul><li><strong>기본적 분석</strong>: 기업의 <strong>내재가치(진정한 가치·본질가치)</strong> 를 찾아내는 것이 목적. <strong>재무제표 자료</strong> 사용. 주가 변화의 <strong>원인</strong>에 관심</li><li><strong>기술적 분석</strong>: 내재가치와 무관. <strong>과거 가격·거래량</strong>을 도표(차트)화해 분석. 주가 변화의 <strong>현상</strong>에만 관심, 원인은 관심 없음</li><li>배경 전제: 기술적 분석은 <strong>수요-공급</strong>이 가격을 결정하고, 수요-공급의 밑바탕에는 <strong>투자자 심리(욕망)</strong> 가 있다고 본다. 심리가 가격·거래량으로 나타나므로 이를 도표화하는 것</li><li>기술적 분석은 <strong>차티스트</strong>라고도 하며, 과거 주가 패턴이 반복된다고 가정(과거 중시)</li></ul><h2 class=\"section-heading\">2. 탑다운 vs 바텀업</h2><ul><li><strong>탑다운 방식</strong> = <strong>경제분석 → 산업분석 → 기업분석</strong>(종목 선정). 큰 쪽에서 작은 쪽으로 분석</li><li><strong>바텀업 방식</strong> = <strong>기업분석 → 산업분석 → 경제분석</strong>. 작은 쪽에서 큰 쪽으로 올라감</li><li>일반적으로 <strong>탑다운</strong>을 많이 사용. 교재도 탑다운 순서(경기분석 → 기업분석)로 구성</li></ul><h2 class=\"section-heading\">3. 경제환경과 주가 (7개 요소)</h2><h3 class=\"subheading\">① 경기전망과 주가 — 출제 비중 낮음, 읽고 넘어가기</h3><ul><li>경기가 좋아질 것 같으면 주가 상승, 나빠질 것 같으면 하락 (직관적)</li></ul><h3 class=\"subheading\">② 통화량과 주가 — 유동성효과·소득효과·피셔효과 (시험 빈출)</h3><ul><li><strong>유동성효과</strong>: 통화량 증가 → <strong>단기적으로 금리 하락</strong> → 주가 <strong>긍정</strong>(상승)</li><li><strong>소득효과</strong>: 금리 하락 → 투자↑ → 소득↑ → 화폐수요↑ → 금리 <strong>상승</strong> (금리 올리는 효과)</li><li><strong>피셔효과(기대인플레이션 효과)</strong>: 통화량 증가 → 인플레이션 → <strong>명목금리 상승</strong> (금리 올리는 효과)</li><li>결론: 통화량 증가는 <strong>단기적으로 주가에 긍정적</strong>이나, 장기적으로 소득효과·피셔효과가 금리를 올리므로 <strong>장기까지 긍정적이라 볼 수 없음</strong></li><li>부수 개념: <strong>피셔의 화폐교환방정식</strong> MV = PT (통화유통속도는 일정 가정)</li></ul><h3 class=\"subheading\">③ 금리와 주가 — 반대로 움직임</h3><ul><li>금리 상승 → 자금조달 축소 → 설비투자 축소 → 기업 실적 악화 → <strong>주가 하락</strong></li><li>금리 하락 → 자금조달 확대 → 투자 확대 → <strong>주가 상승</strong></li></ul><h3 class=\"subheading\">④ 물가와 주가 — 완만한 상승은 긍정, 급격한 상승은 부정</h3><ul><li><strong>완만한 물가상승</strong> = 기업 입장에서 판매가격 상승 → <strong>주가 긍정</strong></li><li><strong>급격한 물가상승(하이퍼인플레이션)</strong> = 경제 혼란 → 미래 전망 암울 → <strong>주가 부정</strong></li><li><strong>디스인플레이션</strong>(물가는 오르나 물가상승률이 둔화) = 경제 안정 신호 → <strong>주가 상승 요인</strong></li><li><strong>스태그플레이션</strong>(물가 상승 + 경기 불황) = 최악의 사태 → <strong>주가 하락</strong></li><li><strong>인플레이션 헤지</strong>: 물가가 오르면 기업 보유자산의 명목가치가 상승해 자산재평가·무상증자가 가능 → 주식 보유로 물가상승을 방어할 수 있다는 반론 이론</li></ul><h3 class=\"subheading\">⑤ 환율과 주가 — 우리나라(수출 의존형)는 환율 상승이 긍정</h3><ul><li>환율 상승 → 수출↑·수입↓ → 경상수지 개선 → 기업 실적 개선 → <strong>주가 상승</strong></li><li>환율 하락 → 수출↓·수입↑ → 경상수지 악화 → <strong>주가 하락</strong></li><li>수출기업에는 환율 상승이 유리, 수입기업에는 환율 하락이 유리하지만, 우리나라 전체 경제는 수출 의존도가 압도적이므로 환율 상승이 주가를 올린다고 정리</li></ul><h3 class=\"subheading\">⑥ 원자재가격과 주가 — 반대로 움직임</h3><ul><li>원자재가격 상승 → 비용 상승 → 경제에 부정 → <strong>주가 하락</strong>. 단순 역의 관계</li></ul><h3 class=\"subheading\">⑦ 외국인투자자와 주가 — 환율 변동률 vs 주가 변동률 비교 (암기)</h3><ul><li><strong>주가가 떨어져도 환율 하락률이 주가 하락률보다 크면 외국인투자자는 주식을 매입</strong>한다</li><li><strong>주가가 올라도 환율 상승률이 주가 상승률보다 크면 주식을 매입하지 않는다</strong>(오히려 판다)</li><li>교재 표현: \"환율 인하율이 주가 하락률을 <strong>상회</strong>하면 매입하고, 환율 인상률이 주가 상승률을 <strong>초과</strong>하면 매입하지 않는다\"</li><li>예시(1달러=1,000원에 투자): 주가가 1,000원→900원으로 떨어져도 환율이 800원으로 더 떨어지면, 달러 기준으로는 더 많은 돈으로 나가므로 매입. 반대로 주가가 1,000원→1,100원으로 올라도 환율이 1,200원이면 달러 환전 시 손실이라 미매입</li></ul><h2 class=\"section-heading\">시험 직전 암기표</h2><div class=\"table-wrap\"><table><thead><tr><th>구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td data-label=\"구분\">기본적 vs 기술적</td><td data-label=\"핵심 내용\">내재가치·재무제표·원인 vs 가격/거래량·차트·현상</td></tr><tr><td data-label=\"구분\">탑다운</td><td data-label=\"핵심 내용\">경제 → 산업 → 기업 (큰→작은)</td></tr><tr><td data-label=\"구분\">통화량 3효과</td><td data-label=\"핵심 내용\">유동성(단기 금리↓·주가↑) / 소득효과(금리↑) / 피셔효과(금리↑)</td></tr><tr><td data-label=\"구분\">금리-주가</td><td data-label=\"핵심 내용\">반대로 움직임</td></tr><tr><td data-label=\"구분\">물가-주가</td><td data-label=\"핵심 내용\">완만↑ 긍정 / 급격↑ 부정 / 디스인플레이션 긍정 / 스태그플레이션 부정</td></tr><tr><td data-label=\"구분\">환율-주가</td><td data-label=\"핵심 내용\">(수출 의존형 한국) 환율↑ → 수출↑·수입↓ → 주가↑</td></tr><tr><td data-label=\"구분\">원자재가격-주가</td><td data-label=\"핵심 내용\">반대로 움직임</td></tr><tr><td data-label=\"구분\">외국인</td><td data-label=\"핵심 내용\">환율하락률이 주가하락률보다 크면 매입 / 환율상승률이 주가상승률보다 크면 미매입</td></tr></tbody></table></div>",
+    "quiz": [
+      {
+        "q": "기본적 분석과 기술적 분석의 접근 방법을 구분하시오.",
+        "a": "기본적 분석은 재무제표를 이용해 기업의 내재가치를 찾고 주가 변화의 원인에 관심, 기술적 분석은 과거 가격·거래량을 도표화해 주가 변화의 현상만 분석",
+        "e": "기본적=진정한 가치(내재가치·본질가치)를 기준으로 고평가면 매도·저평가면 매수."
+      },
+      {
+        "q": "통화량 증가가 주가에 미치는 단기·장기 효과를 유동성효과·소득효과·피셔효과로 설명하시오.",
+        "a": "단기적으로 유동성효과로 금리가 떨어져 주가에 긍정적이나, 장기적으로 소득효과와 피셔효과가 금리를 올리므로 장기까지 긍정적이라 할 수 없음",
+        "e": "세 효과 모두 금리 경로를 통해 주가에 영향을 준다."
+      },
+      {
+        "q": "스태그플레이션과 디스인플레이션이 주가에 미치는 영향은?",
+        "a": "스태그플레이션(물가 상승+경기 불황)은 주가 하락, 디스인플레이션(물가상승률 둔화)은 주가 상승 요인",
+        "e": "완만한 물가상승도 주가에 긍정적이나 급격한 물가상승은 부정적."
+      },
+      {
+        "q": "우리나라에서 환율 상승이 주가에 미치는 영향과 그 근거는?",
+        "a": "주가 상승. 우리나라는 수출 의존도가 압도적이므로 환율 상승 시 수출↑·수입↓로 경상수지가 개선되고 기업 실적이 좋아지기 때문",
+        "e": "환율 하락이면 반대(주가 하락)."
+      },
+      {
+        "q": "외국인투자자는 주가가 올라도 주식을 매입하지 않을 수 있다. 그 조건은?",
+        "a": "환율 상승률이 주가 상승률보다 클 때",
+        "e": "자국 통화 기준으로 환산하면 손실이 되므로 미매입. 반대로 주가 하락 시 환율 하락률이 주가 하락률보다 크면 매입."
+      }
+    ]
+  }
+];
