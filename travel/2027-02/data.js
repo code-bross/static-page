@@ -159,6 +159,10 @@
     "days": [
       {
         "dayNum": "DAY 1",
+        "dates": [
+          "2027-02-06"
+        ],
+        "flight": "OZ501",
         "title": "2/6 (토) 인천 → 파리 도착 · 에펠탑 야경",
         "city": "파리",
         "image": "images/day1_eiffel_night.jpg",
@@ -241,6 +245,9 @@
       },
       {
         "dayNum": "DAY 2",
+        "dates": [
+          "2027-02-07"
+        ],
         "title": "2/7 (일) 루브르 박물관 · 튈르리 · 몽마르트",
         "city": "파리",
         "image": "images/day2_louvre_pyramid.jpg",
@@ -344,6 +351,9 @@
       },
       {
         "dayNum": "DAY 3",
+        "dates": [
+          "2027-02-08"
+        ],
         "title": "2/8 (월) 몽생미셸 · 옹플뢰르 데이투어",
         "city": "노르망디",
         "image": "images/day3_mont_saint_michel.jpg",
@@ -438,6 +448,9 @@
       },
       {
         "dayNum": "DAY 4",
+        "dates": [
+          "2027-02-09"
+        ],
         "title": "2/9 (화) 베르사유 궁전 종일 관람",
         "city": "베르사유 · 파리",
         "image": "images/day4_versailles_hall_of_mirrors.jpg",
@@ -561,6 +574,10 @@
       },
       {
         "dayNum": "DAY 5",
+        "dates": [
+          "2027-02-10"
+        ],
+        "flight": "VY8015",
         "title": "2/10 (수) 파리 오를리 → 바르셀로나 이동",
         "city": "파리 → 바르셀로나",
         "image": "images/day5_champs_elysees.jpg",
@@ -648,6 +665,9 @@
       },
       {
         "dayNum": "DAY 6",
+        "dates": [
+          "2027-02-11"
+        ],
         "title": "2/11 (목) 가우디 투어 — 사그라다 · 구엘 · 카사 바트요",
         "city": "바르셀로나",
         "image": "images/day6_sagrada_familia.jpg",
@@ -742,6 +762,9 @@
       },
       {
         "dayNum": "DAY 7",
+        "dates": [
+          "2027-02-12"
+        ],
         "title": "2/12 (금) 고딕 지구 · 보케리아 · 바르셀로네타 자유 일정",
         "city": "바르셀로나",
         "image": "images/day7_paella_barcelona.jpg",
@@ -870,6 +893,11 @@
       },
       {
         "dayNum": "DAY 8–9",
+        "dates": [
+          "2027-02-13",
+          "2027-02-14"
+        ],
+        "flight": "OZ512",
         "title": "2/13 (토) 바르셀로나 출발 → 2/14 (일) 인천 도착",
         "city": "귀국",
         "image": "images/day8_flight_sunset.jpg",
@@ -929,6 +957,7 @@
           },
           {
             "time": "2/14 15:00",
+            "date": "2027-02-14",
             "title": "기내식 · 휴식",
             "tags": [],
             "desc": "한국 시간에 맞춰 수면·식사 조절. 입국 서류는 기내에서 미리 작성.",
@@ -936,6 +965,7 @@
           },
           {
             "time": "2/14 17:00",
+            "date": "2027-02-14",
             "title": "인천(ICN) 도착 · 입국 · 귀가",
             "tags": [],
             "desc": "입국 심사 → 수하물 수령 → 세관 신고(면세 한도 초과 시) → 공항버스/택시로 귀가. 9일 일정 종료.",

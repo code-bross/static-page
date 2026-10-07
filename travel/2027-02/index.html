@@ -106,7 +106,11 @@ footer{color:var(--muted);font-size:13px;margin-top:36px;border-top:1px solid va
 .flight-note{border-top:1px dashed var(--line);padding-top:10px;font-size:13px;color:var(--muted)}
 .ticket-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
 .ticket-links a{display:inline-block;background:var(--accent);color:var(--accent-ink);text-decoration:none;padding:7px 11px;border-radius:8px;font-size:13px;font-weight:700}
-.ticket-links a:focus-visible,nav.tabs button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.day .flight-card{box-shadow:none;margin:12px 0;background:var(--bg)}
+.date-filters{display:flex;gap:8px;overflow-x:auto;padding:4px 0 14px;scrollbar-width:thin}
+.date-filters button{flex:none;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink);font:inherit;font-size:14px;font-weight:700;padding:7px 12px;cursor:pointer}
+.date-filters button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.ticket-links a:focus-visible,nav.tabs button:focus-visible,.date-filters button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 </style>
 </head>
 <body>
@@ -151,6 +155,7 @@ footer{color:var(--muted);font-size:13px;margin-top:36px;border-top:1px solid va
 <script>
 let travelData = null;
 let imageBase64Map = {};
+let selectedDate = "all";
 
 // Register base64 images map (similar to wedding/honeymoon loadVouchers)
 function registerBase64Images(imgArray) {
@@ -233,18 +238,48 @@ function renderHero(meta) {
   `;
 }
 
+function renderFlightCard(flight) {
+  return `
+    <article class="flight-card">
+      <div class="flight-header"><span>✈️ ${flight.airline} ${flight.number}</span><span class="flight-tag">${flight.tag}</span></div>
+      <div class="flight-route">
+        <div class="flight-end"><strong>${flight.from}</strong><small>${flight.fromCity}</small><time>${flight.departure}</time></div>
+        <div class="flight-mid" aria-hidden="true">✈<small>${flight.duration}</small></div>
+        <div class="flight-end"><strong>${flight.to}</strong><small>${flight.toCity}</small><time>${flight.arrival}</time></div>
+      </div>
+      <div class="flight-note">${flight.note}</div>
+      <div class="ticket-links" aria-label="${flight.number} 승객별 티켓">
+        ${flight.tickets.map(id => {
+          const ticket = travelData.tickets.find(t => t.id === id);
+          return `<a href="ticket.html?id=${ticket.id}" aria-label="${flight.number} ${ticket.name} 티켓 상세보기">🎫 ${ticket.name} 상세보기</a>`;
+        }).join("")}
+      </div>
+    </article>
+  `;
+}
+
 function renderItinerary(itinerary) {
   const panel = document.getElementById("panel-itinerary");
   if (!panel || !itinerary) return;
 
+  const dates = [...new Set(itinerary.days.flatMap(day => day.dates))];
+  const filters = ["all", ...dates].map(date => {
+    const label = date === "all" ? "전체 일정" : `${Number(date.slice(5, 7))}/${Number(date.slice(8, 10))} (${["일", "월", "화", "수", "목", "금", "토"][new Date(date + "T00:00:00Z").getUTCDay()]})`;
+    return `<button type="button" data-date="${date}" aria-pressed="${selectedDate === date}">${label}</button>`;
+  }).join("");
   let html = `
     <h2>${itinerary.title}</h2>
     <p class="sub">${itinerary.subtitle}</p>
+    <div class="date-filters" role="group" aria-label="일정 날짜 선택">${filters}</div>
   `;
 
-  (itinerary.days || []).forEach(day => {
+  itinerary.days.filter(day => selectedDate === "all" || day.dates.includes(selectedDate)).forEach(day => {
     let timelineHtml = "";
-    (day.timeline || []).forEach(item => {
+    const flight = day.flight ? travelData.flights.find(f => f.number === day.flight) : null;
+    day.timeline.filter(item =>
+      (selectedDate === "all" || (item.date || day.dates[0]) === selectedDate) &&
+      !(flight && item.title.includes(flight.number))
+    ).forEach(item => {
       const tagsHtml = (item.tags || []).map(t => `<span class="tag ${t.type}">${t.text}</span>`).join(" ");
       const linksHtml = (item.links || []).length > 0 ? `
         <span class="place-links">
@@ -264,7 +299,7 @@ function renderItinerary(itinerary) {
       `;
     });
 
-    const tipHtml = day.tip ? `<div class="daytip">${day.tip}</div>` : "";
+    const tipHtml = day.tip && (selectedDate === "all" || selectedDate === day.dates[0]) ? `<div class="daytip">${day.tip}</div>` : "";
 
     html += `
       <article class="day">
@@ -276,6 +311,7 @@ function renderItinerary(itinerary) {
           <h3>${day.title}</h3>
           <span class="city">${day.city}</span>
         </div>
+        ${flight ? renderFlightCard(flight) : ""}
         <ul class="tl">
           ${timelineHtml}
         </ul>
@@ -311,23 +347,7 @@ function renderBookings(bookings) {
     return `<li${doneClass}>${c.text}</li>`;
   }).join("");
 
-  const flightHtml = (travelData.flights || []).map(f => `
-    <article class="flight-card">
-      <div class="flight-header"><span>✈️ ${f.airline} ${f.number}</span><span class="flight-tag">${f.tag}</span></div>
-      <div class="flight-route">
-        <div class="flight-end"><strong>${f.from}</strong><small>${f.fromCity}</small><time>${f.departure}</time></div>
-        <div class="flight-mid" aria-hidden="true">✈<small>${f.duration}</small></div>
-        <div class="flight-end"><strong>${f.to}</strong><small>${f.toCity}</small><time>${f.arrival}</time></div>
-      </div>
-      <div class="flight-note">${f.note}</div>
-      <div class="ticket-links" aria-label="${f.number} 승객별 티켓">
-        ${f.tickets.map(id => {
-          const ticket = travelData.tickets.find(t => t.id === id);
-          return `<a href="ticket.html?id=${ticket.id}" aria-label="${f.number} ${ticket.name} 티켓 상세보기">🎫 ${ticket.name} 상세보기</a>`;
-        }).join("")}
-      </div>
-    </article>
-  `).join("");
+  const flightHtml = travelData.flights.map(renderFlightCard).join("");
 
   panel.innerHTML = `
     <h2>✈️ 항공편 일정 · 승객별 티켓</h2>
@@ -478,6 +498,13 @@ function initTabs() {
     });
   });
 }
+
+document.getElementById("panel-itinerary").addEventListener("click", event => {
+  const button = event.target.closest(".date-filters button");
+  if (!button) return;
+  selectedDate = button.dataset.date;
+  renderItinerary(travelData.itinerary);
+});
 
 // Master Initialization on window load (wedding/honeymoon pattern)
 window.onload = function() {
