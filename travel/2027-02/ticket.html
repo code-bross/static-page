@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>항공권 상세보기 · 파리·바르셀로나 여행</title>
+<link rel="icon" href="data:,">
+<style>
+:root{--bg:#faf6ef;--surface:#fffdf8;--ink:#1d2733;--muted:#66707c;--line:#e4d9c6;--accent:#b6502e;--shadow:0 10px 30px rgba(60,40,10,.10)}
+@media (prefers-color-scheme:dark){:root{--bg:#141a21;--surface:#1c242e;--ink:#eef1f4;--muted:#a7b2bd;--line:#33404e;--accent:#e07a52;--shadow:0 10px 30px rgba(0,0,0,.4)}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,"Noto Sans KR",sans-serif}
+main{max-width:980px;margin:auto;padding:20px 16px 64px}
+a{color:var(--accent);font-weight:700}
+h1{font-size:clamp(22px,4vw,32px);margin:22px 0 4px}
+p{margin:4px 0 16px}
+.muted{color:var(--muted)}
+.ticket{background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:16px;padding:16px}
+.ticket img{display:block;width:100%;height:auto;border-radius:8px}
+.ticket img.zoom{width:auto;max-width:none}
+.image-scroll{overflow:auto}
+.actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:16px 0}
+button,.download{border:0;background:var(--accent);color:white;border-radius:9px;padding:9px 14px;font:inherit;font-weight:700;cursor:pointer;text-decoration:none}
+button:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+@media print{.actions,.back,.muted{display:none}body{background:white}.ticket{box-shadow:none}}
+</style>
+<script src="data.js"></script>
+<script src="tickets_base64.js"></script>
+</head>
+<body>
+<main>
+  <a class="back" href="index.html#booking">← 예약·항공편으로 돌아가기</a>
+  <h1 id="heading">항공권 상세보기</h1>
+  <p id="summary" class="muted"></p>
+  <p class="muted">원본 티켓에는 승객 정보와 예약·탑승 정보가 포함됩니다. 공유에 주의하세요.</p>
+  <div id="actions" class="actions" hidden>
+    <button id="zoom" type="button" aria-pressed="false">원본 크기로 보기</button>
+    <a id="download" class="download">이미지 저장</a>
+  </div>
+  <div id="image-scroll" class="image-scroll ticket" hidden>
+    <img id="ticket-image" alt="">
+  </div>
+  <p id="error" role="alert" hidden></p>
+</main>
+<script>
+const id = new URLSearchParams(location.search).get("id");
+const ticket = window.TRAVEL_DATA.tickets.find(item => item.id === id);
+const image = ticket && window.TICKET_IMAGES[ticket.image];
+if (!ticket || !image) {
+  const error = document.getElementById("error");
+  error.hidden = false;
+  error.textContent = "해당 티켓을 찾을 수 없습니다. 예약·항공편 목록에서 다시 선택해 주세요.";
+} else {
+  document.title = `${ticket.name} · ${ticket.kind}`;
+  document.getElementById("heading").textContent = ticket.kind;
+  document.getElementById("summary").textContent = `${ticket.name} · ${ticket.flights}`;
+  const src = `data:image/jpeg;base64,${image}`;
+  const img = document.getElementById("ticket-image");
+  img.src = src;
+  img.alt = `${ticket.name} ${ticket.kind} 원본 이미지`;
+  document.getElementById("image-scroll").hidden = false;
+  document.getElementById("actions").hidden = false;
+  const download = document.getElementById("download");
+  download.href = src;
+  download.download = `${ticket.id}.jpg`;
+  document.getElementById("zoom").addEventListener("click", event => {
+    const zoomed = img.classList.toggle("zoom");
+    event.currentTarget.setAttribute("aria-pressed", String(zoomed));
+    event.currentTarget.textContent = zoomed ? "화면 너비에 맞추기" : "원본 크기로 보기";
+  });
+}
+</script>
+</body>
+</html>

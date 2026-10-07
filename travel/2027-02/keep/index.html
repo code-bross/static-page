@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2027년 2월 가족 유럽 여행 플래너 | 핀란드·파리 2건 & 스페인·포르투갈 견적 및 계획</title>
+  <meta name="description" content="30대 부부·30대 딸·60대 어머니 4인 가족 맞춤 유럽 여행 견적 및 상세 계획. 웹투어(Webtour) 실견적 기반 핀란드·파리 2종(아시아나 귀국 직항 vs 핀에어 왕복)과 스페인·포르투갈(대한항공 직항) 상세 일정, 구글맵 연동 고평점 맛집, 시니어 케어 가이드.">
+  
+  <!-- Open Graph Meta -->
+  <meta property="og:title" content="2027년 2월 가족 여행 플래너 · 핀란드/파리 & 스페인/포르투갈 견적 및 일정">
+  <meta property="og:description" content="30대 부부+딸+60대 어머니 4인 여행. 웹투어 실견적 기반 항공·호텔·맛집·구글맵 연동 상세 일정.">
+  <meta property="og:type" content="website">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/print.css" media="print">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">✈️</div>
+        <div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span class="brand-title">Travel Planner</span>
+            <span class="brand-tag">2026/2027</span>
+          </div>
+        </div>
+      </a>
+
+      <div class="nav-actions">
+        <!-- Destination Selector Tabs -->
+        <div class="destination-tabs" id="destinationTabs">
+          <button class="tab-btn active" data-id="finland_paris_asiana">
+            <span>🇫🇮🇫🇷 핀란드·파리 (아시아나 귀국)</span>
+            <span class="tab-badge">2/5~2/12</span>
+          </button>
+          <button class="tab-btn" data-id="finland_paris_finnair">
+            <span>🇫🇮🇫🇷 핀란드·파리 (핀에어 왕복)</span>
+            <span class="tab-badge">2/5~2/12</span>
+          </button>
+          <button class="tab-btn" data-id="spain_portugal">
+            <span>🇪🇸🇵🇹 스페인·포르투갈 (대한항공)</span>
+            <span class="tab-badge">2/5~2/12</span>
+          </button>
+          <button class="tab-btn" data-id="rome">
+            <span>🇮🇹 로마</span>
+            <span class="tab-badge">2/3~2/7</span>
+          </button>
+          <button class="tab-btn" data-id="rome_milan">
+            <span>🇮🇹 로마-밀라노</span>
+            <span class="tab-badge">2/3~2/8</span>
+          </button>
+          <button class="tab-btn" data-id="barcelona">
+            <span>🇪🇸 바르셀로나</span>
+            <span class="tab-badge">2/3~2/7</span>
+          </button>
+          <button class="tab-btn" data-id="hawaii">
+            <span>🇺🇸 하와이</span>
+            <span class="tab-badge">2/3~2/8</span>
+          </button>
+          <button class="tab-btn" data-id="guam">
+            <span>🇬🇺 괌</span>
+            <span class="tab-badge">2/5~2/8</span>
+          </button>
+        </div>
+
+        <!-- Theme Toggle Button -->
+        <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="테마 전환">
+          <span id="themeToggleIcon">☀️</span>
+          <span id="themeToggleText">화이트 모드</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content Container (Populated via JS) -->
+  <main class="container main-content" id="mainContentArea">
+    <!-- Dynamic Content Loaded by travel-data.js & main.js -->
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p style="margin-bottom: 8px;">✈️ Family Travel Budget & Itinerary Planner | 괌 6인 · 그 외 여행지 4인 기준</p>
+      <p>여행지별 항공 조건과 예상 경비 기준 · 로마·바르셀로나·하와이·괌 · 최종 운임과 현지 비용은 예약 시 확인</p>
+    </div>
+  </footer>
+
+  <!-- Lightbox Fullscreen Photo Modal -->
+  <div class="lightbox-modal" id="lightboxModal">
+    <button class="lightbox-close-btn" id="lightboxCloseBtn">&times;</button>
+    <div class="lightbox-img-wrapper">
+      <img id="lightboxImg" src="" alt="Photo Preview">
+    </div>
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/travel-data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

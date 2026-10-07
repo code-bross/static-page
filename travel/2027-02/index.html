@@ -1,105 +1,501 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2027년 2월 가족 유럽 여행 플래너 | 핀란드·파리 2건 & 스페인·포르투갈 견적 및 계획</title>
-  <meta name="description" content="30대 부부·30대 딸·60대 어머니 4인 가족 맞춤 유럽 여행 견적 및 상세 계획. 웹투어(Webtour) 실견적 기반 핀란드·파리 2종(아시아나 귀국 직항 vs 핀에어 왕복)과 스페인·포르투갈(대한항공 직항) 상세 일정, 구글맵 연동 고평점 맛집, 시니어 케어 가이드.">
-  
-  <!-- Open Graph Meta -->
-  <meta property="og:title" content="2027년 2월 가족 여행 플래너 · 핀란드/파리 & 스페인/포르투갈 견적 및 일정">
-  <meta property="og:description" content="30대 부부+딸+60대 어머니 4인 여행. 웹투어 실견적 기반 항공·호텔·맛집·구글맵 연동 상세 일정.">
-  <meta property="og:type" content="website">
-
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/print.css" media="print">
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="color-scheme" content="light dark"/>
+<link rel="icon" href="data:,"/>
+<title>파리·바르셀로나 9일 여행 일정</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+<!-- Data & Base64 Fallback scripts (wedding/honeymoon pattern) -->
+<script src="data.js"></script>
+<script src="images_base64.js"></script>
+<style>
+:root{
+  --bg:#faf6ef; --surface:#fffdf8; --surface2:#f3ead9; --ink:#1d2733; --muted:#66707c;
+  --line:#e4d9c6; --accent:#b6502e; --accent-ink:#fff; --navy:#22405c; --gold:#a97b1f;
+  --ok:#1e7a4c; --warn:#b3261e; --chip:#efe6d3; --shadow:0 10px 30px rgba(60,40,10,.10);
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#141a21; --surface:#1c242e; --surface2:#232e3a; --ink:#eef1f4; --muted:#a7b2bd;
+  --line:#33404e; --accent:#e07a52; --accent-ink:#1c1410; --navy:#9db9d4; --gold:#d8ab4e;
+  --ok:#5cc98d; --warn:#ff8a80; --chip:#2a3644; --shadow:0 10px 30px rgba(0,0,0,.4); }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR",system-ui,sans-serif;font-size:16px;line-height:1.65;-webkit-text-size-adjust:100%}
+a{color:var(--accent);font-weight:700;text-underline-offset:3px}
+.wrap{max-width:880px;margin:0 auto;padding:0 16px 64px}
+.hero{padding:34px 0 8px}
+.hero .route{font-family:"Fraunces",serif;font-size:15px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase}
+h1{font-family:"Noto Serif KR",serif;font-size:34px;line-height:1.25;margin:8px 0 10px}
+.hero p{color:var(--muted);margin:0 0 14px;font-size:16.5px}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+.fact{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:9px 13px;font-size:14.5px;box-shadow:var(--shadow)}
+.fact b{color:var(--accent)}
+.dday{background:var(--navy);color:#fff;border-radius:14px;padding:14px 16px;margin:16px 0 4px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+@media (prefers-color-scheme: dark){.dday{background:#2c435c}}
+.dday .big{font-family:"Fraunces",serif;font-size:30px;font-weight:700}
+.dday small{opacity:.85}
+nav.tabs{position:sticky;top:0;z-index:20;background:var(--bg);padding:12px 0 10px;display:flex;gap:8px;flex-wrap:wrap}
+nav.tabs button{appearance:none;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font:inherit;font-weight:700;font-size:15px;padding:9px 16px;border-radius:999px;cursor:pointer;transition:all .2s ease}
+nav.tabs button:hover{border-color:var(--accent);color:var(--accent)}
+nav.tabs button[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+section.panel{display:none}
+section.panel.on{display:block}
+h2{font-family:"Noto Serif KR",serif;font-size:23px;margin:28px 0 6px}
+h2:first-child{margin-top:10px}
+.sub{color:var(--muted);margin:0 0 14px;font-size:15px}
+.day{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin:0 0 14px;box-shadow:var(--shadow);overflow:hidden}
+.day-photo{margin:-16px -18px 14px}
+.day-photo img{width:100%;height:210px;object-fit:cover;display:block}
+@media (max-width:640px){.day-photo img{height:168px}}
+.day-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;border-bottom:1px dashed var(--line);padding-bottom:9px;margin-bottom:11px}
+.day-head .dnum{font-family:"Fraunces",serif;font-weight:700;font-size:14px;color:var(--gold);letter-spacing:.08em}
+.day-head h3{margin:0;font-size:19px;font-family:"Noto Serif KR",serif}
+.day-head .city{margin-left:auto;font-size:13px;background:var(--chip);border-radius:999px;padding:3px 10px;font-weight:700}
+ul.tl{list-style:none;margin:0;padding:0}
+ul.tl li{display:flex;gap:12px;padding:8px 0;border-bottom:1px solid var(--line)}
+ul.tl li:last-child{border-bottom:none}
+ul.tl .t{flex:0 0 86px;font-weight:900;color:var(--navy);font-size:14.5px;padding-top:2px}
+ul.tl .what{flex:1}
+ul.tl .what small{display:block;color:var(--muted);font-size:13.5px;line-height:1.55;margin-top:2px}
+.tag{display:inline-block;font-size:12px;font-weight:800;border-radius:6px;padding:1px 7px;margin-left:6px;vertical-align:2px}
+.tag.book{background:#fde8e2;color:var(--warn)}
+.tag.incl{background:#e2f2e7;color:var(--ok)}
+@media (prefers-color-scheme: dark){.tag.book{background:#4a2a24}.tag.incl{background:#1f3a2a}}
+.note{background:var(--surface2);border-radius:12px;padding:12px 15px;font-size:14.5px;margin:12px 0}
+.note b{color:var(--accent)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin:0 0 14px;box-shadow:var(--shadow)}
+.card h3{margin:0 0 8px;font-size:18px;font-family:"Noto Serif KR",serif}
+.card p{margin:6px 0}
+table{width:100%;border-collapse:collapse;font-size:15px;margin:8px 0}
+th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:13px;color:var(--muted);letter-spacing:.04em}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:900;border-top:2px solid var(--ink);border-bottom:none}
+ul.check{list-style:none;margin:6px 0;padding:0}
+ul.check li{padding:7px 0 7px 30px;position:relative;border-bottom:1px solid var(--line)}
+ul.check li:last-child{border-bottom:none}
+ul.check li::before{content:"";position:absolute;left:2px;top:12px;width:14px;height:14px;border:2px solid var(--accent);border-radius:4px}
+ul.check li.done::before{background:var(--accent)}
+ul.check li.done::after{content:"✓";position:absolute;left:5px;top:4px;color:var(--surface);font-size:13px;font-weight:900}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:640px){.grid{grid-template-columns:1fr} h1{font-size:28px} ul.tl .t{flex-basis:70px}}
+.rest p{margin:4px 0}
+.rest .area{font-size:13px;color:var(--gold);font-weight:800;letter-spacing:.05em}
+footer{color:var(--muted);font-size:13px;margin-top:36px;border-top:1px solid var(--line);padding-top:14px}
+.btnrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink)!important;text-decoration:none;padding:9px 15px;border-radius:10px;font-size:14.5px}
+.btn.ghost{background:transparent;border:1.5px solid var(--accent);color:var(--accent)!important}
+.mapbtn{display:inline-flex;align-items:center;gap:4px;margin-top:6px;background:var(--surface2);border:1px solid var(--line);color:var(--navy)!important;text-decoration:none;font-size:13px;font-weight:700;padding:5px 10px;border-radius:999px}
+.mapbtn:hover{background:var(--chip)}
+.place-links{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.daytip{font-size:13.5px;color:var(--muted);background:var(--surface2);border-radius:10px;padding:9px 12px;margin-top:10px}
+.flight-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin:0 0 14px;box-shadow:var(--shadow)}
+.flight-header,.flight-route{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.flight-header{font-weight:800}
+.flight-tag{border-radius:999px;background:var(--chip);color:var(--accent);padding:3px 10px;font-size:13px;white-space:nowrap}
+.flight-route{padding:16px 0}
+.flight-end{flex:1;min-width:0;text-align:center}
+.flight-end strong{display:block;font-family:"Fraunces",serif;font-size:28px;line-height:1.2}
+.flight-end small,.flight-mid small{display:block;color:var(--muted);font-size:12px}
+.flight-end time{display:block;color:var(--navy);font-weight:800;font-size:14px}
+.flight-mid{text-align:center;min-width:90px;color:var(--accent);font-size:22px}
+.flight-note{border-top:1px dashed var(--line);padding-top:10px;font-size:13px;color:var(--muted)}
+.ticket-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.ticket-links a{display:inline-block;background:var(--accent);color:var(--accent-ink);text-decoration:none;padding:7px 11px;border-radius:8px;font-size:13px;font-weight:700}
+.ticket-links a:focus-visible,nav.tabs button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+</style>
 </head>
 <body>
+<div class="wrap">
 
-  <!-- Navigation Bar -->
-  <nav class="navbar">
-    <div class="container nav-container">
-      <a href="index.html" class="brand-logo">
-        <div class="brand-icon">✈️</div>
-        <div>
-          <div style="display: flex; align-items: center; gap: 8px;">
-            <span class="brand-title">Travel Planner</span>
-            <span class="brand-tag">2026/2027</span>
-          </div>
-        </div>
-      </a>
+<header class="hero" id="app-hero">
+  <!-- Rendered dynamically from data.json -->
+</header>
 
-      <div class="nav-actions">
-        <!-- Destination Selector Tabs -->
-        <div class="destination-tabs" id="destinationTabs">
-          <button class="tab-btn active" data-id="finland_paris_asiana">
-            <span>🇫🇮🇫🇷 핀란드·파리 (아시아나 귀국)</span>
-            <span class="tab-badge">2/5~2/12</span>
-          </button>
-          <button class="tab-btn" data-id="finland_paris_finnair">
-            <span>🇫🇮🇫🇷 핀란드·파리 (핀에어 왕복)</span>
-            <span class="tab-badge">2/5~2/12</span>
-          </button>
-          <button class="tab-btn" data-id="spain_portugal">
-            <span>🇪🇸🇵🇹 스페인·포르투갈 (대한항공)</span>
-            <span class="tab-badge">2/5~2/12</span>
-          </button>
-          <button class="tab-btn" data-id="rome">
-            <span>🇮🇹 로마</span>
-            <span class="tab-badge">2/3~2/7</span>
-          </button>
-          <button class="tab-btn" data-id="rome_milan">
-            <span>🇮🇹 로마-밀라노</span>
-            <span class="tab-badge">2/3~2/8</span>
-          </button>
-          <button class="tab-btn" data-id="barcelona">
-            <span>🇪🇸 바르셀로나</span>
-            <span class="tab-badge">2/3~2/7</span>
-          </button>
-          <button class="tab-btn" data-id="hawaii">
-            <span>🇺🇸 하와이</span>
-            <span class="tab-badge">2/3~2/8</span>
-          </button>
-          <button class="tab-btn" data-id="guam">
-            <span>🇬🇺 괌</span>
-            <span class="tab-badge">2/5~2/8</span>
-          </button>
-        </div>
+<nav class="tabs" role="tablist" aria-label="여행 정보 탭">
+  <button role="tab" aria-selected="true" data-tab="itinerary">📅 일정표</button>
+  <button role="tab" aria-selected="false" data-tab="booking">🎟️ 예약·준비</button>
+  <button role="tab" aria-selected="false" data-tab="food">🍽️ 식당·예산</button>
+  <button role="tab" aria-selected="false" data-tab="shopping">🛍️ 쇼핑</button>
+</nav>
 
-        <!-- Theme Toggle Button -->
-        <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="테마 전환">
-          <span id="themeToggleIcon">☀️</span>
-          <span id="themeToggleText">화이트 모드</span>
-        </button>
+<!-- 일정표 -->
+<section class="panel on" id="panel-itinerary" role="tabpanel">
+  <!-- Rendered dynamically -->
+</section>
+
+<!-- 예약·준비 -->
+<section class="panel" id="panel-booking" role="tabpanel">
+  <!-- Rendered dynamically -->
+</section>
+
+<!-- 식당·예산 -->
+<section class="panel" id="panel-food" role="tabpanel">
+  <!-- Rendered dynamically -->
+</section>
+
+<!-- 쇼핑 -->
+<section class="panel" id="panel-shopping" role="tabpanel">
+  <!-- Rendered dynamically -->
+</section>
+
+<footer id="app-footer">
+  <!-- Rendered dynamically -->
+</footer>
+</div>
+
+<script>
+let travelData = null;
+let imageBase64Map = {};
+
+// Register base64 images map (similar to wedding/honeymoon loadVouchers)
+function registerBase64Images(imgArray) {
+  if (Array.isArray(imgArray)) {
+    imgArray.forEach(function(item) {
+      if (item.file && item.base64) {
+        imageBase64Map[item.file] = item.base64;
+        const filename = item.file.split("/").pop();
+        imageBase64Map[filename] = item.base64;
+      }
+    });
+  }
+}
+
+// Fallback image error handler
+function handleImageError(imgEl, originalFile) {
+  imgEl.onerror = null;
+  const filename = originalFile.split("/").pop();
+  if (imageBase64Map[filename]) {
+    imgEl.src = "data:image/jpeg;base64," + imageBase64Map[filename];
+  }
+}
+
+// Load data and base64 images
+async function loadVouchers(filePath = "images_base64.json") {
+  try {
+    const res = await fetch(filePath);
+    if (res.ok) {
+      const data = await res.json();
+      registerBase64Images(data);
+    }
+  } catch (e) {
+    // console.log("Fetch images_base64.json failed, falling back to window.TRAVEL_IMAGES");
+  }
+  if (typeof window !== "undefined" && window.TRAVEL_IMAGES) {
+    registerBase64Images(window.TRAVEL_IMAGES);
+  }
+}
+
+async function loadItineraryData(filePath = "data.json") {
+  try {
+    const res = await fetch(filePath);
+    if (res.ok) {
+      return await res.json();
+    }
+  } catch (e) {
+    // console.log("Fetch data.json failed, falling back to window.TRAVEL_DATA");
+  }
+  if (typeof window !== "undefined" && window.TRAVEL_DATA) {
+    return window.TRAVEL_DATA;
+  }
+  return null;
+}
+
+// UI Renderers
+function renderHero(meta) {
+  const heroEl = document.getElementById("app-hero");
+  if (!heroEl || !meta) return;
+
+  const factsHtml = (meta.facts || []).map(f => {
+    return `<span class="fact">${f.icon} ${f.label ? f.label + " " : ""}<b>${f.text || f.value}</b></span>`;
+  }).join("");
+
+  heroEl.innerHTML = `
+    <div class="route">${meta.route}</div>
+    <h1>${meta.title}</h1>
+    <p>${meta.description}</p>
+    <div class="facts">${factsHtml}</div>
+    <div class="dday">
+      <div>
+        <small>출발까지</small>
+        <div class="big" id="dday">D-—</div>
+      </div>
+      <div style="text-align:right">
+        <small>잔금 마감</small>
+        <div style="font-weight:900;font-size:18px">${meta.dday.balanceDeadline}</div>
+        <small>${meta.dday.depositNote || meta.dday.depositStatus || ""}</small>
       </div>
     </div>
-  </nav>
+  `;
+}
 
-  <!-- Main Content Container (Populated via JS) -->
-  <main class="container main-content" id="mainContentArea">
-    <!-- Dynamic Content Loaded by travel-data.js & main.js -->
-  </main>
+function renderItinerary(itinerary) {
+  const panel = document.getElementById("panel-itinerary");
+  if (!panel || !itinerary) return;
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <p style="margin-bottom: 8px;">✈️ Family Travel Budget & Itinerary Planner | 괌 6인 · 그 외 여행지 4인 기준</p>
-      <p>여행지별 항공 조건과 예상 경비 기준 · 로마·바르셀로나·하와이·괌 · 최종 운임과 현지 비용은 예약 시 확인</p>
+  let html = `
+    <h2>${itinerary.title}</h2>
+    <p class="sub">${itinerary.subtitle}</p>
+  `;
+
+  (itinerary.days || []).forEach(day => {
+    let timelineHtml = "";
+    (day.timeline || []).forEach(item => {
+      const tagsHtml = (item.tags || []).map(t => `<span class="tag ${t.type}">${t.text}</span>`).join(" ");
+      const linksHtml = (item.links || []).length > 0 ? `
+        <span class="place-links">
+          ${item.links.map(l => `<a class="mapbtn" href="${l.url}" target="_blank" rel="noopener">${l.text}</a>`).join("")}
+        </span>
+      ` : "";
+
+      timelineHtml += `
+        <li>
+          <span class="t">${item.time}</span>
+          <span class="what">
+            <b>${item.title}</b>${tagsHtml ? " " + tagsHtml : ""}
+            ${item.desc ? `<small>${item.desc}</small>` : ""}
+            ${linksHtml}
+          </span>
+        </li>
+      `;
+    });
+
+    const tipHtml = day.tip ? `<div class="daytip">${day.tip}</div>` : "";
+
+    html += `
+      <article class="day">
+        <figure class="day-photo">
+          <img src="${day.image}" alt="${day.imageAlt}" loading="lazy" onerror="handleImageError(this, '${day.image}')"/>
+        </figure>
+        <div class="day-head">
+          <span class="dnum">${day.dayNum}</span>
+          <h3>${day.title}</h3>
+          <span class="city">${day.city}</span>
+        </div>
+        <ul class="tl">
+          ${timelineHtml}
+        </ul>
+        ${tipHtml}
+      </article>
+    `;
+  });
+
+  panel.innerHTML = html;
+}
+
+function renderBookings(bookings) {
+  const panel = document.getElementById("panel-booking");
+  if (!panel || !bookings) return;
+
+  const cardsHtml = (bookings.items || []).map(item => {
+    const btnRow = (item.buttons || []).map(b => {
+      const ghostClass = b.type === "ghost" ? " ghost" : "";
+      return `<a class="btn${ghostClass}" href="${b.url}" target="_blank" rel="noopener">${b.label}</a>`;
+    }).join("");
+
+    return `
+      <div class="card">
+        <h3>${item.title}</h3>
+        <p>${item.desc}</p>
+        <div class="btnrow">${btnRow}</div>
+      </div>
+    `;
+  }).join("");
+
+  const checklistHtml = (bookings.checklist || []).map(c => {
+    const doneClass = c.done ? " class=\"done\"" : "";
+    return `<li${doneClass}>${c.text}</li>`;
+  }).join("");
+
+  const flightHtml = (travelData.flights || []).map(f => `
+    <article class="flight-card">
+      <div class="flight-header"><span>✈️ ${f.airline} ${f.number}</span><span class="flight-tag">${f.tag}</span></div>
+      <div class="flight-route">
+        <div class="flight-end"><strong>${f.from}</strong><small>${f.fromCity}</small><time>${f.departure}</time></div>
+        <div class="flight-mid" aria-hidden="true">✈<small>${f.duration}</small></div>
+        <div class="flight-end"><strong>${f.to}</strong><small>${f.toCity}</small><time>${f.arrival}</time></div>
+      </div>
+      <div class="flight-note">${f.note}</div>
+      <div class="ticket-links" aria-label="${f.number} 승객별 티켓">
+        ${f.tickets.map(id => {
+          const ticket = travelData.tickets.find(t => t.id === id);
+          return `<a href="ticket.html?id=${ticket.id}" aria-label="${f.number} ${ticket.name} 티켓 상세보기">🎫 ${ticket.name} 상세보기</a>`;
+        }).join("")}
+      </div>
+    </article>
+  `).join("");
+
+  panel.innerHTML = `
+    <h2>✈️ 항공편 일정 · 승객별 티켓</h2>
+    <p class="sub">티켓을 누르면 해당 승객의 원본 항공권 또는 탑승권을 크게 볼 수 있습니다.</p>
+    ${flightHtml}
+    <h2>${bookings.title}</h2>
+    <p class="sub">${bookings.subtitle}</p>
+    <div class="grid">${cardsHtml}</div>
+    <h2>${bookings.checklistTitle}</h2>
+    <div class="card">
+      <ul class="check">${checklistHtml}</ul>
     </div>
-  </footer>
+  `;
+}
 
-  <!-- Lightbox Fullscreen Photo Modal -->
-  <div class="lightbox-modal" id="lightboxModal">
-    <button class="lightbox-close-btn" id="lightboxCloseBtn">&times;</button>
-    <div class="lightbox-img-wrapper">
-      <img id="lightboxImg" src="" alt="Photo Preview">
+function renderFoodAndBudget(fb) {
+  const panel = document.getElementById("panel-food");
+  if (!panel || !fb) return;
+
+  const restsHtml = (fb.restaurants || []).map(r => `
+    <div class="card rest">
+      <div class="area">${r.area}</div>
+      <h3>${r.name}</h3>
+      <p>${r.desc}</p>
+      <a href="${r.url}" target="_blank" rel="noopener">구글맵에서 보기 →</a>
     </div>
-    <div class="lightbox-caption" id="lightboxCaption"></div>
-  </div>
+  `).join("");
 
-  <!-- Scripts -->
-  <script src="js/travel-data.js"></script>
-  <script src="js/main.js"></script>
+  // Confirmed Budget Table
+  const conf = fb.confirmedBudget;
+  const confRows = (conf.rows || []).map(r => {
+    const totalClass = r.isTotal ? " class=\"total\"" : "";
+    return `<tr${totalClass}><td>${r.item}</td><td class="num">${r.amount}</td></tr>`;
+  }).join("");
+
+  // Estimated Budget Table
+  const est = fb.estimatedBudget;
+  const estRows = (est.rows || []).map(r => {
+    const totalClass = r.isTotal ? " class=\"total\"" : "";
+    return `<tr${totalClass}><td>${r.item}</td><td>${r.memo || ""}</td><td class="num">${r.amount}</td></tr>`;
+  }).join("");
+
+  // Payment Tips
+  const payTips = (fb.paymentTips && fb.paymentTips.items || []).map(t => `<li>${t}</li>`).join("");
+
+  // Budget Checkpoints
+  const chkPoints = (fb.budgetCheckpoints && fb.budgetCheckpoints.items || []).map(p => {
+    const doneClass = p.done ? " class=\"done\"" : "";
+    return `<li${doneClass}>${p.text}</li>`;
+  }).join("");
+
+  panel.innerHTML = `
+    <h2>${fb.restaurantsTitle}</h2>
+    <p class="sub">${fb.restaurantsSubtitle}</p>
+    <div class="grid">${restsHtml}</div>
+
+    <h2>예산 정리 (4인)</h2>
+    <div class="card">
+      <h3>${conf.title}</h3>
+      <table>
+        <tr><th>항목</th><th class="num">금액</th></tr>
+        ${confRows}
+      </table>
+      <div class="note">${conf.note}</div>
+    </div>
+
+    <div class="card">
+      <h3>${est.title}</h3>
+      <p style="color:var(--muted);font-size:14.5px;margin-top:2px">${est.subtitle}</p>
+      <table>
+        <tr><th>항목</th><th>메모</th><th class="num">4인 예상</th></tr>
+        ${estRows}
+      </table>
+      <div class="note">${est.note}</div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>${fb.paymentTips.title}</h3>
+        <ul class="check">${payTips}</ul>
+      </div>
+      <div class="card">
+        <h3>${fb.budgetCheckpoints.title}</h3>
+        <ul class="check">${chkPoints}</ul>
+      </div>
+    </div>
+  `;
+}
+
+function renderShopping(shopping) {
+  const panel = document.getElementById("panel-shopping");
+  if (!panel || !shopping) return;
+
+  const parisItems = (shopping.paris.items || []).map(item => {
+    const linkHtml = item.link ? ` <a class="mapbtn" href="${item.link.url}" target="_blank" rel="noopener">${item.link.text}</a>` : "";
+    return `<li>${item.text}${linkHtml}</li>`;
+  }).join("");
+
+  panel.innerHTML = `
+    <h2>${shopping.paris.title}</h2>
+    <p class="sub">${shopping.paris.subtitle}</p>
+    <div class="card">
+      <h3>${shopping.paris.cardTitle}</h3>
+      <ul class="check">${parisItems}</ul>
+      <div class="note">${shopping.paris.note}</div>
+    </div>
+    <div class="card">
+      <h3>${shopping.barcelona.title}</h3>
+      <p>${shopping.barcelona.desc}</p>
+      <a href="${shopping.barcelona.link.url}" target="_blank" rel="noopener">${shopping.barcelona.link.text}</a>
+    </div>
+  `;
+}
+
+function renderFooter(footerHtml) {
+  const f = document.getElementById("app-footer");
+  if (f && footerHtml) {
+    f.innerHTML = footerHtml;
+  }
+}
+
+function updateDDay(targetDateStr) {
+  const ddayEl = document.getElementById("dday");
+  if (!ddayEl) return;
+  const target = new Date(targetDateStr || "2027-02-06T10:05:00+09:00");
+  const now = new Date();
+  const days = Math.ceil((target - now) / 86400000);
+  ddayEl.textContent = days > 0 ? "D-" + days : (days === 0 ? "D-Day" : "출발 완료");
+}
+
+function initTabs() {
+  const tabs = document.querySelectorAll("nav.tabs button");
+  const initialTab = document.querySelector(`nav.tabs button[data-tab="${location.hash.slice(1)}"]`);
+  if (initialTab) {
+    tabs.forEach(x => x.setAttribute("aria-selected", "false"));
+    initialTab.setAttribute("aria-selected", "true");
+    document.querySelectorAll("section.panel").forEach(p => p.classList.remove("on"));
+    document.getElementById("panel-" + initialTab.dataset.tab).classList.add("on");
+  }
+  tabs.forEach(function(b) {
+    b.addEventListener("click", function() {
+      tabs.forEach(function(x) { x.setAttribute("aria-selected", "false"); });
+      b.setAttribute("aria-selected", "true");
+      document.querySelectorAll("section.panel").forEach(function(p) { p.classList.remove("on"); });
+      const targetPanel = document.getElementById("panel-" + b.getAttribute("data-tab"));
+      if (targetPanel) targetPanel.classList.add("on");
+      window.scrollTo({top: 0, behavior: "smooth"});
+    });
+  });
+}
+
+// Master Initialization on window load (wedding/honeymoon pattern)
+window.onload = function() {
+  loadVouchers();
+  loadItineraryData().then(data => {
+    travelData = data;
+    if (travelData) {
+      renderHero(travelData.meta);
+      renderItinerary(travelData.itinerary);
+      renderBookings(travelData.bookings);
+      renderFoodAndBudget(travelData.foodAndBudget);
+      renderShopping(travelData.shopping);
+      renderFooter(travelData.meta.footer);
+      updateDDay(travelData.meta.dday.targetDate);
+    }
+    initTabs();
+  });
+};
+</script>
 </body>
 </html>
