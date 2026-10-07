@@ -29,6 +29,7 @@
       <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
         <a href="summary/index.html" class="btn btn-outline btn-sm" style="display: inline-flex; align-items: center; gap: 4px; border-radius: var(--radius-full); font-weight: 700;">📚 전과목 요약집</a>
         <a href="one-week/index.html" class="btn btn-outline btn-sm" style="display: inline-flex; align-items: center; gap: 4px; border-radius: var(--radius-full); font-weight: 700;">🗓️ 1주 완성 개념정리</a>
+        <a href="incorrect/index.html" class="btn btn-outline btn-sm" style="display: inline-flex; align-items: center; gap: 4px; border-radius: var(--radius-full); font-weight: 700;">🎯 오답 115제 약점정리</a>
         <a href="lecture/index.html" class="btn btn-outline btn-sm" style="display: inline-flex; align-items: center; gap: 4px; border-radius: var(--radius-full); font-weight: 700;">🎓 2026 과목별 강의</a>
         <a href="special/index.html" class="btn btn-outline btn-sm" style="display: inline-flex; align-items: center; gap: 4px; border-radius: var(--radius-full); font-weight: 700;">📖 마무리 특강</a>
         <a href="checkpoint/index.html" class="btn btn-outline btn-sm" style="display: inline-flex; align-items: center; gap: 4px; border-radius: var(--radius-full); font-weight: 700;">✅ 핵심 체크포인트</a>
@@ -48,6 +49,9 @@
         </a>
         <a href="one-week/index.html" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px; text-decoration: none; padding: 12px 22px; font-size: 0.95rem; border-radius: 30px; background: linear-gradient(135deg, #0d5b5e, #14b8a6); box-shadow: 0 4px 15px rgba(13, 91, 94, 0.35);">
           <span>🗓️</span> 1주 완성 개념정리 ➔
+        </a>
+        <a href="incorrect/index.html" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px; text-decoration: none; padding: 12px 22px; font-size: 0.95rem; border-radius: 30px; background: linear-gradient(135deg, #b45309, #d97706); box-shadow: 0 4px 15px rgba(180, 83, 9, 0.35);">
+          <span>🎯</span> 오답 115제 약점 개념정리 ➔
         </a>
         <a href="lecture/index.html" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px; text-decoration: none; padding: 12px 22px; font-size: 0.95rem; border-radius: 30px; background: linear-gradient(135deg, #0f766e, #14b8a6); box-shadow: 0 4px 15px rgba(13, 148, 136, 0.3);">
           <span>🎓</span> 2026 과목별 핵심 강의 ➔
@@ -427,6 +431,7 @@
 
       </div>
       <div class="modal-footer" style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end;">
+        <a href="incorrect/index.html" target="_blank" class="btn btn-outline" style="text-decoration: none; display: inline-flex; align-items: center; gap: 4px; border-color: #b45309; color: #b45309; font-weight: 700;">🎯 오답 115제 약점노트</a>
         <button id="btnExportWrongPdf" class="btn btn-primary" style="background: linear-gradient(135deg, #ef4444, #dc2626); border-color: #dc2626; border-radius: var(--radius-md); font-weight: 700;">📄 오답 노트 확인 & PDF 다운로드</button>
         <button id="btnReviewWrong" class="btn btn-outline">📝 오답 문제로 이동</button>
         <button id="btnRestart" class="btn btn-outline">🔄 다시 풀기</button>
@@ -445,7 +450,8 @@
             <p id="wrongModalSubtitle" style="margin: 2px 0 0 0; font-size: 0.82rem; color: var(--text-secondary);">틀린 문제 및 미응답 문제 상세 복습</p>
           </div>
         </div>
-        <div style="display: flex; gap: 8px; align-items: center;">
+        <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+          <a href="incorrect/index.html" target="_blank" class="btn btn-outline btn-sm" style="border-color: #b45309; color: #b45309; font-weight: 700; text-decoration: none; padding: 0.4rem 0.85rem; display: inline-flex; align-items: center; gap: 4px;">🎯 약점 개념정리</a>
           <button id="btnWrongModalPrint" class="btn btn-primary btn-sm" style="background: #2563eb; border-color: #2563eb; font-weight: 700; padding: 0.4rem 0.85rem;">🖨️ PDF 저장 / 인쇄</button>
           <button id="btnWrongModalDownload" class="btn btn-outline btn-sm" style="font-weight: 700; padding: 0.4rem 0.85rem;">📥 PDF 파일 다운로드</button>
           <button id="closeWrongModal" class="modal-close" style="font-size: 1.6rem; background: none; border: none; cursor: pointer; color: var(--text-secondary); margin-left: 6px;">&times;</button>
