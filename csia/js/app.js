@@ -327,23 +327,47 @@ document.addEventListener('DOMContentLoaded', () => {
     return `<details class="source-reference"><summary>${escapeHtml(label)} 확인</summary>${sourceImages(paths, label)}</details>`;
   }
 
-  function questionTables(tables) {
-    return (tables || []).map(table => `
-      <div class="question-table-wrap" role="region" aria-label="${escapeHtml(table.caption || '자료 표')}" tabindex="0">
+  function questionTableMarkup(headers, rows, caption = '') {
+    return `
+      <div class="question-table-wrap" role="region" aria-label="${escapeHtml(caption || '자료 표')}" tabindex="0">
         <table class="question-table">
-          ${table.caption ? `<caption>${escapeHtml(table.caption)}</caption>` : ''}
-          <thead><tr>${table.headers.map(header => `<th scope="col">${escapeHtml(header)}</th>`).join('')}</tr></thead>
-          <tbody>${table.rows.map(row => `<tr>${row.map((cell, index) => {
+          ${caption ? `<caption>${escapeHtml(caption)}</caption>` : ''}
+          <thead><tr>${headers.map(header => `<th scope="col">${escapeHtml(header)}</th>`).join('')}</tr></thead>
+          <tbody>${rows.map(row => `<tr>${row.map((cell, index) => {
             const tag = index === 0 ? 'th' : 'td';
             const numeric = /^[+-]?\d[\d,.%]*$/.test(cell);
             return `<${tag}${index === 0 ? ' scope="row"' : ''} class="${numeric ? 'numeric-cell' : ''}">${escapeHtml(cell)}</${tag}>`;
           }).join('')}</tr>`).join('')}</tbody>
         </table>
-      </div>`.trim()).join('');
+      </div>`.trim();
+  }
+
+  function questionTables(tables) {
+    return (tables || []).map(table => questionTableMarkup(table.headers, table.rows, table.caption)).join('');
+  }
+
+  function pipeTable(value) {
+    if (typeof value !== 'string') return '';
+
+    const lines = value.split(/\r?\n/).map(line => line.trim()).filter(Boolean);
+    const hasLeadingPipes = lines.every(line => line.startsWith('|'));
+    const hasTrailingPipes = lines.every(line => line.endsWith('|'));
+    const rows = lines.map(line => {
+      const normalized = hasLeadingPipes ? line.slice(1) : line;
+      const withoutTrailingPipe = hasTrailingPipes ? normalized.slice(0, -1) : normalized;
+      const cells = withoutTrailingPipe.split('|');
+      return cells.map(cell => cell.trim());
+    });
+    const isSeparator = row => row.every(cell => /^:?-{3,}:?$/.test(cell));
+
+    if (rows.length < 2 || rows.some(row => row.length < 2 || row.length !== rows[0].length)) return '';
+    const bodyRows = rows.slice(1).filter(row => !isSeparator(row));
+    return questionTableMarkup(rows[0], bodyRows);
   }
 
   function questionConditions(q) {
-    return (q.box ? `<div class="condition-text">${escapeHtml(q.box)}</div>` : '') + questionTables(q.tables);
+    const boxTable = q.box ? pipeTable(q.box) : '';
+    return (q.box && !boxTable ? `<div class="condition-text">${escapeHtml(q.box)}</div>` : boxTable) + questionTables(q.tables);
   }
 
   function explanationSources(q) {
