@@ -14,11 +14,11 @@ for (const name of ['data.js', 'concepts.js', 'explanations.js', 'common.js', 's
 const {exams, concepts, topics, grade, validAttempt, questionImage, attemptKey, readAttempt, save, conceptLinks} = context.window.HistoryApp;
 const explanations = context.window.HISTORY_EXPLANATIONS;
 const visuals = context.window.HistoryStudyVisuals;
-assert.equal(exams.length, 8);
+assert.equal(exams.length, 10);
 assert.equal(concepts.length, 65);
-assert.equal(exams.reduce((count, exam) => count + exam.questions.length, 0), 400);
-assert.equal(Object.keys(topics).length, 400);
-assert.equal(Object.keys(explanations).length, 400);
+assert.equal(exams.reduce((count, exam) => count + exam.questions.length, 0), 500);
+assert.equal(Object.keys(topics).length, 500);
+assert.equal(Object.keys(explanations).length, 500);
 const conceptIds = new Set(concepts.map(concept => concept.id));
 assert.equal(conceptIds.size, concepts.length);
 const questionIds = new Set();
@@ -155,4 +155,4 @@ for (const name of ['index.html','test/index.html','study/index.html']) {
     assert.ok(fs.existsSync(path.resolve(root,path.dirname(name),match[1])), `${name} local reference: ${match[1]}`);
   }
 }
-console.log(`PASS: ${exams.length} exams, 400 complete crops and PDF explanations, official answers/weights, ${concepts.length} linked lessons, source assets, scoring, state validation, independent exam/practice records and mode-aware navigation.`);
+console.log(`PASS: ${exams.length} exams, 500 complete crops and PDF explanations, official answers/weights, ${concepts.length} linked lessons, source assets, scoring, state validation, independent exam/practice records and mode-aware navigation.`);

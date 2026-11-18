@@ -527,6 +527,18 @@ window.HISTORY_CONCEPTS = [
 // 문화유산·연표·비교형 문항은 필요한 경우 복수 개념으로 연결한다.
 (function () {
   const rounds = {
+    61: [
+      'bronze-age', 'goguryeo', 'early-states', 'ancient-heritage', 'baekje',
+      'unification', 'unification', 'ancient-buddhism', 'balhae', 'goryeo-unrest',
+      'goryeo-foundation', 'goryeo-culture', 'goryeo-economy', 'goryeo-jurchen', 'records-printing',
+      'goryeo-unrest', 'goryeo-administration', 'goryeo-unrest', 'joseon-foundation', 'joseon-administration',
+      'imjin-war', 'joseon-administration', 'joseon-social-change', 'joseon-economy', 'silhak',
+      'joseon-social-change', 'early-modernization', 'daewongun', 'early-modernization', 'early-modernization',
+      'peasant-uprisings', 'sarim', 'independence-club', 'korean-empire-life', 'korean-empire-life',
+      'armed-independence', 'armed-independence', 'colonial-culture', 'colonial-rule', 'colonial-rule',
+      'local-customs', 'heroic-struggle', 'armed-independence', 'liberation', 'democratization',
+      'reunification', 'civilian-governments', 'economic-development', 'goryeo-economy', 'local-customs'
+    ],
     64: [
       'bronze-age', 'early-states', 'baekje', 'unification', 'silla',
       'ancient-heritage', 'late-silla', 'late-silla', 'balhae', 'goryeo-administration',
@@ -562,6 +574,18 @@ window.HISTORY_CONCEPTS = [
       'march-first', 'social-national-movements', 'colonial-culture heroic-struggle', 'heroic-struggle', 'colonial-rule provisional-government',
       'liberation', 'liberation', 'korean-war sovereignty-armies', 'april-revolution', 'reunification civilian-governments',
       'economic-development', 'economic-development', 'joseon-social-change', 'local-customs imjin-war', 'local-customs'
+    ],
+    69: [
+      'paleolithic', 'gojoseon', 'gaya', 'silla', 'baekje',
+      'goguryeo', 'ancient-buddhism', 'balhae', 'late-silla', 'late-silla',
+      'goryeo-khitan', 'goryeo-economy', 'goryeo-unrest', 'goryeo-unrest', 'goryeo-mongol',
+      'goryeo-buddhism', 'joseon-foundation', 'sejong', 'sarim', 'imjin-war',
+      'joseon-foundation', 'sarim', 'peasant-uprisings', 'joseon-administration', 'joseon-administration',
+      'joseon-economy', 'yeongjo-jeongjo', 'sarim', 'early-modernization', 'donghak-reforms',
+      'enlightenment-movements', 'armed-independence', 'sovereignty-armies', 'armed-independence', 'heroic-struggle',
+      'liberation', 'provisional-government', 'colonial-rule', 'social-national-movements', 'colonial-rule',
+      'liberation', 'social-national-movements', 'korean-war', 'democratization', 'economic-development',
+      'goryeo-reforms', 'local-customs', 'late-silla', 'sejong', 'local-customs'
     ],
     71: [
       'neolithic', 'early-states', 'silla', 'baekje', 'gaya',

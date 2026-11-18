@@ -109,7 +109,7 @@ for (const exam of exams) {
   }
 }
 
-assert.equal(Object.keys(explanations).length, 400, 'All 400 explanations present');
+assert.equal(Object.keys(explanations).length, 500, 'All 500 explanations present');
 assert.deepEqual(disagreements, [
   '67-10: source 1, official 2',
   '71-11: source 4, official 3',
@@ -128,5 +128,5 @@ if (process.argv.includes('--check')) {
 } else {
   fs.writeFileSync(target, output);
 }
-console.log(`PASS: 400 explanations; all official answers/points checked; ${spanningQuestions} cross-page explanations; source characters, boundaries, pages and NFD filenames verified.`);
+console.log(`PASS: 500 explanations; all official answers/points checked; ${spanningQuestions} cross-page explanations; source characters, boundaries, pages and NFD filenames verified.`);
 for (const issue of disagreements) console.warn(`SOURCE NUMBERING CORRECTED: ${issue}; original wording retained separately.`);
