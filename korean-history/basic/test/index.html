@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="한국사능력검정시험 기본 64·66·67·71·73·75·77·79회 원본 400문항. 타이머, 공식 배점 채점, 오답과 개념 복습.">
+  <meta name="description" content="한국사 기본 원본 400문항. 70분 시험 모드와 답을 고르면 바로 해설을 확인하는 연습 모드, 공식 배점 채점과 개념 복습.">
   <meta property="og:title" content="기출 모의고사 · 한국사 한 걸음">
   <meta property="og:description" content="8개 회차, 400문항을 원본 그대로 풀어보세요.">
   <title>기출 모의고사 · 한국사 한 걸음</title>
@@ -19,15 +19,22 @@
   <a class="skip" href="#main">문제로 건너뛰기</a>
   <header class="topbar"><div class="topbar-inner">
     <a class="brand" href="../index.html"><span class="brand-symbol" aria-hidden="true">史</span><span>한국사 한 걸음<small>KOREAN HISTORY · BASIC</small></span></a>
-    <nav class="nav" aria-label="주요 메뉴"><a href="index.html" aria-current="page">모의고사</a><a href="../study/index.html">개념 학습</a></nav>
+    <nav class="nav" aria-label="주요 메뉴"><a id="test-nav" href="index.html" aria-current="page">모의고사</a><a id="study-nav" href="../study/index.html">개념 학습</a></nav>
   </div></header>
   <main class="container" id="main">
     <div id="storage-notice" class="notice" role="status" hidden></div>
     <noscript><p class="notice">모의고사에는 JavaScript가 필요합니다. <a href="../pdf/">원본 PDF 폴더</a>에서 문제지와 정답표를 확인할 수 있습니다.</p></noscript>
+    <div class="mode-panel">
+      <div id="mode-switch" class="mode-switch" role="group" aria-label="풀이 모드 선택" aria-describedby="mode-description">
+        <button type="button" data-mode="exam" aria-pressed="true">시험 모드</button>
+        <button type="button" data-mode="practice" aria-pressed="false">연습 모드 · 즉시 해설</button>
+      </div>
+      <p id="mode-description">시험 모드는 제출 후 해설이 공개됩니다. 모드별 답안은 따로 저장되며, 시험 시간은 다른 화면에서도 흐릅니다.</p>
+    </div>
     <section id="lobby">
       <div class="hero">
-        <div><span class="eyebrow">PRACTICE / 한국사능력검정시험 기본</span><h1>한 문제씩,<br><em>역사에 가까워지기.</em></h1><p>지도와 사진까지 원본 그대로. 기출을 풀고 헷갈린 개념을 다시 연결해 보세요.</p><div class="stats"><div><strong>8</strong><span>기출 회차</span></div><div><strong>50</strong><span>회차별 문항</span></div><div><strong>70<span class="sr-only">분</span></strong><span>제한 시간 · 분</span></div></div></div>
-        <aside class="hero-card"><span class="eyebrow">YOUR STUDY ROUTINE</span><h2>풀고, 확인하고,<br>내 것으로 만들기.</h2><p>답안과 남은 시간을 이 브라우저에 저장합니다. 시험을 마치면 오답에서 관련 개념으로 바로 이동할 수 있어요.</p><a href="../study/index.html">먼저 개념 살펴보기 →</a></aside>
+        <div><span class="eyebrow">PRACTICE / 한국사능력검정시험 기본</span><h1>한 문제씩,<br><em>역사에 가까워지기.</em></h1><p>지도와 사진까지 원본 그대로. 기출을 풀고 헷갈린 개념을 다시 연결해 보세요.</p><div class="stats"><div><strong>8</strong><span>기출 회차</span></div><div><strong>50</strong><span>회차별 문항</span></div><div><strong id="time-limit-value">70분</strong><span>제한 시간</span></div></div></div>
+        <aside class="hero-card"><span class="eyebrow">YOUR STUDY ROUTINE</span><h2>풀고, 확인하고,<br>내 것으로 만들기.</h2><p id="mode-summary">답안과 남은 시간을 이 브라우저에 저장합니다. 시험을 마치면 오답에서 관련 개념으로 바로 이동할 수 있어요.</p><a id="study-intro" href="../study/index.html">먼저 개념 살펴보기 →</a></aside>
       </div>
       <div class="section-title"><h2>어느 회차를 풀어볼까요?</h2><p>공식 정답표 기준 · 100점 만점</p></div>
       <div id="exam-list" class="exam-grid"></div>
@@ -49,7 +56,7 @@
           <h2>나의 답안</h2><div class="answer-stats"><span id="answered-label">0 / 50 응답</span><span id="marked-label">다시 볼 문제 0</span></div>
           <progress id="answer-progress" class="progress" max="50" value="0" aria-label="응답한 문항 수"></progress>
           <div id="number-grid" class="number-grid"></div>
-          <p class="legend">초록: 응답 완료 · 주황 점: 다시 보기<br>채점 후 빨강: 오답 또는 미응답</p>
+          <p class="legend" id="answer-legend">초록: 응답 완료 · 주황 점: 다시 보기<br>채점 후 빨강: 오답 또는 미응답</p>
           <button type="button" id="submit-exam" class="button">답안 제출하고 채점</button>
           <button type="button" id="restart" class="button quiet">이 회차 처음부터</button>
           <div class="image-links"><a id="paper-link" target="_blank" rel="noopener">문제지 PDF ↗</a><a id="key-link" target="_blank" rel="noopener" hidden>정답표 PDF ↗</a></div>

@@ -5,11 +5,13 @@ const path = require('node:path');
 const vm = require('node:vm');
 const cp = require('node:child_process');
 const root = __dirname;
-const context = vm.createContext({window:{},document:{querySelector:() => null,addEventListener:() => {}}});
+const storage = new Map();
+const context = vm.createContext({window:{},document:{querySelector:() => null,addEventListener:() => {}},
+  localStorage:{getItem:key => storage.get(key) ?? null,setItem:(key, value) => storage.set(key, value)}});
 for (const name of ['data.js', 'concepts.js', 'explanations.js', 'common.js', 'study/visuals.js']) {
   vm.runInContext(fs.readFileSync(path.join(root, name), 'utf8'), context);
 }
-const {exams, concepts, topics, grade, validAttempt, questionImage} = context.window.HistoryApp;
+const {exams, concepts, topics, grade, validAttempt, questionImage, attemptKey, readAttempt, save, conceptLinks} = context.window.HistoryApp;
 const explanations = context.window.HISTORY_EXPLANATIONS;
 const visuals = context.window.HistoryStudyVisuals;
 assert.equal(exams.length, 8);
@@ -94,6 +96,10 @@ for (const concept of concepts) {
   });
   assert.ok(!/[\uE000-\uF8FF\uFFFD]/u.test(JSON.stringify(concept)), `${concept.id} no damaged glyphs`);
   const visual = visuals.render(concept);
+  assert.ok(!visual.includes('mode=practice'), `${concept.id} source links default to exam mode`);
+  const practiceVisual = visuals.render(concept, 'practice');
+  const practiceLinks = [...practiceVisual.matchAll(/href="(\.\.\/test\/index.html[^"]+)"/g)];
+  assert.ok(practiceLinks.length && practiceLinks.every(match => match[1].includes('&amp;mode=practice')), `${concept.id} visual source links preserve practice mode`);
   const refs = [...visual.matchAll(/data-study-visual="([\d-]+)"/g)].map(match => match[1]);
   assert.ok(refs.length, `${concept.id} visible source image`);
   assert.equal(new Set(refs).size, refs.length, `${concept.id} distinct visual sources`);
@@ -112,6 +118,34 @@ assert.ok(validAttempt(attempt));
 for (const change of [{answers:[1]}, {current:50}, {marked:[51]}, {remaining:-1}, {deadline:'invalid'}, {submitted:0}]) {
   assert.ok(!validAttempt({...attempt,...change}), `Reject invalid attempt ${JSON.stringify(change)}`);
 }
+for (const exam of exams) {
+  const legacyKey = `kh-basic-attempt-${exam.round}-v1`;
+  assert.equal(attemptKey(exam.round), legacyKey, 'Existing exam records retain their storage key');
+  assert.equal(attemptKey(exam.round, 'exam'), legacyKey);
+  assert.notEqual(attemptKey(exam.round, 'practice'), legacyKey);
+  assert.equal(readAttempt(exam.round), null);
+  assert.equal(readAttempt(exam.round, 'practice'), null);
+  const examAttempt = {...attempt,answers:exam.questions.map(question => question.answer),deadline:Date.now() + 4200000};
+  save(legacyKey, examAttempt);
+  assert.equal(readAttempt(exam.round).answers[0], examAttempt.answers[0]);
+  assert.equal(readAttempt(exam.round, 'practice'), null, 'Practice does not reuse exam answers');
+  const practiceAttempt = {...attempt,answers:Array(50).fill(0),submitted:true};
+  practiceAttempt.answers[0] = examAttempt.answers[0] % 4 + 1;
+  save(attemptKey(exam.round, 'practice'), practiceAttempt);
+  assert.equal(grade(exam, readAttempt(exam.round).answers).score, 100);
+  assert.equal(grade(exam, readAttempt(exam.round, 'practice').answers).score, 0);
+  assert.equal(readAttempt(exam.round).submitted, false);
+  assert.equal(readAttempt(exam.round, 'practice').submitted, true);
+  save(attemptKey(exam.round, 'practice'), attempt);
+  assert.equal(readAttempt(exam.round, 'practice').answers[0], 0);
+  assert.equal(readAttempt(exam.round).answers[0], examAttempt.answers[0], 'Practice restart preserves exam answers');
+  for (const question of exam.questions) {
+    const ref = `${exam.round}-${question.number}`;
+    assert.ok(!conceptLinks(ref).includes('mode=practice'), `${ref} default study links remain unchanged`);
+    const links = [...conceptLinks(ref, 'practice').matchAll(/href="([^"]+)"/g)];
+    assert.ok(links.length && links.every(match => match[1].includes('?mode=practice#')), `${ref} related study links preserve practice mode`);
+  }
+}
 for (const name of ['test/app.js','study/app.js','study/visuals.js']) new vm.Script(fs.readFileSync(path.join(root,name),'utf8'));
 for (const name of ['index.html','test/index.html','study/index.html']) {
   const html = fs.readFileSync(path.join(root,name),'utf8');
@@ -121,4 +155,4 @@ for (const name of ['index.html','test/index.html','study/index.html']) {
     assert.ok(fs.existsSync(path.resolve(root,path.dirname(name),match[1])), `${name} local reference: ${match[1]}`);
   }
 }
-console.log(`PASS: ${exams.length} exams, 400 complete crops and PDF explanations, official answers/weights, ${concepts.length} linked lessons, source assets, scoring, state validation and local navigation.`);
+console.log(`PASS: ${exams.length} exams, 400 complete crops and PDF explanations, official answers/weights, ${concepts.length} linked lessons, source assets, scoring, state validation, independent exam/practice records and mode-aware navigation.`);

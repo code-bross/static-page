@@ -12,6 +12,8 @@
   let filtered = concepts;
   const eras = ['전체', '선사·고조선', '삼국·남북국', '고려', '조선', '근대', '일제 강점기', '현대', '통합·문화'];
   const params = new URLSearchParams(location.search);
+  const reviewMode = params.get('mode') === 'practice' ? 'practice' : 'exam';
+  $('#test-nav').href = `../test/index.html${reviewMode === 'practice' ? '?mode=practice' : ''}`;
   const reviewRound = Number(params.get('review'));
   const reviewExam = exams.find(exam => exam.round === reviewRound);
   let wrongTopics = new Set();
@@ -22,7 +24,7 @@
     wrongRefs = new Set();
     for (const exam of exams) {
       if (reviewExam && exam.round !== reviewRound) continue;
-      const attempt = readAttempt(exam.round);
+      const attempt = readAttempt(exam.round, reviewMode);
       if (!attempt?.submitted) continue;
       for (const question of exam.questions) {
         if (attempt.answers[question.number - 1] === question.answer) continue;
@@ -92,13 +94,13 @@
       <span class="pill">${concept.refs.length}개 기출 문항과 연결</span>
       <h2>${escape(concept.title)}</h2><p class="summary">${escape(concept.summary)}</p>
       <div class="keywords">${concept.keywords.map(word => `<span>${escape(word)}</span>`).join('')}</div>
-      ${visuals.render(concept)}
+      ${visuals.render(concept, reviewMode)}
       <h3>이렇게 이해하세요</h3><ol class="lesson-points">${concept.points.map(point => `<li><span>${visuals.emphasize(point, concept.keywords)}</span></li>`).join('')}</ol>
       <div class="remember"><strong>한 줄로 연결하기</strong>${visuals.memory(concept)}</div>
       <section class="retrieval"><h3>기억에서 꺼내보기</h3><p>${escape(concept.quiz.prompt)}</p><details><summary>생각한 뒤 정답 확인하기</summary><p>${escape(concept.quiz.answer)}</p></details></section>
       <section class="sources"><h3>기출에서 확인하기</h3><p>같은 개념이 쓰인 문제로 이동합니다. 기존 답안이 있으면 이어서 열립니다.${$('#study-filter').value === 'wrong' ? ' 현재는 오답·미응답만 표시합니다.' : ''}</p><div class="source-chips">${refs.map(ref => {
         const [round, number] = ref.split('-');
-        return `<a href="../test/index.html?round=${round}&q=${number}">${round}회 ${number}번 ↗</a>`;
+        return `<a href="../test/index.html?round=${round}&q=${number}${reviewMode === 'practice' ? '&amp;mode=practice' : ''}">${round}회 ${number}번 ↗</a>`;
       }).join('')}</div></section>
       <div class="lesson-actions"><button type="button" class="button ${complete ? 'secondary' : ''}" id="complete-concept" aria-pressed="${complete}">${complete ? '✓ 학습 완료 · 취소' : '이 개념, 이해했어요'}</button><button type="button" class="button secondary" id="bookmark-concept" aria-pressed="${bookmarked}">${bookmarked ? '북마크 해제' : '다시 볼 개념 저장'}</button></div>
       <nav class="lesson-navigation" aria-label="개념 이동">${position > 0 ? `<a href="#${filtered[position - 1].id}">← ${escape(filtered[position - 1].title)}</a>` : '<span></span>'}${position < filtered.length - 1 ? `<a href="#${filtered[position + 1].id}">${escape(filtered[position + 1].title)} →</a>` : '<span></span>'}</nav>`;
@@ -187,7 +189,7 @@
   if (reviewExam) {
     $('#study-filter').value = 'wrong';
     $('#review-notice').hidden = false;
-    $('#review-notice').innerHTML = `제${reviewRound}회 복습 연결로 방문했습니다. ‘오답 연결 개념’에서 이 회차의 오답·미응답 관련 개념 ${wrongTopics.size}개를 볼 수 있습니다. <a href="index.html">전체 회차 기준으로 전환</a>`;
+    $('#review-notice').innerHTML = `제${reviewRound}회 ${reviewMode === 'practice' ? '연습' : '시험'} 모드 복습입니다. ‘오답 연결 개념’에서 이 회차의 오답·미응답 관련 개념 ${wrongTopics.size}개를 볼 수 있습니다. <a href="index.html${reviewMode === 'practice' ? '?mode=practice' : ''}">전체 회차 기준으로 전환</a>`;
   }
   if ([...$('#study-filter').options].some(option => option.value === params.get('filter'))) {
     $('#study-filter').value = params.get('filter');

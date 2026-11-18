@@ -24,4 +24,12 @@
 .original-explanation p{font-size:.8rem;margin-top:12px;color:var(--muted)}
 .related-concepts{margin-top:24px}
 .related-concepts h3{font-size:.9rem}
+.mode-panel{display:grid;gap:12px;border-bottom:1px solid var(--line);padding-bottom:24px;margin-bottom:28px}
+.mode-switch{display:flex;gap:6px;padding:5px;border:1px solid var(--line);border-radius:12px;background:var(--soft);width:fit-content;max-width:100%}
+.mode-switch button{flex:0 1 auto;min-width:0;min-height:44px;border:1px solid transparent;border-radius:8px;padding:10px 16px;font-size:.85rem;font-weight:700;line-height:1.5;background:transparent;color:var(--accent)}
+.mode-switch button[aria-pressed=true]{background:var(--accent);color:white}
+.mode-panel p{max-width:800px;font-size:.8rem;color:var(--muted);margin:0}
+.option.wrong:has(input:checked){border-color:var(--bad);background:#fbeceb;color:var(--bad)}
+.option.wrong input{accent-color:var(--bad)}
+@media print{.mode-panel{display:none}}
 @media(max-width:760px){.answer-explanation{padding:18px 16px}.answer-explanation p{font-size:.87rem}.related-concepts .button{font-size:.8rem}}

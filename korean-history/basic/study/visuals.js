@@ -71,7 +71,7 @@
   };
   const questionByRef = new Map(exams.flatMap(exam => exam.questions.map(question => [`${exam.round}-${question.number}`, {exam, question}])));
 
-  function figure([ref, caption], index) {
+  function figure([ref, caption], index, mode) {
     const {exam, question} = questionByRef.get(ref);
     const label = `${exam.round}회 ${question.number}번`;
     return `<figure class="study-figure">
@@ -80,17 +80,17 @@
         ${window.HistoryApp.questionImage(exam, question, {alt: `${label}. ${caption}`, className: 'study-source-image'})}
         <button type="button" class="visual-open" data-study-visual="${ref}" aria-haspopup="dialog" aria-label="${escape(`${label} 자료 확대: ${caption}`)}">자료 크게 보기 <span aria-hidden="true">↗</span></button>
       </div>
-      <figcaption><strong>관찰 포인트</strong><p>${escape(caption)}</p><div class="visual-source-links"><a href="${escape(exam.paper)}#page=${question.page}" target="_blank" rel="noopener">원본 PDF ${question.page}쪽 <span class="sr-only">(새 탭)</span> ↗</a><a href="../test/index.html?round=${exam.round}&q=${question.number}">이 문제 풀기 →</a></div></figcaption>
+      <figcaption><strong>관찰 포인트</strong><p>${escape(caption)}</p><div class="visual-source-links"><a href="${escape(exam.paper)}#page=${question.page}" target="_blank" rel="noopener">원본 PDF ${question.page}쪽 <span class="sr-only">(새 탭)</span> ↗</a><a href="../test/index.html?round=${exam.round}&q=${question.number}${mode === 'practice' ? '&amp;mode=practice' : ''}">이 문제 풀기 →</a></div></figcaption>
       <details class="visual-transcript"><summary>자료 텍스트 읽기 · 선택지 포함</summary><pre>${escape(question.text)}</pre></details>
     </figure>`;
   }
-  function render(concept) {
+  function render(concept, mode = 'exam') {
     const entries = sources[concept.id].filter(([ref]) => concept.refs.includes(ref) && questionByRef.has(ref));
     return `<section class="study-visuals" aria-labelledby="visual-heading">
       <div class="visual-heading"><h3 id="visual-heading">자료로 먼저 만나기</h3><span>관찰 → 개념 → 기출</span></div>
       <p class="visual-intro">제공된 기출 원본의 그림·사진·지도·문서입니다. 선택지에는 다른 시대나 틀린 설명도 섞여 있으니, 아래 관찰 포인트와 함께 읽어 보세요.</p>
-      ${figure(entries[0], 0)}
-      ${entries.length > 1 ? `<details class="visual-gallery"><summary>함께 비교할 기출 자료 ${entries.length - 1}개 더 보기</summary>${entries.slice(1).map((entry, index) => figure(entry, index + 1)).join('')}</details>` : ''}
+      ${figure(entries[0], 0, mode)}
+      ${entries.length > 1 ? `<details class="visual-gallery"><summary>함께 비교할 기출 자료 ${entries.length - 1}개 더 보기</summary>${entries.slice(1).map((entry, index) => figure(entry, index + 1, mode)).join('')}</details>` : ''}
     </section>`;
   }
   function emphasize(text, keywords) {

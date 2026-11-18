@@ -34,14 +34,14 @@
   const concepts = window.HISTORY_CONCEPTS;
   const topics = window.HISTORY_TOPICS;
   const conceptById = new Map(concepts.map(concept => [concept.id, concept]));
-  const attemptKey = round => `kh-basic-attempt-${round}-v1`;
+  const attemptKey = (round, mode = 'exam') => `kh-basic-attempt-${round}${mode === 'practice' ? '-practice' : ''}-v1`;
   const validAttempt = value => value && Array.isArray(value.answers) && value.answers.length === 50 &&
     value.answers.every(answer => Number.isInteger(answer) && answer >= 0 && answer <= 4) &&
     Array.isArray(value.marked) && value.marked.every(number => Number.isInteger(number) && number >= 1 && number <= 50) &&
     Number.isInteger(value.current) && value.current >= 0 && value.current < 50 &&
     typeof value.submitted === 'boolean' && Number.isFinite(value.remaining) && value.remaining >= 0 && value.remaining <= 4200 &&
     (value.deadline === null || (Number.isFinite(value.deadline) && value.deadline > 0));
-  const readAttempt = round => load(attemptKey(round), null, validAttempt);
+  const readAttempt = (round, mode = 'exam') => load(attemptKey(round, mode), null, validAttempt);
   const grade = (exam, answers) => exam.questions.reduce((result, question, index) => {
     if (answers[index] === question.answer) {
       result.score += question.points;
@@ -53,9 +53,9 @@
     }
     return result;
   }, {score:0,correct:0,wrong:0,unanswered:0});
-  const conceptLinks = questionId => (topics[questionId] || []).map(id => {
+  const conceptLinks = (questionId, mode = 'exam') => (topics[questionId] || []).map(id => {
     const concept = conceptById.get(id);
-    return `<a class="button secondary" href="../study/index.html#${id}">${escape(concept.title)} →</a>`;
+    return `<a class="button secondary" href="../study/index.html${mode === 'practice' ? '?mode=practice' : ''}#${id}">${escape(concept.title)} →</a>`;
   }).join('');
   function questionImage(exam, question, options = {}) {
     const [left, top, right, bottom] = question.crop;
