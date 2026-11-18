@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="한국사 기본 기출 400문항에 나온 개념을 65개 주제로 정리했습니다. 시대별 핵심 설명, 비교 암기, 셀프 퀴즈와 관련 기출로 공부하세요.">
+  <meta property="og:title" content="개념 학습 · 한국사 한 걸음">
+  <meta property="og:description" content="선사부터 현대까지, 기출과 연결한 65개 개념 노트.">
+  <title>개념 학습 · 한국사 한 걸음</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../style.css">
+  <script defer src="../data.js"></script>
+  <script defer src="../concepts.js"></script>
+  <script defer src="../common.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#lesson">학습 내용으로 건너뛰기</a>
+  <header class="topbar"><div class="topbar-inner">
+    <a class="brand" href="../index.html"><span class="brand-symbol" aria-hidden="true">史</span><span>한국사 한 걸음<small>KOREAN HISTORY · BASIC</small></span></a>
+    <nav class="nav" aria-label="주요 메뉴"><a href="../test/index.html">모의고사</a><a href="index.html" aria-current="page">개념 학습</a></nav>
+  </div></header>
+  <main class="container" id="main">
+    <div id="storage-notice" class="notice" role="status" hidden></div>
+    <noscript><p class="notice">개념 노트의 검색과 표시에 JavaScript가 필요합니다. 브라우저에서 JavaScript를 허용해 주세요.</p></noscript>
+    <section class="hero study-hero">
+      <div><span class="eyebrow">STUDY / 시대의 맥락을 연결하는 개념 노트</span><h1>외운 한 줄을 넘어,<br><em>이해하는 한국사.</em></h1><p>기출 속 단서를 개념으로 연결했어요. 흐름을 읽고, 스스로 답하고, 관련 문제로 확인해 보세요.</p><p class="hero-note">64·66·67·71·73·75·77·79회 기본 기출 기반 · 65개 주제</p></div>
+      <aside class="hero-card"><span class="eyebrow">YOUR LEARNING JOURNEY</span><h2 id="study-progress-label">0 <span class="small">/ 65개 개념</span></h2><progress id="study-progress" class="progress" value="0" max="65" aria-label="완료한 개념 수"></progress><p id="study-progress-text">하나씩 이해하며 나만의 흐름을 만들어 보세요.</p><button type="button" id="continue-study" class="button secondary">이어서 학습하기 →</button></aside>
+    </section>
+    <div class="study-tools" role="search" aria-label="개념 찾기">
+      <div class="search-wrap"><label class="sr-only" for="search">개념·인물·사건 검색</label><input id="search" type="search" placeholder="개념, 인물, 사건을 찾아보세요. 예: 대동법, 광개토" autocomplete="off"></div>
+      <label class="sr-only" for="study-filter">학습 상태</label><select id="study-filter"><option value="all">전체 개념</option><option value="incomplete">아직 공부할 개념</option><option value="complete">학습 완료</option><option value="bookmarked">북마크</option><option value="wrong">오답 연결 개념</option></select>
+      <button type="button" id="reset-progress" class="button quiet">학습 기록 초기화</button>
+    </div>
+    <div id="era-filters" class="chips" role="group" aria-label="시대별 개념 선택"></div>
+    <div id="review-notice" class="notice" hidden></div>
+    <div class="study-layout">
+      <aside class="concept-sidebar" aria-label="개념 목차"><p id="list-summary" class="list-summary" role="status"></p><nav id="concept-list" class="concept-list" aria-label="학습할 개념"></nav></aside>
+      <article id="lesson" class="panel lesson" tabindex="-1" aria-label="선택한 개념"></article>
+    </div>
+    <p class="study-warning">제공된 기출의 자료·발문·정답을 바탕으로 별도로 재구성한 개념 학습 자료입니다. 공식 문항별 해설이 아니며, 관련 기출 링크에서 원본 문제와 정답표를 확인할 수 있습니다. 학습 완료와 북마크는 이 브라우저에 저장됩니다.</p>
+    <footer class="footer"><p>한국사 한 걸음 · BASIC</p><p>읽기 → 기억에서 꺼내기 → 기출로 확인하기</p></footer>
+  </main>
+  <dialog id="reset-dialog" class="submission-dialog" aria-labelledby="reset-title"><h2 id="reset-title">학습 기록을 초기화할까요?</h2><p>학습 완료, 북마크, 마지막 학습 위치만 지웁니다. 모의고사 답안과 점수는 유지됩니다.</p><form method="dialog" class="actions"><button class="button secondary" value="cancel">취소</button><button class="button danger" value="reset">학습 기록 지우기</button></form></dialog>
+</body>
+</html>
