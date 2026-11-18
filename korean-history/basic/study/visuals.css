@@ -1,0 +1,42 @@
+.study-visuals{margin:28px 0 34px;border-top:1px solid var(--line);padding-top:24px}
+.visual-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+.visual-heading h3{margin:0}.visual-heading>span{font-size:.68rem;color:var(--accent);white-space:nowrap}
+.visual-intro{font-size:.78rem;color:var(--muted);max-width:62ch;margin-bottom:20px}
+.study-figure{margin:0;background:white;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.visual-source-label{display:flex;justify-content:space-between;gap:12px;padding:12px 16px;background:var(--soft);font-size:.71rem;color:var(--accent)}
+.visual-source-label>span:first-child{font-weight:750}
+.visual-preview{position:relative;border-bottom:1px solid var(--line);background:white;padding:16px 18px 62px}
+.visual-preview .question-image{margin:0 auto;border-radius:0;max-width:620px}
+.visual-open{position:absolute;bottom:10px;right:18px;min-height:44px;font:inherit;font-size:.73rem;font-weight:700;color:var(--accent);border:1px solid var(--line);border-radius:7px;background:var(--soft);padding:8px 12px}
+.visual-open:hover{background:#d9e8d3}
+.study-figure figcaption{padding:18px 20px 14px}
+.study-figure figcaption>strong{display:block;font-size:.67rem;color:var(--orange);letter-spacing:.06em;margin-bottom:5px}
+.study-figure figcaption p{font-size:.85rem;line-height:1.85;margin:0 0 12px}
+.visual-source-links{display:flex;gap:12px 20px;flex-wrap:wrap;font-size:.73rem}
+.visual-transcript{margin:0 20px 18px;border-top:1px solid var(--line);padding-top:12px;font-size:.75rem}
+.visual-transcript summary{color:var(--muted)}
+.visual-transcript pre{white-space:pre-wrap;word-break:normal;font:inherit;line-height:1.9;max-height:360px;overflow:auto;margin-bottom:0}
+.visual-gallery{margin-top:14px;border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.visual-gallery>summary{font-size:.8rem;font-weight:650;color:var(--accent)}
+.visual-gallery .study-figure{margin-top:16px}
+.lesson .lesson-points{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;list-style:none}
+.lesson .lesson-points li{margin:0;padding:18px 16px;border:1px solid var(--line);border-radius:10px;grid-template-columns:25px minmax(0,1fr);gap:10px;font-size:.87rem;line-height:1.95}
+.lesson .lesson-points li:first-child{grid-column:1/-1;background:var(--soft);border-color:#c8d7c8}
+.lesson-points mark{color:var(--accent);font-weight:750;background:transparent;box-shadow:inset 0 -.32em #d9e8d3}
+.memory-map{display:flex;align-items:center;flex-wrap:wrap;gap:10px}
+.memory-group{display:flex;align-items:center;flex-wrap:wrap;gap:8px;min-width:0}
+.memory-node{font-size:.9rem;font-weight:650;line-height:1.8;background:var(--paper);border:1px solid #e4cbb6;padding:8px 12px;border-radius:8px}
+.memory-arrow,.memory-divider{color:var(--orange);font-weight:750}
+.visual-dialog{width:min(1060px,calc(100% - 24px));max-width:none;max-height:calc(100dvh - 24px);padding:22px;border:1px solid var(--line);border-radius:14px;background:var(--paper);color:var(--ink)}
+.visual-dialog::backdrop{background:#183a42b8}
+.visual-dialog-header{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:12px}
+.visual-dialog-header h2{font-size:1.1rem;margin:0}
+.visual-dialog-header form{margin:0}
+.visual-dialog>p{font-size:.78rem;color:var(--muted);margin-bottom:14px}
+.visual-zoom-scroll{overflow:auto;max-height:65dvh;background:white;border:1px solid var(--line);overscroll-behavior:contain}
+#visual-dialog-image{min-width:760px;padding:20px}
+#visual-dialog-image .question-image{margin-bottom:0;border-radius:0}
+.visual-dialog>a{display:inline-block;margin-top:16px;font-size:.8rem}
+@media(max-width:1050px) and (min-width:761px){.lesson .lesson-points{grid-template-columns:1fr}}
+@media(max-width:560px){.visual-heading{align-items:flex-start;flex-direction:column;gap:5px}.visual-preview{padding:10px 6px 62px}.study-figure figcaption{padding:16px}.visual-transcript{margin:0 16px 16px}.visual-gallery{padding:12px}.lesson .lesson-points{grid-template-columns:1fr}.lesson .lesson-points li{padding:16px 12px}.visual-dialog{padding:16px}.visual-dialog-header{gap:8px}.visual-dialog-header h2{font-size:.95rem}.memory-node{font-size:.84rem}}
+@media print{.visual-preview{padding:0 0 10px}.visual-open,.visual-transcript,.visual-gallery,.visual-dialog{display:none!important}.study-figure{break-inside:avoid}.lesson .lesson-points li{break-inside:avoid}.visual-source-links{display:none}}

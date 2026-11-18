@@ -5,15 +5,18 @@ const path = require('node:path');
 const vm = require('node:vm');
 const cp = require('node:child_process');
 const root = __dirname;
-const context = vm.createContext({window:{},document:{querySelector:() => null}});
-for (const name of ['data.js', 'concepts.js', 'common.js']) {
+const context = vm.createContext({window:{},document:{querySelector:() => null,addEventListener:() => {}}});
+for (const name of ['data.js', 'concepts.js', 'explanations.js', 'common.js', 'study/visuals.js']) {
   vm.runInContext(fs.readFileSync(path.join(root, name), 'utf8'), context);
 }
-const {exams, concepts, topics, grade, validAttempt} = context.window.HistoryApp;
+const {exams, concepts, topics, grade, validAttempt, questionImage} = context.window.HistoryApp;
+const explanations = context.window.HISTORY_EXPLANATIONS;
+const visuals = context.window.HistoryStudyVisuals;
 assert.equal(exams.length, 8);
 assert.equal(concepts.length, 65);
 assert.equal(exams.reduce((count, exam) => count + exam.questions.length, 0), 400);
 assert.equal(Object.keys(topics).length, 400);
+assert.equal(Object.keys(explanations).length, 400);
 const conceptIds = new Set(concepts.map(concept => concept.id));
 assert.equal(conceptIds.size, concepts.length);
 const questionIds = new Set();
@@ -38,6 +41,22 @@ for (const exam of exams) {
     assert.ok(left >= 0 && left < right && right <= 1);
     assert.ok(top >= 0 && top < bottom && bottom <= 1);
     assert.ok((bottom - top) * question.height > 100, `${ref} crop is substantial`);
+    const lastInColumn = !exam.questions.some(other => other.page === question.page &&
+      (other.crop[0] < .49) === (left < .49) && other.crop[1] > top);
+    if (lastInColumn && question.height === 1702) {
+      assert.ok(bottom >= .94, `${ref} retains the complete final option and its bottom margin`);
+    }
+    if (left < .49) assert.ok(right >= .5, `${ref} complete left-column points label`);
+    const image = questionImage(exam, question, {alt:'<source "image">'});
+    assert.ok(image.includes('height:auto;') && image.includes('aspect-ratio:'));
+    assert.ok(image.includes('alt="&lt;source &quot;image&quot;&gt;"'));
+    const explanation = explanations[ref];
+    assert.equal(explanation.answer, question.answer, `${ref} explanation follows official answer`);
+    assert.ok(explanation.paragraphs.length >= 1 && explanation.paragraphs.every(text => text.length > 3));
+    assert.ok(explanation.pages.includes(explanation.page));
+    assert.ok(Number.isInteger(explanation.page) && explanation.page > 0);
+    assert.ok(fs.existsSync(path.resolve(root, 'test', explanation.pdf)), `${ref} explanation PDF`);
+    assert.ok(explanation.source.startsWith('https://history.hackers.com/'));
     assert.ok(topics[ref]?.length, `${ref} concept mapping`);
     for (const id of topics[ref]) {
       assert.ok(conceptIds.has(id), `${ref} valid concept`);
@@ -51,6 +70,15 @@ for (const exam of exams) {
   assert.equal(grade(exam, partial).correct, 25);
   assert.equal(grade(exam, partial).score, exam.questions.filter((question, index) => index % 2 === 0).reduce((total, question) => total + question.points, 0));
 }
+for (const ref of ['67-10','71-11','71-14']) {
+  assert.ok(explanations[ref].correction);
+  assert.ok(explanations[ref].originalParagraphs.length);
+  assert.notEqual(explanations[ref].sourceAnswer, explanations[ref].answer);
+}
+assert.ok(explanations['67-10'].paragraphs.some(text => text.startsWith('② 호족')));
+assert.ok(explanations['71-11'].paragraphs.some(text => text.startsWith('③ 고려 광종')));
+assert.ok(explanations['71-14'].paragraphs[0].startsWith('② 영주 부석사'));
+cp.execFileSync(process.execPath, [path.join(root, 'build-explanations.cjs'), '--check'], {stdio:'pipe'});
 for (const concept of concepts) {
   assert.ok(/^[a-z][a-z0-9-]*$/.test(concept.id));
   for (const field of ['title','era','summary','remember']) assert.ok(concept[field]?.length > 1);
@@ -65,13 +93,26 @@ for (const concept of concepts) {
     assert.ok(topics[ref].includes(concept.id), `${concept.id} inverse mapping: ${ref}`);
   });
   assert.ok(!/[\uE000-\uF8FF\uFFFD]/u.test(JSON.stringify(concept)), `${concept.id} no damaged glyphs`);
+  const visual = visuals.render(concept);
+  const refs = [...visual.matchAll(/data-study-visual="([\d-]+)"/g)].map(match => match[1]);
+  assert.ok(refs.length, `${concept.id} visible source image`);
+  assert.equal(new Set(refs).size, refs.length, `${concept.id} distinct visual sources`);
+  for (const ref of refs) {
+    assert.ok(concept.refs.includes(ref), `${concept.id} relevant visual source ${ref}`);
+    const [round, number] = ref.split('-').map(Number);
+    const source = exams.find(exam => exam.round === round).questions[number - 1];
+    assert.ok(visual.includes(`../assets/${source.image}`), `${concept.id} visual image reference`);
+  }
+  assert.ok(visuals.memory(concept).includes(context.window.HistoryApp.escape(concept.remember)), `${concept.id} complete accessible memory text`);
 }
+assert.equal(visuals.emphasize('<script>청동기 & "도구"</script>', ['청동기']),
+  '&lt;script&gt;<mark>청동기</mark> &amp; &quot;도구&quot;&lt;/script&gt;');
 const attempt = {answers:Array(50).fill(0),marked:[],current:0,submitted:false,remaining:4200,deadline:null};
 assert.ok(validAttempt(attempt));
 for (const change of [{answers:[1]}, {current:50}, {marked:[51]}, {remaining:-1}, {deadline:'invalid'}, {submitted:0}]) {
   assert.ok(!validAttempt({...attempt,...change}), `Reject invalid attempt ${JSON.stringify(change)}`);
 }
-for (const name of ['test/app.js','study/app.js']) new vm.Script(fs.readFileSync(path.join(root,name),'utf8'));
+for (const name of ['test/app.js','study/app.js','study/visuals.js']) new vm.Script(fs.readFileSync(path.join(root,name),'utf8'));
 for (const name of ['index.html','test/index.html','study/index.html']) {
   const html = fs.readFileSync(path.join(root,name),'utf8');
   assert.ok(html.includes('lang="ko"') && html.includes('name="viewport"'));
@@ -80,4 +121,4 @@ for (const name of ['index.html','test/index.html','study/index.html']) {
     assert.ok(fs.existsSync(path.resolve(root,path.dirname(name),match[1])), `${name} local reference: ${match[1]}`);
   }
 }
-console.log(`PASS: ${exams.length} exams, 400 official answers/weights, ${concepts.length} linked lessons, source assets, scoring, state validation and local navigation.`);
+console.log(`PASS: ${exams.length} exams, 400 complete crops and PDF explanations, official answers/weights, ${concepts.length} linked lessons, source assets, scoring, state validation and local navigation.`);

@@ -57,5 +57,14 @@
     const concept = conceptById.get(id);
     return `<a class="button secondary" href="../study/index.html#${id}">${escape(concept.title)} →</a>`;
   }).join('');
-  window.HistoryApp = {escape, warn, load, save, exams, concepts, topics, conceptById, attemptKey, validAttempt, readAttempt, grade, conceptLinks};
+  function questionImage(exam, question, options = {}) {
+    const [left, top, right, bottom] = question.crop;
+    const width = right - left;
+    const height = bottom - top;
+    const ratio = width * question.width / (height * question.height);
+    const style = `width:${100 / width}%;height:auto;left:${-100 * left / width}%;top:${-100 * top / height}%`;
+    const alt = options.alt || `제${exam.round}회 기본 ${question.number}번 문제 원본. 지문, 자료와 네 개의 보기를 포함합니다.`;
+    return `<div class="question-image ${escape(options.className || '')}" style="aspect-ratio:${ratio}"><img src="../assets/${escape(question.image)}" width="${question.width}" height="${question.height}" style="${style}" alt="${escape(alt)}" loading="lazy" decoding="async"></div>`;
+  }
+  window.HistoryApp = {escape, warn, load, save, exams, concepts, topics, conceptById, attemptKey, validAttempt, readAttempt, grade, conceptLinks, questionImage};
 })();

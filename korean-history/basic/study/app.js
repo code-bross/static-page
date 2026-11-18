@@ -1,6 +1,7 @@
 (() => {
   'use strict';
   const {escape, warn, load, save, exams, concepts, topics, conceptById, readAttempt} = window.HistoryApp;
+  const visuals = window.HistoryStudyVisuals;
   const $ = selector => document.querySelector(selector);
   const key = 'kh-basic-study-v1';
   const emptyProgress = () => ({complete:[],bookmarked:[],last:concepts[0].id});
@@ -91,8 +92,9 @@
       <span class="pill">${concept.refs.length}개 기출 문항과 연결</span>
       <h2>${escape(concept.title)}</h2><p class="summary">${escape(concept.summary)}</p>
       <div class="keywords">${concept.keywords.map(word => `<span>${escape(word)}</span>`).join('')}</div>
-      <h3>이렇게 이해하세요</h3><ol class="lesson-points">${concept.points.map(point => `<li><span>${escape(point)}</span></li>`).join('')}</ol>
-      <div class="remember"><strong>한 줄로 연결하기</strong><p>${escape(concept.remember)}</p></div>
+      ${visuals.render(concept)}
+      <h3>이렇게 이해하세요</h3><ol class="lesson-points">${concept.points.map(point => `<li><span>${visuals.emphasize(point, concept.keywords)}</span></li>`).join('')}</ol>
+      <div class="remember"><strong>한 줄로 연결하기</strong>${visuals.memory(concept)}</div>
       <section class="retrieval"><h3>기억에서 꺼내보기</h3><p>${escape(concept.quiz.prompt)}</p><details><summary>생각한 뒤 정답 확인하기</summary><p>${escape(concept.quiz.answer)}</p></details></section>
       <section class="sources"><h3>기출에서 확인하기</h3><p>같은 개념이 쓰인 문제로 이동합니다. 기존 답안이 있으면 이어서 열립니다.${$('#study-filter').value === 'wrong' ? ' 현재는 오답·미응답만 표시합니다.' : ''}</p><div class="source-chips">${refs.map(ref => {
         const [round, number] = ref.split('-');

@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  const {escape, warn, save, exams, attemptKey, readAttempt, grade, conceptLinks} = window.HistoryApp;
+  const {escape, warn, save, exams, attemptKey, readAttempt, grade, conceptLinks, questionImage} = window.HistoryApp;
   const $ = selector => document.querySelector(selector);
   const symbols = ['①', '②', '③', '④'];
   let exam;
@@ -84,6 +84,15 @@
     $('#pause').setAttribute('aria-pressed', String(!attempt.submitted && attempt.deadline === null));
     $('#save-status').textContent = attempt.submitted ? '채점 결과가 이 브라우저에 저장됩니다.' : attempt.deadline === null ? '일시정지 중 · 시간과 답안 저장됨' : '이 브라우저에 자동 저장 · 페이지를 떠나도 시간은 흐릅니다.';
   }
+  function renderExplanation(question) {
+    const explanation = window.HISTORY_EXPLANATIONS[`${exam.round}-${question.number}`];
+    const paragraphs = explanation.paragraphs.map(text => text === '오답 설명'
+      ? '<h4>다른 보기는 왜 아닐까요?</h4>'
+      : `<p>${escape(text)}</p>`).join('');
+    return `<section class="answer-explanation" aria-label="문항 해설"><span class="eyebrow">WHY / 정답 이해하기</span><h3>정답 해설</h3>${paragraphs}
+      ${explanation.correction ? `<p class="explanation-correction">${escape(explanation.correction)}</p><details class="original-explanation"><summary>수정 전 원문 보기</summary>${explanation.originalParagraphs.map(text => `<p>${escape(text)}</p>`).join('')}</details>` : ''}
+      <p class="explanation-source">출처: 해커스한국사 · <a href="${escape(explanation.pdf)}#page=${explanation.page}" target="_blank" rel="noopener">제${exam.round}회 해설 PDF ${explanation.pages.join('·')}쪽 ↗</a></p></section>`;
+  }
   function renderQuestion(focus = false) {
     const numbers = questionNumbers();
     const currentNumber = attempt.current + 1;
@@ -99,21 +108,19 @@
     } else {
       const selected = attempt.answers[attempt.current];
       const correct = selected === question.answer;
-      const [left, top, right, bottom] = question.crop;
-      const ratio = ((right - left) * question.width) / ((bottom - top) * question.height);
-      const style = `width:${100 / (right - left)}%;height:auto;left:${-100 * left / (right - left)}%;top:${-100 * top / (bottom - top)}%`;
       const marked = attempt.marked.includes(question.number);
       $('#question-content').innerHTML = `
         <div class="question-heading"><h2 id="question-title" tabindex="-1">${question.number}번 문제 <span class="pill">${question.points}점</span></h2><button type="button" id="mark-question" class="button quiet" aria-pressed="${marked}">${marked ? '다시 보기 해제' : '다시 볼 문제'}</button></div>
-        <div class="question-image" style="aspect-ratio:${ratio}"><img src="../assets/${question.image}" width="${question.width}" height="${question.height}" style="${style}" alt="제${exam.round}회 기본 ${question.number}번 문제 원본. 지도와 사진, 네 개의 보기를 포함합니다. 자동 추출한 텍스트는 아래에서 펼칠 수 있습니다."></div>
+        ${questionImage(exam, question)}
         <div class="image-links"><a href="../assets/${question.image}" target="_blank" rel="noopener">이미지 크게 보기 ↗</a><a href="${escape(exam.paper)}#page=${question.page}" target="_blank" rel="noopener">원본 PDF ${question.page}쪽 ↗</a></div>
+        <details class="source-page-view"><summary>문제지 한 쪽 전체 보기 · 잘림 없이 확인</summary><img src="../assets/${escape(question.image)}" width="${question.width}" height="${question.height}" loading="lazy" alt="제${exam.round}회 기본 문제지 ${question.page}쪽 전체"></details>
         <details class="ocr"><summary>문제 텍스트 펼치기 · 자동 추출</summary><p class="muted small">이미지에서 자동으로 읽은 보조 텍스트로, 글자와 읽는 순서가 부정확할 수 있습니다. 지도·사진과 정확한 지문은 위 원본을 확인하세요.</p><pre>${escape(question.text)}</pre></details>
         <fieldset class="options"><legend>${attempt.submitted ? '선택한 답과 정답' : '정답을 선택하세요'}</legend><div class="option-grid">${symbols.map((symbol, index) => {
           const value = index + 1;
           const status = attempt.submitted ? value === question.answer ? 'right' : value === selected ? 'wrong' : '' : '';
           return `<label class="option ${status}"><input type="radio" name="answer" value="${value}" ${selected === value ? 'checked' : ''} ${attempt.submitted ? 'disabled' : ''} aria-label="${value}번 보기${attempt.submitted && value === question.answer ? ', 정답' : ''}"><span>${symbol}</span></label>`;
         }).join('')}</div></fieldset>
-        ${attempt.submitted ? `<section class="feedback ${correct ? '' : 'incorrect'}"><h3>${correct ? '정답입니다.' : selected ? '다시 짚어볼 문제예요.' : '선택하지 않은 문제예요.'}</h3><p>정답 <strong>${symbols[question.answer - 1]}</strong> · 내 답 ${selected ? symbols[selected - 1] : '미응답'} · 획득 점수 ${correct ? question.points : 0} / ${question.points}점</p><span class="small muted">관련 개념으로 복습하세요. 아래 내용은 공식 문항별 해설이 아닌 재구성 학습 자료입니다.</span><div class="actions">${conceptLinks(`${exam.round}-${question.number}`)}</div></section>` : ''}`;
+        ${attempt.submitted ? `<section class="feedback ${correct ? '' : 'incorrect'}"><h3>${correct ? '정답입니다.' : selected ? '다시 짚어볼 문제예요.' : '선택하지 않은 문제예요.'}</h3><p>정답 <strong>${symbols[question.answer - 1]}</strong> · 내 답 ${selected ? symbols[selected - 1] : '미응답'} · 획득 점수 ${correct ? question.points : 0} / ${question.points}점</p></section>${renderExplanation(question)}<section class="related-concepts"><h3>관련 개념도 함께 복습하세요</h3><div class="actions">${conceptLinks(`${exam.round}-${question.number}`)}</div></section>` : ''}`;
     }
     const position = numbers.indexOf(attempt.current + 1);
     $('#previous').disabled = paused || position <= 0;

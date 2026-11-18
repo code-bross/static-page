@@ -9,9 +9,11 @@
   <title>개념 학습 · 한국사 한 걸음</title>
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="visuals.css">
   <script defer src="../data.js"></script>
   <script defer src="../concepts.js"></script>
   <script defer src="../common.js"></script>
+  <script defer src="visuals.js"></script>
   <script defer src="app.js"></script>
 </head>
 <body>
@@ -42,5 +44,11 @@
     <footer class="footer"><p>한국사 한 걸음 · BASIC</p><p>읽기 → 기억에서 꺼내기 → 기출로 확인하기</p></footer>
   </main>
   <dialog id="reset-dialog" class="submission-dialog" aria-labelledby="reset-title"><h2 id="reset-title">학습 기록을 초기화할까요?</h2><p>학습 완료, 북마크, 마지막 학습 위치만 지웁니다. 모의고사 답안과 점수는 유지됩니다.</p><form method="dialog" class="actions"><button class="button secondary" value="cancel">취소</button><button class="button danger" value="reset">학습 기록 지우기</button></form></dialog>
+  <dialog id="visual-dialog" class="visual-dialog" aria-labelledby="visual-dialog-title" aria-describedby="visual-dialog-help">
+    <div class="visual-dialog-header"><h2 id="visual-dialog-title">기출 자료 확대</h2><form method="dialog"><button class="button secondary" autofocus>닫기 <span aria-hidden="true">×</span></button></form></div>
+    <p id="visual-dialog-help">작은 화면에서는 자료 영역을 좌우로 스크롤해 읽으세요. 원본 PDF에서도 확대할 수 있습니다. Esc 키로 닫을 수 있습니다.</p>
+    <div class="visual-zoom-scroll" tabindex="0" role="region" aria-label="확대한 기출 자료 · 좌우 스크롤 가능"><div id="visual-dialog-image"></div></div>
+    <a id="visual-dialog-pdf" target="_blank" rel="noopener">원본 PDF 열기 ↗</a>
+  </dialog>
 </body>
 </html>
