@@ -7,13 +7,19 @@ const {execFileSync} = require('node:child_process');
 
 const root = __dirname;
 const context = {window:{}};
-for (const filename of ['../../basic/study/wiki-images.js', 'sources.js', 'video-notes.js', 'lessons-early.js', 'lessons-modern.js', 'icons-early.js', 'icons-modern.js', 'visuals.js', '../concepts.js']) {
+for (const filename of [
+  '../../basic/study/wiki-images.js', 'sources.js', 'video-notes.js',
+  'lessons-early.js', 'lessons-modern.js', 'supplements-early.js', 'supplements-modern.js',
+  'icons-early.js', 'icons-modern.js', 'visuals.js', '../concepts.js'
+]) {
   vm.runInNewContext(fs.readFileSync(path.join(root, filename), 'utf8'), context, {filename});
 }
 const {DEEPEN_SOURCES:sources, DEEPEN_VIDEO_NOTES:notes, HISTORY_WIKI_IMAGES:photos, HistoryDeepenVisuals:visuals} = context.window;
+const supplements = {...context.window.DEEPEN_SUPPLEMENTS_EARLY, ...context.window.DEEPEN_SUPPLEMENTS_MODERN};
 const lessons = [...context.window.DEEPEN_EARLY_LESSONS, ...context.window.DEEPEN_MODERN_LESSONS];
 const expectedIds = ['tools','early-states','three-kingdoms','northern-southern','ancient-culture','goryeo-state','goryeo-borders','goryeo-power','goryeo-life','goryeo-culture','joseon-state','sarim-politics','joseon-wars','late-joseon-politics','joseon-economy','practical-learning','opening','modern-reforms','sovereignty','modern-life','colonial-control','independence-1919','national-social-movements','armed-independence','culture-defense','liberation-government','korean-war','democracy','economic-change','inter-korean','regional-heritage','timeline-review'];
 assert.deepEqual(lessons.map(lesson => lesson.id), expectedIds);
+assert.deepEqual(Object.keys(supplements), expectedIds, 'Every lesson has structured readability & PDF supplement data');
 assert.equal(new Set(lessons.map(lesson => lesson.era)).size, 8);
 assert.equal(sources.videos.length, 46);
 assert.equal(sources.pages, 9);
@@ -48,6 +54,14 @@ for (const lesson of lessons) {
   for (const field of ['title','leftTitle','rightTitle']) string(lesson.compare[field], 'comparison heading');
   assert.equal(lesson.compare.rows.length, 3);
   lesson.compare.rows.forEach(row => ['label','left','right'].forEach(field => string(row[field], 'comparison cell')));
+  const sup = supplements[lesson.id];
+  assert(Array.isArray(sup.keywords) && sup.keywords.length >= 5, `${lesson.id}: keywords`);
+  sup.keywords.forEach(kw => string(kw, `${lesson.id}: keyword`));
+  assert.equal(sup.summary.length, 3, `${lesson.id}: 3-line summary`);
+  sup.summary.forEach(([label, desc]) => { string(label, 'summary label'); string(desc, 'summary desc'); });
+  assert.equal(sup.extras.length, 3, `${lesson.id}: 3 PDF extra notes`);
+  sup.extras.forEach(item => { string(item.title, 'extra title'); string(item.text, 'extra text'); });
+  string(sup.trap, `${lesson.id}: exam trap warning`);
   assert(['flow','compare'].includes(lesson.diagram.kind));
   assert.equal(lesson.diagram.items.length, 3);
   string(lesson.diagram.title, 'diagram title');
@@ -90,7 +104,7 @@ assert.equal(citedPages.size, 9);
 assert.equal(new Set(sources.videos.map(video => video.videoId)).size, 46);
 sources.videos.forEach(video => {
   assert(/^[A-Za-z0-9_-]{11}$/.test(video.videoId));
-  assert.equal(new URL(video.url).searchParams.get('v'), video.videoId);
+  assert(new URL(video.url).searchParams.get('v') === video.videoId);
   assert(sources.courses.some(course => course.id === video.course));
 });
 assert.equal(new Set(notes.map(note => note.id)).size, notes.length);
@@ -140,7 +154,7 @@ for (const concept of concepts) {
   assert(concept.refs.length, `${concept.id}: useful question coverage`);
   const study = examStudy[concept.id];
   assert.deepEqual(Array.from(study.refs), expectedRefs);
-  assert(study.points.length >= 3 && study.points.length <= 5);
+  assert(study.points.length >= 4 && study.points.length <= 5);
   study.points.forEach(point => {
     cardCount++;
     string(point.title, 'specific new concept');
@@ -154,7 +168,7 @@ for (const concept of concepts) {
     });
   });
 }
-assert.equal(cardCount, 101);
+assert.equal(cardCount, 128);
 assert(concepts.find(concept => concept.id === 'timeline-review').refs.length < 50, 'Timeline is a targeted concept, not a catch-all fallback');
 for (const [ref, id] of Object.entries({
   '66-26':'three-kingdoms', '68-49':'tools', '69-16':'ancient-culture',
@@ -242,8 +256,11 @@ for (const lesson of lessons) {
   assert(rendered.includes(`관련 기출 ${examStudy[lesson.id].refs.length}문항`));
   assert(!/<details[^>]*\bopen(?:\s|>)/.test(rendered), 'Related questions start collapsed');
   examStudy[lesson.id].points.forEach(point => assert(hooks.searchable(lesson).includes(point.title.normalize('NFC').trim().toLocaleLowerCase()), 'Search indexes added concepts'));
+  supplements[lesson.id].keywords.forEach(kw => assert(hooks.searchable(lesson).includes(kw.normalize('NFC').trim().toLocaleLowerCase()), 'Search indexes supplement keywords'));
 }
 assert(hooks.searchable(lessons.find(lesson => lesson.id === 'early-states')).includes('서옥제'));
+assert(hooks.searchable(lessons.find(lesson => lesson.id === 'three-kingdoms')).includes('진대법'));
+assert(hooks.searchable(lessons.find(lesson => lesson.id === 'democracy')).includes('브라운 각서'));
 
 const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const localPaths = [...html.matchAll(/(?:src|href)="([^"]+)"/g)].map(match => match[1]).filter(url => !/^(?:https?:|data:|#)/.test(url));
@@ -252,9 +269,16 @@ localPaths.forEach(url => {
   const filename = path.resolve(root, decodeURIComponent(url.split(/[?#]/)[0]));
   assert(fs.existsSync(filename), `Missing local source: ${url}`);
 });
+const hubDir = path.resolve(root, '..');
+const hubHtml = fs.readFileSync(path.join(hubDir, 'index.html'), 'utf8');
+[...hubHtml.matchAll(/(?:src|href)="([^"]+)"/g)].map(match => match[1]).filter(url => !/^(?:https?:|data:|#)/.test(url)).forEach(url => {
+  const filename = path.resolve(hubDir, decodeURIComponent(url.split(/[?#]/)[0]));
+  assert(fs.existsSync(filename), `Missing hub local source: ${url}`);
+});
 for (const filename of fs.readdirSync(root).filter(name => /\.(?:js|cjs)$/.test(name))) {
   execFileSync(process.execPath, ['--check', path.join(root, filename)], {stdio:'pipe'});
 }
+execFileSync(process.execPath, ['--check', path.join(hubDir, 'test/enhance.js')], {stdio:'pipe'});
 execFileSync(process.execPath, [path.join(root, 'build-sources.cjs'), '--check'], {stdio:'inherit'});
 execFileSync(process.execPath, [path.join(root, '../build-concepts.cjs'), '--check'], {stdio:'inherit'});
-console.log(`PASS: ${lessons.length} lessons, 96 distinct illustrations, 64 quizzes, 1050 bidirectional exam mappings, ${cardCount} source-grounded cards, mode-safe submitted-result review, 46 videos and nine PDF pages.`);
+console.log(`PASS: ${lessons.length} lessons, 96 distinct illustrations, 96 PDF extra notes, 64 quizzes, 1050 bidirectional exam mappings, ${cardCount} source-grounded cards, mode-safe submitted-result review, 46 videos and nine PDF pages.`);

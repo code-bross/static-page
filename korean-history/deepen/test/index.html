@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="한국사 심화 제60~80회, 1,050문항. 원본 지문과 클릭 가능한 텍스트·이미지 보기, 80분 시험 모드와 즉시 해설 연습 모드를 제공합니다.">
+  <meta name="description" content="한국사 심화 제60~80회, 1,050문항. 원본 지문과 클릭 가능한 텍스트·이미지 보기, 80분 시험 모드와 즉시 해설·단원 요약 연습 모드를 제공합니다.">
   <meta property="og:title" content="심화 기출 모의고사 · 한국사 한 걸음">
-  <meta property="og:description" content="21개 회차를 시험 또는 즉시 해설 연습 모드로 풀고 관련 학습 단원으로 복습하세요.">
+  <meta property="og:description" content="21개 회차를 시험 또는 즉시 해설 연습 모드로 풀고 연결 단원 3줄 요약과 오답 함정까지 한눈에 복습하세요.">
   <title>심화 기출 모의고사 · 한국사 한 걸음</title>
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="../../basic/style.css">
@@ -15,14 +15,17 @@
   <script defer src="../choices.js"></script>
   <script defer src="../concepts.js"></script>
   <script defer src="../explanations.js"></script>
+  <script defer src="../study/supplements-early.js"></script>
+  <script defer src="../study/supplements-modern.js"></script>
   <script defer src="../../basic/common.js"></script>
   <script defer src="../../basic/test/app.js"></script>
+  <script defer src="enhance.js"></script>
 </head>
 <body class="deepen-test">
   <a class="skip" href="#main">문제로 건너뛰기</a>
   <header class="topbar"><div class="topbar-inner">
-    <a class="brand" href="index.html"><span class="brand-symbol" aria-hidden="true">史</span><span>한국사 한 걸음<small>KOREAN HISTORY · ADVANCED</small></span></a>
-    <nav class="nav" aria-label="주요 메뉴"><a id="test-nav" href="index.html" aria-current="page">모의고사</a><a id="study-nav" href="../study/index.html">심화 학습</a></nav>
+    <a class="brand" href="../index.html"><span class="brand-symbol" aria-hidden="true">史</span><span>한국사 한 걸음<small>KOREAN HISTORY · ADVANCED</small></span></a>
+    <nav class="nav" aria-label="주요 메뉴"><a href="../index.html">심화 홈</a><a id="test-nav" href="index.html" aria-current="page">모의고사</a><a id="study-nav" href="../study/index.html">심화 학습</a></nav>
   </div></header>
   <main class="container" id="main">
     <div id="storage-notice" class="notice" role="status" hidden></div>
@@ -36,12 +39,12 @@
     </div>
     <section id="lobby">
       <div class="hero">
-        <div><span class="eyebrow">PRACTICE / 한국사능력검정시험 심화</span><h1>기출로 확인하고,<br><em>개념으로 연결하기.</em></h1><p>지문과 자료는 원본으로, 다섯 보기는 직접 누르는 글자·이미지 카드로. 제60~80회 기출을 풀고 헷갈린 개념은 그림 학습으로 돌아가 복습하세요.</p><div class="stats"><div><strong>21</strong><span>기출 회차</span></div><div><strong>1,050</strong><span>전체 문항</span></div><div><strong id="time-limit-value">80분</strong><span>제한 시간</span></div></div></div>
+        <div><span class="eyebrow">PRACTICE / 한국사능력검정시험 심화</span><h1>기출로 확인하고,<br><em>요약과 해설로 바로 연결하기.</em></h1><p>지문과 자료는 원본으로, 다섯 보기는 직접 누르는 글자·이미지 카드로. 정답 확인 즉시 정답 선지 요약·단원 3줄 핵심·빈출 오답 함정까지 한 화면에서 짚어 드려요.</p><div class="stats"><div><strong>21</strong><span>기출 회차</span></div><div><strong>1,050</strong><span>전체 문항</span></div><div><strong id="time-limit-value">80분</strong><span>제한 시간</span></div></div></div>
         <aside class="hero-card"><span class="eyebrow">YOUR STUDY ROUTINE</span><h2>풀고, 확인하고,<br>내 것으로 만들기.</h2><p id="mode-summary">답안과 남은 시간을 이 브라우저에 저장합니다. 시험을 마치면 오답에서 관련 개념으로 바로 이동할 수 있어요.</p><a id="study-intro" href="../study/index.html">그림으로 심화 개념 살펴보기 →</a></aside>
       </div>
       <div class="section-title"><h2>어느 회차를 풀어볼까요?</h2><p>50문항 · 5지선다 · 100점 만점</p></div>
       <div id="exam-list" class="exam-grid"></div>
-      <p class="footnote">제공된 심화 문제지 21개 회차를 수록했습니다. 지문·자료는 원본 이미지로, 보기는 텍스트 또는 따로 추출한 원본 이미지로 표시합니다. 보기의 글자나 그림을 누르면 답이 선택됩니다. 배점은 원본 문제지에서, 정답과 핵심 해설은 회차별 정답·해설 MD에서 가져왔습니다. MD에 기재된 원문 표기 오류의 정정도 반영했습니다. 공식 정답표를 별도로 대조한 서비스가 아니며, 합격·자격을 보장하지 않습니다. 기록은 같은 브라우저·주소에서만 유지됩니다.</p>
+      <p class="footnote">제공된 심화 문제지 21개 회차를 수록했습니다. 지문·자료는 원본 이미지로, 보기는 텍스트 또는 따로 추출한 원본 이미지로 표시합니다. 보기의 글자나 그림을 누르면 답이 선택됩니다. 배점은 원본 문제지에서, 정답과 핵심 해설은 회차별 정답·해설 MD에서 가져왔으며 단원별 보충 요약을 함께 표시합니다. MD에 기재된 원문 표기 오류의 정정도 반영했습니다. 공식 정답표를 별도로 대조한 서비스가 아니며, 합격·자격을 보장하지 않습니다. 기록은 같은 브라우저·주소에서만 유지됩니다.</p>
     </section>
     <section id="exam" hidden aria-label="모의고사 풀이">
       <div class="test-heading">

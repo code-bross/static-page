@@ -3,18 +3,44 @@
 .deepen-test .content-options .option-grid{grid-template-columns:1fr;gap:12px}
 .deepen-test .option-card{display:flex;flex-direction:column;min-width:0}
 .deepen-test .option-card>.option{flex:1}
-.deepen-test .content-options .option{display:grid;grid-template-columns:18px 24px minmax(0,1fr);align-items:start;gap:12px;padding:18px;text-align:left;line-height:1.75}
+.deepen-test .content-options .option{display:grid;grid-template-columns:18px 26px minmax(0,1fr);align-items:start;gap:12px;padding:18px;text-align:left;line-height:1.82;font-size:.94rem}
 .deepen-test .content-options .option input{margin-top:5px}
 .deepen-test .option-content{display:block;min-width:0;font-weight:450}
 .deepen-test .option-text{display:block;white-space:pre-line;overflow-wrap:anywhere}
 .deepen-test .option-content img{display:block;max-width:100%;height:auto;margin:8px auto;background:#fff}
-.deepen-test .option-state{grid-column:3;font-size:.75rem;font-weight:750}
+.deepen-test .option-state{grid-column:3;font-size:.76rem;font-weight:750}
 .deepen-test .picture-options .option-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 .deepen-test .picture-options .option-content img{width:100%;max-width:260px}
 .deepen-test .image-option .option-content,.deepen-test .image-option .option-state{grid-column:1/-1}
 .deepen-test .option-enlarge{align-self:flex-end;display:inline-flex;align-items:center;min-height:44px;padding:4px 8px;font-size:.75rem}
 .deepen-test .content-options .option:has(input:focus-visible){outline:3px solid var(--accent);outline-offset:3px}
 .deepen-test .content-options .option:has(input:disabled){cursor:default}
-@media(max-width:760px){.deepen-test .option{gap:4px;padding-inline:3px}.deepen-test .nav a{padding-inline:7px}}
-@media(max-width:760px){.deepen-test .content-options .option{padding:14px 12px;gap:8px;grid-template-columns:16px 21px minmax(0,1fr)}.deepen-test .picture-options .option-grid{grid-template-columns:1fr}}
-@media print{.deepen-test .option-enlarge{display:none}.deepen-test .option-card{break-inside:avoid}}
+
+/* Enriched Deepen Explanation & Summary Panel */
+.deepen-insight{margin:16px 0;padding:20px 22px;border:1px solid #cdd9c7;border-radius:14px;background:#f5f8f2;display:grid;gap:14px}
+.deepen-insight>h3{margin:0;font-size:1rem;color:var(--accent)}
+.insight-badge{display:inline-block;font-size:.7rem;font-weight:750;color:var(--accent);background:#e3ece0;border:1px solid #c6d5c1;border-radius:999px;padding:2px 9px;margin-bottom:6px}
+.insight-answer,.insight-card,.insight-summary{padding:14px 16px;border-radius:10px;background:var(--paper);border:1px solid #dbe4d5}
+.insight-answer p,.insight-card p{margin:0;font-size:.9rem;line-height:1.82}
+.insight-card h4{margin:2px 0 6px;font-size:.95rem;color:var(--accent)}
+.insight-summary-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.insight-summary-head .insight-badge{margin-bottom:0}
+.insight-summary-head strong{font-size:.95rem;color:var(--ink)}
+.insight-summary dl{margin:0;display:grid;gap:7px}
+.insight-summary dl>div{display:grid;grid-template-columns:135px minmax(0,1fr);gap:10px;align-items:baseline;font-size:.86rem;line-height:1.75}
+.insight-summary dt{font-weight:700;color:var(--accent)}
+.insight-summary dd{margin:0;color:var(--ink)}
+.insight-trap{margin:12px 0 0;padding:10px 12px;border-radius:8px;background:#fdf5ec;border-left:3px solid var(--orange);font-size:.85rem;line-height:1.78;color:#4a301e}
+
+@media(max-width:760px){
+  .deepen-test .option{gap:4px;padding-inline:3px}
+  .deepen-test .nav a{padding-inline:7px}
+  .deepen-test .content-options .option{padding:14px 12px;gap:8px;grid-template-columns:16px 22px minmax(0,1fr);font-size:.88rem}
+  .deepen-test .picture-options .option-grid{grid-template-columns:1fr}
+  .deepen-insight{padding:16px 14px}
+  .insight-summary dl>div{grid-template-columns:1fr;gap:2px}
+}
+@media print{
+  .deepen-test .option-enlarge{display:none}
+  .deepen-test .option-card,.deepen-insight{break-inside:avoid}
+}
