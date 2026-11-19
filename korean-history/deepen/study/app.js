@@ -3,6 +3,7 @@
   const $ = selector => document.querySelector(selector);
   const {escape, render:renderDiagram} = window.HistoryDeepenVisuals;
   const lessons = [...window.DEEPEN_EARLY_LESSONS, ...window.DEEPEN_MODERN_LESSONS];
+  const supplements = {...(window.DEEPEN_SUPPLEMENTS_EARLY || {}), ...(window.DEEPEN_SUPPLEMENTS_MODERN || {})};
   const sources = window.DEEPEN_SOURCES;
   const photos = window.HISTORY_WIKI_IMAGES;
   const lessonById = new Map(lessons.map(lesson => [lesson.id, lesson]));
@@ -91,7 +92,7 @@
   function renderExamStudy(lesson) {
     const study = examStudy[lesson.id];
     const rounds = [...new Set(study.refs.map(ref => Number(ref.split('-')[0])))];
-    return `<section class="exam-study" aria-labelledby="exam-study-title"><h3 id="exam-study-title" class="section-heading"><span>04</span>기출에서 더 배워요</h3><p class="small muted">60~80회 해설의 역사적 사실을 바탕으로 새로 정리한 보충 노트예요. 공식 해설의 전재가 아니며, 정답 번호는 문제를 열어 확인해요.</p><div class="exam-learning-cards">${study.points.map(point => `<article class="exam-learning-card"><h4>${escape(point.title)}</h4><p>${escape(point.text)}</p><details><summary>근거 문항 ${point.refs.length}개 · 직접 풀어 보기</summary><div class="exam-question-links">${point.refs.map(questionLink).join('')}</div></details></article>`).join('')}</div><details class="exam-related"><summary>관련 기출 ${study.refs.length}문항 · 회차별로 골라 풀기</summary><p class="small muted">${examMode === 'exam' ? '시험 모드로 연결해요. 답안을 제출하기 전에는 정답을 표시하지 않아요.' : '시간 제한 없는 연습 모드로 연결해요. 시험 모드 기록과 따로 저장해요.'}</p>${rounds.map(round => {
+    return `<section id="sec-exam" class="exam-study" aria-labelledby="exam-study-title"><h3 id="exam-study-title" class="section-heading"><span>05</span>기출에서 더 배워요</h3><p class="small muted">60~80회 해설의 역사적 사실을 바탕으로 새로 정리한 보충 노트예요. 공식 해설의 전재가 아니며, 정답 번호는 문제를 열어 확인해요.</p><div class="exam-learning-cards">${study.points.map(point => `<article class="exam-learning-card"><h4>${escape(point.title)}</h4><p>${escape(point.text)}</p><details><summary>근거 문항 ${point.refs.length}개 · 직접 풀어 보기</summary><div class="exam-question-links">${point.refs.map(questionLink).join('')}</div></details></article>`).join('')}</div><details class="exam-related"><summary>관련 기출 ${study.refs.length}문항 · 회차별로 골라 풀기</summary><p class="small muted">${examMode === 'exam' ? '시험 모드로 연결해요. 답안을 제출하기 전에는 정답을 표시하지 않아요.' : '시간 제한 없는 연습 모드로 연결해요. 시험 모드 기록과 따로 저장해요.'}</p>${rounds.map(round => {
       const refs = study.refs.filter(ref => ref.startsWith(`${round}-`));
       return `<details class="exam-round"><summary>${round}회 · ${refs.length}문항</summary><div class="exam-question-links">${refs.map(questionLink).join('')}</div></details>`;
     }).join('')}</details></section>`;
@@ -104,19 +105,66 @@
     $('#lesson').scrollIntoView({block:'start'});
   }
   const normalize = value => value.normalize('NFC').trim().toLocaleLowerCase();
-  const searchable = lesson => normalize([
-    lesson.title, lesson.era, lesson.lead, lesson.story, lesson.memory,
-    ...lesson.steps.flatMap(step => [step.title, step.text]),
-    ...lesson.glossary.flatMap(word => [word.term, word.meaning]),
-    ...lesson.compare.rows.flatMap(row => [row.label, row.left, row.right]),
-    ...examStudy[lesson.id].points.flatMap(point => [point.title, point.text])
-  ].join(' '));
+  const searchable = lesson => {
+    const extra = supplements[lesson.id];
+    return normalize([
+      lesson.title, lesson.era, lesson.lead, lesson.story, lesson.memory,
+      ...lesson.steps.flatMap(step => [step.title, step.text]),
+      ...lesson.glossary.flatMap(word => [word.term, word.meaning]),
+      ...lesson.compare.rows.flatMap(row => [row.label, row.left, row.right]),
+      ...examStudy[lesson.id].points.flatMap(point => [point.title, point.text]),
+      ...(extra ? [
+        ...(extra.keywords || []),
+        ...(extra.summary || []).flat(),
+        ...(extra.extras || []).flatMap(item => [item.title, item.text]),
+        extra.trap || ''
+      ] : [])
+    ].join(' '));
+  };
   const searchIndex = new Map(lessons.map(lesson => [lesson.id, searchable(lesson)]));
   let state = load();
   let era = '전체';
+  let videoFilter = 'all';
   let selected = lessonById.has(location.hash.slice(1)) ? location.hash.slice(1) :
     (review && lessons.find(lesson => review.refs.some(ref => window.HISTORY_TOPICS[ref].includes(lesson.id)))?.id) || state.last;
   let filtered = lessons;
+
+  const escapeRegExp = text => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  function buildTermHighlighter(lesson) {
+    const extra = supplements[lesson.id];
+    const rawTerms = [
+      ...(extra?.keywords || []),
+      ...lesson.glossary.map(word => word.term.replace(/\s*\([^)]*\)/g, '').trim())
+    ].filter(term => term && term.length >= 2);
+    const unique = [...new Set(rawTerms.map(term => escape(term)))].sort((a, b) => b.length - a.length);
+    if (!unique.length) return text => escape(text);
+    const pattern = new RegExp(`(${unique.map(escapeRegExp).join('|')})`, 'g');
+    return text => escape(text).replace(pattern, '<mark class="hl">$1</mark>');
+  }
+  function formatReadableStory(story, highlight) {
+    const sentences = story.match(/[^.!?]+[.!?]+(?:\s|$)|[^.!?]+$/g) || [story];
+    const paragraphs = [];
+    for (let index = 0; index < sentences.length; index += 2) {
+      paragraphs.push(sentences.slice(index, index + 2).join(' ').trim());
+    }
+    return paragraphs.filter(Boolean).map(paragraph => `<p>${highlight(paragraph)}</p>`).join('');
+  }
+  function collectWrongLessonIds() {
+    const ids = new Set();
+    if (review?.submitted) {
+      review.refs.forEach(ref => (window.HISTORY_TOPICS[ref] || []).forEach(id => ids.add(id)));
+      return ids;
+    }
+    for (let round = 60; round <= 80; round++) {
+      for (const mode of ['exam', 'practice']) {
+        const res = readExamReview(round, mode);
+        if (res.submitted) {
+          res.wrong.forEach(ref => (window.HISTORY_TOPICS[ref] || []).forEach(id => ids.add(id)));
+        }
+      }
+    }
+    return ids;
+  }
 
   function renderProgress() {
     const complete = state.complete.length;
@@ -148,10 +196,12 @@
   function applyFilters(focus = false, force = false) {
     const query = normalize($('#search').value);
     const status = $('#study-filter').value;
+    const wrongIds = status === 'wrong' ? collectWrongLessonIds() : null;
     filtered = lessons.filter(lesson => (era === '전체' || lesson.era === era) &&
       (status !== 'complete' || state.complete.includes(lesson.id)) &&
       (status !== 'incomplete' || !state.complete.includes(lesson.id)) &&
       (status !== 'bookmarked' || state.bookmarked.includes(lesson.id)) &&
+      (status !== 'wrong' || wrongIds.has(lesson.id)) &&
       (!query || searchIndex.get(lesson.id).includes(query)));
     if (!filtered.some(lesson => lesson.id === selected)) {
       selected = filtered.find(lesson => lesson.id === state.last)?.id || filtered[0]?.id || '';
@@ -179,6 +229,28 @@
     const title = note?.actualTitle || video.title;
     const evidence = note?.evidence === 'transcript' ? '공개 자막 일부 확인' : note?.evidence === 'description' ? '공개 설명 확인' : note?.actualTitle ? '실제 영상 제목 확인' : '강의 목록의 주제 연결 · 영상 내용 미확인';
     return `<div class="video-card" data-video-card="${video.id}"><p class="course-label">${escape(course.name)} · ${escape(course.teacher)}</p><h4>${escape(title)}</h4><p class="catalog-title">목록 표기: ${escape(video.title)} · ${escape(video.topic)}</p><span class="evidence-label">${evidence}</span>${note?.scope ? `<p class="video-scope">${escape(note.scope)}</p>` : ''}${note?.takeaways?.length ? `<ul class="video-notes">${note.takeaways.map(text => `<li>${escape(text)}</li>`).join('')}</ul>` : ''}<div class="actions"><a class="button secondary" href="${escape(video.url)}" target="_blank" rel="noopener noreferrer">YouTube에서 보기 ↗</a><button type="button" class="button quiet" data-play="${video.id}" aria-expanded="false" aria-controls="player-${prefix}-${video.id}">여기서 영상 열기</button></div><div class="video-player" id="player-${prefix}-${video.id}" hidden></div></div>`;
+  }
+  function renderSummaryBox(lesson, highlight) {
+    const extra = supplements[lesson.id];
+    if (!extra) return '';
+    return `<section id="sec-summary" class="quick-summary" aria-label="한눈에 보는 3줄 핵심 요약">
+      <div class="quick-summary-head">
+        <div><span class="eyebrow">30초 스캔 · 핵심 뼈대</span><h3>한눈에 보는 3줄 핵심 요약</h3></div>
+        <span class="small muted">먼저 큰 줄기를 잡고 아래로 내려가 보세요</span>
+      </div>
+      <dl class="summary-rows">${extra.summary.map(([label, desc]) => `<div class="summary-row"><dt>${escape(label)}</dt><dd>${highlight(desc)}</dd></div>`).join('')}</dl>
+      <div class="keyword-strip" aria-label="단원 핵심 키워드">${extra.keywords.map(kw => `<button type="button" class="kw-chip" data-kw="${escape(kw)}" title="이 키워드로 전체 단원 검색"># ${escape(kw)}</button>`).join('')}</div>
+    </section>`;
+  }
+  function renderSupplementExtras(lesson, highlight) {
+    const extra = supplements[lesson.id];
+    if (!extra) return '';
+    return `<section id="sec-extras" class="supplement-section" aria-labelledby="supplement-title">
+      <h3 id="supplement-title" class="section-heading"><span>03</span>요약 노트 빈출 보충 &amp; 함정 피하기</h3>
+      <p class="small muted">요약 PDF에서 빠지기 쉬운 세부 제도와 시험에서 가장 자주 섞어 내는 오답 함정을 모았어요.</p>
+      <div class="extra-cards">${extra.extras.map(item => `<article class="extra-card"><h4>${escape(item.title)}</h4><p>${highlight(item.text)}</p></article>`).join('')}</div>
+      <aside class="trap-box" aria-label="자주 나오는 오답 함정"><strong>시험장 오답 주의보 · 이것만은 섞지 마세요!</strong><p>${highlight(extra.trap)}</p></aside>
+    </section>`;
   }
   function renderQuizzes(lesson) {
     return lesson.quiz.map((quiz, index) => `<fieldset class="check-question" data-quiz-block="${index}" aria-describedby="quiz-feedback-${index}"><legend>${index + 1}. ${escape(quiz.question)}</legend><div class="quiz-options">${quiz.options.map((option, answer) => `<label class="quiz-option" data-option="${answer}"><input type="radio" name="quiz-${lesson.id}-${index}" data-quiz="${index}" value="${answer}" ${state.answers[lesson.id]?.[index] === answer ? 'checked' : ''}><span>${escape(option)}</span><span class="choice-result" aria-hidden="true"></span></label>`).join('')}</div><p id="quiz-feedback-${index}" class="quiz-feedback" role="status" aria-live="polite" aria-atomic="true" hidden></p></fieldset>`).join('');
@@ -220,22 +292,36 @@
   function renderLesson(focus = false) {
     const article = $('#lesson');
     article.dataset.lessonId = selected;
+    const status = $('#study-filter').value;
     const lesson = lessonById.get(selected);
     if (!lesson) {
-      article.innerHTML = '<div class="empty"><h2>조건에 맞는 단원이 없어요.</h2><p>검색어를 바꾸거나 다른 시대·학습 상태를 선택해 보세요.</p><button type="button" class="button secondary" data-clear-filters>전체 단원 보기</button></div>';
+      article.innerHTML = status === 'wrong'
+        ? '<div class="empty"><h2>아직 기록된 기출 오답 단원이 없어요.</h2><p>심화 기출 모드나 연습 모드에서 문제를 풀고 제출하면, 틀린 문항과 연결된 단원만 여기에 자동으로 모여요.</p><div class="actions" style="justify-content:center;margin-top:16px"><a class="button" href="../test/index.html?mode=practice">심화 기출 연습하러 가기 →</a><button type="button" class="button secondary" data-clear-filters>전체 단원 보기</button></div></div>'
+        : '<div class="empty"><h2>조건에 맞는 단원이 없어요.</h2><p>검색어를 바꾸거나 다른 시대·학습 상태를 선택해 보세요.</p><button type="button" class="button secondary" data-clear-filters>전체 단원 보기</button></div>';
       if (focus) focusLesson();
       return;
     }
-    article.innerHTML = `<div class="lesson-kicker"><span class="eyebrow">LESSON ${String(lessons.indexOf(lesson) + 1).padStart(2, '0')} / ${escape(lesson.era)}</span><span class="pill">그림 → 이해 → 확인</span></div>
+    const highlight = buildTermHighlighter(lesson);
+    article.innerHTML = `<div class="lesson-kicker"><span class="eyebrow">LESSON ${String(lessons.indexOf(lesson) + 1).padStart(2, '0')} / ${escape(lesson.era)}</span><span class="pill">요약 → 그림 → 이해 → 확인</span></div>
       <h2>${escape(lesson.title)}</h2><p class="summary">${escape(lesson.lead)}</p>
+      <nav class="section-jumps" aria-label="단원 안 빠른 이동">
+        <a href="#sec-summary">3줄 요약</a>
+        <a href="#sec-story">이야기·핵심 단계</a>
+        <a href="#sec-compare">한눈 비교표</a>
+        <a href="#sec-extras">빈출 보충·함정</a>
+        <a href="#sec-quiz">확인 문제</a>
+        <a href="#sec-exam">기출 노트 (${examStudy[lesson.id].points.length})</a>
+      </nav>
+      ${renderSummaryBox(lesson, highlight)}
       ${renderDiagram(lesson.diagram)}
-      <h3 class="section-heading"><span>01</span>먼저, 이야기를 연결해요</h3><p class="lesson-story">${escape(lesson.story)}</p>
+      <h3 id="sec-story" class="section-heading"><span>01</span>먼저, 이야기를 연결해요</h3><div class="lesson-story">${formatReadableStory(lesson.story, highlight)}</div>
       ${renderPhoto(lesson.photo)}
-      <ol class="lesson-points">${lesson.steps.map(step => `<li><div><h4>${escape(step.title)}</h4><p>${escape(step.text)}</p></div></li>`).join('')}</ol>
+      <ol class="lesson-points">${lesson.steps.map(step => `<li><div><h4>${escape(step.title)}</h4><p>${highlight(step.text)}</p></div></li>`).join('')}</ol>
       <aside class="glossary"><h3>낯선 말, 쉬운 뜻</h3><dl>${lesson.glossary.map(word => `<div><dt>${escape(word.term)}</dt><dd>${escape(word.meaning)}</dd></div>`).join('')}</dl></aside>
-      <section class="comparison"><h3 class="section-heading"><span>02</span>${escape(lesson.compare.title)}</h3><table><caption class="sr-only">${escape(lesson.compare.title)}</caption><thead><tr><th scope="col">비교 단서</th><th scope="col">${escape(lesson.compare.leftTitle)}</th><th scope="col">${escape(lesson.compare.rightTitle)}</th></tr></thead><tbody>${lesson.compare.rows.map(row => `<tr><th scope="row">${escape(row.label)}</th><td>${escape(row.left)}</td><td>${escape(row.right)}</td></tr>`).join('')}</tbody></table></section>
+      <section id="sec-compare" class="comparison"><h3 class="section-heading"><span>02</span>${escape(lesson.compare.title)}</h3><table><caption class="sr-only">${escape(lesson.compare.title)}</caption><thead><tr><th scope="col">비교 단서</th><th scope="col">${escape(lesson.compare.leftTitle)}</th><th scope="col">${escape(lesson.compare.rightTitle)}</th></tr></thead><tbody>${lesson.compare.rows.map(row => `<tr><th scope="row">${escape(row.label)}</th><td>${highlight(row.left)}</td><td>${highlight(row.right)}</td></tr>`).join('')}</tbody></table></section>
+      ${renderSupplementExtras(lesson, highlight)}
       <div class="remember"><strong>한 줄 기억 고리 · 뜻을 이해한 다음 떠올려요</strong><p>${escape(lesson.memory)}</p></div>
-      <section class="quiz-section"><h3 class="section-heading"><span>03</span>기억에서 꺼내 볼까요?</h3><p class="small muted">답을 누르면 바로 해설이 나와요. 다시 선택해도 괜찮아요.</p><div id="quizzes">${renderQuizzes(lesson)}</div><div class="lesson-quiz-actions"><button type="button" class="button quiet" data-clear-answers>이 단원 답안만 지우기</button></div></section>
+      <section id="sec-quiz" class="quiz-section"><h3 class="section-heading"><span>04</span>기억에서 꺼내 볼까요?</h3><p class="small muted">답을 누르면 바로 해설이 나와요. 다시 선택해도 괜찮아요.</p><div id="quizzes">${renderQuizzes(lesson)}</div><div class="lesson-quiz-actions"><button type="button" class="button quiet" data-clear-answers>이 단원 답안만 지우기</button></div></section>
       ${renderExamStudy(lesson)}
       <section class="sources"><h3>원문과 관련 강의로 한 번 더</h3><p>이 설명의 바탕이 된 PDF 쪽수예요. 압축 표기의 오류는 출처 안내에서 바로잡았어요.</p><div class="source-chips">${lesson.pages.map(page => `<a href="${escape(sources.pdf)}#page=${page}" target="_blank" rel="noopener">요약 PDF ${page}쪽 ↗</a>`).join('')}</div><details class="related-videos"><summary>이 시대와 연결한 강의 ${lesson.videoIds.length}개</summary><p class="small muted">단원 전체를 모두 다루는 영상은 아닐 수 있어요. 실제 제목과 확인 범위를 살펴보고 골라 봐요.</p>${lesson.videoIds.map(id => renderVideo(videoById.get(id), lesson.id)).join('')}</details></section>
       <div class="lesson-actions"><button id="complete-lesson" type="button" class="button" data-toggle="complete"></button><button id="bookmark-lesson" type="button" class="button secondary" data-toggle="bookmarked"></button></div><nav id="lesson-navigation" class="lesson-navigation" aria-label="이전·다음 단원"></nav>`;
@@ -264,6 +350,26 @@
     button.setAttribute('aria-expanded', 'true');
     button.textContent = '영상 닫기';
   }
+  function renderVideoCatalog() {
+    const filterItems = [
+      ['all', `전체 강의 (${sources.videos.length})`],
+      ['genius', '12강 심화 개념 (12)'],
+      ['cram-concept', '벼락치기 개념 (15)'],
+      ['cram-exam', '벼락치기 기출 풀이 (19)']
+    ];
+    $('#video-filters').innerHTML = filterItems.map(([key, label]) => `<button type="button" data-video-filter="${key}" aria-pressed="${videoFilter === key}">${label}</button>`).join('');
+    const matchesFilter = video => {
+      if (videoFilter === 'genius') return video.course === 'genius';
+      if (videoFilter === 'cram-concept') return video.course === 'cram' && video.kind === '개념';
+      if (videoFilter === 'cram-exam') return video.course === 'cram' && video.kind === '기출 풀이';
+      return true;
+    };
+    $('#video-catalog').innerHTML = sources.courses.map(course => {
+      const list = sources.videos.filter(video => video.course === course.id && matchesFilter(video));
+      if (!list.length) return '';
+      return `<section aria-labelledby="course-${course.id}"><h3 id="course-${course.id}" class="video-course-heading">${escape(course.name)}<small>${escape(course.teacher)} · ${list.length}개 강의 표시${course.id === 'genius' ? ' · 번호는 원본 목록의 순서' : ''}</small></h3><ol class="video-course-list">${list.map(video => `<li>${renderVideo(video, 'library')}</li>`).join('')}</ol></section>`;
+    }).join('');
+  }
 
   $('#search').addEventListener('input', () => applyFilters());
   $('#study-filter').addEventListener('change', () => applyFilters());
@@ -275,10 +381,26 @@
     applyFilters();
     $(`[data-era="${era}"]`).focus({preventScroll:true});
   });
+  $('#video-filters').addEventListener('click', event => {
+    const button = event.target.closest('[data-video-filter]');
+    if (!button) return;
+    videoFilter = button.dataset.videoFilter;
+    renderVideoCatalog();
+    $(`[data-video-filter="${videoFilter}"]`).focus({preventScroll:true});
+  });
   document.addEventListener('click', event => {
     const button = event.target.closest('button');
     if (button?.hasAttribute('data-play')) openVideo(button);
     if (button?.hasAttribute('data-clear-filters')) { clearFilters(); applyFilters(true); }
+    if (button?.dataset.kw) {
+      era = '전체';
+      $('#study-filter').value = 'all';
+      $('#search').value = button.dataset.kw;
+      renderEras();
+      applyFilters(false);
+      $('#search').focus();
+      announce(`‘${button.dataset.kw}’ 키워드가 포함된 단원 ${filtered.length}개를 찾았어요.`);
+    }
     const link = event.target.closest('[data-lesson]');
     if (link && link.dataset.lesson === selected) {
       event.preventDefault();
@@ -368,17 +490,18 @@
     $('#reset-dialog').close();
     announce('심화 학습 기록만 초기화했어요.');
   });
+  const sectionHashes = new Set(['', 'lesson', 'video-library', 'sec-summary', 'sec-story', 'sec-compare', 'sec-extras', 'sec-quiz', 'sec-exam']);
   window.addEventListener('hashchange', () => {
     const id = location.hash.slice(1);
     if (lessonById.has(id)) selectLesson(id);
-    else if (!['', 'lesson', 'video-library'].includes(id)) {
+    else if (!sectionHashes.has(id)) {
       warn('요청한 단원을 찾지 못했어요. 현재 목차에서 단원을 골라 주세요.');
     }
   });
   $('#note-link').href = sources.pdf;
   $('#advanced-test-link').href = `../test/index.html?mode=${examMode}`;
   $('#catalog-sources').innerHTML = sources.courses.map(course => `<a href="${escape(course.source)}">${escape(course.name)} · 원본 MD ↗</a>`).join('');
-  $('#video-catalog').innerHTML = sources.courses.map(course => `<section aria-labelledby="course-${course.id}"><h3 id="course-${course.id}" class="video-course-heading">${escape(course.name)}<small>${escape(course.teacher)} · ${course.count}개 강의${course.id === 'genius' ? ' · 번호는 원본 목록의 순서' : ''}</small></h3><ol class="video-course-list">${sources.videos.filter(video => video.course === course.id).map(video => `<li>${renderVideo(video, 'library')}</li>`).join('')}</ol></section>`).join('');
+  renderVideoCatalog();
   renderEras();
   renderExamReview();
   renderProgress();

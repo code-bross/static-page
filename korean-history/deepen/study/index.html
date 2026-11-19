@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="한국사 심화 32개 단원, 101개 기출 보충 노트, 60~80회 1050문항 연결. 그림·쉬운 설명·확인 문제와 제출 결과에 맞춘 복습을 제공합니다.">
+  <meta name="description" content="한국사 심화 32개 단원, 3줄 핵심 요약·빈출 함정, 128개 기출 보충 노트, 60~80회 1050문항 연결. 그림·쉬운 설명·확인 문제와 제출 결과에 맞춘 복습을 제공합니다.">
   <meta property="og:title" content="그림으로 배우는 심화 · 한국사 한 걸음">
-  <meta property="og:description" content="어려운 용어는 쉽게, 사건의 흐름은 그림으로. 선사부터 현대까지 32개 학습 노트.">
+  <meta property="og:description" content="3줄 핵심 요약으로 뼈대를 잡고, 그림과 쉬운 설명으로 흐름을 이해해요. 선사부터 현대까지 32개 학습 노트.">
   <title>그림으로 배우는 심화 · 한국사 한 걸음</title>
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="../../basic/style.css">
@@ -15,6 +15,8 @@
   <script defer src="video-notes.js"></script>
   <script defer src="lessons-early.js"></script>
   <script defer src="lessons-modern.js"></script>
+  <script defer src="supplements-early.js"></script>
+  <script defer src="supplements-modern.js"></script>
   <script defer src="icons-early.js"></script>
   <script defer src="icons-modern.js"></script>
   <script defer src="visuals.js"></script>
@@ -24,20 +26,20 @@
 <body class="deepen-study">
   <a class="skip" href="#lesson">학습 내용으로 건너뛰기</a>
   <header class="topbar"><div class="topbar-inner">
-    <a class="brand" href="index.html"><span class="brand-symbol" aria-hidden="true">史</span><span>한국사 한 걸음<small>KOREAN HISTORY · ADVANCED</small></span></a>
-    <nav class="nav" aria-label="주요 메뉴"><a href="../../basic/study/index.html">기본 학습</a><a id="advanced-test-link" href="../test/index.html?mode=practice">심화 기출</a><a href="#video-library">강의 모음</a></nav>
+    <a class="brand" href="../index.html"><span class="brand-symbol" aria-hidden="true">史</span><span>한국사 한 걸음<small>KOREAN HISTORY · ADVANCED</small></span></a>
+    <nav class="nav" aria-label="주요 메뉴"><a href="../index.html">심화 홈</a><a href="../../basic/study/index.html">기본 학습</a><a id="advanced-test-link" href="../test/index.html?mode=practice">심화 기출</a><a href="#video-library">강의 모음</a></nav>
   </div></header>
   <main class="container">
     <p id="storage-notice" class="notice" role="status" hidden></p>
     <noscript><p class="notice">단원 표시와 학습 기록에는 JavaScript가 필요해요. <a href="../pdf/note/">요약 PDF</a>와 <a href="../lecture/">강의 목록</a>은 직접 열 수 있어요.</p></noscript>
     <section class="hero study-hero">
-      <div><span class="eyebrow">VISUAL STUDY / 한국사능력검정시험 심화</span><h1>어려운 심화도,<br><em>그림으로 한 걸음.</em></h1><p>처음 만나는 용어는 쉽게, 헷갈리는 사건은 나란히.<br>그림을 보고 → 이유를 이해하고 → 내 말로 답해 봐요.</p><div class="hero-facts"><span>32개 작은 단원</span><span>64개 확인 문제</span><span>46개 관련 강의</span></div><p class="hero-note">제공된 요약 PDF 9쪽 기반 · 영상은 강의 목록의 주제로 연결</p></div>
+      <div><span class="eyebrow">VISUAL STUDY / 한국사능력검정시험 심화</span><h1>어려운 심화도,<br><em>한눈에 읽고 그림으로 연결.</em></h1><p>3줄 핵심 요약으로 먼저 큰 틀을 잡고 → 형광펜 키워드로 흐름을 읽고 → 빈출 함정과 기출 128개 포인트로 마무리해요.</p><div class="hero-facts"><span>32개 단원 · 3줄 요약</span><span>96개 빈출 보충 포인트</span><span>128개 기출 노트</span><span>64개 확인 문제</span></div><p class="hero-note">제공된 요약 PDF 9쪽 전 범위 반영 · 60~80회 기출 1,050문항 연결</p></div>
       <aside class="hero-card"><span class="eyebrow">나의 배움 지도</span><h2 id="progress-label">0 <span class="small">/ 32개 단원</span></h2><progress id="study-progress" class="progress" value="0" max="32" aria-label="완료한 단원 수"></progress><p id="progress-text">한 단원씩, 오늘 이해한 만큼 표시해요.</p><p id="quiz-progress" class="small">확인 문제 정답 0 / 64</p><button id="continue-study" type="button" class="button secondary">이어서 학습하기 →</button></aside>
     </section>
     <section id="exam-review" class="panel exam-review" aria-label="기출 결과와 연결한 복습" hidden></section>
     <div class="study-tools" role="search" aria-label="학습 단원 찾기">
-      <div class="search-wrap"><label class="sr-only" for="search">개념·인물·사건 검색</label><input id="search" type="search" placeholder="예: 대동법, 독립운동, 직지" autocomplete="off"></div>
-      <label class="sr-only" for="study-filter">학습 상태</label><select id="study-filter"><option value="all">전체 단원</option><option value="incomplete">아직 공부할 단원</option><option value="complete">학습 완료</option><option value="bookmarked">북마크</option></select>
+      <div class="search-wrap"><label class="sr-only" for="search">개념·인물·사건 검색</label><input id="search" type="search" placeholder="예: 대동법, 진대법, 신민회, 6·15 선언" autocomplete="off"></div>
+      <label class="sr-only" for="study-filter">학습 상태</label><select id="study-filter"><option value="all">전체 단원</option><option value="incomplete">아직 공부할 단원</option><option value="complete">학습 완료</option><option value="bookmarked">북마크</option><option value="wrong">기출 오답 연결 단원</option></select>
       <button id="reset-progress" type="button" class="button quiet">기록 초기화</button>
     </div>
     <div id="era-filters" class="chips" role="group" aria-label="시대별 단원 선택"></div>
@@ -48,12 +50,12 @@
     <section id="video-library" class="panel library" aria-labelledby="library-title">
       <span class="eyebrow">WATCH & CONNECT</span><h2 id="library-title">강의와 함께 더 알아보기</h2><p>MD에 담긴 두 과정의 46개 링크를 빠짐없이 모았어요. 목록의 넓은 시대명과 실제 영상의 세부 주제는 다를 수 있어요.</p>
       <p class="small">영상 대본은 접근 환경의 제한으로 열람하지 못했어요. 아래 영상들은 관련 시대를 더 공부하기 위한 링크이며, 이 페이지의 설명을 영상에서 그대로 요약한 것은 아니에요.</p>
-      <details id="all-videos"><summary>전체 강의 목록 열기 · 34강 + 12개 강의</summary><div id="video-catalog"></div></details>
+      <details id="all-videos"><summary>전체 강의 목록 열기 · 34강 + 12개 강의</summary><div id="video-filters" class="chips video-filter-bar" role="group" aria-label="강의 유형 선택"></div><div id="video-catalog"></div></details>
     </section>
     <details class="panel source-guide"><summary>자료 출처·그림 안내·원본 표기 바로잡기</summary>
       <h2>어떤 자료로 만들었나요?</h2>
-      <p>제공된 <a id="note-link" href="../pdf/note/">한국사 요약 PDF · 9쪽</a>의 핵심 개념을 중학생도 읽을 수 있는 설명으로 새로 구성했어요. 단원별로 해당 PDF 쪽수를 연결했으며, 모든 세부 항목을 옮긴 완전한 교재나 공식 기출 해설은 아니에요.</p>
-      <p>‘기출에서 더 배워요’의 101개 보충 노트와 문항 연결은 <a href="../pdf/test/">60~80회 심화 문제지·해설 자료</a>의 역사적 사실을 검토해 새로 구성했어요. 근거 문항을 열어 실제 자료·보기를 함께 살펴보세요. 61회 39번·70회 47번의 정답 번호 오기 정정을 반영했으며 자세한 내용은 해당 문항에서 확인해요. 복습 안내는 요청한 회차·모드의 제출 완료 기록만 읽으며 시험·학습 기록을 바꾸지 않아요.</p>
+      <p>제공된 <a id="note-link" href="../pdf/note/">한국사 요약 PDF · 9쪽</a>의 핵심 개념과 세부 주제들을 한눈에 읽히는 3줄 요약·보충 카드·쉬운 설명으로 새로 구성했어요. 단원별로 해당 PDF 쪽수를 연결했으며, 모든 세부 항목을 그대로 전재한 공식 교재나 공식 기출 해설은 아니에요.</p>
+      <p>‘기출에서 더 배워요’의 128개 보충 노트와 문항 연결은 <a href="../pdf/test/">60~80회 심화 문제지·해설 자료</a>의 역사적 사실을 검토해 새로 구성했어요. 근거 문항을 열어 실제 자료·보기를 함께 살펴보세요. 61회 39번·70회 47번의 정답 번호 오기 정정을 반영했으며 자세한 내용은 해당 문항에서 확인해요. 복습 안내는 요청한 회차·모드의 제출 완료 기록만 읽으며 시험·학습 기록을 바꾸지 않아요.</p>
       <p>관련 영상은 <a href="https://history.hackers.com/?r=history&amp;c=free_lecture/video" target="_blank" rel="noopener noreferrer">해커스 무료강의 목록</a>을 정리한 두 MD에서 연결했어요. 영상별 확인 범위를 구분해 표시하며, 모든 강의를 끝까지 시청한 요약이나 대본의 복제본은 아니에요. 공개·재생 상태는 제공자 설정에 따라 바뀔 수 있어요.</p>
       <div id="catalog-sources" class="source-chips"></div>
       <h3>사진과 학습용 그림은 달라요</h3><p>사진은 기존 위키백과·위키미디어 공용의 공개 라이선스 자료를 출처·제작자·이용 조건과 함께 연결했어요. 현대에 찍은 유적, 후대의 그림, 재구성 지도는 사진 설명에서 구분해요. 색칠된 개념 그림은 새로 그린 학습용 도식이며, 실제 유물의 실측도나 당시의 국경 지도가 아니에요. 사진과 영상은 인터넷이 필요하지만 개념 그림·설명·문제는 로컬 파일에서도 볼 수 있어요.</p>
