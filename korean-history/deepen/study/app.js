@@ -97,6 +97,35 @@
       return `<details class="exam-round"><summary>${round}회 · ${refs.length}문항</summary><div class="exam-question-links">${refs.map(questionLink).join('')}</div></details>`;
     }).join('')}</details></section>`;
   }
+  function renderVideo(video, prefix) {
+    const course = courseById.get(video.course);
+    const note = videoNotes.get(video.id);
+    const title = note?.actualTitle || video.title;
+    const evidence = note?.evidence === 'transcript' ? '공개 자막 일부 확인' : note?.evidence === 'description' ? '공개 설명 확인' : note?.actualTitle ? '실제 영상 제목 확인' : '강의 목록의 주제 연결 · 영상 내용 미확인';
+    const thumbUrl = `https://i.ytimg.com/vi/${encodeURIComponent(video.videoId)}/hqdefault.jpg`;
+    return `<div class="video-card" data-video-card="${video.id}">
+      <a class="video-thumb-link" href="${escape(video.url)}" target="_blank" rel="noopener noreferrer" aria-label="${escape(title)} — YouTube에서 영상 열기 (새 창)">
+        <img class="video-thumb" src="${escape(thumbUrl)}" width="480" height="360" loading="lazy" decoding="async" alt="${escape(title)} 유튜브 썸네일" data-yt-thumb="${escape(video.videoId)}">
+        <span class="video-thumb-overlay" aria-hidden="true">
+          <span class="yt-play-icon"><svg viewBox="0 0 28 20" width="28" height="20" focusable="false"><rect width="28" height="20" rx="5" fill="#e11d24"/><polygon points="11,5.5 11,14.5 19.5,10" fill="#fff"/></svg></span>
+          <span class="yt-watch-chip">YouTube에서 보기 ↗</span>
+        </span>
+      </a>
+      <div class="video-card-body">
+        <p class="course-label">${escape(course.name)} · ${escape(course.teacher)}</p>
+        <h4><a class="video-title-link" href="${escape(video.url)}" target="_blank" rel="noopener noreferrer">${escape(title)}</a></h4>
+        <p class="catalog-title">목록 표기: ${escape(video.title)} · ${escape(video.topic)}</p>
+        <span class="evidence-label">${evidence}</span>
+        ${note?.scope ? `<p class="video-scope">${escape(note.scope)}</p>` : ''}
+        ${note?.takeaways?.length ? `<ul class="video-notes">${note.takeaways.map(text => `<li>${escape(text)}</li>`).join('')}</ul>` : ''}
+        <div class="actions">
+          <a class="button secondary" href="${escape(video.url)}" target="_blank" rel="noopener noreferrer">YouTube에서 보기 ↗</a>
+          <button type="button" class="button quiet" data-play="${video.id}" aria-expanded="false" aria-controls="player-${prefix}-${video.id}">여기서 영상 열기</button>
+        </div>
+      </div>
+      <div class="video-player" id="player-${prefix}-${video.id}" hidden></div>
+    </div>`;
+  }
   const announce = message => { $('#announcement').textContent = message; };
   function focusLesson() {
     const link = $(`#concept-list [data-lesson="${selected}"]`);
@@ -223,13 +252,6 @@
     if (!photo) throw new Error(`Missing licensed photograph: ${key}`);
     return `<figure class="photo-figure"><div><button type="button" class="photo-button" data-zoom="${escape(key)}" aria-label="${escape(photo.title)} 크게 보기"><img src="${escape(photo.src)}" width="${photo.width}" height="${photo.height}" loading="lazy" decoding="async" alt="${escape(photo.alt)}" data-photo="${escape(key)}"><span aria-hidden="true">사진 크게 보기 ↗</span></button><p class="photo-error" role="status" hidden>사진을 불러오지 못했어요. 인터넷 연결이나 사진 원본 링크를 확인해 주세요. 위의 학습용 개념 그림은 계속 볼 수 있어요.</p></div><figcaption><span class="eyebrow">사진에서 찾는 단서</span><h3>${escape(photo.title)}</h3><p>${escape(photo.caption)}</p><div class="photo-credit">${photoCredit(photo)}</div></figcaption></figure>`;
   }
-  function renderVideo(video, prefix) {
-    const course = courseById.get(video.course);
-    const note = videoNotes.get(video.id);
-    const title = note?.actualTitle || video.title;
-    const evidence = note?.evidence === 'transcript' ? '공개 자막 일부 확인' : note?.evidence === 'description' ? '공개 설명 확인' : note?.actualTitle ? '실제 영상 제목 확인' : '강의 목록의 주제 연결 · 영상 내용 미확인';
-    return `<div class="video-card" data-video-card="${video.id}"><p class="course-label">${escape(course.name)} · ${escape(course.teacher)}</p><h4>${escape(title)}</h4><p class="catalog-title">목록 표기: ${escape(video.title)} · ${escape(video.topic)}</p><span class="evidence-label">${evidence}</span>${note?.scope ? `<p class="video-scope">${escape(note.scope)}</p>` : ''}${note?.takeaways?.length ? `<ul class="video-notes">${note.takeaways.map(text => `<li>${escape(text)}</li>`).join('')}</ul>` : ''}<div class="actions"><a class="button secondary" href="${escape(video.url)}" target="_blank" rel="noopener noreferrer">YouTube에서 보기 ↗</a><button type="button" class="button quiet" data-play="${video.id}" aria-expanded="false" aria-controls="player-${prefix}-${video.id}">여기서 영상 열기</button></div><div class="video-player" id="player-${prefix}-${video.id}" hidden></div></div>`;
-  }
   function renderSummaryBox(lesson, highlight) {
     const extra = supplements[lesson.id];
     if (!extra) return '';
@@ -323,7 +345,7 @@
       <div class="remember"><strong>한 줄 기억 고리 · 뜻을 이해한 다음 떠올려요</strong><p>${escape(lesson.memory)}</p></div>
       <section id="sec-quiz" class="quiz-section"><h3 class="section-heading"><span>04</span>기억에서 꺼내 볼까요?</h3><p class="small muted">답을 누르면 바로 해설이 나와요. 다시 선택해도 괜찮아요.</p><div id="quizzes">${renderQuizzes(lesson)}</div><div class="lesson-quiz-actions"><button type="button" class="button quiet" data-clear-answers>이 단원 답안만 지우기</button></div></section>
       ${renderExamStudy(lesson)}
-      <section class="sources"><h3>원문과 관련 강의로 한 번 더</h3><p>이 설명의 바탕이 된 PDF 쪽수예요. 압축 표기의 오류는 출처 안내에서 바로잡았어요.</p><div class="source-chips">${lesson.pages.map(page => `<a href="${escape(sources.pdf)}#page=${page}" target="_blank" rel="noopener">요약 PDF ${page}쪽 ↗</a>`).join('')}</div><details class="related-videos"><summary>이 시대와 연결한 강의 ${lesson.videoIds.length}개</summary><p class="small muted">단원 전체를 모두 다루는 영상은 아닐 수 있어요. 실제 제목과 확인 범위를 살펴보고 골라 봐요.</p>${lesson.videoIds.map(id => renderVideo(videoById.get(id), lesson.id)).join('')}</details></section>
+      <section class="sources"><h3>원문과 관련 강의로 한 번 더</h3><p>이 설명의 바탕이 된 PDF 쪽수예요. 압축 표기의 오류는 출처 안내에서 바로잡았어요.</p><div class="source-chips">${lesson.pages.map(page => `<a href="${escape(sources.pdf)}#page=${page}" target="_blank" rel="noopener">요약 PDF ${page}쪽 ↗</a>`).join('')}</div><details class="related-videos"><summary>이 시대와 연결한 강의 ${lesson.videoIds.length}개</summary><p class="small muted">썸네일이나 제목을 누르면 YouTube로 바로 이동해요. 실제 제목과 확인 범위를 살펴보고 골라 봐요.</p><div class="lesson-video-list">${lesson.videoIds.map(id => renderVideo(videoById.get(id), lesson.id)).join('')}</div></details></section>
       <div class="lesson-actions"><button id="complete-lesson" type="button" class="button" data-toggle="complete"></button><button id="bookmark-lesson" type="button" class="button secondary" data-toggle="bookmarked"></button></div><nav id="lesson-navigation" class="lesson-navigation" aria-label="이전·다음 단원"></nav>`;
     lesson.quiz.forEach((quiz, index) => updateQuizFeedback(index));
     updateLessonActions();
@@ -345,7 +367,7 @@
     document.querySelectorAll('.video-player').forEach(player => { player.replaceChildren(); player.hidden = true; });
     document.querySelectorAll('[data-play]').forEach(control => { control.setAttribute('aria-expanded', 'false'); control.textContent = '여기서 영상 열기'; });
     if (wasOpen) return;
-    slot.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${video.videoId}?rel=0" title="${escape(videoNotes.get(video.id)?.actualTitle || video.title)}" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe><p>영상 재생에는 인터넷이 필요해요. 재생되지 않으면 위의 ‘YouTube에서 보기’를 눌러 주세요.</p>`;
+    slot.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${video.videoId}?rel=0" title="${escape(videoNotes.get(video.id)?.actualTitle || video.title)}" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe><p>영상 재생에는 인터넷이 필요해요. 재생되지 않으면 위의 썸네일이나 ‘YouTube에서 보기’를 눌러 주세요.</p>`;
     slot.hidden = false;
     button.setAttribute('aria-expanded', 'true');
     button.textContent = '영상 닫기';
@@ -453,12 +475,20 @@
     updateQuizFeedback(index);
     renderProgress();
   });
-  $('#lesson').addEventListener('error', event => {
+  document.addEventListener('error', event => {
     const image = event.target;
-    if (!(image instanceof HTMLImageElement) || !image.dataset.photo) return;
-    const figure = image.closest('.photo-figure');
-    figure.querySelector('.photo-button').hidden = true;
-    figure.querySelector('.photo-error').hidden = false;
+    if (!(image instanceof HTMLImageElement)) return;
+    if (image.dataset.photo) {
+      const figure = image.closest('.photo-figure');
+      if (figure) {
+        figure.querySelector('.photo-button').hidden = true;
+        figure.querySelector('.photo-error').hidden = false;
+      }
+    }
+    if (image.dataset.ytThumb) {
+      image.hidden = true;
+      image.closest('.video-thumb-link')?.classList.add('thumb-fallback');
+    }
   }, true);
   $('#image-dialog').addEventListener('close', () => $('#zoom-image').removeAttribute('src'));
   $('#zoom-image').addEventListener('error', () => {

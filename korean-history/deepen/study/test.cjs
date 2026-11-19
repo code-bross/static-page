@@ -198,7 +198,7 @@ function appHooks(search = '', records = {}) {
     }
   };
   vm.runInNewContext(app.slice(0, app.indexOf('  const searchIndex =')) +
-    'globalThis.hooks = {readExamReview, questionLink, renderExamStudy, renderExamReview, searchable, review, examMode};})();', scope);
+    'globalThis.hooks = {readExamReview, questionLink, renderExamStudy, renderExamReview, renderVideo, searchable, review, examMode};})();', scope);
   return {...scope.hooks, reads, panel};
 }
 const practiceKey = 'kh-deepen-attempt-80-practice-v1';
@@ -258,6 +258,12 @@ for (const lesson of lessons) {
   examStudy[lesson.id].points.forEach(point => assert(hooks.searchable(lesson).includes(point.title.normalize('NFC').trim().toLocaleLowerCase()), 'Search indexes added concepts'));
   supplements[lesson.id].keywords.forEach(kw => assert(hooks.searchable(lesson).includes(kw.normalize('NFC').trim().toLocaleLowerCase()), 'Search indexes supplement keywords'));
 }
+for (const video of sources.videos) {
+  const card = hooks.renderVideo(video, 'library');
+  assert(card.includes(`https://i.ytimg.com/vi/${video.videoId}/hqdefault.jpg`), `${video.id}: YouTube thumbnail image`);
+  assert(card.includes(`class="video-thumb-link" href="${video.url}" target="_blank" rel="noopener noreferrer"`), `${video.id}: clickable thumbnail linking to YouTube`);
+  assert(card.includes(`class="video-title-link" href="${video.url}" target="_blank" rel="noopener noreferrer"`), `${video.id}: clickable title linking to YouTube`);
+}
 assert(hooks.searchable(lessons.find(lesson => lesson.id === 'early-states')).includes('서옥제'));
 assert(hooks.searchable(lessons.find(lesson => lesson.id === 'three-kingdoms')).includes('진대법'));
 assert(hooks.searchable(lessons.find(lesson => lesson.id === 'democracy')).includes('브라운 각서'));
@@ -281,4 +287,4 @@ for (const filename of fs.readdirSync(root).filter(name => /\.(?:js|cjs)$/.test(
 execFileSync(process.execPath, ['--check', path.join(hubDir, 'test/enhance.js')], {stdio:'pipe'});
 execFileSync(process.execPath, [path.join(root, 'build-sources.cjs'), '--check'], {stdio:'inherit'});
 execFileSync(process.execPath, [path.join(root, '../build-concepts.cjs'), '--check'], {stdio:'inherit'});
-console.log(`PASS: ${lessons.length} lessons, 96 distinct illustrations, 96 PDF extra notes, 64 quizzes, 1050 bidirectional exam mappings, ${cardCount} source-grounded cards, mode-safe submitted-result review, 46 videos and nine PDF pages.`);
+console.log(`PASS: ${lessons.length} lessons, 96 distinct illustrations, 96 PDF extra notes, 64 quizzes, 1050 bidirectional exam mappings, ${cardCount} source-grounded cards, mode-safe submitted-result review, 46 YouTube thumbnail video cards and nine PDF pages.`);
