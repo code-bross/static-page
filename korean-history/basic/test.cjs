@@ -115,7 +115,7 @@ assert.equal(visuals.emphasize('<script>청동기 & "도구"</script>', ['청동
   '&lt;script&gt;<mark>청동기</mark> &amp; &quot;도구&quot;&lt;/script&gt;');
 const attempt = {answers:Array(50).fill(0),marked:[],current:0,submitted:false,remaining:4200,deadline:null};
 assert.ok(validAttempt(attempt));
-for (const change of [{answers:[1]}, {current:50}, {marked:[51]}, {remaining:-1}, {deadline:'invalid'}, {submitted:0}]) {
+for (const change of [{answers:[1]}, {answers:Array(50).fill(5)}, {current:50}, {marked:[51]}, {remaining:-1}, {remaining:4201}, {deadline:'invalid'}, {submitted:0}]) {
   assert.ok(!validAttempt({...attempt,...change}), `Reject invalid attempt ${JSON.stringify(change)}`);
 }
 for (const exam of exams) {

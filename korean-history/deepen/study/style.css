@@ -1,4 +1,19 @@
 .deepen-study .hero{grid-template-columns:1.55fr 1fr;padding-top:8px;gap:40px}
+.exam-review{padding:24px;margin:20px 0}
+.exam-review h2{font-size:1.25rem}
+.exam-review>.button{margin-top:16px}
+.exam-review details{margin-top:16px}
+.exam-study{border-top:1px solid var(--line);margin-top:32px}
+.exam-learning-cards{display:grid;gap:14px}
+.exam-learning-card{padding:20px;border:1px solid var(--line);border-radius:12px;background:#f5f7f0;min-width:0}
+.exam-learning-card h4{font-size:1rem;margin:0 0 10px;line-height:1.7;color:var(--accent)}
+.exam-learning-card p{font-size:.9rem;line-height:1.95;margin:0 0 14px}
+.exam-study summary,.exam-review summary{cursor:pointer;line-height:1.7;padding:10px 0;font-size:.85rem;font-weight:650}
+.exam-related{margin-top:20px}
+.exam-round{margin:8px 0;padding:0 14px;border:1px solid var(--line);border-radius:8px;background:var(--paper)}
+.exam-question-links{display:flex;flex-wrap:wrap;gap:8px;padding:8px 0 14px}
+.exam-question-links a{display:inline-flex;align-items:center;min-height:44px;padding:6px 12px;border:1px solid var(--line);border-radius:8px;font-size:.8rem;background:var(--paper);overflow-wrap:anywhere}
+.exam-study a:focus-visible,.exam-study summary:focus-visible,.exam-review a:focus-visible,.exam-review summary:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
 .deepen-study .study-hero h1{font-size:clamp(2.2rem,4.2vw,3.8rem);margin-bottom:20px}
 .deepen-study .hero-card{background:#e5ece1;padding:28px}
 .deepen-study .hero-card h2{max-width:none}

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="한국사 심화 제60~80회, 1,050문항. 원본 문제 이미지와 80분 시험 모드, 답을 고르면 바로 해설을 확인하는 연습 모드, 관련 개념 학습을 제공합니다.">
+  <meta property="og:title" content="심화 기출 모의고사 · 한국사 한 걸음">
+  <meta property="og:description" content="21개 회차를 시험 또는 즉시 해설 연습 모드로 풀고 관련 학습 단원으로 복습하세요.">
+  <title>심화 기출 모의고사 · 한국사 한 걸음</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../../basic/style.css">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="config.js"></script>
+  <script defer src="../data.js"></script>
+  <script defer src="../concepts.js"></script>
+  <script defer src="../explanations.js"></script>
+  <script defer src="../../basic/common.js"></script>
+  <script defer src="../../basic/test/app.js"></script>
+</head>
+<body class="deepen-test">
+  <a class="skip" href="#main">문제로 건너뛰기</a>
+  <header class="topbar"><div class="topbar-inner">
+    <a class="brand" href="index.html"><span class="brand-symbol" aria-hidden="true">史</span><span>한국사 한 걸음<small>KOREAN HISTORY · ADVANCED</small></span></a>
+    <nav class="nav" aria-label="주요 메뉴"><a id="test-nav" href="index.html" aria-current="page">모의고사</a><a id="study-nav" href="../study/index.html">심화 학습</a></nav>
+  </div></header>
+  <main class="container" id="main">
+    <div id="storage-notice" class="notice" role="status" hidden></div>
+    <noscript><p class="notice">모의고사에는 JavaScript가 필요합니다. <a href="../pdf/test/">원본 문제지와 정답·해설</a>을 직접 확인할 수 있습니다.</p></noscript>
+    <div class="mode-panel">
+      <div id="mode-switch" class="mode-switch" role="group" aria-label="풀이 모드 선택" aria-describedby="mode-description">
+        <button type="button" data-mode="exam" aria-pressed="true">시험 모드</button>
+        <button type="button" data-mode="practice" aria-pressed="false">연습 모드 · 즉시 해설</button>
+      </div>
+      <p id="mode-description">시험 모드는 제출 후 해설이 공개됩니다. 모드별 답안은 따로 저장되며, 시험 시간은 다른 화면에서도 흐릅니다.</p>
+    </div>
+    <section id="lobby">
+      <div class="hero">
+        <div><span class="eyebrow">PRACTICE / 한국사능력검정시험 심화</span><h1>기출로 확인하고,<br><em>개념으로 연결하기.</em></h1><p>자료와 다섯 개 보기를 원본 그대로. 제60~80회 기출을 풀고 헷갈린 개념은 그림 학습으로 돌아가 복습하세요.</p><div class="stats"><div><strong>21</strong><span>기출 회차</span></div><div><strong>1,050</strong><span>전체 문항</span></div><div><strong id="time-limit-value">80분</strong><span>제한 시간</span></div></div></div>
+        <aside class="hero-card"><span class="eyebrow">YOUR STUDY ROUTINE</span><h2>풀고, 확인하고,<br>내 것으로 만들기.</h2><p id="mode-summary">답안과 남은 시간을 이 브라우저에 저장합니다. 시험을 마치면 오답에서 관련 개념으로 바로 이동할 수 있어요.</p><a id="study-intro" href="../study/index.html">그림으로 심화 개념 살펴보기 →</a></aside>
+      </div>
+      <div class="section-title"><h2>어느 회차를 풀어볼까요?</h2><p>50문항 · 5지선다 · 100점 만점</p></div>
+      <div id="exam-list" class="exam-grid"></div>
+      <p class="footnote">제공된 심화 문제지 21개 회차를 수록했습니다. 배점은 원본 문제지에서, 정답과 핵심 해설은 회차별 정답·해설 MD에서 가져왔습니다. MD에 기재된 원문 표기 오류의 정정도 반영했습니다. 공식 정답표를 별도로 대조한 서비스가 아니며, 합격·자격을 보장하지 않습니다. 기록은 같은 브라우저·주소에서만 유지됩니다.</p>
+    </section>
+    <section id="exam" hidden aria-label="모의고사 풀이">
+      <div class="test-heading">
+        <div><span class="eyebrow" id="exam-eyebrow">ADVANCED / PRACTICE</span><h1 id="exam-title">심화 기출 모의고사</h1><a href="index.html" id="back-lobby" class="small">← 회차 선택</a></div>
+        <div class="actions"><span id="timer" class="timer" role="timer" aria-label="남은 시간">80:00</span><button type="button" id="pause" class="button quiet">일시정지</button></div>
+      </div>
+      <section id="result" class="panel score-panel" hidden tabindex="-1" aria-label="채점 결과"></section>
+      <div class="test-layout">
+        <article class="panel question-panel">
+          <div class="review-filter" id="review-tools" hidden><label for="review-filter">복습할 문항</label><select id="review-filter"><option value="all">전체 문항</option><option value="wrong">오답·미응답</option><option value="marked">다시 볼 문항</option></select></div>
+          <div id="question-content"></div>
+          <div class="question-nav"><button type="button" id="previous" class="button secondary">← 이전</button><button type="button" id="next" class="button">다음 →</button></div>
+        </article>
+        <aside class="panel answer-sidebar" aria-label="답안 현황">
+          <h2>나의 답안</h2><div class="answer-stats"><span id="answered-label">0 / 50 응답</span><span id="marked-label">다시 볼 문제 0</span></div>
+          <progress id="answer-progress" class="progress" max="50" value="0" aria-label="응답한 문항 수"></progress>
+          <div id="number-grid" class="number-grid"></div>
+          <p class="legend" id="answer-legend">초록: 응답 완료 · 주황 점: 다시 보기<br>채점 후 빨강: 오답 또는 미응답</p>
+          <button type="button" id="submit-exam" class="button">답안 제출하고 채점</button>
+          <button type="button" id="restart" class="button quiet">이 회차 처음부터</button>
+          <div class="image-links"><a id="paper-link" target="_blank" rel="noopener">문제지 PDF ↗</a><a id="key-link" target="_blank" rel="noopener" hidden>정답·해설 MD ↗</a></div>
+          <p class="small muted" id="save-status" role="status">이 브라우저에 자동 저장</p>
+        </aside>
+      </div>
+    </section>
+    <footer class="footer"><p>한국사 한 걸음 · ADVANCED</p><p>개인 학습용 · 원본 문제지와 회차별 핵심 해설 MD 기반</p></footer>
+  </main>
+  <dialog id="confirm-dialog" class="submission-dialog" aria-labelledby="dialog-title">
+    <h2 id="dialog-title">답안을 제출할까요?</h2><p id="dialog-message"></p>
+    <form method="dialog" class="actions"><button class="button secondary" value="cancel">계속 풀기</button><button class="button" id="dialog-confirm" value="confirm">제출하고 채점</button></form>
+  </dialog>
+</body>
+</html>

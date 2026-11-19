@@ -1,8 +1,9 @@
 (() => {
   'use strict';
-  const {escape, warn, save, exams, attemptKey, readAttempt, grade, conceptLinks, questionImage} = window.HistoryApp;
+  const {escape, warn, save, exams, config, attemptKey, readAttempt, grade, conceptLinks, questionImage} = window.HistoryApp;
   const $ = selector => document.querySelector(selector);
-  const symbols = ['①', '②', '③', '④'];
+  const symbols = [...'①②③④⑤'].slice(0, config.choices);
+  const minutes = config.seconds / 60;
   let exam;
   let attempt;
   let reviewFilter = 'all';
@@ -10,7 +11,7 @@
   let mode = 'exam';
 
   function freshAttempt() {
-    return {answers:Array(50).fill(0),marked:[],current:0,submitted:false,remaining:4200,deadline:mode === 'practice' ? null : Date.now() + 4200000};
+    return {answers:Array(50).fill(0),marked:[],current:0,submitted:false,remaining:config.seconds,deadline:mode === 'practice' ? null : Date.now() + config.seconds * 1000};
   }
   function persist() {
     save(attemptKey(exam.round, mode), attempt);
@@ -20,12 +21,12 @@
     const practice = mode === 'practice';
     for (const button of document.querySelectorAll('[data-mode]')) button.setAttribute('aria-pressed', String(button.dataset.mode === mode));
     $('#mode-description').textContent = `${practice ? '연습 모드는 답을 고르면 바로 정답과 해설을 보여 주며, 답을 바꿀 수도 있습니다. 시간 제한은 없습니다.' : '시험 모드는 제출 후 정답과 해설이 공개됩니다.'} 모드별 답안은 따로 저장되며, 시험 시간은 다른 화면에서도 흐릅니다.`;
-    $('#time-limit-value').textContent = practice ? '무제한' : '70분';
+    $('#time-limit-value').textContent = practice ? '무제한' : `${minutes}분`;
     $('#mode-summary').textContent = practice ? '답을 고르면 바로 정답·오답 해설을 확인합니다. 연습 기록은 시험 답안과 따로 저장되며, 언제든 이어서 풀 수 있어요.' : '답안과 남은 시간을 이 브라우저에 저장합니다. 시험을 마치면 오답에서 관련 개념으로 바로 이동할 수 있어요.';
     $('#back-lobby').href = lobbyURL();
     $('#test-nav').href = lobbyURL();
     $('#exam').setAttribute('aria-label', practice ? '기출 연습 풀이' : '모의고사 풀이');
-    for (const selector of ['#study-nav', '#study-intro']) $(selector).href = `../study/index.html${practice ? '?mode=practice' : ''}`;
+    for (const selector of ['#study-nav', '#study-intro']) $(selector).href = `../study/index.html?mode=${mode}`;
   }
   function remainingTime() {
     return attempt.deadline === null ? attempt.remaining : Math.max(0, Math.ceil((attempt.deadline - Date.now()) / 1000));
@@ -58,10 +59,10 @@
       const answered = saved?.answers.filter(Boolean).length || 0;
       const status = saved ? saved.submitted ? `${grade(item, saved.answers).score}점 · 풀이 완료` : `${answered} / 50문항 진행 중` : '아직 풀지 않은 회차';
       return `<article class="exam-card">
-        <div class="card-top"><span class="pill">기본</span><span class="round-index">${String(index + 1).padStart(2, '0')}</span></div>
-        <h3>제${item.round}회</h3><p>50문항 · ${mode === 'practice' ? '시간 제한 없음' : '70분'} · 100점</p><p>${status}</p>
+        <div class="card-top"><span class="pill">${escape(config.level)}</span><span class="round-index">${String(index + 1).padStart(2, '0')}</span></div>
+        <h3>제${item.round}회</h3><p>50문항 · ${mode === 'practice' ? '시간 제한 없음' : `${minutes}분`} · 100점</p><p>${status}</p>
         <button type="button" class="button ${saved ? 'secondary' : ''}" data-round="${item.round}">${saved ? saved.submitted ? '결과·오답 보기' : '이어서 풀기' : mode === 'practice' ? '연습 시작' : '모의고사 시작'} →</button>
-        <div class="source-row"><a href="${escape(item.paper)}" target="_blank" rel="noopener">원본 문제지 ↗</a><a href="${escape(item.key)}" target="_blank" rel="noopener">정답표 ↗</a></div>
+        <div class="source-row"><a href="${escape(item.paper)}" target="_blank" rel="noopener">원본 문제지 ↗</a><a href="${escape(item.key)}" target="_blank" rel="noopener">${config.explanationType === 'markdown' ? '정답·해설 MD' : '정답표'} ↗</a></div>
       </article>`;
     }).join('');
   }
@@ -109,9 +110,12 @@
     const paragraphs = explanation.paragraphs.map(text => text === '오답 설명'
       ? '<h4>다른 보기는 왜 아닐까요?</h4>'
       : `<p>${escape(text)}</p>`).join('');
+    const source = config.explanationType === 'markdown'
+      ? `<a href="${escape(explanation.pdf)}" target="_blank" rel="noopener">제${exam.round}회 정답·핵심 해설 MD ↗</a> · <a href="${escape(explanation.source)}" target="_blank" rel="noopener noreferrer">해커스 원문 ↗</a>`
+      : `<a href="${escape(explanation.pdf)}#page=${explanation.page}" target="_blank" rel="noopener">제${exam.round}회 해설 PDF ${explanation.pages.join('·')}쪽 ↗</a>`;
     return `<section class="answer-explanation" aria-label="문항 해설"><span class="eyebrow">WHY / 정답 이해하기</span><h3>정답 해설</h3>${paragraphs}
-      ${explanation.correction ? `<p class="explanation-correction">${escape(explanation.correction)}</p><details class="original-explanation"><summary>수정 전 원문 보기</summary>${explanation.originalParagraphs.map(text => `<p>${escape(text)}</p>`).join('')}</details>` : ''}
-      <p class="explanation-source">출처: 해커스한국사 · <a href="${escape(explanation.pdf)}#page=${explanation.page}" target="_blank" rel="noopener">제${exam.round}회 해설 PDF ${explanation.pages.join('·')}쪽 ↗</a></p></section>`;
+      ${explanation.correction ? `<p class="explanation-correction">${escape(explanation.correction)}</p>${explanation.originalParagraphs ? `<details class="original-explanation"><summary>수정 전 원문 보기</summary>${explanation.originalParagraphs.map(text => `<p>${escape(text)}</p>`).join('')}</details>` : ''}` : ''}
+      <p class="explanation-source">출처: 해커스한국사 참고 · ${source}</p></section>`;
   }
   function renderQuestion(focus = false) {
     const numbers = questionNumbers();
@@ -122,7 +126,7 @@
     $('#review-tools').hidden = !attempt.submitted;
     $('#review-filter').value = reviewFilter;
     if (!numbers.length) {
-      $('#question-content').innerHTML = '<div class="empty" tabindex="-1" id="question-title"><h2>복습할 문항이 없습니다.</h2><p>다른 필터를 선택하거나 개념 학습으로 이어가세요.</p><a href="../study/index.html">개념 학습 →</a></div>';
+      $('#question-content').innerHTML = `<div class="empty" tabindex="-1" id="question-title"><h2>복습할 문항이 없습니다.</h2><p>다른 필터를 선택하거나 개념 학습으로 이어가세요.</p><a href="../study/index.html?mode=${mode}">개념 학습 →</a></div>`;
     } else if (paused) {
       $('#question-content').innerHTML = '<div class="empty" tabindex="-1" id="question-title"><h2>잠시 쉬어가도 괜찮아요.</h2><p>타이머가 멈췄습니다. 위의 ‘계속 풀기’를 누르면 문제가 다시 나타납니다.</p></div>';
     } else {
@@ -132,9 +136,10 @@
       const marked = attempt.marked.includes(question.number);
       $('#question-content').innerHTML = `
         <div class="question-heading"><h2 id="question-title" tabindex="-1">${question.number}번 문제 <span class="pill">${question.points}점</span></h2><button type="button" id="mark-question" class="button quiet" aria-pressed="${marked}">${marked ? '다시 보기 해제' : '다시 볼 문제'}</button></div>
+        ${question.crop[2] - question.crop[0] > .75 ? `<p class="small muted">두 열에 걸친 공통 자료를 빠뜨리지 않도록 주변 문제도 함께 표시해요. 현재 ${question.number}번에 답해 주세요. 작은 글씨는 아래 ‘이미지 크게 보기’로 확대할 수 있어요.</p>` : ''}
         ${questionImage(exam, question)}
         <div class="image-links"><a href="../assets/${question.image}" target="_blank" rel="noopener">이미지 크게 보기 ↗</a><a href="${escape(exam.paper)}#page=${question.page}" target="_blank" rel="noopener">원본 PDF ${question.page}쪽 ↗</a></div>
-        <details class="source-page-view"><summary>문제지 한 쪽 전체 보기 · 잘림 없이 확인</summary><img src="../assets/${escape(question.image)}" width="${question.width}" height="${question.height}" loading="lazy" alt="제${exam.round}회 기본 문제지 ${question.page}쪽 전체"></details>
+        <details class="source-page-view"><summary>문제지 한 쪽 전체 보기 · 잘림 없이 확인</summary><img src="../assets/${escape(question.image)}" width="${question.width}" height="${question.height}" loading="lazy" alt="제${exam.round}회 ${escape(config.level)} 문제지 ${question.page}쪽 전체"></details>
         <details class="ocr"><summary>문제 텍스트 펼치기 · 자동 추출</summary><p class="muted small">이미지에서 자동으로 읽은 보조 텍스트로, 글자와 읽는 순서가 부정확할 수 있습니다. 지도·사진과 정확한 지문은 위 원본을 확인하세요.</p><pre>${escape(question.text)}</pre></details>
         <fieldset class="options"><legend>${revealed ? '선택한 답과 정답' : '정답을 선택하세요'}</legend><div class="option-grid">${symbols.map((symbol, index) => {
           const value = index + 1;
@@ -156,10 +161,10 @@
   }
   function renderResult(expired = false) {
     const result = grade(exam, attempt.answers);
-    const level = result.score >= 80 ? '4급' : result.score >= 70 ? '5급' : result.score >= 60 ? '6급' : '조금 더 복습해 보세요';
+    const level = result.score >= 80 ? config.grades[0] : result.score >= 70 ? config.grades[1] : result.score >= 60 ? config.grades[2] : '조금 더 복습해 보세요';
     $('#result').hidden = !attempt.submitted;
     if (!attempt.submitted) return;
-    $('#result').innerHTML = `<div class="score-number">${result.score}<small> / 100</small></div><div><span class="eyebrow" style="color:#bed3c0">YOUR RESULT / 제${exam.round}회 · ${mode === 'practice' ? '연습' : '시험'} 모드</span><h2>${level}${result.score >= 60 ? ' 수준의 연습 결과예요.' : ''}</h2><p>정답 ${result.correct} · 오답 ${result.wrong} · 미응답 ${result.unanswered}${expired ? ' · 제한 시간이 끝나 자동 제출되었습니다.' : ''}</p><p>연습 기준: 80점 이상 4급 · 70점 이상 5급 · 60점 이상 6급. 실제 합격·자격을 보장하지 않습니다.</p><a class="button secondary" href="../study/index.html?review=${exam.round}${mode === 'practice' ? '&amp;mode=practice' : ''}">이번 회차의 부족한 개념 복습 →</a></div>`;
+    $('#result').innerHTML = `<div class="score-number">${result.score}<small> / 100</small></div><div><span class="eyebrow" style="color:#bed3c0">YOUR RESULT / 제${exam.round}회 · ${mode === 'practice' ? '연습' : '시험'} 모드</span><h2>${level}${result.score >= 60 ? ' 수준의 연습 결과예요.' : ''}</h2><p>정답 ${result.correct} · 오답 ${result.wrong} · 미응답 ${result.unanswered}${expired ? ' · 제한 시간이 끝나 자동 제출되었습니다.' : ''}</p><p>연습 기준: 80점 이상 ${config.grades[0]} · 70점 이상 ${config.grades[1]} · 60점 이상 ${config.grades[2]}. 실제 합격·자격을 보장하지 않습니다.</p><a class="button secondary" href="../study/index.html?review=${exam.round}${mode === 'practice' ? '&amp;mode=practice' : ''}">이번 회차의 부족한 개념 복습 →</a></div>`;
   }
   function openExam(round, number, push = false) {
     exam = exams.find(item => item.round === round);
@@ -176,9 +181,10 @@
     $('#lobby').hidden = true;
     $('#exam').hidden = false;
     $('#exam-title').textContent = `제${exam.round}회 기출 ${mode === 'practice' ? '연습' : '모의고사'}`;
-    $('#exam-eyebrow').textContent = `BASIC / ${mode === 'practice' ? '연습 모드 · 시간 제한 없음' : '시험 모드 · 70분'} · 50문항 · 100점 만점`;
+    $('#exam-eyebrow').textContent = `${config.code} / ${mode === 'practice' ? '연습 모드 · 시간 제한 없음' : `시험 모드 · ${minutes}분`} · 50문항 · 100점 만점`;
     $('#paper-link').href = exam.paper;
     $('#key-link').href = exam.key;
+    $('#key-link').textContent = config.explanationType === 'markdown' ? '정답·해설 MD ↗' : '정답표 PDF ↗';
     renderResult();
     renderQuestion();
     updateTimer();
@@ -202,7 +208,7 @@
     const restart = action === 'restart';
     const unanswered = attempt.answers.filter(answer => answer === 0).length;
     $('#dialog-title').textContent = restart ? '처음부터 다시 풀까요?' : mode === 'practice' ? '연습을 마칠까요?' : '답안을 제출할까요?';
-    $('#dialog-message').textContent = restart ? `이 회차의 ${mode === 'practice' ? '연습' : '시험'} 답안과 채점 결과만 지우고 ${mode === 'practice' ? '시간 제한 없이' : '70분으로'} 다시 시작합니다. 다른 모드와 회차의 기록은 유지됩니다.` : `${unanswered ? `아직 ${unanswered}문항에 답하지 않았습니다. 미응답은 0점으로 처리됩니다. ` : '50문항 모두 답했습니다. '}완료 후에는 답안을 바꿀 수 없으며 전체 결과와 해설을 확인할 수 있습니다.${mode === 'exam' ? ' 확인하는 동안에도 시간은 흐릅니다.' : ''}`;
+    $('#dialog-message').textContent = restart ? `이 회차의 ${mode === 'practice' ? '연습' : '시험'} 답안과 채점 결과만 지우고 ${mode === 'practice' ? '시간 제한 없이' : `${minutes}분으로`} 다시 시작합니다. 다른 모드와 회차의 기록은 유지됩니다.` : `${unanswered ? `아직 ${unanswered}문항에 답하지 않았습니다. 미응답은 0점으로 처리됩니다. ` : '50문항 모두 답했습니다. '}완료 후에는 답안을 바꿀 수 없으며 전체 결과와 해설을 확인할 수 있습니다.${mode === 'exam' ? ' 확인하는 동안에도 시간은 흐릅니다.' : ''}`;
     $('#dialog-confirm').textContent = restart ? '새로 시작' : mode === 'practice' ? '연습 마치고 채점' : '제출하고 채점';
     $('#confirm-dialog').showModal();
   }

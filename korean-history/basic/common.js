@@ -33,13 +33,18 @@
   const exams = window.HISTORY_EXAMS;
   const concepts = window.HISTORY_CONCEPTS;
   const topics = window.HISTORY_TOPICS;
+  const config = {
+    level:'기본', code:'BASIC', choices:4, seconds:4200,
+    storagePrefix:'kh-basic-attempt', grades:['4급','5급','6급'], explanationType:'pdf',
+    ...window.HISTORY_EXAM_CONFIG
+  };
   const conceptById = new Map(concepts.map(concept => [concept.id, concept]));
-  const attemptKey = (round, mode = 'exam') => `kh-basic-attempt-${round}${mode === 'practice' ? '-practice' : ''}-v1`;
+  const attemptKey = (round, mode = 'exam') => `${config.storagePrefix}-${round}${mode === 'practice' ? '-practice' : ''}-v1`;
   const validAttempt = value => value && Array.isArray(value.answers) && value.answers.length === 50 &&
-    value.answers.every(answer => Number.isInteger(answer) && answer >= 0 && answer <= 4) &&
+    value.answers.every(answer => Number.isInteger(answer) && answer >= 0 && answer <= config.choices) &&
     Array.isArray(value.marked) && value.marked.every(number => Number.isInteger(number) && number >= 1 && number <= 50) &&
     Number.isInteger(value.current) && value.current >= 0 && value.current < 50 &&
-    typeof value.submitted === 'boolean' && Number.isFinite(value.remaining) && value.remaining >= 0 && value.remaining <= 4200 &&
+    typeof value.submitted === 'boolean' && Number.isFinite(value.remaining) && value.remaining >= 0 && value.remaining <= config.seconds &&
     (value.deadline === null || (Number.isFinite(value.deadline) && value.deadline > 0));
   const readAttempt = (round, mode = 'exam') => load(attemptKey(round, mode), null, validAttempt);
   const grade = (exam, answers) => exam.questions.reduce((result, question, index) => {
@@ -55,7 +60,7 @@
   }, {score:0,correct:0,wrong:0,unanswered:0});
   const conceptLinks = (questionId, mode = 'exam') => (topics[questionId] || []).map(id => {
     const concept = conceptById.get(id);
-    return `<a class="button secondary" href="../study/index.html${mode === 'practice' ? '?mode=practice' : ''}#${id}">${escape(concept.title)} →</a>`;
+    return `<a class="button secondary" href="../study/index.html?mode=${mode === 'practice' ? 'practice' : 'exam'}#${id}">${escape(concept.title)} →</a>`;
   }).join('');
   function questionImage(exam, question, options = {}) {
     const [left, top, right, bottom] = question.crop;
@@ -63,8 +68,8 @@
     const height = bottom - top;
     const ratio = width * question.width / (height * question.height);
     const style = `width:${100 / width}%;height:auto;left:${-100 * left / width}%;top:${-100 * top / height}%`;
-    const alt = options.alt || `제${exam.round}회 기본 ${question.number}번 문제 원본. 지문, 자료와 네 개의 보기를 포함합니다.`;
+    const alt = options.alt || `제${exam.round}회 ${config.level} ${question.number}번 문제 원본. 지문, 자료와 ${config.choices === 4 ? '네' : '다섯'} 개의 보기를 포함합니다.`;
     return `<div class="question-image ${escape(options.className || '')}" style="aspect-ratio:${ratio}"><img src="../assets/${escape(question.image)}" width="${question.width}" height="${question.height}" style="${style}" alt="${escape(alt)}" loading="lazy" decoding="async"></div>`;
   }
-  window.HistoryApp = {escape, warn, load, save, exams, concepts, topics, conceptById, attemptKey, validAttempt, readAttempt, grade, conceptLinks, questionImage};
+  window.HistoryApp = {escape, warn, load, save, exams, concepts, topics, config, conceptById, attemptKey, validAttempt, readAttempt, grade, conceptLinks, questionImage};
 })();

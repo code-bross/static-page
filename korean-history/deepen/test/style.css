@@ -1,0 +1,3 @@
+.deepen-test .option-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
+.deepen-test .option{min-height:46px;min-width:0}
+@media(max-width:760px){.deepen-test .option{gap:4px;padding-inline:3px}.deepen-test .nav a{padding-inline:7px}}
