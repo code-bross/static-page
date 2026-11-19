@@ -285,7 +285,7 @@ for (const filename of ['../data.js', '../choices.js', '../explanations.js', 'so
   vm.runInNewContext(fs.readFileSync(path.join(root, filename), 'utf8'), soloScope, {filename});
 }
 const solo = soloScope.window.HistorySoloQuestion;
-assert.deepEqual(solo.parseRef('80-2'), {round:80, number:2, ref:'80-2'});
+assert.deepEqual({...solo.parseRef('80-2')}, {round:80, number:2, ref:'80-2'});
 assert.equal(solo.parseRef('81-2'), null);
 assert.equal(solo.parseRef('80-51'), null);
 assert.equal(solo.soloUrl(80, 2, ['80-2', '79-2']), '../test/solo.html?round=80&q=2&refs=80-2%2C79-2');
