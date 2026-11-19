@@ -35,7 +35,7 @@
   const topics = window.HISTORY_TOPICS;
   const config = {
     level:'기본', code:'BASIC', choices:4, seconds:4200,
-    storagePrefix:'kh-basic-attempt', grades:['4급','5급','6급'], explanationType:'pdf',
+    storagePrefix:'kh-basic-attempt', grades:['4급','5급','6급'], explanationType:'pdf', choiceContent:false,
     ...window.HISTORY_EXAM_CONFIG
   };
   const conceptById = new Map(concepts.map(concept => [concept.id, concept]));
@@ -62,14 +62,31 @@
     const concept = conceptById.get(id);
     return `<a class="button secondary" href="../study/index.html?mode=${mode === 'practice' ? 'practice' : 'exam'}#${id}">${escape(concept.title)} →</a>`;
   }).join('');
-  function questionImage(exam, question, options = {}) {
-    const [left, top, right, bottom] = question.crop;
-    const width = right - left;
-    const height = bottom - top;
-    const ratio = width * question.width / (height * question.height);
-    const style = `width:${100 / width}%;height:auto;left:${-100 * left / width}%;top:${-100 * top / height}%`;
-    const alt = options.alt || `제${exam.round}회 ${config.level} ${question.number}번 문제 원본. 지문, 자료와 ${config.choices === 4 ? '네' : '다섯'} 개의 보기를 포함합니다.`;
-    return `<div class="question-image ${escape(options.className || '')}" style="aspect-ratio:${ratio}"><img src="../assets/${escape(question.image)}" width="${question.width}" height="${question.height}" style="${style}" alt="${escape(alt)}" loading="lazy" decoding="async"></div>`;
+  function questionChoices(exam, question) {
+    if (!config.choiceContent) return null;
+    const ref = `${exam.round}-${question.number}`;
+    const content = window.HISTORY_CHOICES?.[ref];
+    if (!content || !Array.isArray(content.stem) || !content.stem.length ||
+      !Array.isArray(content.options) || content.options.length !== config.choices ||
+      content.options.some(option => !option.text && !option.image)) {
+      throw new Error(`Missing complete question choices: ${ref}`);
+    }
+    return content;
   }
-  window.HistoryApp = {escape, warn, load, save, exams, concepts, topics, config, conceptById, attemptKey, validAttempt, readAttempt, grade, conceptLinks, questionImage};
+  function questionImage(exam, question, options = {}) {
+    const content = options.stem ? questionChoices(exam, question) : null;
+    const fragments = content ? content.stem : [{crop:question.crop}];
+    return fragments.map((fragment, index) => {
+      const [left, top, right, bottom] = fragment.crop;
+      const width = right - left;
+      const height = bottom - top;
+      const ratio = width * question.width / (height * question.height);
+      const style = `width:${100 / width}%;height:auto;left:${-100 * left / width}%;top:${-100 * top / height}%`;
+      const alt = options.alt || (content
+        ? `제${exam.round}회 ${config.level} ${question.number}번 지문·자료 ${index + 1}/${fragments.length}. 다섯 보기는 아래 선택 카드에 표시됩니다.`
+        : `제${exam.round}회 ${config.level} ${question.number}번 문제 원본. 지문, 자료와 ${config.choices === 4 ? '네' : '다섯'} 개의 보기를 포함합니다.`);
+      return `<div class="question-image ${escape(options.className || '')}" style="aspect-ratio:${ratio}"><img src="../assets/${escape(question.image)}" width="${question.width}" height="${question.height}" style="${style}" alt="${escape(alt)}" loading="${content ? 'eager' : 'lazy'}" decoding="async"></div>`;
+    }).join('');
+  }
+  window.HistoryApp = {escape, warn, load, save, exams, concepts, topics, config, conceptById, attemptKey, validAttempt, readAttempt, grade, conceptLinks, questionImage, questionChoices};
 })();

@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  const {escape, warn, save, exams, config, attemptKey, readAttempt, grade, conceptLinks, questionImage} = window.HistoryApp;
+  const {escape, warn, save, exams, config, attemptKey, readAttempt, grade, conceptLinks, questionImage, questionChoices} = window.HistoryApp;
   const $ = selector => document.querySelector(selector);
   const symbols = [...'①②③④⑤'].slice(0, config.choices);
   const minutes = config.seconds / 60;
@@ -134,19 +134,28 @@
       const revealed = attempt.submitted || (mode === 'practice' && selected > 0);
       const correct = selected === question.answer;
       const marked = attempt.marked.includes(question.number);
+      const content = questionChoices(exam, question);
+      const pictures = content?.options.every(option => option.image &&
+        (option.crop[3] - option.crop[1]) * question.height > 40 &&
+        (option.crop[2] - option.crop[0]) * question.width / ((option.crop[3] - option.crop[1]) * question.height) < 3.5);
+      const sourceTools = `<div class="image-links"><a href="../assets/${escape(question.image)}" target="_blank" rel="noopener">원본 이미지 크게 보기 ↗</a><a href="${escape(exam.paper)}#page=${question.page}" target="_blank" rel="noopener">원본 PDF ${question.page}쪽 ↗</a></div>
+        <details class="source-page-view"><summary>문제지 한 쪽 전체 보기 · 잘림 없이 확인</summary><img src="../assets/${escape(question.image)}" width="${question.width}" height="${question.height}" loading="lazy" alt="제${exam.round}회 ${escape(config.level)} 문제지 ${question.page}쪽 전체"></details>
+        <details class="ocr"><summary>문제 텍스트 펼치기 · 자동 추출</summary><p class="muted small">이미지에서 자동으로 읽은 보조 텍스트로, 글자와 읽는 순서가 부정확할 수 있습니다. 지도·사진과 정확한 지문은 위 원본을 확인하세요.</p><pre>${escape(question.text)}</pre></details>`;
       $('#question-content').innerHTML = `
         <div class="question-heading"><h2 id="question-title" tabindex="-1">${question.number}번 문제 <span class="pill">${question.points}점</span></h2><button type="button" id="mark-question" class="button quiet" aria-pressed="${marked}">${marked ? '다시 보기 해제' : '다시 볼 문제'}</button></div>
-        ${question.crop[2] - question.crop[0] > .75 ? `<p class="small muted">두 열에 걸친 공통 자료를 빠뜨리지 않도록 주변 문제도 함께 표시해요. 현재 ${question.number}번에 답해 주세요. 작은 글씨는 아래 ‘이미지 크게 보기’로 확대할 수 있어요.</p>` : ''}
-        ${questionImage(exam, question)}
-        <div class="image-links"><a href="../assets/${question.image}" target="_blank" rel="noopener">이미지 크게 보기 ↗</a><a href="${escape(exam.paper)}#page=${question.page}" target="_blank" rel="noopener">원본 PDF ${question.page}쪽 ↗</a></div>
-        <details class="source-page-view"><summary>문제지 한 쪽 전체 보기 · 잘림 없이 확인</summary><img src="../assets/${escape(question.image)}" width="${question.width}" height="${question.height}" loading="lazy" alt="제${exam.round}회 ${escape(config.level)} 문제지 ${question.page}쪽 전체"></details>
-        <details class="ocr"><summary>문제 텍스트 펼치기 · 자동 추출</summary><p class="muted small">이미지에서 자동으로 읽은 보조 텍스트로, 글자와 읽는 순서가 부정확할 수 있습니다. 지도·사진과 정확한 지문은 위 원본을 확인하세요.</p><pre>${escape(question.text)}</pre></details>
-        <fieldset class="options"><legend>${revealed ? '선택한 답과 정답' : '정답을 선택하세요'}</legend><div class="option-grid">${symbols.map((symbol, index) => {
+        ${content?.stem.length > 1 ? '<p class="small muted">공통 자료와 이번 문제의 지문을 나누어 표시했어요.</p>' : !content && question.crop[2] - question.crop[0] > .75 ? `<p class="small muted">두 열에 걸친 공통 자료를 빠뜨리지 않도록 주변 문제도 함께 표시해요. 현재 ${question.number}번에 답해 주세요. 작은 글씨는 아래 ‘원본 이미지 크게 보기’로 확대할 수 있어요.</p>` : ''}
+        ${questionImage(exam, question, {stem:true})}
+        ${content ? '' : sourceTools}
+        <fieldset class="options ${content ? 'content-options' : ''} ${pictures ? 'picture-options' : ''}"><legend>${revealed ? '선택한 답과 정답' : content ? '보기를 눌러 정답을 선택하세요' : '정답을 선택하세요'}</legend><div class="option-grid">${symbols.map((symbol, index) => {
           const value = index + 1;
           const status = revealed ? value === question.answer ? 'right' : value === selected ? 'wrong' : '' : '';
-          return `<label class="option ${status}"><input type="radio" name="answer" value="${value}" ${selected === value ? 'checked' : ''} ${attempt.submitted ? 'disabled' : ''} aria-label="${value}번 보기${revealed && value === question.answer ? ', 정답' : ''}"><span>${symbol}</span></label>`;
+          const option = content?.options[index];
+          const description = option ? `: ${option.text || option.alt || '원본 이미지 보기'}` : '';
+          const image = option?.image ? `<img src="../assets/${escape(option.image)}" width="${Math.round((option.crop[2] - option.crop[0]) * question.width)}" height="${Math.round((option.crop[3] - option.crop[1]) * question.height)}" alt="${escape(option.alt || `${value}번 보기의 원본 이미지`)}" loading="lazy" decoding="async">` : '';
+          return `${option ? '<div class="option-card">' : ''}<label class="option ${status} ${option?.image ? 'image-option' : ''}"><input type="radio" name="answer" value="${value}" ${selected === value ? 'checked' : ''} ${attempt.submitted ? 'disabled' : ''} aria-label="${value}번 보기${escape(description)}${revealed && value === question.answer ? ', 정답' : ''}"><span class="option-number">${symbol}</span>${option ? `<span class="option-content">${option.text ? `<span class="option-text">${escape(option.text)}</span>` : ''}${image}</span>${revealed && (value === question.answer || value === selected) ? `<span class="option-state">${value === question.answer ? selected === value ? '내 선택 · 정답' : '정답' : '내 선택 · 오답'}</span>` : ''}` : ''}</label>${option?.image ? `<a class="option-enlarge" href="../assets/${escape(option.image)}" target="_blank" rel="noopener" aria-label="${value}번 보기 이미지 확대">보기 이미지 확대 ↗</a>` : ''}${option ? '</div>' : ''}`;
         }).join('')}</div></fieldset>
-        ${revealed ? `<section class="feedback ${correct ? '' : 'incorrect'}" role="status"><h3>${correct ? '정답입니다.' : selected ? '다시 짚어볼 문제예요.' : '선택하지 않은 문제예요.'}</h3><p>정답 <strong>${symbols[question.answer - 1]}</strong> · 내 답 ${selected ? symbols[selected - 1] : '미응답'} · 획득 점수 ${correct ? question.points : 0} / ${question.points}점</p></section>${renderExplanation(question)}<section class="related-concepts"><h3>관련 개념도 함께 복습하세요</h3><div class="actions">${conceptLinks(`${exam.round}-${question.number}`, mode)}</div></section>` : ''}`;
+        ${revealed ? `<section class="feedback ${correct ? '' : 'incorrect'}" role="status"><h3>${correct ? '정답입니다.' : selected ? '다시 짚어볼 문제예요.' : '선택하지 않은 문제예요.'}</h3><p>정답 <strong>${symbols[question.answer - 1]}</strong> · 내 답 ${selected ? symbols[selected - 1] : '미응답'} · 획득 점수 ${correct ? question.points : 0} / ${question.points}점</p></section>${renderExplanation(question)}<section class="related-concepts"><h3>관련 개념도 함께 복습하세요</h3><div class="actions">${conceptLinks(`${exam.round}-${question.number}`, mode)}</div></section>` : ''}
+        ${content ? sourceTools : ''}`;
     }
     const position = numbers.indexOf(attempt.current + 1);
     $('#previous').disabled = paused || position <= 0;

@@ -11,7 +11,7 @@ const context = vm.createContext({window:{},document:{querySelector:() => null,a
 for (const name of ['data.js', 'concepts.js', 'explanations.js', 'common.js', 'study/visuals.js']) {
   vm.runInContext(fs.readFileSync(path.join(root, name), 'utf8'), context);
 }
-const {exams, concepts, topics, grade, validAttempt, questionImage, attemptKey, readAttempt, save, conceptLinks} = context.window.HistoryApp;
+const {exams, concepts, topics, grade, validAttempt, questionImage, questionChoices, attemptKey, readAttempt, save, conceptLinks} = context.window.HistoryApp;
 const explanations = context.window.HISTORY_EXPLANATIONS;
 const visuals = context.window.HistoryStudyVisuals;
 assert.equal(exams.length, 10);
@@ -50,6 +50,7 @@ for (const exam of exams) {
     }
     if (left < .49) assert.ok(right >= .5, `${ref} complete left-column points label`);
     const image = questionImage(exam, question, {alt:'<source "image">'});
+    assert.equal(questionChoices(exam, question), null, `${ref}: basic retains its existing four-choice display`);
     assert.ok(image.includes('height:auto;') && image.includes('aspect-ratio:'));
     assert.ok(image.includes('alt="&lt;source &quot;image&quot;&gt;"'));
     const explanation = explanations[ref];
