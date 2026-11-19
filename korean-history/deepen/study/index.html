@@ -9,6 +9,7 @@
   <title>그림으로 배우는 심화 · 한국사 한 걸음</title>
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="../../basic/style.css">
+  <link rel="stylesheet" href="../test/style.css">
   <link rel="stylesheet" href="style.css">
   <script defer src="../../basic/study/wiki-images.js"></script>
   <script defer src="sources.js"></script>
@@ -21,6 +22,7 @@
   <script defer src="icons-modern.js"></script>
   <script defer src="visuals.js"></script>
   <script defer src="../concepts.js"></script>
+  <script defer src="solo-question.js"></script>
   <script defer src="app.js"></script>
 </head>
 <body class="deepen-study">
@@ -55,7 +57,7 @@
     <details class="panel source-guide"><summary>자료 출처·그림 안내·원본 표기 바로잡기</summary>
       <h2>어떤 자료로 만들었나요?</h2>
       <p>제공된 <a id="note-link" href="../pdf/note/">한국사 요약 PDF · 9쪽</a>의 핵심 개념과 세부 주제들을 한눈에 읽히는 3줄 요약·보충 카드·쉬운 설명으로 새로 구성했어요. 단원별로 해당 PDF 쪽수를 연결했으며, 모든 세부 항목을 그대로 전재한 공식 교재나 공식 기출 해설은 아니에요.</p>
-      <p>‘기출에서 더 배워요’의 128개 보충 노트와 문항 연결은 <a href="../pdf/test/">60~80회 심화 문제지·해설 자료</a>의 역사적 사실을 검토해 새로 구성했어요. 근거 문항을 열어 실제 자료·보기를 함께 살펴보세요. 61회 39번·70회 47번의 정답 번호 오기 정정을 반영했으며 자세한 내용은 해당 문항에서 확인해요. 복습 안내는 요청한 회차·모드의 제출 완료 기록만 읽으며 시험·학습 기록을 바꾸지 않아요.</p>
+      <p>‘기출에서 더 배워요’의 128개 보충 노트와 문항 연결은 <a href="../pdf/test/">60~80회 심화 문제지·해설 자료</a>의 역사적 사실을 검토해 새로 구성했어요. 근거 문항을 누르면 현재 화면 위의 단독 연습 팝업에서 문제를 바로 풀어 보고 즉시 정답·해설을 확인할 수 있어요. 61회 39번·70회 47번의 정답 번호 오기 정정을 반영했으며 자세한 내용은 해당 문항에서 확인해요. 복습 안내는 요청한 회차·모드의 제출 완료 기록만 읽으며 시험·학습 기록을 바꾸지 않아요.</p>
       <p>관련 영상은 <a href="https://history.hackers.com/?r=history&amp;c=free_lecture/video" target="_blank" rel="noopener noreferrer">해커스 무료강의 목록</a>을 정리한 두 MD에서 연결했어요. 영상별 확인 범위를 구분해 표시하며, 모든 강의를 끝까지 시청한 요약이나 대본의 복제본은 아니에요. 공개·재생 상태는 제공자 설정에 따라 바뀔 수 있어요.</p>
       <div id="catalog-sources" class="source-chips"></div>
       <h3>사진과 학습용 그림은 달라요</h3><p>사진은 기존 위키백과·위키미디어 공용의 공개 라이선스 자료를 출처·제작자·이용 조건과 함께 연결했어요. 현대에 찍은 유적, 후대의 그림, 재구성 지도는 사진 설명에서 구분해요. 색칠된 개념 그림은 새로 그린 학습용 도식이며, 실제 유물의 실측도나 당시의 국경 지도가 아니에요. 사진과 영상은 인터넷이 필요하지만 개념 그림·설명·문제는 로컬 파일에서도 볼 수 있어요.</p>
@@ -68,5 +70,18 @@
   <div id="announcement" class="sr-only" role="status" aria-live="polite"></div>
   <dialog id="reset-dialog" class="submission-dialog" aria-labelledby="reset-title"><h2 id="reset-title">심화 학습 기록을 지울까요?</h2><p>이 페이지의 학습 완료, 북마크, 확인 문제 답안과 마지막 위치를 지워요. 기본 학습과 모의고사 기록은 그대로예요.</p><p id="reset-error" class="notice" role="alert" hidden></p><div class="actions"><form method="dialog"><button class="button secondary">취소</button></form><button id="confirm-reset" type="button" class="button danger">심화 기록 지우기</button></div></dialog>
   <dialog id="image-dialog" class="image-dialog" aria-labelledby="image-title"><div class="image-dialog-heading"><h2 id="image-title">사진 크게 보기</h2><form method="dialog"><button class="button secondary" autofocus>닫기 <span aria-hidden="true">×</span></button></form></div><img id="zoom-image" alt=""><p id="zoom-caption"></p><div id="zoom-credits" class="photo-credit"></div></dialog>
+  <dialog id="question-dialog" class="question-dialog deepen-test" aria-labelledby="solo-dialog-title">
+    <div class="question-dialog-heading">
+      <div>
+        <span class="eyebrow">PRACTICE POPUP / 근거 문항 단독 연습</span>
+        <h2 id="solo-dialog-title">단독 문항 연습</h2>
+      </div>
+      <div class="actions">
+        <a id="solo-external-link" class="button quiet" href="../test/solo.html" target="_blank" rel="noopener">새 창 열기 ↗</a>
+        <button type="button" class="button secondary" data-close-solo autofocus>닫기 <span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+    <div id="solo-question-body" class="solo-question-body"></div>
+  </dialog>
 </body>
 </html>

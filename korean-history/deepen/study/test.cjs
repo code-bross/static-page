@@ -226,6 +226,8 @@ assert(hooks.panel.innerHTML.includes('고조선과 여러 나라'));
 assert(hooks.panel.innerHTML.includes('도구가 바꾼 생활'));
 assert(!hooks.panel.innerHTML.includes('청자·대장경·직지'), 'Review concepts only relate to missed questions');
 assert(hooks.questionLink('80-2').includes('mode=practice'));
+assert(hooks.questionLink('80-2').includes('data-solo-ref="80-2"'), 'Evidence question link triggers standalone popup');
+assert(hooks.questionLink('80-2').includes('aria-haspopup="dialog"'));
 assert(hooks.questionLink('80-2').includes('오답'));
 assert(!hooks.questionLink('80-2').includes('정답'));
 hooks = appHooks('?review=80', {[examKey]:mistakes, [practiceKey]:completed});
@@ -254,6 +256,7 @@ hooks = appHooks();
 for (const lesson of lessons) {
   const rendered = hooks.renderExamStudy(lesson);
   assert(rendered.includes(`관련 기출 ${examStudy[lesson.id].refs.length}문항`));
+  assert(rendered.includes('팝업에서 단독으로 풀기'));
   assert(!/<details[^>]*\bopen(?:\s|>)/.test(rendered), 'Related questions start collapsed');
   examStudy[lesson.id].points.forEach(point => assert(hooks.searchable(lesson).includes(point.title.normalize('NFC').trim().toLocaleLowerCase()), 'Search indexes added concepts'));
   supplements[lesson.id].keywords.forEach(kw => assert(hooks.searchable(lesson).includes(kw.normalize('NFC').trim().toLocaleLowerCase()), 'Search indexes supplement keywords'));
@@ -268,7 +271,47 @@ assert(hooks.searchable(lessons.find(lesson => lesson.id === 'early-states')).in
 assert(hooks.searchable(lessons.find(lesson => lesson.id === 'three-kingdoms')).includes('진대법'));
 assert(hooks.searchable(lessons.find(lesson => lesson.id === 'democracy')).includes('브라운 각서'));
 
+// Standalone Solo Question Practice Modal & Popup Verification
+const soloScope = {
+  window:{...context.window}, URLSearchParams, URL,
+  location:{search:'', href:'https://example.test/korean-history/deepen/study/index.html'},
+  document:{querySelector:() => null, addEventListener:() => {}, head:{appendChild:() => {}}},
+  localStorage:{
+    getItem:() => assert.fail('Solo practice must not read localStorage'),
+    setItem:() => assert.fail('Solo practice must not overwrite exam/study records')
+  }
+};
+for (const filename of ['../data.js', '../choices.js', '../explanations.js', 'solo-question.js']) {
+  vm.runInNewContext(fs.readFileSync(path.join(root, filename), 'utf8'), soloScope, {filename});
+}
+const solo = soloScope.window.HistorySoloQuestion;
+assert.deepEqual(solo.parseRef('80-2'), {round:80, number:2, ref:'80-2'});
+assert.equal(solo.parseRef('81-2'), null);
+assert.equal(solo.parseRef('80-51'), null);
+assert.equal(solo.soloUrl(80, 2, ['80-2', '79-2']), '../test/solo.html?round=80&q=2&refs=80-2%2C79-2');
+
+const soloTarget = {innerHTML:''};
+solo.renderStandaloneQuestion(soloTarget, {round:80, number:2, selected:0, siblingRefs:['80-2', '79-2'], groupLabel:'근거 문항 2개'});
+assert.equal((soloTarget.innerHTML.match(/data-solo-answer="/g) || []).length, 5, 'Renders 5 standalone practice options');
+assert(soloTarget.innerHTML.includes('data-solo-switch="79-2"'), 'Renders sibling switcher pills within group');
+assert(!soloTarget.innerHTML.includes('class="answer-explanation"'), 'Answer & explanation stay hidden before choosing');
+assert(!soloTarget.innerHTML.includes('정답입니다!'), 'Feedback stays hidden before choosing');
+
+const rightChoice = examAnswers['80-2'];
+const wrongChoice = rightChoice === 5 ? 1 : 5;
+solo.renderStandaloneQuestion(soloTarget, {round:80, number:2, selected:wrongChoice});
+assert(soloTarget.innerHTML.includes('다시 짚어볼 문제예요.'), 'Immediately shows wrong feedback on selection');
+assert(soloTarget.innerHTML.includes('내 선택 · 오답'), 'Marks chosen wrong option');
+assert(soloTarget.innerHTML.includes('class="answer-explanation"'), 'Immediately reveals official explanation');
+assert(soloTarget.innerHTML.includes('class="deepen-insight"'), 'Immediately reveals deepen study insight');
+assert(soloTarget.innerHTML.includes('data-solo-reset'), 'Provides reset button to retry');
+
+solo.renderStandaloneQuestion(soloTarget, {round:80, number:2, selected:rightChoice});
+assert(soloTarget.innerHTML.includes('정답입니다!'), 'Immediately shows correct feedback when right option selected');
+assert(soloTarget.innerHTML.includes('내 선택 · 정답'));
+
 const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+assert(html.includes('id="question-dialog"'), 'Study page includes standalone question dialog');
 const localPaths = [...html.matchAll(/(?:src|href)="([^"]+)"/g)].map(match => match[1]).filter(url => !/^(?:https?:|data:|#)/.test(url));
 localPaths.push(sources.pdf, ...sources.courses.map(course => course.source));
 localPaths.forEach(url => {
@@ -281,10 +324,16 @@ const hubHtml = fs.readFileSync(path.join(hubDir, 'index.html'), 'utf8');
   const filename = path.resolve(hubDir, decodeURIComponent(url.split(/[?#]/)[0]));
   assert(fs.existsSync(filename), `Missing hub local source: ${url}`);
 });
+const soloDir = path.join(hubDir, 'test');
+const soloHtml = fs.readFileSync(path.join(soloDir, 'solo.html'), 'utf8');
+[...soloHtml.matchAll(/(?:src|href)="([^"]+)"/g)].map(match => match[1]).filter(url => !/^(?:https?:|data:|#)/.test(url)).forEach(url => {
+  const filename = path.resolve(soloDir, decodeURIComponent(url.split(/[?#]/)[0]));
+  assert(fs.existsSync(filename), `Missing solo.html local source: ${url}`);
+});
 for (const filename of fs.readdirSync(root).filter(name => /\.(?:js|cjs)$/.test(name))) {
   execFileSync(process.execPath, ['--check', path.join(root, filename)], {stdio:'pipe'});
 }
 execFileSync(process.execPath, ['--check', path.join(hubDir, 'test/enhance.js')], {stdio:'pipe'});
 execFileSync(process.execPath, [path.join(root, 'build-sources.cjs'), '--check'], {stdio:'inherit'});
 execFileSync(process.execPath, [path.join(root, '../build-concepts.cjs'), '--check'], {stdio:'inherit'});
-console.log(`PASS: ${lessons.length} lessons, 96 distinct illustrations, 96 PDF extra notes, 64 quizzes, 1050 bidirectional exam mappings, ${cardCount} source-grounded cards, mode-safe submitted-result review, 46 YouTube thumbnail video cards and nine PDF pages.`);
+console.log(`PASS: ${lessons.length} lessons, 96 distinct illustrations, 96 PDF extra notes, 64 quizzes, 1050 bidirectional exam mappings, ${cardCount} source-grounded cards, standalone popup practice, 46 YouTube thumbnail video cards and nine PDF pages.`);

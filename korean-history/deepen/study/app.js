@@ -78,7 +78,7 @@
     const [round, number] = ref.split('-');
     const status = review?.submitted && review.wrong.includes(ref) ? ' · 오답' :
       review?.submitted && review.unanswered.includes(ref) ? ' · 미응답' : '';
-    return `<a href="../test/index.html?round=${round}&amp;q=${number}&amp;mode=${examMode}">${round}회 ${number}번${status} ↗</a>`;
+    return `<a href="../test/index.html?round=${round}&amp;q=${number}&amp;mode=${examMode}" data-solo-ref="${ref}" aria-haspopup="dialog">${round}회 ${number}번${status} · 팝업 풀기</a>`;
   }
   function renderExamReview() {
     const panel = $('#exam-review');
@@ -92,7 +92,7 @@
   function renderExamStudy(lesson) {
     const study = examStudy[lesson.id];
     const rounds = [...new Set(study.refs.map(ref => Number(ref.split('-')[0])))];
-    return `<section id="sec-exam" class="exam-study" aria-labelledby="exam-study-title"><h3 id="exam-study-title" class="section-heading"><span>05</span>기출에서 더 배워요</h3><p class="small muted">60~80회 해설의 역사적 사실을 바탕으로 새로 정리한 보충 노트예요. 공식 해설의 전재가 아니며, 정답 번호는 문제를 열어 확인해요.</p><div class="exam-learning-cards">${study.points.map(point => `<article class="exam-learning-card"><h4>${escape(point.title)}</h4><p>${escape(point.text)}</p><details><summary>근거 문항 ${point.refs.length}개 · 직접 풀어 보기</summary><div class="exam-question-links">${point.refs.map(questionLink).join('')}</div></details></article>`).join('')}</div><details class="exam-related"><summary>관련 기출 ${study.refs.length}문항 · 회차별로 골라 풀기</summary><p class="small muted">${examMode === 'exam' ? '시험 모드로 연결해요. 답안을 제출하기 전에는 정답을 표시하지 않아요.' : '시간 제한 없는 연습 모드로 연결해요. 시험 모드 기록과 따로 저장해요.'}</p>${rounds.map(round => {
+    return `<section id="sec-exam" class="exam-study" aria-labelledby="exam-study-title"><h3 id="exam-study-title" class="section-heading"><span>05</span>기출에서 더 배워요</h3><p class="small muted">60~80회 해설의 역사적 사실을 바탕으로 새로 정리한 보충 노트예요. 문항 버튼을 누르면 현재 화면 위의 팝업에서 해당 문제만 단독으로 풀어 보고 바로 해설을 확인할 수 있어요.</p><div class="exam-learning-cards">${study.points.map(point => `<article class="exam-learning-card"><h4>${escape(point.title)}</h4><p>${escape(point.text)}</p><details><summary>근거 문항 ${point.refs.length}개 · 팝업에서 단독으로 풀기</summary><div class="exam-question-links">${point.refs.map(questionLink).join('')}</div></details></article>`).join('')}</div><details class="exam-related"><summary>관련 기출 ${study.refs.length}문항 · 회차별로 골라 풀기</summary><p class="small muted">${examMode === 'exam' ? '시험 모드로 연결해요. 답안을 제출하기 전에는 정답을 표시하지 않아요.' : '시간 제한 없는 연습 모드로 연결해요. 시험 모드 기록과 따로 저장해요.'}</p>${rounds.map(round => {
       const refs = study.refs.filter(ref => ref.startsWith(`${round}-`));
       return `<details class="exam-round"><summary>${round}회 · ${refs.length}문항</summary><div class="exam-question-links">${refs.map(questionLink).join('')}</div></details>`;
     }).join('')}</details></section>`;

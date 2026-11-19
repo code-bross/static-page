@@ -12,7 +12,8 @@
 .exam-related{margin-top:20px}
 .exam-round{margin:8px 0;padding:0 14px;border:1px solid var(--line);border-radius:8px;background:var(--paper)}
 .exam-question-links{display:flex;flex-wrap:wrap;gap:8px;padding:8px 0 14px}
-.exam-question-links a{display:inline-flex;align-items:center;min-height:44px;padding:6px 12px;border:1px solid var(--line);border-radius:8px;font-size:.8rem;background:var(--paper);overflow-wrap:anywhere}
+.exam-question-links a{display:inline-flex;align-items:center;min-height:44px;padding:6px 12px;border:1px solid var(--line);border-radius:8px;font-size:.8rem;background:var(--paper);overflow-wrap:anywhere;transition:background .15s,border-color .15s,color .15s}
+.exam-question-links a:hover{background:var(--soft);border-color:var(--accent);color:var(--accent)}
 .exam-study a:focus-visible,.exam-study summary:focus-visible,.exam-review a:focus-visible,.exam-review summary:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
 .deepen-study .study-hero h1{font-size:clamp(2.2rem,4.2vw,3.6rem);margin-bottom:20px}
 .deepen-study .hero-card{background:#e5ece1;padding:28px}
@@ -190,6 +191,35 @@ mark.hl{background:linear-gradient(transparent 56%,#f6df9d 56%);color:inherit;pa
 .image-dialog h2{font-size:1.25rem;margin:0}
 .image-dialog img{display:block;width:100%;height:auto;max-height:68dvh;object-fit:contain;background:#f4f2eb}
 .image-dialog>p{font-size:.85rem;margin:16px 0 10px}
+
+/* Solo Question Practice Modal & Standalone Popup Page */
+.question-dialog{width:min(860px,calc(100% - 24px));max-height:92dvh;border:1px solid var(--line);border-radius:18px;background:var(--paper);padding:0;color:var(--ink);overflow:auto;box-shadow:0 24px 60px rgba(16,36,40,.28)}
+.question-dialog::backdrop{background:rgba(20,44,50,.58);backdrop-filter:blur(2px)}
+.question-dialog-heading{position:sticky;top:0;z-index:5;background:var(--paper);padding:18px 24px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:12px}
+.question-dialog-heading .eyebrow{margin:0 0 4px;font-size:.63rem}
+.question-dialog-heading h2{margin:0;font-size:1.2rem}
+.question-dialog-heading .actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:0}
+.solo-question-body{padding:22px 24px 26px}
+.solo-siblings{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 16px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#f5f7f0}
+.solo-sibling-pills{display:flex;flex-wrap:wrap;gap:6px}
+.solo-pill{appearance:none;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:5px 12px;font-size:.78rem;font-weight:650;min-height:34px;cursor:pointer;transition:background .15s,border-color .15s,color .15s}
+.solo-pill:hover{border-color:var(--accent);background:var(--soft)}
+.solo-pill[aria-current="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.solo-pill:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.solo-question-meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:14px}
+.solo-feedback-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.solo-feedback-head p{margin-bottom:0}
+.solo-source-links{margin-top:18px;padding-top:14px;border-top:1px solid var(--line)}
+.solo-loading{padding:36px 16px;text-align:center;color:var(--muted);font-size:.92rem}
+
+.solo-standalone-page{background:var(--bg);margin:0}
+.solo-topbar{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1px solid var(--line);padding:14px 20px}
+.solo-topbar-inner{max-width:860px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.solo-topbar h1{margin:2px 0 0;font-size:1.25rem}
+.solo-topbar .actions{margin:0}
+.solo-main{max-width:860px;margin:24px auto 48px;padding:0 16px}
+.solo-question-panel{padding:26px}
+
 @media(max-width:1050px){
   .deepen-study .study-layout{grid-template-columns:210px minmax(0,1fr);gap:18px}
   .deepen-study .lesson{padding:24px}
@@ -241,11 +271,16 @@ mark.hl{background:linear-gradient(transparent 56%,#f6df9d 56%);color:inherit;pa
   .image-dialog-heading{gap:8px}
   .image-dialog h2{font-size:1rem}
   .image-dialog .button{font-size:.75rem;padding:9px 12px}
+  .question-dialog-heading{padding:14px 16px;align-items:flex-start}
+  .question-dialog-heading h2{font-size:1.02rem}
+  .question-dialog-heading .button{font-size:.75rem;padding:8px 11px}
+  .solo-question-body{padding:16px}
+  .solo-question-panel{padding:18px 14px}
   .deepen-study .lesson-actions .button{min-width:150px}
   .deepen-study .lesson-navigation a{max-width:48%}
 }
 @media print{
-  .deepen-study .hero,.deepen-study .concept-sidebar,.deepen-study .library,.deepen-study .source-guide,.related-videos,.lesson-quiz-actions,.section-jumps,.deepen-study .photo-button>span{display:none!important}
+  .deepen-study .hero,.deepen-study .concept-sidebar,.deepen-study .library,.deepen-study .source-guide,.related-videos,.lesson-quiz-actions,.section-jumps,.deepen-study .photo-button>span,.question-dialog{display:none!important}
   .deepen-study .lesson{padding:0}
   .quick-summary,.memory-board,.photo-figure,.comparison,.supplement-section,.trap-box,.check-question{break-inside:avoid}
   .diagram-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
