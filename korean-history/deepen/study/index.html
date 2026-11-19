@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="한국사 심화를 32개 짧은 단원으로 배워요. 문화유산 사진, 기억 그림, 쉬운 설명과 64개 확인 문제를 제공하고 PDF 원문과 관련 유튜브 강의를 연결합니다.">
+  <meta property="og:title" content="그림으로 배우는 심화 · 한국사 한 걸음">
+  <meta property="og:description" content="어려운 용어는 쉽게, 사건의 흐름은 그림으로. 선사부터 현대까지 32개 학습 노트.">
+  <title>그림으로 배우는 심화 · 한국사 한 걸음</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../../basic/style.css">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="../../basic/study/wiki-images.js"></script>
+  <script defer src="sources.js"></script>
+  <script defer src="video-notes.js"></script>
+  <script defer src="lessons-early.js"></script>
+  <script defer src="lessons-modern.js"></script>
+  <script defer src="icons-early.js"></script>
+  <script defer src="icons-modern.js"></script>
+  <script defer src="visuals.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body class="deepen-study">
+  <a class="skip" href="#lesson">학습 내용으로 건너뛰기</a>
+  <header class="topbar"><div class="topbar-inner">
+    <a class="brand" href="index.html"><span class="brand-symbol" aria-hidden="true">史</span><span>한국사 한 걸음<small>KOREAN HISTORY · ADVANCED</small></span></a>
+    <nav class="nav" aria-label="주요 메뉴"><a href="../../basic/study/index.html">기본 학습</a><a href="#video-library">강의 모음</a></nav>
+  </div></header>
+  <main class="container">
+    <p id="storage-notice" class="notice" role="status" hidden></p>
+    <noscript><p class="notice">단원 표시와 학습 기록에는 JavaScript가 필요해요. <a href="../pdf/note/">요약 PDF</a>와 <a href="../lecture/">강의 목록</a>은 직접 열 수 있어요.</p></noscript>
+    <section class="hero study-hero">
+      <div><span class="eyebrow">VISUAL STUDY / 한국사능력검정시험 심화</span><h1>어려운 심화도,<br><em>그림으로 한 걸음.</em></h1><p>처음 만나는 용어는 쉽게, 헷갈리는 사건은 나란히.<br>그림을 보고 → 이유를 이해하고 → 내 말로 답해 봐요.</p><div class="hero-facts"><span>32개 작은 단원</span><span>64개 확인 문제</span><span>46개 관련 강의</span></div><p class="hero-note">제공된 요약 PDF 9쪽 기반 · 영상은 강의 목록의 주제로 연결</p></div>
+      <aside class="hero-card"><span class="eyebrow">나의 배움 지도</span><h2 id="progress-label">0 <span class="small">/ 32개 단원</span></h2><progress id="study-progress" class="progress" value="0" max="32" aria-label="완료한 단원 수"></progress><p id="progress-text">한 단원씩, 오늘 이해한 만큼 표시해요.</p><p id="quiz-progress" class="small">확인 문제 정답 0 / 64</p><button id="continue-study" type="button" class="button secondary">이어서 학습하기 →</button></aside>
+    </section>
+    <div class="study-tools" role="search" aria-label="학습 단원 찾기">
+      <div class="search-wrap"><label class="sr-only" for="search">개념·인물·사건 검색</label><input id="search" type="search" placeholder="예: 대동법, 독립운동, 직지" autocomplete="off"></div>
+      <label class="sr-only" for="study-filter">학습 상태</label><select id="study-filter"><option value="all">전체 단원</option><option value="incomplete">아직 공부할 단원</option><option value="complete">학습 완료</option><option value="bookmarked">북마크</option></select>
+      <button id="reset-progress" type="button" class="button quiet">기록 초기화</button>
+    </div>
+    <div id="era-filters" class="chips" role="group" aria-label="시대별 단원 선택"></div>
+    <div class="study-layout">
+      <aside class="concept-sidebar"><details id="curriculum" open><summary>배움 목차 <span id="list-summary" class="small" role="status"></span></summary><nav id="concept-list" class="concept-list" aria-label="학습 단원"></nav></details></aside>
+      <article id="lesson" class="panel lesson" tabindex="-1" aria-label="선택한 학습 단원"><p>학습 자료를 불러오는 중입니다.</p></article>
+    </div>
+    <section id="video-library" class="panel library" aria-labelledby="library-title">
+      <span class="eyebrow">WATCH & CONNECT</span><h2 id="library-title">강의와 함께 더 알아보기</h2><p>MD에 담긴 두 과정의 46개 링크를 빠짐없이 모았어요. 목록의 넓은 시대명과 실제 영상의 세부 주제는 다를 수 있어요.</p>
+      <p class="small">영상 대본은 접근 환경의 제한으로 열람하지 못했어요. 아래 영상들은 관련 시대를 더 공부하기 위한 링크이며, 이 페이지의 설명을 영상에서 그대로 요약한 것은 아니에요.</p>
+      <details id="all-videos"><summary>전체 강의 목록 열기 · 34강 + 12개 강의</summary><div id="video-catalog"></div></details>
+    </section>
+    <details class="panel source-guide"><summary>자료 출처·그림 안내·원본 표기 바로잡기</summary>
+      <h2>어떤 자료로 만들었나요?</h2>
+      <p>제공된 <a id="note-link" href="../pdf/note/">한국사 요약 PDF · 9쪽</a>의 핵심 개념을 중학생도 읽을 수 있는 설명으로 새로 구성했어요. 단원별로 해당 PDF 쪽수를 연결했으며, 모든 세부 항목을 옮긴 완전한 교재나 공식 기출 해설은 아니에요.</p>
+      <p>관련 영상은 <a href="https://history.hackers.com/?r=history&amp;c=free_lecture/video" target="_blank" rel="noopener noreferrer">해커스 무료강의 목록</a>을 정리한 두 MD에서 연결했어요. 영상별 확인 범위를 구분해 표시하며, 모든 강의를 끝까지 시청한 요약이나 대본의 복제본은 아니에요. 공개·재생 상태는 제공자 설정에 따라 바뀔 수 있어요.</p>
+      <div id="catalog-sources" class="source-chips"></div>
+      <h3>사진과 학습용 그림은 달라요</h3><p>사진은 기존 위키백과·위키미디어 공용의 공개 라이선스 자료를 출처·제작자·이용 조건과 함께 연결했어요. 현대에 찍은 유적, 후대의 그림, 재구성 지도는 사진 설명에서 구분해요. 색칠된 개념 그림은 새로 그린 학습용 도식이며, 실제 유물의 실측도나 당시의 국경 지도가 아니에요. 사진과 영상은 인터넷이 필요하지만 개념 그림·설명·문제는 로컬 파일에서도 볼 수 있어요.</p>
+      <h3>요약본의 압축 표기는 이렇게 바로잡았어요</h3>
+      <ul class="correction-list"><li>1쪽: 918년은 고려 건국, 후삼국 통일은 936년이에요.</li><li>6쪽: 조미 수호 통상 조약은 ‘1992’가 아니라 1882년이에요. 이재명은 이완용을 처단하려 했지만 죽이지는 못했어요.</li><li>7쪽: 조선어 학회 사건은 1942년이에요. 1941년 호가장 전투의 부대와 1942년에 창설된 조선의용군을 혼동하지 않아요.</li><li>9쪽: 2000년 남북 정상 회담과 2004년 개성 공단 첫 제품 생산은 구분해요.</li></ul>
+      <p class="small muted">학습 완료·북마크·확인 문제 답안은 이 브라우저에만 저장해요. 기본 학습·모의고사와는 별개의 기록이에요. ‘이해했어요’ 표시는 직접 누르며, 문제에 답했다고 자동으로 완료되지는 않아요.</p>
+    </details>
+    <footer class="footer"><p>한국사 한 걸음 · ADVANCED</p><p>그림으로 연결하고, 내 말로 설명하기.</p></footer>
+  </main>
+  <div id="announcement" class="sr-only" role="status" aria-live="polite"></div>
+  <dialog id="reset-dialog" class="submission-dialog" aria-labelledby="reset-title"><h2 id="reset-title">심화 학습 기록을 지울까요?</h2><p>이 페이지의 학습 완료, 북마크, 확인 문제 답안과 마지막 위치를 지워요. 기본 학습과 모의고사 기록은 그대로예요.</p><p id="reset-error" class="notice" role="alert" hidden></p><div class="actions"><form method="dialog"><button class="button secondary">취소</button></form><button id="confirm-reset" type="button" class="button danger">심화 기록 지우기</button></div></dialog>
+  <dialog id="image-dialog" class="image-dialog" aria-labelledby="image-title"><div class="image-dialog-heading"><h2 id="image-title">사진 크게 보기</h2><form method="dialog"><button class="button secondary" autofocus>닫기 <span aria-hidden="true">×</span></button></form></div><img id="zoom-image" alt=""><p id="zoom-caption"></p><div id="zoom-credits" class="photo-credit"></div></dialog>
+</body>
+</html>
