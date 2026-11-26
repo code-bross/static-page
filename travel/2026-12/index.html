@@ -13,8 +13,6 @@
     <!-- Pretendard Font -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
-    <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="data.js"></script>
     <style>
         :root {
@@ -1003,7 +1001,7 @@
             cursor: pointer;
         }
 
-        /* ========== LEAFLET MAP & CONTROLS ========== */
+        /* ========== ZERO-KEY INTERACTIVE MAP & CONTROLS ========== */
         .map-progress-bar {
             width: 100%;
             height: 7px;
@@ -1021,13 +1019,243 @@
         }
 
         .map-box {
+            position: relative;
             border-radius: 18px;
             overflow: hidden;
             border: 1px solid var(--line);
-            background: #e6eef2;
+            background: linear-gradient(180deg, #cbe4f2 0%, #b8d8ea 100%);
             height: 520px;
             width: 100%;
             z-index: 1;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: none;
+            cursor: grab;
+        }
+
+        .map-box:active {
+            cursor: grabbing;
+        }
+
+        .qmap-layer {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .qmap-vector-svg {
+            z-index: 1;
+        }
+
+        .qmap-tiles {
+            z-index: 2;
+        }
+
+        .qmap-tile-img {
+            position: absolute;
+            width: 256px;
+            height: 256px;
+            max-width: none !important;
+            pointer-events: none;
+            will-change: transform;
+        }
+
+        .qmap-route-svg {
+            z-index: 3;
+        }
+
+        .qmap-markers {
+            z-index: 4;
+            pointer-events: none;
+        }
+
+        .qmap-pin {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 2.5px solid var(--accent-2);
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.22);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            pointer-events: auto;
+            transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+            padding: 0;
+        }
+
+        .qmap-pin > span {
+            pointer-events: none;
+        }
+
+        .qmap-pin:hover {
+            transform: translate(-50%, -50%) scale(1.12);
+            z-index: 30;
+        }
+
+        .qmap-pin.active {
+            border-color: var(--accent);
+            background: #fff7f4;
+            transform: translate(-50%, -50%) scale(1.2);
+            box-shadow: 0 6px 16px rgba(235, 100, 64, 0.42);
+            z-index: 40;
+        }
+
+        .qmap-pin-num {
+            position: absolute;
+            bottom: -4px;
+            right: -4px;
+            background: var(--accent-2);
+            color: #ffffff;
+            font-size: 10px;
+            font-weight: 800;
+            border-radius: 50%;
+            width: 17px;
+            height: 17px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1.5px solid #ffffff;
+        }
+
+        .qmap-pin.active .qmap-pin-num {
+            background: var(--accent);
+        }
+
+        .qmap-couple-marker {
+            position: absolute;
+            transform: translate(-50%, -115%);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #eb6440 0%, #e11d48 100%);
+            border: 2.5px solid #ffffff;
+            box-shadow: 0 4px 16px rgba(235, 100, 64, 0.55);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+            z-index: 50;
+            pointer-events: none;
+            animation: pulseGlow 1.8s infinite ease-in-out;
+        }
+
+        .qmap-style-switcher {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 60;
+            display: flex;
+            gap: 4px;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            padding: 4px;
+            border-radius: 999px;
+            border: 1px solid rgba(15, 23, 42, 0.12);
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
+        }
+
+        .qmap-style-btn {
+            border: none;
+            background: transparent;
+            color: #334155;
+            font-size: 0.74rem;
+            font-weight: 800;
+            padding: 5px 10px;
+            border-radius: 999px;
+            cursor: pointer;
+            min-height: 28px;
+            white-space: nowrap;
+        }
+
+        .qmap-style-btn.active {
+            background: var(--accent-2);
+            color: #ffffff;
+        }
+
+        .qmap-zoom-controls {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            z-index: 60;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .qmap-ctrl-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            border: 1px solid rgba(15, 23, 42, 0.14);
+            background: rgba(255, 255, 255, 0.94);
+            color: #1e293b;
+            font-size: 1.05rem;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(15, 23, 42, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .qmap-ctrl-btn:hover {
+            background: #ffffff;
+            color: var(--accent);
+        }
+
+        .qmap-popup {
+            position: absolute;
+            left: 12px;
+            right: 12px;
+            bottom: 12px;
+            z-index: 65;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 11px 13px;
+            box-shadow: 0 10px 26px rgba(15, 23, 42, 0.2);
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .qmap-popup.active {
+            display: flex;
+        }
+
+        .qmap-popup-close {
+            border: none;
+            background: #f1f5f9;
+            color: #475569;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            font-weight: 800;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .qmap-scale-badge {
+            position: absolute;
+            right: 10px;
+            bottom: 8px;
+            z-index: 55;
+            background: rgba(255, 255, 255, 0.82);
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 10.5px;
+            font-weight: 700;
+            color: #334155;
+            pointer-events: none;
         }
 
         .map-nav-controls {
@@ -1055,34 +1283,6 @@
             background: linear-gradient(135deg, var(--accent-2) 0%, var(--accent) 100%);
             color: #ffffff;
             border-color: transparent;
-        }
-
-        .emoji-marker {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #ffffff;
-            border: 2.5px solid var(--accent-2);
-            border-radius: 50%;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
-        }
-
-        .emoji-marker.active {
-            border-color: var(--accent);
-            transform: scale(1.18);
-            z-index: 999 !important;
-        }
-
-        .character-marker-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #eb6440 0%, #e11d48 100%);
-            border: 3px solid #ffffff;
-            border-radius: 50%;
-            box-shadow: 0 4px 18px rgba(235, 100, 64, 0.55);
-            font-size: 1.2rem;
-            animation: pulseGlow 1.8s infinite ease-in-out;
         }
 
         @keyframes pulseGlow {
@@ -1807,8 +2007,7 @@
 
     <div id="toast" class="toast">복사되었습니다!</div>
 
-    <!-- Leaflet JS -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- API Key 불필요 · 외부 라이브러리 무의존 자체 동선 지도 엔진 -->
     <script>
         const STORAGE_KEY = 'qingdao_couple_2026_12_v2';
         let appData = null;
@@ -1818,14 +2017,10 @@
         let editMode = false;
 
         let map = null;
-        let markerLayer = null;
-        let polylineLayer = null;
-        let donePolylineLayer = null;
-        let characterMarker = null;
-        let markersMap = {};
         let currentValidItems = [];
         let currentSpotIndex = 0;
         let autoPlayTimer = null;
+        let couplePos = { lat: 36.0638, lng: 120.3888 };
 
         let savedState = {
             customRoutes: null,
@@ -2329,125 +2524,591 @@
                 const idx = currentValidItems.findIndex(x => x.id === activeItemId);
                 if (idx !== -1) {
                     moveToSpotIndex(idx, true);
-                    if (markersMap[activeItemId]) markersMap[activeItemId].openPopup();
+                    openMapPopupForSpot(currentValidItems[idx], idx);
                 }
+            } else {
+                closeMapPopup();
+                if (map) map.render();
             }
         }
 
-        /* ========== LEAFLET MAP ENGINE ========== */
+        /* ========== ZERO-API-KEY FREE MAP ENGINE (한글 도로타일 + 오픈스트리트맵 + 내장 벡터 아틀라스) ========== */
+        const QINGDAO_VECTOR_GEO = {
+            // 칭다오 반도 및 자오저우만 실제 WGS-84 해안선 폴리곤
+            landPolygon: [
+                [36.48, 119.95], [36.40, 120.05], [36.355, 120.115], [36.295, 120.195],
+                [36.235, 120.285], [36.224, 120.315], [36.195, 120.358], [36.155, 120.348],
+                [36.115, 120.320], [36.082, 120.302], [36.062, 120.294], [36.047, 120.291],
+                [36.051, 120.305], [36.0608, 120.314], [36.0604, 120.3183], [36.0566, 120.3184],
+                [36.0605, 120.3189], [36.0612, 120.325], [36.0558, 120.328], [36.0592, 120.333],
+                [36.0555, 120.340], [36.0505, 120.345], [36.0488, 120.3535], [36.0462, 120.360],
+                [36.0532, 120.366], [36.0570, 120.371], [36.0615, 120.3824], [36.0598, 120.392],
+                [36.0538, 120.3965], [36.0588, 120.402], [36.0565, 120.418], [36.0515, 120.429],
+                [36.0482, 120.432], [36.0545, 120.439], [36.064, 120.462], [36.088, 120.495],
+                [36.15, 120.55], [36.48, 120.55]
+            ],
+            huangdaoPolygon: [
+                [35.94, 119.95], [36.06, 120.14], [36.038, 120.245], [35.995, 120.258],
+                [35.95, 120.21], [35.92, 119.95]
+            ],
+            parks: [
+                { name: '소어산', coords: [[36.060, 120.331], [36.060, 120.336], [36.057, 120.336], [36.057, 120.331]] },
+                { name: '신호산', coords: [[36.069, 120.327], [36.069, 120.334], [36.064, 120.334], [36.064, 120.327]] },
+                { name: '중산공원·팔대관', coords: [[36.066, 120.342], [36.066, 120.359], [36.049, 120.359], [36.049, 120.342]] },
+                { name: '소맥도', coords: [[36.0505, 120.429], [36.0505, 120.434], [36.0468, 120.434], [36.0468, 120.429]] }
+            ],
+            roads: [
+                // 해안 관광도로 (중산로~태평로~팔대관~동해서로~5.4광장~요트센터~소맥도)
+                [[36.074, 120.320], [36.067, 120.318], [36.0605, 120.3185], [36.059, 120.334], [36.051, 120.353], [36.0575, 120.370], [36.0625, 120.382], [36.061, 120.396], [36.054, 120.430]],
+                // 홍콩서로·홍콩중로 간선도로
+                [[36.061, 120.330], [36.060, 120.352], [36.061, 120.370], [36.0655, 120.385], [36.071, 120.415]],
+                // 산동로·닝샤루·타이동 순환도로
+                [[36.062, 120.376], [36.070, 120.375], [36.0795, 120.376], [36.086, 120.354], [36.075, 120.321], [36.066, 120.315]],
+                // 닝샤루 동서 간선
+                [[36.086, 120.354], [36.0795, 120.384], [36.073, 120.405]],
+                // 자오저우만 대교 & 공항 고속연결선
+                [[36.082, 120.305], [36.145, 120.220], [36.228, 120.312], [36.3667, 120.0983]]
+            ],
+            metro3: [
+                // 칭다오 지하철 3호선 (칭다오역~중산공원~5.4광장~완샹청~타이동인근~칭다오북역)
+                [36.064, 120.313], [36.0608, 120.321], [36.059, 120.339], [36.056, 120.355],
+                [36.061, 120.370], [36.066, 120.378], [36.078, 120.377], [36.115, 120.375], [36.188, 120.365]
+            ],
+            labels: [
+                { lat: 36.041, lng: 120.376, text: '푸산만 (浮山湾 · 황해)', type: 'sea', minZ: 11 },
+                { lat: 36.115, lng: 120.245, text: '자오저우만 (胶州湾)', type: 'sea', minZ: 10 },
+                { lat: 36.0695, lng: 120.316, text: '구시가지 · 중산로', type: 'area', minZ: 12 },
+                { lat: 36.0535, lng: 120.352, text: '팔대관 별장지구', type: 'area', minZ: 12 },
+                { lat: 36.0665, lng: 120.382, text: '5·4광장 · 완샹청 권역', type: 'area', minZ: 12 },
+                { lat: 36.0885, lng: 120.354, text: '타이동 야시장 권역', type: 'area', minZ: 12 },
+                { lat: 36.060, lng: 120.400, text: '올림픽 요트 마리나', type: 'area', minZ: 13 },
+                { lat: 36.375, lng: 120.098, text: '✈️ 자오둥 국제공항 권역', type: 'area', minZ: 9.5 }
+            ]
+        };
+
+        function outOfChina(lat, lng) {
+            return lng < 72.004 || lng > 137.8347 || lat < 0.8293 || lat > 55.8271;
+        }
+        function transformLat(x, y) {
+            let r = -100.0 + 2.0 * x + 3.0 * y + 0.2 * y * y + 0.1 * x * y + 0.2 * Math.sqrt(Math.abs(x));
+            r += ((20.0 * Math.sin(6.0 * x * Math.PI) + 20.0 * Math.sin(2.0 * x * Math.PI)) * 2.0) / 3.0;
+            r += ((20.0 * Math.sin(y * Math.PI) + 40.0 * Math.sin((y / 3.0) * Math.PI)) * 2.0) / 3.0;
+            r += ((160.0 * Math.sin((y / 12.0) * Math.PI) + 320 * Math.sin((y * Math.PI) / 30.0)) * 2.0) / 3.0;
+            return r;
+        }
+        function transformLng(x, y) {
+            let r = 300.0 + x + 2.0 * y + 0.1 * x * x + 0.1 * x * y + 0.1 * Math.sqrt(Math.abs(x));
+            r += ((20.0 * Math.sin(6.0 * x * Math.PI) + 20.0 * Math.sin(2.0 * x * Math.PI)) * 2.0) / 3.0;
+            r += ((20.0 * Math.sin(x * Math.PI) + 40.0 * Math.sin((x / 3.0) * Math.PI)) * 2.0) / 3.0;
+            r += ((150.0 * Math.sin((x / 12.0) * Math.PI) + 300.0 * Math.sin((x / 30.0) * Math.PI)) * 2.0) / 3.0;
+            return r;
+        }
+        function wgs84ToGcj02(lat, lng) {
+            if (outOfChina(lat, lng)) return { lat, lng };
+            const a = 6378245.0;
+            const ee = 0.00669342162296594323;
+            let dLat = transformLat(lng - 105.0, lat - 35.0);
+            let dLng = transformLng(lng - 105.0, lat - 35.0);
+            const radLat = (lat / 180.0) * Math.PI;
+            let magic = Math.sin(radLat);
+            magic = 1 - ee * magic * magic;
+            const sqrtMagic = Math.sqrt(magic);
+            dLat = (dLat * 180.0) / (((a * (1 - ee)) / (magic * sqrtMagic)) * Math.PI);
+            dLng = (dLng * 180.0) / ((a / sqrtMagic) * Math.cos(radLat) * Math.PI);
+            return { lat: lat + dLat, lng: lng + dLng };
+        }
+
+        class QingdaoFreeMap {
+            constructor(containerId) {
+                this.el = document.getElementById(containerId);
+                this.centerLat = 36.064;
+                this.centerLng = 120.356;
+                this.zoom = 13;
+                this.minZoom = 9.5;
+                this.maxZoom = 16.5;
+                // 기본 모드: 한국어 지명이 나오는 무료 도로지도 + 하단 내장 벡터 아틀라스 하이브리드
+                this.styleMode = 'ko_road'; // 'ko_road' | 'vector' | 'osm'
+                this.tileFailCount = 0;
+                this.tileCache = new Map();
+                this.panAnim = null;
+
+                this.buildDOM();
+                this.bindInteractions();
+            }
+
+            buildDOM() {
+                this.el.innerHTML = `
+                    <div class="qmap-layer qmap-tiles" id="qmapTiles"></div>
+                    <svg class="qmap-layer qmap-vector-svg" id="qmapVectorSvg" xmlns="http://www.w3.org/2000/svg"></svg>
+                    <svg class="qmap-layer qmap-route-svg" id="qmapRouteSvg" xmlns="http://www.w3.org/2000/svg"></svg>
+                    <div class="qmap-layer qmap-markers" id="qmapMarkers"></div>
+
+                    <div class="qmap-style-switcher" onpointerdown="event.stopPropagation()">
+                        <button type="button" class="qmap-style-btn active" data-style="ko_road" onclick="setMapStyleMode('ko_road')">🇰🇷 한글지도</button>
+                        <button type="button" class="qmap-style-btn" data-style="vector" onclick="setMapStyleMode('vector')">🎨 일러스트맵(내장)</button>
+                        <button type="button" class="qmap-style-btn" data-style="osm" onclick="setMapStyleMode('osm')">🌍 OSM</button>
+                    </div>
+
+                    <div class="qmap-zoom-controls" onpointerdown="event.stopPropagation()">
+                        <button type="button" class="qmap-ctrl-btn" title="확대" aria-label="지도 확대" onclick="map.zoomBy(0.8)">+</button>
+                        <button type="button" class="qmap-ctrl-btn" title="축소" aria-label="지도 축소" onclick="map.zoomBy(-0.8)">−</button>
+                        <button type="button" class="qmap-ctrl-btn" title="전체 동선 한눈에" aria-label="전체 동선 맞춤" onclick="fitCurrentRouteBounds()" style="font-size:0.9rem;">🎯</button>
+                    </div>
+
+                    <div class="qmap-popup" id="qmapPopup" onpointerdown="event.stopPropagation()">
+                        <div id="qmapPopupContent" style="flex:1; min-width:0;"></div>
+                        <button type="button" class="qmap-popup-close" aria-label="팝업 닫기" onclick="closeMapPopup()">&times;</button>
+                    </div>
+
+                    <div class="qmap-scale-badge" id="qmapScaleBadge">무료 내장 지도 · API Key 불필요</div>
+                `;
+                this.tilesEl = document.getElementById('qmapTiles');
+                this.vectorSvg = document.getElementById('qmapVectorSvg');
+                this.routeSvg = document.getElementById('qmapRouteSvg');
+                this.markersEl = document.getElementById('qmapMarkers');
+            }
+
+            projectCoord(lat, lng, z = this.zoom) {
+                const adj = this.styleMode === 'ko_road' ? wgs84ToGcj02(lat, lng) : { lat, lng };
+                const scale = 256 * Math.pow(2, z);
+                const x = ((adj.lng + 180) / 360) * scale;
+                const sinLat = Math.sin((Math.max(-85, Math.min(85, adj.lat)) * Math.PI) / 180);
+                const y = (0.5 - Math.log((1 + sinLat) / (1 - sinLat)) / (4 * Math.PI)) * scale;
+                return { x, y };
+            }
+
+            latLngToContainerPoint(lat, lng) {
+                const w = this.el.clientWidth || 500;
+                const h = this.el.clientHeight || 500;
+                const c = this.projectCoord(this.centerLat, this.centerLng);
+                const p = this.projectCoord(lat, lng);
+                return { x: w / 2 + (p.x - c.x), y: h / 2 + (p.y - c.y) };
+            }
+
+            panByPixels(dx, dy) {
+                const scale = 256 * Math.pow(2, this.zoom);
+                const c = this.projectCoord(this.centerLat, this.centerLng);
+                const nx = c.x - dx;
+                const ny = c.y - dy;
+                const rawLng = (nx / scale) * 360 - 180;
+                const n = Math.PI - (2 * Math.PI * ny) / scale;
+                const rawLat = (180 / Math.PI) * Math.atan(0.5 * (Math.exp(n) - Math.exp(-n)));
+
+                if (this.styleMode === 'ko_road') {
+                    const offset = wgs84ToGcj02(this.centerLat, this.centerLng);
+                    this.centerLat = Math.max(34.5, Math.min(38.0, rawLat - (offset.lat - this.centerLat)));
+                    this.centerLng = Math.max(118.5, Math.min(127.0, rawLng - (offset.lng - this.centerLng)));
+                } else {
+                    this.centerLat = Math.max(34.5, Math.min(38.0, rawLat));
+                    this.centerLng = Math.max(118.5, Math.min(127.0, rawLng));
+                }
+                this.render();
+            }
+
+            zoomBy(delta) {
+                this.zoom = Math.max(this.minZoom, Math.min(this.maxZoom, +(this.zoom + delta).toFixed(2)));
+                this.render();
+            }
+
+            panTo(lat, lng, targetZoom = null) {
+                if (this.panAnim) cancelAnimationFrame(this.panAnim);
+                const sLat = this.centerLat;
+                const sLng = this.centerLng;
+                const sZoom = this.zoom;
+                const eZoom = targetZoom !== null ? Math.max(this.minZoom, Math.min(this.maxZoom, targetZoom)) : sZoom;
+                const t0 = performance.now();
+                const dur = 480;
+                const step = now => {
+                    const p = Math.min((now - t0) / dur, 1);
+                    const ease = 1 - Math.pow(1 - p, 3);
+                    this.centerLat = sLat + (lat - sLat) * ease;
+                    this.centerLng = sLng + (lng - sLng) * ease;
+                    this.zoom = sZoom + (eZoom - sZoom) * ease;
+                    this.render();
+                    if (p < 1) this.panAnim = requestAnimationFrame(step);
+                };
+                this.panAnim = requestAnimationFrame(step);
+            }
+
+            fitBounds(items) {
+                if (!items || items.length === 0) return;
+                const w = Math.max(280, (this.el.clientWidth || 500) - 96);
+                const h = Math.max(240, (this.el.clientHeight || 460) - 110);
+
+                if (items.length === 1) {
+                    this.centerLat = items[0].lat;
+                    this.centerLng = items[0].lng;
+                    this.zoom = 14.2;
+                    this.render();
+                    return;
+                }
+
+                let minLat = Infinity, maxLat = -Infinity, minLng = Infinity, maxLng = -Infinity;
+                items.forEach(i => {
+                    minLat = Math.min(minLat, i.lat);
+                    maxLat = Math.max(maxLat, i.lat);
+                    minLng = Math.min(minLng, i.lng);
+                    maxLng = Math.max(maxLng, i.lng);
+                });
+
+                this.centerLat = (minLat + maxLat) / 2;
+                this.centerLng = (minLng + maxLng) / 2;
+
+                let bestZ = 14.5;
+                for (let z = 15; z >= 9.5; z -= 0.25) {
+                    const p1 = this.projectCoord(maxLat, minLng, z);
+                    const p2 = this.projectCoord(minLat, maxLng, z);
+                    if (Math.abs(p2.x - p1.x) <= w && Math.abs(p2.y - p1.y) <= h) {
+                        bestZ = z;
+                        break;
+                    }
+                }
+                this.zoom = bestZ;
+                this.render();
+            }
+
+            invalidateSize() {
+                this.render();
+            }
+
+            bindInteractions() {
+                let dragging = false;
+                let lastX = 0, lastY = 0;
+                let pinchDist = 0;
+
+                this.el.addEventListener('pointerdown', e => {
+                    if (e.target.closest('button') || e.target.closest('a')) return;
+                    dragging = true;
+                    lastX = e.clientX;
+                    lastY = e.clientY;
+                    this.el.setPointerCapture?.(e.pointerId);
+                });
+
+                this.el.addEventListener('pointermove', e => {
+                    if (!dragging) return;
+                    const dx = e.clientX - lastX;
+                    const dy = e.clientY - lastY;
+                    lastX = e.clientX;
+                    lastY = e.clientY;
+                    this.panByPixels(dx, dy);
+                });
+
+                const stopDrag = () => { dragging = false; };
+                this.el.addEventListener('pointerup', stopDrag);
+                this.el.addEventListener('pointercancel', stopDrag);
+
+                this.el.addEventListener('wheel', e => {
+                    e.preventDefault();
+                    this.zoomBy(e.deltaY < 0 ? 0.45 : -0.45);
+                }, { passive: false });
+
+                this.el.addEventListener('touchstart', e => {
+                    if (e.touches.length === 2) {
+                        dragging = false;
+                        pinchDist = Math.hypot(
+                            e.touches[0].clientX - e.touches[1].clientX,
+                            e.touches[0].clientY - e.touches[1].clientY
+                        );
+                    }
+                }, { passive: true });
+
+                this.el.addEventListener('touchmove', e => {
+                    if (e.touches.length === 2 && pinchDist > 0) {
+                        const d = Math.hypot(
+                            e.touches[0].clientX - e.touches[1].clientX,
+                            e.touches[0].clientY - e.touches[1].clientY
+                        );
+                        if (Math.abs(d - pinchDist) > 12) {
+                            this.zoomBy(d > pinchDist ? 0.25 : -0.25);
+                            pinchDist = d;
+                        }
+                    }
+                }, { passive: true });
+
+                window.addEventListener('resize', () => this.render());
+            }
+
+            renderTiles(w, h) {
+                if (this.styleMode === 'vector') {
+                    this.tilesEl.style.display = 'none';
+                    return;
+                }
+                this.tilesEl.style.display = 'block';
+
+                const tileZ = Math.max(9, Math.min(17, Math.round(this.zoom)));
+                const scaleFactor = Math.pow(2, this.zoom - tileZ);
+                const tileSize = 256 * scaleFactor;
+
+                const centerTileWorld = this.projectCoord(this.centerLat, this.centerLng, tileZ);
+                const centerPxX = centerTileWorld.x * scaleFactor;
+                const centerPxY = centerTileWorld.y * scaleFactor;
+
+                const minTileX = Math.floor((centerPxX - w / 2) / tileSize);
+                const maxTileX = Math.floor((centerPxX + w / 2) / tileSize);
+                const minTileY = Math.floor((centerPxY - h / 2) / tileSize);
+                const maxTileY = Math.floor((centerPxY + h / 2) / tileSize);
+                const maxIdx = Math.pow(2, tileZ);
+
+                const neededKeys = new Set();
+                for (let tx = minTileX; tx <= maxTileX; tx++) {
+                    for (let ty = minTileY; ty <= maxTileY; ty++) {
+                        if (ty < 0 || ty >= maxIdx) continue;
+                        const wrappedX = ((tx % maxIdx) + maxIdx) % maxIdx;
+                        const key = `${this.styleMode}:${tileZ}:${wrappedX}:${ty}`;
+                        neededKeys.add(key);
+
+                        let img = this.tileCache.get(key);
+                        if (!img) {
+                            img = document.createElement('img');
+                            img.className = 'qmap-tile-img';
+                            img.alt = '';
+                            img.referrerPolicy = 'no-referrer';
+                            img.decoding = 'async';
+                            img.src = this.styleMode === 'ko_road'
+                                ? `https://mt${(wrappedX + ty) % 3}.google.com/vt/lyrs=m&x=${wrappedX}&y=${ty}&z=${tileZ}&hl=ko`
+                                : `https://tile.openstreetmap.org/${tileZ}/${wrappedX}/${ty}.png`;
+
+                            img.onerror = () => {
+                                img.style.display = 'none';
+                                this.tileFailCount++;
+                                if (this.tileFailCount >= 6 && this.styleMode !== 'vector') {
+                                    // 오프라인 또는 제한 환경 감지 시 내장 벡터 아틀라스로 자동 전환
+                                    setMapStyleMode('vector', true);
+                                }
+                            };
+                            this.tileCache.set(key, img);
+                            this.tilesEl.appendChild(img);
+                        }
+
+                        const left = Math.round(w / 2 + tx * tileSize - centerPxX);
+                        const top = Math.round(h / 2 + ty * tileSize - centerPxY);
+                        img.style.width = `${Math.ceil(tileSize) + 1}px`;
+                        img.style.height = `${Math.ceil(tileSize) + 1}px`;
+                        img.style.transform = `translate3d(${left}px, ${top}px, 0)`;
+                    }
+                }
+
+                for (const [k, img] of this.tileCache.entries()) {
+                    if (!neededKeys.has(k)) {
+                        img.remove();
+                        this.tileCache.delete(k);
+                    }
+                }
+            }
+
+            renderVectorBase(w, h) {
+                this.vectorSvg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+                this.vectorSvg.style.opacity = '1';
+
+                const toPts = arr => arr.map(([la, ln]) => {
+                    const p = this.latLngToContainerPoint(la, ln);
+                    return `${p.x.toFixed(1)},${p.y.toFixed(1)}`;
+                }).join(' ');
+
+                const parksSvg = QINGDAO_VECTOR_GEO.parks.map(pk =>
+                    `<polygon points="${toPts(pk.coords)}" fill="#d7ecd9" stroke="#b6dec0" stroke-width="1" />`
+                ).join('');
+
+                const roadsSvg = QINGDAO_VECTOR_GEO.roads.map(rd =>
+                    `<polyline points="${toPts(rd)}" fill="none" stroke="#ffffff" stroke-width="${this.zoom >= 13 ? 4.5 : 2.5}" stroke-linecap="round" stroke-linejoin="round" opacity="0.92" />`
+                ).join('');
+
+                const metroSvg = `<polyline points="${toPts(QINGDAO_VECTOR_GEO.metro3)}" fill="none" stroke="#3b82f6" stroke-width="2.2" stroke-dasharray="5,4" opacity="0.7" />`;
+
+                const labelsSvg = QINGDAO_VECTOR_GEO.labels
+                    .filter(lb => this.zoom >= lb.minZ)
+                    .map(lb => {
+                        const p = this.latLngToContainerPoint(lb.lat, lb.lng);
+                        if (p.x < -80 || p.x > w + 80 || p.y < -30 || p.y > h + 30) return '';
+                        const isSea = lb.type === 'sea';
+                        return `<text x="${p.x.toFixed(1)}" y="${p.y.toFixed(1)}" text-anchor="middle" fill="${isSea ? '#2b6cb0' : '#57534e'}" font-size="${isSea ? 12 : 11.5}" font-weight="800" opacity="${isSea ? 0.65 : 0.85}" style="paint-order:stroke; stroke:#fffdf9; stroke-width:3px;">${lb.text}</text>`;
+                    }).join('');
+
+                this.vectorSvg.innerHTML = `
+                    <defs>
+                        <pattern id="seaWave" width="40" height="40" patternUnits="userSpaceOnUse">
+                            <path d="M 0 20 Q 10 16 20 20 T 40 20" fill="none" stroke="#9cc5de" stroke-width="0.9" opacity="0.45" />
+                        </pattern>
+                    </defs>
+                    <rect width="${w}" height="${h}" fill="#cbe4f2" />
+                    <rect width="${w}" height="${h}" fill="url(#seaWave)" />
+                    <polygon points="${toPts(QINGDAO_VECTOR_GEO.huangdaoPolygon)}" fill="#ede5d8" stroke="#c8baa6" stroke-width="1.4" />
+                    <polygon points="${toPts(QINGDAO_VECTOR_GEO.landPolygon)}" fill="#f6f1e7" stroke="#9ab8ca" stroke-width="2.2" stroke-linejoin="round" />
+                    ${parksSvg}
+                    ${roadsSvg}
+                    ${metroSvg}
+                    ${labelsSvg}
+                `;
+            }
+
+            renderRoutesAndPins(w, h) {
+                this.routeSvg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+                if (!currentValidItems || currentValidItems.length === 0) {
+                    this.routeSvg.innerHTML = '';
+                    this.markersEl.innerHTML = '';
+                    return;
+                }
+
+                const pts = currentValidItems.map(item => this.latLngToContainerPoint(item.lat, item.lng));
+                const allLine = pts.map(p => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ');
+                const donePts = pts.slice(0, currentSpotIndex + 1).map(p => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ');
+
+                this.routeSvg.innerHTML = `
+                    ${pts.length > 1 ? `<polyline points="${allLine}" fill="none" stroke="#ffffff" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.85" />` : ''}
+                    ${pts.length > 1 ? `<polyline points="${allLine}" fill="none" stroke="#475569" stroke-width="3.2" stroke-dasharray="7,6" stroke-linecap="round" stroke-linejoin="round" opacity="0.78" />` : ''}
+                    ${currentSpotIndex > 0 ? `<polyline points="${donePts}" fill="none" stroke="#eb6440" stroke-width="4.8" stroke-linecap="round" stroke-linejoin="round" />` : ''}
+                `;
+
+                // 동일 좌표(숙소·동일 쇼핑몰 등) 핀 겹침 방지 원형 분산 배치
+                const groupCounts = {};
+                const groupIndex = pts.map(p => {
+                    const key = `${Math.round(p.x / 10)},${Math.round(p.y / 10)}`;
+                    const curIdx = groupCounts[key] || 0;
+                    groupCounts[key] = curIdx + 1;
+                    return { key, curIdx };
+                });
+
+                const couplePt = this.latLngToContainerPoint(couplePos.lat, couplePos.lng);
+                const pinsHtml = currentValidItems.map((item, idx) => {
+                    const baseP = pts[idx];
+                    if (baseP.x < -40 || baseP.x > w + 40 || baseP.y < -40 || baseP.y > h + 40) return '';
+                    const { key, curIdx } = groupIndex[idx];
+                    const totalSame = groupCounts[key];
+                    let px = baseP.x, py = baseP.y;
+                    if (totalSame > 1) {
+                        const angle = (curIdx / totalSame) * Math.PI * 2 - Math.PI / 2;
+                        px += Math.cos(angle) * 15;
+                        py += Math.sin(angle) * 15;
+                    }
+                    const isSelected = idx === currentSpotIndex || activeItemId === item.id;
+                    return `
+                        <button type="button" class="qmap-pin ${isSelected ? 'active' : ''}"
+                            style="left:${px.toFixed(1)}px; top:${py.toFixed(1)}px;"
+                            aria-label="${idx + 1}번 ${item.place}"
+                            onclick="onMapPinClick(${idx}, event)">
+                            <span style="font-size:14px;">${item.emoji || '📍'}</span>
+                            <span class="qmap-pin-num">${idx + 1}</span>
+                        </button>
+                    `;
+                }).join('');
+
+                this.markersEl.innerHTML = pinsHtml + `
+                    <div class="qmap-couple-marker" style="left:${couplePt.x.toFixed(1)}px; top:${couplePt.y.toFixed(1)}px;">👫</div>
+                `;
+            }
+
+            render() {
+                const w = this.el.clientWidth || 500;
+                const h = this.el.clientHeight || 500;
+                this.renderTiles(w, h);
+                this.renderVectorBase(w, h);
+                this.renderRoutesAndPins(w, h);
+
+                const metersPerPx = (156543.03392 * Math.cos((this.centerLat * Math.PI) / 180)) / Math.pow(2, this.zoom);
+                const barKm = (metersPerPx * 80) / 1000;
+                const scaleStr = barKm >= 1 ? `축척 약 ${barKm.toFixed(1)}km` : `축척 약 ${Math.round(barKm * 1000)}m`;
+                const badge = document.getElementById('qmapScaleBadge');
+                if (badge) badge.textContent = `${scaleStr} · API Key 불필요 무료 지도`;
+            }
+        }
+
+        function setMapStyleMode(mode, isAutoFallback = false) {
+            if (!map) return;
+            map.styleMode = mode;
+            map.tileFailCount = 0;
+            map.tilesEl.innerHTML = '';
+            map.tileCache.clear();
+            document.querySelectorAll('.qmap-style-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.style === mode);
+            });
+            map.render();
+            if (isAutoFallback) {
+                showToast('🎨 오프라인/내장 일러스트 지도로 자동 전환되었습니다.');
+            }
+        }
+
+        function onMapPinClick(idx, ev) {
+            if (ev) ev.stopPropagation();
+            const item = currentValidItems[idx];
+            if (!item) return;
+            activeItemId = item.id;
+            document.querySelectorAll('.schedule-item').forEach(el => {
+                el.classList.toggle('active', el.id === `card-${item.id}`);
+            });
+            const cardEl = document.getElementById(`card-${item.id}`);
+            if (cardEl) cardEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            moveToSpotIndex(idx, true);
+            openMapPopupForSpot(item, idx);
+        }
+
+        function openMapPopupForSpot(item, idx) {
+            const popup = document.getElementById('qmapPopup');
+            const body = document.getElementById('qmapPopupContent');
+            if (!popup || !body || !item) return;
+            body.innerHTML = `
+                <div style="font-weight:800; font-size:0.9rem; color:#0f172a;">
+                    ${item.emoji || '📍'} [${idx + 1}] ${item.place}
+                    <span style="font-size:0.75rem; color:var(--accent); margin-left:4px;">${item.date} ${item.time || ''}</span>
+                </div>
+                <div style="font-size:0.78rem; color:#64748b; margin:2px 0 6px;">${item.cnName || ''} · ${item.desc || ''}</div>
+                <a href="${amapUrl(item.amapQuery || item.cnName || item.place)}" target="_blank" rel="noopener noreferrer"
+                   style="display:inline-flex; align-items:center; gap:4px; background:var(--accent-2); color:#fff; padding:4px 10px; border-radius:999px; font-size:0.75rem; font-weight:700;">
+                   🗺️ 고덕지도에서 위치 열기 ↗
+                </a>
+            `;
+            popup.classList.add('active');
+        }
+
+        function closeMapPopup() {
+            const popup = document.getElementById('qmapPopup');
+            if (popup) popup.classList.remove('active');
+        }
+
+        function fitCurrentRouteBounds() {
+            if (!map || currentValidItems.length === 0) return;
+            const cityOnly = currentValidItems.filter(i => i.lat < 36.18);
+            const target = (selectedDate === 'all' && cityOnly.length > 0) ? cityOnly : currentValidItems;
+            map.fitBounds(target);
+        }
+
         function initMap() {
-            map = L.map('tripMap', { zoomControl: true }).setView([36.066, 120.355], 12);
-
-            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-                attribution: '&copy; OpenStreetMap &copy; CARTO',
-                maxZoom: 19
-            }).addTo(map);
-
-            polylineLayer = L.layerGroup().addTo(map);
-            donePolylineLayer = L.layerGroup().addTo(map);
-            markerLayer = L.layerGroup().addTo(map);
+            map = new QingdaoFreeMap('tripMap');
         }
 
         function updateMapMarkers(items) {
             if (!map) return;
-            markerLayer.clearLayers();
-            polylineLayer.clearLayers();
-            donePolylineLayer.clearLayers();
-            markersMap = {};
 
-            // Focus map on Qingdao spots (exclude Incheon ICN so zoom stays sharp in Qingdao)
             currentValidItems = items.filter(i => i.lat && i.lng && i.country_flag === '🇨🇳');
             if (currentValidItems.length === 0) {
                 currentValidItems = items.filter(i => i.lat && i.lng);
             }
-            if (currentValidItems.length === 0) return;
+            if (currentValidItems.length === 0) {
+                map.render();
+                return;
+            }
 
             if (currentSpotIndex >= currentValidItems.length) currentSpotIndex = 0;
+            couplePos = {
+                lat: currentValidItems[currentSpotIndex].lat,
+                lng: currentValidItems[currentSpotIndex].lng
+            };
 
-            const coords = currentValidItems.map(i => [i.lat, i.lng]);
-            if (coords.length > 1) {
-                L.polyline(coords, {
-                    color: '#64748b',
-                    weight: 3.5,
-                    opacity: 0.55,
-                    dashArray: '7, 7'
-                }).addTo(polylineLayer);
-            }
-
-            currentValidItems.forEach((item, index) => {
-                const isSelected = index === currentSpotIndex || activeItemId === item.id;
-                const icon = L.divIcon({
-                    html: `<span style="font-size:14px;">${item.emoji || '📍'}</span><span style="position:absolute; bottom:-3px; right:-3px; background:var(--accent-2); color:#fff; font-size:10px; font-weight:800; border-radius:50%; width:17px; height:17px; display:flex; align-items:center; justify-content:center;">${index + 1}</span>`,
-                    className: `emoji-marker ${isSelected ? 'active' : ''}`,
-                    iconSize: [36, 36],
-                    iconAnchor: [18, 18],
-                    popupAnchor: [0, -16]
-                });
-
-                const marker = L.marker([item.lat, item.lng], { icon }).addTo(markerLayer);
-                marker.bindPopup(`
-                    <div style="min-width:180px; font-family:Pretendard,sans-serif;">
-                        <strong style="font-size:13.5px;">${item.emoji} [${index + 1}] ${item.place}</strong>
-                        <div style="font-size:11.5px; color:#64748b; margin:2px 0 6px;">${item.date} ${item.time} · ${item.cnName || ''}</div>
-                        <div style="font-size:12px; color:#334155; margin-bottom:6px;">${item.desc || ''}</div>
-                        <a href="${amapUrl(item.amapQuery || item.cnName || item.place)}" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#1f5f7a; color:#fff; padding:4px 9px; border-radius:6px; font-size:11.5px; font-weight:700;">🗺️ 고덕지도 열기 ↗</a>
-                    </div>
-                `);
-                marker.on('click', () => {
-                    activeItemId = item.id;
-                    document.querySelectorAll('.schedule-item').forEach(el => {
-                        el.classList.toggle('active', el.id === `card-${item.id}`);
-                    });
-                    const cardEl = document.getElementById(`card-${item.id}`);
-                    if (cardEl) cardEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                    moveToSpotIndex(index, false);
-                });
-                markersMap[item.id] = marker;
-            });
-
-            const cur = currentValidItems[currentSpotIndex];
-            const coupleIcon = L.divIcon({
-                html: '👫',
-                className: 'character-marker-icon',
-                iconSize: [40, 40],
-                iconAnchor: [20, 20]
-            });
-
-            if (!characterMarker) {
-                characterMarker = L.marker([cur.lat, cur.lng], { icon: coupleIcon, zIndexOffset: 2000 }).addTo(map);
-            } else {
-                characterMarker.setLatLng([cur.lat, cur.lng]);
-            }
-
-            // Fit bounds focusing on downtown Qingdao unless airport is the only or day-specific focus
-            const cityOnly = currentValidItems.filter(i => i.lat < 36.18);
-            const targetBoundsItems = (selectedDate === 'all' && cityOnly.length > 0) ? cityOnly : currentValidItems;
-            const bounds = L.latLngBounds(targetBoundsItems.map(i => [i.lat, i.lng]));
-            map.fitBounds(bounds, { padding: [38, 38], maxZoom: 15 });
-
-            updateDonePolyline();
+            fitCurrentRouteBounds();
             updateMapStepUI();
         }
 
-        function updateDonePolyline() {
-            donePolylineLayer.clearLayers();
-            if (currentValidItems.length > 1 && currentSpotIndex > 0) {
-                const coords = currentValidItems.slice(0, currentSpotIndex + 1).map(i => [i.lat, i.lng]);
-                L.polyline(coords, { color: '#eb6440', weight: 5, opacity: 0.92 }).addTo(donePolylineLayer);
-            }
-        }
-
-        function animateCoupleMarker(targetLatLng, duration = 650) {
-            if (!characterMarker) return;
-            const start = characterMarker.getLatLng();
+        function animateCoupleMarker(targetLatLng, duration = 600) {
+            const startLat = couplePos.lat;
+            const startLng = couplePos.lng;
             const t0 = performance.now();
             function frame(now) {
                 const p = Math.min((now - t0) / duration, 1);
                 const ease = 1 - Math.pow(1 - p, 3);
-                characterMarker.setLatLng([
-                    start.lat + (targetLatLng.lat - start.lat) * ease,
-                    start.lng + (targetLatLng.lng - start.lng) * ease
-                ]);
+                couplePos = {
+                    lat: startLat + (targetLatLng.lat - startLat) * ease,
+                    lng: startLng + (targetLatLng.lng - startLng) * ease
+                };
+                if (map) map.render();
                 if (p < 1) requestAnimationFrame(frame);
             }
             requestAnimationFrame(frame);
@@ -2458,10 +3119,14 @@
             currentSpotIndex = (idx + currentValidItems.length) % currentValidItems.length;
             const target = currentValidItems[currentSpotIndex];
             animateCoupleMarker({ lat: target.lat, lng: target.lng });
-            if (pan && map) map.panTo([target.lat, target.lng], { animate: true, duration: 0.55 });
-            updateDonePolyline();
+            if (pan && map) {
+                const nextZoom = map.zoom < 12.8 && target.lat < 36.18 ? 13.5 : null;
+                map.panTo(target.lat, target.lng, nextZoom);
+            } else if (map) {
+                map.render();
+            }
             updateMapStepUI();
-            if (markersMap[target.id]) markersMap[target.id].openPopup();
+            openMapPopupForSpot(target, currentSpotIndex);
         }
 
         function prevMapSpot() { moveToSpotIndex(currentSpotIndex - 1, true); }
